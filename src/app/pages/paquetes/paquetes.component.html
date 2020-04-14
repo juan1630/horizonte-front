@@ -1,0 +1,26 @@
+<div class="content animate bounceInLeft " >
+    <h2 class="text-center mt-3"  >  Nuestros paquetes: </h2>
+
+   
+    <div class="row">
+    
+        <app-card-paquetes></app-card-paquetes>
+
+        <div class="row" >
+
+            <div *ngIf="!paquetes" >
+            
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only"></span>
+                    </div>
+                  </div>
+                
+            </div>
+            
+          
+        </div>
+
+    </div>
+  
+</div>

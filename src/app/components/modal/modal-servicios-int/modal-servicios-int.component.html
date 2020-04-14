@@ -1,0 +1,104 @@
+<div [ngClass]="_modalServicioIntService.ocultar" class="fondo-negro" >
+    <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal"  (click)="_modalServicioIntService.cerrarModalServicioIntegrados()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="container-fluid">
+       
+        <div class="row action" >
+          <div class="col-md-12 text-center title">
+             <h3>  ¿ Qué quieres hacer ? </h3>
+          </div>
+       </div>
+       
+        <div class="row">
+          <!-- <div class="col-md-3">
+            <button class="btn btn-info font" (click)="paquetes = !paquetes">   Paquetes </button>
+          </div> -->
+          
+          <div class="col-md-6"> 
+            <!-- <div> 
+                <button (click)="verPaquetesDelPaciente()"  >  Ver paquetes </button>
+            </div>
+            <pre>
+              {{ pacientess | json }}
+            </pre>
+          -->
+            <div *ngIf="_modalServicioIntService.pacientePaquete" >
+              <h4> Estos son tus paquetes: </h4>
+              <ul> 
+               <li ><i class="fas fa-check text-success"></i> 
+                 {{_modalServicioIntService.pacientePaquete.nombrePaquete}}
+                 <div *ngIf="_modalServicioIntService.pacientePaquete.nombrePaquete === 'PAQUETE DE CONTROL PRENATAL' "  >
+                  <a> Ver tus consultas </a>
+                 </div>
+              </li>
+             </ul> 
+            </div>
+  
+  
+  
+            <!-- <div *ngIf="_modalServicioIntService.pacientePaquete">
+              <h4> Estos son tus paquetes: </h4>
+                 <ul> 
+                  <li >  
+                    <i class="fas fa-check text-success"></i> 
+                     {{_modalServicioIntService.pacientePaquete.nombrePaquete}}  </li>
+                </ul> 
+            </div> -->
+            
+            <div *ngIf="!_modalServicioIntService.pacientePaquete" >
+              <div class="alert alert-danger" role="alert">
+                Aun no tienes paquetes
+              </div>
+            </div> 
+           
+          </div>
+          <div class="col-md-6" > 
+            <div class="agregarPaquetes" >
+              <!--    (ngSubmit)="agregarPaquete( f.value )"  -->
+              <form  #f="ngForm"   >
+                
+                <!--   (blur)="agregarPaquete( f )" -->
+                <select  class="form-control"  #servico (change)="cambio(servico.value)"  >
+                  <option default > Seleccion una opcion  </option>
+                  <option  value="ambulancia"> Ambulancia</option>
+                  <option  value="consultaGeneral"  > Consulta con especialista </option>
+                  <option  value="consultaGeneral"  > Consulta medica general </option>
+                  <option  value="endoscopia"> Endoscopia</option>
+                  <option  value="resultados"> Entraga de resultados </option>
+                  <option  value="farmacia">   Farmacia </option>
+                  <option  value="hospitalizacion"> Hospitalización</option>
+                  <option  value="laboraorio"> Laboratorio</option>
+                  <option  value="quirofano">  Quirofano</option>
+                  <option  value="rayosx">     Rayos x</option>
+                  <option  value="resonancia"> Resonancia</option>
+                  <option  value="tomografias"> Tomografias</option>
+                  <option value="TrabajoSocial" > Trabajo Social  </option>
+                  <option  value="ultrasonido"> Ultrasonido</option>
+                  <option  value="urgencias"> Urgencias</option>
+                  <option value="otros"> Otros </option>
+                </select>
+  
+              </form>
+            </div>
+          </div>
+      </div>
+  
+      <div class="row">
+        <div class="offset-8"></div>
+  
+          <div class="col-md-4"  (click)="agregarPaquete()" > 
+            <a  class="plus-button">  <i class="fas fa-plus-circle"></i>  
+              Añadir paquete 
+            </a>
+          </div>
+        </div>
+            
+      </div>
+    </div>
+    </div>
+  </div>

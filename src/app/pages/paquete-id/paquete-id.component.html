@@ -1,0 +1,75 @@
+<div class="container animate bounceInLeft" >
+    <h2 class="text-center" >  {{ paquete.nombrePaquete }} </h2>
+    <div class="row">
+        <div class="col-md-9">
+            <h3> Citas: </h3>
+
+            <ul class="mt-3" >
+            <li class="text-justify"  *ngFor="let citas of paquete.CitasIncluidas"  > <i class="fas fa-check text-success"></i>  {{ citas }} </li>
+                   
+            <li *ngIf="paquete.consultasGinecologia"> <i class="fas fa-check text-success"></i> Consultas en Ginecologia:  {{ paquete.consultasGinecologia}}    </li>
+            </ul>
+
+
+    <ul  *ngIf="paquete.examenesLaboratorio" >
+        <h3> Exames de laboratorio: </h3>
+        <li  *ngFor="let citas of paquete.examenesLaboratorio" > <i class="fas fa-check text-success"></i> {{ citas }}  </li>
+    </ul>
+
+            
+            <div *ngIf="paquete.ultrasonidos"> 
+                <h3>  Ultrasonidos: </h3>
+                <li *ngFor="let ultra  of paquete.ultrasonidos">
+                    <i class="fas fa-check text-success"></i> 
+                    {{ ultra }}   
+                </li>
+            </div>
+
+            <!-- <div  *ngIf="paquete.extras"  > -->
+                
+                <ul  *ngIf="paquete.extras"  >
+                    
+                    <h3>Más beneficios: </h3> 
+                      <li  *ngFor="let extra of paquete.extras" > 
+                        <i class="fas fa-check text-success"></i>
+                    {{ extra }}
+                  
+                        
+                    </li>
+                    
+                </ul>
+                    
+
+            <!-- </div> -->
+
+            <ul *ngIf="paquete.descuentos">
+                <h3> Descuentos: </h3>
+                <li *ngFor="let descuentos of paquete.descuentos">  <i class="fas fa-check text-success"></i> {{ descuentos}}  </li>
+
+            </ul>
+
+            
+            <ul *ngIf="paquete.farmacia" >
+                <h3>  Farmacia: </h3>  
+                <li  *ngFor="let farmacia of paquete.farmacia">   <i class="fas fa-check text-success"></i>  {{ farmacia }} </li>
+
+            </ul>
+
+            <ul *ngIf="paquete.rayosX" >
+                <h3>  Rayos X: </h3>  
+                <li  *ngFor="let farmacia of paquete.farmacia">    <i class="fas fa-check text-success"></i> {{ farmacia }} </li>
+
+            </ul>
+
+          
+        </div>
+        <div class="col-md-3" >
+            <img  [src]="paquete.icon" class="img-fluid" > 
+
+            <h4 class="text-center mt-4" >  Precio: $ {{ paquete.costoTotal }} </h4>            
+            <a class="btn btn-success btn-block text-white" [routerLink]="['/paciente' ]">  Adquirir  </a>
+        
+
+        </div>
+    </div>
+</div>

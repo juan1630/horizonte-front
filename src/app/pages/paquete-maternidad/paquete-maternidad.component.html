@@ -1,0 +1,132 @@
+<div class="container">
+
+    <div class="text-center badge-success">Consultas prenatales de Medicina General</div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Concepto</th>
+                <th>Fecha</th>
+                <th>Medico o servicio que lo realizo</th>
+                <th>Firma de realizado</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let item of consultasMedicinaGen; let i = index">
+            <tr>
+                <td>{{ i + 1 }} {{ item.consulta }}</td>
+                <td>{{ item.fecha | date:'medium' }}</td>
+                <td>{{ item.medico }}</td>
+                <td>{{ item.firma }}</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td><input type="text" class="form-control" [(ngModel)]="consultaMedicinaGen.consulta" placeholder="Concepto..."></td>
+                <td><input type="text" class="form-control" [(ngModel)]="consultaMedicinaGen.medico" placeholder="Medico o servicio..."></td>
+                <td><input type="text" class="form-control" [(ngModel)]="consultaMedicinaGen.firma" placeholder="Firma de realizado..."></td>
+                <td><button class="btn btn-success" (click)="addMedicinaGen()">Agregar</button></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="text-center badge-primary mt-4">Consultas prenatales por ginecologia y obstotetrica</div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Concepto</th>
+                <th>Fecha</th>
+                <th>Medico o servicio que lo realizo</th>
+                <th>Firma de realizado</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let item of consultasPrenatales; let i = index">
+            <tr>
+                <td>{{ i + 1 }} {{ item.consulta }}</td>
+                <td>{{ item.fecha | date:'medium' }}</td>
+                <td>{{ item.medico }}</td>
+                <td>{{ item.firma }}</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td><input type="text" class="form-control" [(ngModel)]="consultaPrenatales.consulta" placeholder="Concepto..."></td>
+                <td><input type="text" class="form-control" [(ngModel)]="consultaPrenatales.medico" placeholder="Medico o servicio..."></td>
+                <td><input type="text" class="form-control" [(ngModel)]="consultaPrenatales.firma" placeholder="Firma de realizado..."></td>
+                <td><button class="btn btn-primary" (click)="addPrenatales()">Agregar</button></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="text-center badge-info mt-4">Estudios de ultrasonido</div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Concepto</th>
+                <th>Fecha</th>
+                <th>Medico o servicio que lo realizo</th>
+                <th>Firma de realizado</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let item of consultasUltrasonido; let i = index">
+            <tr>
+                <td>{{ i + 1 }} {{ item.consulta }}</td>
+                <td>{{ item.fecha | date:'medium'}}</td>
+                <td>{{ item.medico }}</td>
+                <td>{{ item.firma }}</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td><input type="text" class="form-control" [(ngModel)]="consultaUltrasonido.consulta" placeholder="Concepto..."></td>
+                <td><input type="text" class="form-control" [(ngModel)]="consultaUltrasonido.medico" placeholder="Medico o servicio.."></td>
+                <td><input type="text" class="form-control" [(ngModel)]="consultaUltrasonido.firma" placeholder="Firma de realizado..."></td>
+                <td><button class="btn btn-info" (click)="addUltrasonido()">Agregar</button></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="text-center badge-warning mt-4">Estudios de laboratorio</div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Concepto</th>
+                <th>Fecha</th>
+                <th>Medico o servicio que lo realizo</th>
+                <th>Firma de realizado</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let item of consultasLaboratorio; let i = index ">
+            <tr>
+                <td>{{ i + 1 }} {{ item.consulta }}</td>
+                <td>{{ item.fecha | date:'medium' }}</td>
+                <td>{{ item.medico }}</td>
+                <td>{{ item.firma }}</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td>
+                    <select class="form-control" [(ngModel)]="consultaLaboratorio.consulta">
+                        <option value="" selected>Concepto...</option>
+                        <option value="BIOMETRIA HEMATICA COMPLETA">BIOMETRIA HEMATICA COMPLETA</option>
+                        <option value="QUIMICA SANGUINEA DE 3 ELEMENTOS">QUIMICA SANGUINEA DE 3 ELEMENTOS</option>
+                        <option value="EXAMEN GENERAL DE ORINA">EXAMEN GENERAL DE ORINA</option>
+                        <option value="V.D.R.L">V.D.R.L</option>
+                        <option value="V.I.H">V.I.H</option>
+                        <option value="GRUPO SANGUINEO">GRUPO SANGUINEO</option>
+                        <option value="TIEMPOS DE COAGULACION">TIEMPOS DE COAGULACION</option>
+                        <option value="CURVA DE TOLERANCIA A LA LACTOSA">CURVA DE TOLERANCIA A LA LACTOSA</option>
+                    </select>
+                </td>
+                <td><input type="text" class="form-control" [(ngModel)]="consultaLaboratorio.medico" placeholder="Medico o servicio..."></td>
+                <td><input type="text" class="form-control" [(ngModel)]="consultaLaboratorio.firma" placeholder="Firma de realizado..."></td>
+                <td>
+                    <button class="btn btn-warning" (click)="addLaboratorio()">Agregar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>

@@ -1,0 +1,12 @@
+<div id="wrapper"  class="wrapper" >
+    <!-- Content Wrapper -->
+
+    <app-side-bar [nombreUsuario]="usuario.nombre" ></app-side-bar>
+
+    <div id="content-wrapper" class="d-flex flex-column">
+
+     <app-nav-bar  [nombreUsuario]="usuario.nombre"  ></app-nav-bar>
+     <router-outlet></router-outlet>
+ <!-- En esta seccio ira el dashboars y sus compoentes  -->
+</div>
+</div>

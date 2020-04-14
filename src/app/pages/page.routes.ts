@@ -1,0 +1,68 @@
+import { Routes, RouterModule } from "@angular/router";
+
+//components
+import { PageComponent } from './page/page.component';
+import { PacienteComponent } from './paciente/paciente.component';
+import { AmbulanciaComponent } from './servivicosInt/ambulancia/ambulancia.component'
+import { ConsultaEspecialistaComponent } from './servivicosInt/consulta-especialista/consulta-especialista.component';
+import {  ConsultaMedGralComponent } from './servivicosInt/consulta-med-gral/consulta-med-gral.component';
+import { EndoscopiaComponent } from './servivicosInt/endoscopia/endoscopia.component';
+import { ResultadosComponent } from './servivicosInt/resultados/resultados.component';
+import { FarmaciaComponent } from './servivicosInt/farmacia/farmacia.component';
+import { HospitalizacionComponent } from './servivicosInt/hospitalizacion/hospitalizacion.component';
+import { LaboratorioComponent } from './servivicosInt/laboratorio/laboratorio.component';
+import { QuirofanoComponent } from './servivicosInt/quirofano/quirofano.component';
+import { XrayComponent } from './servivicosInt/xray/xray.component';
+import { ResonanciaComponent } from './servivicosInt/resonancia/resonancia.component';
+import { TomografiaComponent } from './servivicosInt/tomografia/tomografia.component';
+import { TrabajoSocialComponent } from './servivicosInt/trabajo-social/trabajo-social.component';
+import { UltrasonidoComponent } from './servivicosInt/ultrasonido/ultrasonido.component';
+import { UrgenciasComponent } from './servivicosInt/urgencias/urgencias.component';
+import { OtrosComponent } from './servivicosInt/otros/otros.component';
+import { PaquetesComponent } from './paquetes/paquetes.component';
+import { ServiciosIntComponent } from './servicios-int/servicios-int.component';
+
+
+// import { LoginGuardGuard } from '../services/index.services';
+// import {  ServiciosIntComponent }  from './servicios-int/servicios-int.component';
+
+import { PaqueteMaternidadComponent } from './paquete-maternidad/paquete-maternidad.component';
+import { SolicitudComponent } from './solicitud/solicitud.component';
+
+// rutas hijas del dashboard
+// LoginGuardGuard
+const pagesRoutes : Routes = [
+  {
+    path: '',
+    component: PageComponent,
+    canActivate: [  ],
+    children: [
+      // aca se iran agregando las rutas para el dashboard
+      { path: 'paciente', component: PacienteComponent },
+      { path: 'consultar/paquetes', component:PaquetesComponent },
+      { path: 'paqueteMaternidad', component: PaqueteMaternidadComponent },
+      { path:'serviciosInt', component: ServiciosIntComponent  },
+      {path: 'ambulancia', component: AmbulanciaComponent},
+      {path: 'consulta-Especialista', component: ConsultaEspecialistaComponent},
+      {path: 'consulta-medica-general', component: ConsultaMedGralComponent},
+      {path: 'endoscopia', component: EndoscopiaComponent},
+      {path: 'entrega-resultados', component: ResultadosComponent},
+      {path: 'farmacia', component: FarmaciaComponent},
+      {path: 'hospitalizacion', component: HospitalizacionComponent},
+      {path: 'laboratorio', component: LaboratorioComponent},
+      {path: 'quirofano', component: QuirofanoComponent},
+      {path: 'xray', component: XrayComponent},
+      {path: 'resonancia', component: ResonanciaComponent},
+      {path: 'tomografia', component: TomografiaComponent},
+      {path: 'trabajo-social', component: TrabajoSocialComponent},
+      {path: 'ultrasonido', component: UltrasonidoComponent},
+      {path: 'urgencias', component: UrgenciasComponent},
+      {path: 'otros-servicios', component: OtrosComponent},
+      { path:'solicitud/:id', component: SolicitudComponent },
+      { path: '', redirectTo: '/dashboard', pathMatch:'full' }
+    ]
+  }
+];
+
+
+export const PAGES_ROUTES = RouterModule.forChild( pagesRoutes );

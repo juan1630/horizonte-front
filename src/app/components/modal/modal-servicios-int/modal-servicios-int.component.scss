@@ -1,0 +1,47 @@
+.modal-content {
+    background-color: white;
+    width: 70%;
+     margin-left: 20%;
+     margin-top: 5%;
+}
+.addPaquete {
+    margin-top: 4%;
+    margin-bottom: 2%;
+    cursor: pointer;
+}
+.action {
+    margin-top: 2%;
+}
+.font {
+    font-size: 26px;
+}
+
+
+.title{
+    margin-bottom: 5%;
+}
+
+.col-md-3 {
+    margin-top: 1em;
+    margin-bottom: .9em;
+}
+
+
+.fa-plus-circle{
+    font-size: 2.4em;
+    margin-top: 8%;
+    margin-right: 3%;
+    color: rgb( 40,167, 69);
+}
+
+li{
+     list-style: none;
+}
+
+.plus-button {
+    margin-top: 2%;
+}
+
+a , a > i {
+    cursor: pointer;
+}

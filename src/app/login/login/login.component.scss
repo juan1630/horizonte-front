@@ -1,0 +1,59 @@
+.btn-user, .form-control-user{
+    border-radius: 0% !important;
+}
+
+input[type="text"], 
+input[type="password"],
+input[type="submit"]{
+  font-weight: 500;
+  font-size: 1.8rem;
+}
+
+.img-fluid{
+  position: fixed;
+  top:16%;
+  right: -46%;
+}
+
+.h4{ 
+  font-weight: 600;
+  font-size: 2.6rem;
+}
+
+// Cambiar por arial black
+.container {
+    margin-top: 3em;
+    padding-bottom: 2em;
+}
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+
+@-webkit-keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+  }

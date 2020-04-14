@@ -1,0 +1,28 @@
+<div class="row" >
+    <div class="col-md-4" >
+      <div class="form-group" >
+        <input type="text" placeholder="Nombre o razón social" class="form-control" name="nombreRazonSocial_2" ngModel   >
+        <input type="text" placeholder="Entidad federativa" value="{{ estadoFiscal }}" class="form-control"  [(ngModel)]="estadoFiscal" name="entidadFederativa_2" >
+        <!-- <select class="form-control" name="coloniaFiscal_2"  id="colonia"  [(ngModel)]="coloniafiscal_2"  >
+            <option value="{{ colonia }}" *ngFor="let colonia of asentamientoFiscal">
+                {{tipoAsentamientoFiscal}} - {{ colonia }} </option>
+        </select> -->
+
+       </div>
+      </div>
+    <div class="col-md-4" >
+      <div class="form-group" >
+          <input type="text" ngModel name="RFCFiscal_2" class="form-control"  placeholder="RFC" ss="form-control">
+          <input type="text" [(ngModel)]="municipioFiscal_2" placeholder="Municipio"  value="{{ municipioFiscal_2 }}"  class="form-control" name="municipioFiscal_2"  >           
+      </div>
+    </div>
+    <div class="col-md-4" >
+      <div class="form-group" >
+          <input type="number" ngModel #codigoFiscal (blur) ="getLocations( codigoFiscal.value )"  placeholder="Código postal" min="0"   class="form-control" name="cpFiscal_2" >
+          <input type="text" [(ngModel)]="localidadFiscal2" placeholder="Localidad"  value="{{ municipioFiscal_2 }}" class="form-control"  name="localidadFiscal_2" >
+
+          <input type="mail" placeholder="Correo electrónico"  ngModel  class="form-control fiscal-mail" name="emailFiscal_2" >
+
+      </div>
+    </div>
+  </div>

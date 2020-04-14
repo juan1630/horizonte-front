@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  maboxApiKey: 'pk.eyJ1IjoianVhbmoxNjMwIiwiYSI6ImNrN3BrNGFvbDBsZjAzZXBidnVzODIzYXAifQ.lUBl4JN7wnoiYWPCB_MKkw'
 };
