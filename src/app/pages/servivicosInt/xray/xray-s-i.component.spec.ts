@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { XrayComponent } from './xray.component';
+import { XraySIComponent } from './xray-s-i.component';
 
-describe('XrayComponent', () => {
-  let component: XrayComponent;
-  let fixture: ComponentFixture<XrayComponent>;
+describe('XraySIComponent', () => {
+  let component: XraySIComponent;
+  let fixture: ComponentFixture<XraySIComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ XrayComponent ]
+      declarations: [ XraySIComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(XrayComponent);
+    fixture = TestBed.createComponent(XraySIComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

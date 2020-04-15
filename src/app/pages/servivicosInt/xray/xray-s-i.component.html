@@ -1,0 +1,27 @@
+<h1 class="centerxd">Servicio Integrado: Rayos X</h1>
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Estudio</th>
+            <th scope="col">Precio Normal</th>
+            <th scope="col">Precio Hospitalización</th>
+            <th scope="col">Precio Urgencias</th>
+            <th scope="col">Precio Hospitalización Urgencias</th>
+            <th scope="col">Acciones</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let xrayServices of xraySI">
+            <td> {{ xrayServices.ESTUDIO }} </td>
+            <td> $ {{ xrayServices.PRECIONORMAL }}</td>
+            <td> $ {{ xrayServices.PRECIOHOSPITALIZACION }}</td>
+            <td> $ {{ xrayServices.PRECIOURGENCIAS }}</td>
+            <td> $ {{ xrayServices.PRECIOHOSPITALIZACIONURGENCIA }}</td>
+            <td>
+                <button type="button" class="btn btn-outline-success"><i class="far fa-edit"></i></button>
+                <button type="button" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
+            </td>
+        </tr>
+    </tbody>

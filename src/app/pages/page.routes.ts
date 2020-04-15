@@ -3,7 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 //components
 import { PageComponent } from './page/page.component';
 import { PacienteComponent } from './paciente/paciente.component';
-import { AmbulanciaComponent } from './servivicosInt/ambulancia/ambulancia.component'
+import { AmbulanciaSIComponent } from './servivicosInt/ambulancia/ambulancia-s-i.component'
 import { ConsultaEspecialistaComponent } from './servivicosInt/consulta-especialista/consulta-especialista.component';
 import {  ConsultaMedGralComponent } from './servivicosInt/consulta-med-gral/consulta-med-gral.component';
 import { EndoscopiaComponent } from './servivicosInt/endoscopia/endoscopia.component';
@@ -12,13 +12,13 @@ import { FarmaciaComponent } from './servivicosInt/farmacia/farmacia.component';
 import { HospitalizacionComponent } from './servivicosInt/hospitalizacion/hospitalizacion.component';
 import { LaboratorioComponent } from './servivicosInt/laboratorio/laboratorio.component';
 import { QuirofanoComponent } from './servivicosInt/quirofano/quirofano.component';
-import { XrayComponent } from './servivicosInt/xray/xray.component';
+import { XraySIComponent } from './servivicosInt/xray/xray-s-i.component';
 import { ResonanciaComponent } from './servivicosInt/resonancia/resonancia.component';
 import { TomografiaComponent } from './servivicosInt/tomografia/tomografia.component';
 import { TrabajoSocialComponent } from './servivicosInt/trabajo-social/trabajo-social.component';
 import { UltrasonidoComponent } from './servivicosInt/ultrasonido/ultrasonido.component';
 import { UrgenciasComponent } from './servivicosInt/urgencias/urgencias.component';
-import { OtrosComponent } from './servivicosInt/otros/otros.component';
+import { OtrosSIComponent } from './servivicosInt/otros/otros-s-i.component';
 import { PaquetesComponent } from './paquetes/paquetes.component';
 import { ServiciosIntComponent } from './servicios-int/servicios-int.component';
 
@@ -42,7 +42,7 @@ const pagesRoutes : Routes = [
       { path: 'consultar/paquetes', component:PaquetesComponent },
       { path: 'paqueteMaternidad', component: PaqueteMaternidadComponent },
       { path:'serviciosInt', component: ServiciosIntComponent  },
-      {path: 'ambulancia', component: AmbulanciaComponent},
+      {path: 'ambulancia', component: AmbulanciaSIComponent},
       {path: 'consulta-Especialista', component: ConsultaEspecialistaComponent},
       {path: 'consulta-medica-general', component: ConsultaMedGralComponent},
       {path: 'endoscopia', component: EndoscopiaComponent},
@@ -51,13 +51,13 @@ const pagesRoutes : Routes = [
       {path: 'hospitalizacion', component: HospitalizacionComponent},
       {path: 'laboratorio', component: LaboratorioComponent},
       {path: 'quirofano', component: QuirofanoComponent},
-      {path: 'xray', component: XrayComponent},
+      {path: 'xray', component: XraySIComponent},
       {path: 'resonancia', component: ResonanciaComponent},
       {path: 'tomografia', component: TomografiaComponent},
       {path: 'trabajo-social', component: TrabajoSocialComponent},
       {path: 'ultrasonido', component: UltrasonidoComponent},
       {path: 'urgencias', component: UrgenciasComponent},
-      {path: 'otros-servicios', component: OtrosComponent},
+      {path: 'otros-servicios', component: OtrosSIComponent},
       { path:'solicitud/:id', component: SolicitudComponent },
       { path: '', redirectTo: '/dashboard', pathMatch:'full' }
     ]

@@ -25,17 +25,17 @@ import { FarmaciaComponent } from './servivicosInt/farmacia/farmacia.component';
 import { HospitalizacionComponent } from './servivicosInt/hospitalizacion/hospitalizacion.component';
 import { LaboratorioComponent } from './servivicosInt/laboratorio/laboratorio.component';
 import { QuirofanoComponent } from './servivicosInt/quirofano/quirofano.component';
-import { XrayComponent } from './servivicosInt/xray/xray.component';
 import { ResonanciaComponent } from './servivicosInt/resonancia/resonancia.component';
 import { TomografiaComponent } from './servivicosInt/tomografia/tomografia.component';
 import { TrabajoSocialComponent } from './servivicosInt/trabajo-social/trabajo-social.component';
 import { UltrasonidoComponent } from './servivicosInt/ultrasonido/ultrasonido.component';
 import { UrgenciasComponent } from './servivicosInt/urgencias/urgencias.component';
-import { OtrosComponent } from './servivicosInt/otros/otros.component';
+import { OtrosSIComponent } from './servivicosInt/otros/otros-s-i.component';
 import { PaqueteMaternidadComponent } from './paquete-maternidad/paquete-maternidad.component';
-import { AmbulanciaComponent } from './servivicosInt/ambulancia/ambulancia.component';
+import { AmbulanciaSIComponent } from './servivicosInt/ambulancia/ambulancia-s-i.component';
 import { ConsultaEspecialistaComponent } from './servivicosInt/consulta-especialista/consulta-especialista.component';
 import { AgendaComponent } from './agenda/agenda/agenda.component';
+import { XraySIComponent } from './servivicosInt/xray/xray-s-i.component';
 
 
 @NgModule({
@@ -47,7 +47,7 @@ import { AgendaComponent } from './agenda/agenda/agenda.component';
     PaquetesComponent,
     PaqueteIdComponent,
     ServiciosIntComponent,
-    AmbulanciaComponent,
+    AmbulanciaSIComponent,
     ConsultaEspecialistaComponent,
     ConsultaMedGralComponent,
     EndoscopiaComponent,
@@ -56,13 +56,13 @@ import { AgendaComponent } from './agenda/agenda/agenda.component';
     HospitalizacionComponent,
     LaboratorioComponent,
     QuirofanoComponent,
-    XrayComponent,
+    XraySIComponent,
     ResonanciaComponent,
     TomografiaComponent,
     TrabajoSocialComponent,
     UltrasonidoComponent,
     UrgenciasComponent,
-    OtrosComponent,
+    OtrosSIComponent,
     PaqueteMaternidadComponent,
     AgendaComponent
   ],
