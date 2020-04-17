@@ -1,0 +1,26 @@
+
+<h2 class="center" > Tu primer abono es de $1500 </h2>
+
+<div class="row mt-5">
+    <div class="col-md-10 offset-md-1">
+        <div class="table-responsive" >
+
+        </div>
+        <table  class="table table-bordered" >
+            <thead> 
+                <tr> 
+                    <td>  Semananas de Gestación </td>
+                    <td> Semanas de pagos restantes </td>
+                    <td> Pago </td>
+                </tr>    
+            </thead>
+            <tbody>
+                <tr  *ngFor="let pago of pagos"  >
+                    <td> {{ pago.semanaGestacion }}  </td>
+                    <td> {{pago.semanaPago}} </td>
+                    <td> {{ pago.pago }} </td>
+                </tr>
+            </tbody>
+        </table>        
+    </div>
+</div>

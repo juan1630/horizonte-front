@@ -28,6 +28,7 @@ import { ServiciosIntComponent } from './servicios-int/servicios-int.component';
 
 import { PaqueteMaternidadComponent } from './paquete-maternidad/paquete-maternidad.component';
 import { SolicitudComponent } from './solicitud/solicitud.component';
+import { PagosMaternidadComponent } from './pagos/pagos-maternidad/pagos-maternidad.component';
 import { HojaFramComponent } from './servivicosInt/hoja-fram/hoja-fram.component';
 
 // rutas hijas del dashboard
@@ -61,6 +62,7 @@ const pagesRoutes : Routes = [
       {path: 'urgencias', component: UrgenciasComponent},
       {path: 'otros-servicios', component: OtrosSIComponent},
       { path:'solicitud/:id', component: SolicitudComponent },
+      { path:'pagos/paquete/maternnidad', component:PagosMaternidadComponent },
       { path: '', redirectTo: '/dashboard', pathMatch:'full' }
     ]
   }

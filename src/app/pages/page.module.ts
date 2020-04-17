@@ -36,6 +36,7 @@ import { AmbulanciaSIComponent } from './servivicosInt/ambulancia/ambulancia-s-i
 import { ConsultaEspecialistaComponent } from './servivicosInt/consulta-especialista/consulta-especialista.component';
 import { AgendaComponent } from './agenda/agenda/agenda.component';
 import { XraySIComponent } from './servivicosInt/xray/xray-s-i.component';
+import { PagosMaternidadComponent } from './pagos/pagos-maternidad/pagos-maternidad.component';
 import { HojaFramComponent } from './servivicosInt/hoja-fram/hoja-fram.component';
 
 
@@ -66,6 +67,7 @@ import { HojaFramComponent } from './servivicosInt/hoja-fram/hoja-fram.component
     OtrosSIComponent,
     PaqueteMaternidadComponent,
     AgendaComponent,
+    PagosMaternidadComponent,
     HojaFramComponent
   ],
   exports: [ PageComponent ],

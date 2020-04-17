@@ -6,7 +6,6 @@ import { NgForm } from '@angular/forms';
 import { SolicitudService } from '../../services/solicitud/solicitud.service';
 import   swal  from 'sweetalert';
 import { Paquetes } from 'src/app/intefaces/paquetes.interfaces';
-import { Paciente } from 'src/app/intefaces/pacientes.interfaces';
 
 
 @Component({
@@ -18,14 +17,14 @@ export class SolicitudComponent implements OnInit {
 
   public fecha = ` ${new Date().toLocaleDateString()}`;
   
+  
   public paciente: any;
   public usuarioMaq:any;
-  public paquetesDB: any;
-  public paqueteSelected: any;
+  public paquetesDB: any[]=[];
+  public paqueteSelected: Paquetes[]=[];
   public paquetesPacientes: any;
   
   // declaradas 
-
   public anticipo;
   public parentesco1: string;
   public parentesco2: string;
@@ -51,14 +50,14 @@ export class SolicitudComponent implements OnInit {
                 // buscamos al paciente por el ID
                this.getPacieteByID( id );
                // obtenemos de la sesion el nombre del vendedor
-                 this.getPaquetes();
                
-
-               }
-
-  ngOnInit(  ) {
-      this.getUsuarioLocalStorage();
-
+               
+              }
+              
+ ngOnInit(  ) {
+                this.getUsuarioLocalStorage();
+                this.getPaquetes();
+                
     }
 
 
@@ -70,9 +69,13 @@ export class SolicitudComponent implements OnInit {
     // peticion para la solicitud
     getPaquetes(){
       this.paquetesService.getPaquetesSolicitud()
-      .subscribe(  (data: any ) => {
-        this.paquetesDB = data.paquetes;
 
+      .subscribe(  (data: any ) => {
+      
+
+        this.paquetesDB = data.paquetes;
+        console.log( this.paquetesDB );
+      
       })
     }
 
@@ -122,10 +125,15 @@ export class SolicitudComponent implements OnInit {
             if( data.ok ){
               swal('Paquete agregado', '', 'success');
 
-              if( this.paqueteSelected.nombrePaquete === "PAQUETE DE CONTROL PRENATAL" )
-              this._router.navigateByUrl('/paqueteMaternidad');
+              if( this.paqueteSelected.nombrePaquete === "PAQUETE DE CONTROL PRENATAL" ){
+                
+                this._router.navigateByUrl('/paqueteMaternidad');
+                // TODO: Remmplzar por el contrato 
+                return;
+              }else if ( this.paqueteSelected.nombrePaquete === "PAQUETE MÉDICO LABORAL" ){
+                this._router.navigateByUrl('/paqueteMaternidad');
+              }
 
-              return;
             }
 
           })
@@ -135,15 +143,36 @@ export class SolicitudComponent implements OnInit {
 
    // TODO: Sacar el valor del boton de swal y rediccionar al canelar la solicitud
 
-    cancelarPaq(){
+     cancelarPaq(){
     
-      swal("¿Estas seguro de  cancelar el paquete?", {
-        dangerMode: true,
-        buttons: ['Regresar', 'Cancelar']
-      });
-
-    console.log( swal.getState());
+    //   swal("¿Estas seguro que deseas salir?", 
+    //   { 
+    //     buttons: {
+    //     cancel: "Cancelar",
+    //     catch: {
+    //       text: "Confirmar",
+    //       value: "true",
+    //     }
+    //   }
+    //   })
+    //   .then(value => {
+    //     console.log( value ); 
+    //     if( value ){
+          
+    //       this._router.navigateByUrl('/paciente')
+    //     }else {
+    //       return;
+    //     }
       
-  }
+    //   }  )
+
+    //  console.log( swal.getConfirmButton() );
+
+    //  if( swal.getState().actions.value  ){
+    //   this._router.navigateByUrl('/paciente');
+
+    //  }
+      
+   }
 
 }

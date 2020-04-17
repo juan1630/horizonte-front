@@ -68,7 +68,10 @@
 
             <h4 class="text-center mt-4" >  Precio: $ {{ paquete.costoTotal }} </h4>            
             <a class="btn btn-success btn-block text-white" [routerLink]="['/paciente' ]">  Adquirir  </a>
-        
+            
+            <div  *ngIf="paquete.nombrePaquete === 'PAQUETE DE CONTROL PRENATAL'" >
+                <a class="center"  [routerLink]="['/pagos/paquete/maternnidad']" >  Ver forma de pago </a>
+            </div>
 
         </div>
     </div>

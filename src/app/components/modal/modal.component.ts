@@ -26,32 +26,33 @@ import { environment } from 'src/environments/environment';
 })
 export class ModalComponent implements OnInit {
 
-    // direccion
-public fechaRegistro;
-public  localidades: Direcciones[] = [];
-public  pais:string;
-public  estado: string;
-public  municipio: string;
-public tipoAsentamiento: string;
-public paises: string[];
-public lgn: any;
-public lat: any;
-public paquetes;
-public razonesSociales: any[] = [];
-public paisNac: string;
-public curp: string;
+  public curp;
+  public localidad;
+  // direccion
+  public fechaRegistro;
+  public  localidades: Direcciones[] = [];
 
-// fiscales 
-public estadoFiscal: string;
-public coloniaFiscal: string;
-public municipioFiscal: string;
-public ciudadFiscal: string;
-public asentamientoFiscal: string[] = []; 
-public tipoAsentamientoFiscal: string;
-public localidFiscal: string;
-public pacientes: any= [];
-public pagina: number = 0;
-
+  public  pais:string;
+  public  estado: string;
+  public  municipio: string;
+  public tipoAsentamiento: string;
+  public paises: string[];
+  public lgn: any;
+  public lat: any;
+  public paquetes;
+  public razonesSociales: any[] = [];
+  public paisNac: string;
+  
+  // fiscales 
+  public estadoFiscal: string;
+  public coloniaFiscal: string;
+  public municipioFiscal: string;
+  public ciudadFiscal: string;
+  public asentamientoFiscal: string[];
+  public tipoAsentamientoFiscal: string;
+  public localidFiscal: string;
+  public pacientes: any= [];
+  public pagina: number = 0;
 
   constructor(
     public _modalService: ModalServiceService,
@@ -100,6 +101,7 @@ public pagina: number = 0;
         this.paquetes = pacientes.paquetes;
      });
 
+      this.getTodoslosPacientes();
   }
 
   crearMarcador( lng: number, lat: number ) {
@@ -127,14 +129,18 @@ public pagina: number = 0;
 
       this._CodigoPostal.getLocalidades( codigo )
         .subscribe( (res: any ) => {
-          console.log( res )
-      this.pais = res.response.pais;
-      this.estado = res.response.estado;
-      this.municipio = res.response.municipio;
-      this.tipoAsentamiento = res.response.tipo_asentamiento;
-      // this.localidades.push (...res.response.asentamiento);
-          this.localidades = res.response.asentamiento;
-     } );
+         
+          console.log("Direcciones", res )
+      
+          this.pais = res.response.pais;
+          this.estado = res.response.estado;
+          this.municipio = res.response.municipio;
+          this.tipoAsentamiento = res.response.tipo_asentamiento;
+          this.localidades.push (...res.response.asentamiento);
+          console.log(  this.localidades );
+      //    this.localidades = res.response.asentamiento;
+     
+    } );
 
   }
 
@@ -210,14 +216,17 @@ getTodoslosPacientes(){
 getLocations( codigo: number ){
  
   return this._CodigoPostal.getLocalidades( codigo )
+
   .subscribe( (data: any) => {  
-    
+  
+
     this.estadoFiscal= data.response.ciudad;
     this.tipoAsentamientoFiscal = data.response.tipo_asentamiento;
     this.municipioFiscal = data.response.municipio;
     this.ciudadFiscal = data.response.ciudad;
     this.asentamientoFiscal = data.response.asentamiento;
     this.localidFiscal = data.response.municipio;
+  
   } )
 }
 
