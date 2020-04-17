@@ -9,8 +9,8 @@
     <div class="offset-md-5" ></div>
     <div class="col-md-3">
         <div class="form-group" >
-            <!--  [value]="usuarioMaq.nombre"  -->
-            <input type="text"  placeholder="VENDEDOR"   class="form-control" name="vendedor" >
+            <!--    -->
+            <input type="text"  placeholder="VENDEDOR"  [value]="usuarioMaq.nombre"  class="form-control" name="vendedor" >
         </div>
     </div>
     <div class="col-md-2" >
@@ -78,7 +78,7 @@
 <div class="col-md-3" >
     <div class="form-group">
 
-<select class="form-control"  #paq   (blur)="getPaquete( paq.value )" >
+<select class="form-control"  #paq  (blur)="getPaquete( paq.value )" >
     
     <option  *ngFor="let paquete of paquetesDB"  [value]="paquete._id"  > 
         {{ paquete.nombrePaquete }}
@@ -150,8 +150,7 @@
     <div class="form-group">
         <select   class="form-control"  (change)="validarSelect( parentesco1)"  name="paretesco1"  [(ngModel)]="parentesco1" > 
             <optgroup>
-                <option selected  >    PARENTESCO  </option>
-
+                <option>    PARENTESCO  </option>
                 <option value="abuelos" >    ABUELOS     </option>
                 <option value="padres" >     PADRES      </option>
                 <option  value="hermanos">   HERMANOS    </option>
@@ -273,7 +272,7 @@
         <div class="col-md-3">
             <div class="input-group-prepend">
                 <span class="input-group-text">$</span>
-                <input type="number" class="form-control  input-paquete"  [value]="paqueteSelected.costoTotal"   >
+                <input type="number" class="form-control  input-paquete" min="0" disabled name="costoToal" [value]="paqueteSelected.costoTotal"   >
                 <div class="input-group-append ">
                     <span class="input-group-text"> M.N. </span>
                 </div>

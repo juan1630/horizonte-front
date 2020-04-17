@@ -1,7 +1,7 @@
 export class Paquetes {
     constructor(
-        public nombrePaquete: string,
-        public costoTotal: string,
+        public nombrePaquete?: string,
+        public costoTotal?: string,
         public consultas?: string,
         public icon?:  string,
         public farmacia?: string,

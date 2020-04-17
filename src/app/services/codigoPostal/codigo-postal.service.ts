@@ -19,7 +19,7 @@ export class CodigoPostalService {
   console.log( url );
 
   return this.http.get( url )
-  .pipe( map( res => { return res; }  ) )
+  .pipe( map( res =>   res   ) );
 
   }
 }

@@ -42,7 +42,9 @@ export class ModalServiciosIntComponent implements OnInit {
     console.log( f );
     if( f === 'ambulancia' ){
       // 
-      this._router.navigateByUrl('/ambulanciaSI');
+      this._router.navigateByUrl('/ambulancia');
+    }else if( f === "rayosx" ){
+      this._router.navigateByUrl('/xray')
     }
   }
 
