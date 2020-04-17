@@ -1,27 +1,34 @@
 <h1 class="centerxd">Servicio Integrado: Ambulancia</h1>
 
-<table class="table table-hover">
-    <thead class="thead-dark">
+<div class="ambulance">
+    <button type=" button " class="btn btn-primary separar " [routerLink]="['/hoja-fram']" routerLinkActive="router-link-active">Contratar</button>
+    <button type="button " class="btn btn-secondary ">Nuevo Destino</button>
+</div>
+
+<table class="table table-hover ">
+    <thead class="thead-dark ">
         <tr>
-            <th scope="col">Destino</th>
-            <th scope="col">Precio Día</th>
-            <th scope="col">Redondo Día</th>
-            <th scope="col">Precio Noche</th>
-            <th scope="col">Redondo Noche</th>
-            <th scope="col">Acciones</th>
+            <th scope="col ">Destino</th>
+            <th scope="col ">Precio Día</th>
+            <th scope="col ">Redondo Día</th>
+            <th scope="col ">Precio Noche</th>
+            <th scope="col ">Redondo Noche</th>
+            <th scope="col ">Acciones</th>
 
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let ambulanciaSiService of ambulanciaSI">
-            <td> {{ ambulanciaSiService.DESTINO }} </td>
-            <td> $ {{ ambulanciaSiService.PRECIODIA  }}</td>
-            <td> $ {{ ambulanciaSiService.REDONDODIA  }}</td>
-            <td> $ {{ ambulanciaSiService.PRECIONOCHE  }}</td>
-            <td> $ {{ ambulanciaSiService.PRECIOREDONDONOCHE  }}</td>
+        <tr *ngFor="let ambulanciaSiService of ambulanciaSI ">
+            <td (click)="showAlert()" class="cursor"> {{ ambulanciaSiService.DESTINO }} </td>
+            <td (click)="showAlert()" class="cursor"> $ {{ ambulanciaSiService.PRECIODIA }}</td>
+            <td (click)="showAlert()" class="cursor"> $ {{ ambulanciaSiService.REDONDODIA }}</td>
+            <td (click)="showAlert()" class="cursor"> $ {{ ambulanciaSiService.PRECIONOCHE }}</td>
+            <td (click)="showAlert()" class="cursor"> $ {{ ambulanciaSiService.PRECIOREDONDONOCHE }}</td>
             <td>
-                <button type="button" class="btn btn-outline-success"><i class="far fa-edit"></i></button>
-                <button type="button" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
+                <button type="button " class="btn btn-outline-success separar" (click)="editarAmbulancia()"><i class="far fa-edit "></i></button>
+                <button type="button " class="btn btn-outline-danger" (click)="eliminarAmbulancia()"><i class="fas fa-trash-alt "></i></button>
             </td>
         </tr>
     </tbody>
+
+    <!-- <button (click)="showAlert() ">pruebaaaa</button> -->

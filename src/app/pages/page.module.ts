@@ -37,6 +37,7 @@ import { ConsultaEspecialistaComponent } from './servivicosInt/consulta-especial
 import { AgendaComponent } from './agenda/agenda/agenda.component';
 import { XraySIComponent } from './servivicosInt/xray/xray-s-i.component';
 import { PagosMaternidadComponent } from './pagos/pagos-maternidad/pagos-maternidad.component';
+import { HojaFramComponent } from './servivicosInt/hoja-fram/hoja-fram.component';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { PagosMaternidadComponent } from './pagos/pagos-maternidad/pagos-materni
     OtrosSIComponent,
     PaqueteMaternidadComponent,
     AgendaComponent,
-    PagosMaternidadComponent
+    PagosMaternidadComponent,
+    HojaFramComponent
   ],
   exports: [ PageComponent ],
   imports: [
