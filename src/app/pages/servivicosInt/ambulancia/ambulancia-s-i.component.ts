@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AmbulanciaService } from 'src/app/services/ambulancia/ambulancia.service';
+import swal from 'sweetalert';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-ambulancia-s-i',
@@ -28,6 +30,56 @@ export class AmbulanciaSIComponent implements OnInit {
         
       }
     );
+  
+  }
+
+  showAlert(){
+    swal({title: "Estas seguro de contratar a este destino?",
+    text: "El servicio de ambulancia solo será requerido para dicho destino, no puede haber cambios",
+    icon: "warning",
+    buttons: [true, true],
+    dangerMode: true,
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+      swal("Vamos a llenar el papeleo!", {
+        icon: "success",
+      });
+    } else {
+      swal("Tranquilo, Puedes intentar contratar algun otro destino!", {
+        icon: "error",
+      });
+    }});
+      
+  }
+  
+  editarAmbulancia(){
+    swal({title: "Estas seguro de Editar este destino?",
+    text: "Una vez que se haya editado el destino, no se podrá recuperar",
+    icon: "warning",
+    buttons: [true, true],
+    dangerMode: true,
+  })
+  }
+
+  eliminarAmbulancia(){
+    swal({title: "Estas seguro de Eliminar este destino?",
+    text: "Una vez que se haya eliminado el destino, no se podrá recuperar",
+    icon: "warning",
+    buttons: [true, true],
+    dangerMode: true,
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+      swal("Destino Eliminado con Éxito!", {
+        icon: "success",
+      });
+    } else {
+      swal("Tranquilo, el destino sigue estando ahí..", {
+        icon: "error",
+      });
+    }});
+      
   }
 
 }

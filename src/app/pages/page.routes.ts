@@ -28,6 +28,7 @@ import { ServiciosIntComponent } from './servicios-int/servicios-int.component';
 
 import { PaqueteMaternidadComponent } from './paquete-maternidad/paquete-maternidad.component';
 import { SolicitudComponent } from './solicitud/solicitud.component';
+import { HojaFramComponent } from './servivicosInt/hoja-fram/hoja-fram.component';
 
 // rutas hijas del dashboard
 // LoginGuardGuard
@@ -43,6 +44,7 @@ const pagesRoutes : Routes = [
       { path: 'paqueteMaternidad', component: PaqueteMaternidadComponent },
       { path:'serviciosInt', component: ServiciosIntComponent  },
       {path: 'ambulancia', component: AmbulanciaSIComponent},
+      { path: 'hoja-fram', component: HojaFramComponent},
       {path: 'consulta-Especialista', component: ConsultaEspecialistaComponent},
       {path: 'consulta-medica-general', component: ConsultaMedGralComponent},
       {path: 'endoscopia', component: EndoscopiaComponent},

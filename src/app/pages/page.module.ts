@@ -36,6 +36,7 @@ import { AmbulanciaSIComponent } from './servivicosInt/ambulancia/ambulancia-s-i
 import { ConsultaEspecialistaComponent } from './servivicosInt/consulta-especialista/consulta-especialista.component';
 import { AgendaComponent } from './agenda/agenda/agenda.component';
 import { XraySIComponent } from './servivicosInt/xray/xray-s-i.component';
+import { HojaFramComponent } from './servivicosInt/hoja-fram/hoja-fram.component';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { XraySIComponent } from './servivicosInt/xray/xray-s-i.component';
     UrgenciasComponent,
     OtrosSIComponent,
     PaqueteMaternidadComponent,
-    AgendaComponent
+    AgendaComponent,
+    HojaFramComponent
   ],
   exports: [ PageComponent ],
   imports: [
