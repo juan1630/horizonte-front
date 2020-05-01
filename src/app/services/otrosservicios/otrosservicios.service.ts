@@ -17,4 +17,21 @@ export class OtrosServicios {
     getOtrosServicios(): Observable<any>{
         return this._http.get(this.url + '/servicios')
     }
+
+    //Método Crear
+    create(otros): Observable<any> {
+        let params = JSON.stringify(otros);
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+        return this._http.post(this.url+'/servicios', params, {headers: headers});
+
+    }
+
+    //Método Eliminar
+    delete(id): Observable<any> {
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+        return this._http.delete(this.url+'/servicios/'+id, {headers: headers});
+    }
+
 }

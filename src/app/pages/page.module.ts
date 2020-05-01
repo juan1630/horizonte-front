@@ -38,6 +38,13 @@ import { AgendaComponent } from './agenda/agenda/agenda.component';
 import { XraySIComponent } from './servivicosInt/xray/xray-s-i.component';
 import { PagosMaternidadComponent } from './pagos/pagos-maternidad/pagos-maternidad.component';
 import { HojaFramComponent } from './servivicosInt/hoja-fram/hoja-fram.component';
+import { AmbulanciaEditComponent } from './servivicosInt/ambulancia-edit/ambulancia-edit.component';
+import { AmbulanciaNewComponent } from './servivicosInt/ambulancia-new/ambulancia-new.component';
+import { FilterPipe } from './servivicosInt/pipes/filter.pipe';
+import { XrayNewComponent } from './servivicosInt/vistas/xray-new/xray-new.component';
+import { XrayEditComponent } from './servivicosInt/vistas/xray-edit/xray-edit.component';
+import { OtrosNewComponent } from './servivicosInt/vistas/otros-new/otros-new.component';
+import { OtrosEditComponent } from './servivicosInt/vistas/otros-edit/otros-edit.component';
 
 
 @NgModule({
@@ -67,10 +74,24 @@ import { HojaFramComponent } from './servivicosInt/hoja-fram/hoja-fram.component
     OtrosSIComponent,
     PaqueteMaternidadComponent,
     AgendaComponent,
+<<<<<<< HEAD
+    HojaFramComponent,
+    AmbulanciaEditComponent,
+    AmbulanciaNewComponent,
+    FilterPipe,
+    XrayNewComponent,
+    XrayEditComponent,
+    OtrosNewComponent,
+    OtrosEditComponent
+  ],
+  exports: [ 
+    PageComponent,
+    FilterPipe
+=======
     PagosMaternidadComponent,
     HojaFramComponent
+>>>>>>> memo
   ],
-  exports: [ PageComponent ],
   imports: [
     ComponentsModule,
     PAGES_ROUTES,

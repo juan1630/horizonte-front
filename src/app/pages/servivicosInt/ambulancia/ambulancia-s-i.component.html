@@ -2,7 +2,11 @@
 
 <div class="ambulance">
     <button type=" button " class="btn btn-primary separar " [routerLink]="['/hoja-fram']" routerLinkActive="router-link-active">Contratar</button>
-    <button type="button " class="btn btn-secondary ">Nuevo Destino</button>
+    <button type="button " class="btn btn-secondary " [routerLink]="['/ambulancia-nuevo']" routerLinkActive="router-link-active">Nuevo Destino</button>
+</div>
+
+<div class="izq">
+    <input type="text" name="filterPost" placeholder="Buscar..." [(ngModel)]="filterPost">
 </div>
 
 <table class="table table-hover ">
@@ -18,17 +22,68 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let ambulanciaSiService of ambulanciaSI ">
+        <tr *ngFor="let ambulanciaSiService of ambulanciaSI | filter:filterPost">
             <td (click)="showAlert()" class="cursor"> {{ ambulanciaSiService.DESTINO }} </td>
             <td (click)="showAlert()" class="cursor"> $ {{ ambulanciaSiService.PRECIODIA }}</td>
             <td (click)="showAlert()" class="cursor"> $ {{ ambulanciaSiService.REDONDODIA }}</td>
             <td (click)="showAlert()" class="cursor"> $ {{ ambulanciaSiService.PRECIONOCHE }}</td>
             <td (click)="showAlert()" class="cursor"> $ {{ ambulanciaSiService.PRECIOREDONDONOCHE }}</td>
             <td>
-                <button type="button " class="btn btn-outline-success separar" (click)="editarAmbulancia()"><i class="far fa-edit "></i></button>
-                <button type="button " class="btn btn-outline-danger" (click)="eliminarAmbulancia()"><i class="fas fa-trash-alt "></i></button>
+                <!-- Para navegar al componente editar
+                    
+                    [routerLink]="['/ambulancia-editar', ambulanciaSiService._id]" routerLinkActive="router-link-active" -->
+
+                <button type="button " class="btn btn-outline-success separar" (click)="editarAmbulancia()" [routerLink]="['/ambulancia-editar', ambulanciaSiService._id]" routerLinkActive="router-link-active"><i class="far fa-edit"></i></button>
+                <button type="button " class="btn btn-outline-danger" (click)="delete(ambulanciaSiService._id)"><i class="fas fa-trash-alt "></i></button>
+
+                <!-- (click)="eliminarAmbulancia()" -->
             </td>
         </tr>
     </tbody>
 
+    <!-- Modaaaaaaaaaaaal -->
+    <!-- iNSERTAR ESTO EN EL BOTON DE EDITAR EN CASO DE USA EL MODAL
+    data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"
+    -->
+    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" *ngFor="let ambulanciaSiService of ambulanciaSI">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Editar Servicio de Ambulancia</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Destino:</label>
+                            <input type="text" class="form-control" id="recipient-name" [value]="ambulanciaSiService.DESTINO">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Precio Día:</label>
+                            <input type="text" class="form-control" id="recipient-name" [value]="ambulanciaSiService.PRECIODIA">
+                        </div>
+                        <div class=" form-group ">
+                            <label for="message-text " class="col-form-label ">Redondo Día:</label>
+                            <input type="text " class="form-control " id="recipient-name" [value]="ambulanciaSiService.REDONDODIA">
+
+                        </div>
+                        <div class="form-group ">
+                            <label for="recipient-name " class="col-form-label ">Precio Noche:</label>
+                            <input type="text " class="form-control " id="recipient-name" [value]="ambulanciaSiService.PRECIONOCHE">
+                        </div>
+                        <div class="form-group ">
+                            <label for="message-text " class="col-form-label ">Redondo Noche:</label>
+                            <input type="text " class="form-control " id="recipient-name" [value]="ambulanciaSiService.PRECIOREDONDONOCHE">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer ">
+                    <button type="button " class="btn btn-secondary " data-dismiss="modal ">Cancelar</button>
+                    <button type="button " class="btn btn-primary ">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div> -->
     <!-- <button (click)="showAlert() ">pruebaaaa</button> -->

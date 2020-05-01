@@ -1,4 +1,13 @@
 <h1 class="centerxd">Servicio Integrado: Rayos X</h1>
+<div class="ambulance">
+    <button type=" button " class="btn btn-primary separar " [routerLink]="['/hoja-fram']" routerLinkActive="router-link-active">Comprar</button>
+    <button type="button " class="btn btn-secondary " [routerLink]="['/xray-nuevo']" routerLinkActive="router-link-active">Nuevo Estudio</button>
+</div>
+
+<div class="izq">
+    <input type="text" name="filterPost" placeholder="Buscar...">
+</div>
+
 
 <table class="table table-hover">
     <thead class="thead-dark">
@@ -21,7 +30,7 @@
             <td> $ {{ xrayServices.PRECIOHOSPITALIZACIONURGENCIA }}</td>
             <td>
                 <button type="button" class="btn btn-outline-success"><i class="far fa-edit"></i></button>
-                <button type="button" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
+                <button type="button" class="btn btn-outline-danger" (click)="delete(xrayServices._id)"><i class="fas fa-trash-alt"></i></button>
             </td>
         </tr>
     </tbody>

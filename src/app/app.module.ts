@@ -12,10 +12,12 @@ import { LoginModule } from './login/login/login.module';
 import { PageModule } from './pages/page.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ServicesModule } from './services/services.module';
+import { FilterPipe } from './pages/servivicosInt/pipes/filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
+    // FilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,10 @@ import { ServicesModule } from './services/services.module';
     FormsModule,
     ServicesModule,
     ReactiveFormsModule,
-    APP_ROUTES
+    APP_ROUTES,
+  ],
+  exports: [ 
+    FilterPipe 
   ],
   providers: [],
   bootstrap: [AppComponent]

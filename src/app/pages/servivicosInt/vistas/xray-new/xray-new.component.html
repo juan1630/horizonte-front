@@ -1,0 +1,48 @@
+<div class="arriba">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Nuevo Estudio</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body">
+                <form #xRayForm="ngForm" (ngSumbit)="onSubmit()">
+                    <div class="form-group">
+                        <label for="estudio" class="col-form-label">Nombre estudio:</label>
+                        <input type="text" name="estudio" #estudio="ngModel" class="form-control" id="recipient-name" [(ngModel)]="xray.estudio" [value]="xray.estudio">
+
+
+                        <!-- <input type="text" name="destino" class="form-control" id="recipient-name" [(ngModel)]="ambulancia.destino"> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="precioNormal" class="col-form-label">Precio Normal:</label>
+                        <input type="text" name="precioNormal" #pDia="ngModel" class="form-control" id="recipient-name" [(ngModel)]="xray.precioNormal" [value]="xray.precioNormal">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="precioHospitalizacion" class="col-form-label">Precio Hospitalización</label>
+                        <input type="text" name="precioHospitalizacion" #pRDia="ngModel" class="form-control" id="recipient-name" [(ngModel)]="xray.precioHospitalizacion" [value]="xray.precioHospitalizacion">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="precioUrgencias" class="col-form-label">Precio Urgencia:</label>
+                        <input type="text" name="precioUrgencias" #pNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="xray.precioUrgencias" [value]="xray.precioUrgencias">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="precioHospitalizacionUrgencia" class="col-form-label">Precio Hospitalización Urgencia</label>
+                        <input type="text" name="precioHospitalizacionUrgencia" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="xray.precioHospitalizacionUrgencia" [value]="xray.precioHospitalizacionUrgencia">
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <!-- <button type="button" class="btn btn-primary" (click)="onSubmit()">Aceptar</button> -->
+                <input type="submit" value="Guardar" class="btn btn-primary" (click)="onSubmit()">
+            </div>
+        </div>
+    </div>
+</div>
