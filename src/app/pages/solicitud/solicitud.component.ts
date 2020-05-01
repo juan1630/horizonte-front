@@ -18,7 +18,7 @@ export class SolicitudComponent implements OnInit {
   public fecha = ` ${new Date().toLocaleDateString()}`;
   
   
-  public paciente: any;
+  public paciente:any;
   public usuarioMaq:any;
   public paquetesDB: any[]=[];
   public paqueteSelected: Paquetes[]=[];
@@ -32,9 +32,11 @@ export class SolicitudComponent implements OnInit {
   public telefonoEmergencia2: string;
   public calleYnumeroFiscal: string;
   public telefonoFiscal: string;
+  
   public contactoEmergencia2;
   
   
+
   // nota si no se tiene una interfaz, dejarlo de tipo any y un array de anys  
 
   constructor(  
@@ -85,7 +87,7 @@ export class SolicitudComponent implements OnInit {
 
     this._pacientesServices.getPacienteBtID( id )
     .subscribe( (data:any) => {  
-      console.log(data) 
+      console.log(data); 
       this.paciente = data.paciente;
         })
 
@@ -96,8 +98,18 @@ export class SolicitudComponent implements OnInit {
       
         this.paquetesService.getPaqueById( id )
         .subscribe( (data: any )  => {
-          console.log(  data.paquete )
+          console.log(  data.paquete );
             this.paqueteSelected = data.paquete;
+
+            if( this.paqueteSelected.nombrePaquete === "PAQUETE DE CONTROL PRENATAL" ){ 
+              this.anticipo = 1500;
+            }else if( this.paqueteSelected.nombrePaquete === "PAQUETE MÉDICO LABORAL" ) {
+              this.anticipo = 175;
+            }else if(this.paqueteSelected.nombrePaquete === "PAQUETE NEONATAL"){
+                this.anticipo = 1000;
+            }else if( this.anticipo === "SERVICIO DE LA MEMBRESIA" ){
+              this.anticipo = 500;
+            }
         });
     }
 // esta funcio valida el select, que no vaya vacio
@@ -127,12 +139,13 @@ export class SolicitudComponent implements OnInit {
 
               if( this.paqueteSelected.nombrePaquete === "PAQUETE DE CONTROL PRENATAL" ){
                 
-                this._router.navigateByUrl('/paqueteMaternidad');
+                this._router.navigateByUrl('/contrato/maternidad');
                 // TODO: Remmplzar por el contrato 
                 return;
-              }else if ( this.paqueteSelected.nombrePaquete === "PAQUETE MÉDICO LABORAL" ){
-                this._router.navigateByUrl('/paqueteMaternidad');
               }
+              // else if ( this.paqueteSelected.nombrePaquete === "PAQUETE MÉDICO LABORAL" ){
+              //   this._router.navigateByUrl('/paqueteMaternidad');
+              // }
 
             }
 
@@ -141,37 +154,34 @@ export class SolicitudComponent implements OnInit {
 
     }
 
-   // TODO: Sacar el valor del boton de swal y rediccionar al canelar la solicitud
 
      cancelarPaq(){
     
-    //   swal("¿Estas seguro que deseas salir?", 
-    //   { 
-    //     buttons: {
-    //     cancel: "Cancelar",
-    //     catch: {
-    //       text: "Confirmar",
-    //       value: "true",
-    //     }
-    //   }
-    //   })
-    //   .then(value => {
-    //     console.log( value ); 
-    //     if( value ){
+      swal("¿Estas seguro que deseas salir?", 
+      { 
+        buttons: {
+        cancel: "Cancelar",
+        catch: {
+          text: "Confirmar",
+          value: "true",
+        }
+      }
+      })
+      .then(value => {
+        console.log( value ); 
+        if( value ){
           
-    //       this._router.navigateByUrl('/paciente')
-    //     }else {
-    //       return;
-    //     }
+          this._router.navigateByUrl('/paciente')
+        }else {
+          return;
+        }
       
-    //   }  )
+      }  )
 
-    //  console.log( swal.getConfirmButton() );
+     if( swal.getState().actions.value  ){
+      this._router.navigateByUrl('/paciente');
 
-    //  if( swal.getState().actions.value  ){
-    //   this._router.navigateByUrl('/paciente');
-
-    //  }
+     }
       
    }
 

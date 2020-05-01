@@ -36,7 +36,7 @@ export class PacienteComponent implements OnInit {
   // }
 
   paginaAnterior(){
-    this.pagina -= 8;
+    this.pagina = this.pagina - 8;
     this._pacienteService.getPacientes( this.pagina)
     .subscribe( (data: any) => {
       console.log( data.users );

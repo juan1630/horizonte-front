@@ -1,0 +1,33 @@
+<h2> Estudios de laboratorio </h2>
+<div class="row mb-3">
+
+    <div class="col-md-3 offset-md-9">
+        <a class="btn btn-primary btn-block" [routerLink]="['/laboratorio/contrato']"  >
+            Contrar    
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-hover ">
+            <thead class="thead-dark ">
+                <tr>
+                    <th scope="col ">Examen</th>
+                    <th scope="col ">Precio Día</th>
+                    <th scope="col ">Redondo Día</th>
+                    <th scope="col ">Precio Noche</th>
+                    <th scope="col ">Redondo Noche</th>
+                    <th scope="col ">Acciones</th>
+        
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of [1,1,1,1,1,1,1]" >
+                    <td> Examen de sangre  {{ item }} </td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </div>
+</div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import  { PaquetesMaternidadService } from '../../services/maternidad/paquetes-maternidad.service'; 
+import { PaquetesMaternidadService } from '../../services/maternidad/paquetes-maternidad.service';
+import swal from 'sweetalert'
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-paquete-maternidad',
@@ -8,12 +10,10 @@ import  { PaquetesMaternidadService } from '../../services/maternidad/paquetes-m
 })
 export class PaqueteMaternidadComponent implements OnInit {
 
+  public id: string;
   medicos:any[] = []
-
   concepto:any[] = []
-
   allConsultas:any[] = []
-
   medicinaGen:any[] = []
   prenatalGinecologia:any[] = []
   ultrasonido:any[] = []
@@ -21,36 +21,53 @@ export class PaqueteMaternidadComponent implements OnInit {
 
   consultas:any = { tipo: '', consulta: '', fecha: '', medico: '', firma: '' }
 
-  
-  constructor(private _serviceMedicos: PaquetesMaternidadService) { }
+  btnDisabled = false
+
+  mensaje:string = ''
+
+  constructor(
+          private _serviceMedicos: PaquetesMaternidadService,
+          public  _route: ActivatedRoute
+            ) { }
 
   ngOnInit() {
     this._serviceMedicos.getMedicos()
     .subscribe( (data) => {
       this.medicos = data.medicos
-    })
+    });
+
+    this.id = this._route.snapshot.paramMap.get('id');
+    
+    this.mostrarConsultas()
+    
   }
 
   // Nueva programacion de insercion
-
   seleccion($event, value){
     switch (value) {
       case '1':
         // code
         this.concepto = [ 'Consulta' ]
         this.consultas.consulta = ''
+        this.btnDisabled = false
                 
         break;
       case '2':
         // code
         this.concepto = [ 'Consulta' ]
         this.consultas.consulta = ''
+        this.btnDisabled = false
 
         break;
       case '3':
         // code
-        this.concepto = [ 'USG Obstretrica' ]
+        this.concepto = [ 'USG Obstetrico' ]
         this.consultas.consulta = ''
+        if(this.ultrasonido.length != 5){
+            this.btnDisabled = false
+          }else{
+            this.btnDisabled = true
+        }
 
         break;
       case '4':
@@ -64,6 +81,12 @@ export class PaqueteMaternidadComponent implements OnInit {
                      'Curva de tolerancia a la glucosa'
                   ]
         this.consultas.consulta = ''
+        if(this.laboratorio.length != 5){
+            this.btnDisabled = false
+          }else{
+            this.btnDisabled = true
+        }
+
         break;
     
       default:
@@ -73,40 +96,53 @@ export class PaqueteMaternidadComponent implements OnInit {
   }
 
   agregarConsulta(){
+
       if(this.consultas.tipo == '' || this.consultas.consulta == '' || this.consultas.medico == '' || this.consultas.firma == ''){
-        alert('Ingresa la información')
+        swal('Error!', 'Porfavor ingrese los datos que le piden', 'error')
       }else{
         this.consultas.fecha = new Date()
-        this.allConsultas.push(this.consultas)
+         this.allConsultas.push(this.consultas)
+        console.log(this.consultas)
+        this._serviceMedicos.addVisitas(this.consultas, this.id)
+        .subscribe( (data) => {
+          console.log(data)
+          swal('Consulta Agregada', 'Puede ver la información en la tabla', 'success')
+          this.mostrarConsultas() 
+        })
         this.consultas = { tipo: '', consulta: '', fecha: '', medico: '', firma:'' }
-        alert('Se agrego la consulta')
-        console.log(this.allConsultas)
-        this.mostrarConsultas()
       }
   }
 
   mostrarConsultas(){
-    this.allConsultas.forEach( data => {
-      
-      if(data.tipo == '1'){
-          this.medicinaGen.push(data)
-          this.allConsultas = []
-      }
-      if(data.tipo == '2'){
-          this.prenatalGinecologia.push(data)
-          this.allConsultas = []
-      }
-      if(data.tipo == '3'){
-          this.ultrasonido.push(data)
-          this.allConsultas = []
-      }
-      if(data.tipo == '4'){
-          this.laboratorio.push(data)
-          this.allConsultas = []
-      }
+    this.medicinaGen = [];
+    this.prenatalGinecologia = [];
+    this.ultrasonido = [];
+    this.laboratorio = [];
+    this._serviceMedicos.getVisitas(this.id)
+    .subscribe( (data:any) => {
+      console.log( data )
+   
 
+      this.allConsultas.forEach( data => {
+        if(data.paquete.tipo == '1'){
+            this.medicinaGen.push(data)
+            this.allConsultas = []
+        }
+        if(data.tipo == '2'){
+            this.prenatalGinecologia.push(data)
+            this.allConsultas = []
+        }
+        if(data.tipo == '3'){
+            this.ultrasonido.push(data)
+            this.allConsultas = []
+        }
+        if(data.tipo == '4'){
+            this.laboratorio.push(data)
+            this.allConsultas = []
+        }
+  
+      })
     })
   }
-
 
 }

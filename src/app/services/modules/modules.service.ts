@@ -14,15 +14,13 @@ export class ModulesService {
   constructor( private _http: HttpClient ) { }
 
 
-  getModules( role: any ) {
+  getModules( id: string ) {
 
-    let url = URLDEV + '/modules';
+    console.log( id );
+    let url = URLDEV + '/modulos/'+id;
     
-    let modulosRole = {
-      role
-    }
 
-  return  this._http.post( url, modulosRole )
+  return  this._http.post( url, id )
     .pipe( map( (modules: Module[]) => {
       console.log( modules );
        return modules;

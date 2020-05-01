@@ -22,7 +22,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let ambulanciaSiService of ambulanciaSI | filter:filterPost">
+        <tr *ngFor="let ambulanciaSiService of ambulanciaSI">
             <td (click)="showAlert()" class="cursor"> {{ ambulanciaSiService.DESTINO }} </td>
             <td (click)="showAlert()" class="cursor"> $ {{ ambulanciaSiService.PRECIODIA }}</td>
             <td (click)="showAlert()" class="cursor"> $ {{ ambulanciaSiService.REDONDODIA }}</td>

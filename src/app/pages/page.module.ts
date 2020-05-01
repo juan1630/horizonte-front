@@ -8,7 +8,7 @@ import { RouterModule  } from '@angular/router';
 import { ComponentsModule } from '../components/components.module';
 import {   FormsModule  } from '@angular/forms';
 
-import {PAGES_ROUTES } from './page.routes'
+import {PAGES_ROUTES } from './page.routes';
 
 // componentes
 import { PageComponent } from './page/page.component';
@@ -38,11 +38,17 @@ import { AgendaComponent } from './agenda/agenda/agenda.component';
 import { XraySIComponent } from './servivicosInt/xray/xray-s-i.component';
 import { PagosMaternidadComponent } from './pagos/pagos-maternidad/pagos-maternidad.component';
 import { HojaFramComponent } from './servivicosInt/hoja-fram/hoja-fram.component';
+// import { TabuladorPagosComponent } from './pagosMaternidad/tabulador-pagos/tabulador-pagos.component';
+// import { MaternidadComponent } from './contrato/maternidad/maternidad.component';
+// import { FechasPipe } from './fechas.pipe';
+// import { EstudiosComponent } from './servivicosInt/laboratorio/estudios/estudios.component';
+// import { PerfilesComponent } from './servivicosInt/laboratorio/perfiles/perfiles.component';
+// import { ContratacionComponent } from './servivicosInt/laboratorio/contratacion/contratacion.component';
+// import { PendientesComponent } from './servivicosInt/laboratorio/pendientes/pendientes.component';
 import { AmbulanciaEditComponent } from './servivicosInt/ambulancia-edit/ambulancia-edit.component';
 import { AmbulanciaNewComponent } from './servivicosInt/ambulancia-new/ambulancia-new.component';
-import { FilterPipe } from './servivicosInt/pipes/filter.pipe';
-import { XrayNewComponent } from './servivicosInt/vistas/xray-new/xray-new.component';
 import { XrayEditComponent } from './servivicosInt/vistas/xray-edit/xray-edit.component';
+import { XrayNewComponent } from './servivicosInt/vistas/xray-new/xray-new.component';
 import { OtrosNewComponent } from './servivicosInt/vistas/otros-new/otros-new.component';
 import { OtrosEditComponent } from './servivicosInt/vistas/otros-edit/otros-edit.component';
 
@@ -74,11 +80,9 @@ import { OtrosEditComponent } from './servivicosInt/vistas/otros-edit/otros-edit
     OtrosSIComponent,
     PaqueteMaternidadComponent,
     AgendaComponent,
-<<<<<<< HEAD
     HojaFramComponent,
     AmbulanciaEditComponent,
     AmbulanciaNewComponent,
-    FilterPipe,
     XrayNewComponent,
     XrayEditComponent,
     OtrosNewComponent,
@@ -86,11 +90,8 @@ import { OtrosEditComponent } from './servivicosInt/vistas/otros-edit/otros-edit
   ],
   exports: [ 
     PageComponent,
-    FilterPipe
-=======
     PagosMaternidadComponent,
     HojaFramComponent
->>>>>>> memo
   ],
   imports: [
     ComponentsModule,

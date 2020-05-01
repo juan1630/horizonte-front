@@ -1,0 +1,89 @@
+<h2  class="center" *ngIf="anticipo != null"  > Tu anticipo fue de $  {{ anticipo }} </h2>
+
+<div class="card text-white bg-success mt-3 ml-1" style="width: 18rem;"   *ngIf="acumulado"  >
+    <div class="card-body">
+      <h5 class="card-title"> Tu acumulado es: $ {{acumulado}} </h5>
+      <h6 class="card-subtitle mb-2"> Te quedan $ {{ 13500 - acumulado }} </h6>
+    </div>
+  </div>
+ 
+
+<form action="" #pagosForm="ngForm" (ngSubmit)="registrarPago( pagosForm )"  >
+<div class="row mt-3"  >
+        <div class="col-md-2 ml-5 mt-3">
+            <div class="form-group">
+            
+                <label for="concepto"> Concepto del pago:  </label>
+                <input type="text" class="form-control"  name="concepto" [(ngModel)]="pago.concepto" id="concepto" placeholder="Concepto" >
+            
+            </div>
+        </div>
+
+        <div class="col-md-2  mt-3">
+            <div class="form-group">
+            
+                <label for="cantidad"> Cantidad del  pago:  </label>
+                <input type="text" class="form-control"  name="cantidad" [(ngModel)]="pago.cantidad" placeholder="Cantidad" id="cantidad" >
+            
+            </div>
+        </div>
+        
+        <div class="col-md-2  mt-3">
+            <div class="form-group">
+            
+                <label for="atendio"> Atendió:  </label>
+                <input type="text" class="form-control" disabled name="atendio"  placeholder="Atendió" id="atendio"  [value]="usuarioMaquina.nombre" >
+            
+            </div>
+        </div>
+        <div class="col-m-2 mt-3">
+            <button type="submit" class="btn btn-info" >
+            <i class="fas fa-save"></i>
+                Guardar pago
+            </button>
+        </div>
+        <div class="col-md-3 mt-3">
+            <button type="button" class="btn btn-primary" (click)="verPagos()" > 
+                <i class="fas fa-question-circle"></i>
+                Pagos anteriores
+            </button>
+        </div>
+    </div>
+</form>
+
+
+<div class="row mt-4 ml-4"  *ngFor="let pagos of pagosDB">
+
+    <div class="col-md-2">
+        <div class="form-group">
+            
+            <label for="concepto"> Concepto del pago:  </label>
+            <input type="text" disabled class="form-control" [value]="pagos.concepto" name="concepto" id="concepto" placeholder="Concepto" >
+        
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
+            
+            <label for="cantidad"> Cantidad del pago:  </label>
+            <input type="number" min="0" max="15000" disabled class="form-control" [value]="pagos.cantidad"  name="cantidad" id="cantidad" placeholder="Cantidad" >
+        
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
+            
+            <label for="cantidad"> Fecha:  </label>
+            <input type="text" disabled class="form-control" [value]="pagos.fecha"  name="cantidad" id="cantidad" placeholder="Cantidad" >
+        
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
+            
+            <label for="concepto"> Atendió:  </label>
+            <input type="text" disabled class="form-control" [value]="pagos.atendio" name="atendio" id="atendio" placeholder="Atendió" >
+        
+        </div>
+    </div>
+</div>

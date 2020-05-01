@@ -1,17 +1,19 @@
 
 <h2 class="center" > Tu primer abono es de $1500 </h2>
 
-<div class="row mt-5">
-    <div class="col-md-10 offset-md-1">
+<!--TODO: Dejar fijo el thead -->
+
+<div class="row mt-5" *ngIf="!pagosTabla.length > 0" >
+    <div class="col-md-11">
         <div class="table-responsive" >
 
         </div>
         <table  class="table table-bordered" >
-            <thead> 
+            <thead > 
                 <tr> 
                     <td>  Semananas de Gestación </td>
                     <td> Semanas de pagos restantes </td>
-                    <td> Pago </td>
+                    <td> Pago    </td>
                 </tr>    
             </thead>
             <tbody>
@@ -23,4 +25,32 @@
             </tbody>
         </table>        
     </div>
+    <div class="col-md-2 ml2" >
+        <!-- <i class="fas fa-info"></i> -->
+
+        <button class="btn btn-info" (click)="verTabla()" >   Ver más </button>
+
+    </div>
+</div>
+
+<div class="row mt-4" *ngIf="pagosTabla.length > 0" >
+    <div class="col-md-10 offset-md-1 mt-2 table-container">
+        <table  class="table table-bordered table-striped" >
+            <thead class="fijo"  >   
+                <tr> 
+                    <td>  Semananas de Gestación </td>
+                    <td> Semanas de pagos restantes </td>
+                    <td> Pago </td>
+                </tr>    
+            </thead>
+            <tbody  class="tbody"  >
+                <tr  *ngFor="let pago of pagosTabla"  >
+                    <td> {{ pago.semanaGestacion }}  </td>
+                    <td> {{pago.semanaPago}} </td>
+                    <td> {{ pago.pago }} </td>
+                </tr>
+            </tbody>
+        </table>  
+    </div>
+      
 </div>

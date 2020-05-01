@@ -149,6 +149,7 @@ enviar( f: NgForm ){
   
 
   let paciente = new Paciente( 
+
     f.value.nombrePaciente,
     f.value.apellidoPaterno,
     f.value.apellidoMaterno,
@@ -175,8 +176,8 @@ enviar( f: NgForm ){
     f.value.municipioFiscal,
     f.value.cpFiscal,
     f.value.localidadFiscal,
-    f.value.emailFiscal,
-      
+    f.value.emailFiscal 
+         
     )
 
     // console.log( f );
