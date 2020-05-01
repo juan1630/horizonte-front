@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { XrayService } from 'src/app/services/xray/xray.service';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import swal from 'sweetalert';
 @Component({
   selector: 'app-xray-s-i',
@@ -13,23 +14,41 @@ export class XraySIComponent implements OnInit {
 
 
   constructor(
-    private _xrayService: XrayService
+    private _xrayService: XrayService,
+    private _router: Router,
+    private _route: ActivatedRoute
+
   ) {
     const desc = 50;
    }
 
   ngOnInit(): void {
+    // this._xrayService.getEstudioXray().subscribe(
+    //   res => {
+    //     this.xraySI = res.estudios;
+    //     // console.log(res);
+        
+    //   },
+    //   err => {
+    //     console.log(<any>err);
+        
+    //   }
+    // );
+    this.verDatos();
+  }
+
+  verDatos(){
     this._xrayService.getEstudioXray().subscribe(
-      res => {
-        this.xraySI = res.estudios;
-        console.log(res);
-        
-      },
-      err => {
-        console.log(<any>err);
-        
-      }
-    );
+        res => {
+          this.xraySI = res.estudios;
+          // console.log(res);
+          
+        },
+        err => {
+          console.log(<any>err);
+          
+        }
+      );
   }
 
 
@@ -50,6 +69,21 @@ export class XraySIComponent implements OnInit {
         icon: "error",
       });
     }});
+  }
+
+  delete(id) {
+    this._xrayService.delete(id).subscribe(
+      response => {
+
+        swal("Registro Eliminado!", "Este registro no se podrá ver más", "error");
+        this.verDatos();
+        this._router.navigateByUrl('/xray');
+      },
+      error => {
+        console.log(error);
+        
+      }
+    );
   }
 
 }

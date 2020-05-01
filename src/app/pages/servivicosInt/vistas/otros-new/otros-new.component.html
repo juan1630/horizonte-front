@@ -1,0 +1,48 @@
+<div class="arriba">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Nuevo Servicio</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body">
+                <form #xRayForm="ngForm" (ngSumbit)="onSubmit()">
+                    <div class="form-group">
+                        <label for="descServicio" class="col-form-label">Descripción del Servicio:</label>
+                        <input type="text" name="descServicio" #DESCRIPCION_DE_SERVICIO="ngModel" class="form-control" id="recipient-name" [(ngModel)]="otros.descServicio" [value]="otros.descServicio">
+
+
+                        <!-- <input type="text" name="destino" class="form-control" id="recipient-name" [(ngModel)]="ambulancia.destino"> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="membresiaDia" class="col-form-label">Precio Membresia Dia:</label>
+                        <input type="text" name="membresiaDia" #pDia="ngModel" class="form-control" id="recipient-name" [(ngModel)]="otros.membresiaDia" [value]="otros.membresiaDia">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="membresiaNoche" class="col-form-label">Precio Membresia Noche</label>
+                        <input type="text" name="membresiaNoche" #pRDia="ngModel" class="form-control" id="recipient-name" [(ngModel)]="otros.membresiaNoche" [value]="otros.membresiaNoche">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="publicoDia" class="col-form-label">Precio Púclico Día:</label>
+                        <input type="text" name="publicoDia" #pNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="otros.publicoDia" [value]="otros.publicoDia">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="publicoNoche" class="col-form-label">Precio Público Noche</label>
+                        <input type="text" name="publicoNoche" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="otros.publicoNoche" [value]="otros.publicoNoche">
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <!-- <button type="button" class="btn btn-primary" (click)="onSubmit()">Aceptar</button> -->
+                <input type="submit" value="Guardar" class="btn btn-primary" (click)="onSubmit()">
+            </div>
+        </div>
+    </div>
+</div>

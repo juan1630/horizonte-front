@@ -21,6 +21,8 @@ import { UrgenciasComponent } from './servivicosInt/urgencias/urgencias.componen
 import { OtrosSIComponent } from './servivicosInt/otros/otros-s-i.component';
 import { PaquetesComponent } from './paquetes/paquetes.component';
 import { ServiciosIntComponent } from './servicios-int/servicios-int.component';
+import { AmbulanciaEditComponent } from './servivicosInt/ambulancia-edit/ambulancia-edit.component';
+import { AmbulanciaNewComponent } from './servivicosInt/ambulancia-new/ambulancia-new.component';
 
 
 // import { LoginGuardGuard } from '../services/index.services';
@@ -29,6 +31,11 @@ import { ServiciosIntComponent } from './servicios-int/servicios-int.component';
 import { PaqueteMaternidadComponent } from './paquete-maternidad/paquete-maternidad.component';
 import { SolicitudComponent } from './solicitud/solicitud.component';
 import { HojaFramComponent } from './servivicosInt/hoja-fram/hoja-fram.component';
+import { XrayNewComponent } from './servivicosInt/vistas/xray-new/xray-new.component';
+import { XrayEditComponent } from './servivicosInt/vistas/xray-edit/xray-edit.component';
+import { OtrosNewComponent } from './servivicosInt/vistas/otros-new/otros-new.component';
+import { OtrosEditComponent } from './servivicosInt/vistas/otros-edit/otros-edit.component';
+
 
 // rutas hijas del dashboard
 // LoginGuardGuard
@@ -61,6 +68,13 @@ const pagesRoutes : Routes = [
       {path: 'urgencias', component: UrgenciasComponent},
       {path: 'otros-servicios', component: OtrosSIComponent},
       { path:'solicitud/:id', component: SolicitudComponent },
+      { path: 'ambulancia-editar/:id', component: AmbulanciaEditComponent },
+      { path: 'ambulancia-nuevo', component: AmbulanciaNewComponent},
+      { path: 'xray-editar/:id', component: XrayEditComponent},
+      { path: 'xray-nuevo', component: XrayNewComponent},
+      { path: 'xray-editar/:id', component: XrayEditComponent},
+      { path: 'otros-editar/:id', component: OtrosEditComponent},
+      { path: 'otros-nuevo', component: OtrosNewComponent},
       { path: '', redirectTo: '/dashboard', pathMatch:'full' }
     ]
   }

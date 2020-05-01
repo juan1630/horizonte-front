@@ -1,28 +1,53 @@
 import { Component, OnInit } from '@angular/core';
 import { AmbulanciaService } from 'src/app/services/ambulancia/ambulancia.service';
 import swal from 'sweetalert';
-import { RouterLink } from '@angular/router';
+// import { FilterPipe } from '../pipes/filter.pipe';
+import { FilterPipe } from '../../servivicosInt/pipes/filter.pipe';
+import { Router, ActivatedRoute, Params} from '@angular/router';
+
 
 @Component({
   selector: 'app-ambulancia-s-i',
   templateUrl: './ambulancia-s-i.component.html',
   styleUrls: ['./ambulancia-s-i.component.scss'],
-  providers: [AmbulanciaService]
+  providers: [AmbulanciaService, FilterPipe]
 })
 export class AmbulanciaSIComponent implements OnInit {
 
   public ambulanciaSI: any [] = [];
+  
+
 
 
   constructor(
-    private _ambulanciaService: AmbulanciaService
+    private _ambulanciaService: AmbulanciaService,
+    private _router: Router,
+    private _route: ActivatedRoute
   ) { }
+  filterPost = '';
+
 
   ngOnInit(): void {
+    // this._ambulanciaService.getDestino().subscribe(
+    //   res => {
+    //     this.ambulanciaSI = res.servicios;
+    //     // console.log(res);
+        
+    //   },
+    //   err => {
+    //     console.log(<any>err);
+        
+    //   }
+    // );
+    this.verDatos();
+  
+  }
+
+  verDatos(){
     this._ambulanciaService.getDestino().subscribe(
       res => {
         this.ambulanciaSI = res.servicios;
-        console.log(res);
+        // console.log(res);
         
       },
       err => {
@@ -60,6 +85,18 @@ export class AmbulanciaSIComponent implements OnInit {
     buttons: [true, true],
     dangerMode: true,
   })
+  .then((willDelete) => {
+    if (willDelete) {
+      swal("Vamos a Actualizarlo!", {
+        icon: "success",
+      });
+    } else if (willDelete == null){
+      swal("Tranquilo, el destino sigue estando ahí..", {
+        icon: "error",
+      });
+      this._router.navigateByUrl('/ambulancia');
+    }});
+  
   }
 
   eliminarAmbulancia(){
@@ -71,6 +108,8 @@ export class AmbulanciaSIComponent implements OnInit {
   })
   .then((willDelete) => {
     if (willDelete) {
+
+
       swal("Destino Eliminado con Éxito!", {
         icon: "success",
       });
@@ -81,5 +120,22 @@ export class AmbulanciaSIComponent implements OnInit {
     }});
       
   }
+
+  delete(id) {
+    this._ambulanciaService.delete(id).subscribe(
+      response => {
+
+        swal("Registro Eliminado!", "Este registro no se podrá ver más", "error");
+        this.verDatos();
+        this._router.navigateByUrl('/ambulancia');
+      },
+      error => {
+        console.log(error);
+        
+      }
+    );
+  }
+
+  
 
 }

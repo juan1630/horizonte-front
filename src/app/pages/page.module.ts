@@ -37,6 +37,13 @@ import { ConsultaEspecialistaComponent } from './servivicosInt/consulta-especial
 import { AgendaComponent } from './agenda/agenda/agenda.component';
 import { XraySIComponent } from './servivicosInt/xray/xray-s-i.component';
 import { HojaFramComponent } from './servivicosInt/hoja-fram/hoja-fram.component';
+import { AmbulanciaEditComponent } from './servivicosInt/ambulancia-edit/ambulancia-edit.component';
+import { AmbulanciaNewComponent } from './servivicosInt/ambulancia-new/ambulancia-new.component';
+import { FilterPipe } from './servivicosInt/pipes/filter.pipe';
+import { XrayNewComponent } from './servivicosInt/vistas/xray-new/xray-new.component';
+import { XrayEditComponent } from './servivicosInt/vistas/xray-edit/xray-edit.component';
+import { OtrosNewComponent } from './servivicosInt/vistas/otros-new/otros-new.component';
+import { OtrosEditComponent } from './servivicosInt/vistas/otros-edit/otros-edit.component';
 
 
 @NgModule({
@@ -66,9 +73,19 @@ import { HojaFramComponent } from './servivicosInt/hoja-fram/hoja-fram.component
     OtrosSIComponent,
     PaqueteMaternidadComponent,
     AgendaComponent,
-    HojaFramComponent
+    HojaFramComponent,
+    AmbulanciaEditComponent,
+    AmbulanciaNewComponent,
+    FilterPipe,
+    XrayNewComponent,
+    XrayEditComponent,
+    OtrosNewComponent,
+    OtrosEditComponent
   ],
-  exports: [ PageComponent ],
+  exports: [ 
+    PageComponent,
+    FilterPipe
+  ],
   imports: [
     ComponentsModule,
     PAGES_ROUTES,

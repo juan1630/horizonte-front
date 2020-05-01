@@ -1,0 +1,59 @@
+<div class="arriba">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{page_title}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body">
+                <form #ambulanciaForm="ngForm" (ngSumbit)="onSubmit()">
+                    <div class="form-group">
+                        <label for="destino" class="col-form-label">Destino:</label>
+                        <input type="text" name="destino" #destino="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ambulancia.destino">
+
+                        <small *ngIf="!destino.valid && destino.touched">
+                            El destino no es válido..
+                        </small>
+
+                        <!-- <input type="text" name="destino" class="form-control" id="recipient-name" [(ngModel)]="ambulancia.destino"> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="precioDia" class="col-form-label">Precio Día:</label>
+                        <input type="text" name="precioDia" #pDia="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ambulancia.precioDia">
+                        <small *ngIf="!pDia.valid && pDia.touched">
+                            El Precio Día no es válido..
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label for="precioRedondoDia" class="col-form-label">Redondo Día:</label>
+                        <input type="text" name="precioRedondoDia" #pRDia="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ambulancia.precioRedondoDia">
+                        <small *ngIf="!pRDia.valid && pRDia.touched">
+                            El Precio Redondo Día no es válido..
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label for="precioNoche" class="col-form-label">Precio Noche:</label>
+                        <input type="text" name="precioNoche" #pNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ambulancia.precioNoche">
+                        <small *ngIf="!destino.valid && destino.touched">
+                            El Precio Noche no es válido..
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label for="precioRedondoNoche" class="col-form-label">Redondo Noche:</label>
+                        <input type="text" name="precioRedondoNoche" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ambulancia.precioRedondoNoche">
+                        <small *ngIf="!pRNoche.valid && pRNoche.touched">
+                            El Precio Redondo Noche no es válido..
+                        </small>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <!-- <button type="button" class="btn btn-primary" (click)="onSubmit()">Aceptar</button> -->
+                <input type="submit" value="Guardar" class="btn btn-primary" (click)="onSubmit()">
+            </div>
+        </div>
+    </div>
+</div>

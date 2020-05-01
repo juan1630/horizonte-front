@@ -1,7 +1,7 @@
 <h1 class="centerxd">Servicio Integrado: Otros Servicios</h1>
 <!-- <button type="button" class="btn btn-outline-primary"><i class="fas fa-plus"></i></button> -->
-<button type="button" class="btn btn-info rightxd" [routerLink]="['/pdf-generator-all']" routerLinkActive="router-link-active">Contratar</button>
-<button type="button" class="btn btn-info rightxd xd">Agregar</button>
+<button type="button" class="btn btn-info rightxd">Contratar</button>
+<button type="button" class="btn btn-info rightxd xd" [routerLink]="['/otros-nuevo']" routerLinkActive="router-link-active">Agregar</button>
 
 <!-- <div class="ambulanciaStyle">
     <ul>
@@ -30,7 +30,7 @@
             <td> $ {{ otrosServicioss. PUBLICO_NOCHE }}</td>
             <td>
                 <button type="button" class="btn btn-outline-success"><i class="far fa-edit"></i></button>
-                <button type="button" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
+                <button type="button" class="btn btn-outline-danger" (click)="delete(otrosServicioss._id)"><i class="fas fa-trash-alt"></i></button>
             </td>
         </tr>
     </tbody>
