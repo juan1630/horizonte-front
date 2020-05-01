@@ -2,6 +2,10 @@
     border-radius: 0% !important;
 }
 
+.cuadros{
+  background-image: url('../../../assets/images/CUADROS.svg');
+}
+
 input[type="text"], 
 input[type="password"],
 input[type="submit"]{
@@ -56,4 +60,13 @@ input[type="submit"]{
   .fadeIn {
     -webkit-animation-name: fadeIn;
     animation-name: fadeIn;
+  }
+
+  @media( max-width: 1500px ){
+    .img-fluid{
+      position: fixed;
+       top:16%;
+       right:-52%;
+    }
+    
   }

@@ -27,6 +27,7 @@
               {{ pacientess | json }}
             </pre>
           -->
+
             <div *ngIf="_modalServicioIntService.pacientePaquete" >
               <h4> Estos son tus paquetes: </h4>
               <ul> 
@@ -37,6 +38,8 @@
                  </div>
               </li>
              </ul> 
+          
+             <a [routerLink]="['/paqueteMaternidad']" routerLinkActive="router-link-active"  > Ver consultas  </a>
             </div>
   
   

@@ -30,6 +30,7 @@ import { AmbulanciaNewComponent } from './servivicosInt/ambulancia-new/ambulanci
 
 import { PaqueteMaternidadComponent } from './paquete-maternidad/paquete-maternidad.component';
 import { SolicitudComponent } from './solicitud/solicitud.component';
+import { PagosMaternidadComponent } from './pagos/pagos-maternidad/pagos-maternidad.component';
 import { HojaFramComponent } from './servivicosInt/hoja-fram/hoja-fram.component';
 import { XrayNewComponent } from './servivicosInt/vistas/xray-new/xray-new.component';
 import { XrayEditComponent } from './servivicosInt/vistas/xray-edit/xray-edit.component';
@@ -68,6 +69,7 @@ const pagesRoutes : Routes = [
       {path: 'urgencias', component: UrgenciasComponent},
       {path: 'otros-servicios', component: OtrosSIComponent},
       { path:'solicitud/:id', component: SolicitudComponent },
+<<<<<<< HEAD
       { path: 'ambulancia-editar/:id', component: AmbulanciaEditComponent },
       { path: 'ambulancia-nuevo', component: AmbulanciaNewComponent},
       { path: 'xray-editar/:id', component: XrayEditComponent},
@@ -75,6 +77,9 @@ const pagesRoutes : Routes = [
       { path: 'xray-editar/:id', component: XrayEditComponent},
       { path: 'otros-editar/:id', component: OtrosEditComponent},
       { path: 'otros-nuevo', component: OtrosNewComponent},
+=======
+      { path:'pagos/paquete/maternnidad', component:PagosMaternidadComponent },
+>>>>>>> memo
       { path: '', redirectTo: '/dashboard', pathMatch:'full' }
     ]
   }
