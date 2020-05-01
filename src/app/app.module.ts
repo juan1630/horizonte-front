@@ -14,7 +14,6 @@ import { ServicesModule } from './services/services.module';
 
 // // SOCKET 
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
-
 import { environment } from 'src/environments/environment';
 
 
