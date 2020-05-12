@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PaquetesMaternidadService } from '../../services/maternidad/paquetes-maternidad.service';
+import { PaquetesMaternidadService } from 'src/app/services/maternidad/paquetes-maternidad.service';
 import swal from 'sweetalert'
 import { ActivatedRoute } from '@angular/router';
 
@@ -10,10 +10,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PaqueteMaternidadComponent implements OnInit {
 
-  public id: string;
   medicos:any[] = []
+
   concepto:any[] = []
+
   allConsultas:any[] = []
+
   medicinaGen:any[] = []
   prenatalGinecologia:any[] = []
   ultrasonido:any[] = []
@@ -22,21 +24,20 @@ export class PaqueteMaternidadComponent implements OnInit {
   consultas:any = { tipo: '', consulta: '', fecha: '', medico: '', firma: '' }
 
   btnDisabled = false
+  public id: string;
 
   mensaje:string = ''
 
   constructor(
-          private _serviceMedicos: PaquetesMaternidadService,
-          public  _route: ActivatedRoute
-            ) { }
+    public router: ActivatedRoute, 
+    private _serviceMedicos: PaquetesMaternidadService) { }
 
   ngOnInit() {
+     this.id = this.router.snapshot.paramMap.get('id');
     this._serviceMedicos.getMedicos()
     .subscribe( (data) => {
       this.medicos = data.medicos
-    });
-
-    this.id = this._route.snapshot.paramMap.get('id');
+    })
     
     this.mostrarConsultas()
     
@@ -46,47 +47,46 @@ export class PaqueteMaternidadComponent implements OnInit {
   seleccion($event, value){
     switch (value) {
       case '1':
-        // code
         this.concepto = [ 'Consulta' ]
         this.consultas.consulta = ''
         this.btnDisabled = false
                 
         break;
       case '2':
-        // code
         this.concepto = [ 'Consulta' ]
         this.consultas.consulta = ''
-        this.btnDisabled = false
+        for(var i = 0; i < this.prenatalGinecologia.length; i++){
+          if(this.prenatalGinecologia[i] != ''){
+            this.btnDisabled = true
+          }else{
+            this.btnDisabled = false
+          }
+        }
 
         break;
       case '3':
-        // code
         this.concepto = [ 'USG Obstetrico' ]
         this.consultas.consulta = ''
-        if(this.ultrasonido.length != 5){
-            this.btnDisabled = false
-          }else{
+        for(var i = 0; i < this.ultrasonido.length; i++){
+          if(this.ultrasonido[i] != ''){
             this.btnDisabled = true
+          }else{
+            this.btnDisabled = false
+          }
         }
 
         break;
       case '4':
-        // code
-        this.concepto = [ 'Bometría hemática completa', 
-                     'Química sanguínea de 3 elementos', 
-                     'Examen general de orina', 
-                     'V.D.R.L',  
-                     'V.I.H', 
-                     'Tiempos de coagulación', 
-                     'Curva de tolerancia a la glucosa'
-                  ]
+        this.concepto = [ 'Biometría hemática completa', 
+                          'Química sanguínea de 6 elementos', 
+                          'Examen general de orina', 
+                          'V.D.R.L',  
+                          'V.I.H', 
+                          'Tiempos de coagulación', 
+                          'Curva de tolerancia a la glucosa',
+                          'Grupo sanguineo'
+                        ]
         this.consultas.consulta = ''
-        if(this.laboratorio.length != 5){
-            this.btnDisabled = false
-          }else{
-            this.btnDisabled = true
-        }
-
         break;
     
       default:
@@ -95,53 +95,170 @@ export class PaqueteMaternidadComponent implements OnInit {
 
   }
 
-  agregarConsulta(){
+  seleccionConcepto($event, value){
+    var examenOrina = 0, biometria = 0, quimica = 0, vih = 0, vdrlh = 0, tiempos = 0, curva = 0
+    switch (value) {
+      case 'Biometría hemática completa':
+        for(var i = 0; i < this.laboratorio.length; i++) if(this.laboratorio[i].consulta == value) biometria++
+        if(biometria == 1) { 
+          this.btnDisabled = true 
+        }else{
+          this.btnDisabled = false
+        }
+        break;
+      
+      case 'Química sanguínea de 6 elementos':
+        for(var i = 0; i < this.laboratorio.length; i++) if(this.laboratorio[i].consulta == value) quimica++
+        if(quimica == 1) {
+          this.btnDisabled = true 
+        }else{
+          this.btnDisabled = false
+        }
+        break;
 
+      case 'Examen general de orina':
+        for(var i = 0; i < this.laboratorio.length; i++) if(this.laboratorio[i].consulta == value) examenOrina++
+        if(examenOrina == 2) { 
+          this.btnDisabled = true 
+        }else{
+          this.btnDisabled = false
+        }
+        break;
+
+      case 'V.D.R.L':
+        for(var i = 0; i < this.laboratorio.length; i++) if(this.laboratorio[i].consulta == value) vdrlh++
+        if(vdrlh == 1) { 
+          this.btnDisabled = true 
+        }else{
+          this.btnDisabled = false
+        }
+        break;
+
+      case 'V.I.H':
+        for(var i = 0; i < this.laboratorio.length; i++) if(this.laboratorio[i].consulta == value) vih++
+        if(vih == 1) { 
+          this.btnDisabled = true 
+        }else{
+          this.btnDisabled = false
+        }
+      break;
+
+      case 'Tiempos de coagulación':
+        for(var i = 0; i < this.laboratorio.length; i++) if(this.laboratorio[i].consulta == value) tiempos++
+        if(tiempos == 1) { 
+          this.btnDisabled = true 
+        }else{
+          this.btnDisabled = false
+        }
+      break;
+
+      case 'Curva de tolerancia a la glucosa':
+        for(var i = 0; i < this.laboratorio.length; i++) if(this.laboratorio[i].consulta == value) curva++
+        if(curva == 1) { 
+          this.btnDisabled = true 
+        }else{
+          this.btnDisabled = false
+        }
+      break;
+
+      case 'Grupo sanguineo':
+        for(var i = 0; i < this.laboratorio.length; i++) if(this.laboratorio[i].consulta == value) curva++
+        if(curva == 1) { 
+          this.btnDisabled = true 
+        }else{
+          this.btnDisabled = false
+        }
+      break;
+    
+      default:
+        break;
+    }
+        
+  }
+
+  agregarConsulta(){
       if(this.consultas.tipo == '' || this.consultas.consulta == '' || this.consultas.medico == '' || this.consultas.firma == ''){
         swal('Error!', 'Porfavor ingrese los datos que le piden', 'error')
       }else{
         this.consultas.fecha = new Date()
-         this.allConsultas.push(this.consultas)
+        // this.allConsultas.push(this.consultas)
         console.log(this.consultas)
         this._serviceMedicos.addVisitas(this.consultas, this.id)
         .subscribe( (data) => {
-          console.log(data)
-          swal('Consulta Agregada', 'Puede ver la información en la tabla', 'success')
+          swal('Consulta Agregada', 'Puede ver las visitas en la tabla', 'success')
           this.mostrarConsultas() 
         })
         this.consultas = { tipo: '', consulta: '', fecha: '', medico: '', firma:'' }
       }
   }
 
+  mostrarDatos(consulta, medico){
+    swal('Datos de Consulta', 'Consulta: '+consulta+'\n'+'Medico: '+medico, '')
+  }
+
   mostrarConsultas(){
-    this.medicinaGen = [];
-    this.prenatalGinecologia = [];
-    this.ultrasonido = [];
-    this.laboratorio = [];
-    this._serviceMedicos.getVisitas(this.id)
-    .subscribe( (data:any) => {
-      console.log( data )
-   
+    this.medicinaGen = []
+    this.prenatalGinecologia = []
+    this.ultrasonido = []
+    this.laboratorio = []
+    this._serviceMedicos.getVisitas( this.id )
+    .subscribe( (data) => {
+      
+      console.log(data);
+      this.allConsultas = data.paquete
+
+      console.log( this.allConsultas );
 
       this.allConsultas.forEach( data => {
-        if(data.paquete.tipo == '1'){
+          if(data.tipo == '1'){
             this.medicinaGen.push(data)
             this.allConsultas = []
-        }
-        if(data.tipo == '2'){
+          }
+          if(data.tipo == '2'){
             this.prenatalGinecologia.push(data)
             this.allConsultas = []
-        }
-        if(data.tipo == '3'){
+          }
+          if(data.tipo == '3'){
+
             this.ultrasonido.push(data)
+            // this.ultrasonido.sort()
+            // this.ultrasonido.reverse()
             this.allConsultas = []
-        }
-        if(data.tipo == '4'){
+
+          }
+          if(data.tipo == '4'){
             this.laboratorio.push(data)
             this.allConsultas = []
+          }
+        })
+        var valUltrasonido = 5 - this.ultrasonido.length
+        var valprenatal = 5 - this.prenatalGinecologia.length
+        var valLaboratorio = 9 - this.laboratorio.length
+        
+        if(valUltrasonido == 0){
+          console.log('Ya no puedes')
+        }else{
+          for(var x = 0; x < valUltrasonido; x++){
+            this.ultrasonido.push('')
+          }
         }
-  
-      })
+
+        if(valprenatal == 0){
+          console.log('Ya no puedes')
+        }else{
+          for(var x = 0; x < valprenatal; x++){
+            this.prenatalGinecologia.push('')
+          }
+        }
+
+        if(valLaboratorio == 0){
+          console.log('Ya no puedes')
+        }else{
+          for(var x = 0; x < valLaboratorio; x++){
+            this.laboratorio.push('')
+          }
+        }
+
     })
   }
 

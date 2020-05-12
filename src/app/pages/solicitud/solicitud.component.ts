@@ -6,6 +6,7 @@ import { NgForm } from '@angular/forms';
 import { SolicitudService } from '../../services/solicitud/solicitud.service';
 import   swal  from 'sweetalert';
 import { Paquetes } from 'src/app/intefaces/paquetes.interfaces';
+import { PaquetesDB } from 'src/app/intefaces/pacientePaqueteDB.interfaces';
 
 
 @Component({
@@ -20,8 +21,8 @@ export class SolicitudComponent implements OnInit {
   
   public paciente:any;
   public usuarioMaq:any;
-  public paquetesDB: any[]=[];
-  public paqueteSelected: Paquetes[]=[];
+  public paquetesDB:Paquetes[]=[];
+  public paqueteSelected: PaquetesDB;
   public paquetesPacientes: any;
   
   // declaradas 
@@ -74,7 +75,6 @@ export class SolicitudComponent implements OnInit {
 
       .subscribe(  (data: any ) => {
       
-
         this.paquetesDB = data.paquetes;
         console.log( this.paquetesDB );
       
@@ -98,9 +98,9 @@ export class SolicitudComponent implements OnInit {
       
         this.paquetesService.getPaqueById( id )
         .subscribe( (data: any )  => {
-          console.log(  data.paquete );
-            this.paqueteSelected = data.paquete;
+          console.log(  data );
 
+            this.paqueteSelected = data;
             if( this.paqueteSelected.nombrePaquete === "PAQUETE DE CONTROL PRENATAL" ){ 
               this.anticipo = 1500;
             }else if( this.paqueteSelected.nombrePaquete === "PAQUETE MÉDICO LABORAL" ) {

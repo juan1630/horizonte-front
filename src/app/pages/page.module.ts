@@ -38,13 +38,12 @@ import { AgendaComponent } from './agenda/agenda/agenda.component';
 import { XraySIComponent } from './servivicosInt/xray/xray-s-i.component';
 import { PagosMaternidadComponent } from './pagos/pagos-maternidad/pagos-maternidad.component';
 import { HojaFramComponent } from './servivicosInt/hoja-fram/hoja-fram.component';
-// import { TabuladorPagosComponent } from './pagosMaternidad/tabulador-pagos/tabulador-pagos.component';
-// import { MaternidadComponent } from './contrato/maternidad/maternidad.component';
-// import { FechasPipe } from './fechas.pipe';
-// import { EstudiosComponent } from './servivicosInt/laboratorio/estudios/estudios.component';
-// import { PerfilesComponent } from './servivicosInt/laboratorio/perfiles/perfiles.component';
-// import { ContratacionComponent } from './servivicosInt/laboratorio/contratacion/contratacion.component';
-// import { PendientesComponent } from './servivicosInt/laboratorio/pendientes/pendientes.component';
+import { TabuladorPagosComponent } from './pagosMaternidad/tabulador-pagos/tabulador-pagos.component';
+import { MaternidadComponent } from './contrato/maternidad/maternidad.component';
+import { EstudiosComponent } from './servivicosInt/laboratorio/estudios/estudios.component';
+import { PerfilesComponent } from './servivicosInt/laboratorio/perfiles/perfiles.component';
+import { ContratacionComponent } from './servivicosInt/laboratorio/contratacion/contratacion.component';
+import { PendientesComponent } from './servivicosInt/laboratorio/pendientes/pendientes.component';
 import { AmbulanciaEditComponent } from './servivicosInt/ambulancia-edit/ambulancia-edit.component';
 import { AmbulanciaNewComponent } from './servivicosInt/ambulancia-new/ambulancia-new.component';
 import { XrayEditComponent } from './servivicosInt/vistas/xray-edit/xray-edit.component';
@@ -58,6 +57,8 @@ import { TomografiaEditComponent } from './servivicosInt/vistas/Tomografia/tomog
 import { UltrasonidoEditComponent } from './servivicosInt/vistas/Ultrasonido/ultrasonido-edit/ultrasonido-edit.component';
 import { UltrasonidoNewComponent } from './servivicosInt/vistas/Ultrasonido/ultrasonido-new/ultrasonido-new.component';
 
+import { PreciosMembresiaComponent } from './servivicosInt/laboratorio/precios-membresia/precios-membresia.component';
+import { NuevoLabComponent } from './servivicosInt/laboratorio/nuevo-lab/nuevo-lab.component';
 
 
 @NgModule({
@@ -99,13 +100,20 @@ import { UltrasonidoNewComponent } from './servivicosInt/vistas/Ultrasonido/ultr
     TomografiaNewComponent,
     TomografiaEditComponent,
     UltrasonidoEditComponent,
-    UltrasonidoNewComponent
+    UltrasonidoNewComponent,
+    PagosMaternidadComponent,
+    TabuladorPagosComponent,
+    MaternidadComponent,
+    EstudiosComponent,
+    PerfilesComponent,
+    ContratacionComponent,
+    PendientesComponent,
+    PreciosMembresiaComponent,
+    NuevoLabComponent,
+    HojaFramComponent
   ],
   exports: [ 
     PageComponent,
-    // PagosMaternidadComponent,
-    PagosMaternidadComponent,
-    HojaFramComponent
   ],
   imports: [
     ComponentsModule,
@@ -114,6 +122,7 @@ import { UltrasonidoNewComponent } from './servivicosInt/vistas/Ultrasonido/ultr
     BrowserModule,
     RouterModule
   ]
+
 })
 
 

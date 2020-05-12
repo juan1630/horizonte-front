@@ -19,7 +19,7 @@
                           <p class="text-danger" *ngIf="btnDisabled">*No puedes agregar más consultas</p>
                       </td>
                       <td>
-                          <select class="form-control" [(ngModel)]="consultas.consulta">
+                          <select class="form-control" [(ngModel)]="consultas.consulta" #selectCon (change)="seleccionConcepto($event, selectCon.value)">
                               <option value="" selected>Concepto...</option>
                               <option [value]="item" *ngFor="let item of concepto">{{ item }}</option>
                           </select>
@@ -40,68 +40,129 @@
       </div>
   </div>
 
-  <!--Nueva Tabla para la informacion-->
-  <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Concepto</th>
-          <th scope="col">Fecha</th>
-          <th scope="col">Medico o Servicio que lo realizo</th>
-          <th scope="col">Firma de realizado</th>
-        </tr>
-      </thead>
-      <thead>
-          <tr class="table-success">
-            <th colspan="4">Consultas prenatales por Medicina General</th>
-          </tr>
-      </thead>
-      <tbody *ngFor="let item of medicinaGen; let i = index">
-        <tr>
-          <td>{{ i + 1 }} - {{ item.consulta }}</td>
-          <td>{{ item.fecha}}</td>
-          <td>{{ item.medico }}</td>
-          <td>{{ item.firma }}</td>
-        </tr>
-      </tbody>
-      <thead>
-          <tr class="table-primary">
-            <th colspan="4">Consultas prenatales por ginecologia y obstetricia</th>
-          </tr>
-      </thead>
-      <tbody *ngFor="let item of prenatalGinecologia; let i = index">
-          <tr>
-            <td>{{ i + 1 }} - {{ item.consulta }}</td>
-            <td>{{ item.fecha  }}</td>
-            <td>{{ item.medico }}</td>
-            <td>{{ item.firma }}</td>
-          </tr>
-      </tbody>
-      <thead>
-          <tr class="table-info">
-            <th colspan="4">Estudios de ultrasonido</th>
-          </tr>
-      </thead>
-      <tbody *ngFor="let item of ultrasonido; let i = index">
-          <tr>
-            <td>{{ i + 1 }} - {{ item.consulta }}</td>
-            <td>{{ item.fecha  }}</td>
-            <td>{{ item.medico }}</td>
-            <td>{{ item.firma }}</td>
-          </tr>
-      </tbody>
-      <thead>
-          <tr class="table-warning">
-            <th colspan="4">Estudios de laboratorio</th>
-          </tr>
-      </thead>
-      <tbody *ngFor="let item of laboratorio; let i = index">
-          <tr>
-            <td>{{ i + 1 }} - {{ item.consulta }}</td>
-            <td>{{ item.fecha }}</td>
-            <td>{{ item.medico }}</td>
-            <td>{{ item.firma }}</td>
-          </tr>
-      </tbody>
-  </table>
-  
+  <div class="p-3 mb-2 bg-success text-white">
+    Consultas prenatales por Medicina General
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-3" *ngFor="let item of medicinaGen; let i = index">
+          <div class="card border-success" style="cursor: pointer;" (click)="mostrarDatos(item.consulta, item.medico)">
+            <div class="card-body">
+              <span class="badge badge-success">{{ i + 1 }}</span>
+              <p class="text-center"><i class="fas fa-file-alt mr-2"></i> {{ item.fecha | date:'short' }}</p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="mt-5 p-3 mb-2 bg-primary text-white">
+    Consultas prenatales por ginecologia y obstetrica
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-3" *ngFor="let item of prenatalGinecologia; let i = index">
+          <div class="card border-primary" *ngIf="item.fecha" style="cursor: pointer;" (click)="mostrarDatos(item.consulta, item.medico)">
+            <div class="card-body">
+              <span class="badge badge-primary">{{ i + 1 }}</span>
+              <p class="text-center"><i class="fas fa-female mr-2"></i> {{ item.fecha | date:'short' }}</p>
+            </div>
+          </div>
+          <div class="card" *ngIf="item == ''">
+            <div class="card-body">
+              <span class="badge badge-light">{{ i + 1 }}</span>
+              <p class="text-center"><i class="fas fa-laptop-medical mr-2"></i>Consulta disponible...</p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="mt-5 p-3 mb-2 bg-info text-white">
+    Estudios de ultrasonido
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-3" *ngFor="let item of ultrasonido; let i = index">
+            <div class="card border-info" *ngIf="item.fecha" style="cursor: pointer;" (click)="mostrarDatos(item.consulta, item.medico)" >
+              <div class="card-body">
+                <span class="badge badge-info">{{ i + 1 }}</span>
+                <p class="text-center"><i class="fas fa-laptop-medical mr-2"></i>{{ item.fecha | date:'short' }}</p>
+              </div>
+            </div>
+            <div class="card" *ngIf="item == ''">
+              <div class="card-body">
+                <span class="badge badge-light">{{ i + 1 }}</span>
+                <p class="text-center"><i class="fas fa-laptop-medical mr-2"></i>Estudio disponible...</p>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-5 p-3 mb-2 bg-warning text-white">
+      Estudios de laboratorio
+    </div>
+    <div class="container-fluid mb-5">
+      <div class="row">
+          <div class="col-3" *ngFor="let item of laboratorio; let i = index">
+            <div class="card border-warning" *ngIf="item.consulta == 'Examen general de orina'" style="cursor: pointer;" (click)="mostrarDatos(item.consulta, item.medico)">
+              <div class="card-body">
+                <span class="badge badge-warning">{{ i + 1 }}</span>
+                <p class="text-center"><i class="mr-2 fas fa-microscope"></i>{{ item.fecha | date:'short' }}</p>
+              </div>
+            </div>
+            <div class="card border-warning" *ngIf="item.consulta == 'Biometría hemática completa'" style="cursor: pointer;" (click)="mostrarDatos(item.consulta, item.medico)">
+              <div class="card-body">
+                <span class="badge badge-warning">{{ i + 1 }}</span>
+                <p class="text-center"><i class="mr-2 fas fa-microscope"></i>{{ item.fecha | date:'short' }}</p>
+              </div>
+            </div>
+            <div class="card border-warning" *ngIf="item.consulta == 'Química sanguínea de 6 elementos'" style="cursor: pointer;" (click)="mostrarDatos(item.consulta, item.medico)">
+              <div class="card-body">
+                <span class="badge badge-warning">{{ i + 1 }}</span>
+                <p class="text-center"><i class="mr-2 fas fa-microscope"></i>{{ item.fecha | date:'short' }}</p>
+              </div>
+            </div>
+            <div class="card border-warning" *ngIf="item.consulta == 'V.D.R.L'" style="cursor: pointer;" (click)="mostrarDatos(item.consulta, item.medico)">
+              <div class="card-body">
+                <span class="badge badge-warning">{{ i + 1 }}</span>
+                <p class="text-center"><i class="mr-2 fas fa-microscope"></i>{{ item.fecha | date:'short' }}</p>
+              </div>
+            </div>
+            <div class="card border-warning" *ngIf="item.consulta == 'V.I.H'" style="cursor: pointer;" (click)="mostrarDatos(item.consulta, item.medico)">
+              <div class="card-body">
+                <span class="badge badge-warning">{{ i + 1 }}</span>
+                <p class="text-center"><i class="mr-2 fas fa-microscope"></i>{{ item.fecha | date:'short' }}</p>
+              </div>
+            </div>
+            <div class="card border-warning" *ngIf="item.consulta == 'Tiempos de coagulación'" style="cursor: pointer;" (click)="mostrarDatos(item.consulta, item.medico)">
+              <div class="card-body">
+                <span class="badge badge-warning">{{ i + 1 }}</span>
+                <p class="text-center"><i class="mr-2 fas fa-microscope"></i>{{ item.fecha | date:'short' }}</p>
+              </div>
+            </div>
+            <div class="card border-warning" *ngIf="item.consulta == 'Curva de tolerancia a la glucosa'" style="cursor: pointer;" (click)="mostrarDatos(item.consulta, item.medico)">
+              <div class="card-body">
+                <span class="badge badge-warning">{{ i + 1 }}</span>
+                <p class="text-center"><i class="mr-2 fas fa-microscope"></i>{{ item.fecha | date:'short' }}</p>
+              </div>
+            </div>
+            <div class="card border-warning" *ngIf="item.consulta == 'Grupo sanguineo'" style="cursor: pointer;" (click)="mostrarDatos(item.consulta, item.medico)">
+              <div class="card-body">
+                <span class="badge badge-warning">{{ i + 1 }}</span>
+                <p class="text-center"><i class="mr-2 fas fa-microscope"></i>{{ item.fecha | date:'short' }}</p>
+              </div>
+            </div>
+            <div class="card" *ngIf="item == ''">
+              <div class="card-body">
+                <span class="badge badge-light">{{ i + 1 }}</span>
+                <p class="text-center"><i class="mr-2 fas fa-microscope"></i>Estudio disponible...</p>
+              </div>
+            </div>
+          </div>
+
+      </div>
+    </div>
+
 </div>

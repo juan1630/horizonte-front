@@ -16,7 +16,6 @@ import { ServicesModule } from './services/services.module';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { environment } from 'src/environments/environment';
 
-
 const config: SocketIoConfig = { url: environment.swUrl , options: {} };
 
 @NgModule({
@@ -35,9 +34,7 @@ const config: SocketIoConfig = { url: environment.swUrl , options: {} };
     SocketIoModule.forRoot(config),
     APP_ROUTES
   ],
-  exports: [
-
-  ],
+  exports: [  ],
   providers: [],
   bootstrap: [AppComponent]
 })

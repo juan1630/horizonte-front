@@ -38,7 +38,6 @@ export class PaquetesMaternidadService {
   }
 
   getVisitas( id: string ){
-
     let URL = 'https://horizonte-1.herokuapp.com/paciente/paquete/visitas/'+id;
     
     return this._http.get( URL )

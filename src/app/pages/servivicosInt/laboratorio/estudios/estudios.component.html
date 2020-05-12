@@ -1,33 +1,110 @@
 <h2> Estudios de laboratorio </h2>
 <div class="row mb-3">
 
-    <div class="col-md-3 offset-md-9">
-        <a class="btn btn-primary btn-block" [routerLink]="['/laboratorio/contrato']"  >
+
+    <div class="col-md-4 offset-md-1">
+        <form action="">
+            <div class="form-group">
+                
+                <input type="text"  class="form-control" name="filterPost" placeholder="Buscar..." [(ngModel)]="filterPost">
+            </div>  
+        </form>
+    </div>
+
+    <div class="col-md-3 offset-md-1">
+        <a class="btn btn-primary" [routerLink]="['/laboratorio/contrato']"  >
             Contrar    
+        </a>
+        <a class="btn btn-primary ml-2" [routerLink]="['/nuevo/laboratorio']"  >
+            Nuevo examen    
         </a>
     </div>
 </div>
 
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-9">
         <table class="table table-hover ">
-            <thead class="thead-dark ">
+            <thead class="thead-dark">
                 <tr>
                     <th scope="col ">Examen</th>
-                    <th scope="col ">Precio Día</th>
-                    <th scope="col ">Redondo Día</th>
+                    <th scope="col ">Precio Publico</th>
+                    <th scope="col ">Tiempo de entrega</th>
                     <th scope="col ">Precio Noche</th>
-                    <th scope="col ">Redondo Noche</th>
-                    <th scope="col ">Acciones</th>
+                    <th scope="col ">Urgencia de noche</th>
+                    <th scope="col" *ngIf="role === 'admin'"  >Acciones</th>
         
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of [1,1,1,1,1,1,1]" >
-                    <td> Examen de sangre  {{ item }} </td>
+                <tr *ngFor="let item of estudios" >
+                    
+                    <td class="pointer"  (click)="verComparacio( item.PUBLICO, item.MEMBRESIA )"  > {{ item.ESTUDIO }} </td>
+                    <td class="pointer"  (click)="verComparacio( item.PUBLICO, item.MEMBRESIA )">
+                         {{ item.PUBLICO }}
+                        <button  class="btn btn-success"  (click)="agregarCarrito( item )"  > <i class="fas fa-plus"></i>  </button>
+                    </td>
+                    <td class="pointer"  (click)="verComparacio( item.PUBLICO, item.MEMBRESIA )"  > {{ item.ENTREGA }} </td>
+                    <td class="pointer"  (click)="verComparacio( item.PUBLICO, item.MEMBRESIA )"  > {{ item.NOCTURNO }} </td>
+                    <td class="pointer"  (click)="verComparacio( item.PUBLICO, item.MEMBRESIA )"  > {{ item.URGENCIA_PUB }} </td>
+                    
+                    <td *ngIf="role === 'admin'"  > 
+                        
+                    <button type="button " class="btn btn-outline-success separar"  [routerLink]="['/estudios-editar', item._id]" ><i class="far fa-edit"></i></button>
+                    <button type="button " class="btn btn-outline-danger" (click)="deleteExamenLab(item._id)"><i class="fas fa-trash-alt "></i></button>    
+                    </td>
                 </tr>
             </tbody>
         </table>
         
+    </div>
+    <div class="col-md-3">
+        <!-- <app-tarjeta-cotizacion> </app-tarjeta-cotizacion> -->
+        <div class="fixed">
+            <div class="card border-dark mb-3" style="max-width: 18rem;">
+                <div class="card-header bg-transparent border-dark">
+                  <h5> COTIZACIÓN </h5> 
+                </div>
+                <div class="card-body text-dark">
+                  
+                    <h5 class="card-title"> Total sin membresia: $ {{total}}</h5>
+
+                    <h5 class="card-title"> Total con membresia: $ {{totalConMembresia}}</h5>
+                    <h5 class="card-title">Con membresia ahorras: $ {{ahorro}}</h5>
+
+                    <p *ngIf="total === 0" >
+                        Aún no tienes examenes
+                    </p>
+    
+                    <div class="pedidos" *ngIf="!urgenciaMembresia" >
+                        <p *ngFor="let pedido of carrito"> 
+
+                            <!-- ACA VAN LOS ITEMS DEL CARRITO -->
+                            {{ pedido.ESTUDIO }} - {{ pedido.PUBLICO }}
+
+                            <button type="button" (click)="eliminar( pedido._id )" class="btn btn-danger btn-block mt-2">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </p>
+                  </div>
+                
+                </div>
+    
+                <div class="card-footer bg-transparent border-success">
+                        
+                  <div class="pay" *ngIf="carrito">
+                    <button type="button" class="btn btn-success btn-block btn-card-footer ">
+                        Pagar
+                    </button>
+                    <button type="button" class="btn btn-primary btn-block mt-2 btn-card-footer">
+                        <i class="far fa-file-pdf"></i>
+                        Imprimir
+                    </button>
+                  </div>
+    
+                </div>
+                <!-- Card footer -->
+              </div>
+        </div>
+    
     </div>
 </div>

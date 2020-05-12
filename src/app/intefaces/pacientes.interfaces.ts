@@ -1,4 +1,5 @@
 export class Paciente {
+  
   constructor( 
     
   public nombrePaciente?: string,

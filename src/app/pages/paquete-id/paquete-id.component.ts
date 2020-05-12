@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PaqueteService } from 'src/app/services/paquete/paquete.service';
 import { Paquetes } from 'src/app/intefaces/paquetes.interfaces';
+import { PaquetesDB } from 'src/app/intefaces/pacientePaqueteDB.interfaces';
 
 @Component({
   selector: 'app-paquete-id',
@@ -10,7 +11,7 @@ import { Paquetes } from 'src/app/intefaces/paquetes.interfaces';
 })
 export class PaqueteIdComponent implements OnInit {
 
-public paquete: Paquetes;
+public paquete: PaquetesDB[]=[];
         
   constructor(
               public router: ActivatedRoute, 
@@ -28,9 +29,8 @@ public paquete: Paquetes;
   obtenerPaquete( id:string ){
     this.paqueteService.getPaqueById( id )
     .subscribe( (data:any) => {
-      console.log( data )
-      this.paquete = data.paquete;
-      console.log( this.paquete );
+      console.log( data );
+      this.paquete = data;
     } )
     
   }

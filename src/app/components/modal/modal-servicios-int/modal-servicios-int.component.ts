@@ -45,6 +45,10 @@ export class ModalServiciosIntComponent implements OnInit {
       this._router.navigateByUrl('/ambulancia');
     }else if( f === "rayosx" ){
       this._router.navigateByUrl('/xray')
+    }else if( f === 'laboraorio' ){
+        this._router.navigate(['/laboratorio/estudios/', this._modalServicioIntService.idUser])
+    }else if(f ===  "otros"){ 
+      this._router.navigate(['otros-servicios'])
     }
   }
 

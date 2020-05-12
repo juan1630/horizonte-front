@@ -42,9 +42,9 @@ import { XrayEditComponent } from './servivicosInt/vistas/xray-edit/xray-edit.co
 import { XrayNewComponent } from './servivicosInt/vistas/xray-new/xray-new.component';
 import { OtrosEditComponent } from './servivicosInt/vistas/otros-edit/otros-edit.component';
 import { OtrosNewComponent } from './servivicosInt/vistas/otros-new/otros-new.component';
+import { PreciosMembresiaComponent } from './servivicosInt/laboratorio/precios-membresia/precios-membresia.component';
+import { NuevoLabComponent } from './servivicosInt/laboratorio/nuevo-lab/nuevo-lab.component';
 
-
-const newLocal = 'ambulancia-editar/:id';
 // rutas hijas del dashboard
 // LoginGuardGuard
 const pagesRoutes : Routes = [
@@ -83,7 +83,15 @@ const pagesRoutes : Routes = [
       { path: 'xray-editar/:id', component: XrayEditComponent},
       { path: 'otros-editar/:id', component: OtrosEditComponent},
       { path: 'otros-nuevo', component: OtrosNewComponent},
-      { path:'pagos/paquete/maternnidad', component:PagosMaternidadComponent },
+      { path: 'perfiles', component: PerfilesComponent },
+      { path: 'estudios/laboratorio', component: EstudiosComponent },
+      { path: 'laboratorio/pendientes', component: PendientesComponent },
+      { path: 'laboratorio/contrato', component: ContratacionComponent },
+      { path: 'maternidad', component: MaternidadComponent },
+      {path:'tabulador/pagos/:id', component: TabuladorPagosComponent },
+      { path:'pagos/paquete/maternidad/:id', component:PagosMaternidadComponent },
+      { path: 'laboratorio/estudios/:id', component: PreciosMembresiaComponent },
+      { path: 'nuevo/laboratorio', component: NuevoLabComponent },
       { path: '', redirectTo: '/dashboard', pathMatch:'full' }
     ]
   }

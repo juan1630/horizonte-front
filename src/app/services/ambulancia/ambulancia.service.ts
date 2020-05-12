@@ -11,7 +11,7 @@ export class AmbulanciaService {
     constructor(
         public _http: HttpClient
     ){
-        this.url = "https://horizonte-1.herokuapp.com"
+        this.url = "https://horizonte-1.herokuapp.com";
     }
 
     getDestino(): Observable<any>{
