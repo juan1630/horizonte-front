@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WsLoginService } from 'src/app/services/sockets/login/ws-login.service';
 
 @Component({
   selector: 'app-page',
@@ -9,15 +10,19 @@ export class PageComponent implements OnInit {
   
   public usuario;
   
-  constructor() { }
+  constructor(
+    public wsLogin:WsLoginService
+  ) { }
 
   ngOnInit() {
     this.getRole()
+    this.wsLogin.mostarUsuario();
   }
 
   getRole(){
     this.usuario =  JSON.parse (localStorage.getItem('usuario'));
-    console.log(this.usuario);
+   
+    this.wsLogin.login( this.usuario );
   }
 
 }

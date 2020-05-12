@@ -31,12 +31,12 @@ export class CardComponent implements OnInit {
   }
 
   getModuleByRole(){
-    this.modulesService.getModules( this.usuario.role )
-    .subscribe( (modules:any)  => {
-      console.log( modules );
-      this.modules = modules.modulos;
+    this.modulesService.getModules( this.usuario._id )
+    .subscribe( (data:any)  => {
+      console.log( data );
+      this.modules = data.usuario;
     })
-    console.log( this.modules  )
+    console.log( this.modules  );
   }
 
 }

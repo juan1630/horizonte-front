@@ -1,106 +1,107 @@
 <div class="container-fluid">
 
-    <button class="btn btn-secondary mb-2" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        <i class="fas fa-folder-plus"></i> Agregar consulta
-    </button>
-    <div class="collapse mb-4" id="collapseExample">
-        <div class="card card-body">
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <td>
-                            <select class="form-control" #select (change)="seleccion($event, select.value)" [(ngModel)]="consultas.tipo">
-                                <option value="" selected>Tipo de consulta o examen...</option>
-                                <option value="1">Consultas prenatales por medicina general</option>
-                                <option value="2">Consultas prenatales por ginecologia y obstetrica</option>
-                                <option value="3">Estudios de Ultrasonido</option>
-                                <option value="4">Estudios de Laboratorio</option>
-                            </select>
-                        </td>
-                        <td>
-                            <select class="form-control" [(ngModel)]="consultas.consulta">
-                                <option value="" selected>Concepto...</option>
-                                <option [value]="item" *ngFor="let item of concepto">{{ item }}</option>
-                            </select>
-                        </td>
-                        <td>
-                            <select class="form-control" [(ngModel)]="consultas.medico">
-                                <option value="" selected>Medico...</option>
-                                <option [value]="medico.nombre" *ngFor="let medico of medicos">{{ medico.nombre }}</option>
-                            </select>
-                        </td>
-                        <td><input type="text" class="form-control" [(ngModel)]="consultas.firma" placeholder="Firma..."></td>
-                        <td>
-                            <button class="btn btn-warning" (click)="agregarConsulta()">Agregar</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+  <button class="btn btn-secondary mb-2" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      <i class="fas fa-folder-plus"></i> Agregar consulta
+  </button>
+  <div class="collapse mb-4" id="collapseExample">
+      <div class="card card-body">
+          <table class="table">
+              <tbody>
+                  <tr>
+                      <td>
+                          <select class="form-control" #select (change)="seleccion($event, select.value)" [(ngModel)]="consultas.tipo">
+                              <option value="" selected>Tipo de consulta o examen...</option>
+                              <option value="1">Consultas prenatales por medicina general</option>
+                              <option value="2">Consultas prenatales por ginecologia y obstetrica</option>
+                              <option value="3">Estudios de Ultrasonido</option>
+                              <option value="4">Estudios de Laboratorio</option>
+                          </select>
+                          <p class="text-danger" *ngIf="btnDisabled">*No puedes agregar más consultas</p>
+                      </td>
+                      <td>
+                          <select class="form-control" [(ngModel)]="consultas.consulta">
+                              <option value="" selected>Concepto...</option>
+                              <option [value]="item" *ngFor="let item of concepto">{{ item }}</option>
+                          </select>
+                      </td>
+                      <td>
+                          <select class="form-control" [(ngModel)]="consultas.medico">
+                              <option value="" selected>Medico...</option>
+                              <option [value]="medico.nombre" *ngFor="let medico of medicos">{{ medico.nombre }}</option>
+                          </select>
+                      </td>
+                      <td><input type="text" class="form-control" [(ngModel)]="consultas.firma" placeholder="Firma..."></td>
+                      <td>
+                          <button class="btn btn-warning" (click)="agregarConsulta()" [disabled]="btnDisabled">Agregar</button>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
 
-    <!--Nueva Tabla para la informacion-->
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Concepto</th>
-            <th scope="col">Fecha</th>
-            <th scope="col">Medico o Servicio que lo realizo</th>
-            <th scope="col">Firma de realizado</th>
+  <!--Nueva Tabla para la informacion-->
+  <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Concepto</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Medico o Servicio que lo realizo</th>
+          <th scope="col">Firma de realizado</th>
+        </tr>
+      </thead>
+      <thead>
+          <tr class="table-success">
+            <th colspan="4">Consultas prenatales por Medicina General</th>
           </tr>
-        </thead>
-        <thead>
-            <tr class="table-success">
-              <th colspan="4">Consultas prenatales por Medicina General</th>
-            </tr>
-        </thead>
-        <tbody *ngFor="let item of medicinaGen">
+      </thead>
+      <tbody *ngFor="let item of medicinaGen; let i = index">
+        <tr>
+          <td>{{ i + 1 }} - {{ item.consulta }}</td>
+          <td>{{ item.fecha}}</td>
+          <td>{{ item.medico }}</td>
+          <td>{{ item.firma }}</td>
+        </tr>
+      </tbody>
+      <thead>
+          <tr class="table-primary">
+            <th colspan="4">Consultas prenatales por ginecologia y obstetricia</th>
+          </tr>
+      </thead>
+      <tbody *ngFor="let item of prenatalGinecologia; let i = index">
           <tr>
-            <td>{{ item.consulta }}</td>
-            <td>{{ item.fecha | date:'medium' }}</td>
+            <td>{{ i + 1 }} - {{ item.consulta }}</td>
+            <td>{{ item.fecha  }}</td>
             <td>{{ item.medico }}</td>
             <td>{{ item.firma }}</td>
           </tr>
-        </tbody>
-        <thead>
-            <tr class="table-primary">
-              <th colspan="4">Consultas prenatales por ginecologia y obstetricia</th>
-            </tr>
-        </thead>
-        <tbody *ngFor="let item of prenatalGinecologia">
-            <tr>
-              <td>{{ item.consulta }}</td>
-              <td>{{ item.fecha | date:'medium' }}</td>
-              <td>{{ item.medico }}</td>
-              <td>{{ item.firma }}</td>
-            </tr>
-        </tbody>
-        <thead>
-            <tr class="table-info">
-              <th colspan="4">Estudios de ultrasonido</th>
-            </tr>
-        </thead>
-        <tbody *ngFor="let item of ultrasonido">
-            <tr>
-              <td>{{ item.consulta }}</td>
-              <td>{{ item.fecha | date:'medium' }}</td>
-              <td>{{ item.medico }}</td>
-              <td>{{ item.firma }}</td>
-            </tr>
-        </tbody>
-        <thead>
-            <tr class="table-warning">
-              <th colspan="4">Estudios de laboratorio</th>
-            </tr>
-        </thead>
-        <tbody *ngFor="let item of laboratorio">
-            <tr>
-              <td>{{ item.consulta }}</td>
-              <td>{{ item.fecha | date:'medium' }}</td>
-              <td>{{ item.medico }}</td>
-              <td>{{ item.firma }}</td>
-            </tr>
-        </tbody>
-    </table>
-    
+      </tbody>
+      <thead>
+          <tr class="table-info">
+            <th colspan="4">Estudios de ultrasonido</th>
+          </tr>
+      </thead>
+      <tbody *ngFor="let item of ultrasonido; let i = index">
+          <tr>
+            <td>{{ i + 1 }} - {{ item.consulta }}</td>
+            <td>{{ item.fecha  }}</td>
+            <td>{{ item.medico }}</td>
+            <td>{{ item.firma }}</td>
+          </tr>
+      </tbody>
+      <thead>
+          <tr class="table-warning">
+            <th colspan="4">Estudios de laboratorio</th>
+          </tr>
+      </thead>
+      <tbody *ngFor="let item of laboratorio; let i = index">
+          <tr>
+            <td>{{ i + 1 }} - {{ item.consulta }}</td>
+            <td>{{ item.fecha }}</td>
+            <td>{{ item.medico }}</td>
+            <td>{{ item.firma }}</td>
+          </tr>
+      </tbody>
+  </table>
+  
 </div>

@@ -8,6 +8,7 @@ export class ModalServicioIntService {
   public ocultar: string = 'oculto';
   public pacientePaquete: any;
   public idUser: string = '';
+  public paqueteVisitas:string;
    
   constructor() { }
 
@@ -18,6 +19,7 @@ export class ModalServicioIntService {
     this.ocultar = '';
     this.idUser = paciente._id;
     this.pacientePaquete = paciente.paquetes;
+    this.paqueteVisitas = paciente.paquetesVisitas;
     console.log( 'Paquetes', this.pacientePaquete);
 
   }

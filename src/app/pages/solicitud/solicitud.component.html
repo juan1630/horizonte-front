@@ -5,7 +5,9 @@
 <h3  class="center"> HOJA DE SOLICITUD  </h3>
 
 <form class="formulario" class="container"  #f="ngForm" (ngSubmit)="enviar( f )"  >
+
 <div class="row" >    
+
     <div class="offset-md-5" ></div>
     <div class="col-md-3">
         <div class="form-group" >
@@ -285,10 +287,10 @@
         </div>
         <!-- <div class="col-md-3" >
             <div  class="form-group" >  
-                <textarea  rows="3" cols="25"></textarea>
+                <a class="btn btn-outline-primary" href="../../../assets/pages/contrato/contrato_maternidad.html" target="_blank" > <i class="fas fa-file-pdf"></i> Ver contrato  </a>
             </div>
-        </div> -->
-        
+        </div>
+         -->
     </div>
 
     <div class="row">
@@ -298,7 +300,7 @@
         <div class="col-md-3">
             <div class="input-group-prepend">
             
-                <input type="text" class="form-control input-paquete" name="anticipo" ngModel  >
+                <input disabled type="text" class="form-control input-paquete" name="anticipo" [value]="anticipo"  >
                
             </div>
         </div>

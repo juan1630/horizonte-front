@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { APP_ROUTES } from './app.routes';
 
-
 import { AppComponent } from './app.component';
 
 import { ComponentsModule } from './components/components.module';
@@ -12,12 +11,17 @@ import { LoginModule } from './login/login/login.module';
 import { PageModule } from './pages/page.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ServicesModule } from './services/services.module';
-import { FilterPipe } from './pages/servivicosInt/pipes/filter.pipe';
+
+// // SOCKET 
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { environment } from 'src/environments/environment';
+
+
+const config: SocketIoConfig = { url: environment.swUrl , options: {} };
 
 @NgModule({
   declarations: [
-    AppComponent,
-    // FilterPipe,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -28,10 +32,11 @@ import { FilterPipe } from './pages/servivicosInt/pipes/filter.pipe';
     FormsModule,
     ServicesModule,
     ReactiveFormsModule,
-    APP_ROUTES,
+    SocketIoModule.forRoot(config),
+    APP_ROUTES
   ],
-  exports: [ 
-    FilterPipe 
+  exports: [
+
   ],
   providers: [],
   bootstrap: [AppComponent]

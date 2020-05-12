@@ -10,6 +10,7 @@ import { MaternidadService } from 'src/app/services/tabulador/maternidad.service
 export class PagosMaternidadComponent implements OnInit {
   public semanasDeGestacion: string;
   public pagos:any[] = [];
+  public pagosTabla:any[]=[];
 
   constructor(
         public maternidadService: MaternidadService
@@ -19,17 +20,20 @@ export class PagosMaternidadComponent implements OnInit {
   ngOnInit(): void {
     
 
-    swal({
-      title: "¿Apartir de que semana de gestación comienza ?",
-      content: "input",
-    })
-    .then( value => {
-      if( value > 39 ){
-        swal("error", 'Semana no valida')
-        return;
-      }
-      this.getSemanasDepagos(  value );
-    } );
+    // swal({
+    //   title: "¿Apartir de que semana de gestación comienza ?",
+    //   content: "input",
+    // })
+    // .then( value => {
+    //   if( value > 39 ){
+    //     swal("error", 'Semana no valida')
+    //     return;
+    //   }
+    //   this.getSemanasDepagos(  value );
+    // } );
+
+
+    
   }
 
   getSemanasDepagos(semana){
@@ -37,6 +41,14 @@ export class PagosMaternidadComponent implements OnInit {
       .subscribe( (pago) => {
             this.pagos = pago;
       } );
-  }
+ 
+}
 
+  verTabla(){
+    this.maternidadService.getTabulador()
+    .subscribe( (data: any) => {
+      console.log( data);
+        this.pagosTabla = data.pagos;
+    });
+  }
 }

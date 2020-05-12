@@ -39,7 +39,9 @@
               </li>
              </ul> 
           
-             <a [routerLink]="['/paqueteMaternidad']" routerLinkActive="router-link-active"  > Ver consultas  </a>
+             <a [routerLink]="['/paqueteMaternidad', _modalServicioIntService.paqueteVisitas]" routerLinkActive="router-link-active"  > Ver consultas  </a>
+             <br>
+             <a [routerLink]="['/pagos/paquete/maternidad/', _modalServicioIntService.paqueteVisitas]" routerLinkActive="router-link-active"  > Realizar Pago  </a>
             </div>
   
   

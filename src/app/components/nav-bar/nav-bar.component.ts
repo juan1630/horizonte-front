@@ -16,6 +16,8 @@ export class NavBarComponent implements OnInit {
     public router: Router
   ) { }
 
+
+  
   ngOnInit(): void {
 
   }

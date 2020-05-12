@@ -20,12 +20,13 @@ export class LoginComponent implements OnInit {
    ) { }
 
   ngOnInit(): void {
+
   }
 
 
   ingresar( forma: NgForm ) {
 
-    console.log( forma )
+    // console.log( forma )
     this._loginService.logout();
 
     if( forma.invalid ){
@@ -36,7 +37,12 @@ export class LoginComponent implements OnInit {
     let personal = new Personal( forma.value.nombre, forma.value.password );
 
     this._loginService.login( personal )
-    .subscribe( (correcto: any)=>   this.router.navigate(['/dashboard']) );
+    .subscribe( (correcto: any)=> {
+ 
+      this.router.navigate(['/dashboard'])
+
+
+    }) 
 
   }
 

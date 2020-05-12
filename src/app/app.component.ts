@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { WsLoginService } from './services/sockets/login/ws-login.service';
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'horizonte-front';
+
+  constructor(
+    public wsLogin: WsLoginService
+  ){
+
+  }
 }

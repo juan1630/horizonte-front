@@ -8,6 +8,7 @@ import { PaqueteService } from 'src/app/services/paquete/paquete.service';
   styleUrls: ['./card-paquetes.component.scss']
 })
 export class CardPaquetesComponent implements OnInit {
+  
   public paquetes:any[] = [];
 
   constructor(

@@ -32,12 +32,19 @@ import { PaqueteMaternidadComponent } from './paquete-maternidad/paquete-materni
 import { SolicitudComponent } from './solicitud/solicitud.component';
 import { PagosMaternidadComponent } from './pagos/pagos-maternidad/pagos-maternidad.component';
 import { HojaFramComponent } from './servivicosInt/hoja-fram/hoja-fram.component';
-import { XrayNewComponent } from './servivicosInt/vistas/xray-new/xray-new.component';
+import { MaternidadComponent } from './contrato/maternidad/maternidad.component';
+import { PerfilesComponent } from './servivicosInt/laboratorio/perfiles/perfiles.component';
+import { TabuladorPagosComponent } from './pagosMaternidad/tabulador-pagos/tabulador-pagos.component';
+import { EstudiosComponent } from './servivicosInt/laboratorio/estudios/estudios.component';
+import { PendientesComponent } from './servivicosInt/laboratorio/pendientes/pendientes.component';
+import { ContratacionComponent } from './servivicosInt/laboratorio/contratacion/contratacion.component';
 import { XrayEditComponent } from './servivicosInt/vistas/xray-edit/xray-edit.component';
-import { OtrosNewComponent } from './servivicosInt/vistas/otros-new/otros-new.component';
+import { XrayNewComponent } from './servivicosInt/vistas/xray-new/xray-new.component';
 import { OtrosEditComponent } from './servivicosInt/vistas/otros-edit/otros-edit.component';
+import { OtrosNewComponent } from './servivicosInt/vistas/otros-new/otros-new.component';
 
 
+const newLocal = 'ambulancia-editar/:id';
 // rutas hijas del dashboard
 // LoginGuardGuard
 const pagesRoutes : Routes = [
@@ -49,7 +56,7 @@ const pagesRoutes : Routes = [
       // aca se iran agregando las rutas para el dashboard
       { path: 'paciente', component: PacienteComponent },
       { path: 'consultar/paquetes', component:PaquetesComponent },
-      { path: 'paqueteMaternidad', component: PaqueteMaternidadComponent },
+      { path: 'paqueteMaternidad/:id', component: PaqueteMaternidadComponent },
       { path:'serviciosInt', component: ServiciosIntComponent  },
       {path: 'ambulancia', component: AmbulanciaSIComponent},
       { path: 'hoja-fram', component: HojaFramComponent},

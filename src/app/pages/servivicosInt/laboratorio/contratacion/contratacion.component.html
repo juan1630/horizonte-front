@@ -1,0 +1,1066 @@
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <h2> SOLICITUD DE ESTUDIOS DE LABORATORIO. </h2>
+        </div>
+    </div>
+    
+    <form class="mt-3 ml-3" #laboratorio="ngForm" (ngSubmit)="onSubmit( laboratorio.value )"  >
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="nombrePaciente"> NOMBRE DEL PACIENTE: </label>
+                    <input type="text" ngModel placeholder="Nombre del paciente" id="nombrePaciente" name="nombrePaciente" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label for="sexo"> SELECCIONA EL SEXO: </label>
+                <select name="sexo" id="sexo"  class="form-control" >
+                   
+                   <option selected  value="Hombre"> Hombre </option>
+                   <option value="Mujer"> Mujer </option>
+               </select>
+            </div>
+    
+            <div class="col-md-3">
+                <label for="edadPaciente"> EDAD:</label>
+                <input type="number" ngModel class="form-control" name="edadPaciente" id="edadPaciente" placeholder="Edad">
+            </div>
+    
+            <div class="col-md-2">
+                <p> FECHA:  </p>
+                <p> {{fecha}} </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-11">
+                <div class="form-group">
+                    <label for="doctor">DR.</label>
+                    <input type="text" ngModel class="form-control" name="doctor" id="doctor" placeholder="Doctor">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label for="diagnostico"> Diagnostico: </label>
+                    <input type="text"  ngModel name="diagnostico" id="diagnostico" class="form-control" placeholder="Diagnostico">
+                </div>
+            </div>
+            <div class="col-md-5 offset-md-1">
+                <div class="form-group">
+                    <label for="tratamiento"> Tratamiento: </label>
+                    <input type="text" ngModel name="tratamiento" id="tratamiento" class="form-control" placeholder="Diagnostico">
+                </div>
+            </div>
+        </div>
+           
+        <div class="row">
+            <div class="col-md-3 offset-md-1">
+                <div class="form-group">
+                    <label for="tipo"> TIPO: </label>
+                    <div class="form-check">
+    
+                    </div>
+                    <input type="radio" id="tipo" value="ordinario">
+                    <label for="ordinario"> Ordinario </label>
+                    <div class="form-check">
+    
+                    </div>
+                    <input type="radio" id="tipo" value="Urgente">
+                    <label for="urgente"> Urgente </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="accordion" id="accordionExample">
+                    <div class="card">
+                      <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#hematologia" aria-expanded="true" aria-controls="hematologia">
+                            HEMATOLOGIA
+                          </button>
+                        </h2>
+                      </div>
+                  
+                      <div id="hematologia" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <div class="col-m-3">
+                                <h4  class="center" > HEMATOLOGIA </h4>
+
+
+
+                                <div class="form-check">
+                                    <input type="radio" name="biometriaHematica" id="biometriaHematica" ngModel value="biometriaHematica">
+                                <label for="biometriaHematica"> BIOMTERÍA HEMATICA </label>
+
+                                </div>
+                                
+                                <div class="form-check">
+                    
+                                    <input type="radio" name="formulaBlanca" id="formulaBlanca" ngModel value="formulaBlanca">
+                                    <label for="formulaBlanca"> FORMULA BLANCA </label>
+                                    <div class="form-check">
+                                </div>
+                    
+                                    <input type="radio" name="formulaRoja" id="formulaRoja" ngModel value="formulaRoja">
+                                    <label for="formulaRoja"> FORMULA ROJA </label>
+                                    <div class="form-check">
+                                </div>
+                    
+                                    <input type="radio" name="sedimentacioGlobular" ngModel id="sedimentacioGlobular" value="sedimentacioGlobular">
+                                    <label for="sedimentacioGlobular"> SEDIMENTACIÓN GLOBULAR </label>
+                                    <div class="form-check">
+                                </div>
+                    
+                                    <input type="radio" name="grupoSanguineoYRH" ngModel id="grupoSanguineoYRH" value="grupoSanguineoYRH">
+                                    <label for="grupoSanguineoYRH"> GRUPO SANGUINEO Y RH </label>
+                                    <div class="form-check">
+                                </div>
+                    
+                                    <input type="radio" name="reticulocitos" id="reticulocitos" ngModel value="reticulocitos">
+                                    <label for="reticulocitos"> RETICULOCITOS </label>
+                                    <div class="form-check">
+                                </div>
+                    
+                                    <input type="radio" name="plaquetas" id="plaquetas" ngModel value="plaquetas">
+                                    <label for="plaquetas"> PLAQUETAS </label>
+                                    <div class="form-check">
+                                </div>
+                    
+                                    <input type="radio" name="coombDirecto" id="coombDirecto" ngModel value="coombDirecto">
+                                    <label for="coombDirecto"> COOMBS DIRECTO </label>
+                                    <div class="form-check">
+                                </div>
+                    
+                                    <input type="radio" name="coombIndirecto" id="coombIndirecto" ngModel value="coombIndirecto">
+                                    <label for="coombIndirecto"> COOMBS INDIRECTO </label>
+                                </div>
+                    
+                                <div class="form-check">
+                    
+                                    <input type="radio" name="celulasLE" id="celulasLE" ngModel value="celulasLE">
+                                    <label for="celulasLE"> CELULAS L.E </label>
+                                </div>
+                    
+                                <div class="form-check">
+                                    <input type="radio" name="plasmodium" id="plasmodium" ngModel value="plasmodium">
+                                    <label for="plasmodium"> TIEMPO DE SANGRADO </label>
+                    
+                                </div>
+                    
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#quimicaEspecial" aria-expanded="false" aria-controls="quimicaEspecial">
+                            QUIMICA ESPECIAL
+                          </button>
+                        </h2>
+                      </div>
+                      <div id="quimicaEspecial" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                            
+                            
+                            <div class="form-check">
+                                <input type="radio" name="bilirrubinas" id="bilirrubinas" value="bilirrubinas" ngModel>
+                            <label for="bilirrubinas"> BILIRRUBINAS </label>
+
+                            </div>
+
+
+                            <div class="form-check">
+                                <input type="radio" name="tgp" id="tgp" value="tgp" ngModel>
+                            <label for="tgp"> T.G.P </label>
+
+                            </div>
+                            
+                            <div class="form-check">
+                                <input type="radio" name="tgo" id="tgo" value="tgo" ngModel>
+                            <label for="tgo"> T.G.O </label>
+
+                            </div>
+                            
+
+                            <div class="form-check">
+                                <input type="radio" name="fosfatasaAlcalina" id="fosfatasaAlcalina" value="fosfatasaAlcalina">
+                            <label for="fosfatasaAlcalina"> FOSFATASA ALCALINA </label>
+
+                            </div>
+                            
+                            <div class="form-check">
+                                <input type="radio" name="fosfatasaAcida" id="fosfatasaAcida" value="fosfatasaAcida" ngModel>
+                            <label for="fosfatasaAcida"> FOSFATASA ACIDA </label>
+
+                            </div>
+
+                            <div class="form-check">
+
+    <input type="radio" name="proteinasTotalesYRelacionAG" id="proteinasTotalesYRelacionA-G" value="proteinasTotalesYRelacionA-G" ngModel>
+                            <label for="proteinasTotalesYRelacionAG"> PROTEINAS TOTALES Y RELACIÓN A-G </label>
+
+                            </div>
+
+
+                            <div class="form-check">
+                                <input type="radio" name="fraccionProstatica" id="fraccionProstatica" value="fraccionProstatica" ngModel>
+                            <label for="fraccionProstatica"> FRACCIÓN PROSTÁTICA </label>
+
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" name="creatinFosfoQuinasa" id="creatinFosfoQuinasa" value="creatinFosfoQuinasa" ngModel>
+                                <label for="creatinFosfoQuinasa"> CREATINE FOSFOQUINASA CPK </label>
+                            </div>
+
+
+                            
+                            <div class="form-check">
+                                <input type="radio" name="deshidrogensaLactica" id="deshidrogensaLactica" value="deshidrogensaLactica" ngModel>
+                                <label for="deshidrogensaLactica"> DESHIDORGENSA LÁCTICA (D.H.L) </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" name="lipidosTotales" id="lipidosTotales" value="lipidosTotales" ngModel>
+                                <label for="lipidosTotales"> LIPIDOS TOTALES </label>
+                            </div>
+
+
+                            <div class="form-check">
+                                <input type="radio" name="amilasa" id="amilasa" value="amilasa" ngModel>
+                                <label for="amilasa"> AMILASA </label>
+                            </div>
+
+
+                            <div class="form-check">
+                                <input type="radio" name="lipasa" id="lipasa" value="lipasa" ngModel>
+                                <label for="lipasa"> LIPASA </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" name="gasometriaArterialOvenosa" id="gasometriaArterialOvenosa" value="gasometriaArterialOvenosa" ngModel>
+                                <label for="gasometriaArterialOvenosa"> GASOMETRÍA ARTERIAL O VENOSA </label>
+                            </div>
+
+
+                            <div class="form-check">
+                                <input type="radio" name="ck-mb" id="ck-mb" value="ck-mb">
+                                <label for="ck-mb"> CK-MB </label>
+                            </div>
+
+                               <div class="form-check">
+                                <input type="radio" name="troponina" id="troponina" value="troponina" ngModel>
+                                <label for="troponina"> TROPONINA </label>
+                            </div>
+
+
+
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card">
+                      <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#pefiles" aria-expanded="false" aria-controls="pefiles">
+                            PERFILES
+                          </button>
+                        </h2>
+                      </div>
+
+                      <div id="pefiles" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <div class="card-body">
+
+
+                            <div class="form-check">
+                                <input type="radio" name="tiroideo" id="tiroideo" value="tiroideo" ngModel>
+                                <label for="tiroideo"> TIROIDEO |  || </label>
+                            </div>
+
+
+                            <div class="form-check">
+                                <input type="radio" name="lipidos" id="lipidos" value="lipidos" ngModel>
+                                <label for="lipidos"> LIPIDOS </label>
+                            </div>
+                           
+                            
+                            <div class="form-check">
+                                <input type="radio" name="hepatico" id="hepatico" value="hepatico" ngModel>
+                                <label for="hepatico"> HEPÁTICO </label>
+                            </div>
+
+
+
+                            <div class="form-check">
+                                <input type="radio" name="reumatico" id="reumatico" value="reumatico" ngModel>
+                                <label for="reumatico"> REUMÁTICO </label>
+                            </div>
+
+
+                            <div class="form-check">
+                                <input type="radio" name="embarazo" id="embarazo" value="embarazo" ngModel>
+                                <label for="embarazo"> EMABRAZO 1 Y 2 </label>
+                            </div>
+
+
+                            <div class="form-check">
+                                <input type="radio" name="ginecologico" id="ginecologico" value="ginecologico" ngModel>
+                                <label for="ginecologico"> GINECOLÓGICO </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" name="torchIggIgm" id="torchIggIgm" value="torchIggIgm" ngModel>
+                                <label for="torchIggIgm"> TORCH IGG IGM </label>
+                            </div>
+
+
+                            <div class="form-check">
+                                <input type="radio" name="marcadoresTumolares" id="marcadoresTumolares" value="marcadoresTumolares" ngModel>
+                                <label for="marcadoresTumolares"> MARCADORES TUMOLARES </label>
+                            </div>
+
+
+                        </div>
+                      </div>
+
+
+
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                            <h2 class="mb-0">
+                              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#estudiosOrina" aria-expanded="false" aria-controls="estudiosOrina">
+                                ESTUDIOS DE ORINA
+                              </button>
+                            </h2>
+                          </div>
+
+                          <div id="estudiosOrina" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <div class="card-body">
+
+
+                                <div class="form-check">
+                                    <input type="radio" name="examenGeneralDeOrina" id="examenGeneralDeOrina" value="examenGeneralDeOrina" ngModel>
+                                    <label for="examenGeneralDeOrina"> EXAMEN GENERAL DE ORINA </label>
+                                </div>
+    
+                                <div class="form-check">
+                                    <input type="radio" name="pruebaDeEmbarazo" id="pruebaDeEmbarazo" value="pruebaDeEmbarazo" ngModel>
+                                    <label for="pruebaDeEmbarazo"> PRUEBA  DE EMBARAZO </label>
+                                </div>
+
+
+
+                                <div class="form-check">
+                                    <input type="radio" name="proteinasEnOrinaDe24hrs" id="proteinasEnOrinaDe24hrs" value="proteinasEnOrinaDe24hrs" ngModel>
+                                    <label for="proteinasEnOrinaDe24hrs"> PROTEINAS EN ORINA DE  24 HRS </label>
+                                </div>
+
+
+
+                                <div class="form-check">
+                                    <input type="radio" name="depuracionDeCreatinina" id="depuracionDeCreatinina" value="depuracionDeCreatinina" ngModel>
+                                    <label for="depuracionDeCreatinina"> DEPURACIÓN DE CREATININA (ORINA 24 HORAS) </label>
+                                </div>
+
+
+                                <div class="form-check">
+                                    <input type="radio" name="drogasDeAbuso" id="drogasDeAbuso" value="drogasDeAbuso" ngModel>
+                                    <label for="drogasDeAbuso"> DROGAS DE ABUSO (ANTIDOPING ) </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input type="radio" name="investigacioDEBaar" id="investigacioDEBaar" value="investigacioDEBaar" ngModel>
+                                    <label for="investigacioDEBaar"> IVESTIGACIÓN DE BAAR </label>
+                                </div>
+
+
+                                <div class="form-check">
+                                    <input type="radio" name="orina" id="orina" value="orina">
+                                    <label for="orina"> ORINA  </label>
+                                </div>
+
+
+                                <div class="form-check">
+                                    <input type="radio" name="esputo" id="esputo" value="esputo" ngModel>
+                                    <label for="esputo"> ESPUTO  </label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="muestras"> MUESTRAS: </label>
+                                    <input type="text" class="form-control" name="muestras" id="muestras" placeholder="muestras" ngModel>
+                                </div>
+
+                            </div>
+                          </div>
+                    </div>
+
+                  </div>
+            </div>
+            <div class="col-md-4">
+                <div class="accordion" id="accordionExample">
+                    <div class="card">
+                      <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#coagulacion" aria-expanded="true" aria-controls="coagulacion">
+                           COAGULACIÓN
+                          </button>
+                        </h2>
+                      </div>
+                  
+                      <div id="coagulacion" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            
+                 <div class="form-check">
+                    <input type="radio" name="tiempoDeSangrado" id="tiempoDeSangrado" value="tiempoDeSangrado"  ngModel>
+                    <label for="tiempoDeSangrado"> TIEMPO DE SANGRADO </label>
+                </div>
+                
+                
+                <div class="form-check">
+                    <input type="radio" name="tiempoDeCoagulacion" id="tiempoDeCoagulacion" value="tiempoDeCoagulacion" ngModel>
+                    <label for="tiempoDeCoagulacion"> TIEMPO DE COAGULACIÓN </label>
+    
+                </div>
+    
+                <div class="form check">
+                    <input type="radio" name="tiempoDeTrombina" id="tiempoDeTrombina" value="tiempoDeTrombina" ngModel>
+                    <label for="tiempoDeTrombina"> TIEMPO DE TROMBINA </label>
+    
+                </div>
+    
+                <div class="form-check">
+                    <input type="radio" name="tiempoDeProtombina" id="tiempoDeProtombina" value="tiempoDeProtombina" ngModel>
+                    <label for="tiempoDeProtombina"> TIEMPO DE PROTOMBINA (TP) </label>
+                    
+                </div>
+    
+                <div class="form-check">
+                    <input type="radio" name="tiempoDeTromboPlastina" id="tiempoDeTromboPlastina" value="tiempoDeTromboPlastina" ngModel>
+                    <label for="tiempoDeTromboPlastina"> TIEMPO DE TROMBOPLASTINA </label>
+    
+                </div>
+    
+    
+                <div class="form-check">
+                    
+                    <input type="radio" name="fibrinogeni" id="fibrinogeni" value="fibrinogeni" ngModel>
+                    <label for="fibrinogeni">FIBRÍNOGENO </label>
+                </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#hormonales" aria-expanded="false" aria-controls="hormonales">
+                           HORMONALES   
+                          </button>
+                        </h2>
+                      </div>
+                      <div id="hormonales" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+
+                            <div class="form-check">
+                                <input type="radio" name="estrogenos" id="estrogenos" value="estrogenos" ngModel>
+                                <label for="estrogenos"> ESTROGENOS </label>
+                            </div>
+
+                            
+                            <div class="form-check">
+                                <input type="radio" name="estradio" id="estradio" value="estradio" ngModel>
+                                <label for="estradio"> ESTRADIOL </label>
+                            </div>
+
+
+                            <div class="form-check">
+                                <input type="radio" name="cortisol" id="cortisol" value="cortisol" ngModel>
+                                <label for="cortisol"> CORTISOL </label>
+                            </div>
+                        
+                            <div class="form-check">
+                                <input type="radio" name="progesterona" id="progesterona" value="progesterona" ngModel>
+                                <label for="progesterona"> PROGESTERONA </label>
+                            </div>
+
+
+                            <div class="form-check">
+                                <input type="radio" name="prolactina" id="prolactina" value="prolactina" ngModel>
+                                <label for="prolactina"> PROLACTINA (PL) </label>
+                            </div>
+
+
+                            <div class="form-check">
+                                <input type="radio" name="testosterona" id="testosterona" value="testosterona" ngModel>
+                                <label for="testosterona"> TESTOSTERONA  </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" name="hormonaDeCrecimiento" id="hormonaDeCrecimiento" value="hormonaDeCrecimiento" ngModel>
+                                <label for="hormonaDeCrecimiento"> HORMONA DE CRECIMIENTO  </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" name="hormonaFoliculoEstimulante" id="hormonaFoliculoEstimulante" value="hormonaFoliculoEstimulante" ngModel>
+                                <label for="hormonaFoliculoEstimulante"> HORMONA FOLÍCULO ESTIMULANTE  </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" name="fraccionBeta" id="fraccionBeta" value="fraccionBeta" ngModel>
+                                <label for="fraccionBeta"> FRACCIÓN BETA </label>
+                            </div>
+                        
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card">
+                      <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#patalogia" aria-expanded="false" aria-controls="patalogia">
+                            PATOLOGÍAS
+                          </button>
+                        </h2>
+                      </div>
+                      <div id="patalogia" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <div class="card-body">
+                            
+
+                            <div class="form-check">
+                                <input type="radio" name="biopsias" id="biopsias" value="biopsias" ngModel>
+                                <label for="biopsias"> BIOPSIAS </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" name="piezasQuirurgicas" id="piezasQuirurgicas" value="piezasQuirurgicas" ngModel>
+                                <label for="piezasQuirurgicas"> PIEZAS QUIRÚRJICAS </label>
+                            </div>
+
+
+                            <div class="form-check">
+                                <input type="radio" name="papanicolaou" id="papanicolaou" value="papanicolaou" ngModel>
+                                <label for="papanicolaou"> PAPANICOLAOU (CITOLOGÍA VAGINAL) </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" name="citologiaNasal" id="citologiaNasal" value="citologiaNasal" ngModel>
+                                <label for="citologiaNasal"> CITILOGÍA NASAL (EOSINOFILO) </label>
+                            </div>
+
+
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                          <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#inmunologia" aria-expanded="false" aria-controls="inmunologia">
+
+                              INMUNOLOGÍA
+                           
+                           
+                           
+                            </button>
+                          </h2>
+                        </div>
+                        <div id="inmunologia" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                          <div class="card-body">
+
+                            <div class="form-check">
+                                <input type="radio" name="reaccioneFebriles" id="reaccioneFebriles" value="reaccioneFebriles">
+                                <label for="reaccioneFebriles"> REACCIONES FEBRILES </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" name="VDRL" id="VDRL" value="VDRL" ngModel>
+                                <label for="VDRL"> V.D.R.L </label>
+                            </div>
+
+
+                            <div class="form-check">
+                                <input type="radio" name="factorReumaticoLatex" id="factorReumaticoLatex" value="factorReumaticoLatex">
+                                <label for="factorReumaticoLatex"> FCATOR REUMATICO (LATEX) </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" name="proteinaCReactiva" id="proteinaCReactiva" value="proteinaCReactiva">
+                                <label for="proteinaCReactiva"> PROTEINA "C" REACTIVA (LATEX) </label>
+                            </div>
+
+
+                            <div class="form-check">
+                                <input type="radio" name="antiestreptolisinas" id="antiestreptolisinas" value="antiestreptolisinas" ngModel>
+                                <label for="antiestreptolisinas"> ANTIESTREPTOLISINAS </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" name="antiVIH" id="antiVIH" value="antiVIH" ngModel>
+                                <label for="antiVIH"> ANTI VIH </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" name="inmunoglobinas" id="inmunoglobinas" value="inmunoglobinas" ngModel>
+                                <label for="inmunoglobinas">  INMUNOGLOBINAS IgA IgG IgM IgE </label>
+                            </div>
+
+
+                            <div class="form-check">
+                                <input type="radio" name="antigenoProstatico" id="antigenoProstatico" value="antigenoProstatico" ngModel>
+                                <label for="antigenoProstatico"> ANTÍGENO PROSTÁTICO </label>
+                            </div>
+
+
+                            <div class="form-check">
+                                <input type="radio" name="prenupciales" id="prenupciales" value="prenupciales" ngModel>
+                                <label for="prenupciales"> PRENUPCIALES </label>
+                            </div>
+
+
+                            <div class="form-check">
+                                <input type="radio" name="pruebaDeEmbarazoSangre" id="pruebaDeEmbarazoSangre" value="pruebaDeEmbarazoSangre" ngModel>
+                                <label for="pruebaDeEmbarazoSangre"> PRUEBA DE EMBARAZO EN SANGRE </label>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+
+
+                  </div>
+            </div>
+
+
+
+
+            <div class="col-md-4">
+                <div class="accordion" id="accordionExample">
+                    <div class="card">
+                      <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#quimicaClinica" aria-expanded="true" aria-controls="quimicaClinica">
+                            QUIMICA CLINICA
+                          </button>
+                        </h2>
+                      </div>
+                  
+                      <div id="quimicaClinica" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <h4 class="center">
+                                QUIMICA CLÍNCIA
+                            </h4>
+
+
+                            <div class="form-check">
+            
+                                <input type="radio" name="quimicaSanguineaDeTresElementos" id="quimicaSanguineaDeTresElementos"  ngModelvalue="quimicaSanguineaDeTresElementos">
+                                <label for="quimicaSanguineaDeTresElementos">
+                                    QUIMICA SANGUINEA DE TRES ELEMENTOS    
+                                </label>
+                                
+                            </div>
+                    
+                            <div class="form-check">
+                                
+                                <input type="radio" name="quimicaSanguineaDeSeisElementos" id="quimicaSanguineaDeSeisElementos"  ngModelvalue="quimicaSanguineaDeSeisElementos">
+                                <label for="quimicaSanguineaDeSeisElementos">
+                                    QUIMICA SANGUINEA DE SEIS ELEMENTOS    
+                                </label>
+                            </div>
+                    
+                    
+                            <div class="form-check">
+                                
+                                <input type="radio" name="quimicaSanguineaDeVeinticieteElementos" id="quimicaSanguineaDeVeinticieteElementos" value="quimicaSanguineaDeVeinticieteElementos" ngModel>
+                                <label for="quimicaSanguineaDeVeinticieteElementos">
+                                    QUIMICA SANGUINEA DE 27 ELEMENTOS    
+                                </label>
+                            </div>
+                    
+                    
+                    
+                            <div class="form-check">
+                                
+                                <input type="radio" name="quimicaSanguineaDeTreintaYSieteElementos" id="quimicaSanguineaDeTreintaYSieteElementos" value="quimicaSanguineaDeTreintaYSieteElementos">
+                                <label for="quimicaSanguineaDeTreintaYSieteElementos">
+                                    QUIMICA SANGUINEA DE 37 ELEMENTOS    
+                                </label>
+                            </div>
+                    
+                            <div class="form-check">
+                                <input type="radio" name="glucosaPostPrandial" id="glucosaPostPrandial" value="glucosaPostPrandial" ngModel>
+                                <label for="glucosaPostPrandial">
+                                   GLUCOSA POST-PRANDIAL (2hrs).   
+                                </label>
+                    
+                            </div>
+                    
+                    
+                            <div class="form-check">
+                                <input type="radio" name="curvaDeToleranciaAlaGlucosa" id="curvaDeToleranciaAlaGlucosa" value="curvaDeToleranciaAlaGlucosa" ngModel>
+                                 <label for="curvaDeToleranciaAlaGlucosa">
+                                CURVA DE TOLERANCIA A LA GLUCOSA  
+                            </label>
+                    
+                            </div>
+                           
+                    
+                            <div class="form-check">
+                                <input type="radio" name="tamizDEGlucosaGestacional" id="tamizDEGlucosaGestacional" value="tamizDEGlucosaGestacional" ngModel>
+                                
+                                <label for="tamizDEGlucosaGestacional">
+                                   TAMIZ DE GLUCOSA GESTACIONAL
+                                </label>
+                            </div>
+                    
+                    
+                            <div class="form-check">
+                                <input type="radio" name="hemoglobinaGlucosilada" id="hemoglobinaGlucosilada" value="hemoglobinaGlucosilada" ngModel>
+                                <label for="hemoglobinaGlucosilada">HEMOGLOBINA GLUCOSILADA</label>
+                    
+                            </div>
+                    
+                    
+                            <div class="form-check">
+                                <input type="radio" name="glucosa" id="glucosa" value="glucosa" ngModel>
+                                <label for="glucosa">
+                                    GLUCOSA
+                               </label>
+                    
+                            </div>
+                            
+                            <div class="form-check">
+                                <input type="radio" name="urea" id="urea" value="urea" ngModel>
+                                <label for="urea">
+                                     UREA
+                                </label>
+                    
+                            </div>
+                    
+                            <div class="form-check">
+                                <input type="radio" name="creatinina" id="creatinina" value="creatinina" ngModel>
+                                <label for="creatinina">
+                                    CREATININA
+                               </label>
+                    
+                            </div>
+                            
+                            <div class="form-check">
+                                <input type="radio" name="acidoUrico" id="acidoUrico" value="acidoUrico" ngModel>
+                                
+                                <label for="acidoUrico">
+                                    ACIDO ÚRICO
+                               </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" name="colesterolTotal" id="colesterolTotal" value="colesterolTotal" ngModel>
+                                <label for="colesterolTotal">
+                                    COLESTEROL TOTAL
+                               </label>
+                            </div>
+
+
+                            <div class="form-check">
+                                <input type="radio" name="trigliceridos" id="trigliceridos" value="trigliceridos" ngModel>
+                                <label for="trigliceridos">
+                                    TRIGLICERIDOS
+                               </label>
+                            </div>
+
+
+                            <div class="form-check">
+                                <input type="radio" name="colesterolAltaDensidadHDL" id="colesterolAltaDensidadHDL" value="colesterolAltaDensidadHDL" ngModel>
+
+                                <label for="colesterolAltaDensidadHDL">
+                                    COLESTEROL ALTA DENSIDAD HDL
+                               </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" name="colesterolBajaDensidadHDL" id="colesterolBajaDensidadHDL" value="colesterolBajaDensidadHDL" ngModel>
+                                <label for="colesterolBajaDensidadHDL">
+                                    COLESTEROL BAJA DENSIDAD LDL
+                               </label>
+                            </div>
+
+
+                            <div class="form-check">
+                                <input type="radio" name="colesterolMuyBajaDensidadHDL" id="colesterolMuyBajaDensidadHDL" value="colesterolMuyBajaDensidadHDL" ngModel>
+                                <label for="colesterolMuyBajaDensidadHDL" >
+                                    COLESTEROL BAJA DENSIDAD LDL
+                               </label>
+                            </div>
+
+                    
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#electrolitos" aria-expanded="false" aria-controls="electrolitos">
+                            ELECTROLITOS
+                          </button>
+                        </h2>
+                      </div>
+                      <div id="electrolitos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                            
+                            <div class="form-check">
+                                <input type="radio" name="sodioCloroPotasio" id="sodioCloroPotasio" value="sodioCloroPotasio" ngModel>
+                                <label for="sodioCloroPotasio">
+                                    FOSFORO CALCIO MG
+                               </label>
+                            </div>
+
+
+                            <div class="form-check">
+                                <input type="radio" name="fosforoCalcioMG" id="fosforoCalcioMG" value="fosforoCalcioMG" ngModel>
+                                <label for="fosforoCalcioMG">
+                                    FOSFORO CALCIO MG
+                               </label>
+                            </div>
+
+
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card">
+                      <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#bacteriologia" aria-expanded="false" aria-controls="bacteriologia">
+                            BACTERIOLOGÍA
+                          </button>
+                        </h2>
+                      </div>
+
+                      <div id="bacteriologia" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <div class="card-body">
+                            
+                            
+                            <div class="form-check">
+                                <input type="radio" name="exudadoFaringwo" id="exudadoFaringeo" value="exudadoFaringeo" ngModel>
+                                <label for="exudadoFaringeo">
+                                    EXUDADO FARINGEO
+                               </label>
+                            </div>
+
+                            <div class="form-check">
+
+                                <input type="radio" name="cervicoVaginal" id="cervicoVaginal" value="cervicoVaginal" ngModel>
+                                <label for="cervicoVaginal">
+                                    CÉRVICO-VAGINAL
+                               </label>
+                            </div>
+
+
+                            <div class="form-check">
+                                <input type="radio" name="uroCultivo" id="uroCultivo" value="uroCultivo" ngModel>
+                                <label for="uroCultivo">
+                                    URO CULTIVO
+                               </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" name="nasal" id="nasal" value="nasal" ngModel>
+                                <label for="nasal">
+                                    NASAL
+                               </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" name="uretral" id="uretral" value="uretral" ngModel>
+                                <label for="uretral">
+                                    URETRAL
+                               </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" name="hongos" id="hongos" value="hongos" ngModel>
+                                <label for="hongos">
+                                    HONGOS
+                               </label>
+                            </div>
+
+
+                            <div class="form-check">
+                                <input type="radio" name="expectoracion" id="expectoracion" value="expectoracion" ngModel>
+                                <label for="expectoracion">
+                                    EXPECTORACIÓN
+                               </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" name="LCR" id="LCR" value="LCR" ngModel>
+                                <label for="LCR">
+                                    L.C.R.
+                               </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" name="hemocultivo" id="hemocultivo" value="hemocultivo" ngModel>
+                                <label for="hemocultivo">
+                                    HEMOCULTIVO
+                               </label>
+                            </div>
+
+
+                            <div class="form-check">
+                                <input type="radio" name="cultivoDeBaar" id="cultivoDeBaar" value="cultivoDeBaar" ngModel>
+                                <label for="cultivoDeBaar">
+                                    CULTIVO DE BAAR
+                               </label>
+                            </div>
+
+                            <div class="form-check">
+                               <p> Preguntar esto </p> 
+                                <input type="radio" name="otroCultivo" id="otroCultivo" value="otroCultivo" ngModel>
+                                <label for="otroCultivo">
+                                    OTRO
+                               </label>
+                            </div>
+
+                        </div>
+                      </div>
+                    </div>
+
+
+                    
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                          <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#parasitologia" aria-expanded="false" aria-controls="parasitologia">
+                              PARASITOLOGÍA
+                            </button>
+                          </h2>
+                        </div>
+  
+                        <div id="parasitologia" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                          <div class="card-body">
+                           
+
+                            <div class="form-check">
+                                <input type="radio" name="coproParasitoscopio" id="coproParasitoscopio" value="coproParasitoscopio" ngModel>
+                                <label for="coproParasitoscopio">
+                                    COPROPARASITOSCIPIO
+                               </label>
+                               <input type="number" class="form-control"  min="0" name="coproParasitoscopioNumeroMuestra" id="coproParasitoscopioNumeroMuestra" placeholder="NÚMERO DE MUESTRAS"  ngModel >
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" name="generalDeHeces" id="generalDeHeces" value="generalDeHeces" ngModel>
+                                <label for="generalDeHeces">
+                                    GENERAL DE HECES
+                               </label>
+                            </div>
+
+
+                            <div class="form-check">
+                                <input type="radio" name="amibaDeFresco" id="amibaDeFresco" value="amibaDeFresco" ngModel>
+                                <label for="amibaDeFresco">
+                                    AMIBA DE FRESCO
+                               </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" name="raspadoPeriAnal" id="raspadoPeriAnal" value="raspadoPeriAnal" ngModel>
+                                <label for="raspadoPeriAnal">
+                                    RASPADO PERIANAL
+                               </label>
+                            </div>
+
+
+
+                            <div class="form-check">
+                                <input type="radio" name="azucaresReductores" id="azucaresReductores" value="azucaresReductores" ngModel>
+                                <label for="azucaresReductores">
+                                    AZUCARES REDUCTORES
+                               </label>
+                            </div>
+
+
+                            <div class="form-check">
+                                <input type="radio" name="citologiaDeMocoFecal" id="citologiaDeMocoFecal" value="citologiaDeMocoFecal" ngModel>
+                                <label for="citologiaDeMocoFecal">
+                                    CITOLOGÍA DE MOCO FECAL
+                               </label>
+                            </div>
+
+
+                            <div class="form-check">
+                                <input type="radio" name="sangreOcultaEnHeces" id="sangreOcultaEnHeces" value="sangreOcultaEnHeces" ngModel>
+                                <label for="sangreOcultaEnHeces">
+                                    SANGRE OCULTA EN HECES   
+                               </label>
+                            </div>
+
+
+                          </div>
+                        </div>
+                      </div>
+                      
+                      
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                          <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#varios" aria-expanded="false" aria-controls="varios">
+                              VARIOS
+                            </button>
+                          </h2>
+                        </div>
+  
+                        <div id="varios" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                          <div class="card-body">
+                            
+                            
+                            <div class="form-check">
+                                <input type="radio" name="espermatobioscopia" id="espermatobioscopia" value="espermatobioscopia" ngModel>
+                                <label for="espermatobioscopia">
+                                    ESPERMATOBIOSCOPIA DIR IND  
+                               </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input type="radio" name="pruebaRapiadaDeDengueOzika" id="pruebaRapiadaDeDengueOzika" value="pruebaRapiadaDeDengueOzika" ngModel>
+                                <label for="pruebaRapiadaDeDengueOzika">
+                                    PRUEBA RÁPIDA DE DENGUE O ZIKA  
+                               </label>
+                            </div>
+
+
+                            <div class="form-check">
+                                <input type="radio" name="citologicoOcitoquimicoDeLiquido" id="citologicoOcitoquimicoDeLiquido" value="citologicoOcitoquimicoDeLiquido" ngModel>
+                                <label for="citologicoOcitoquimicoDeLiquido">
+                                    CITOLÓGICO Y CITOQUIMICO DE LIQUIDO  
+                               </label>
+                            </div>
+
+
+                            </div>
+                        </div>
+             
+                    </div>  
+                  
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-md-6">
+                <button type="button" class="btn btn-block btn-danger" > REGRESAR </button>
+            </div>
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-success btn-block" > ENVIAR </button>
+            </div>
+        </div>
+
+    </form>

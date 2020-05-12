@@ -16,7 +16,9 @@
         <form #f="ngForm" (ngSubmit)="ingreso( f )" >
         <div class="form-group">
           <input type="text" name="buscarPaciente" ngModel placeholder="Buscar paciente"  (keyup)="ingreso( f )" class="form-control search-paciente">
-          <input type="submit" value="Buscar..." class="btn btn-info">
+          <button  type="submit"  class="btn btn-primary" > 
+            <i class="fas fa-search"></i>  
+          </button>
         </div>
         </form>
       </div>
