@@ -27,9 +27,8 @@ export class TabuladorPagosComponent implements OnInit {
     atendio: '' ,
     fecha:''
   }
-
-
  
+
   constructor(
           private route: ActivatedRoute,
           private maternidadSevice: MaternidadService
@@ -47,8 +46,9 @@ export class TabuladorPagosComponent implements OnInit {
     
     this.maternidadSevice.verPagos( this.id )
     .subscribe( (data:any) => {
-        console.log( data );
-        
+
+      this.acumulado = 0;
+         
         this.pagosDB = data.data.pagos;
         this.anticipo = data.data.aticipo;
 
@@ -63,12 +63,14 @@ export class TabuladorPagosComponent implements OnInit {
           this.acumulado += parseFloat(pagos.cantidad);
 
 
+          if( this.acumulado === 13500 ){
+            return;
+          }
+
         } );
         
         console.log(  this.acumulado );
-
-
-    })
+    });
   }
 
 
@@ -78,19 +80,28 @@ export class TabuladorPagosComponent implements OnInit {
     this.pago.atendio = this.usuarioMaquina.nombre;
     this.pago.fecha = moment().format('MMMM Do YYYY, h:mm:ss a')
 
-    // console.log( this.pago );
+    console.log( pagosForm )
+
+    if(  this.pago.cantidad === null || this.pago.cantidad == undefined || this.pago.cantidad === '' ||  parseFloat( this.pago.cantidad )   < 0 ){
+      alert('Pago no valido, ingresa un monto valido');
+      this.pago.cantidad = '';
+      return
+    }
+
+    if( this.pago.concepto.length < 5 ){
+      alert('Ingresa un concepto valido');
+      return;
+    }
      
     this.maternidadSevice.addPago( this.pago, this.id )
     .subscribe( (data) => {
-     
-      console.log(data);
       
       if(data.ok){
         swal('Pago agregado', 'succcess', 'succcess');
         this.verPagos();
-        this.pago.atendio = '';
         this.pago.cantidad = '';
         this.pago.concepto = '';
+        pagosForm.reset();
         return;
       }
 

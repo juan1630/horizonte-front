@@ -16,4 +16,11 @@ export class LaboratorioService {
     }
 
 
+    verPedido(){
+      this.socket.on('nuevoPedido', (data) => {
+        console.log(data);
+      } );
+    }
+
+
 }

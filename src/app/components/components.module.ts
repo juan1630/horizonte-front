@@ -20,6 +20,7 @@ import { FiscalesComponent } from './fiscales/fiscales.component';
 import { CardPaquetesComponent } from './card-paquetes/card-paquetes.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { ModalComponent } from './modal/modal.component';
+import { TarjetaCotizacionComponent } from './cotizacion/tarjeta-cotizacion/tarjeta-cotizacion.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { ModalComponent } from './modal/modal.component';
     SpinnerComponent,
     FiscalesComponent,
     CardPaquetesComponent,
+    TarjetaCotizacionComponent,
 ],
 schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   exports: [
@@ -45,6 +47,7 @@ schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
     CardPaquetesComponent,
     ModalComponent,
     ModalServiciosIntComponent,
+    TarjetaCotizacionComponent,
     SpinnerComponent
    ],
   imports: [

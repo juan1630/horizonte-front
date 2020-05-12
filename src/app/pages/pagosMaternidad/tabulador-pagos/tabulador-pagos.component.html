@@ -14,7 +14,7 @@
             <div class="form-group">
             
                 <label for="concepto"> Concepto del pago:  </label>
-                <input type="text" class="form-control"  name="concepto" [(ngModel)]="pago.concepto" id="concepto" placeholder="Concepto" >
+                <input type="text" class="form-control"  required name="concepto" [(ngModel)]="pago.concepto" id="concepto" placeholder="Concepto" >
             
             </div>
         </div>
@@ -23,7 +23,7 @@
             <div class="form-group">
             
                 <label for="cantidad"> Cantidad del  pago:  </label>
-                <input type="text" class="form-control"  name="cantidad" [(ngModel)]="pago.cantidad" placeholder="Cantidad" id="cantidad" >
+                <input type="number" min="0" class="form-control" required  name="cantidad" [(ngModel)]="pago.cantidad" placeholder="Cantidad" id="cantidad" >
             
             </div>
         </div>
@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="col-m-2 mt-3">
-            <button type="submit" class="btn btn-info" >
+            <button type="submit" class="btn btn-info"   [disabled]="acumulado >= 13500"  >
             <i class="fas fa-save"></i>
                 Guardar pago
             </button>
@@ -66,7 +66,7 @@
         <div class="form-group">
             
             <label for="cantidad"> Cantidad del pago:  </label>
-            <input type="number" min="0" max="15000" disabled class="form-control" [value]="pagos.cantidad"  name="cantidad" id="cantidad" placeholder="Cantidad" >
+            <input type="number" min="0"  disabled class="form-control" [value]="pagos.cantidad"  name="cantidad" id="cantidad" placeholder="Cantidad" >
         
         </div>
     </div>

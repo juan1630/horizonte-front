@@ -2,7 +2,7 @@ export class Paquetes {
     constructor(
         
         public nombrePaquete: string,
-        public costoTotal?: string,
+        public costoTotal: Number,
         public consultas?: string,
         public icon?:  string,
         public farmacia?: string,
@@ -10,9 +10,9 @@ export class Paquetes {
         public descuentos? : string,
         public extras?: string,
         public ultrasonidos?: string,
-        public examenesLaboratorio?: string,
-        public CitasIncluidas?: string,
-        public consultasGinecologia?: string  
+        public examenesLaboratorio?: string[],
+        public CitasIncluidas?: string[],
+        public consultasGinecologia?: Number  
         
         ) {
        

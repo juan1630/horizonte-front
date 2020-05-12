@@ -34,7 +34,7 @@ export class PaqueteService {
 
     let uri = `${URLDEV}/paquete/${id}`;
       return this._http.get( uri  )
-      .pipe(   map( (data:any) => data  ));
+      .pipe(   map( (data:any) => data.paquete  ));
   }
 
   getPacientePaquete( id: string ){

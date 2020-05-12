@@ -3,6 +3,7 @@ import { AmbulanciaService } from 'src/app/services/ambulancia/ambulancia.servic
 import swal from 'sweetalert';
 import { Router, ActivatedRoute, Params} from '@angular/router';
 
+import  { getDataStorage, getCarritoStorage, getTotal } from '../../../functions/storage/storage.funcion';
 
 
 @Component({
@@ -15,8 +16,10 @@ import { Router, ActivatedRoute, Params} from '@angular/router';
 export class AmbulanciaSIComponent implements OnInit {
 
   public ambulanciaSI: any [] = [];
-
-
+  public role: String;
+  public carrito: any[]=[];
+  public total: number = 0;
+ 
   constructor(
     private _ambulanciaService: AmbulanciaService,
     private _router: Router
@@ -37,6 +40,12 @@ export class AmbulanciaSIComponent implements OnInit {
         
     //   }
     // );
+    // console.log( 'Funcion' ,getDataStorage() );
+    this.role = getDataStorage().role;
+    this.carrito = getCarritoStorage();
+
+    this.total = getTotal();
+    
     this.verDatos();
   
   }

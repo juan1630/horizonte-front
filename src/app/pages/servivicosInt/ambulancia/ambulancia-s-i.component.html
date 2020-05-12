@@ -9,6 +9,9 @@
     <input type="text" name="filterPost" placeholder="Buscar..." [(ngModel)]="filterPost">
 </div>
 
+<div class="row">
+    <div class="col-md-9">
+
 <table class="table table-hover ">
     <thead class="thead-dark ">
 
@@ -37,15 +40,67 @@
                     
                     [routerLink]="['/ambulancia-editar', ambulanciaSiService._id]" routerLinkActive="router-link-active" -->
 
-                <button type="button " class="btn btn-outline-success separar" (click)="editarAmbulancia()" [routerLink]="['/ambulancia-editar', ambulanciaSiService._id]" routerLinkActive="router-link-active"><i class="far fa-edit"></i></button>
-                <button type="button " class="btn btn-outline-danger" (click)="delete(ambulanciaSiService._id)"><i class="fas fa-trash-alt "></i></button>
+        </td>
+        </tr>
+    </tbody>
+        
+        
+        </table>
+    </div>
+
+    <div class="col-md-3">
+        <!-- <app-tarjeta-cotizacion> </app-tarjeta-cotizacion> -->
+        <div class="fixed">
+            <div class="card border-dark mb-3" style="max-width: 18rem;">
+                <div class="card-header bg-transparent border-dark">
+                  <h5> COTIZACIÓN </h5> 
+                </div>
+                <div class="card-body text-dark">
+                  
+                    <h5 class="card-title"> Total sin membresia: $ {{total}}</h5>
+
+                    <h5 class="card-title"> Total con membresia: $ {{totalConMembresia}}</h5>
+                    <h5 class="card-title">Con membresia ahorras: $ {{ahorro}}</h5>
+
+                    <p *ngIf="total === 0" >
+                        Aún no tienes examenes
+                    </p>
+    
+                    <div class="pedidos" *ngIf="!urgenciaMembresia" >
+                        <p *ngFor="let pedido of carrito"> 
+
+                            <!-- ACA VAN LOS ITEMS DEL CARRITO -->
+                            {{ pedido.ESTUDIO }} - {{ pedido.PUBLICO }}
+
+                            <button type="button" (click)="eliminar( pedido._id )" class="btn btn-danger btn-block mt-2">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </p>
+                  </div>
+                
+                </div>
+    
+                <div class="card-footer bg-transparent border-success">
+                        
+                  <div class="pay" *ngIf="carrito">
+                    <button type="button" class="btn btn-success btn-block btn-card-footer ">
+                        Pagar
+                    </button>
+                    <button type="button" class="btn btn-primary btn-block mt-2 btn-card-footer">
+                        <i class="far fa-file-pdf"></i>
+                        Imprimir
+                    </button>
+                  </div>
+    
+                </div>
+                <!-- Card footer -->
+              </div>
+        </div>
+    
+    </div>
+</div>
 
                 <!-- (click)="eliminarAmbulancia()" -->
-            </td>
-
-        </tr>
-
-    </tbody>
 
     <!-- Modaaaaaaaaaaaal -->
     <!-- iNSERTAR ESTO EN EL BOTON DE EDITAR EN CASO DE USA EL MODAL

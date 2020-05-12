@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WsLoginService } from 'src/app/services/sockets/login/ws-login.service';
+import { LaboratorioService } from 'src/app/services/sockets/laboratorio/laboratorio.service';
 
 @Component({
   selector: 'app-page',
@@ -11,7 +12,8 @@ export class PageComponent implements OnInit {
   public usuario;
   
   constructor(
-    public wsLogin:WsLoginService
+    public wsLogin:WsLoginService,
+    private WSLaboratorio: LaboratorioService
   ) { }
 
   ngOnInit() {
@@ -23,6 +25,11 @@ export class PageComponent implements OnInit {
     this.usuario =  JSON.parse (localStorage.getItem('usuario'));
    
     this.wsLogin.login( this.usuario );
+    this.verPedido();
+  }
+
+  verPedido(){
+    this.WSLaboratorio.verPedido();
   }
 
 }

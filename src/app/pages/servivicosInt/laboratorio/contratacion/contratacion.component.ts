@@ -31,7 +31,6 @@ export class ContratacionComponent implements OnInit {
           this.laboratorioPedido.push(laboratorio[i]);
       }
 
-
     }
 
 

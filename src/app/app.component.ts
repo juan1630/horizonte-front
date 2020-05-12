@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { WsLoginService } from './services/sockets/login/ws-login.service';
+
+// import { WsLoginService } from './services/sockets/login/ws-login.service';
 
 
 @Component({
@@ -11,7 +12,7 @@ export class AppComponent {
   title = 'horizonte-front';
 
   constructor(
-    public wsLogin: WsLoginService
+    // public wsLogin: WsLoginService
   ){
 
   }
