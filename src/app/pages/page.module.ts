@@ -45,6 +45,13 @@ import { XrayNewComponent } from './servivicosInt/vistas/xray-new/xray-new.compo
 import { XrayEditComponent } from './servivicosInt/vistas/xray-edit/xray-edit.component';
 import { OtrosNewComponent } from './servivicosInt/vistas/otros-new/otros-new.component';
 import { OtrosEditComponent } from './servivicosInt/vistas/otros-edit/otros-edit.component';
+import { EndoscopiaNewComponent } from './servivicosInt/vistas/Endoscopia/endoscopia-new/endoscopia-new.component';
+import { EndoscopiaEditComponent } from './servivicosInt/vistas/Endoscopia/endoscopia-edit/endoscopia-edit.component';
+import { TomografiaNewComponent } from './servivicosInt/vistas/Tomografia/tomografia-new/tomografia-new.component';
+import { TomografiaEditComponent } from './servivicosInt/vistas/Tomografia/tomografia-edit/tomografia-edit.component';
+import { UltrasonidoEditComponent } from './servivicosInt/vistas/Ultrasonido/ultrasonido-edit/ultrasonido-edit.component';
+import { UltrasonidoNewComponent } from './servivicosInt/vistas/Ultrasonido/ultrasonido-new/ultrasonido-new.component';
+
 
 
 @NgModule({
@@ -74,7 +81,6 @@ import { OtrosEditComponent } from './servivicosInt/vistas/otros-edit/otros-edit
     OtrosSIComponent,
     PaqueteMaternidadComponent,
     AgendaComponent,
-<<<<<<< HEAD
     HojaFramComponent,
     AmbulanciaEditComponent,
     AmbulanciaNewComponent,
@@ -82,15 +88,19 @@ import { OtrosEditComponent } from './servivicosInt/vistas/otros-edit/otros-edit
     XrayNewComponent,
     XrayEditComponent,
     OtrosNewComponent,
-    OtrosEditComponent
+    OtrosEditComponent,
+    EndoscopiaNewComponent,
+    EndoscopiaEditComponent,
+    TomografiaNewComponent,
+    TomografiaEditComponent,
+    UltrasonidoEditComponent,
+    UltrasonidoNewComponent
   ],
   exports: [ 
     PageComponent,
-    FilterPipe
-=======
-    PagosMaternidadComponent,
+    FilterPipe,
+    // PagosMaternidadComponent,
     HojaFramComponent
->>>>>>> memo
   ],
   imports: [
     ComponentsModule,

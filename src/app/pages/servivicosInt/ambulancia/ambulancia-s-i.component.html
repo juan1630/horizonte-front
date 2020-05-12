@@ -11,6 +11,7 @@
 
 <table class="table table-hover ">
     <thead class="thead-dark ">
+
         <tr>
             <th scope="col ">Destino</th>
             <th scope="col ">Precio Día</th>
@@ -20,9 +21,13 @@
             <th scope="col ">Acciones</th>
 
         </tr>
+
     </thead>
+
     <tbody>
-        <tr *ngFor="let ambulanciaSiService of ambulanciaSI | filter:filterPost">
+
+        <tr *ngFor="let ambulanciaSiService of ambulanciaSI">
+            <!-- | filter:filterPost -->
             <td (click)="showAlert()" class="cursor"> {{ ambulanciaSiService.DESTINO }} </td>
             <td (click)="showAlert()" class="cursor"> $ {{ ambulanciaSiService.PRECIODIA }}</td>
             <td (click)="showAlert()" class="cursor"> $ {{ ambulanciaSiService.REDONDODIA }}</td>
@@ -38,7 +43,9 @@
 
                 <!-- (click)="eliminarAmbulancia()" -->
             </td>
+
         </tr>
+
     </tbody>
 
     <!-- Modaaaaaaaaaaaal -->

@@ -29,7 +29,7 @@
             <td> $ {{ otrosServicioss. PUBLICO_DIA }}</td>
             <td> $ {{ otrosServicioss. PUBLICO_NOCHE }}</td>
             <td>
-                <button type="button" class="btn btn-outline-success"><i class="far fa-edit"></i></button>
+                <button type="button" class="btn btn-outline-success" [routerLink]="['/otros-editar', otrosServicioss._id]" routerLinkActive="router-link-active"><i class="far fa-edit"></i></button>
                 <button type="button" class="btn btn-outline-danger" (click)="delete(otrosServicioss._id)"><i class="fas fa-trash-alt"></i></button>
             </td>
         </tr>

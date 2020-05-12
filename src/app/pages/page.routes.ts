@@ -69,7 +69,6 @@ const pagesRoutes : Routes = [
       {path: 'urgencias', component: UrgenciasComponent},
       {path: 'otros-servicios', component: OtrosSIComponent},
       { path:'solicitud/:id', component: SolicitudComponent },
-<<<<<<< HEAD
       { path: 'ambulancia-editar/:id', component: AmbulanciaEditComponent },
       { path: 'ambulancia-nuevo', component: AmbulanciaNewComponent},
       { path: 'xray-editar/:id', component: XrayEditComponent},
@@ -77,9 +76,7 @@ const pagesRoutes : Routes = [
       { path: 'xray-editar/:id', component: XrayEditComponent},
       { path: 'otros-editar/:id', component: OtrosEditComponent},
       { path: 'otros-nuevo', component: OtrosNewComponent},
-=======
       { path:'pagos/paquete/maternnidad', component:PagosMaternidadComponent },
->>>>>>> memo
       { path: '', redirectTo: '/dashboard', pathMatch:'full' }
     ]
   }
