@@ -42,7 +42,7 @@ export class XrayService {
     }
 
     //Método para obtener sólo un Servicio
-    getXrayById(xrayId): Observable<any> {
-        return this._http.get(this.url+'/rayosX/'+xrayId);
+    getXrayById(id): Observable<any> {
+        return this._http.get(this.url+'/rayosX/'+id);
     }
 }

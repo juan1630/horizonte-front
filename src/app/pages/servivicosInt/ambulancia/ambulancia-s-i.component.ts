@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AmbulanciaService } from 'src/app/services/ambulancia/ambulancia.service';
 import swal from 'sweetalert';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params} from '@angular/router';
+
 
 
 @Component({
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './ambulancia-s-i.component.html',
   styleUrls: ['./ambulancia-s-i.component.scss'],
   providers: [AmbulanciaService]
+
 })
 export class AmbulanciaSIComponent implements OnInit {
 
@@ -23,6 +25,7 @@ export class AmbulanciaSIComponent implements OnInit {
 
 
   ngOnInit(): void {
+
     // this._ambulanciaService.getDestino().subscribe(
     //   res => {
     //     this.ambulanciaSI = res.servicios;
@@ -41,7 +44,7 @@ export class AmbulanciaSIComponent implements OnInit {
   verDatos(){
     this._ambulanciaService.getDestino().subscribe(
       res => {
-        this.ambulanciaSI = res.servicios;
+        this.ambulanciaSI = res.endoscopia;
         // console.log(res);
         
       },

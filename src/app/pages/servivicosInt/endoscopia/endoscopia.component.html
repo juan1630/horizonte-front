@@ -1,1 +1,44 @@
-<p>endoscopia works!</p>
+<h1 class="centerxd">Servicio Integrado: Endoscopia</h1>
+
+<div class="ambulance">
+    <button type=" button " class="btn btn-primary separar " [routerLink]="['/hoja-fram']" routerLinkActive="router-link-active">Contratar</button>
+    <button type="button " class="btn btn-secondary " [routerLink]="['/ambulancia-nuevo']" routerLinkActive="router-link-active">Nuevo Destino</button>
+</div>
+
+<div class="izq">
+    <input type="text" name="filterPost" placeholder="Buscar..." [(ngModel)]="filterPost">
+</div>
+
+<table class="table table-hover ">
+    <thead class="thead-dark ">
+        <tr>
+            <th scope="col ">Procedimiento</th>
+            <th scope="col ">Público</th>
+            <th scope="col ">Membresia</th>
+            <th scope="col ">Seguro Laboral</th>
+            <th scope="col ">Diferencias</th>
+            <th scope="col ">Acciones</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let endoscopiaS of endoscopiaSI">
+            <td (click)="showAlert()" class="cursor"> {{ endoscopiaS.PROCEDIMIENTO }} </td>
+            <td (click)="showAlert()" class="cursor"> {{ endoscopiaS.PUBLICO }}</td>
+            <td (click)="showAlert()" class="cursor"> {{ endoscopiaS.MEMBRESIA }}</td>
+            <td (click)="showAlert()" class="cursor"> {{ endoscopiaS.SEGUROLABORAL }}</td>
+            <td (click)="showAlert()" class="cursor"> {{ endoscopiaS.DIFERENCIAPERSONASINYCON }}</td>
+            <td>
+                <!-- Para navegar al componente editar
+                    
+                    [routerLink]="['/ambulancia-editar', ambulanciaSiService._id]" routerLinkActive="router-link-active" -->
+
+                <button type="button " class="btn btn-outline-success separar"><i class="far fa-edit"></i></button>
+                <!-- (click)="editarAmbulancia()" [routerLink]="['/ambulancia-editar', ambulanciaSiService._id]" routerLinkActive="router-link-active" -->
+                <button type="button " class="btn btn-outline-danger"><i class="fas fa-trash-alt "></i></button>
+                <!-- (click)="delete(ambulanciaSiService._id)" -->
+
+                <!-- (click)="eliminarAmbulancia()" -->
+            </td>
+        </tr>
+    </tbody>

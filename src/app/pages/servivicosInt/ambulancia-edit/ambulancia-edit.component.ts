@@ -37,6 +37,7 @@ export class AmbulanciaEditComponent implements OnInit {
   ngOnInit() {
     this.getAmbulancia();
     console.log('weeey yaaaaaa...');
+    // console.log(this.ambulanciaEdit);
     
     this.id = this._route.snapshot.paramMap.get('id');
     // this._ambulanciaService.getByIdAmbulancia(this.id).subscribe(data => {
@@ -71,19 +72,26 @@ export class AmbulanciaEditComponent implements OnInit {
 
   getAmbulancia(){
     this._route.params.subscribe(params => {
+
       var id = params['id'];
 
       this._ambulanciaService.getAmbulanciaById(id).subscribe(
+
         (res:any) => {
+
           if(res.ambulancia){
+
             this.ambulanciaEdit = res.ambulancia;
+
             console.log(this.ambulanciaEdit);
             
           }else{
             // this._router.navigate(['/ambulancia']);
           }
         },
+
         err => {
+          
           console.log(err);
           // this._router.navigate(['/ambulancia']);
           

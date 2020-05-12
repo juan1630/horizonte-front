@@ -76,7 +76,7 @@ const pagesRoutes : Routes = [
       {path: 'urgencias', component: UrgenciasComponent},
       {path: 'otros-servicios', component: OtrosSIComponent},
       { path:'solicitud/:id', component: SolicitudComponent },
-      { path: newLocal, component: AmbulanciaEditComponent },
+      { path: 'ambulancia-editar/:id', component: AmbulanciaEditComponent },
       { path: 'ambulancia-nuevo', component: AmbulanciaNewComponent},
       { path: 'xray-editar/:id', component: XrayEditComponent},
       { path: 'xray-nuevo', component: XrayNewComponent},

@@ -71,6 +71,27 @@ export class XraySIComponent implements OnInit {
     }});
   }
 
+  editarXray(){
+    swal({title: "Estas seguro de Editar este destino?",
+    text: "Una vez que se haya editado el destino, no se podrá recuperar",
+    icon: "warning",
+    buttons: [true, true],
+    dangerMode: true,
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+      swal("Vamos a Actualizarlo!", {
+        icon: "success",
+      });
+    } else if (willDelete == null){
+      swal("Tranquilo, el destino sigue estando ahí..", {
+        icon: "error",
+      });
+      this._router.navigateByUrl('/xray');
+    }});
+  
+  }
+
   delete(id) {
     this._xrayService.delete(id).subscribe(
       response => {
