@@ -37,4 +37,17 @@ export class UltrasonidoComponent implements OnInit {
     );
   }
 
+  delete(id) {
+    this._ultrasonidoService.delete(id).subscribe(
+      response => {
+        swal("Registro Eliminado", "Este Registro no se podrá ver más", "error");
+        this.verDatos();
+        this._router.navigateByUrl('/ultrasonido');
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
 }

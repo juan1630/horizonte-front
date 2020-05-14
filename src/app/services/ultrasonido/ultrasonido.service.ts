@@ -30,6 +30,12 @@ export class UltraSonidoService {
 
         return this._http.post(this.url+'/ultrasonido', params, {headers: headers});
     }
+    //////////////////////////////////////////////////
+    //Método para Obtener un solo servicio
+    //////////////////////////////////////////////////
+    getServicioById(id): Observable<any>{
+        return this._http.get(this.url+'/ultrasonido/'+id);
+    }
 
     //////////////////////////////////////////////////
     //Método para Actualizar
@@ -38,7 +44,16 @@ export class UltraSonidoService {
         let params = JSON.stringify(ultrasonido);
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-        return this._http.put(this.url+'ultrasonido'+id, params, {headers: headers})
+        return this._http.put(this.url+'/ultrasonido/'+id, params, {headers: headers})
+    }
+
+    //////////////////////////////////////////////////
+    //Método para Delete
+    //////////////////////////////////////////////////
+    delete(id): Observable<any>{
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+        return this._http.delete(this.url+'/ultrasonido/'+id, {headers: headers});
     }
 
 }

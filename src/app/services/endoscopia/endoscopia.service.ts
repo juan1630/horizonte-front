@@ -32,13 +32,28 @@ export class EndoscopiaService {
     }
 
     //////////////////////////////////////////////////
+    //Método para Obtener un solo servicio
+    //////////////////////////////////////////////////
+    getServicioById(id): Observable<any> {
+        return this._http.get(this.url+'/endoscopia/'+id);
+    }
+
+    //////////////////////////////////////////////////
     //Método para Actualizar
     //////////////////////////////////////////////////
     update(id, endoscopia): Observable<any>{
         let params = JSON.stringify(endoscopia);
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-        return this._http.put(this.url+'/endoscopia/'+id, params, {headers: headers})
+        return this._http.put(this.url+'/endoscopia/edit/'+id, params, {headers: headers})
     }
 
+    //////////////////////////////////////////////////
+    //Método para Eliminar
+    //////////////////////////////////////////////////
+    delete(id): Observable<any> {
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+        return this._http.delete(this.url+'/endoscopia/remove/'+id, {headers: headers});
+    }
 }
