@@ -44,6 +44,13 @@ import { OtrosEditComponent } from './servivicosInt/vistas/otros-edit/otros-edit
 import { OtrosNewComponent } from './servivicosInt/vistas/otros-new/otros-new.component';
 import { PreciosMembresiaComponent } from './servivicosInt/laboratorio/precios-membresia/precios-membresia.component';
 import { NuevoLabComponent } from './servivicosInt/laboratorio/nuevo-lab/nuevo-lab.component';
+import { UltrasonidoNewComponent } from './servivicosInt/vistas/Ultrasonido/ultrasonido-new/ultrasonido-new.component';
+import { UltrasonidoEditComponent } from './servivicosInt/vistas/Ultrasonido/ultrasonido-edit/ultrasonido-edit.component';
+import { EndoscopiaEditComponent } from './servivicosInt/vistas/Endoscopia/endoscopia-edit/endoscopia-edit.component';
+import { EndoscopiaNewComponent } from './servivicosInt/vistas/Endoscopia/endoscopia-new/endoscopia-new.component';
+import { TomografiaNewComponent } from './servivicosInt/vistas/Tomografia/tomografia-new/tomografia-new.component';
+import { TomografiaEditComponent } from './servivicosInt/vistas/Tomografia/tomografia-edit/tomografia-edit.component';
+
 
 // rutas hijas del dashboard
 // LoginGuardGuard
@@ -83,6 +90,12 @@ const pagesRoutes : Routes = [
       { path: 'xray-editar/:id', component: XrayEditComponent},
       { path: 'otros-editar/:id', component: OtrosEditComponent},
       { path: 'otros-nuevo', component: OtrosNewComponent},
+      { path: 'ultrasonido-nuevo', component: UltrasonidoNewComponent},
+      { path: 'ultrasonido-editar/:id', component: UltrasonidoEditComponent},
+      { path: 'endoscopia-nuevo', component: EndoscopiaNewComponent},
+      { path: 'endoscopia-editar/:id', component: EndoscopiaEditComponent},
+      { path: 'tomografia-nuevo', component: TomografiaNewComponent},
+      { path: 'tomografia-editar/:id', component: TomografiaEditComponent},
       { path: 'perfiles', component: PerfilesComponent },
       { path: 'estudios/laboratorio', component: EstudiosComponent },
       { path: 'laboratorio/pendientes', component: PendientesComponent },

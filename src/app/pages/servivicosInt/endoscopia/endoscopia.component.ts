@@ -39,4 +39,18 @@ export class EndoscopiaComponent implements OnInit {
     );
   }
 
+  delete(id) {
+    this._endoscopiaService.delete(id).subscribe(
+      response => {
+        swal("Registro Eliminado", "Este restro no se podrá ver más", "error");
+        this.verDatos();
+        this._router.navigateByUrl('/endoscopia');
+      },
+      error => {
+        console.log(error);
+        
+      }
+    );
+  }
+
 }
