@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class ModalServiceService {
   ocultar = 'oculto';
-
+  datos:any[];
   constructor() { }
 
 
@@ -18,6 +19,13 @@ export class ModalServiceService {
   abrirModal(){
     this.ocultar ='';
   }
-
+  getServiciosDatos(datos) {
+    console.log(datos);
+    this.datos = datos;
+    return this.datos;
+  }
+  setServiciosDatos(){
+    return this.datos;
+  }
 
 }

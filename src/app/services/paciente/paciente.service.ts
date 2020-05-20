@@ -7,17 +7,19 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class PacienteService {
-
-  constructor( 
+  public url:string;
+  constructor(
     private _http: HttpClient
-  ) { }
+  ) {
+    this.url = "https://horizonte-1.herokuapp.com";
+   }
 
-  
+
   getPacientes( intervalo: number  ) {
 
     console.log("Intervalo", intervalo );
-    
-    let url = URLDEV+'/paciente/'+ intervalo;
+
+    let url = this.url+'/paciente/'+ intervalo;
     return this._http.get( url )
     .pipe(  map( (data) => {
       console.log( data )
@@ -26,11 +28,11 @@ export class PacienteService {
   }
 
 
-  // este servicio crea un nuevo paciente en la DB 
+  // este servicio crea un nuevo paciente en la DB
   setPacientes( data: any ){
-    
-    let url = `${URLDEV}/paciente`;
-    
+
+    let url = this.url + `/paciente`;
+
     return this._http.post( url, data  )
     .pipe( map( (resp) =>   resp  ) )
 
@@ -39,7 +41,7 @@ export class PacienteService {
 
   // este servicio obtiene pacientes por nombre
 
-  getPacientePorNombre( nombre: String ){ 
+  getPacientePorNombre( nombre: String ){
 
 
     // let uri = URLDEV + '/paciente/'+nombre;
@@ -54,7 +56,7 @@ export class PacienteService {
 
 
 
-  // este servicio agrega un paquete 
+  // este servicio agrega un paquete
   addPaquete( paciente:any,  paqueteSelect: any, f: any, paquetesPaciente ){
 // recibe por parametro el ID del usuario, el paquete y los nuevos valores a actualizar
 
@@ -63,14 +65,14 @@ export class PacienteService {
   // let uri = URLDEV+'/agregarPaquete/'+id;
   let uri =  `${URLDEV}/agregarPaquete/${id}`;
 
-  
+
   // console.log( paciente  )
   // console.log( paqueteSelect  )
   // console.log( f );
   // console.log( paquetesPaciente );
 
 // se obteiene la data para actulizar en el paquete
-  let paqueteJson = { 
+  let paqueteJson = {
 
     paquetes: paqueteSelect._id,
     paquetesVisitas: paquetesPaciente._id,
@@ -96,7 +98,7 @@ export class PacienteService {
 
 
   getPacienteBtID(id: string) {
- 
+
     let uri = `${ URLDEV }/pacientes/${id}`;
 
    return this._http.get( uri )

@@ -9,15 +9,17 @@ import { URLDEV  } from '../../config/index.config'
 })
 export class ModulesService {
 
-  
+  public url: string;
 
-  constructor( private _http: HttpClient ) { }
+  constructor( private _http: HttpClient ) { 
+    this.url = "https://horizonte-1.herokuapp.com";
+  }
 
 
   getModules( id: string ) {
 
     console.log( id );
-    let url = URLDEV + '/modulos/'+id;
+    let url = this.url + '/modulos/'+id;
     
 
   return  this._http.post( url, id )

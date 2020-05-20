@@ -21,8 +21,7 @@ export class EndoscopiaComponent implements OnInit {
 
   ) { }
 
-  ngOnInit(): void {
-
+  ngOnInit(): void { 
     this.verDatos();
 
   }
@@ -51,6 +50,13 @@ export class EndoscopiaComponent implements OnInit {
         
       }
     );
-  }
+
+
+}
+
+
+showAlert(){
+
+}
 
 }

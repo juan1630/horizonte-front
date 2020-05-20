@@ -14,13 +14,13 @@ export class LoginService {
   token: string;
   usuario: any;
   cargarStrage: any;
-
+  public url: string;
   constructor(
     public http: HttpClient,
     public router: Router
   ) {
     this.cargarStrage =  this.cargarStorage();
-
+    this.url = "https://horizonte-1.herokuapp.com";
    }
 
 
@@ -32,7 +32,7 @@ export class LoginService {
       this.logout();
     }
       
-      let url = `${URLDEV}/login`;
+      let url = `${this.url}`+`/login`;
   
       return this.http.post(url, personal )
       .pipe( map( (resp: any)=> {

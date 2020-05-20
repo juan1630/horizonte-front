@@ -17,15 +17,15 @@ import { PaquetesDB } from 'src/app/intefaces/pacientePaqueteDB.interfaces';
 export class SolicitudComponent implements OnInit {
 
   public fecha = ` ${new Date().toLocaleDateString()}`;
-  
-  
+
+
   public paciente:any;
   public usuarioMaq:any;
   public paquetesDB:Paquetes[]=[];
   public paqueteSelected: PaquetesDB;
   public paquetesPacientes: any;
-  
-  // declaradas 
+
+  // declaradas
   public anticipo;
   public parentesco1: string;
   public parentesco2: string;
@@ -33,34 +33,34 @@ export class SolicitudComponent implements OnInit {
   public telefonoEmergencia2: string;
   public calleYnumeroFiscal: string;
   public telefonoFiscal: string;
-  
+
   public contactoEmergencia2;
-  
-  
 
-  // nota si no se tiene una interfaz, dejarlo de tipo any y un array de anys  
 
-  constructor(  
+
+  // nota si no se tiene una interfaz, dejarlo de tipo any y un array de anys
+
+  constructor(
                 public _pacientesServices: PacienteService,
                 public router: ActivatedRoute,
                 private _router: Router,
                 public paquetesService: PaqueteService,
                 public _solicitud: SolicitudService
-                
-              ) { 
+
+              ) {
 
                let id = this.router.snapshot.paramMap.get('id');
                 // buscamos al paciente por el ID
                this.getPacieteByID( id );
                // obtenemos de la sesion el nombre del vendedor
-               
-               
+
+
               }
-              
+
  ngOnInit(  ) {
                 this.getUsuarioLocalStorage();
                 this.getPaquetes();
-                
+
     }
 
 
@@ -74,10 +74,10 @@ export class SolicitudComponent implements OnInit {
       this.paquetesService.getPaquetesSolicitud()
 
       .subscribe(  (data: any ) => {
-      
+
         this.paquetesDB = data.paquetes;
         console.log( this.paquetesDB );
-      
+
       })
     }
 
@@ -86,22 +86,22 @@ export class SolicitudComponent implements OnInit {
     getPacieteByID( id: string  ){
 
     this._pacientesServices.getPacienteBtID( id )
-    .subscribe( (data:any) => {  
-      console.log(data); 
+    .subscribe( (data:any) => {
+      console.log(data);
       this.paciente = data.paciente;
         })
 
     }
 
-    // obtiene los paquetes para el select 
+    // obtiene los paquetes para el select
     getPaquete( id: string  ){
-      
+
         this.paquetesService.getPaqueById( id )
         .subscribe( (data: any )  => {
           console.log(  data );
 
             this.paqueteSelected = data;
-            if( this.paqueteSelected.nombrePaquete === "PAQUETE DE CONTROL PRENATAL" ){ 
+            if( this.paqueteSelected.nombrePaquete === "PAQUETE DE CONTROL PRENATAL" ){
               this.anticipo = 1500;
             }else if( this.paqueteSelected.nombrePaquete === "PAQUETE MÉDICO LABORAL" ) {
               this.anticipo = 175;
@@ -122,7 +122,7 @@ export class SolicitudComponent implements OnInit {
     }
 
 
-    // en esta funcion se envia la data necesaria para agregra el paquete al usuario 
+    // en esta funcion se envia la data necesaria para agregra el paquete al usuario
 
     enviar( f: NgForm  ){
       let dataForm = f.value;
@@ -138,9 +138,9 @@ export class SolicitudComponent implements OnInit {
               swal('Paquete agregado', '', 'success');
 
               if( this.paqueteSelected.nombrePaquete === "PAQUETE DE CONTROL PRENATAL" ){
-                
+
                 this._router.navigateByUrl('/contrato/maternidad');
-                // TODO: Remmplzar por el contrato 
+                // TODO: Remmplzar por el contrato
                 return;
               }
               // else if ( this.paqueteSelected.nombrePaquete === "PAQUETE MÉDICO LABORAL" ){
@@ -156,11 +156,11 @@ export class SolicitudComponent implements OnInit {
 
 
      cancelarPaq(){
-    
-      swal("¿Estas seguro que deseas salir?", 
-      { 
+
+      swal("¿Estas seguro que deseas salir?",
+      {
         buttons: {
-        cancel: "Cancelar",
+        // cancel: "Cancelar",
         catch: {
           text: "Confirmar",
           value: "true",
@@ -168,21 +168,21 @@ export class SolicitudComponent implements OnInit {
       }
       })
       .then(value => {
-        console.log( value ); 
+        console.log( value );
         if( value ){
-          
+
           this._router.navigateByUrl('/paciente')
         }else {
           return;
         }
-      
+
       }  )
 
      if( swal.getState().actions.value  ){
       this._router.navigateByUrl('/paciente');
 
      }
-      
+
    }
 
 }

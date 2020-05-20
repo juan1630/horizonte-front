@@ -1,13 +1,22 @@
 <h1 class="centerxd">Servicio Integrado: Ambulancia</h1>
-
-<div class="ambulance">
-    <button type=" button " class="btn btn-primary separar " [routerLink]="['/hoja-fram']" routerLinkActive="router-link-active">Contratar</button>
-    <button type="button " class="btn btn-secondary " [routerLink]="['/ambulancia-nuevo']" routerLinkActive="router-link-active">Nuevo Destino</button>
+<div class="row">
+    <div class="col-md-5">
+        <div class="ambulance">
+            <button type=" button " class="btn btn-primary separar " [routerLink]="['/hoja-fram']" routerLinkActive="router-link-active">Contratar</button>
+            <button type="button"   *ngIf="role === 'admin'" class="btn btn-secondary " [routerLink]="['/ambulancia-nuevo']" routerLinkActive="router-link-active">Nuevo Destino</button>
+        </div>
+      
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <input type="text" name="filterPost" placeholder="Buscar..."  class="form-control"  [(ngModel)]="filterPost">
+            <button  class="btn btn-primary" type="submit"> 
+                Buscar
+            </button>
+        </div>
+    </div>
 </div>
 
-<div class="izq">
-    <input type="text" name="filterPost" placeholder="Buscar..." [(ngModel)]="filterPost">
-</div>
 
 <div class="row">
     <div class="col-md-9">
@@ -21,7 +30,7 @@
             <th scope="col ">Redondo Día</th>
             <th scope="col ">Precio Noche</th>
             <th scope="col ">Redondo Noche</th>
-            <th scope="col ">Acciones</th>
+            <th scope="col"   *ngIf="role==='admin'"  >Acciones</th>
 
         </tr>
 
@@ -35,11 +44,18 @@
             <td (click)="showAlert()" class="cursor"> $ {{ ambulanciaSiService.REDONDODIA }}</td>
             <td (click)="showAlert()" class="cursor"> $ {{ ambulanciaSiService.PRECIONOCHE }}</td>
             <td (click)="showAlert()" class="cursor"> $ {{ ambulanciaSiService.PRECIOREDONDONOCHE }}</td>
-            <td>
-                <!-- Para navegar al componente editar
+            <td  *ngIf="role==='admin'"   >
+                 <!-- Para navegar al componente editar -->
                     
-                    [routerLink]="['/ambulancia-editar', ambulanciaSiService._id]" routerLinkActive="router-link-active" -->
-
+                <button  class="btn btn-outline-success"  (click)="editarAmbulancia()" [routerLink]="['/ambulancia-editar', ambulanciaSiService._id]" routerLinkActive="router-link-active" >
+                    
+                    <i class="far fa-edit"></i>
+                </button>
+                <button  class="btn btn-outline-danger" (click)="delete(ambulanciaSiService._id)" >
+                    <i class="fas fa-trash-alt "></i>
+                </button>
+                
+                
         </td>
         </tr>
     </tbody>
@@ -49,102 +65,7 @@
     </div>
 
     <div class="col-md-3">
-        <!-- <app-tarjeta-cotizacion> </app-tarjeta-cotizacion> -->
-        <div class="fixed">
-            <div class="card border-dark mb-3" style="max-width: 18rem;">
-                <div class="card-header bg-transparent border-dark">
-                  <h5> COTIZACIÓN </h5> 
-                </div>
-                <div class="card-body text-dark">
-                  
-                    <h5 class="card-title"> Total sin membresia: $ {{total}}</h5>
-
-                    <h5 class="card-title"> Total con membresia: $ {{totalConMembresia}}</h5>
-                    <h5 class="card-title">Con membresia ahorras: $ {{ahorro}}</h5>
-
-                    <p *ngIf="total === 0" >
-                        Aún no tienes examenes
-                    </p>
-    
-                    <div class="pedidos" *ngIf="!urgenciaMembresia" >
-                        <p *ngFor="let pedido of carrito"> 
-
-                            <!-- ACA VAN LOS ITEMS DEL CARRITO -->
-                            {{ pedido.ESTUDIO }} - {{ pedido.PUBLICO }}
-
-                            <button type="button" (click)="eliminar( pedido._id )" class="btn btn-danger btn-block mt-2">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </p>
-                  </div>
-                
-                </div>
-    
-                <div class="card-footer bg-transparent border-success">
-                        
-                  <div class="pay" *ngIf="carrito">
-                    <button type="button" class="btn btn-success btn-block btn-card-footer ">
-                        Pagar
-                    </button>
-                    <button type="button" class="btn btn-primary btn-block mt-2 btn-card-footer">
-                        <i class="far fa-file-pdf"></i>
-                        Imprimir
-                    </button>
-                  </div>
-    
-                </div>
-                <!-- Card footer -->
-              </div>
-        </div>
+        <app-tarjeta-cotizacion> </app-tarjeta-cotizacion>
     
     </div>
 </div>
-
-                <!-- (click)="eliminarAmbulancia()" -->
-
-    <!-- Modaaaaaaaaaaaal -->
-    <!-- iNSERTAR ESTO EN EL BOTON DE EDITAR EN CASO DE USA EL MODAL
-    data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"
-    -->
-    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" *ngFor="let ambulanciaSiService of ambulanciaSI">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Editar Servicio de Ambulancia</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Destino:</label>
-                            <input type="text" class="form-control" id="recipient-name" [value]="ambulanciaSiService.DESTINO">
-                        </div>
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Precio Día:</label>
-                            <input type="text" class="form-control" id="recipient-name" [value]="ambulanciaSiService.PRECIODIA">
-                        </div>
-                        <div class=" form-group ">
-                            <label for="message-text " class="col-form-label ">Redondo Día:</label>
-                            <input type="text " class="form-control " id="recipient-name" [value]="ambulanciaSiService.REDONDODIA">
-
-                        </div>
-                        <div class="form-group ">
-                            <label for="recipient-name " class="col-form-label ">Precio Noche:</label>
-                            <input type="text " class="form-control " id="recipient-name" [value]="ambulanciaSiService.PRECIONOCHE">
-                        </div>
-                        <div class="form-group ">
-                            <label for="message-text " class="col-form-label ">Redondo Noche:</label>
-                            <input type="text " class="form-control " id="recipient-name" [value]="ambulanciaSiService.PRECIOREDONDONOCHE">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer ">
-                    <button type="button " class="btn btn-secondary " data-dismiss="modal ">Cancelar</button>
-                    <button type="button " class="btn btn-primary ">Confirmar</button>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- <button (click)="showAlert() ">pruebaaaa</button> -->

@@ -17,5 +17,21 @@ button {
 }
 
 .card {
+    max-height: 28rem;
+}
+
+.card-body {
     overflow-y: scroll;
+}
+
+.form-control {
+    border-radius: 5px;
+}
+
+.eliminarelemento{
+    width: 100%;
+}
+
+.btn-tarjeta{
+    width: 100%;
 }

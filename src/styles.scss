@@ -76,7 +76,16 @@ $dropdown-border-color: $border-color;
     position: fixed;
     display: inline-block;
 }
-
+.card-body-tarjeta{
+  overflow-y: scroll;
+  max-height: 28rem;
+}
+.card-fixed{
+  max-height: 29rem;
+  right: 1.1rem;
+  top: 11rem;
+  bottom: 1.5rem;
+}
 
 .fondo-negro{
   background-color: rgba(0,0,0.4);

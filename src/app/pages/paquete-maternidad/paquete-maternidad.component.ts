@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PaquetesMaternidadService } from 'src/app/services/maternidad/paquetes-maternidad.service';
-import swal from 'sweetalert'
+import { PaquetesMaternidadService } from '../../services/maternidad/paquetes-maternidad.service';
 import { ActivatedRoute } from '@angular/router';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-paquete-maternidad',
@@ -10,8 +10,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PaqueteMaternidadComponent implements OnInit {
 
+  public id: string;
+  
   medicos:any[] = []
-
   concepto:any[] = []
 
   allConsultas:any[] = []
@@ -20,24 +21,25 @@ export class PaqueteMaternidadComponent implements OnInit {
   prenatalGinecologia:any[] = []
   ultrasonido:any[] = []
   laboratorio:any[] = []
+  partos:any[] = []
 
   consultas:any = { tipo: '', consulta: '', fecha: '', medico: '', firma: '' }
 
   btnDisabled = false
-  public id: string;
 
   mensaje:string = ''
 
   constructor(
-    public router: ActivatedRoute, 
-    private _serviceMedicos: PaquetesMaternidadService) { }
+    public router: ActivatedRoute,
+    private _serviceMedicos: PaquetesMaternidadService
+    ) { }
 
   ngOnInit() {
-     this.id = this.router.snapshot.paramMap.get('id');
     this._serviceMedicos.getMedicos()
     .subscribe( (data) => {
       this.medicos = data.medicos
-    })
+    });
+    this.id = this.router.snapshot.paramMap.get('id');
     
     this.mostrarConsultas()
     
@@ -77,15 +79,12 @@ export class PaqueteMaternidadComponent implements OnInit {
 
         break;
       case '4':
-        this.concepto = [ 'Biometría hemática completa', 
-                          'Química sanguínea de 6 elementos', 
-                          'Examen general de orina', 
-                          'V.D.R.L',  
-                          'V.I.H', 
-                          'Tiempos de coagulación', 
-                          'Curva de tolerancia a la glucosa',
-                          'Grupo sanguineo'
-                        ]
+        this.concepto = [ 'Biometría hemática completa', 'Química sanguínea de 6 elementos', 'Examen general de orina', 'V.D.R.L', 'V.I.H', 'Tiempos de coagulación', 'Curva de tolerancia a la glucosa', 'Grupo sanguineo']
+        this.consultas.consulta = ''
+        break;
+      
+      case '5':
+        this.concepto = ['Cesárea', 'Parto', 'Legrado']
         this.consultas.consulta = ''
         break;
     
@@ -96,7 +95,7 @@ export class PaqueteMaternidadComponent implements OnInit {
   }
 
   seleccionConcepto($event, value){
-    var examenOrina = 0, biometria = 0, quimica = 0, vih = 0, vdrlh = 0, tiempos = 0, curva = 0
+    var examenOrina = 0, biometria = 0, quimica = 0, vih = 0, vdrlh = 0, tiempos = 0, curva = 0, cesarea = 0, parto = 0, legrado = 0
     switch (value) {
       case 'Biometría hemática completa':
         for(var i = 0; i < this.laboratorio.length; i++) if(this.laboratorio[i].consulta == value) biometria++
@@ -169,6 +168,33 @@ export class PaqueteMaternidadComponent implements OnInit {
           this.btnDisabled = false
         }
       break;
+
+      case 'Cesárea':
+        for(var i = 0; i < this.partos.length; i++) if(this.partos[i].consulta == value) cesarea++
+        if(cesarea == 1) { 
+          this.btnDisabled = true 
+        }else{
+          this.btnDisabled = false
+        }
+      break;
+
+      case 'Parto':
+        for(var i = 0; i < this.partos.length; i++) if(this.partos[i].consulta == value) parto++
+        if(parto == 1) { 
+          this.btnDisabled = true 
+        }else{
+          this.btnDisabled = false
+        }
+      break;
+
+      case 'Legrado':
+        for(var i = 0; i < this.partos.length; i++) if(this.partos[i].consulta == value) legrado++
+        if(legrado == 1) { 
+          this.btnDisabled = true 
+        }else{
+          this.btnDisabled = false
+        }
+      break;
     
       default:
         break;
@@ -192,8 +218,12 @@ export class PaqueteMaternidadComponent implements OnInit {
       }
   }
 
-  mostrarDatos(consulta, medico){
-    swal('Datos de Consulta', 'Consulta: '+consulta+'\n'+'Medico: '+medico, '')
+  mostrarDatos(consulta, medico, servicio){
+    if(servicio == '1') swal('', 'Consulta Prenatal por Medicina General \n'+'Medico: '+medico, '')
+    if(servicio == '2') swal('', 'Consulta Prenatal por Ginecologia y Obstetrica \n'+'Medico: '+medico, '')
+    if(servicio == '3') swal('', 'Estudio de Ultrasonido\n'+ 'Medico: '+medico, '')
+    if(servicio == '4') swal('', 'Estudio de Laboratorio\n'+'Medico: '+medico)
+    if(servicio == '5') swal('', 'Conclusión\n'+'Medico: '+medico+'\n', '')
   }
 
   mostrarConsultas(){
@@ -201,14 +231,14 @@ export class PaqueteMaternidadComponent implements OnInit {
     this.prenatalGinecologia = []
     this.ultrasonido = []
     this.laboratorio = []
+    this.partos = []
     this._serviceMedicos.getVisitas( this.id )
     .subscribe( (data) => {
-      
-      console.log(data);
+      console.log( data );
       this.allConsultas = data.paquete
 
-      console.log( this.allConsultas );
 
+      
       this.allConsultas.forEach( data => {
           if(data.tipo == '1'){
             this.medicinaGen.push(data)
@@ -230,33 +260,38 @@ export class PaqueteMaternidadComponent implements OnInit {
             this.laboratorio.push(data)
             this.allConsultas = []
           }
+          if(data.tipo == '5'){
+            this.partos.push(data)
+            this.allConsultas = []
+          }
         })
         var valUltrasonido = 5 - this.ultrasonido.length
         var valprenatal = 5 - this.prenatalGinecologia.length
         var valLaboratorio = 9 - this.laboratorio.length
+        var valParto = 3 - this.partos.length
         
         if(valUltrasonido == 0){
           console.log('Ya no puedes')
         }else{
-          for(var x = 0; x < valUltrasonido; x++){
-            this.ultrasonido.push('')
-          }
+          for(var x = 0; x < valUltrasonido; x++) this.ultrasonido.push('')
         }
 
         if(valprenatal == 0){
           console.log('Ya no puedes')
         }else{
-          for(var x = 0; x < valprenatal; x++){
-            this.prenatalGinecologia.push('')
-          }
+          for(var x = 0; x < valprenatal; x++) this.prenatalGinecologia.push('')
         }
 
         if(valLaboratorio == 0){
           console.log('Ya no puedes')
         }else{
-          for(var x = 0; x < valLaboratorio; x++){
-            this.laboratorio.push('')
-          }
+          for(var x = 0; x < valLaboratorio; x++) this.laboratorio.push('')
+        }
+
+        if(valParto == 0){
+          console.log('Ya no puedes')
+        }else{
+          for(var x = 0; x < valParto; x++) this.partos.push('')
         }
 
     })

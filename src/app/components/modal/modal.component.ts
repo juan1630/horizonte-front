@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { FiscalesComponent } from './../fiscales/fiscales.component';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import * as Mapboxgl from 'mapbox-gl';
 import  swal from 'sweetalert';
@@ -26,12 +27,15 @@ import { environment } from 'src/environments/environment';
 })
 export class ModalComponent implements OnInit {
 
+  // @Output() numerofiscalesEvent = new EventEmitter<any[]>();
+
+  datos: any[];
   public curp;
   public localidad;
+  public _idfiscales = 0;
   // direccion
   public fechaRegistro;
   public  localidades: Direcciones[] = [];
-
   public  pais:string;
   public  estado: string;
   public  municipio: string;
@@ -39,18 +43,19 @@ export class ModalComponent implements OnInit {
   public paises: string[];
   public lgn: any;
   public lat: any;
+  public name: string;
   public paquetes;
   public razonesSociales: any[] = [];
   public paisNac: string;
-  
-  // fiscales 
-  public estadoFiscal: string;
-  public coloniaFiscal: string;
-  public municipioFiscal: string;
-  public ciudadFiscal: string;
-  public asentamientoFiscal: string[];
-  public tipoAsentamientoFiscal: string;
-  public localidFiscal: string;
+
+  // fiscales
+  // public estadoFiscal: string;
+  // public coloniaFiscal: string;
+  // public municipioFiscal: string;
+  // public ciudadFiscal: string;
+  // public asentamientoFiscal: string[];
+  // public tipoAsentamientoFiscal: string;
+  // public localidFiscal: string;
   public pacientes: any= [];
   public pagina: number = 0;
 
@@ -88,21 +93,23 @@ export class ModalComponent implements OnInit {
 
 
      this.crearMarcador( -98.9884364, 18.9576149 )
-    
-    
+
+
     this._countries.getCountries()
-    .subscribe( (countries: any) => { 
+    .subscribe( (countries: any) => {
       this.paises = countries;
      });
 
     this._pacienteService.getPacientes( this.pagina )
-    .subscribe( (pacientes: any) => { 
+    .subscribe( (pacientes: any) => {
         this.pacientes = pacientes;
         this.paquetes = pacientes.paquetes;
      });
 
       this.getTodoslosPacientes();
+      this._modalService.setServiciosDatos();
   }
+
 
   crearMarcador( lng: number, lat: number ) {
 
@@ -113,7 +120,7 @@ export class ModalComponent implements OnInit {
     .setLngLat([lng,lat])
     .addTo(this.mapa);
     marker.on('drag', ()  => {
-        
+
         // console.log(  marker.getLngLat().lng  );
         // console.log(  marker.getLngLat().lat  );
 
@@ -129,9 +136,9 @@ export class ModalComponent implements OnInit {
 
       this._CodigoPostal.getLocalidades( codigo )
         .subscribe( (res: any ) => {
-         
+
           console.log("Direcciones", res )
-      
+
           this.pais = res.response.pais;
           this.estado = res.response.estado;
           this.municipio = res.response.municipio;
@@ -139,69 +146,188 @@ export class ModalComponent implements OnInit {
           this.localidades.push (...res.response.asentamiento);
           console.log(  this.localidades );
       //    this.localidades = res.response.asentamiento;
-     
+
     } );
 
   }
 
 
 enviar( f: NgForm ){
-  
 
-  let paciente = new Paciente( 
+  if (this.razonesSociales[2] === undefined && this.razonesSociales[3] === undefined) {
+    let paciente = new Paciente(
+      f.value.nombrePaciente,
+      f.value.apellidoPaterno,
+      f.value.apellidoMaterno,
+      f.value.fechaNacimientoPaciente,
+      f.value.entidadNacimiento,
+      f.value.edad,
+      f.value.curp,
+      f.value.paisNacimineto,
+      f.value.telefono,
+      f.value.contactoEmergancia,
+      f.value.telefonoEmergencia,
+      f.value.correo,
+      f.value.cpPaciente,
+      f.value.paisPaciente,
+      f.value.municipio,
+      f.value.estadoPaciente,
+      f.value.poblacion,
+      f.value.calleNumeroPaciente,
+      f.value.referenciaPaciente,
+      this.razonesSociales[1][0],
+      this.razonesSociales[1][1],
+      this.razonesSociales[1][2],
+      this.razonesSociales[1][3],
+      this.razonesSociales[1][4],
+      this.razonesSociales[1][5],
+      this.razonesSociales[1][6],
+      this.razonesSociales[1][7],
+      )
+      this._pacienteService.setPacientes( paciente )
+      .subscribe( (data: any) => {
 
-    f.value.nombrePaciente,
-    f.value.apellidoPaterno,
-    f.value.apellidoMaterno,
-    f.value.fechaNacimientoPaciente,
-    f.value.entidadNacimiento,
-    f.value.edad,
-    f.value.curp,
-    f.value.paisNacimineto,
-    f.value.telefono,
-    f.value.contactoEmergancia,
-    f.value.telefonoEmergencia,
-    f.value.correo,
-    f.value.cpPaciente,
-    f.value.paisPaciente,
-    f.value.municipio,
-    f.value.estadoPaciente,
-    f.value.poblacion,
-    f.value.calleNumeroPaciente,
-    f.value.referenciaPaciente,
-    f.value.nombreRazonSocial,
-    f.value.entidadFederativa,
-    f.value.coloniaFiscal,
-    f.value.RFCFiscal,
-    f.value.municipioFiscal,
-    f.value.cpFiscal,
-    f.value.localidadFiscal,
-    f.value.emailFiscal 
-         
-    )
+        console.log( data )
 
-    // console.log( f );
-    // console.log( paciente );
+        if( data.ok === true ) {
 
-    this._pacienteService.setPacientes( paciente )
-    .subscribe( (data: any) => { 
-    
-      console.log( data )
-  
-      if( data.ok === true ) {
-      
-        swal(`Bienvenido ${data.paciente.nombrePaciente}`, 'El paciente agregado', 'success');
+          swal(`Bienvenido ${data.paciente.nombrePaciente}`, 'El paciente agregado', 'success');
 
-         f.reset();
-         this.getTodoslosPacientes();
-         this._modalService.ocultarModal();
-         return;
+           f.reset();
+           this.getTodoslosPacientes();
+           this._modalService.ocultarModal();
+           return;
 
-      }else {
-        swal('Algó ocurrio', 'Intenta de nuevo', 'error');
-        console.log('Algo pasó', data );
-      }
-     } )
+        }else {
+          swal('Algó ocurrio', 'Intenta de nuevo', 'error');
+          console.log('Algo pasó', data );
+        }
+       } )
+
+  } else if (this.razonesSociales[3] === undefined) {
+    let paciente = new Paciente(
+      f.value.nombrePaciente,
+      f.value.apellidoPaterno,
+      f.value.apellidoMaterno,
+      f.value.fechaNacimientoPaciente,
+      f.value.entidadNacimiento,
+      f.value.edad,
+      f.value.curp,
+      f.value.paisNacimineto,
+      f.value.telefono,
+      f.value.contactoEmergancia,
+      f.value.telefonoEmergencia,
+      f.value.correo,
+      f.value.cpPaciente,
+      f.value.paisPaciente,
+      f.value.municipio,
+      f.value.estadoPaciente,
+      f.value.poblacion,
+      f.value.calleNumeroPaciente,
+      f.value.referenciaPaciente,
+      this.razonesSociales[1][0],
+      this.razonesSociales[1][1],
+      this.razonesSociales[1][2],
+      this.razonesSociales[1][3],
+      this.razonesSociales[1][4],
+      this.razonesSociales[1][5],
+      this.razonesSociales[1][6],
+      this.razonesSociales[1][7],
+      this.razonesSociales[2][0],
+      this.razonesSociales[2][1],
+      this.razonesSociales[2][2],
+      this.razonesSociales[2][3],
+      this.razonesSociales[2][4],
+      this.razonesSociales[2][5],
+      this.razonesSociales[2][6],
+      this.razonesSociales[2][7],
+      )
+      this._pacienteService.setPacientes( paciente )
+      .subscribe( (data: any) => {
+
+        console.log( data )
+
+        if( data.ok === true ) {
+
+          swal(`Bienvenido ${data.paciente.nombrePaciente}`, 'El paciente agregado', 'success');
+
+           f.reset();
+           this.getTodoslosPacientes();
+           this._modalService.ocultarModal();
+           return;
+
+        }else {
+          swal('Algó ocurrio', 'Intenta de nuevo', 'error');
+          console.log('Algo pasó', data );
+        }
+       } )
+
+  } else {
+    let paciente = new Paciente(
+      f.value.nombrePaciente,
+      f.value.apellidoPaterno,
+      f.value.apellidoMaterno,
+      f.value.fechaNacimientoPaciente,
+      f.value.entidadNacimiento,
+      f.value.edad,
+      f.value.curp,
+      f.value.paisNacimineto,
+      f.value.telefono,
+      f.value.contactoEmergancia,
+      f.value.telefonoEmergencia,
+      f.value.correo,
+      f.value.cpPaciente,
+      f.value.paisPaciente,
+      f.value.municipio,
+      f.value.estadoPaciente,
+      f.value.poblacion,
+      f.value.calleNumeroPaciente,
+      f.value.referenciaPaciente,
+      this.razonesSociales[1][0],
+      this.razonesSociales[1][1],
+      this.razonesSociales[1][2],
+      this.razonesSociales[1][3],
+      this.razonesSociales[1][4],
+      this.razonesSociales[1][5],
+      this.razonesSociales[1][6],
+      this.razonesSociales[1][7],
+      this.razonesSociales[2][0],
+      this.razonesSociales[2][1],
+      this.razonesSociales[2][2],
+      this.razonesSociales[2][3],
+      this.razonesSociales[2][4],
+      this.razonesSociales[2][5],
+      this.razonesSociales[2][6],
+      this.razonesSociales[2][7],
+      this.razonesSociales[3][0],
+      this.razonesSociales[3][1],
+      this.razonesSociales[3][2],
+      this.razonesSociales[3][3],
+      this.razonesSociales[3][4],
+      this.razonesSociales[3][5],
+      this.razonesSociales[3][6],
+      this.razonesSociales[3][7],
+      )
+      this._pacienteService.setPacientes( paciente )
+      .subscribe( (data: any) => {
+
+        console.log( data )
+
+        if( data.ok === true ) {
+
+          swal(`Bienvenido ${data.paciente.nombrePaciente}`, 'El paciente agregado', 'success');
+
+           f.reset();
+           this.getTodoslosPacientes();
+           this._modalService.ocultarModal();
+           return;
+
+        }else {
+          swal('Algó ocurrio', 'Intenta de nuevo', 'error');
+          console.log('Algo pasó', data );
+        }
+       } )
+  }
 
 }
 
@@ -214,37 +340,44 @@ getTodoslosPacientes(){
 }
 
 
-getLocations( codigo: number ){
- 
-  return this._CodigoPostal.getLocalidades( codigo )
+// getLocations( codigo: number ){
 
-  .subscribe( (data: any) => {  
-  
+//   return this._CodigoPostal.getLocalidades( codigo )
 
-    this.estadoFiscal= data.response.ciudad;
-    this.tipoAsentamientoFiscal = data.response.tipo_asentamiento;
-    this.municipioFiscal = data.response.municipio;
-    this.ciudadFiscal = data.response.ciudad;
-    this.asentamientoFiscal = data.response.asentamiento;
-    this.localidFiscal = data.response.municipio;
-  
-  } )
-}
+//   .subscribe( (data: any) => {
+
+
+//     this.estadoFiscal= data.response.ciudad;
+//     this.tipoAsentamientoFiscal = data.response.tipo_asentamiento;
+//     this.municipioFiscal = data.response.municipio;
+//     this.ciudadFiscal = data.response.ciudad;
+//     this.asentamientoFiscal = data.response.asentamiento;
+//     this.localidFiscal = data.response.municipio;
+
+//   } )
+// }
 
 
 
 agregarCampos() {
-  this.razonesSociales.push(1);
-  console.log( this.razonesSociales );
-
+  this.razonesSociales.push(this._modalService.setServiciosDatos());
+  console.log(this.razonesSociales);
+  for (let obj of this.razonesSociales) {
+    console.log("object:", obj);
+    for (let key in obj) {
+        console.log("key:", key, "value:", obj[key]);
+    }
+}
+  this._idfiscales++;
 }
 
-quitarElementos(){
+quitarElementos() {
   if( this.razonesSociales.length === 0 ){
     swal('Error', 'No se pueden quitar los campos', 'error');
   }
   this.razonesSociales.pop();
+  this._idfiscales--;
 }
 
-  
+
 }
