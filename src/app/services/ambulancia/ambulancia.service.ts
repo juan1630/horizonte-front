@@ -13,6 +13,7 @@ export class AmbulanciaService {
     ){
         this.url = "https://horizonte-1.herokuapp.com";
     }
+    
 
     getDestino(): Observable<any>{
         return this._http.get(this.url + '/ambulancia')

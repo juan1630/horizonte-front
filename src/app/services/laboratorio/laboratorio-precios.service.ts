@@ -7,15 +7,17 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class LaboratorioPreciosService {
-
+  public url: string;
   constructor(
     private _http: HttpClient
-  ) { }
+  ) {
+    this.url = "https://horizonte-1.herokuapp.com";
+   }
 
 
   getExamenes(){
 
-    let url = URLDEV+'/laboratorio/estudios';
+    let url = this.url+'/laboratorio/estudios';
     return this._http.get(url);
   }
 

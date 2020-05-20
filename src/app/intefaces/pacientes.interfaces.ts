@@ -1,7 +1,7 @@
 export class Paciente {
-  
-  constructor( 
-    
+
+  constructor(
+
   public nombrePaciente?: string,
   public apellidoPaterno?: string,
   public apellidoMaterno?: string,
@@ -28,9 +28,23 @@ export class Paciente {
   public municipioFiscal?: string,
   public cpFiscal?: string,
   public localidadFiscal?: string,
-  public emailFiscal?: string
-  
-  
+  public emailFiscal?: string,
+  public nombreRazonSocial2?: string,
+  public entidadFederativa2?: string,
+  public coloniaFiscal2?: string,
+  public RFCFiscal2?: string,
+  public municipioFiscal2?: string,
+  public cpFiscal2?: string,
+  public localidadFiscal2?: string,
+  public emailFiscal2?: string,
+  public nombreRazonSocial3?: string,
+  public entidadFederativa3?: string,
+  public coloniaFiscal3?: string,
+  public RFCFiscal3?: string,
+  public municipioFiscal3?: string,
+  public cpFiscal3?: string,
+  public localidadFiscal3?: string,
+  public emailFiscal3?: string
   ) {
 
   }
