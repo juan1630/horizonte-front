@@ -11,42 +11,50 @@ export function getDataStorage(){
      }
 
 
-     export function guardarStorage( carrito  ) {
+//====================================================================
+//             FUNCION QUE GUARDA EN EL STORAGE LA COTIZACION 
+//=====================================================================
 
-          localStorage.setItem('carrito',  JSON.stringify( carrito ) );
 
+
+export function gaurdarCotizacion( carrito) {
+
+     // lista de cosas que debe de guardarse en el localstorage
+     // PRECIO SIN MEMBRESIA, PRECIO CON MEMBRESIA, NOMBRE
+     // LAS INDICACIONES SE MUESTRAN HASTA EL FINAL, LOS DÍAS 
+
+     return localStorage.setItem('carrito',  carrito);
+      
+}
+
+
+export  function getDataCarrito() {
+
+     let carritoJson = JSON.parse( localStorage.getItem('carrito'));
+
+     if( carritoJson === null || carritoJson === undefined ){
+          carritoJson =  {
+               totalSin: 0,
+               totalCon:0,
+               items:[]
+             };
+             
+     }else {
+          return carritoJson;
      }
+     
+     return carritoJson;
 
-     export function total ( total ){
-         localStorage.setItem('total', total);
-         return localStorage;
-     }
-
-     export function getTotal() {
-       let total = JSON.parse( localStorage.getItem('total') );
-       return total;
-     }
-
-     export function getCarritoStorage(){
-          let itemsCarrito = JSON.parse(localStorage.getItem('carrito'));
-          return itemsCarrito;
-     }
-
-     // export function eliminarUnUItem(id){
-
-     //      let itemsCarrito:any[] = [];
-
-     //       itemsCarrito = JSON.parse(localStorage.getItem('carrito'));
-
-     //      itemsCarrito.filter( item => {
-
-     //           return  item._id != id;
-
-     //      } );
-
-     // }
+}
 
 
-     export function eliminarStorage(){
-          localStorage.removeItem('carrito');
-     }
+export function eliminarTodoPedido (  ) {
+
+     return localStorage.removeItem('carrito');
+
+}  
+
+
+
+export function eliminarUnElemento ( ) {}
+

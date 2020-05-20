@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AmbulanciaService } from 'src/app/services/ambulancia/ambulancia.service';
+import { Router} from '@angular/router';
 import swal from 'sweetalert';
-import { Router, ActivatedRoute, Params} from '@angular/router';
 
-import  { getDataStorage, getCarritoStorage, getTotal } from '../../../functions/storage/storage.funcion';
-
+import  { getDataStorage } from '../../../functions/storage/storage.funcion';
+import { getCarritoStorage, getTotal }  from '../../../functions/storage/pacienteIntegrados';
 
 @Component({
   selector: 'app-ambulancia-s-i',
@@ -15,10 +15,16 @@ import  { getDataStorage, getCarritoStorage, getTotal } from '../../../functions
 })
 export class AmbulanciaSIComponent implements OnInit {
 
+  // data de los servicios
   public ambulanciaSI: any [] = [];
+  
+  // data el usuario de la maquina 
   public role: String;
+
+// data de la cotizacion 
+
   public carrito: any[]=[];
-  public total: number = 0;
+
  
   constructor(
     private _ambulanciaService: AmbulanciaService,
@@ -29,22 +35,8 @@ export class AmbulanciaSIComponent implements OnInit {
 
   ngOnInit(): void {
 
-    // this._ambulanciaService.getDestino().subscribe(
-    //   res => {
-    //     this.ambulanciaSI = res.servicios;
-    //     // console.log(res);
-        
-    //   },
-    //   err => {
-    //     console.log(<any>err);
-        
-    //   }
-    // );
-    // console.log( 'Funcion' ,getDataStorage() );
     this.role = getDataStorage().role;
     this.carrito = getCarritoStorage();
-
-    this.total = getTotal();
     
     this.verDatos();
   
@@ -53,8 +45,9 @@ export class AmbulanciaSIComponent implements OnInit {
   verDatos(){
     this._ambulanciaService.getDestino().subscribe(
       res => {
-        this.ambulanciaSI = res.endoscopia;
-        // console.log(res);
+        this.ambulanciaSI = res.servicios;
+        console.log( res );
+        console.log(this.ambulanciaSI);
         
       },
       err => {
