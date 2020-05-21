@@ -15,12 +15,16 @@ import { ServicesModule } from './services/services.module';
 // // SOCKET 
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { environment } from 'src/environments/environment';
+import { ContratoMaternidadComponent } from './contratos/contrato-maternidad/contrato-maternidad.component';
+import { ContratoMLaboralComponent } from './contratos/contrato-m-laboral/contrato-m-laboral.component';
 
 const config: SocketIoConfig = { url: environment.swUrl , options: {} };
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ContratoMaternidadComponent,
+    ContratoMLaboralComponent
   ],
   imports: [
     BrowserModule,

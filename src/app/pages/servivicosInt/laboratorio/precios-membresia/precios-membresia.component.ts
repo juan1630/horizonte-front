@@ -14,7 +14,7 @@ import { Estudios } from 'src/app/intefaces/estudiosLaboratorio';
 export class PreciosMembresiaComponent implements OnInit {
 public id: string ='';
 public paciente: Paciente[]=[];
-public laboratorios: Estudios[]=[];
+public laboratorios: Estudios[] = [];
 public estudiosPedido: Estudios[]=[];
 public carrito: Estudios[]=[];
 public urgenciaMembresia: boolean = false;

@@ -4,7 +4,6 @@ import { Endoscopia } from 'src/app/models/Endoscopia/enodscopia';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import swal from 'sweetalert';
 
-
 @Component({
   selector: 'app-endoscopia-edit',
   templateUrl: './endoscopia-edit.component.html',
@@ -13,7 +12,7 @@ import swal from 'sweetalert';
 })
 export class EndoscopiaEditComponent implements OnInit {
 
-  public endoscopiaEdit: Endoscopia[] = [];
+  public endoscopiaEdit: Endoscopia;
   public status: string;
   public is_edit: boolean;
   public id: string;

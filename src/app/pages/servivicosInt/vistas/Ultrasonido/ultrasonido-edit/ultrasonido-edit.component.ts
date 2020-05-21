@@ -13,7 +13,7 @@ import swal from 'sweetalert';
 })
 export class UltrasonidoEditComponent implements OnInit {
 
-  public ultrasonidoEdit: Ultrasonido[] = [];
+  public ultrasonidoEdit: Ultrasonido;
   public status: string;
   public is_edit: boolean;
   public id: string;
