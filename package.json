@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "~9.0.3",
     "@angular/router": "~9.0.3",
     "bootstrap-sweetalert": "^1.0.1",
+    "jspdf": "^1.5.3",
     "mapbox-gl": "^1.9.1",
     "moment": "^2.24.0",
     "ngx-socket-io": "^3.0.1",

@@ -12,7 +12,7 @@ import { Route } from '@angular/compiler/src/core';
 })
 export class EndoscopiaComponent implements OnInit {
 
-  public endoscopiaSI: any[] = [];
+  public endoscopiaSI: any;
 
   constructor(
     private _endoscopiaService: EndoscopiaService,

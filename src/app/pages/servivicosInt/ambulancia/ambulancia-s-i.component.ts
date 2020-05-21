@@ -46,8 +46,7 @@ export class AmbulanciaSIComponent implements OnInit {
     this._ambulanciaService.getDestino().subscribe(
       res => {
         this.ambulanciaSI = res.servicios;
-        console.log( res );
-        console.log(this.ambulanciaSI);
+        // console.log(res);
         
       },
       err => {

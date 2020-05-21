@@ -12,7 +12,7 @@ import swal from 'sweetalert';
 })
 export class XrayEditComponent implements OnInit {
 
-  public xrayEdit: XrayEdit[] = [];
+  public xrayEdit: XrayEdit;
   public status: string;
   public is_edit: boolean;
   public id: string;
