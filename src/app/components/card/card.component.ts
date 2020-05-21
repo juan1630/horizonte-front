@@ -13,7 +13,7 @@ export class CardComponent implements OnInit {
 
  
   public usuario: Personal;
-  public modules: Module[] = [];
+  public modules: Module[]=[];
   
   constructor( 
                 public router: Router,

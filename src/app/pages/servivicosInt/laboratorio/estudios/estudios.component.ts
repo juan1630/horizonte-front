@@ -155,7 +155,6 @@ export class EstudiosComponent implements OnInit {
     let precioSinComa = precioSinTrim.replace(',', '');
     // aca le quito la coma si es que trae
     let precioSinMembresiaNumber = parseFloat( precioSinComa );
-     
   
      let precioConTirm = precioCon.replace('$', '');
     let precioConMembresiaSinComa = precioConTirm.replace(',', '');

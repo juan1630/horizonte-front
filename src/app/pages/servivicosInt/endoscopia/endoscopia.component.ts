@@ -3,6 +3,7 @@ import { EndoscopiaService } from 'src/app/services/endoscopia/endoscopia.servic
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import swal from 'sweetalert';
 import { Route } from '@angular/compiler/src/core';
+import { Endoscopia } from 'src/app/models/Endoscopia/enodscopia';
 
 @Component({
   selector: 'app-endoscopia',
@@ -12,9 +13,10 @@ import { Route } from '@angular/compiler/src/core';
 })
 export class EndoscopiaComponent implements OnInit {
 
-  public endoscopiaSI: any;
+  public endoscopiaSI: Endoscopia;
 
   constructor(
+    
     private _endoscopiaService: EndoscopiaService,
     private _router: Router,
     private _route: ActivatedRoute
