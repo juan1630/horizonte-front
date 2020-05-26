@@ -1,0 +1,115 @@
+<h1 class="center">
+    Cotización
+</h1>
+
+<form>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+
+
+                <div class="form-group">
+                    <label for="nombrePaciente">
+                        Nombre del paciente:
+                    </label>
+                    <input type="text" name="nombrePaciente" [(ngModel)]="infoUsuario.nombrePaciente" id="nombrePaciente" placeholder="Nombre completo del paciente..." class="form-control">
+                </div>
+
+            </div>
+
+            <div class="col-md-2">
+
+                <div class="form-group">
+                    <label for="edad">
+                        Edad:
+                    </label>
+                    <input type="number" min="0" max="103" name="edad" [(ngModel)]="infoUsuario.edad" id="edad" placeholder="Edad del paciente..." class="form-control">
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="sexo">
+                        Sexo:
+                    </label>
+                    <select name="sexo" [(ngModel)]="infoUsuario.sexo" id="sexo" class="form-control">
+                        <option value="" selected > Selecciona el sexo </option>
+                       <option value="hombre"> Hombre </option>
+                       <option value="mujer"> Mujer</option>
+                   </select>
+                </div>
+            </div>
+
+
+            <div class="col-md-2">
+
+                <div class="form-group">
+                    <label for="telefono">
+                        Teléfono:
+                    </label>
+                    <input type="tel" name="telefono" [(ngModel)]="infoUsuario.telefono" id="telefono" placeholder="Teléfono del paciente..." class="form-control">
+                </div>
+            </div>
+
+
+
+            <div class="col-md-2">
+
+                <div class="form-group">
+                    <label for="correo">
+                        Correo:
+                    </label>
+                    <input type="email" name="correo" id="correo" [(ngModel)]="infoUsuario.correo" placeholder="Correo del paciente..." class="form-control">
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-11 mt-3">
+                <table class="table">
+                    <thead>
+                        <th> Estudio</th>
+                        <th> Costo sin membresia </th>
+                        <th>
+                            Costo con membresia
+                        </th>
+                        <th>
+                            Entrega
+                        </th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of carrito.items">
+                            <td>
+                                {{ item.nombreEstudio }}
+                            </td>
+                            <td>
+                                {{ item.precioSin }}
+                            </td>
+                            <td>
+                                {{ item.precioCon }}
+                            </td>
+                            <td>
+                                {{ item.entrega }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-4">
+
+                <button class="btn btn-success btn-block" (click)="enviarPeddio()">  Enviar  </button>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-danger btn-block">  <i class="fas fa-ban"></i>  Cancelar</button>
+
+            </div>
+        </div>
+    </div>
+
+</form>

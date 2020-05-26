@@ -3,8 +3,10 @@ import { AmbulanciaService } from 'src/app/services/ambulancia/ambulancia.servic
 import { Router} from '@angular/router';
 import swal from 'sweetalert';
 
-import  { getDataStorage } from '../../../functions/storage/storage.funcion';
-import { getCarritoStorage, getTotal }  from '../../../functions/storage/pacienteIntegrados';
+import  { getDataStorage, gaurdarCotizacion, eliminarTodoPedido, getDataCarrito }  from '../../../functions/storage/storage.funcion';
+
+import { getCarritoStorage, }  from '../../../functions/storage/pacienteIntegrados';
+import { Estudios } from 'src/app/intefaces/estudiosLaboratorio';
 
 @Component({
   selector: 'app-ambulancia-s-i',
@@ -22,8 +24,104 @@ export class AmbulanciaSIComponent implements OnInit {
   public role: String;
 
 // data de la cotizacion 
+public carrito = {
+  totalSin: 0,
+  totalCon:0,
+  items:[]
 
-  public carrito: any[]=[];
+};
+
+ngOnInit(): void {
+  
+  this.role = getDataStorage().role;
+  this.carrito = getCarritoStorage();
+  
+  this.verDatos();
+  
+}
+
+sumarTotal(  precioSin, precioCon  ){
+
+
+  // se le quitan los caracteres $ y , al precio con membresia
+
+let precioConMembresia  = precioCon.replace('$', '');
+let precioConSinComa  = precioConMembresia.replace(',', '');
+let precioConMembresiaNumber = parseFloat( precioConSinComa );
+
+
+
+// se le quitan los caracteres $ y , al precio sin membresia
+let costoSin = precioSin.replace('$', '');
+let costoSinComa = costoSin.replace(',', '');
+let costoSinNumber = parseFloat( costoSinComa );
+
+
+this.carrito.totalSin = this.carrito.totalSin + costoSinNumber;
+this.carrito.totalCon = this.carrito.totalCon + precioConMembresiaNumber;
+
+
+}
+
+
+agregarCarrito( event, item: Estudios ){
+    
+  if( event.path[1].classList.contains('precioPublico')  ){ 
+  
+    let  estuidio = {
+
+      nombreEstudio: item.ESTUDIO,
+      precioSin: item.PUBLICO,
+      precioCon: item.MEMBRESIA,
+      entrega: item.ENTREGA,
+      idEstudio:item._id
+      
+  }
+
+    this.sumarTotal( item.PUBLICO, item.MEMBRESIA );
+
+    this.carrito.items.push( estuidio );
+    
+
+  }else if (  event.path[1].classList.contains('precioNoche') )  {
+
+    let  estuidio = {
+      nombreEstudio: item.ESTUDIO,
+      precioNoche: item.NOCTURNO,
+      entrega: item.ENTREGA,
+      idEstudio:item._id
+  }
+
+  this.sumarTotal( item.NOCTURNO, item.NOCTURNO );
+
+  this.carrito.items.push( estuidio );
+  
+  }else if( event.path[1].classList.contains('urgencia') ) {
+
+    let  estuidio = {
+
+      nombreEstudio: item.ESTUDIO,
+      precioUrgenciaMembresia: item.URGENCIA_MEM,
+      precioUrgenciaPublico: item.URGENCIA_PUB,
+      entrega: item.ENTREGA,
+      idEstudio:item._id
+
+  }
+
+    this.sumarTotal( item.URGENCIA_PUB, item.URGENCIA_MEM );
+    this.carrito.items.push( estuidio );
+    
+}
+  
+  let carritoString = JSON.stringify( this.carrito );
+
+
+  gaurdarCotizacion( carritoString );
+  this.carrito = getDataCarrito();
+  console.log( this.carrito );
+  
+
+}
 
  
   constructor(
@@ -31,16 +129,6 @@ export class AmbulanciaSIComponent implements OnInit {
     private _router: Router
   ) { }
   // filterPost = '';
-
-
-  ngOnInit(): void {
-
-    this.role = getDataStorage().role;
-    this.carrito = getCarritoStorage();
-    
-    this.verDatos();
-  
-  }
 
   verDatos(){
     this._ambulanciaService.getDestino().subscribe(

@@ -9,6 +9,7 @@ import  { getDataStorage, gaurdarCotizacion, eliminarTodoPedido, getDataCarrito 
 import  {  BusquedaGeneral } from '../../../../intefaces/busquedaGeneral';
 
 import  swal from 'sweetalert'; 
+import { EnvioEmailService } from 'src/app/services/cotizacion/envio-email.service';
 
 
 @Component({
@@ -29,6 +30,8 @@ export class EstudiosComponent implements OnInit {
   public ahorro: number = 0;
   public totalConMembresia: number = 0;
   public busquedaTodosLosServicio: BusquedaGeneral[] = [];
+  public email: string;
+  public show = 'hidden' ;
 
   
   public carrito = {
@@ -40,7 +43,8 @@ export class EstudiosComponent implements OnInit {
   constructor(
     private examenesLaboratorio: LaboratorioPreciosService,
     private _busquedaGeneral: BusquedaGeneralService,
-    private _router: Router
+    private _router: Router,
+    private _emailService: EnvioEmailService
   ) { }
 
   ngOnInit(): void {
@@ -155,7 +159,6 @@ export class EstudiosComponent implements OnInit {
     let precioSinComa = precioSinTrim.replace(',', '');
     // aca le quito la coma si es que trae
     let precioSinMembresiaNumber = parseFloat( precioSinComa );
-     
   
      let precioConTirm = precioCon.replace('$', '');
     let precioConMembresiaSinComa = precioConTirm.replace(',', '');
@@ -164,22 +167,47 @@ export class EstudiosComponent implements OnInit {
   
   
   
-    this.carrito.totalCon = this.carrito.totalCon - precioConMembresiaNumber;
-    this.carrito.totalSin = this.carrito.totalSin - precioSinMembresiaNumber;
-  
-  
+      this.carrito.totalCon = this.carrito.totalCon - precioConMembresiaNumber;
+      this.carrito.totalSin = this.carrito.totalSin - precioSinMembresiaNumber;
   
   
       }
 
-      
+
+    abrirInputCorreo(){
+    
+      this.show = 'show';
+    }
+
+
+    // funcion que busca en todos los departamentos 
+    buscarTodos(  valor ) {
+      console.log( valor)
+    }
+
+    enviar( ){
+   let cotizacion ={
+      correo: this.email,
+      carrito: this.carrito
+    }
+      this._emailService.envioEmail( cotizacion )
+      .subscribe( (data) => {
+        console.log(data);
+      } )
+
+    }
+
+    cerrarModal(){
+      this.show = 'false';
+    }
+
   eliminar( id ){
 
 
     this.carrito.items.forEach(  (item, index) => {
 
       // Agregar algun otro caso que se pueda dar  
-
+      
       if( item.idEstudio  === id ) {
 
         this.carrito.items.splice( index, 1 )
@@ -286,23 +314,5 @@ export class EstudiosComponent implements OnInit {
       text: `Sin membresia: ${ publico } - Con membresia: ${ membresia }`
     });
   }
-
-
-  
-  enviar(   formualrio  ) {
-    
-    // console.log( formualrio.value );
-
-    let termino = formualrio.value.filterPost;
-
-    this._busquedaGeneral.getAllDepartments( termino )
-    .subscribe( (data:BusquedaGeneral[]) => {
-        console.log(data);
-        this.busquedaTodosLosServicio = data;
-    } )
-
-
-  }
-
 
 }

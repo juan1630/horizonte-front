@@ -22,11 +22,8 @@ export class TarjetaCotizacionComponent implements OnInit {
 
   }
 
-  ngOnChanges(  ): void {
-
-      console.log( this.carrito );
+  eliminar(idEstudio ){
+    console.log( idEstudio );
   }
-
-
 
 }

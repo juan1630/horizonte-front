@@ -13,7 +13,7 @@ export class CardComponent implements OnInit {
 
  
   public usuario: Personal;
-  public modules: Module[] = [];
+  public modules:any[]=[];
   
   constructor( 
                 public router: Router,
@@ -33,7 +33,7 @@ export class CardComponent implements OnInit {
   getModuleByRole(){
     this.modulesService.getModules( this.usuario._id )
     .subscribe( (data:any)  => {
-      console.log( data );
+
       this.modules = data.usuario;
     })
     console.log( this.modules  );

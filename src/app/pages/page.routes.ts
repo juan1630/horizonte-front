@@ -51,6 +51,7 @@ import { EndoscopiaNewComponent } from './servivicosInt/vistas/Endoscopia/endosc
 import { TomografiaNewComponent } from './servivicosInt/vistas/Tomografia/tomografia-new/tomografia-new.component';
 import { TomografiaEditComponent } from './servivicosInt/vistas/Tomografia/tomografia-edit/tomografia-edit.component';
 import { ContratoMaternidadComponent } from '../contratos/contrato-maternidad/contrato-maternidad.component';
+import { PedidoSinComponent } from './laboratorio/entregas/pedido-sin/pedido-sin.component';
 
 // rutas hijas del dashboard
 // LoginGuardGuard
@@ -106,6 +107,7 @@ const pagesRoutes : Routes = [
       { path: 'laboratorio/estudios/:id', component: PreciosMembresiaComponent },
       { path: 'nuevo/laboratorio', component: NuevoLabComponent },
       { path: 'contrato-maternidad', component: ContratoMaternidadComponent },
+      { path: 'pago/pedido/sin', component: PedidoSinComponent },
       { path: '', redirectTo: '/dashboard', pathMatch:'full' }
     ]
   }

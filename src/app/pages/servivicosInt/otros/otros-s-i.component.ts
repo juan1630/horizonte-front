@@ -11,7 +11,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 })
 export class OtrosSIComponent implements OnInit {
 
-  public otrosServiciosSI: any [] = [];
+  public otrosServiciosSI: any[]=[];
 
   constructor(
     private _otrosService: OtrosServicios,
@@ -20,17 +20,7 @@ export class OtrosSIComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this._otrosService.getOtrosServicios().subscribe(
-    //   res => {
-    //     this.otrosServiciosSI = res.servicios;
-    //     console.log(res);
-        
-    //   },
-    //   err => {
-    //     console.log(<any>err);
-        
-    //   }
-    // );
+   
     this.verDatos();
 }
 

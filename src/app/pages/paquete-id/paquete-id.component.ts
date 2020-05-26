@@ -11,7 +11,7 @@ import { PaquetesDB } from 'src/app/intefaces/pacientePaqueteDB.interfaces';
 })
 export class PaqueteIdComponent implements OnInit {
 
-public paquete: PaquetesDB[]=[];
+public paquete: Paquetes;
         
   constructor(
               public router: ActivatedRoute, 

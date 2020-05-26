@@ -18,7 +18,7 @@ public laboratorios: Estudios[] = [];
 public estudiosPedido: Estudios[]=[];
 public carrito: Estudios[]=[];
 public urgenciaMembresia: boolean = false;
-public total=0;
+
 
 
 constructor(
@@ -44,70 +44,75 @@ constructor(
     
   }
 
-  agregar( item ){
 
-    this.sacarTotal(item.MEMBRESIA);
-    return  this.carrito.push(item);
-  }
-
-
-  agregarUregncias( item ){
-
-    this.sacarTotal( item.URGENCIA_MEM );
-    this.urgenciaMembresia = true;
-    return this.carrito.push( item );
-
-  }
-
-  sacarTotal(costo){
-    // console.log( costo );
-
-    let costoReplace = costo.replace('$','');
-  
-    let costoNumber = parseFloat( costoReplace );
+  eliminar(){
     
-    this.total = this.total + costoNumber;
-    // console.log( this.total );
   }
 
-  restarTotal(costo){
+  // agregar( item ){
 
-    // console.log( this.total );
-   return this.total = this.total - costo;
-    // console.log( this.total );
-  }
-
-  eliminar(id){ 
-
-   this.carrito = this.carrito.filter(  (item) => {
-
-    if( id === item._id ){
+  //   this.sacarTotal(item.MEMBRESIA);
+  //   return  this.carrito.push(item);
+  // }
 
 
-      if( this.urgenciaMembresia ){
+  // agregarUregncias( item ){
 
-        console.log( item);
+  //   this.sacarTotal( item.URGENCIA_MEM );
+  //   this.urgenciaMembresia = true;
+  //   return this.carrito.push( item );
 
-        let costoReplace = item.URGENCIA_MEM.replace('$','');
-        let costoNumber = parseFloat( costoReplace );
-        // console.log( costoNumber );
-        this.restarTotal( costoNumber );
-        console.log( this.total );
-        return;
+  // }
 
-      }
-      
-      let costoReplace = item.MEMBRESIA.replace('$','');
-      let costoNumber = parseFloat( costoReplace );
-      // console.log( costoNumber );
-      this.restarTotal( costoNumber );
-      console.log( this.total );
-      return;
-    }
-     
-     return  item._id != id;
-  } );
+  // sacarTotal(costo){
+  //   // console.log( costo );
+
+  //   let costoReplace = costo.replace('$','');
   
-}
+  //   let costoNumber = parseFloat( costoReplace );
+    
+  //   this.total = this.total + costoNumber;
+  
+  // }
+
+  // restarTotal(costo){
+
+  //   // console.log( this.total );
+  //  return this.total = this.total - costo;
+ 
+  // }
+
+//   eliminar(id){ 
+
+//    this.carrito = this.carrito.filter(  (item) => {
+
+//     if( id === item._id ){
+
+
+//       if( this.urgenciaMembresia ){
+
+//         console.log( item);
+
+//         let costoReplace = item.URGENCIA_MEM.replace('$','');
+//         let costoNumber = parseFloat( costoReplace );
+//         // console.log( costoNumber );
+//         this.restarTotal( costoNumber );
+//         console.log( this.total );
+//         return;
+
+//       }
+      
+//       let costoReplace = item.MEMBRESIA.replace('$','');
+//       let costoNumber = parseFloat( costoReplace );
+//       // console.log( costoNumber );
+//       this.restarTotal( costoNumber );
+//       console.log( this.total );
+//       return;
+//     }
+     
+//      return  item._id != id;
+//   } );
+  
+// }
 
 }

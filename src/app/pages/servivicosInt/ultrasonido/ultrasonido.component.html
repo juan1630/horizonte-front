@@ -1,45 +1,153 @@
 <h1 class="centerxd">Servicio Integrado: Ultrasonido</h1>
 
-<div class="ambulance">
-    <button type=" button " class="btn btn-primary separar " [routerLink]="['/hoja-fram']" routerLinkActive="router-link-active">Contratar</button>
-    <button type="button " class="btn btn-secondary " [routerLink]="['/ultrasonido-nuevo']" routerLinkActive="router-link-active">Nuevo Ultrasonido</button>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="ambulance">
+            <button type=" button " class="btn btn-primary separar " [routerLink]="['/hoja-fram']" routerLinkActive="router-link-active">Contratar</button>
+            <button *ngIf="role === 'admin'" type="button " class="btn btn-secondary " [routerLink]="['/ultrasonido-nuevo']" routerLinkActive="router-link-active">Nuevo Ultrasonido</button>
+        </div>
+
+    </div>
 </div>
 
 
-<table class="table table-hover ">
-    <thead class="thead-dark ">
-        <tr>
-            <th scope="col ">Ultrasonido</th>
-            <th scope="col ">Indicaciones</th>
-            <th scope="col ">Precio Público</th>
-            <th scope="col ">Precio Urgente</th>
-            <th scope="col ">Hospitalización</th>
-            <th scope="col ">Hospitalización de Urgencia</th>
-            <th scope="col ">Pago al Dr.</th>
-            <th scope="col ">Acciones</th>
 
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let ultrasonidoS of ultrasonidoSI">
-            <td class="cursor"> {{ ultrasonidoS.ULTRASONIDO }} </td>
-            <td class="cursor"> {{ ultrasonidoS.INDICACIONES }}</td>
-            <td class="cursor"> {{ ultrasonidoS.PRECIO_PUBLICO }}</td>
-            <td class="cursor"> {{ ultrasonidoS.PRECIO_URGENTE }}</td>
-            <td class="cursor"> {{ ultrasonidoS.HOSP_DENTRO_DE_HORARIO }}</td>
-            <td class="cursor"> {{ ultrasonidoS.HOSP_URGENTE }}</td>
-            <td class="cursor"> {{ ultrasonidoS.PAGO_AL_DOC_URGENCIAS }}</td>
-            <td>
-                <!-- Para navegar al componente editar
+<div class="row">
 
-                    [routerLink]="['/ambulancia-editar', ambulanciaSiService._id]" routerLinkActive="router-link-active" -->
 
-                <button type="button " class="btn btn-outline-success separar" [routerLink]="['/ultrasonido-editar', ultrasonidoS._id]" routerLinkActive="router-link-active"><i class="far fa-edit"></i></button>
-                <!-- -->
-                <button type="button " class="btn btn-outline-danger" (click)="delete(ultrasonidoS._id)"><i class="fas fa-trash-alt "></i></button>
-                <!-- (click)="delete(ambulanciaSiService._id)" -->
+    <div class="col-md-9">
 
-                <!-- (click)="eliminarAmbulancia()" -->
-            </td>
-        </tr>
-    </tbody>
+
+        <table class="table table-hover ">
+            <thead class="thead-dark ">
+                <tr>
+                    <th scope="col ">Ultrasonido</th>
+                    <th scope="col ">Indicaciones</th>
+                    <th scope="col ">Precio Público</th>
+                    <th scope="col ">Precio Urgente</th>
+                    <th scope="col ">Hospitalización</th>
+                    <th scope="col ">Hospitalización de Urgencia</th>
+
+                    <th scope="col" *ngIf="role === 'admin'">
+                        Acciones</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr *ngFor="let ultrasonidoS of ultrasonidoSI">
+                    <td class="cursor"> {{ ultrasonidoS.ULTRASONIDO }} </td>
+                    <td class="cursor"> {{ ultrasonidoS.INDICACIONES }}</td>
+                    <td class="cursor">
+
+                        {{ ultrasonidoS.PRECIO_PUBLICO }}
+                        <button class="btn btn-success precioPublico" (click)="agregarCarrito( $event, ultrasonidoS )"> 
+                            <i class="fas fa-plus"></i>  
+                        </button>
+                    </td>
+                    <td class="cursor">
+                        {{ ultrasonidoS.PRECIO_URGENTE }}
+                        <button class="btn btn-success urgencia" (click)="agregarCarrito( $event, ultrasonidoS )"> 
+                            <i class="fas fa-plus"></i>  
+                        </button>
+                    </td>
+                    <td class="cursor">
+                        {{ ultrasonidoS.HOSP_DENTRO_DE_HORARIO }}
+                        <button class="btn btn-success hospitalizacionHorario" (click)="agregarCarrito( $event, ultrasonidoS )"> 
+                            <i class="fas fa-plus"></i>  
+                        </button>
+                    </td>
+                    <td class="cursor">
+                        {{ ultrasonidoS.HOSP_URGENTE }}
+                        <button class="btn btn-success hospitalizacioUrgente" (click)="agregarCarrito( $event, ultrasonidoS )"> 
+                            <i class="fas fa-plus"></i>  
+                        </button>
+                    </td>
+
+                    <td *ngIf="role === 'admin'">
+                        <!-- Para navegar al componente editar
+        
+                            [routerLink]="['/ambulancia-editar', ambulanciaSiService._id]" routerLinkActive="router-link-active" -->
+
+                        <button type="button " class="btn btn-outline-success separar" [routerLink]="['/ultrasonido-editar', ultrasonidoS._id]" routerLinkActive="router-link-active"><i class="far fa-edit"></i></button>
+                        <!-- -->
+                        <button type="button " class="btn btn-outline-danger" (click)="delete(ultrasonidoS._id)"><i class="fas fa-trash-alt "></i></button>
+                        <!-- (click)="delete(ambulanciaSiService._id)" -->
+
+                        <!-- (click)="eliminarAmbulancia()" -->
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="col-md-3">
+
+            <div class="fixed card-fixed">
+                <div class="card border-dark mb-3" style="max-width: 18rem; max-height: 29rem;">
+                    <div class="card-header bg-transparent border-dark">
+                        <h5>
+                            Cotización
+
+                        </h5>
+                    </div>
+                    <div class="card-body card-body-tarjeta text-dark">
+                        <h5 class="card-title">Total: $ {{carrito.totalSin}}</h5>
+                        <h5 class="card-title">Total membresia: $ {{ carrito.totalCon}}</h5>
+                        <h5 class="card-title">Ahorro: $ {{carrito.totalSin - carrito.totalCon}}</h5>
+
+
+
+                        <div class="pedidos">
+                            <p *ngFor="let pedido of carrito.items">
+                                {{ pedido.nombreEstudio }} : {{ pedido.precioSin }} {{ pedido.precioNoche }}
+
+                                <button type="button" (click)="eliminar( pedido.idEstudio )" class="btn btn-danger btn-block mt-2 eliminarelemento btn-tarjeta">
+                                <i class="fas fa-trash"></i>
+                                Eliminar
+                            </button>
+                            </p>
+
+                            <hr>
+
+                        </div>
+
+                    </div>
+
+                    <div class="card-footer bg-transparent border-success">
+
+                        <div class="pay">
+                            <button type="button" class="btn btn-success btn-block btn-tarjeta">
+                          <i class="fas fa-hand-holding-usd"></i>
+                            Pagar
+                        </button>
+                            <button class="btn btn-dark btn-tarjeta mt-2" [routerLink]="['/paciente']" routerLinkActive="router-link-active">
+                            <i class="fas fa-user-plus"></i>
+                             Nuevo
+                        </button>
+                            <button type="button" class="btn btn-primary btn-block mt-2 btn-tarjeta">
+    
+                            <i class="far fa-file-pdf"></i>
+                            Imprimir
+                        </button>
+                            <button class="btn btn-block btn-info  btn-tarjeta">
+                          <i class="fas fa-share-alt"></i>
+                          Enviar
+                        </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
