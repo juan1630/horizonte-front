@@ -59,6 +59,7 @@ import { UltrasonidoNewComponent } from './servivicosInt/vistas/Ultrasonido/ultr
 
 import { PreciosMembresiaComponent } from './servivicosInt/laboratorio/precios-membresia/precios-membresia.component';
 import { NuevoLabComponent } from './servivicosInt/laboratorio/nuevo-lab/nuevo-lab.component';
+import { PedidoSinComponent } from './laboratorio/entregas/pedido-sin/pedido-sin.component';
 
 
 @NgModule({
@@ -110,7 +111,8 @@ import { NuevoLabComponent } from './servivicosInt/laboratorio/nuevo-lab/nuevo-l
     PendientesComponent,
     PreciosMembresiaComponent,
     NuevoLabComponent,
-    HojaFramComponent
+    HojaFramComponent,
+    PedidoSinComponent
   ],
   exports: [ 
     PageComponent,

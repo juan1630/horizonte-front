@@ -1,24 +1,23 @@
 <!-- ESTAS CARDS SON LAS DE LOS MODULOS    -->
 <div id="content">
 
-    <div *ngIf="modules.modules == 0"  >
-      <app-spinner  class="mx-auto" ></app-spinner>
+    <div *ngIf="modules.modules === 0">
+        <app-spinner class="mx-auto"></app-spinner>
     </div>
-  
+
     <div class="card-columns animate bounceIn">
-  
-      <div class="card" style="width:17rem;"   *ngFor="let module of modules" >
-      
-      <img [src]="module.modules.icon" class="img-fluid" [routerLink]="module.modules.route" >
-      
-        <div class="card-body">
-          <a  class="btn btn-primary btn-block"  [routerLink]="module.modules.route"> 
+
+        <div class="card" style="width:17rem;" *ngFor="let module of modules">
+
+            <img [src]="module.modules.icon" class="img-fluid" [routerLink]="module.modules.route">
+
+            <div class="card-body">
+                <a class="btn btn-primary btn-block" [routerLink]="module.modules.route"> 
             {{ module.modules.nameModule | uppercase  }} 
           </a>
+            </div>
+
         </div>
-    
-      </div>
     </div>
-   
-  </div>   
-  
+
+</div>

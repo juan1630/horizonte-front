@@ -1,5 +1,3 @@
-
-
 <div class="row">
     <div class="col-md-9">
         <table class="table table-hover ">
@@ -12,21 +10,21 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of laboratorios" >
-                    <td> {{ item.ESTUDIO }}  </td>
-                    <td>  {{ item.ENTREGA }} </td>
+                <tr *ngFor="let item of laboratorios">
+                    <td> {{ item.ESTUDIO }} </td>
+                    <td> {{ item.ENTREGA }} </td>
                     <td>
-                          {{ item.MEMBRESIA }}
-                          
-                        <button class="btn btn-success" (click)="agregar(item)"  >   
+                        {{ item.MEMBRESIA }}
+
+                        <button class="btn btn-success">   
                               <i class="fas fa-plus"></i> 
-                        </button> 
+                        </button>
                     </td>
-                    <td> 
+                    <td>
                         {{ item.URGENCIA_MEM}}
-                        <button class="btn btn-success" (click)="agregarUregncias( item )"  > 
+                        <button class="btn btn-success"> 
                             <i class="fas fa-plus"></i> 
-                      </button> 
+                      </button>
                     </td>
                 </tr>
             </tbody>
@@ -34,56 +32,45 @@
     </div>
 
     <!-- <app-tarjeta-cotizacion></app-tarjeta-cotizacion> -->
-    
+
     <div class="fixed">
         <div class="card border-dark mb-3" style="max-width: 18rem;">
             <div class="card-header bg-transparent border-dark">
-              <h5>
-                  Hola: {{ paciente.nombrePaciente}} {{ paciente.apellidoPaterno}}
-                  
-              </h5> 
+                <h5>
+                    <!-- Hola: {{ paciente.nombrePaciente}} {{ paciente.apellidoPaterno}} -->
+
+                </h5>
             </div>
             <div class="card-body text-dark">
-              <h5 class="card-title">Total: $ {{total}}</h5>
-                <p *ngIf="total === 0" >
-                    Aún no tienes examenes
-                </p>
+                <!-- <h5 class="card-title">Total: $ {{total}}</h5> -->
 
-                <div class="pedidos" *ngIf="!urgenciaMembresia" >
-                    <p *ngFor="let pedido of carrito"> 
-                        {{ pedido.ESTUDIO }}  COSTO: {{ pedido.MEMBRESIA }}
-                        <button type="button" (click)="eliminar( pedido._id )" class="btn btn-danger btn-block mt-2">
+
+                <div class="pedidos">
+                    <p *ngFor="let pedido of carrito">
+                        {{ pedido.ESTUDIO }} COSTO: {{ pedido.MEMBRESIA }}
+                        <button type="button" (click)="eliminar()" class="btn btn-danger btn-block mt-2">
                             <i class="fas fa-trash"></i>Eliminar
                         </button>
                     </p>
-              </div>
+                </div>
 
-              <div class="pedidos" *ngIf="urgenciaMembresia" >
-                <p *ngFor="let pedido of carrito"> 
-                    {{ pedido.ESTUDIO }}  COSTO: {{ pedido.URGENCIA_MEM }}
-                    <button type="button" (click)="eliminar( pedido._id )" class="btn btn-danger btn-block mt-2">
-                        <i class="fas fa-trash"></i>
-                    </button>
-                </p>
-          </div>
 
-            
             </div>
 
             <div class="card-footer bg-transparent border-success">
-                    
-              <div class="pay" *ngIf="carrito">
-                <button type="button" class="btn btn-success btn-block">
+
+                <div class="pay" *ngIf="carrito">
+                    <button type="button" class="btn btn-success btn-block">
                     Pagar
                 </button>
-                <button type="button" class="btn btn-primary btn-block mt-2">
+                    <button type="button" class="btn btn-primary btn-block mt-2">
                     <i class="far fa-file-pdf"></i>
                     Imprimir
                 </button>
-              </div>
+                </div>
 
             </div>
-          </div>
+        </div>
     </div>
 
 </div>

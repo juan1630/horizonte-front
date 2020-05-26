@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { XrayService } from 'src/app/services/xray/xray.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { getDataStorage, getDataCarrito, gaurdarCotizacion  } from '../../../functions/storage/storage.funcion';
+
 import swal from 'sweetalert';
+import { Estudios } from 'src/app/intefaces/estudiosLaboratorio';
 @Component({
   selector: 'app-xray-s-i',
   templateUrl: './xray-s-i.component.html',
@@ -11,6 +14,14 @@ import swal from 'sweetalert';
 export class XraySIComponent implements OnInit {
 
   public xraySI: any [] = [];
+  public role:string;
+  // data de la cotizacion 
+public carrito = {
+  totalSin: 0,
+  totalCon:0,
+  items:[]
+
+};
 
 
   constructor(
@@ -23,23 +34,17 @@ export class XraySIComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    // this._xrayService.getEstudioXray().subscribe(
-    //   res => {
-    //     this.xraySI = res.estudios;
-    //     // console.log(res);
-        
-    //   },
-    //   err => {
-    //     console.log(<any>err);
-        
-    //   }
-    // );
+    
     this.verDatos();
+    this.role = getDataStorage().role;
+    this.carrito = getDataCarrito();
+    console.log( this.carrito );
   }
 
   verDatos(){
     this._xrayService.getEstudioXray().subscribe(
         res => {
+          console.log( res );
           this.xraySI = res.estudios;
           // console.log(res);
           
@@ -50,6 +55,147 @@ export class XraySIComponent implements OnInit {
         }
       );
   }
+
+
+  sumarTotal(  precioSin, precioCon  ){
+
+
+    // se le quitan los caracteres $ y , al precio con membresia
+
+let precioConMembresia  = precioCon.replace('$', '');
+let precioConSinComa  = precioConMembresia.replace(',', '');
+let precioConMembresiaNumber = parseFloat( precioConSinComa );
+
+
+
+// se le quitan los caracteres $ y , al precio sin membresia
+let costoSin = precioSin.replace('$', '');
+let costoSinComa = costoSin.replace(',', '');
+let costoSinNumber = parseFloat( costoSinComa );
+
+
+this.carrito.totalSin = this.carrito.totalSin + costoSinNumber;
+this.carrito.totalCon = this.carrito.totalCon + precioConMembresiaNumber;
+
+
+}
+
+
+
+restarTotal ( precioSin, precioCon  ) {
+
+  let precioSinTrim  =  precioSin.replace('$', '');
+  let precioSinComa = precioSinTrim.replace(',', '');
+  // aca le quito la coma si es que trae
+  let precioSinMembresiaNumber = parseFloat( precioSinComa );
+
+   let precioConTirm = precioCon.replace('$', '');
+  let precioConMembresiaSinComa = precioConTirm.replace(',', '');
+    // aca le quito la coma si es que la trae
+  let precioConMembresiaNumber = parseFloat( precioConMembresiaSinComa );
+
+
+
+  this.carrito.totalCon = this.carrito.totalCon - precioConMembresiaNumber;
+  this.carrito.totalSin = this.carrito.totalSin - precioSinMembresiaNumber;
+
+
+
+
+    }
+
+
+
+eliminar( id ){
+
+
+  this.carrito.items.forEach(  (item, index) => {
+
+    // Agregar algun otro caso que se pueda dar  
+
+    if( item.idEstudio  === id ) {
+
+      this.carrito.items.splice( index, 1 )
+     
+      if( item.precioSin && item.precioCon ){
+
+        this.restarTotal( item.precioSin, item.precioCon );
+        
+      }else if( item.precioNoche ){
+  
+            this.restarTotal( item.precioNoche, item.precioNoche );
+      }  
+    }
+
+  } );
+
+      let  carritoString = JSON.stringify( this.carrito  );
+
+      gaurdarCotizacion(  carritoString );
+
+}
+
+  agregarCarrito( event, item:any ){
+    
+    if( event.path[1].classList.contains('precioPublico')  ){ 
+
+      console.log( item );
+    
+      let  estuidio = {
+
+        nombreEstudio: item.ESTUDIO,
+        precioSin: item.PRECIONORMAL,
+        precioCon: item.PRECIOHOSPITALIZACIONURGENCIA,
+        entrega: item.ENTREGA,
+        idEstudio:item._id
+    }
+
+      this.sumarTotal( item.PRECIONORMAL, item.PRECIOHOSPITALIZACIONURGENCIA );
+
+      this.carrito.items.push( estuidio );
+      
+
+    }else if (  event.path[1].classList.contains('precioNoche') )  {
+
+      let  estuidio = {
+        nombreEstudio: item.ESTUDIO,
+        precioNoche: item.PRECIONORMAL,
+        entrega: item.ENTREGA,
+        idEstudio:item._id
+    }
+
+    this.sumarTotal( item.NOCTURNO, item.NOCTURNO );
+
+    this.carrito.items.push( estuidio );
+    
+    }else if( event.path[1].classList.contains('urgencia') ) {
+
+      let  estuidio = {
+
+        nombreEstudio: item.ESTUDIO,
+        precioUrgenciaMembresia: item.PRECIONORMAL,
+        precioUrgenciaPublico: item.URGENCIA_PUB,
+        entrega: item.ENTREGA,
+        idEstudio:item._id
+
+    }
+
+      this.sumarTotal( item.URGENCIA_PUB, item.URGENCIA_MEM );
+      this.carrito.items.push( estuidio );
+      
+  }
+    
+    let carritoString = JSON.stringify( this.carrito );
+  
+
+    gaurdarCotizacion( carritoString );
+    this.carrito = getDataCarrito();
+    console.log( this.carrito );
+    
+
+  }
+
+
 
 
   alertaDesc(){

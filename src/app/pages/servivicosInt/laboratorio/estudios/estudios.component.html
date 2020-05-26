@@ -3,21 +3,21 @@
 
 
     <div class="col-md-3 offset-md-1">
-        <form   #f='ngForm' (ngSubmit)="enviar( f )"  >
+        <form #f='ngForm' (ngSubmit)="buscarTodos( f )">
             <div class="form-group">
-                <input type="text"  (keydown)="enviar( f )"  class="form-control" name="filterPost" placeholder="Buscar..." [(ngModel)]="filterPost">
-                <button type="submit" class="btn btn-primary" >
+                <input type="text" (keydown)="buscarTodos( f )" class="form-control" name="filterPost" placeholder="Buscar...">
+                <button type="submit" class="btn btn-primary">
                     Buscar    
                 </button>
-            </div>  
+            </div>
         </form>
     </div>
 
     <div class="col-md-3 offset-md-1">
-        <a class="btn btn-primary" [routerLink]="['/laboratorio/contrato']"  >
+        <a class="btn btn-primary" [routerLink]="['/laboratorio/contrato']">
             Contrar    
         </a>
-        <a class="btn btn-primary ml-2" [routerLink]="['/nuevo/laboratorio']"  >
+        <a class="btn btn-primary ml-2" [routerLink]="['/nuevo/laboratorio']">
             Nuevo examen    
         </a>
     </div>
@@ -33,40 +33,40 @@
                     <th scope="col ">Tiempo de entrega</th>
                     <th scope="col ">Precio Noche</th>
                     <th scope="col ">Urgencia de noche</th>
-                    <th scope="col" *ngIf="role === 'admin'"  >Acciones</th>
-        
+                    <th scope="col" *ngIf="role === 'admin'">Acciones</th>
+
                 </tr>
             </thead>
 
             <!-- TABLA DE TODOS LOS SERVICIOS  -->
-            <tbody  >
-                <tr *ngFor="let item of estudios" >
-                    
-                    <td class="pointer"  (click)="verComparacio( item.PUBLICO, item.MEMBRESIA )"  > {{ item.ESTUDIO }} </td>
-                    <td class="pointer"  (click)="verComparacio( item.PUBLICO, item.MEMBRESIA )">
-                         {{ item.PUBLICO }}
-                        <button  class="btn btn-success precioPublico" id="precioPublico"  (click)="agregarCarrito( $event, item )"  > 
+            <tbody>
+                <tr *ngFor="let item of estudios">
+
+                    <td class="pointer" (click)="verComparacio( item.PUBLICO, item.MEMBRESIA )"> {{ item.ESTUDIO }} </td>
+                    <td class="pointer" (click)="verComparacio( item.PUBLICO, item.MEMBRESIA )">
+                        {{ item.PUBLICO }}
+                        <button class="btn btn-success precioPublico" id="precioPublico" (click)="agregarCarrito( $event, item )"> 
                             <i class="fas fa-plus"></i>  
                         </button>
                     </td>
-                    <td class="pointer"  (click)="verComparacio( item.PUBLICO, item.MEMBRESIA )"  > {{ item.ENTREGA }} </td>
-                    <td class="pointer"  (click)="verComparacio( item.PUBLICO, item.MEMBRESIA )">
-                         {{ item.NOCTURNO }} 
-                         <button  class="btn btn-success precioNoche"   (click)="agregarCarrito( $event, item )"  > 
+                    <td class="pointer" (click)="verComparacio( item.PUBLICO, item.MEMBRESIA )"> {{ item.ENTREGA }} </td>
+                    <td class="pointer" (click)="verComparacio( item.PUBLICO, item.MEMBRESIA )">
+                        {{ item.NOCTURNO }}
+                        <button class="btn btn-success precioNoche" (click)="agregarCarrito( $event, item )"> 
                             <i class="fas fa-plus"></i>  
-                        </button>    
+                        </button>
                     </td>
-                    <td class="pointer"  (click)="verComparacio( item.PUBLICO, item.MEMBRESIA )">
-                         {{ item.URGENCIA_PUB }} 
-                         <button  class="btn btn-success urgencia"   (click)="agregarCarrito( $event, item )"  > 
+                    <td class="pointer" (click)="verComparacio( item.PUBLICO, item.MEMBRESIA )">
+                        {{ item.URGENCIA_PUB }}
+                        <button class="btn btn-success urgencia" (click)="agregarCarrito( $event, item )"> 
                             <i class="fas fa-plus"></i>  
-                        </button>       
+                        </button>
                     </td>
-                    
-                    <td *ngIf="role === 'admin'"  > 
-                        
-                    <button type="button " class="btn btn-outline-success separar"  [routerLink]="['/estudios-editar', item._id]" ><i class="far fa-edit"></i></button>
-                    <button type="button " class="btn btn-outline-danger" (click)="deleteExamenLab(item._id)"><i class="fas fa-trash-alt "></i></button>    
+
+                    <td *ngIf="role === 'admin'">
+
+                        <button type="button " class="btn btn-outline-success separar" [routerLink]="['/estudios-editar', item._id]"><i class="far fa-edit"></i></button>
+                        <button type="button " class="btn btn-outline-danger" (click)="deleteExamenLab(item._id)"><i class="fas fa-trash-alt "></i></button>
                     </td>
                 </tr>
             </tbody>
@@ -90,69 +90,90 @@
                 </tr>
             </tbody> -->
         </table>
-        
+
     </div>
     <div class="col-md-3">
-       
+
         <div class="fixed card-fixed">
             <div class="card border-dark mb-3" style="max-width: 18rem; max-height: 29rem;">
                 <div class="card-header bg-transparent border-dark">
-                  <h5>
-                    Cotización
-                      
-                  </h5> 
+                    <h5>
+                        Cotización
+
+                    </h5>
                 </div>
                 <div class="card-body card-body-tarjeta text-dark">
-                  <h5 class="card-title">Total: $ {{carrito.totalSin}}</h5>
-                  <h5 class="card-title">Total membresia: $ {{ carrito.totalCon}}</h5>
-                  <h5 class="card-title">Ahorro: $ {{carrito.totalSin - carrito.totalCon}}</h5>
-                   
-                  <p *ngIf="total === 0" >
-                        Aún no tienes examenes
-                    </p>
-                    <hr>
-        
-                    <div class="pedidos" >
-                        <p *ngFor="let pedido of carrito.items"> 
-                          {{ pedido.nombreEstudio }} : {{ pedido.precioSin }} {{ pedido.precioNoche }}
-                         
-                          <button type="button" (click)="eliminar( pedido.idEstudio )" class="btn btn-danger btn-block mt-2 eliminarelemento btn-tarjeta">
+                    <h5 class="card-title">Total: $ {{carrito.totalSin}}</h5>
+                    <h5 class="card-title">Total membresia: $ {{ carrito.totalCon}}</h5>
+                    <h5 class="card-title">Ahorro: $ {{carrito.totalSin - carrito.totalCon}}</h5>
+
+
+
+                    <div class="pedidos">
+                        <p *ngFor="let pedido of carrito.items">
+                            {{ pedido.nombreEstudio }} : {{ pedido.precioSin }} {{ pedido.precioNoche }}
+
+                            <button type="button" (click)="eliminar(pedido.idEstudio)" class="btn btn-danger btn-block mt-2 eliminarelemento btn-tarjeta">
                             <i class="fas fa-trash"></i>
                             Eliminar
                         </button>
                         </p>
-                        
+
                         <hr>
-                       
-                  </div>
-        
+
+                    </div>
+
                 </div>
-        
+
                 <div class="card-footer bg-transparent border-success">
-                        
-                  <div class="pay">
-                    <button type="button" class="btn btn-success btn-block btn-tarjeta">
+
+                    <div class="pay">
+                        <button type="button" class="btn btn-success btn-block btn-tarjeta" [routerLink]="['/pago', 'pedido', 'sin']">
                       <i class="fas fa-hand-holding-usd"></i>
                         Pagar
                     </button>
-                    <button class="btn btn-dark btn-tarjeta mt-2" [routerLink]="['/paciente']" routerLinkActive="router-link-active">
+                        <button class="btn btn-dark btn-tarjeta mt-2" [routerLink]="['/paciente']" routerLinkActive="router-link-active">
                         <i class="fas fa-user-plus"></i>
                          Nuevo
                     </button>
-                    <button type="button" class="btn btn-primary btn-block mt-2 btn-tarjeta"  >
+                        <button type="button" class="btn btn-primary btn-block mt-2 btn-tarjeta">
 
                         <i class="far fa-file-pdf"></i>
                         Imprimir
                     </button>
-                    <button  class="btn btn-block btn-info  btn-tarjeta" >
-                      <i class="fas fa-share-alt"></i>
-                      Enviar
-                    </button>
-                  </div>
+
+                        <button class="btn btn-block btn-info  btn-tarjeta" (click)="abrirInputCorreo()">
+                              <i class="fas fa-share-alt"></i>
+                                Enviar
+                        </button>
+
+                    </div>
                 </div>
-              </div>
+            </div>
         </div>
 
     </div>
     <!-- row -->
+
+    <div role="alert" id="toastEmail" aria-live="assertive" aria-atomic="true" [ngClass]="show" class="toast" data-autohide="false">
+        <div class="toast-header">
+
+
+            <div class="from-group">
+                <strong class="mr-auto">Email:</strong>
+
+                <form (ngSubmit)="enviar()">
+                    <input type="email" class="form-control" name="email" [(ngModel)]="email" id="email" placeholder="Email">
+                    <button type="submit" class="btn btn-primary"> Enviar </button>
+                </form>
+
+            </div>
+
+
+
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close" (click)="cerrarModal()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+    </div>
 </div>

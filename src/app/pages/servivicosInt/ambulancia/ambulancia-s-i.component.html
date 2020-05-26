@@ -9,7 +9,7 @@
     </div>
     <div class="col-md-4">
         <div class="form-group">
-            <input type="text" name="filterPost" placeholder="Buscar..." class="form-control" [(ngModel)]="filterPost">
+            <input type="text" name="filterPost" placeholder="Buscar..." class="form-control">
             <button class="btn btn-primary" type="submit"> 
                 Buscar
             </button>
@@ -40,7 +40,12 @@
                 <!-- | filter:filterPost -->
                 <tr *ngFor="let ambulanciaSiService of ambulanciaSI">
                     <td (click)="showAlert()" class="cursor"> {{ ambulanciaSiService.DESTINO }} </td>
-                    <td (click)="showAlert()" class="cursor"> $ {{ ambulanciaSiService.PRECIODIA }}</td>
+                    <td (click)="showAlert()" class="cursor">
+                        $ {{ ambulanciaSiService.PRECIODIA }}
+                        <button class="btn btn-success urgencia" (click)="agregarCarrito( $event, ambulanciaSiService )"> 
+                            <i class="fas fa-plus"></i>  
+                        </button>
+                    </td>
                     <td (click)="showAlert()" class="cursor"> $ {{ ambulanciaSiService.REDONDODIA }}</td>
                     <td (click)="showAlert()" class="cursor"> $ {{ ambulanciaSiService.PRECIONOCHE }}</td>
                     <td (click)="showAlert()" class="cursor"> $ {{ ambulanciaSiService.PRECIOREDONDONOCHE }}</td>
@@ -65,7 +70,62 @@
     </div>
 
     <div class="col-md-3">
-        <!-- <app-tarjeta-cotizacion> </app-tarjeta-cotizacion> -->
+
+        <!-- <div class="fixed card-fixed">
+            <div class="card border-dark mb-3" style="max-width: 18rem; max-height: 29rem;">
+                <div class="card-header bg-transparent border-dark">
+                    <h5>
+                        Cotización
+
+                    </h5>
+                </div>
+                <div class="card-body card-body-tarjeta text-dark">
+                    <h5 class="card-title">Total: $ {{carrito.totalSin}}</h5>
+                    <h5 class="card-title">Total membresia: $ {{ carrito.totalCon}}</h5>
+                    <h5 class="card-title">Ahorro: $ {{carrito.totalSin - carrito.totalCon}}</h5>
+
+                    <hr>
+
+                    <div class="pedidos">
+                        <p *ngFor="let pedido of carrito.items">
+                            {{ pedido.nombreEstudio }} : {{ pedido.precioSin }} {{ pedido.precioNoche }}
+
+                            <button type="button" (click)="eliminar( pedido.idEstudio )" class="btn btn-danger btn-block mt-2 eliminarelemento btn-tarjeta">
+                            <i class="fas fa-trash"></i>
+                            Eliminar
+                        </button>
+                        </p>
+
+                        <hr>
+
+                    </div>
+
+                </div>
+
+                <div class="card-footer bg-transparent border-success">
+
+                    <div class="pay">
+                        <button type="button" class="btn btn-success btn-block btn-tarjeta">
+                      <i class="fas fa-hand-holding-usd"></i>
+                        Pagar
+                    </button>
+                        <button class="btn btn-dark btn-tarjeta mt-2" [routerLink]="['/paciente']" routerLinkActive="router-link-active">
+                        <i class="fas fa-user-plus"></i>
+                         Nuevo
+                    </button>
+                        <button type="button" class="btn btn-primary btn-block mt-2 btn-tarjeta">
+
+                        <i class="far fa-file-pdf"></i>
+                        Imprimir
+                    </button>
+                        <button class="btn btn-block btn-info  btn-tarjeta">
+                      <i class="fas fa-share-alt"></i>
+                      Enviar
+                    </button>
+                    </div>
+                </div>
+            </div>
+        </div> -->
 
     </div>
 </div>

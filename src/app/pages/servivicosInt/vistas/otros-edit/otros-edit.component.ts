@@ -14,7 +14,7 @@ import swal from 'sweetalert';
 })
 export class OtrosEditComponent implements OnInit {
 
-  public otrosEdit: OtrosEdit[] = [];
+  public otrosEdit: OtrosEdit;
   public status: string;
   public is_edit: boolean;
   public id: string;
