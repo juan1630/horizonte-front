@@ -17,6 +17,7 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { environment } from 'src/environments/environment';
 import { ContratoMaternidadComponent } from './contratos/contrato-maternidad/contrato-maternidad.component';
 import { ContratoMLaboralComponent } from './contratos/contrato-m-laboral/contrato-m-laboral.component';
+import { TicketComponent } from './contratos/ticket/ticket/ticket.component';
 
 const config: SocketIoConfig = { url: environment.swUrl , options: {} };
 
@@ -24,7 +25,8 @@ const config: SocketIoConfig = { url: environment.swUrl , options: {} };
   declarations: [
     AppComponent,
     ContratoMaternidadComponent,
-    ContratoMLaboralComponent
+    ContratoMLaboralComponent,
+    TicketComponent
   ],
   imports: [
     BrowserModule,
