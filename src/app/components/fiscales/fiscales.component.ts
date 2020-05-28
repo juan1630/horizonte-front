@@ -4,8 +4,6 @@ import { CodigoPostalService } from '../../services/codigoPostal/codigo-postal.s
 import { Direcciones } from '../../intefaces/direcciones.interfaces';
 import { ModalServiceService } from 'src/app/components/modal/modal-service.service';
 
-// TODO: AGREGAR LA API DEL CODIGO POSTAL
-
 @Component({
   selector: 'app-fiscales',
   templateUrl: './fiscales.component.html',

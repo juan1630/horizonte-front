@@ -12,6 +12,7 @@ export class PedidioSinService {
   ) { }
 
 
+  // Enviamos el pedidos creado
   enviarPedido(dataUser, dataPedido){
 
     let data = {
@@ -27,12 +28,25 @@ export class PedidioSinService {
   }
 
 
+  // buscamos el pedido por el id de forma individual
+  
   cambiarEstadoEnProceso( id ){
     console.log(id);
 
     let url = `${URLDEV}/pedidios/sin/mem/${id}`;
 
    return this._http.get( url );
+  }
+
+
+
+  // obtenemos todos los pedidos con el estado de pendiente
+
+  obtenerPedidosPendientes(){
+    let url = `${URLDEV}/pedidos/sin/mem`;
+
+    return this._http.get(url);
+    
   }
 
 
