@@ -53,6 +53,7 @@ import { TomografiaEditComponent } from './servivicosInt/vistas/Tomografia/tomog
 import { ContratoMaternidadComponent } from '../contratos/contrato-maternidad/contrato-maternidad.component';
 import { PedidoSinComponent } from './laboratorio/entregas/pedido-sin/pedido-sin.component';
 import { TicketComponent } from '../contratos/ticket/ticket/ticket.component';
+import { PedidosLaboratorioComponent } from './laboratorio/laboratorioUser/pedidos-laboratorio/pedidos-laboratorio.component';
 
 // rutas hijas del dashboard
 // LoginGuardGuard
@@ -103,14 +104,16 @@ const pagesRoutes : Routes = [
       { path: 'laboratorio/pendientes', component: PendientesComponent },
       { path: 'laboratorio/contrato', component: ContratacionComponent },
       { path: 'maternidad', component: MaternidadComponent },
-      {path:'tabulador/pagos/:id', component: TabuladorPagosComponent },
+      { path:'tabulador/pagos/:id', component: TabuladorPagosComponent },
       { path:'pagos/paquete/maternidad/:id', component:PagosMaternidadComponent },
       { path: 'laboratorio/estudios/:id', component: PreciosMembresiaComponent },
       { path: 'nuevo/laboratorio', component: NuevoLabComponent },
       { path: 'contrato-maternidad', component: ContratoMaternidadComponent },
       { path: 'pago/pedido/sin', component: PedidoSinComponent },
       { path: 'imprimir-ticket', component: TicketComponent},
+      { path: 'pedidos/pendientes/laboratorio', component: PedidosLaboratorioComponent  },
       { path: '', redirectTo: '/dashboard', pathMatch:'full' }
+      
     ]
   }
 ];

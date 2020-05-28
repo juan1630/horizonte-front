@@ -128,17 +128,21 @@
                 <div class="card-footer bg-transparent border-success">
 
                     <div class="pay">
+
                         <button type="button" class="btn btn-success btn-block btn-tarjeta" [routerLink]="['/pago', 'pedido', 'sin']">
                       <i class="fas fa-hand-holding-usd"></i>
                         Pagar
                     </button>
+
                         <button class="btn btn-dark btn-tarjeta mt-2" [routerLink]="['/paciente']" routerLinkActive="router-link-active">
                         <i class="fas fa-user-plus"></i>
                          Nuevo
                     </button>
-                        <button type="button" class="btn btn-primary btn-block mt-2 btn-tarjeta">
 
-                        <i class="far fa-file-pdf"></i>
+
+                        <button type="button" class="btn btn-primary btn-block mt-2 btn-tarjeta" [routerLink]="['/imprimir-ticket']">
+
+                        <i class="far fa-file-pdf" routerLinkActive="router-link-active" ></i>
                         Imprimir
                     </button>
 
