@@ -19,10 +19,10 @@ export class SolicitudComponent implements OnInit {
   public fecha = ` ${new Date().toLocaleDateString()}`;
 
 
-  public paciente:any;
+  public paciente:any[]=[];
   public usuarioMaq:any;
   public paquetesDB:Paquetes[]=[];
-  public paqueteSelected: PaquetesDB;
+  public paqueteSelected: PaquetesDB[]=[];
   public paquetesPacientes: any;
 
   // declaradas
@@ -98,7 +98,6 @@ export class SolicitudComponent implements OnInit {
 
         this.paquetesService.getPaqueById( id )
         .subscribe( (data: any )  => {
-          console.log(  data );
 
             this.paqueteSelected = data;
             if( this.paqueteSelected.nombrePaquete === "PAQUETE DE CONTROL PRENATAL" ){

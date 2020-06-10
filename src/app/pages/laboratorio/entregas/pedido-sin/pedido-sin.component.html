@@ -2,7 +2,7 @@
     Cotización
 </h1>
 
-<form>
+<form #f='ngForm'>
 
     <div class="container">
         <div class="row">
@@ -13,7 +13,7 @@
                     <label for="nombrePaciente">
                         Nombre del paciente:
                     </label>
-                    <input type="text" name="nombrePaciente" [(ngModel)]="infoUsuario.nombrePaciente" id="nombrePaciente" placeholder="Nombre completo del paciente..." class="form-control">
+                    <input type="text" name="nombrePaciente" [(ngModel)]="infoUsuario.nombrePaciente" id="nombrePaciente" placeholder="Nombre completo del paciente..." class="form-control" required>
                 </div>
 
             </div>
@@ -24,7 +24,7 @@
                     <label for="edad">
                         Edad:
                     </label>
-                    <input type="number" min="0" max="103" name="edad" [(ngModel)]="infoUsuario.edad" id="edad" placeholder="Edad del paciente..." class="form-control">
+                    <input type="number" min="0" max="103" name="edad" [(ngModel)]="infoUsuario.edad" id="edad" class="form-control" required>
                 </div>
             </div>
 
@@ -33,10 +33,10 @@
                     <label for="sexo">
                         Sexo:
                     </label>
-                    <select name="sexo" [(ngModel)]="infoUsuario.sexo" id="sexo" class="form-control">
+                    <select name="sexo" [(ngModel)]="infoUsuario.sexo" id="sexo" class="form-control" required>
                         <option value="" selected > Selecciona el sexo </option>
-                       <option value="hombre"> Hombre </option>
-                       <option value="mujer"> Mujer</option>
+                       <option value="maculino"> Maculino </option>
+                       <option value="femenino"> Femenino</option>
                    </select>
                 </div>
             </div>
@@ -64,6 +64,22 @@
                 </div>
             </div>
 
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="solicito">Doctor que solicito:</label>
+                    <input type="text" name="solicito" id="solicito" [(ngModel)]="infoUsuario.solicito" class="form-control" placeholder="Doctro que solicito...">
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="tratamiento">Tratamiento:</label>
+                    <input type="text" name="tratamiento" id="tratamiento" [(ngModel)]="infoUsuario.tratamineto" placeholder="Tratamiento..." class="form-control">
+                </div>
+            </div>
         </div>
 
 
@@ -103,7 +119,7 @@
         <div class="row mt-5">
             <div class="col-md-4">
 
-                <button class="btn btn-success btn-block" (click)="enviarPeddio()">  Enviar  </button>
+                <button class="btn btn-success btn-block" (click)="enviarPeddio( f )">  Enviar  </button>
             </div>
             <div class="col-md-4">
                 <button class="btn btn-danger btn-block">  <i class="fas fa-ban"></i>  Cancelar</button>
@@ -113,3 +129,13 @@
     </div>
 
 </form>
+
+
+<div class="container-fluid">
+    <div class="row mt-4">
+        <div class="col-md-9">
+
+            <app-calendar></app-calendar>
+        </div>
+    </div>
+</div>

@@ -32,8 +32,11 @@ export  function getDataCarrito() {
 
      let carritoJson = JSON.parse( localStorage.getItem('carrito'));
 
-     if( carritoJson === null || carritoJson === undefined ){
-          carritoJson =  {
+     console.log(carritoJson );
+
+     if( carritoJson === null || carritoJson === undefined || carritoJson === "" ){
+
+         return carritoJson =  {
                totalSin: 0,
                totalCon:0,
                items:[]
@@ -43,7 +46,6 @@ export  function getDataCarrito() {
           return carritoJson;
      }
      
-     return carritoJson;
 
 }
 

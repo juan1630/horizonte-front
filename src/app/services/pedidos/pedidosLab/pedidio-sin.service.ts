@@ -30,12 +30,31 @@ export class PedidioSinService {
 
   // buscamos el pedido por el id de forma individual
   
-  cambiarEstadoEnProceso( id ){
-    console.log(id);
+  cambiarEstado( id, estadoPedido, fechaProceso ){
+   
 
-    let url = `${URLDEV}/pedidios/sin/mem/${id}`;
+    // esta funcion nos ayuda a evaluar el estado del pedido 
+    // y actualizarlo dependiendo del caso
 
-   return this._http.get( url );
+    let fecha = {
+      fechaProceso
+    }
+
+    let estado = estadoPedido.estado;
+   
+    let url: string;
+
+    if( estado === 'proceso' ){
+
+      url = `${URLDEV}/pedidos/sin/mem/${id}`;
+    
+    }else if( estado === 'terminado' ){
+    
+      url = `${URLDEV}/pedidos/sin/mem/terminado/${id}`;
+
+    }
+
+   return this._http.put( url, fecha );
   }
 
 
@@ -49,5 +68,16 @@ export class PedidioSinService {
     
   }
 
+  //=============================================
+  //      Obtener un pedido por el ID
+  //=============================================
+
+  obtenerPedidoPorId(id){
+
+    let url = `${URLDEV}/pedidos/sin/mem/${id}`;
+
+    return this._http.get(url);
+ 
+  }
 
 }

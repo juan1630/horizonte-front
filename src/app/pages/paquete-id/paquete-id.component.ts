@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PaqueteService } from 'src/app/services/paquete/paquete.service';
 import { Paquetes } from 'src/app/intefaces/paquetes.interfaces';
-import { PaquetesDB } from 'src/app/intefaces/pacientePaqueteDB.interfaces';
+
 
 @Component({
   selector: 'app-paquete-id',
@@ -11,7 +11,7 @@ import { PaquetesDB } from 'src/app/intefaces/pacientePaqueteDB.interfaces';
 })
 export class PaqueteIdComponent implements OnInit {
 
-public paquete: Paquetes;
+public paquete: Paquetes[]=[];
         
   constructor(
               public router: ActivatedRoute, 

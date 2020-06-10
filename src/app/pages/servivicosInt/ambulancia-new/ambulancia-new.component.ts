@@ -22,7 +22,7 @@ export class AmbulanciaNewComponent implements OnInit {
     private _router: Router,
     private _route: ActivatedRoute
   ) { 
-    this.ambulancia = new Ambulancia('','','','','','');
+    this.ambulancia = new Ambulancia('','','','','','','','','');
     this.page_title =  "Nuevo Destino Servicio de Ambulancia";
 
   }
