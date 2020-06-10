@@ -2,7 +2,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Nuevo Estudio</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Editar Estudio</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -10,30 +10,50 @@
             <div class="modal-body">
                 <form #xRayForm="ngForm" (ngSumbit)="onSubmit()">
                     <div class="form-group">
-                        <label for="estudio" class="col-form-label">Nombre estudio:</label>
+                        <label for="ESTUDIO" class="col-form-label">Nombre estudio:</label>
                         <input type="text" name="ESTUDIO" #estudio="ngModel" class="form-control" id="recipient-name" [(ngModel)]="xrayEdit.ESTUDIO" [value]="xrayEdit.ESTUDIO">
 
 
                         <!-- <input type="text" name="destino" class="form-control" id="recipient-name" [(ngModel)]="ambulancia.destino"> -->
                     </div>
                     <div class="form-group">
-                        <label for="PRECIONORMAL" class="col-form-label">Precio Normal:</label>
-                        <input type="text" name="PRECIONORMAL" #pDia="ngModel" class="form-control" id="recipient-name" [(ngModel)]="xrayEdit.PRECIONORMAL" [value]="xrayEdit.PRECIONORMAL">
+                        <label for="PRECIO_PUBLICO" class="col-form-label">Precio Público:</label>
+                        <input type="text" name="PRECIO_PUBLICO" #pDia="ngModel" class="form-control" id="recipient-name" [(ngModel)]="xrayEdit.PRECIO_PUBLICO" [value]="xrayEdit.PRECIO_PUBLICO">
 
                     </div>
                     <div class="form-group">
-                        <label for="PRECIOHOSPITALIZACION" class="col-form-label">Precio Hospitalización</label>
-                        <input type="text" name="PRECIOHOSPITALIZACION" #pRDia="ngModel" class="form-control" id="recipient-name" [(ngModel)]="xrayEdit.PRECIOHOSPITALIZACION" [value]="xrayEdit.PRECIOHOSPITALIZACION">
+                        <label for="PRECIO_PUBLICO_HOSPITALIZACION" class="col-form-label">Precio Hospitalización Público</label>
+                        <input type="text" name="PRECIO_PUBLICO_HOSPITALIZACION" #pRDia="ngModel" class="form-control" id="recipient-name" [(ngModel)]="xrayEdit.PRECIO_PUBLICO_HOSPITALIZACION" [value]="xrayEdit.PRECIO_PUBLICO_HOSPITALIZACION">
 
                     </div>
                     <div class="form-group">
-                        <label for="PRECIOURGENCIAS" class="col-form-label">Precio Urgencia:</label>
-                        <input type="text" name="PRECIOURGENCIAS" #pNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="xrayEdit.PRECIOURGENCIAS" [value]="xrayEdit.PRECIOURGENCIAS">
+                        <label for="PRECIO_PUBLICO_URGENCIA" class="col-form-label">Precio Urgencia Público:</label>
+                        <input type="text" name="PRECIO_PUBLICO_URGENCIA" #pNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="xrayEdit.PRECIO_PUBLICO_URGENCIA" [value]="xrayEdit.PRECIO_PUBLICO_URGENCIA">
 
                     </div>
                     <div class="form-group">
-                        <label for="PRECIOHOSPITALIZACIONURGENCIA" class="col-form-label">Precio Hospitalización Urgencia</label>
-                        <input type="text" name="PRECIOHOSPITALIZACIONURGENCIA" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="xrayEdit.PRECIOHOSPITALIZACIONURGENCIA" [value]="xrayEdit.PRECIOHOSPITALIZACIONURGENCIA">
+                        <label for="PRECIO_HOSPITALIZACIO_URGENCIA" class="col-form-label">Precio Hospitalización Urgencia Público</label>
+                        <input type="text" name="PRECIO_HOSPITALIZACIO_URGENCIA" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="xrayEdit.PRECIO_HOSPITALIZACIO_URGENCIA" [value]="xrayEdit.PRECIO_HOSPITALIZACIO_URGENCIA">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="PRECIO_MEMBRESIA" class="col-form-label">Precio Membresia</label>
+                        <input type="text" name="PRECIO_MEMBRESIA" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="xrayEdit.PRECIO_MEMBRESIA" [value]="xrayEdit.PRECIO_MEMBRESIA">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="PRECIO_MEMBRESIA_HOSPITALIZACION" class="col-form-label">Precio Hospitalización Membresia</label>
+                        <input type="text" name="PRECIO_MEMBRESIA_HOSPITALIZACION" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="xrayEdit.PRECIO_MEMBRESIA_HOSPITALIZACION" [value]="xrayEdit.PRECIO_MEMBRESIA_HOSPITALIZACION">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="PRECIO_MEMBRESIA_URGENCIA" class="col-form-label">Precio Urgencia Membresia</label>
+                        <input type="text" name="PRECIO_MEMBRESIA_URGENCIA" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="xrayEdit.PRECIO_MEMBRESIA_URGENCIA" [value]="xrayEdit.PRECIO_MEMBRESIA_URGENCIA">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="PRECIO_HOSPITALIZACION_URGENCIA_MEMBRESIA" class="col-form-label">Precio Hospitalización Urgencia Membresia</label>
+                        <input type="text" name="PRECIO_HOSPITALIZACION_URGENCIA_MEMBRESIA" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="xrayEdit.PRECIO_HOSPITALIZACION_URGENCIA_MEMBRESIA" [value]="xrayEdit.PRECIO_HOSPITALIZACION_URGENCIA_MEMBRESIA">
 
                     </div>
                 </form>

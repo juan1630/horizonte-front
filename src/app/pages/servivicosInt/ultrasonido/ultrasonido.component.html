@@ -26,9 +26,13 @@
                     <th scope="col ">Ultrasonido</th>
                     <th scope="col ">Indicaciones</th>
                     <th scope="col ">Precio Público</th>
-                    <th scope="col ">Precio Urgente</th>
-                    <th scope="col ">Hospitalización</th>
-                    <th scope="col ">Hospitalización de Urgencia</th>
+                    <th scope="col ">Precio Público Urgente</th>
+                    <th scope="col ">Precio Hospitalización Público</th>
+                    <th scope="col ">Precio Hospitalización Público Urgencia</th>
+                    <th scope="col ">Precio Membresia</th>
+                    <th scope="col ">Precio Membresia Urgente</th>
+                    <th scope="col ">Precio Hospitalización Membresia</th>
+                    <th scope="col ">Precio Hospitalización Membresia Urgencia</th>
 
                     <th scope="col" *ngIf="role === 'admin'">
                         Acciones</th>
@@ -38,7 +42,7 @@
             <tbody>
 
                 <tr *ngFor="let ultrasonidoS of ultrasonidoSI">
-                    <td class="cursor"> {{ ultrasonidoS.ULTRASONIDO }} </td>
+                    <td class="cursor"> {{ ultrasonidoS.ESTUDIO }} </td>
                     <td class="cursor"> {{ ultrasonidoS.INDICACIONES }}</td>
                     <td class="cursor">
 
@@ -48,26 +52,55 @@
                         </button>
                     </td>
                     <td class="cursor">
-                        {{ ultrasonidoS.PRECIO_URGENTE }}
+                        {{ ultrasonidoS.PRECIO_PUBLICO_URGENCIA }}
                         <button class="btn btn-success urgencia" (click)="agregarCarrito( $event, ultrasonidoS )"> 
                             <i class="fas fa-plus"></i>  
                         </button>
                     </td>
                     <td class="cursor">
-                        {{ ultrasonidoS.HOSP_DENTRO_DE_HORARIO }}
+                        {{ ultrasonidoS.PRECIO_PUBLICO_HOSPITALIZACION }}
                         <button class="btn btn-success hospitalizacionHorario" (click)="agregarCarrito( $event, ultrasonidoS )"> 
                             <i class="fas fa-plus"></i>  
                         </button>
                     </td>
                     <td class="cursor">
-                        {{ ultrasonidoS.HOSP_URGENTE }}
+                        <!-- CHECAR POSIBLE ERROR AQUÍ -->
+                        {{ ultrasonidoS.PRECIO_PUBLICO_HOSPITALIZACIO_URGENCIA }}
+                        <button class="btn btn-success hospitalizacioUrgente" (click)="agregarCarrito( $event, ultrasonidoS )"> 
+                            <i class="fas fa-plus"></i>  
+                        </button>
+                        <!-- CHECAR POSIBLE ERROR AQUÍ -->
+                    </td>
+                    <td class="cursor">
+                        {{ ultrasonidoS.PRECIO_MEMBRESIA }}
+                        <button class="btn btn-success hospitalizacioUrgente" (click)="agregarCarrito( $event, ultrasonidoS )"> 
+                            <i class="fas fa-plus"></i>  
+                        </button>
+                    </td>
+                    <td class="cursor">
+                        {{ ultrasonidoS.PRECIO_MEMBRESIA_URGENCIA }}
+                        <button class="btn btn-success hospitalizacioUrgente" (click)="agregarCarrito( $event, ultrasonidoS )"> 
+                            <i class="fas fa-plus"></i>  
+                        </button>
+                    </td>
+                    <td class="cursor">
+                        {{ ultrasonidoS.PRECIO_MEMBRESIA_HOSPITALIZACION }}
+                        <button class="btn btn-success hospitalizacioUrgente" (click)="agregarCarrito( $event, ultrasonidoS )"> 
+                            <i class="fas fa-plus"></i>  
+                        </button>
+                    </td>
+                    <td class="cursor">
+                        {{ ultrasonidoS.PRECIO_MEMBRESIA_HOSPITALIZACION_URGENCIA }}
                         <button class="btn btn-success hospitalizacioUrgente" (click)="agregarCarrito( $event, ultrasonidoS )"> 
                             <i class="fas fa-plus"></i>  
                         </button>
                     </td>
 
-                    <td *ngIf="role === 'admin'">
+
+                    <td>
                         <!-- Para navegar al componente editar
+
+                            *ngIf="role === 'admin'"
         
                             [routerLink]="['/ambulancia-editar', ambulanciaSiService._id]" routerLinkActive="router-link-active" -->
 
@@ -84,7 +117,7 @@
         </table>
 
     </div>
-
+    <!--
     <div class="col-md-3">
 
         <div class="col-md-3">
@@ -149,5 +182,6 @@
 
 
     </div>
+      -->
 
 </div>
