@@ -61,6 +61,7 @@ import { PreciosMembresiaComponent } from './servivicosInt/laboratorio/precios-m
 import { NuevoLabComponent } from './servivicosInt/laboratorio/nuevo-lab/nuevo-lab.component';
 import { PedidoSinComponent } from './laboratorio/entregas/pedido-sin/pedido-sin.component';
 import { PedidosLaboratorioComponent } from './laboratorio/laboratorioUser/pedidos-laboratorio/pedidos-laboratorio.component';
+import { FE09Component } from './Enfermeria/Fichas/fe09/fe09.component';
 
 
 @NgModule({
@@ -114,7 +115,8 @@ import { PedidosLaboratorioComponent } from './laboratorio/laboratorioUser/pedid
     NuevoLabComponent,
     HojaFramComponent,
     PedidoSinComponent,
-    PedidosLaboratorioComponent
+    PedidosLaboratorioComponent,
+    FE09Component
   ],
   exports: [ 
     PageComponent,

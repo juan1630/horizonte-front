@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { XrayService } from '.././../../../services/xray/xray.service';
-import { XrayEdit } from '../../../../models/xray-edit';
+// import { XrayEdit } from '../../../../models/xray-edit';
 import { Router, ActivatedRoute, RouterLink } from '@angular/router';
 import swal from 'sweetalert';
+// import { XrayEdit } from 'src/app/models/xray-edit';
+import { Xray } from 'src/app/models/xray';
 
 @Component({
   selector: 'app-xray-edit',
@@ -12,7 +14,7 @@ import swal from 'sweetalert';
 })
 export class XrayEditComponent implements OnInit {
 
-  public xrayEdit: XrayEdit;
+  public xrayEdit: Xray;
   public status: string;
   public is_edit: boolean;
   public id: string;
@@ -45,8 +47,10 @@ export class XrayEditComponent implements OnInit {
       res=> {
         if(res.ok){
           this.status = 'ok';
-          this.xrayEdit = res.rayos;
+          this.xrayEdit = res.rayosx;
           console.log(this.xrayEdit);
+          console.log(res);
+          
           
 
           swal("Editado Correctamente!", "Puedes ver los cambios en el Servicio de Rayos X", "success")
@@ -71,8 +75,8 @@ export class XrayEditComponent implements OnInit {
       this._xrayService.getXrayById(id).subscribe(
 
         (res:any) => {
-          if(res.rayos){
-            this.xrayEdit = res.rayos;
+          if(res.rayosx){
+            this.xrayEdit = res.rayosx;
             console.log(this.xrayEdit);
             
           }else{

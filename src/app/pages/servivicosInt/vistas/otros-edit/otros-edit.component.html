@@ -5,6 +5,7 @@
                 <h5 class="modal-title" id="exampleModalLabel">
                     Editar Otros servicios
                 </h5>
+                <h5 class="modal-title" id="exampleModalLabel">Editar Otros Servicios</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -12,38 +13,56 @@
             <div class="modal-body">
                 <form #ambulanciaForm="ngForm" (ngSumbit)="onSubmit()">
                     <div class="form-group">
-                        <label for="destino" class="col-form-label">Descripción del Servicio:</label>
-                        <input type="text" name="DESCRIPCION_DE_SERVICIO" #DESCRIPCION_DE_SERVICIO="ngModel" class="form-control" id="recipient-name" [(ngModel)]="otrosEdit.DESCRIPCION_DE_SERVICIO" [value]="otrosEdit.DESCRIPCION_DE_SERVICIO" required>
+                        <label for="ESTUDIO" class="col-form-label">ESTUDIO:</label>
+                        <input type="text" name="ESTUDIO" #DESCRIPCION_DE_SERVICIO="ngModel" class="form-control" id="recipient-name" [(ngModel)]="otrosEdit.ESTUDIO" [value]="otrosEdit.ESTUDIO">
+
+
+                        <!-- <input type="text" name="destino" class="form-control" id="recipient-name" [(ngModel)]="ambulancia.destino"> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="INDICACIONES" class="col-form-label">Indicaciones:</label>
+                        <input type="text" name="INDICACIONES" #pDia="ngModel" class="form-control" id="recipient-name" [(ngModel)]="otrosEdit.INDICACIONES" [value]="otrosEdit.INDICACIONES">
 
                     </div>
                     <div class="form-group">
-                        <label for="precioDia" class="col-form-label">Membresia Día:</label>
-                        <input type="text" name="MEMBRESIA_DIA" #pDia="ngModel" class="form-control" id="recipient-name" [(ngModel)]="otrosEdit.MEMBRESIA_DIA" [value]="otrosEdit.MEMBRESIA_DIA">
-                        <small *ngIf="!pDia.valid && pDia.touched">
-                            El Precio Día no es válido..
-                        </small>
-                    </div>
-                    <div class="form-group">
-                        <label for="precioRedondoDia" class="col-form-label">Membresia Noche:</label>
-                        <input type="text" name="MEMBRESIA_NOCHE" #pRDia="ngModel" class="form-control" id="recipient-name" [(ngModel)]="otrosEdit.MEMBRESIA_NOCHE" [value]="otrosEdit.MEMBRESIA_NOCHE">
+                        <label for="PRECIO_PUBLICO" class="col-form-label">Precio Público:</label>
+                        <input type="text" name="PRECIO_PUBLICO" #pRDia="ngModel" class="form-control" id="recipient-name" [(ngModel)]="otrosEdit.PRECIO_PUBLICO" [value]="otrosEdit.PRECIO_PUBLICO">
 
-                        <small *ngIf="!pRDia.valid && pRDia.touched">
-                            El Precio Redondo Día no es válido..
-                        </small>
                     </div>
                     <div class="form-group">
-                        <label for="precioNoche" class="col-form-label">Publico Día:</label>
-                        <input type="text" name="PUBLICO_DIA" #pNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="otrosEdit.PUBLICO_DIA" [value]="otrosEdit.PUBLICO_DIA">
-                        <small *ngIf="!pNoche.valid && pNoche.touched">
-                            El Precio Noche no es válido..
-                        </small>
+                        <label for="PRECIO_PUBLICO_URGENCIA" class="col-form-label">Precio Urgente:</label>
+                        <input type="text" name="PRECIO_PUBLICO_URGENCIA" #pNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="otrosEdit.PRECIO_PUBLICO_URGENCIA" [value]="otrosEdit.PRECIO_PUBLICO_URGENCIA">
+
                     </div>
                     <div class="form-group">
-                        <label for="precioRedondoNoche" class="col-form-label">Publico Noche:</label>
-                        <input type="text" name="PUBLICO_NOCHE" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="otrosEdit.PUBLICO_NOCHE" [value]="otrosEdit.PUBLICO_NOCHE">
-                        <small *ngIf="!pRNoche.valid && pRNoche.touched">
-                            El Precio Redondo Noche no es válido..
-                        </small>
+                        <label for="PRECIO_PUBLICO_HOSPITALIZACION" class="col-form-label">Precio Publico Hospitalización</label>
+                        <input type="text" name="PRECIO_PUBLICO_HOSPITALIZACION" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="otrosEdit.PRECIO_PUBLICO_HOSPITALIZACION" [value]="otrosEdit.PRECIO_PUBLICO_HOSPITALIZACION">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="PRECIO_PUBLICO_HOSPITALIZACIO_URGENCIA" class="col-form-label">Precio Hospitalización Público Urgencia</label>
+                        <input type="text" name="PRECIO_PUBLICO_HOSPITALIZACIO_URGENCIA" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="otrosEdit.PRECIO_PUBLICO_HOSPITALIZACIO_URGENCIA" [value]="otrosEdit.PRECIO_PUBLICO_HOSPITALIZACIO_URGENCIA">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="PRECIO_MEMBRESIA" class="col-form-label">Precio Membresia</label>
+                        <input type="text" name="PRECIO_MEMBRESIA" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="otrosEdit.PRECIO_MEMBRESIA" [value]="otrosEdit.PRECIO_MEMBRESIA">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="PRECIO_MEMBRESIA_URGENCIA" class="col-form-label">Precio Membresia URGENCIA</label>
+                        <input type="text" name="PRECIO_MEMBRESIA_URGENCIA" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="otrosEdit.PRECIO_MEMBRESIA_URGENCIA" [value]="otrosEdit.PRECIO_MEMBRESIA_URGENCIA">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="PRECIO_MEMBRESIA_HOSPITALIZACION" class="col-form-label">Precio HOSPITALIZACION Membresia</label>
+                        <input type="text" name="PRECIO_MEMBRESIA_HOSPITALIZACION" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="otrosEdit.PRECIO_MEMBRESIA_HOSPITALIZACION" [value]="otrosEdit.PRECIO_MEMBRESIA_HOSPITALIZACION">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="PRECIO_MEMBRESIA_HOSPITALIZACIO_URGENCIA" class="col-form-label">Precio HOSPITALIZACION URGENCIA Membresia</label>
+                        <input type="text" name="PRECIO_MEMBRESIA_HOSPITALIZACIO_URGENCIA" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="otrosEdit.PRECIO_MEMBRESIA_HOSPITALIZACIO_URGENCIA" [value]="otrosEdit.PRECIO_MEMBRESIA_HOSPITALIZACIO_URGENCIA">
+
                     </div>
                 </form>
             </div>

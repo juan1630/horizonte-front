@@ -19,7 +19,7 @@ export class XrayNewComponent implements OnInit {
     private _router: Router,
     private _route: ActivatedRoute
   ) { 
-    this.xray = new Xray('','','','','','');
+    this.xray = new Xray('','','','','','','','','','');
   }
 
   ngOnInit(): void {

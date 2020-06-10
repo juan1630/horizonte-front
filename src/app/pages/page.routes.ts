@@ -54,6 +54,8 @@ import { ContratoMaternidadComponent } from '../contratos/contrato-maternidad/co
 import { PedidoSinComponent } from './laboratorio/entregas/pedido-sin/pedido-sin.component';
 import { TicketComponent } from '../contratos/ticket/ticket/ticket.component';
 import { PedidosLaboratorioComponent } from './laboratorio/laboratorioUser/pedidos-laboratorio/pedidos-laboratorio.component';
+import { ContratoMLaboralComponent } from '../contratos/contrato-m-laboral/contrato-m-laboral.component';
+import {FE09Component } from '../pages/Enfermeria/Fichas/fe09/fe09.component'
 
 // rutas hijas del dashboard
 // LoginGuardGuard
@@ -109,9 +111,11 @@ const pagesRoutes : Routes = [
       { path: 'laboratorio/estudios/:id', component: PreciosMembresiaComponent },
       { path: 'nuevo/laboratorio', component: NuevoLabComponent },
       { path: 'contrato-maternidad', component: ContratoMaternidadComponent },
+      {path: 'contrato-medico-laboral', component: ContratoMLaboralComponent},
       { path: 'pago/pedido/sin', component: PedidoSinComponent },
       { path: 'imprimir-ticket', component: TicketComponent},
       { path: 'pedidos/pendientes/laboratorio', component: PedidosLaboratorioComponent  },
+      { path: 'ficha-enfermeria-01', component: FE09Component},
       { path: '', redirectTo: '/dashboard', pathMatch:'full' }
       
     ]

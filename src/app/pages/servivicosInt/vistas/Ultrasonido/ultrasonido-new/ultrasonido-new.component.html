@@ -10,8 +10,8 @@
             <div class="modal-body">
                 <form #xRayForm="ngForm" (ngSumbit)="onSubmit()">
                     <div class="form-group">
-                        <label for="ULTRASONIDO" class="col-form-label">Ultrasonido:</label>
-                        <input type="text" name="ULTRASONIDO" #DESCRIPCION_DE_SERVICIO="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ultrasonido.ULTRASONIDO" [value]="ultrasonido.ULTRASONIDO">
+                        <label for="ESTUDIO" class="col-form-label">ESTUDIO:</label>
+                        <input type="text" name="ESTUDIO" #DESCRIPCION_DE_SERVICIO="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ultrasonido.ESTUDIO" [value]="ultrasonido.ESTUDIO">
 
 
                         <!-- <input type="text" name="destino" class="form-control" id="recipient-name" [(ngModel)]="ambulancia.destino"> -->
@@ -27,23 +27,38 @@
 
                     </div>
                     <div class="form-group">
-                        <label for="PRECIO_URGENTE" class="col-form-label">Precio Urgente:</label>
-                        <input type="text" name="PRECIO_URGENTE" #pNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ultrasonido.PRECIO_URGENTE" [value]="ultrasonido.PRECIO_URGENTE">
+                        <label for="PRECIO_PUBLICO_URGENCIA" class="col-form-label">Precio Urgente:</label>
+                        <input type="text" name="PRECIO_PUBLICO_URGENCIA" #pNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ultrasonido.PRECIO_PUBLICO_URGENCIA" [value]="ultrasonido.PRECIO_PUBLICO_URGENCIA">
 
                     </div>
                     <div class="form-group">
-                        <label for="HOSP_DENTRO_DE_HORARIO" class="col-form-label">Hosp dentro de Horario</label>
-                        <input type="text" name="HOSP_DENTRO_DE_HORARIO" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ultrasonido.HOSP_DENTRO_DE_HORARIO" [value]="ultrasonido.HOSP_DENTRO_DE_HORARIO">
+                        <label for="PRECIO_PUBLICO_HOSPITALIZACION" class="col-form-label">Precio Publico Hospitalización</label>
+                        <input type="text" name="PRECIO_PUBLICO_HOSPITALIZACION" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ultrasonido.PRECIO_PUBLICO_HOSPITALIZACION" [value]="ultrasonido.PRECIO_PUBLICO_HOSPITALIZACION">
 
                     </div>
                     <div class="form-group">
-                        <label for="HOSP_URGENTE" class="col-form-label">Hospitalización Urgente</label>
-                        <input type="text" name="HOSP_URGENTE" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ultrasonido.HOSP_URGENTE" [value]="ultrasonido.HOSP_URGENTE">
+                        <label for="PRECIO_PUBLICO_HOSPITALIZACIO_URGENCIA" class="col-form-label">Precio Hospitalización Público Urgencia</label>
+                        <input type="text" name="PRECIO_PUBLICO_HOSPITALIZACIO_URGENCIA" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ultrasonido.PRECIO_PUBLICO_HOSPITALIZACIO_URGENCIA" [value]="ultrasonido.PRECIO_PUBLICO_HOSPITALIZACIO_URGENCIA">
 
                     </div>
                     <div class="form-group">
-                        <label for="PAGO_AL_DOC_URGENCIAS" class="col-form-label">Pago al Doctor Urgencias</label>
-                        <input type="text" name="PAGO_AL_DOC_URGENCIAS" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ultrasonido.PAGO_AL_DOC_URGENCIAS" [value]="ultrasonido.PAGO_AL_DOC_URGENCIAS">
+                        <label for="PRECIO_MEMBRESIA" class="col-form-label">Precio Membresia</label>
+                        <input type="text" name="PRECIO_MEMBRESIA" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ultrasonido.PRECIO_MEMBRESIA" [value]="ultrasonido.PRECIO_MEMBRESIA">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="PRECIO_MEMBRESIA_URGENCIA" class="col-form-label">Precio Membresia URGENCIA</label>
+                        <input type="text" name="PRECIO_MEMBRESIA_URGENCIA" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ultrasonido.PRECIO_MEMBRESIA_URGENCIA" [value]="ultrasonido.PRECIO_MEMBRESIA_URGENCIA">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="PRECIO_MEMBRESIA_HOSPITALIZACION" class="col-form-label">Precio HOSPITALIZACION Membresia</label>
+                        <input type="text" name="PRECIO_MEMBRESIA_HOSPITALIZACION" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ultrasonido.PRECIO_MEMBRESIA_HOSPITALIZACION" [value]="ultrasonido.PRECIO_MEMBRESIA_HOSPITALIZACION">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="PRECIO_MEMBRESIA_HOSPITALIZACION_URGENCIA" class="col-form-label">Precio HOSPITALIZACION URGENCIA Membresia</label>
+                        <input type="text" name="PRECIO_MEMBRESIA_HOSPITALIZACION_URGENCIA" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ultrasonido.PRECIO_MEMBRESIA_HOSPITALIZACION_URGENCIA" [value]="ultrasonido.PRECIO_MEMBRESIA_HOSPITALIZACION_URGENCIA">
 
                     </div>
                 </form>

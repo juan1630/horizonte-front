@@ -20,7 +20,7 @@ export class UltrasonidoNewComponent implements OnInit {
     private _router: Router,
     private _route: ActivatedRoute
   ) {
-    this.ultrasonido = new Ultrasonido('', '', '', '', '', '', '', '');
+    this.ultrasonido = new Ultrasonido('', '', '', '', '', '', '', '', '', '', '');
    }
 
   ngOnInit(): void {
