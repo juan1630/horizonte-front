@@ -3,10 +3,9 @@ import { AmbulanciaService } from 'src/app/services/ambulancia/ambulancia.servic
 import { Router} from '@angular/router';
 import swal from 'sweetalert';
 
-import  { getDataStorage, gaurdarCotizacion, eliminarTodoPedido, getDataCarrito }  from '../../../functions/storage/storage.funcion';
+import  { getDataStorage, gaurdarCotizacion, getDataCarrito }  from '../../../functions/storage/storage.funcion';
 
-import { getCarritoStorage, }  from '../../../functions/storage/pacienteIntegrados';
-import { Estudios } from 'src/app/intefaces/estudiosLaboratorio';
+import { getCarritoStorage, guardarStorage, }  from '../../../functions/storage/pacienteIntegrados';
 
 @Component({
   selector: 'app-ambulancia-s-i',
@@ -21,24 +20,58 @@ export class AmbulanciaSIComponent implements OnInit {
   public ambulanciaSI: any [] = [];
   
   // data el usuario de la maquina 
-  public role: String;
+  //public role: String;
 
 // data de la cotizacion 
 public carrito = {
   totalSin: 0,
   totalCon:0,
   items:[]
-
 };
 
 ngOnInit(): void {
   
-  this.role = getDataStorage().role;
+  // this.role = getDataStorage().role;
+
+  // aca sugria el problema de la inicializacion de las variables
   this.carrito = getCarritoStorage();
-  
+
+  if( this.carrito == null ){
+    this.carrito = {
+      totalSin: 0,
+      totalCon:0,
+      items:[]
+    };
+  }
   this.verDatos();
   
 }
+
+
+constructor(
+  private _ambulanciaService: AmbulanciaService,
+  private _router: Router
+) { }
+
+restarTotal ( precioSin, precioCon  ) {
+
+  let precioSinTrim  =  precioSin.replace('$', '');
+  let precioSinComa = precioSinTrim.replace(',', '');
+  // aca le quito la coma si es que trae
+  let precioSinMembresiaNumber = parseFloat( precioSinComa );
+
+  let precioConTirm = precioCon.replace('$', '');
+  let precioConMembresiaSinComa = precioConTirm.replace(',', '');
+    // aca le quito la coma si es que la trae
+  let precioConMembresiaNumber = parseFloat( precioConMembresiaSinComa );
+
+
+
+    this.carrito.totalCon = this.carrito.totalCon - precioConMembresiaNumber;
+    this.carrito.totalSin = this.carrito.totalSin - precioSinMembresiaNumber;
+
+
+    }
 
 sumarTotal(  precioSin, precioCon  ){
 
@@ -64,53 +97,77 @@ this.carrito.totalCon = this.carrito.totalCon + precioConMembresiaNumber;
 }
 
 
-agregarCarrito( event, item: Estudios ){
+agregarCarrito( event, item:any ){
+
+
+  console.log( item );
     
   if( event.path[1].classList.contains('precioPublico')  ){ 
   
+
+    // en esta parte pasamos el precio de día con y sin
     let  estuidio = {
 
-      nombreEstudio: item.ESTUDIO,
-      precioSin: item.PUBLICO,
-      precioCon: item.MEMBRESIA,
-      entrega: item.ENTREGA,
+      nombreEstudio: item.DESTINO,
+      precioSin: item.PRECIO_PUBLICO_DIA,
+      precioCon: item.PRECIO_MEMBRESIA_DIA,
       idEstudio:item._id
       
   }
 
-    this.sumarTotal( item.PUBLICO, item.MEMBRESIA );
+  // pasamos el precio redondo día con y sin
+
+    this.sumarTotal(   item.PRECIO_PUBLICO_DIA, item.PRECIO_MEMBRESIA_DIA );
 
     this.carrito.items.push( estuidio );
     
 
-  }else if (  event.path[1].classList.contains('precioNoche') )  {
+  }else if (  event.path[1].classList.contains('precioRedondoDia') )  {
 
     let  estuidio = {
-      nombreEstudio: item.ESTUDIO,
-      precioNoche: item.NOCTURNO,
-      entrega: item.ENTREGA,
+      nombreEstudio: item.DESTINO,
+      precioSin: item.PRECIO_PUBLICO_REDONDO_DIA,
+      precioCon: item.PRECIO_MEMBRESIA_REDONDO_DIA ,
       idEstudio:item._id
   }
 
-  this.sumarTotal( item.NOCTURNO, item.NOCTURNO );
+  this.sumarTotal( item.PRECIO_PUBLICO_REDONDO_DIA, item.PRECIO_MEMBRESIA_REDONDO_DIA );
 
   this.carrito.items.push( estuidio );
   
-  }else if( event.path[1].classList.contains('urgencia') ) {
+  }else if( event.path[1].classList.contains('precioNoche') ) {
 
+
+    // evaluamos el precio noche y precio noche sin 
     let  estuidio = {
 
-      nombreEstudio: item.ESTUDIO,
-      precioUrgenciaMembresia: item.URGENCIA_MEM,
-      precioUrgenciaPublico: item.URGENCIA_PUB,
-      entrega: item.ENTREGA,
+      nombreEstudio: item.DESTINO,
+      precioSin: item.PRECIO_PUBLICO_NOCHE,
+      precioCon: item.PRECIO_MEMBRESIA_NOCHE,
       idEstudio:item._id
 
   }
 
-    this.sumarTotal( item.URGENCIA_PUB, item.URGENCIA_MEM );
+  console.log( estuidio );
+
+    this.sumarTotal( item.PRECIO_PUBLICO_NOCHE, item.PRECIO_MEMBRESIA_NOCHE );
     this.carrito.items.push( estuidio );
     
+}else if( event.path[1].classList.contains('precioRedondoNoche')  ){
+
+  
+  let estudio = {
+    
+    nombreEstudio: item.DESTINO,
+    precioSin: item.PRECIO_PUBLICO_REDONDO_NOCHE,
+    precioCon: item.PRECIO_MEMBRESIA_REDONDO_NOCHE,
+    idEstudio:item._id
+
+  }
+
+  this.sumarTotal( item.PRECIO_PUBLICO_REDONDO_NOCHE, item.PRECIO_MEMBRESIA_REDONDO_NOCHE );
+  this.carrito.items.push( estudio );
+
 }
   
   let carritoString = JSON.stringify( this.carrito );
@@ -123,19 +180,45 @@ agregarCarrito( event, item: Estudios ){
 
 }
 
+
+
+eliminar( id ){
+
+
+  this.carrito.items.forEach(  (item, index) => {
+
+    // Agregar algun otro caso que se pueda dar  
+    
+    if( item.idEstudio  === id ) {
+
+      this.carrito.items.splice( index, 1 )
+     
+      if( item.precioSin && item.precioCon ){
+
+        this.restarTotal( item.precioSin, item.precioCon );
+        
+      }else if( item.precioNoche ){
+  
+            this.restarTotal( item.precioNoche, item.precioNoche );
+      }  
+    }
+
+  } );
+
+      let  carritoString = JSON.stringify( this.carrito  );
+
+      gaurdarCotizacion(  carritoString );
+
+}
  
-  constructor(
-    private _ambulanciaService: AmbulanciaService,
-    private _router: Router
-  ) { }
+
   // filterPost = '';
 
   verDatos(){
     this._ambulanciaService.getDestino().subscribe(
-      res => {
-        this.ambulanciaSI = res.servicios;
-        // console.log(res);
-        
+      (res:any) => {
+        console.log( res );
+        this.ambulanciaSI = res.servicios; 
       },
       err => {
         console.log(<any>err);
@@ -143,6 +226,23 @@ agregarCarrito( event, item: Estudios ){
       }
     );
   
+  }
+
+
+
+  alertcomparasion( precioPublico, precioMembresia ){
+
+    let precioSinTrim  =  precioPublico.replace('$', '');
+    let precioSinComaPublico = precioSinTrim.replace(',', '');
+
+
+    let precioMemTrim  =  precioMembresia.replace('$', '');
+    let precioMemComaMembresia = precioMemTrim.replace(',', '');
+
+
+
+    swal({ title: `Con la memebresia ahorras ${ precioSinComaPublico - precioMemComaMembresia }`    ,icon: 'success' });
+
   }
 
   showAlert(){

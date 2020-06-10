@@ -1,0 +1,36 @@
+<h2 class="center"> Agregar nuevo servicio </h2>
+
+
+<form [formGroup]="forma" (ngSubmit)="guardar()">
+
+
+    <div class="container-fluid">
+        <div class="row">
+
+
+            <div class="col-md-3">
+                <label for="patologia"> Nombre de la patologia: </label>
+                <input type="text" name="patologia" id="patologia" formControlName="PATOLOGIA" class="form-control" placeholder="Nombre de la patología">
+            </div>
+
+            <div class="col-md-3">
+                <label for="publico"> Precio público: </label>
+                <input type="number" name="publico" id="publico" formControlName="PUBLICO" class="form-control" min="0">
+            </div>
+
+
+            <div class="col-md-3">
+                <label for="membresia"> Precio membresia: </label>
+                <input type="number" name="membresia" id="membresia" formControlName="MEMBRESIA" class="form-control" min="0">
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <div class="col-md-4 mt-3">
+        <button type="submit" class="btn btn-primary  btn-block" [disabled]="forma.invalid">  Enviar </button>
+    </div>
+
+</form>

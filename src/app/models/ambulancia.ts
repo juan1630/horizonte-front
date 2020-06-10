@@ -1,10 +1,14 @@
 export class Ambulancia {
     constructor(
-        public _id: string,
-        public destino: string,
-        public precioDia: string,
-        public precioRedondoDia: string,
-        public precioNoche: string,
-        public precioRedondoNoche: string,
+
+        public DESTINO: String,
+      public PRECIO_MEMBRESIA_DIA: String,
+      public PRECIO_MEMBRESIA_NOCHE: String,
+      public PRECIO_MEMBRESIA_REDONDO_DIA: String,
+      public PRECIO_MEMBRESIA_REDONDO_NOCHE: String,
+      public PRECIO_PUBLICO_DIA: String,
+      public PRECIO_PUBLICO_NOCHE: String,
+      public PRECIO_PUBLICO_REDONDO_DIA: String,
+      public PRECIO_PUBLICO_REDONDO_NOCHE: String,
     ){}
 }

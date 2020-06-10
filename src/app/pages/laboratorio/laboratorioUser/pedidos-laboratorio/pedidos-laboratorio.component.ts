@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PedidioSinService } from 'src/app/services/pedidos/pedidosLab/pedidio-sin.service';
-import { PedidosLaboratorioEstudio, EstudioEstudio, PedidosLaboratorio } from 'src/app/intefaces/pedidosLab';
+import { EstudioEstudio } from 'src/app/intefaces/pedidosLab';
 
 @Component({
   selector: 'app-pedidos-laboratorio',
@@ -9,7 +9,7 @@ import { PedidosLaboratorioEstudio, EstudioEstudio, PedidosLaboratorio } from 's
 })
 export class PedidosLaboratorioComponent implements OnInit {
 
-  public pedidos: EstudioEstudio[]=[];
+  public pedidos: any[]=[];
 
   constructor(
     private _pedidosService: PedidioSinService
@@ -23,7 +23,7 @@ export class PedidosLaboratorioComponent implements OnInit {
   verPedidos(){
     this._pedidosService.obtenerPedidosPendientes()
     .subscribe( (data:any) => {
-      console.log(data);
+      this.pedidos = data;
       console.log( this.pedidos )
     } )
   }

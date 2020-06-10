@@ -1,0 +1,34 @@
+<h1 class="center">
+    Editar la patología
+</h1>
+
+<form #f="ngForm" class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-3">
+            <label for="patologia"> Patología: </label>
+            <input type="text" name="patologia" id="patologia" class="form-control" placeholder="Nombre de la patología" [value]="patologia.PATOLOGIA" [(ngModel)]="patologia.PATOLOGIA">
+        </div>
+
+        <div class="col-md-3">
+
+            <label for="publico"> Precio público: </label>
+            <input type="text" name="publico" id="publico" class="form-control" placeholder="Precio publico" [value]="patologia.PUBLICO" [(ngModel)]="patologia.PUBLICO">
+
+        </div>
+
+
+        <div class="col-md-3">
+
+            <label for="membresia"> Precio membresia: </label>
+            <input type="text" name="membresia" id="membresia" class="form-control" placeholder="Precio membresia" [(ngModel)]="patologia.MEMBRESIA">
+
+        </div>
+
+
+        <div class="col-md-3">
+            <button class="btn btn-primary btn-block" (click)="actualizarPatologia(  )">  Actualizar </button>
+        </div>
+
+    </div>
+</form>

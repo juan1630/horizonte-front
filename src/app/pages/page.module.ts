@@ -6,7 +6,7 @@ import { RouterModule  } from '@angular/router';
 // modules
 
 import { ComponentsModule } from '../components/components.module';
-import {   FormsModule  } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormGroup, FormControl, FormBuilder  } from '@angular/forms';
 
 import {PAGES_ROUTES } from './page.routes';
 
@@ -62,6 +62,11 @@ import { NuevoLabComponent } from './servivicosInt/laboratorio/nuevo-lab/nuevo-l
 import { PedidoSinComponent } from './laboratorio/entregas/pedido-sin/pedido-sin.component';
 import { PedidosLaboratorioComponent } from './laboratorio/laboratorioUser/pedidos-laboratorio/pedidos-laboratorio.component';
 import { FE09Component } from './Enfermeria/Fichas/fe09/fe09.component';
+import { PedidoIndividualComponent } from './laboratorio/pedidos/pedido-individual/pedido-individual.component';
+import { TabuladorAltoriesgoComponent } from './paquetes/altoRiesgo/tabulador-altoriesgo/tabulador-altoriesgo.component';
+import { PatologiaComponent } from './servivicosInt/patologia/patologia.component';
+import { PatologiaEditComponent } from './servivicosInt/patologia/patologia-edit/patologia-edit/patologia-edit.component';
+import { PatologiaNewComponent } from './servivicosInt/patologia/patologia-new/patologia-new.component';
 
 
 @NgModule({
@@ -116,17 +121,24 @@ import { FE09Component } from './Enfermeria/Fichas/fe09/fe09.component';
     HojaFramComponent,
     PedidoSinComponent,
     PedidosLaboratorioComponent,
-    FE09Component
+    FE09Component,
+    PedidoIndividualComponent,
+    TabuladorAltoriesgoComponent,
+    PatologiaComponent,
+    PatologiaEditComponent,
+    PatologiaNewComponent
   ],
   exports: [ 
     PageComponent,
+    ReactiveFormsModule
   ],
   imports: [
-    ComponentsModule,
-    PAGES_ROUTES,
-    FormsModule,
     BrowserModule,
-    RouterModule
+    ComponentsModule,
+    FormsModule,
+    RouterModule,
+    PAGES_ROUTES,
+    ReactiveFormsModule
   ]
 
 })
