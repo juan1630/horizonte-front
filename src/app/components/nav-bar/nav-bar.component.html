@@ -16,7 +16,7 @@
 
 
             <!-- Topbar Navbar -->
-            <ul class="navbar-nav ml-auto">
+            <ul class=" ml-auto">
 
               <!-- Nav Item - Search Dropdown (Visible Only XS) -->
               <!-- <li class="nav-item dropdown no-arrow d-sm-none">
@@ -77,19 +77,20 @@
               <!-- Nav Item - Messages -->
 
               <li class="nav-item dropdown no-arrow mx-1">
-<!--                 
+<!--
                 <a class="nav-link dropdown-toggle"  id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="fas fa-envelope fa-fw"></i>
                    Counter - Messages
                    <span class="badge badge-danger badge-counter">7</span>
                 </a> -->
 
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small"> Hola {{ nombreUsuario }} </span>
-            
+                <!-- <span class="mr-2 d-none d-lg-inline text-gray-600 small"> Hola {{ nombreUsuario }} </span> -->
+
                 <a  (click)="cerrarSesion()" >
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw"></i>
+                  <!-- <i class="fas fa-sign-out-alt fa-sm fa-fw"></i> -->
+                  <span class="mr-2 d-none d-lg-inline text-gray-600 medium"> CERRAR SESIÓN </span>
                 </a>
-                
+
                 <!-- Dropdown - Messages -->
                 <!--                 <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                   <h6 class="dropdown-header">
@@ -145,7 +146,7 @@
               <!-- Nav Item - User Information -->
               <!-- <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle"  id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                 
+
                   <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                 </a> -->
                 <!-- Dropdown - User Information -->
@@ -163,9 +164,9 @@
                     Activity Log
                   </a>
                   <div class="dropdown-divider"></div>
-                  
+
                 </div> -->
-               
+
               </li>
 
             </ul>
