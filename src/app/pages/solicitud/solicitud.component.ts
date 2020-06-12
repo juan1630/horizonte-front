@@ -96,15 +96,15 @@ export class SolicitudComponent implements OnInit {
     getPaquete( id: string  ){
 
         this.paquetesService.getPaqueById( id )
-        .subscribe( (data: any )  => {
-
+        .subscribe( (data )  => {
+            console.log(data);
             this.paqueteSelected = data;
             console.log(this.paqueteSelected);
-            if( this.paqueteSelected.nombrePaquete == "PAQUETE DE CONTROL PRENATAL" ){
+            if( data.nombrePaquete == "PAQUETE DE CONTROL PRENATAL" ){
               this.anticipo = 1500;
-            }else if( this.paqueteSelected.nombrePaquete == "PAQUETE MÉDICO LABORAL" ) {
+            }else if( data.nombrePaquete == "PAQUETE MÉDICO LABORAL" ) {
               this.anticipo = 175;
-            }else if(this.paqueteSelected.nombrePaquete == "PAQUETE NEONATAL (DE 0 12 MESES)"){
+            }else if(data.nombrePaquete == "PAQUETE NEONATAL (DE 0 12 MESES)"){
               
               this.anticipo = 1000;
             }else if( this.anticipo = "SERVICIO DE LA MEMBRESIA" ){
@@ -138,10 +138,10 @@ export class SolicitudComponent implements OnInit {
             if( data.ok ){
               swal('Paquete agregado', '', 'success');
 
-              if( this.paqueteSelected.nombrePaquete == "PAQUETE DE CONTROL PRENATAL" ){
+              if( data.nombrePaquete == "PAQUETE DE CONTROL PRENATAL" ){
 
                 this._router.navigateByUrl('/contrato/maternidad');
-                // TODO: Remmplzar por el contrato
+              
                 return;
               }
               // else if ( this.paqueteSelected.nombrePaquete === "PAQUETE MÉDICO LABORAL" ){
