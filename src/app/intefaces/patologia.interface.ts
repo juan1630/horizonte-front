@@ -2,8 +2,14 @@
 export interface Patologia {
     name:      string;
     _id:       string;
-    PATOLOGIA: string;
-    COSTO:     string;
-    MEMBRESIA: string;
-    PUBLICO:   string;
+    ESTUDIO: string;
+PRECIO_PUBLICO: string;
+PRECIO_MEMBRESIA : string;
+PRECIO_PUBLICO_URGENCIA : string;
+PRECIO_PUBLICO_HOSPITALIZACION_URGENCIA : string;
+PRECIO_MEMBRESIA_URGENCIA : string;
+PRECIO_PUBLICO_HOSPITALIZACION : string;
+PRECIO_MEMBRESIA_HOSPITALIZACION : string;
+PRECIO_HOSPITALIZACIO_URGENCIA : string;
+PRECIO_HOSPITALIZACION_URGENCIA_MEMBRESIA : string;
 }

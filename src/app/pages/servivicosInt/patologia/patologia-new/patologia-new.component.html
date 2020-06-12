@@ -1,36 +1,94 @@
-<h2 class="center"> Agregar nuevo servicio </h2>
-
+<h2 class="center"> Agregar nuevo servicio de patología</h2>
 
 <form [formGroup]="forma" (ngSubmit)="guardar()">
 
 
     <div class="container-fluid">
         <div class="row">
-
-
             <div class="col-md-3">
-                <label for="patologia"> Nombre de la patologia: </label>
-                <input type="text" name="patologia" id="patologia" formControlName="PATOLOGIA" class="form-control" placeholder="Nombre de la patología">
-            </div>
-
-            <div class="col-md-3">
-                <label for="publico"> Precio público: </label>
-                <input type="number" name="publico" id="publico" formControlName="PUBLICO" class="form-control" min="0">
+                <label for="ESTUDIO"> Patología: </label>
+                <input type="text" name="ESTUDIO" id="ESTUDIO" class="form-control" placeholder="Nombre de la patología" formControlName="ESTUDIO">
             </div>
 
 
             <div class="col-md-3">
-                <label for="membresia"> Precio membresia: </label>
-                <input type="number" name="membresia" id="membresia" formControlName="MEMBRESIA" class="form-control" min="0">
+
+                <label for="PRECIO_PUBLICO"> Precio público: </label>
+                <input type="number" name="PRECIO_PUBLICO" id="PRECIO_PUBLICO" class="form-control" placeholder="Precio publico" formControlName="PRECIO_PUBLICO">
+
             </div>
 
+
+            <div class="col-md-3">
+
+                <label for="PRECIO_MEMBRESIA"> Precio membresia: </label>
+                <input type="number" name="PRECIO_MEMBRESIA" id="PRECIO_MEMBRESIA" class="form-control" placeholder="Precio membresia" formControlName="PRECIO_MEMBRESIA">
+
+            </div>
+
+
+            <div class="col-md-3 ">
+                <!-- Urgencia  -->
+                <label for="PRECIO_PUBLICO_URGENCIA ">
+                    Precio publico urgencia:
+                </label>
+                <input type="number " name="PRECIO_PUBLICO_URGENCIA " id="PRECIO_PUBLICO_URGENCIA " placeholder="Precio publico urgencia " class="form-control" formControlName="PRECIO_PUBLICO_URGENCIA">
+            </div>
+
+
+            <div class="col-md-3 ">
+                <!-- urgencia membresia -->
+                <label for="PRECIO_MEMBRESIA_URGENCIA ">
+                            Precio de urgencia membresia:
+                        </label>
+                <input type="number " name="PRECIO_MEMBRESIA_URGENCIA " id="PRECIO_MEMBRESIA_URGENCIA " placeholder="Precio de urgencia membresia " class="form-control " formControlName="PRECIO_MEMBRESIA_URGENCIA">
+            </div>
+
+
+
+            <div class="col-md-3 ">
+                <!-- hospitalizacion -->
+                <label for="PRECIO_PUBLICO_HOSPITALIZACION ">
+                    Precio público hospitaliazción:
+                </label>
+                <input type="number " name="PRECIO_PUBLICO_HOSPITALIZACION " id="PRECIO_PUBLICO_HOSPITALIZACION " placeholder="Precio público hospitalización " class="form-control " formControlName="PRECIO_PUBLICO_HOSPITALIZACION">
+            </div>
+
+
+            <div class="col-md-3 ">
+                <!-- hospitalizacion membresia -->
+                <label for="PRECIO_MEMBRESIA_HOSPITALIZACION ">
+                    Precio membresia hospitalización:
+                </label>
+                <input type="number " name="PRECIO_MEMBRESIA_HOSPITALIZACION " id="PRECIO_MEMBRESIA_HOSPITALIZACION " placeholder="Precio membresia hospitalización " class="form-control " formControlName="PRECIO_MEMBRESIA_HOSPITALIZACION">
+            </div>
+
+
+            <div class="col-md-3 ">
+
+                <label for="PRECIO_PUBLICO_HOSPITALIZACION_URGENCIA ">
+                    Precio público hospitalizacion urgencia:
+                </label>
+                <input type="number " name="PRECIO_PUBLICO_HOSPITALIZACION_URGENCIA " id="PRECIO_PUBLICO_HOSPITALIZACION_URGENCIA " placeholder="Precio publico hospitalización urgencia " class="form-control " formControlName="PRECIO_PUBLICO_HOSPITALIZACION_URGENCIA">
+            </div>
+
+            <!-- hospitalizacion urgencia -->
+
+
+            <div class="col-md-3 ">
+                <label for="PRECIO_HOSPITALIZACION_URGENCIA_MEMBRESIA ">
+                    Precio hospitalización urgencia membresia:
+                </label>
+                <input type="number " name="PRECIO_HOSPITALIZACION_URGENCIA_MEMBRESIA " id="PRECIO_HOSPITALIZACION_URGENCIA_MEMBRESIA " placeholder="Precio hospitalización urgencia membresia " class="form-control " formControlName="PRECIO_HOSPITALIZACION_URGENCIA_MEMBRESIA">
+            </div>
 
         </div>
+
     </div>
 
 
-    <div class="col-md-4 mt-3">
-        <button type="submit" class="btn btn-primary  btn-block" [disabled]="forma.invalid">  Enviar </button>
+    <div class="col-md-4 mt-3 ">
+        <button type="submit " class="btn btn-primary btn-block " [disabled]="forma.invalid ">  Enviar </button>
     </div>
 
 </form>

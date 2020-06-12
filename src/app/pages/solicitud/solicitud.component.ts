@@ -24,7 +24,6 @@ export class SolicitudComponent implements OnInit {
   public paquetesDB:Paquetes[]=[];
   public paqueteSelected: PaquetesDB[]=[];
   public paquetesPacientes: any;
-
   // declaradas
   public anticipo;
   public parentesco1: string;
@@ -105,8 +104,10 @@ export class SolicitudComponent implements OnInit {
             }else if( this.paqueteSelected.nombrePaquete === "PAQUETE MÉDICO LABORAL" ) {
               this.anticipo = 175;
             }else if(this.paqueteSelected.nombrePaquete === "PAQUETE NEONATAL"){
-                this.anticipo = 1000;
+              
+              this.anticipo = 1000;
             }else if( this.anticipo === "SERVICIO DE LA MEMBRESIA" ){
+
               this.anticipo = 500;
             }
         });
