@@ -10,30 +10,50 @@
             <div class="modal-body">
                 <form #xRayForm="ngForm" (ngSumbit)="onSubmit()">
                     <div class="form-group">
-                        <label for="descServicio" class="col-form-label">Procedimiento:</label>
-                        <input type="text" name="descServicio" #DESCRIPCION_DE_SERVICIO="ngModel" class="form-control" id="recipient-name" [(ngModel)]="endoscopiaEdit.PROCEDIMIENTO" [value]="endoscopiaEdit.PROCEDIMIENTO">
+                        <label for="ESTUDIO" class="col-form-label">ESTUDIO:</label>
+                        <input type="text" name="ESTUDIO" #DESCRIPCION_DE_SERVICIO="ngModel" class="form-control" id="recipient-name" [(ngModel)]="endoscopiaEdit.ESTUDIO" [value]="endoscopiaEdit.ESTUDIO">
 
 
                         <!-- <input type="text" name="destino" class="form-control" id="recipient-name" [(ngModel)]="ambulancia.destino"> -->
                     </div>
                     <div class="form-group">
-                        <label for="PUBLICO" class="col-form-label">Público:</label>
-                        <input type="text" name="PUBLICO" #pDia="ngModel" class="form-control" id="recipient-name" [(ngModel)]="endoscopiaEdit.PUBLICO" [value]="endoscopiaEdit.PUBLICO">
+                        <label for="PRECIO_PUBLICO" class="col-form-label">Precio Público:</label>
+                        <input type="text" name="PRECIO_PUBLICO" #pRDia="ngModel" class="form-control" id="recipient-name" [(ngModel)]="endoscopiaEdit.PRECIO_PUBLICO" [value]="endoscopiaEdit.PRECIO_PUBLICO">
 
                     </div>
                     <div class="form-group">
-                        <label for="MEMBRESIA" class="col-form-label">Membresia</label>
-                        <input type="text" name="MEMBRESIA" #pRDia="ngModel" class="form-control" id="recipient-name" [(ngModel)]="endoscopiaEdit.MEMBRESIA" [value]="endoscopiaEdit.MEMBRESIA">
+                        <label for="PRECIO_PUBLICO_URGENCIA" class="col-form-label">Precio Urgente:</label>
+                        <input type="text" name="PRECIO_PUBLICO_URGENCIA" #pNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="endoscopiaEdit.PRECIO_PUBLICO_URGENCIA" [value]="endoscopiaEdit.PRECIO_PUBLICO_URGENCIA">
 
                     </div>
                     <div class="form-group">
-                        <label for="SEGUROLABORAL" class="col-form-label">Seguro Laboral:</label>
-                        <input type="text" name="SEGUROLABORAL" #pNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="endoscopiaEdit.SEGUROLABORAL" [value]="endoscopiaEdit.SEGUROLABORAL">
+                        <label for="PRECIO_PUBLICO_HOSPITALIZACION" class="col-form-label">Precio Publico Hospitalización</label>
+                        <input type="text" name="PRECIO_PUBLICO_HOSPITALIZACION" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="endoscopiaEdit.PRECIO_PUBLICO_HOSPITALIZACION" [value]="endoscopiaEdit.PRECIO_PUBLICO_HOSPITALIZACION">
 
                     </div>
                     <div class="form-group">
-                        <label for="DIFERENCIAPERSONASINYCON" class="col-form-label">Diferencia</label>
-                        <input type="text" name="DIFERENCIAPERSONASINYCON" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="endoscopiaEdit.DIFERENCIAPERSONASINYCON" [value]="endoscopiaEdit.DIFERENCIAPERSONASINYCON">
+                        <label for="PRECIO_PUBLICO_HOSPITALIZACION_URGENCIA" class="col-form-label">Precio Hospitalización Público Urgencia</label>
+                        <input type="text" name="PRECIO_PUBLICO_HOSPITALIZACION_URGENCIA" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="endoscopiaEdit.PRECIO_PUBLICO_HOSPITALIZACION_URGENCIA" [value]="endoscopiaEdit.PRECIO_PUBLICO_HOSPITALIZACION_URGENCIA">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="PRECIO_MEMBRESIA" class="col-form-label">Precio Membresia</label>
+                        <input type="text" name="PRECIO_MEMBRESIA" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="endoscopiaEdit.PRECIO_MEMBRESIA" [value]="endoscopiaEdit.PRECIO_MEMBRESIA">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="PRECIO_MEMBRESIA_URGENCIA" class="col-form-label">Precio Membresia URGENCIA</label>
+                        <input type="text" name="PRECIO_MEMBRESIA_URGENCIA" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="endoscopiaEdit.PRECIO_MEMBRESIA_URGENCIA" [value]="endoscopiaEdit.PRECIO_MEMBRESIA_URGENCIA">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="PRECIO_MEMBRESIA_HOSPITALIZACION" class="col-form-label">Precio HOSPITALIZACION Membresia</label>
+                        <input type="text" name="PRECIO_MEMBRESIA_HOSPITALIZACION" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="endoscopiaEdit.PRECIO_MEMBRESIA_HOSPITALIZACION" [value]="endoscopiaEdit.PRECIO_MEMBRESIA_HOSPITALIZACION">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="PRECIO_HOSPITALIZACION_URGENCIA_MEMBRESIA" class="col-form-label">Precio HOSPITALIZACION URGENCIA Membresia</label>
+                        <input type="text" name="PRECIO_HOSPITALIZACION_URGENCIA_MEMBRESIA" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="endoscopiaEdit.PRECIO_HOSPITALIZACION_URGENCIA_MEMBRESIA" [value]="endoscopiaEdit.PRECIO_HOSPITALIZACION_URGENCIA_MEMBRESIA">
 
                     </div>
                 </form>

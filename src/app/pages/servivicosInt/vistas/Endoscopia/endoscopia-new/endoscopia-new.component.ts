@@ -23,7 +23,7 @@ export class EndoscopiaNewComponent implements OnInit {
 
 
   ) { 
-    this.endoscopia = new Endoscopia('', '', '', '', '', '');
+    this.endoscopia = new Endoscopia('', '', '', '', '', '', '', '', '', '', '');
   }
 
   ngOnInit(): void {
@@ -34,6 +34,8 @@ export class EndoscopiaNewComponent implements OnInit {
   onSubmit() {
     this._endoscopiaService.create(this.endoscopia).subscribe(
       res => {
+        console.log(res);
+        
         if(res.ok){
           this.endoscopia = res.endoscopia;
           this._router.navigateByUrl('/endoscopia');
