@@ -26,9 +26,15 @@ export class PatologiaNewComponent implements OnInit {
     // se crea por los formularios recativos de angular
 
     this.forma = this._fb.group({
-      PATOLOGIA:['',[Validators.required, Validators.minLength(3) ]],
-      PUBLICO:['', [ Validators.required, Validators.min(0)]],
-      MEMBRESIA:['', [Validators.required, Validators.min(0)]]
+      ESTUDIO:['',[Validators.required, Validators.minLength(3) ]],
+      PRECIO_PUBLICO:['', [ Validators.min(0)]],
+      PRECIO_MEMBRESIA:['', [Validators.min(0)]],
+      PRECIO_PUBLICO_URGENCIA:['',[Validators.min(0)]],
+      PRECIO_MEMBRESIA_URGENCIA:['',[Validators.min(0)]],
+      PRECIO_PUBLICO_HOSPITALIZACION:['', [Validators.min(0)]],
+      PRECIO_MEMBRESIA_HOSPITALIZACION:['', [Validators.min(0)]],
+      PRECIO_PUBLICO_HOSPITALIZACION_URGENCIA:['', [Validators.min(0)]],
+      PRECIO_HOSPITALIZACION_URGENCIA_MEMBRESIA:['', [Validators.min(0)]]
     });
   
   }

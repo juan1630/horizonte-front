@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PatologiaService } from 'src/app/services/patologia/patologia.service';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-patologia',
@@ -41,6 +42,23 @@ export class PatologiaComponent implements OnInit {
       console.log( data );
       this.getAllPatologias();
     } )
+
+  }
+
+
+  showAlert(precioPublico, precioMembresia){
+
+
+    let numberPrecioPublico = parseFloat( precioPublico );
+    let numberPrecioMembresia = parseFloat(precioMembresia);
+
+
+    // console.table({
+    //   numberPrecioPublico,
+    //   numberPrecioMembresia
+    // })
+
+    swal( `Tu ahorro sería de ${numberPrecioPublico - numberPrecioMembresia}`, '', 'success');
 
   }
 

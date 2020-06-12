@@ -61,6 +61,7 @@ import { TabuladorAltoriesgoComponent } from './paquetes/altoRiesgo/tabulador-al
 import { PerfilesNewComponent } from './servivicosInt/laboratorio/perfiles/perfiles-new/perfiles-new.component';
 import { PatologiaEditComponent } from './servivicosInt/patologia/patologia-edit/patologia-edit/patologia-edit.component';
 import { PatologiaNewComponent } from './servivicosInt/patologia/patologia-new/patologia-new.component';
+import { PatologiaComponent } from './servivicosInt/patologia/patologia.component';
 // import { PedidoIndividualComponent } from './laboratorio/pedidos/pedido-individual/pedido-individual.component';
 // import { TabuladorAltoriesgoComponent } from './paquetes/altoRiesgo/tabulador-altoriesgo/tabulador-altoriesgo.component';
 // import { PatologiaComponent } from './servivicosInt/patologia/patologia.component'; 
@@ -131,7 +132,7 @@ const pagesRoutes : Routes = [
       {  path: 'pedido/laboratorios/:id', component: PedidoIndividualComponent },
       { path: 'alto/riesgo/:id', component: TabuladorAltoriesgoComponent },
       { path: 'perfiles/nuevo', component: PerfilesNewComponent  },
-      { path: 'patologia', component: TomografiaComponent },
+      { path: 'patologia', component: PatologiaComponent },
       {  path: 'patologia/edit/:id', component: PatologiaEditComponent },
       { path: 'patologia/nueva', component: PatologiaNewComponent },
       { path: '', redirectTo: '/dashboard', pathMatch:'full' }
