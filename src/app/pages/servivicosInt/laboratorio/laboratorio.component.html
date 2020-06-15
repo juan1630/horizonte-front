@@ -8,7 +8,7 @@
                     <div class="card-body text-center">
                         <p>
                             <img [routerLink]="['/estudios/laboratorio']" class=" img-fluid pointer" src="../../../../assets/icons/serviciosIconos/blood-test.svg" alt="card image">
-                            
+
                         </p>
                         <h4 class="card-title">Estudios</h4>
                         <!-- <p class="card-text">This is basic card with image on top, title, description and button.</p> -->
@@ -26,10 +26,12 @@
             <div class="frontside">
                 <div class="card">
                     <div class="card-body text-center">
-                        <p><img class=" img-fluid" src="../../../../assets/icons/serviciosIconos/laboratory_esp.svg" alt="card image"></p>
+
+                        <img class=" img-fluid pointer" src="../../../../assets/icons/serviciosIconos/laboratory_esp.svg" alt="card image" [routerLink]="['/perfiles']">
+
                         <h4 class="card-title">Perfiles</h4>
                         <!-- <p class="card-text">This is basic card with image on top, title, description and button.</p> -->
-                        <button type="button" class="btn btn-primary" [routerLink]="['/laboratorio']" routerLinkActive="router-link-active">Ver Servicio</button>
+                        <button type="button" class="btn btn-primary" [routerLink]="['/perfiles']" routerLinkActive="router-link-active">Ver Servicio</button>
                     </div>
                 </div>
             </div>

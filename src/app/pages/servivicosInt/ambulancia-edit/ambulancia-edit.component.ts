@@ -19,7 +19,7 @@ export class AmbulanciaEditComponent implements OnInit {
   public id: string;
   public page_title: string;
   public url: string;
-  // public ambulanciaDB: any[] = [];
+
 
 
   constructor(
@@ -37,14 +37,9 @@ export class AmbulanciaEditComponent implements OnInit {
   ngOnInit() {
     this.getAmbulancia();
     console.log('weeey yaaaaaa...');
-    // console.log(this.ambulanciaEdit);
+
     
     this.id = this._route.snapshot.paramMap.get('id');
-    // this._ambulanciaService.getByIdAmbulancia(this.id).subscribe(data => {
-    //   // console.log(data);
-    //   this.ambulanciaDB=data.ambulancia;
-    //   console.log(this.ambulanciaDB);
-    // });
   }
 
   onSubmit() {

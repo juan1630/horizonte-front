@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   maboxApiKey: 'pk.eyJ1IjoianVhbmoxNjMwIiwiYSI6ImNrN3BrNGFvbDBsZjAzZXBidnVzODIzYXAifQ.lUBl4JN7wnoiYWPCB_MKkw',
-  swUrl: 'http://localhost:3200'
+  swUrl: 'https://horizonte-1.herokuapp.com'
 };
 
 /*

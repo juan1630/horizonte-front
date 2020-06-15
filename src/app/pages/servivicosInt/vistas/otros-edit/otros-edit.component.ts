@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { OtrosServicios } from 'src/app/services/otrosservicios/otrosservicios.service';
-import { OtrosEdit } from 'src/app/models/otros-edit';
+// import { OtrosEdit } from 'src/app/models/otros-edit';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import swal from 'sweetalert';
+import { OtrosS } from 'src/app/models/otros';
 
 
 
@@ -14,7 +15,7 @@ import swal from 'sweetalert';
 })
 export class OtrosEditComponent implements OnInit {
 
-  public otrosEdit: OtrosEdit;
+  public otrosEdit: OtrosS;
   public status: string;
   public is_edit: boolean;
   public id: string;
@@ -39,7 +40,7 @@ export class OtrosEditComponent implements OnInit {
       res => {
         if(res.ok){
           this.status = 'ok';
-          this.otrosEdit = res.otros;
+          this.otrosEdit = res.otrosServicios;
 
           swal("Editado Correctamente!", "Puedes ver los cambios en el Otros Servicios!", "success")
           this._router.navigateByUrl('/otros-servicios');
@@ -62,8 +63,10 @@ export class OtrosEditComponent implements OnInit {
       
       this._otrosService.getServicioById(id).subscribe(
         (res:any) => {
-          if(res.otros) {
-            this.otrosEdit = res.otros;
+          console.log(res);
+          
+          if(res.otrosServicios) {
+            this.otrosEdit = res.otrosServicios;
             console.log(this.otrosEdit);
             
           }else{

@@ -54,9 +54,16 @@ import { ContratoMaternidadComponent } from '../contratos/contrato-maternidad/co
 import { PedidoSinComponent } from './laboratorio/entregas/pedido-sin/pedido-sin.component';
 import { TicketComponent } from '../contratos/ticket/ticket/ticket.component';
 import { PedidosLaboratorioComponent } from './laboratorio/laboratorioUser/pedidos-laboratorio/pedidos-laboratorio.component';
+import { ContratoMLaboralComponent } from '../contratos/contrato-m-laboral/contrato-m-laboral.component';
+import {FE09Component } from '../pages/Enfermeria/Fichas/fe09/fe09.component'
+import { PedidoIndividualComponent } from './laboratorio/pedidos/pedido-individual/pedido-individual.component';
+import { TabuladorAltoriesgoComponent } from './paquetes/altoRiesgo/tabulador-altoriesgo/tabulador-altoriesgo.component';
+import { PerfilesNewComponent } from './servivicosInt/laboratorio/perfiles/perfiles-new/perfiles-new.component';
+import { PatologiaEditComponent } from './servivicosInt/patologia/patologia-edit/patologia-edit/patologia-edit.component';
+import { PatologiaNewComponent } from './servivicosInt/patologia/patologia-new/patologia-new.component';
+import { PatologiaComponent } from './servivicosInt/patologia/patologia.component';
 
-// rutas hijas del dashboard
-// LoginGuardGuard
+
 const pagesRoutes : Routes = [
   {
     path: '',
@@ -70,8 +77,8 @@ const pagesRoutes : Routes = [
       { path:'serviciosInt', component: ServiciosIntComponent  },
       {path: 'ambulancia', component: AmbulanciaSIComponent},
       { path: 'hoja-fram', component: HojaFramComponent},
-      {path: 'consulta-Especialista', component: ConsultaEspecialistaComponent},
-      {path: 'consulta-medica-general', component: ConsultaMedGralComponent},
+      {path: 'consulta/especialista', component: ConsultaEspecialistaComponent},
+      {path: 'medicina/general', component: ConsultaMedGralComponent},
       {path: 'endoscopia', component: EndoscopiaComponent},
       {path: 'entrega-resultados', component: ResultadosComponent},
       {path: 'farmacia', component: FarmaciaComponent},
@@ -101,17 +108,26 @@ const pagesRoutes : Routes = [
       { path: 'tomografia-editar/:id', component: TomografiaEditComponent},
       { path: 'perfiles', component: PerfilesComponent },
       { path: 'estudios/laboratorio', component: EstudiosComponent },
-      { path: 'laboratorio/pendientes', component: PendientesComponent },
+      { path: 'laboratorio/pendientes', component: PedidosLaboratorioComponent },
       { path: 'laboratorio/contrato', component: ContratacionComponent },
       { path: 'maternidad', component: MaternidadComponent },
       { path:'tabulador/pagos/:id', component: TabuladorPagosComponent },
-      { path:'pagos/paquete/maternidad/:id', component:PagosMaternidadComponent },
+      { path:'pagos/paquete/maternidad', component:PagosMaternidadComponent },
       { path: 'laboratorio/estudios/:id', component: PreciosMembresiaComponent },
       { path: 'nuevo/laboratorio', component: NuevoLabComponent },
       { path: 'contrato-maternidad', component: ContratoMaternidadComponent },
+      {path: 'contrato-medico-laboral', component: ContratoMLaboralComponent},
       { path: 'pago/pedido/sin', component: PedidoSinComponent },
       { path: 'imprimir-ticket', component: TicketComponent},
       { path: 'pedidos/pendientes/laboratorio', component: PedidosLaboratorioComponent  },
+      { path: 'ficha-enfermeria-01', component: FE09Component},
+      { path: 'laboratorio/pendientes/lab', component: PedidoSinComponent  },
+      {  path: 'pedido/laboratorios/:id', component: PedidoIndividualComponent },
+      { path: 'alto/riesgo/:id', component: TabuladorAltoriesgoComponent },
+      { path: 'perfiles/nuevo', component: PerfilesNewComponent  },
+      { path: 'patologia', component: PatologiaComponent },
+      {  path: 'patologia/edit/:id', component: PatologiaEditComponent },
+      { path: 'patologia/nueva', component: PatologiaNewComponent },
       { path: '', redirectTo: '/dashboard', pathMatch:'full' }
       
     ]

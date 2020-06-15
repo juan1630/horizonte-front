@@ -13,8 +13,23 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="pedido of pedidos">
+                    <tr *ngFor="let item of pedidos.estudios">
                         <td>
+
+                            <a [routerLink]="['/pedido', 'laboratorios', item._id]">
+                            
+                                {{item.nombre }}
+                            </a>
+                        </td>
+                        <td>
+                            {{ item.edad }}
+                        </td>
+                        <td>
+                            {{item.sexo }}
+                        </td>
+
+                        <td>
+                            {{ item.estadoPedido }}
                         </td>
                     </tr>
                 </tbody>

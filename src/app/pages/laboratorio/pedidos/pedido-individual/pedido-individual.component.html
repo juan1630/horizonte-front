@@ -1,0 +1,44 @@
+<h2 class="center"> Nombre del paciente: {{ pedido.nombre }} </h2>
+<h3 class="center">Edad: {{pedido.edad }} </h3>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-9  mt-2">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th> Estudio </th>
+                        <th>
+                            Realizado
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of pedido.estudios">
+                        <td>
+                            {{ item.nombreEstudio }}
+                        </td>
+                        <td>
+                            <i class="fas fa-check"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-3">
+            <form #f='ngForm'>
+                <div class="form-group">
+                    <label for="estado"> Estado del pedido: </label>
+                    <select name="estado" ngModel id="estado" class="form-control" (change)="cambiarEstadoPedido(f.value)">
+                                <option value="" selected > Estado del pedido </option>
+                                <option value="proceso"> En proceso </option>
+                                <option value="terminado"> Terminado :) </option>    
+                            </select>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

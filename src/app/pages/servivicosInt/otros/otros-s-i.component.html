@@ -13,21 +13,31 @@
 <table class="table table-hover">
     <thead class="thead-dark">
         <tr>
-            <th scope="col">Descripcion del Servicio</th>
-            <th scope="col">Membresia Día</th>
-            <th scope="col">Membresia Noche</th>
-            <th scope="col">Publico Día</th>
-            <th scope="col">Publico Noche</th>
+            <th scope="col">Estudio</th>
+            <th scope="col">Indicaciones</th>
+            <th scope="col">Precio Publico</th>
+            <th scope="col">Precio Hospitalización Publico</th>
+            <th scope="col">Precio Urgencias Publico</th>
+            <th scope="col">Precio Hospitalización Urgencias Publico</th>
+            <th scope="col">Precio Membresia</th>
+            <th scope="col">Precio Hospitalización Membresia</th>
+            <th scope="col">Precio Urgencias Membresia</th>
+            <th scope="col">Precio Hospitalización Urgencia Membresia</th>
             <th scope="col">Acciones</th>
         </tr>
     </thead>
     <tbody>
         <tr (click)="alertaDesc()" *ngFor="let otrosServicioss of otrosServiciosSI">
-            <td> {{ otrosServicioss.DESCRIPCION_DE_SERVICIO }} </td>
-            <td> $ {{ otrosServicioss. MEMBRESIA_DIA }}</td>
-            <td> $ {{ otrosServicioss. MEMBRESIA_NOCHE }}</td>
-            <td> $ {{ otrosServicioss. PUBLICO_DIA }}</td>
-            <td> $ {{ otrosServicioss. PUBLICO_NOCHE }}</td>
+            <td> {{ otrosServicioss.ESTUDIO }} </td>
+            <td> {{ otrosServicioss.INDICACIONES }}</td>
+            <td> $ {{ otrosServicioss.PRECIO_PUBLICO }}</td>
+            <td> $ {{ otrosServicioss.PRECIO_PUBLICO_HOSPITALIZACION }}</td>
+            <td> $ {{ otrosServicioss.PRECIO_PUBLICO_URGENCIA }}</td>
+            <td> $ {{ otrosServicioss.PRECIO_PUBLICO_HOSPITALIZACIO_URGENCIA }}</td>
+            <td> $ {{ otrosServicioss.PRECIO_MEMBRESIA }}</td>
+            <td> $ {{ otrosServicioss.PRECIO_MEMBRESIA_URGENCIA }}</td>
+            <td> $ {{ otrosServicioss.PRECIO_MEMBRESIA_HOSPITALIZACION }}</td>
+            <td> $ {{ otrosServicioss.PRECIO_MEMBRESIA_HOSPITALIZACIO_URGENCIA }}</td>
             <td>
                 <button type="button" class="btn btn-outline-success" [routerLink]="['/otros-editar', otrosServicioss._id]" routerLinkActive="router-link-active"><i class="far fa-edit"></i></button>
                 <button type="button" class="btn btn-outline-danger" (click)="delete(otrosServicioss._id)"><i class="fas fa-trash-alt"></i></button>

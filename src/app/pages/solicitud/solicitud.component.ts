@@ -19,12 +19,53 @@ export class SolicitudComponent implements OnInit {
   public fecha = ` ${new Date().toLocaleDateString()}`;
 
 
-  public paciente:any;
+  public paciente={
+    RFCFiscal: "",
+    apellidoMaterno:"1",
+    apellidoPaterno:"1",
+    calleNumeroPaciente: "vertice Z  0",
+    coloniaFiscal: "",
+    consultas:"1",
+    contactoEmergancia1: "",
+    correo: "",
+    cpFiscal: "",
+    cpPaciente: "" ,
+    curp: "",
+    edad : 0,
+    emailFiscal: "",
+    entidadFederativa: "",
+    estadoPaciente: "",
+    fechaNacimientoPaciente: "",
+    fechaRegistro: "",
+    localidadFiscal: "",
+    municipioFiscal: "",
+    nombrePaciente: "",
+    nombreRazonSocial:"",
+    paisPaciente: "",
+    poblacion: "Maestro ",
+    referenciaPaciente: "",
+    telefono: "" ,
+    telefonoContactoEmergencia1: ""
+  };
   public usuarioMaq:any;
-  public paquetesDB:Paquetes[]=[];
-  public paqueteSelected: PaquetesDB;
-  public paquetesPacientes: any;
+  public paquetesDB= {
 
+    CitasIncluidas: [],
+    costoTotal:0,
+    examenesLaboratorio: [],
+    icon: "",
+    nombrePaquete: "",
+    _id: ""
+  };
+  public paqueteSelected = {
+    nombrePaquete: "",
+    CitasIncluidas: [],
+    costoTotal:0,
+    examenesLaboratorio: [],
+    icon: "",
+    _id: ""
+  };
+  public paquetesPacientes: any;
   // declaradas
   public anticipo;
   public parentesco1: string;
@@ -89,7 +130,8 @@ export class SolicitudComponent implements OnInit {
     .subscribe( (data:any) => {
       console.log(data);
       this.paciente = data.paciente;
-        })
+        });
+      
 
     }
 
@@ -97,17 +139,19 @@ export class SolicitudComponent implements OnInit {
     getPaquete( id: string  ){
 
         this.paquetesService.getPaqueById( id )
-        .subscribe( (data: any )  => {
-          console.log(  data );
-
+        .subscribe( (data )  => {
+            console.log(data);
             this.paqueteSelected = data;
-            if( this.paqueteSelected.nombrePaquete === "PAQUETE DE CONTROL PRENATAL" ){
+            console.log(this.paqueteSelected);
+            if( data.nombrePaquete == "PAQUETE DE CONTROL PRENATAL" ){
               this.anticipo = 1500;
-            }else if( this.paqueteSelected.nombrePaquete === "PAQUETE MÉDICO LABORAL" ) {
+            }else if( data.nombrePaquete == "PAQUETE MÉDICO LABORAL" ) {
               this.anticipo = 175;
-            }else if(this.paqueteSelected.nombrePaquete === "PAQUETE NEONATAL"){
-                this.anticipo = 1000;
-            }else if( this.anticipo === "SERVICIO DE LA MEMBRESIA" ){
+            }else if(data.nombrePaquete == "PAQUETE NEONATAL (DE 0 12 MESES)"){
+              
+              this.anticipo = 1000;
+            }else if( this.anticipo = "SERVICIO DE LA MEMBRESIA" ){
+
               this.anticipo = 500;
             }
         });
@@ -137,10 +181,10 @@ export class SolicitudComponent implements OnInit {
             if( data.ok ){
               swal('Paquete agregado', '', 'success');
 
-              if( this.paqueteSelected.nombrePaquete === "PAQUETE DE CONTROL PRENATAL" ){
+              if( data.nombrePaquete == "PAQUETE DE CONTROL PRENATAL" ){
 
                 this._router.navigateByUrl('/contrato/maternidad');
-                // TODO: Remmplzar por el contrato
+              
                 return;
               }
               // else if ( this.paqueteSelected.nombrePaquete === "PAQUETE MÉDICO LABORAL" ){

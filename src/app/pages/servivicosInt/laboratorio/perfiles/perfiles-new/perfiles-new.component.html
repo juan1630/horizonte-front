@@ -1,0 +1,118 @@
+<h1 class="center">
+    Crea un nuevo perfil
+</h1>
+
+
+<form (ngSubmit)="crearPerfil()">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="nombre">Nombre: </label>
+                    <input type="text" id="nombre" placeholder="Nombre del perfil..." class="form-control" formControlName="NOMBRE">
+                </div>
+
+            </div>
+
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="muestra">Muestra: </label>
+                    <input type="text" id="muestra" placeholder="Muestra" class="form-control" formControlName="MUESTRA">
+                </div>
+            </div>
+
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="entrega">Entrega: </label>
+                    <input type="text" id="entrega" placeholder="Muestra" class="form-control" formControlName="ENTREGA">
+                </div>
+            </div>
+
+            <div class="col-md-2">
+
+                <label for="publico">Público: </label>
+                <input type="text" id="publico" placeholder="Precio público" class="form-control" formControlName="PUBLICO">
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="form-group">
+
+                    <label for="urgenciaPublico">Precio uregencia público: </label>
+                    <input type="text" id="urgenciaPublico" placeholder="Precio urgencia público" class="form-control" formControlName="URGENCIA_PUBLICO">
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+
+                    <label for="membresia">Precio con membresia: </label>
+                    <input type="text" id="membresia" placeholder="Precio con membresia" class="form-control" formControlName="MEMBRESIA">
+
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+
+                    <label for="uregenciaMembresia">Precio de urgencia membresia: </label>
+                    <input type="text" id="uregenciaMembresia" placeholder="Precio  de uregencia con membresia" class="form-control" formControlName="URGENIA_MEMBRESIA">
+
+                </div>
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="form-group">
+
+                    <label for="nocturno">Precio de nocturno: </label>
+                    <input type="text" id="nocturno" placeholder="Precio nocturno" class="form-control" formControlName="NOCTRUNO">
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="form-group" id="estudios">
+                    <div id="estudios">
+                        <label for="estudios"> Estudios:  </label>
+                        <input type="text" name="estudios" id="estudios" class="form-control" placeholder="Estudios">
+                    </div>
+                    <!-- <button type="button" class="btn btn-info mt-2" (click)="agregarEstudio()"> Agregar estudio</button> -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- [disabled]="forma.invalid" -->
+    <button type="button" class="btn btn-outline-primary" (click)="crearPerfil()">
+        Guardar
+    </button>
+
+</form>
+
+
+
+
+
+<hr>
+
+<pre>
+  Valido:  {{ profileForm.valid }}
+</pre>
+
+
+<pre>
+  Estado:  {{ profileForm.status}}
+</pre>
+
+<pre>
+   Invalido:  {{ profileForm.invalid }}
+</pre>

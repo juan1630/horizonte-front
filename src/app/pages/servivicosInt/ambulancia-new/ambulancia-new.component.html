@@ -8,44 +8,57 @@
         </button>
             </div>
             <div class="modal-body">
+
                 <form #ambulanciaForm="ngForm" (ngSumbit)="onSubmit()">
                     <div class="form-group">
-                        <label for="destino" class="col-form-label">Destino:</label>
-                        <input type="text" name="destino" #destino="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ambulancia.destino">
+                        <label for="DESTINO" class="col-form-label">Destino:</label>
+                        <input type="text" name="DESTINO" #destino="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ambulancia.DESTINO">
 
-                        <small *ngIf="!destino.valid && destino.touched">
-                            El destino no es válido..
-                        </small>
 
-                        <!-- <input type="text" name="destino" class="form-control" id="recipient-name" [(ngModel)]="ambulancia.destino"> -->
                     </div>
                     <div class="form-group">
-                        <label for="precioDia" class="col-form-label">Precio Día:</label>
-                        <input type="text" name="precioDia" #pDia="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ambulancia.precioDia">
-                        <small *ngIf="!pDia.valid && pDia.touched">
-                            El Precio Día no es válido..
-                        </small>
+                        <label for="PRECIO_PUBLICO_DIA" class="col-form-label">Precio público día:</label>
+                        <input type="text" name="PRECIO_PUBLICO_DIA" #pDia="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ambulancia.PRECIO_PUBLICO_DIA">
+
+
                     </div>
                     <div class="form-group">
-                        <label for="precioRedondoDia" class="col-form-label">Redondo Día:</label>
-                        <input type="text" name="precioRedondoDia" #pRDia="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ambulancia.precioRedondoDia">
-                        <small *ngIf="!pRDia.valid && pRDia.touched">
-                            El Precio Redondo Día no es válido..
-                        </small>
+                        <label for="PRECIO_PUBLICO_REDONDO_DIA" class="col-form-label"> Precio público redondo día:</label>
+                        <input type="text" name="PRECIO_PUBLICO_REDONDO_DIA" #pRDia="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ambulancia.PRECIO_PUBLICO_REDONDO_DIA">
+
+
                     </div>
                     <div class="form-group">
-                        <label for="precioNoche" class="col-form-label">Precio Noche:</label>
-                        <input type="text" name="precioNoche" #pNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ambulancia.precioNoche">
-                        <small *ngIf="!destino.valid && destino.touched">
-                            El Precio Noche no es válido..
-                        </small>
+                        <label for="PRECIO_PUBLICO_NOCHE" class="col-form-label">Precio público noche:</label>
+                        <input type="text" name="PRECIO_PUBLICO_NOCHE" #pNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ambulancia.PRECIO_PUBLICO_NOCHE">
+
                     </div>
                     <div class="form-group">
-                        <label for="precioRedondoNoche" class="col-form-label">Redondo Noche:</label>
-                        <input type="text" name="precioRedondoNoche" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ambulancia.precioRedondoNoche">
-                        <small *ngIf="!pRNoche.valid && pRNoche.touched">
-                            El Precio Redondo Noche no es válido..
-                        </small>
+                        <label for="PRECIO_PUBLICO_REDONDO_NOCHE" class="col-form-label">Redondo Noche:</label>
+                        <input type="text" name="PRECIO_PUBLICO_REDONDO_NOCHE" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ambulancia.PRECIO_PUBLICO_REDONDO_NOCHE">
+
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="PRECIO_MEMBRESIA_DIA" class="col-form-label">Precio membresia día:</label>
+                        <input type="text" name="PRECIO_MEMBRESIA_DIA" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ambulancia.PRECIO_MEMBRESIA_DIA">
+
+                    </div>
+                    <div class="form-group">
+
+
+                        <label for="PRECIO_MEMBRESIA_NOCHE" class="col-form-label">Precio membresia noche:</label>
+                        <input type="text" name="PRECIO_MEMBRESIA_NOCHE" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ambulancia.PRECIO_MEMBRESIA_NOCHE">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="PRECIO_MEMBRESIA_REDONDO_DIA" class="col-form-label">Precio membresia redondo día:</label>
+                        <input type="text" name="PRECIO_MEMBRESIA_REDONDO_DIA" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ambulancia.PRECIO_MEMBRESIA_REDONDO_DIA">
+                    </div>
+                    <div class="form-group">
+                        <label for="PRECIO_MEMBRESIA_REDONDO_NOCHE" class="col-form-label">Precio membresia redondo noche:</label>
+                        <input type="text" name="PRECIO_MEMBRESIA_REDONDO_NOCHE" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ambulancia.PRECIO_MEMBRESIA_REDONDO_NOCHE">
                     </div>
                 </form>
             </div>
@@ -57,3 +70,16 @@
         </div>
     </div>
 </div>
+
+
+<!-- 
+DESTINO: "test4-edit"
+PRECIO_MEMBRESIA_DIA: "6000"
+PRECIO_MEMBRESIA_NOCHE: "8000"
+PRECIO_MEMBRESIA_REDONDO_DIA: "7000"
+PRECIO_MEMBRESIA_REDONDO_NOCHE: "9000"
+PRECIO_PUBLICO_DIA: "2500"
+PRECIO_PUBLICO_NOCHE: "9000"
+PRECIO_PUBLICO_REDONDO_DIA: "8000"
+PRECIO_PUBLICO_REDONDO_NOCHE: "5000" 
+-->

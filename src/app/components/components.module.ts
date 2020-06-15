@@ -3,7 +3,7 @@
 //==============
 import { NgModule }     from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule  }  from '@angular/router'
 
@@ -21,6 +21,8 @@ import { CardPaquetesComponent } from './card-paquetes/card-paquetes.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { ModalComponent } from './modal/modal.component';
 import { TarjetaCotizacionComponent } from './cotizacion/tarjeta-cotizacion/tarjeta-cotizacion.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { jqxSchedulerModule, jqxSchedulerComponent } from 'jqwidgets-ng/jqxscheduler';
 
 
 @NgModule({
@@ -36,6 +38,8 @@ import { TarjetaCotizacionComponent } from './cotizacion/tarjeta-cotizacion/tarj
     FiscalesComponent,
     CardPaquetesComponent,
     TarjetaCotizacionComponent,
+    CalendarComponent
+    
 ],
 schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   exports: [
@@ -48,12 +52,15 @@ schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
     ModalComponent,
     ModalServiciosIntComponent,
     TarjetaCotizacionComponent,
-    SpinnerComponent
-   ],
+    SpinnerComponent,
+    ReactiveFormsModule,
+    CalendarComponent
+       ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    jqxSchedulerModule
   ],
   providers: [
     ModalServiciosIntComponent

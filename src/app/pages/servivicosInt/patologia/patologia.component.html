@@ -1,0 +1,91 @@
+<h1 class="center">
+    Patologías
+</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <button class="btn btn-block btn-primary" [routerLink]="['/patologia', 'nueva']">
+                    Crear una patologia
+            </button>
+
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-hover">
+                <thead class="thead-dark">
+
+                    <tr>
+
+                        <th>Nombre</th>
+                        <th>Púlblico</th>
+                        <th>Membresia</th>
+                        <th>
+                            Precio público urgencia
+                        </th>
+                        <th>
+                            Precio membresia urgencia
+                        </th>
+                        <th>
+                            Precio público hospitalizacion urgencia
+                        </th>
+                        <th>
+                            Precio hospitalización urgencia membresia
+                        </th>
+                        <th></th>
+                        <th>Acciones</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let patologia of patologias">
+                        <td>
+                            {{patologia.ESTUDIO}}
+
+                        </td>
+                        <td (click)="showAlert(patologia.PRECIO_PUBLICO, patologia.PRECIO_MEMBRESIA)">
+                            {{patologia.PRECIO_PUBLICO}}
+                        </td>
+
+                        <td>
+                            {{patologia.PRECIO_MEMBRESIA}}
+                        </td>
+                        <td>
+                            {{ patologia.PRECIO_PUBLICO_URGENCIA }}
+                        </td>
+                        <td>
+                            {{patologia.PRECIO_MEMBRESIA_URGENCIA}}
+                        </td>
+                        <td>
+                            {{ patologia.PRECIO_PUBLICO_HOSPITALIZACION_URGENCIA }}
+                        </td>
+
+                        <td>
+                            {{ patologia.PRECIO_HOSPITALIZACION_URGENCIA_MEMBRESIA }}
+                        </td>
+                        <td></td>
+
+                        <!-- *ngIf="role==='admin'" -->
+                        <td>
+                            <!-- Para navegar al componente editar -->
+
+                            <button class="btn btn-outline-success" [routerLink]="['/patologia', 'edit',patologia._id]" routerLinkActive="router-link-active">
+                        
+                        <i class="far fa-edit"></i>
+                    </button>
+                            <button class="btn btn-outline-danger" (click)="deletePatologia(patologia._id)">
+                        <i class="fas fa-trash-alt "></i>
+                    </button>
+
+
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

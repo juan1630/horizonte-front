@@ -1,0 +1,93 @@
+<h1 class="center">
+    Editar la patología
+</h1>
+
+<form #f="ngForm" class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-3">
+            <label for="patologia"> Patología: </label>
+            <input type="text" name="patologia" id="patologia" class="form-control" placeholder="Nombre de la patología" [value]="patologia.ESTUDIO" [(ngModel)]="patologia.ESTUDIO">
+        </div>
+
+        <div class="col-md-3">
+
+            <label for="PRECIO_PUBLICO"> Precio público: </label>
+            <input type="text" name="PRECIO_PUBLICO" id="PRECIO_PUBLICO" class="form-control" placeholder="Precio publico" [value]="patologia.PRECIO_PUBLICO" [(ngModel)]="patologia.PRECIO_PUBLICO">
+
+        </div>
+
+
+        <div class="col-md-3">
+
+            <label for="PRECIO_MEMBRESIA"> Precio membresia: </label>
+            <input type="text" name="PRECIO_MEMBRESIA" id="PRECIO_MEMBRESIA" class="form-control" [value]="patologia.PRECIO_MEMBRESIA" placeholder="Precio membresia" [(ngModel)]="patologia.PRECIO_MEMBRESIA">
+
+        </div>
+
+
+        <div class="col-md-3">
+            <!-- Urgencia  -->
+            <label for="PRECIO_PUBLICO_URGENCIA">
+                Precio de urgencia membresia:
+            </label>
+            <input type="text" name="PRECIO_PUBLICO_URGENCIA" id="PRECIO_PUBLICO_URGENCIA" placeholder="Precio publico urgencia" [value]="patologia.PRECIO_PUBLICO_URGENCIA" [(ngModel)]="patologia.PRECIO_PUBLICO_URGENCIA" class="form-control">
+        </div>
+
+
+        <div class="col-md-3">
+            <!-- urgencia membresia -->
+            <label for="PRECIO_MEMBRESIA_URGENCIA">
+                        Precio de urgencia público:
+                    </label>
+            <input type="text" name="PRECIO_MEMBRESIA_URGENCIA" id="PRECIO_MEMBRESIA_URGENCIA" placeholder="Precio publico urgencia" [value]="patologia.PRECIO_MEMBRESIA_URGENCIA" [(ngModel)]="patologia.PRECIO_MEMBRESIA_URGENCIA" class="form-control">
+        </div>
+
+
+
+        <div class="col-md-3">
+            <!-- hospitalizacion -->
+            <label for="PRECIO_PUBLICO_HOSPITALIZACION">
+                Precio público hospitaliazción:
+            </label>
+            <input type="text" name="PRECIO_PUBLICO_HOSPITALIZACION" id="PRECIO_PUBLICO_HOSPITALIZACION" placeholder="Precio publico urgencia" [value]="patologia.PRECIO_PUBLICO_HOSPITALIZACION" [(ngModel)]="patologia.PRECIO_PUBLICO_HOSPITALIZACION" class="form-control">
+        </div>
+
+
+        <div class="col-md-3">
+            <!-- hospitalizacion membresia -->
+            <label for="PRECIO_MEMBRESIA_HOSPITALIZACION">
+                Precio membresia hospitalización:
+            </label>
+            <input type="text" name="PRECIO_MEMBRESIA_HOSPITALIZACION" id="PRECIO_MEMBRESIA_HOSPITALIZACION" placeholder="Precio publico urgencia" [value]="patologia.PRECIO_MEMBRESIA_HOSPITALIZACION" [(ngModel)]="patologia.PRECIO_MEMBRESIA_HOSPITALIZACION" class="form-control">
+        </div>
+
+
+        <div class="col-md-3">
+
+            <label for="PRECIO_PUBLICO_HOSPITALIZACION_URGENCIA">
+                Precio público hospitalizacion urgencia:
+            </label>
+            <input type="text" name="PRECIO_PUBLICO_HOSPITALIZACION_URGENCIA" id="PRECIO_PUBLICO_HOSPITALIZACION_URGENCIA" placeholder="Precio publico urgencia" [value]="patologia.PRECIO_PUBLICO_HOSPITALIZACION_URGENCIA" [(ngModel)]="patologia.PRECIO_PUBLICO_HOSPITALIZACION_URGENCIA"
+                class="form-control">
+        </div>
+
+        <!-- hospitalizacion urgencia -->
+
+
+        <div class="col-md-3">
+            <label for="PRECIO_HOSPITALIZACION_URGENCIA_MEMBRESIA">
+                Precio hospitalización urgencia membresia:
+            </label>
+            <input type="text" name="PRECIO_HOSPITALIZACION_URGENCIA_MEMBRESIA" id="PRECIO_HOSPITALIZACION_URGENCIA_MEMBRESIA" placeholder="Precio publico urgencia" [value]="patologia.PRECIO_HOSPITALIZACION_URGENCIA_MEMBRESIA" [(ngModel)]="patologia.PRECIO_HOSPITALIZACION_URGENCIA_MEMBRESIA"
+                class="form-control">
+        </div>
+
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-5 offset-md-3">
+            <button class="btn btn-primary btn-block" (click)="actualizarPatologia(  )">  Actualizar </button>
+        </div>
+    </div>
+</form>

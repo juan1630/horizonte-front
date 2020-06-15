@@ -32,7 +32,7 @@ export class PagosMaternidadComponent implements OnInit {
     //   this.getSemanasDepagos(  value );
     // } );
 
-
+    this.verTabla();
     
   }
 

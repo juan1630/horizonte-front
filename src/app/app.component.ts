@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+
 
 // import { WsLoginService } from './services/sockets/login/ws-login.service';
 

@@ -27,8 +27,13 @@ export class OtrosSIComponent implements OnInit {
 verDatos(){
   this._otrosService.getOtrosServicios().subscribe(
     res => {
-      this.otrosServiciosSI = res.servicios;
+      this.otrosServiciosSI = res.otrosSerivicios;
+      console.log('================');
+      
       console.log(res);
+
+      console.log(this.otrosServiciosSI);
+      
       
     },
     err => {

@@ -52,7 +52,19 @@ export class EstudiosComponent implements OnInit {
     this.getAllExamenes();
     this.role = getDataStorage().role;
     this.carrito = getDataCarrito();
+
     console.log( this.carrito );
+    
+
+    if( this.carrito == null ){
+      this.carrito = {
+        totalSin: 0,
+        totalCon:0,
+        items:[]
+      };
+    }
+
+
   }
 
 // esta función nos trae todos los examenes y los pinta en la tabla
@@ -71,8 +83,7 @@ export class EstudiosComponent implements OnInit {
   sumarTotal(  precioSin, precioCon  ){
 
 
-      // se le quitan los caracteres $ y , al precio con membresia
-
+  // se le quitan los caracteres $ y , al precio con membresia
   let precioConMembresia  = precioCon.replace('$', '');
   let precioConSinComa  = precioConMembresia.replace(',', '');
   let precioConMembresiaNumber = parseFloat( precioConSinComa );
@@ -130,8 +141,8 @@ export class EstudiosComponent implements OnInit {
       let  estuidio = {
 
         nombreEstudio: item.ESTUDIO,
-        precioUrgenciaMembresia: item.URGENCIA_MEM,
-        precioUrgenciaPublico: item.URGENCIA_PUB,
+        precioSin: item.URGENCIA_PUB,
+        precioCon: item.URGENCIA_MEM,
         entrega: item.ENTREGA,
         idEstudio:item._id
 

@@ -19,7 +19,7 @@ export class OtrosNewComponent implements OnInit {
     private _router: Router,
     private _route: ActivatedRoute
   ) { 
-    this.otros = new OtrosS('','','','','','');
+    this.otros = new OtrosS('','','','','','', '','','','','');
 
   }
 
@@ -33,7 +33,7 @@ export class OtrosNewComponent implements OnInit {
       res => {
         if(res.ok){
           this.status = 'ok';
-          this.otros = res.otros;
+          this.otros = res.otrosServicios;
           this._router.navigateByUrl('/otros-servicios');
         }else{
           this.status = 'error';

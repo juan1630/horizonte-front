@@ -9,46 +9,62 @@
             </div>
             <div class="modal-body">
                 <form #ambulanciaForm="ngForm" (ngSumbit)="onSubmit()">
+
                     <div class="form-group">
                         <label for="destino" class="col-form-label">Destino:</label>
-                        <input type="text" name="DESTINO" #destino="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ambulanciaEdit.DESTINO" [value]="ambulanciaEdit.DESTINO" required>
+                        <input type="text" name="DESTINO" #destino="ngModel" class="form-control" id="destino" [(ngModel)]="ambulanciaEdit.DESTINO" [value]="ambulanciaEdit.DESTINO" required>
                         <!-- 
                         <small *ngIf="!destino.valid && destino.touched">
                             El destino no es válido..
                         </small> -->
 
-                        <!-- <input type="text" name="destino" class="form-control" id="recipient-name" [(ngModel)]="ambulancia.destino"> -->
+                        <!-- <input type="text" name="destino" class="form-control" id="recipient-name" [(ngModel)]="ambulancia.destino">
+                        -->
 
                     </div>
                     <div class="form-group">
-                        <label for="precioDia" class="col-form-label">Precio Día:</label>
-                        <input type="text" name="PRECIODIA" #pDia="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ambulanciaEdit.PRECIODIA" [value]="ambulanciaEdit.PRECIODIA">
-                        <small *ngIf="!pDia.valid && pDia.touched">
-                            El Precio Día no es válido..
-                        </small>
-                    </div>
-                    <div class="form-group">
-                        <label for="precioRedondoDia" class="col-form-label">Redondo Día:</label>
-                        <input type="text" name="PRECIOREDONDODIA" #pRDia="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ambulanciaEdit.REDONDODIA" [value]="ambulanciaEdit.REDONDODIA">
+                        <label for="precioDia" class="col-form-label">Precio  público día:</label>
+                        <input type="text" name="PRECIODIA" #pDia="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ambulanciaEdit.PRECIO_PUBLICO_DIA" [value]="ambulanciaEdit.PRECIO_PUBLICO_DIA">
 
-                        <small *ngIf="!pRDia.valid && pRDia.touched">
-                            El Precio Redondo Día no es válido..
-                        </small>
+
                     </div>
                     <div class="form-group">
-                        <label for="precioNoche" class="col-form-label">Precio Noche:</label>
-                        <input type="text" name="PRECIONOCHE" #pNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ambulanciaEdit.PRECIONOCHE" [value]="ambulanciaEdit.PRECIONOCHE">
-                        <small *ngIf="!pNoche.valid && pNoche.touched">
-                            El Precio Noche no es válido..
-                        </small>
+                        <label for="precioRedondoDia" class="col-form-label">Precio público redondo día:</label>
+                        <input type="text" name="PRECIO_PUBLICO_REDONDO_DIA" #pRDia="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ambulanciaEdit.PRECIO_PUBLICO_REDONDO_DIA" [value]="ambulanciaEdit.PRECIO_PUBLICO_REDONDO_DIA">
+
                     </div>
                     <div class="form-group">
-                        <label for="precioRedondoNoche" class="col-form-label">Redondo Noche:</label>
-                        <input type="text" name="PRECIOREDONDONOCHE" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ambulanciaEdit.PRECIOREDONDONOCHE" [value]="ambulanciaEdit.PRECIOREDONDONOCHE">
-                        <small *ngIf="!pRNoche.valid && pRNoche.touched">
-                            El Precio Redondo Noche no es válido..
-                        </small>
+                        <label for="precioNoche" class="col-form-label">Precio público noche:</label>
+                        <input type="text" name="PRECIO_PUBLICO_NOCHE" #pNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ambulanciaEdit.PRECIO_PUBLICO_NOCHE" [value]="ambulanciaEdit.PRECIO_PUBLICO_NOCHE">
+
                     </div>
+                    <div class="form-group">
+                        <label for="precioRedondoNoche" class="col-form-label">Redondo público noche:</label>
+                        <input type="text" name="PRECIO_PUBLICO_REDONDO_NOCHE" #pRNoche="ngModel" class="form-control" id="recipient-name" [(ngModel)]="ambulanciaEdit.PRECIO_PUBLICO_REDONDO_NOCHE" [value]="ambulanciaEdit.PRECIO_PUBLICO_REDONDO_NOCHE">
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="PRECIO_MEMBRESIA_DIA"> Precio membresia día: </label>
+                        <input type="text" name="PRECIO_MEMBRESIA_DIA" id="PRECIO_MEMBRESIA_DIA" class="form-control" placeholder="Precio de membresia día" [(ngModel)]="ambulanciaEdit.PRECIO_MEMBRESIA_DIA" [value]="ambulanciaEdit.PRECIO_MEMBRESIA_DIA">
+                    </div>
+                    <div class="form-group">
+
+
+                        <label for="PRECIO_MEMBRESIA_REDONDO_DIA"> Precio membresia redondo día: </label>
+                        <input type="text" name="PRECIO_MEMBRESIA_REDONDO_DIA" id="PRECIO_MEMBRESIA_REDONDO_DIA" class="form-control" placeholder="Precio de membresia día" [(ngModel)]="ambulanciaEdit.PRECIO_MEMBRESIA_REDONDO_DIA" [value]="ambulanciaEdit.PRECIO_MEMBRESIA_REDONDO_DIA">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="PRECIO_MEMBRESIA_NOCHE"> Precio membresia noche: </label>
+                        <input type="text" name="PRECIO_MEMBRESIA_NOCHE" id="PRECIO_MEMBRESIA_NOCHE" class="form-control" placeholder="Precio de membresia día" [(ngModel)]="ambulanciaEdit.PRECIO_MEMBRESIA_NOCHE" [value]="ambulanciaEdit.PRECIO_MEMBRESIA_NOCHE">
+                    </div>
+                    <div class="form-group">
+                        <label for="PRECIO_MEMBRESIA_REDONDO_NOCHE"> Precio membresia redondo noche: </label>
+                        <input type="text" name="PRECIO_MEMBRESIA_REDONDO_NOCHE" id="PRECIO_MEMBRESIA_REDONDO_NOCHE" class="form-control" placeholder="Precio de membresia día" [(ngModel)]="ambulanciaEdit.PRECIO_MEMBRESIA_REDONDO_NOCHE" [value]="ambulanciaEdit.PRECIO_MEMBRESIA_REDONDO_NOCHE">
+
+                    </div>
+
                 </form>
             </div>
             <div class="modal-footer">
