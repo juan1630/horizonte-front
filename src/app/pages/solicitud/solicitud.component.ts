@@ -19,10 +19,52 @@ export class SolicitudComponent implements OnInit {
   public fecha = ` ${new Date().toLocaleDateString()}`;
 
 
-  public paciente:any[]=[];
+  public paciente={
+    RFCFiscal: "",
+    apellidoMaterno:"1",
+    apellidoPaterno:"1",
+    calleNumeroPaciente: "vertice Z  0",
+    coloniaFiscal: "",
+    consultas:"1",
+    contactoEmergancia1: "",
+    correo: "",
+    cpFiscal: "",
+    cpPaciente: "" ,
+    curp: "",
+    edad : 0,
+    emailFiscal: "",
+    entidadFederativa: "",
+    estadoPaciente: "",
+    fechaNacimientoPaciente: "",
+    fechaRegistro: "",
+    localidadFiscal: "",
+    municipioFiscal: "",
+    nombrePaciente: "",
+    nombreRazonSocial:"",
+    paisPaciente: "",
+    poblacion: "Maestro ",
+    referenciaPaciente: "",
+    telefono: "" ,
+    telefonoContactoEmergencia1: ""
+  };
   public usuarioMaq:any;
-  public paquetesDB:Paquetes[]=[];
-  public paqueteSelected: PaquetesDB[]=[];
+  public paquetesDB= {
+
+    CitasIncluidas: [],
+    costoTotal:0,
+    examenesLaboratorio: [],
+    icon: "",
+    nombrePaquete: "",
+    _id: ""
+  };
+  public paqueteSelected = {
+    nombrePaquete: "",
+    CitasIncluidas: [],
+    costoTotal:0,
+    examenesLaboratorio: [],
+    icon: "",
+    _id: ""
+  };
   public paquetesPacientes: any;
   // declaradas
   public anticipo;
@@ -88,7 +130,8 @@ export class SolicitudComponent implements OnInit {
     .subscribe( (data:any) => {
       console.log(data);
       this.paciente = data.paciente;
-        })
+        });
+      
 
     }
 

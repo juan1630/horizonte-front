@@ -11,7 +11,21 @@ import { Paquetes } from 'src/app/intefaces/paquetes.interfaces';
 })
 export class PaqueteIdComponent implements OnInit {
 
-public paquete: Paquetes[]=[];
+public paquete= {
+  nombrePaquete: "",
+  CitasIncluidas: [],
+  consultasGinecologia: 0,
+  ultrasonidos: [],
+  costoTotal:0,
+  examenesLaboratorio: [],
+  descuentos: [],
+  farmacia: [],
+  extras: [],
+  estudios: [],
+  rayosX: [],
+  icon: "",
+  _id: ""
+};
         
   constructor(
               public router: ActivatedRoute, 

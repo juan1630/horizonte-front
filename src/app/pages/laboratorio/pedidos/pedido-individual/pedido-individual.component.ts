@@ -13,7 +13,7 @@ moment.locale('es')
 export class PedidoIndividualComponent implements OnInit {
 
   public id: string;
-  public pedido:any[]=[];
+  public pedido;
 
   constructor(
     private pedidosService:PedidioSinService,
@@ -44,8 +44,7 @@ export class PedidoIndividualComponent implements OnInit {
       this.pedidosService.cambiarEstado( this.id, estadopedido, fechaProceso )
       .subscribe( (data) => {
         console.log(data);
-      } )
-    
+      } );
 
   }
 
