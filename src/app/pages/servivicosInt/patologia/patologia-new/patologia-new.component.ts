@@ -70,9 +70,9 @@ export class PatologiaNewComponent implements OnInit {
     }
 
     this.patologiaService.setANewPatologia( this.forma.value )
+
     .subscribe( (data:any) => {
 
-      console.log( data );
       if(data.ok){
         swal("Se creo el servicio", "Servicio creado", "success");
         this.router.navigateByUrl('/patologia');

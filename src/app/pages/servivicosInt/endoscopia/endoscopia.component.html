@@ -1,47 +1,196 @@
 <h1 class="centerxd">Servicio Integrado: Endoscopia</h1>
 
 <div class="ambulance">
-    <button type=" button " class="btn btn-primary separar " [routerLink]="['/hoja-fram']" routerLinkActive="router-link-active">Contratar</button>
+
     <button type="button " class="btn btn-secondary " [routerLink]="['/endoscopia-nuevo']" routerLinkActive="router-link-active">Nuevo Estudio</button>
 </div>
 
 
-<table class="table table-hover ">
-    <thead class="thead-dark ">
-        <tr>
-            <th scope="col ">Procedimiento</th>
-            <th scope="col ">Indicaciones</th>
-            <th scope="col ">Precio Público</th>
-            <th scope="col ">Precio Público Urgente</th>
-            <th scope="col ">Precio Hospitalización Público</th>
-            <th scope="col ">Precio Hospitalización Público Urgencia</th>
-            <th scope="col ">Precio Membresia</th>
-            <th scope="col ">Precio Membresia Urgente</th>
-            <th scope="col ">Precio Hospitalización Membresia</th>
-            <th scope="col ">Precio Hospitalización Membresia Urgencia</th>
-            <th scope="col ">Acciones</th>
 
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let endoscopiaS of endoscopiaSI">
-            <td (click)="showAlert()" class="cursor"> {{ endoscopiaS.ESTUDIO }} </td>
-            <td (click)="showAlert()" class="cursor"> {{ endoscopiaS.INDICACIONES }}</td>
-            <td (click)="showAlert()" class="cursor"> {{ endoscopiaS.PRECIO_PUBLICO }}</td>
-            <td (click)="showAlert()" class="cursor"> {{ endoscopiaS.PRECIO_PUBLICO_URGENCIA }}</td>
-            <td (click)="showAlert()" class="cursor"> {{ endoscopiaS.PRECIO_PUBLICO_HOSPITALIZACION }}</td>
-            <td (click)="showAlert()" class="cursor"> {{ endoscopiaS.PRECIO_PUBLICO_HOSPITALIZACION_URGENCIA }}</td>
-            <td (click)="showAlert()" class="cursor"> {{ endoscopiaS.PRECIO_MEMBRESIA }}</td>
-            <td (click)="showAlert()" class="cursor"> {{ endoscopiaS.PRECIO_MEMBRESIA_URGENCIA }}</td>
-            <td (click)="showAlert()" class="cursor"> {{ endoscopiaS.PRECIO_MEMBRESIA_HOSPITALIZACION }}</td>
-            <td (click)="showAlert()" class="cursor"> {{ endoscopiaS.PRECIO_HOSPITALIZACION_URGENCIA_MEMBRESIA }}</td>
 
-            <td>
+<div class="row">
+    <div class="col-md-9">
 
-                <button type="button " class="btn btn-outline-success separar" [routerLink]="['/endoscopia-editar', endoscopiaS._id]" routerLinkActive="router-link-active"><i class="far fa-edit"></i></button>
 
-                <button type="button " class="btn btn-outline-danger" (click)="delete(endoscopiaS._id)"><i class=" fas fa-trash-alt " ></i></button>
+        <table class="table">
 
-            </td>
-        </tr>
-    </tbody>
+            <thead class="thead-dark">
+                <th>Procedimiento</th>
+                <th>Indicaciones</th>
+                <th>Precio Público</th>
+                <th>Precio Público Urgente</th>
+                <th>Precio Hospitalización Público</th>
+                <th>Precio Hospitalización Público Urgencia</th>
+                <!-- <th>Precio Membresia</th>
+                <th>Precio Membresia Urgente</th>
+                <th>Precio Hospitalización Membresia</th>
+                <th>Precio Hospitalización Membresia Urgencia</th> -->
+                <th>Acciones</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let endoscopiaS of endoscopiaSI">
+                    <td class="cursor"> {{ endoscopiaS.ESTUDIO }} </td>
+                    <td class="cursor"> {{ endoscopiaS.INDICACIONES }}</td>
+
+
+
+                    <td (click)="verComparacio(endoscopiaS.PRECIO_PUBLICO, endoscopiaS.PRECIO_MEMBRESIA  )" class="cursor">
+                        {{ endoscopiaS.PRECIO_PUBLICO }}
+                        <button class="btn btn-success precioPublico" (click)="agregarCarrito( $event, endoscopiaS )"> 
+                            <i class="fas fa-plus"></i>  
+                        </button>
+                    </td>
+
+
+
+
+
+                    <td class="cursor" (click)="verComparacio(endoscopiaS.PRECIO_PUBLICO_URGENCIA, endoscopiaS.PRECIO_MEMBRESIA_URGENCIA  )">
+                        {{ endoscopiaS.PRECIO_PUBLICO_URGENCIA }}
+
+                        <button class="btn btn-success precioPublicoUrgencia" (click)="agregarCarrito( $event, endoscopiaS )"> 
+                            <i class="fas fa-plus"></i>  
+                        </button>
+                    </td>
+
+
+
+
+                    <td class="cursor" (click)="verComparacio(endoscopiaS.PRECIO_PUBLICO_HOSPITALIZACION, endoscopiaS.PRECIO_MEMBRESIA_HOSPITALIZACION  )">
+
+                        {{ endoscopiaS.PRECIO_PUBLICO_HOSPITALIZACION }}
+
+
+
+                        <button class="btn btn-success precioPublicoHospitalizacion" (click)="agregarCarrito( $event, endoscopiaS )"> 
+                            <i class="fas fa-plus"></i>  
+                        </button>
+
+                    </td>
+
+
+
+                    <td class="cursor" (click)="verComparacio(endoscopiaS.PRECIO_PUBLICO_HOSPITALIZACION_URGENCIA, endoscopiaS.PRECIO_HOSPITALIZACION_URGENCIA_MEMBRESIA  )">
+
+
+                        {{ endoscopiaS.PRECIO_PUBLICO_HOSPITALIZACION_URGENCIA }}
+
+                        <button class="btn btn-success precioPublicoHospitalizacionUrgencia" (click)="agregarCarrito( $event, endoscopiaS )"> 
+                            <i class="fas fa-plus"></i>  
+                        </button>
+
+                    </td>
+
+
+
+
+                    <!-- <td (click)="showAlert()" class="cursor"> {{ endoscopiaS.PRECIO_MEMBRESIA }}</td>
+                    <td (click)="showAlert()" class="cursor"> {{ endoscopiaS.PRECIO_MEMBRESIA_URGENCIA }}</td>
+                    <td (click)="showAlert()" class="cursor"> {{ endoscopiaS.PRECIO_MEMBRESIA_HOSPITALIZACION }}</td>
+                    <td (click)="showAlert()" class="cursor"> {{ endoscopiaS.PRECIO_HOSPITALIZACION_URGENCIA_MEMBRESIA }}</td> -->
+
+                    <td>
+
+                        <button type="button" class="btn btn-outline-success separar" [routerLink]="['/endoscopia-editar', endoscopiaS._id]" routerLinkActive="router-link-active"><i class="far fa-edit"></i></button>
+
+                        <button type="button" class="btn btn-outline-danger" (click)="delete(endoscopiaS._id)">
+                            <i class=" fas fa-trash-alt" ></i>
+                        
+                        </button>
+
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+
+
+</div>
+<div class="fixed card-fixed" draggable="true">
+    <div class="card border-dark mb-3" style="max-width: 18rem; max-height: 29rem;">
+        <div class="card-header bg-transparent border-dark">
+            <h5>
+                Cotización
+
+            </h5>
+        </div>
+        <div class="card-body card-body-tarjeta text-dark">
+            <h5 class="card-title">Total: $ {{carrito.totalSin}}</h5>
+            <h5 class="card-title">Total membresia: $ {{ carrito.totalCon}}</h5>
+            <h5 class="card-title">Ahorro: $ {{carrito.totalSin - carrito.totalCon}}</h5>
+
+
+
+            <div class="pedidos">
+                <p *ngFor="let pedido of carrito.items">
+                    {{ pedido.nombreEstudio }} : {{ pedido.precioSin }} {{ pedido.precioNoche }}
+
+                    <button type="button" (click)="eliminar(pedido.idEstudio)" class="btn btn-danger btn-block mt-2 eliminarelemento btn-tarjeta">
+                    <i class="fas fa-trash"></i>
+                    Eliminar
+                </button>
+                </p>
+
+                <hr>
+
+            </div>
+
+        </div>
+
+        <div class="card-footer bg-transparent border-success">
+
+            <div class="pay">
+
+                <button type="button" class="btn btn-success btn-block btn-tarjeta" [routerLink]="['/pago', 'pedido', 'sin']">
+              <i class="fas fa-hand-holding-usd"></i>
+                Pagar
+            </button>
+
+                <button class="btn btn-dark btn-tarjeta mt-2" [routerLink]="['/paciente']" routerLinkActive="router-link-active">
+                <i class="fas fa-user-plus"></i>
+                 Nuevo
+            </button>
+
+
+                <button type="button" class="btn btn-primary btn-block mt-2 btn-tarjeta" [routerLink]="['/imprimir-ticket']">
+
+                <i class="far fa-file-pdf" routerLinkActive="router-link-active" ></i>
+                Imprimir
+            </button>
+
+                <button class="btn btn-block btn-info  btn-tarjeta" (click)="abrirInputCorreo()">
+                      <i class="fas fa-share-alt"></i>
+                        Enviar
+                </button>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Fin del carrito -->
+
+    <div role="alert" id="toastEmail" aria-live="assertive" aria-atomic="true" [ngClass]="show" class="toast" data-autohide="false">
+        <div class="toast-header">
+
+
+            <div class="from-group">
+                <strong class="mr-auto">Email:</strong>
+
+                <form (ngSubmit)="enviar()">
+                    <input type="email" class="form-control" name="email" [(ngModel)]="email" id="email" placeholder="Email">
+                    <button type="submit" class="btn btn-primary"> Enviar </button>
+                </form>
+
+            </div>
+
+
+
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close" (click)="cerrarModal()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+    </div>
+</div>
+<!-- Fin del row de la tabla -->

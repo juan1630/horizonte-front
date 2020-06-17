@@ -98,6 +98,7 @@ export class ModalComponent implements OnInit {
     this._countries.getCountries()
     .subscribe( (countries: any) => {
       this.paises = countries;
+      console.log( this.paises );
      });
 
     this._pacienteService.getPacientes( this.pagina )
@@ -175,15 +176,22 @@ enviar( f: NgForm ){
       f.value.poblacion,
       f.value.calleNumeroPaciente,
       f.value.referenciaPaciente,
-      this.razonesSociales[1][0],
-      this.razonesSociales[1][1],
-      this.razonesSociales[1][2],
-      this.razonesSociales[1][3],
-      this.razonesSociales[1][4],
-      this.razonesSociales[1][5],
-      this.razonesSociales[1][6],
-      this.razonesSociales[1][7],
-      )
+      f.value.nombreRazonSocial_2,
+      f.value.entidadFederativa_2,
+      f.value.poblacion,
+      f.value.RFCFiscal_2,
+      f.value.cpFiscal_2,
+      f.value.localidadFiscal_2,
+      f.value.emailFiscal_2
+      // this.razonesSociales[1][1],
+      // this.razonesSociales[1][2],
+      // this.razonesSociales[1][3],
+      // this.razonesSociales[1][4],
+      // this.razonesSociales[1][5],
+      // this.razonesSociales[1][6],
+      // this.razonesSociales[1][7],
+      );
+       console.log( this.razonesSociales );
       this._pacienteService.setPacientes( paciente )
       .subscribe( (data: any) => {
 
@@ -245,7 +253,7 @@ enviar( f: NgForm ){
       this._pacienteService.setPacientes( paciente )
       .subscribe( (data: any) => {
 
-        console.log( data )
+        console.log( data );
 
         if( data.ok === true ) {
 

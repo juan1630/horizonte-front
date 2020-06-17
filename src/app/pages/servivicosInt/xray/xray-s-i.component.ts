@@ -5,6 +5,7 @@ import { getDataStorage, getDataCarrito, gaurdarCotizacion  } from '../../../fun
 
 import swal from 'sweetalert';
 import { Estudios } from 'src/app/intefaces/estudiosLaboratorio';
+import { EnvioEmailService } from 'src/app/services/cotizacion/envio-email.service';
 @Component({
   selector: 'app-xray-s-i',
   templateUrl: './xray-s-i.component.html',
@@ -15,6 +16,9 @@ export class XraySIComponent implements OnInit {
 
   public xraySI: any [] = [];
   public role:string;
+  public show: string = 'hidden';
+  public email: string;
+
   // data de la cotizacion 
 public carrito = {
   totalSin: 0,
@@ -27,7 +31,8 @@ public carrito = {
   constructor(
     private _xrayService: XrayService,
     private _router: Router,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    private _emailService: EnvioEmailService,
 
   ) {
     const desc = 50;
@@ -57,28 +62,7 @@ public carrito = {
   }
 
 
-  sumarTotal(  precioSin, precioCon  ){
-
-
-    // se le quitan los caracteres $ y , al precio con membresia
-
-let precioConMembresia  = precioCon.replace('$', '');
-let precioConSinComa  = precioConMembresia.replace(',', '');
-let precioConMembresiaNumber = parseFloat( precioConSinComa );
-
-
-
-// se le quitan los caracteres $ y , al precio sin membresia
-let costoSin = precioSin.replace('$', '');
-let costoSinComa = costoSin.replace(',', '');
-let costoSinNumber = parseFloat( costoSinComa );
-
-
-this.carrito.totalSin = this.carrito.totalSin + costoSinNumber;
-this.carrito.totalCon = this.carrito.totalCon + precioConMembresiaNumber;
-
-
-}
+ 
 
 
 
@@ -105,85 +89,126 @@ restarTotal ( precioSin, precioCon  ) {
     }
 
 
+    
+cerrarModal(){
 
-eliminar( id ){
-
-
-  this.carrito.items.forEach(  (item, index) => {
-
-    // Agregar algun otro caso que se pueda dar  
-
-    if( item.idEstudio  === id ) {
-
-      this.carrito.items.splice( index, 1 )
-     
-      if( item.precioSin && item.precioCon ){
-
-        this.restarTotal( item.precioSin, item.precioCon );
-        
-      }else if( item.precioNoche ){
-  
-            this.restarTotal( item.precioNoche, item.precioNoche );
-      }  
-    }
-
-  } );
-
-      let  carritoString = JSON.stringify( this.carrito  );
-
-      gaurdarCotizacion(  carritoString );
+  this.show = 'hidden'
 
 }
 
-  agregarCarrito( event, item:any ){
+
+abrirInputCorreo(){
+    
+  this.show = 'show';
+}
+
+
+ // FUNCION QUE SACA EL TOTAL SIN MEMBRESIA
+
+ sumarTotal(  precioSin, precioCon  ){
+
+
+  console.table({
+    precioSin, 
+    precioCon 
+  })
+
+  // se le quitan los caracteres $ y , al precio con membresia
+
+  let precioConMembresia  = precioCon.replace('$', '');
+  let precioConSinComa  = precioConMembresia.replace(',', '');
+  let precioConMembresiaNumber = parseFloat( precioConSinComa );
+
+  
+  
+  // se le quitan los caracteres $ y , al precio sin membresia
+  let costoSin = precioSin.replace('$', '');
+  let costoSinComa = costoSin.replace(',', '');
+  let costoSinNumber = parseFloat( costoSinComa );
+
+  
+  this.carrito.totalSin = this.carrito.totalSin + costoSinNumber;
+  this.carrito.totalCon = this.carrito.totalCon + precioConMembresiaNumber;
+
+  
+  }
+
+
+  // FUNCION QUE AGREGA AL CARRITO UN ELEMENTO NUEVO
+
+  agregarCarrito( event, item: any ){
+
     
     if( event.path[1].classList.contains('precioPublico')  ){ 
-
-      console.log( item );
     
       let  estuidio = {
 
         nombreEstudio: item.ESTUDIO,
-        precioSin: item.PRECIONORMAL,
-        precioCon: item.PRECIOHOSPITALIZACIONURGENCIA,
-        entrega: item.ENTREGA,
+        precioSin: item.PRECIO_PUBLICO,
+        precioCon: item.PRECIO_MEMBRESIA,
         idEstudio:item._id
     }
 
-      this.sumarTotal( item.PRECIONORMAL, item.PRECIOHOSPITALIZACIONURGENCIA );
+      this.sumarTotal( item.PRECIO_PUBLICO,  item.PRECIO_MEMBRESIA );
 
       this.carrito.items.push( estuidio );
       
 
-    }else if (  event.path[1].classList.contains('precioNoche') )  {
+    } else if( event.path[1].classList.contains('precioPublicoUrgencia') ) {
 
       let  estuidio = {
+
         nombreEstudio: item.ESTUDIO,
-        precioNoche: item.PRECIONORMAL,
-        entrega: item.ENTREGA,
+        precioSin: item.PRECIO_PUBLICO_URGENCIA,
+        precioCon: item.PRECIO_MEMBRESIA_URGENCIA,
+        departamento: item.name,
         idEstudio:item._id
+
     }
 
-    this.sumarTotal( item.NOCTURNO, item.NOCTURNO );
+      this.sumarTotal( item.PRECIO_PUBLICO_URGENCIA, item.PRECIO_MEMBRESIA_URGENCIA );
+
+      this.carrito.items.push( estuidio );
+      
+  }else if( event.path[1].classList.contains('precioPublicoHospitalizacion')  ){
+
+
+
+    let  estuidio = {
+
+      nombreEstudio: item.ESTUDIO,
+      precioSin: item.PRECIO_PUBLICO_HOSPITALIZACION,
+      precioCon: item.PRECIO_MEMBRESIA_HOSPITALIZACION,
+      departamento: item.name,
+      idEstudio:item._id
+
+  }
+
+    this.sumarTotal( item.PRECIO_PUBLICO_HOSPITALIZACION, item.PRECIO_MEMBRESIA_HOSPITALIZACION );
 
     this.carrito.items.push( estuidio );
+
+  }else if( event.path[1].classList.contains('precioPublicoHospitalizacionUrgencia')   ){
+
     
-    }else if( event.path[1].classList.contains('urgencia') ) {
+    let  estuidio = {
 
-      let  estuidio = {
+      nombreEstudio: item.ESTUDIO,
+      precioSin: item.PRECIO_PUBLICO_HOSPITALIZACION_URGENCIA,
+      precioCon: item.PRECIO_HOSPITALIZACION_URGENCIA_MEMBRESIA,
+      departamento: item.name,
+      idEstudio:item._id
 
-        nombreEstudio: item.ESTUDIO,
-        precioUrgenciaMembresia: item.PRECIONORMAL,
-        precioUrgenciaPublico: item.URGENCIA_PUB,
-        entrega: item.ENTREGA,
-        idEstudio:item._id
-
-    }
-
-      this.sumarTotal( item.URGENCIA_PUB, item.URGENCIA_MEM );
-      this.carrito.items.push( estuidio );
-      
   }
+
+    this.sumarTotal( item.PRECIO_PUBLICO_HOSPITALIZACION_URGENCIA, item.PRECIO_HOSPITALIZACION_URGENCIA_MEMBRESIA );
+
+    this.carrito.items.push( estuidio );
+
+
+  }
+
+  
     
     let carritoString = JSON.stringify( this.carrito );
   
@@ -196,6 +221,84 @@ eliminar( id ){
   }
 
 
+  
+
+
+  eliminar( id ){
+
+
+    this.carrito.items.forEach(  (item, index) => {
+
+      // Agregar algun otro caso que se pueda dar  
+      
+      if( item.idEstudio === id ) {
+
+        this.carrito.items.splice( index, 1 )
+       
+        if( item.precioSin && item.precioCon ){
+
+          this.restarTotal( item.precioSin, item.precioCon );
+          
+        }else if( item.precioNoche ){
+    
+              this.restarTotal( item.precioNoche, item.precioNoche );
+        }  
+      }
+
+    } );
+
+        let  carritoString = JSON.stringify( this.carrito  );
+
+        gaurdarCotizacion(  carritoString );
+
+  }
+
+
+verComparacio( publico, membresia ){
+
+  let ahorro = 0;
+
+let publicoTrim = publico.replace('$', '');
+let membresiaTrim   = membresia.replace('$', '');
+
+
+let publicoTrims = publicoTrim.replace(',', '');
+let membresiaTrims = membresiaTrim.replace(',', '');
+
+
+let publicoNumber = parseFloat(publicoTrims);
+let  membresiaNumber = parseFloat(membresiaTrims);
+  
+  ahorro = publicoNumber - membresiaNumber;
+
+ swal({
+  icon: "success",
+  title: `Ahorro: ${ ahorro}` ,
+  text: `Sin membresia: ${ publico } - Con membresia: ${ membresia }`
+  
+  });
+
+
+
+}
+enviar( ){
+
+  let cotizacion ={
+     correo: this.email,
+     carrito: this.carrito
+   }
+     this._emailService.envioEmail( cotizacion )
+     .subscribe( (data:any) => {
+       console.log(data);
+
+       if(data.ok){
+        swal('cotización enviada','se envio exitosamente', 'success');
+        this.show = 'hidden';
+        }
+    
+     } )
+
+   }
 
 
   alertaDesc(){
