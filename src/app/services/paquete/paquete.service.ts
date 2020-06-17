@@ -13,7 +13,7 @@ export class PaqueteService {
   // este servicio lista todos los paquetes sin nigun termino de busqueda
   getPaquetes(){
 
-    let uri = URLDEV + '/paquetes';
+    let uri = "https://horizonte-1.herokuapp.com" + '/paquetes';
 
     return  this._http.get(uri)
       .pipe( map( (data:any) => {
@@ -25,7 +25,7 @@ export class PaqueteService {
     let uri = URLDEV + '/paquetes';
 
     return  this._http.get(uri)
-     .pipe( map( (data:any) => data  
+     .pipe( map( (data:any) => data
      ) )
   }
 

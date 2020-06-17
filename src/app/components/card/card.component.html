@@ -5,19 +5,16 @@
         <app-spinner class="mx-auto"></app-spinner>
     </div> -->
 
-    <div class="card-columns animate bounceIn">
-
-        <div class="card" style="width:17rem;" *ngFor="let module of modules">
+    <div class="card-columns animate bounceIn" >
+        <a  [routerLink]="module.modules.route" *ngFor="let module of modules">
+        <div class="card card2">
 
             <img [src]="module.modules.icon" class="img-fluid" [routerLink]="module.modules.route">
-
-            <div class="card-body">
-                <a class="btn btn-primary btn-block" [routerLink]="module.modules.route"> 
-            {{ module.modules.nameModule | uppercase  }} 
-          </a>
-            </div>
-
+                 <h2 *ngIf="module.modules.nameModule === 'Servicios integrados'" >Servicios</h2>
+                 <h2 *ngIf="module.modules.nameModule === 'Estados de cuenta'" >Cuenta</h2>
+                 <h2 *ngIf="module.modules.nameModule !== 'Servicios integrados' && module.modules.nameModule !== 'Estados de cuenta'" >{{ module.modules.nameModule}}</h2>
         </div>
+      </a>
     </div>
 
 </div>
