@@ -328,6 +328,48 @@ enviar( f: NgForm ){
         }
        } )
   }
+  if(this.razonesSociales[1] === undefined) {
+    let paciente = new Paciente(
+      f.value.nombrePaciente,
+      f.value.apellidoPaterno,
+      f.value.apellidoMaterno,
+      f.value.fechaNacimientoPaciente,
+      f.value.entidadNacimiento,
+      f.value.edad,
+      f.value.curp,
+      f.value.paisNacimineto,
+      f.value.telefono,
+      f.value.contactoEmergancia,
+      f.value.telefonoEmergencia,
+      f.value.correo,
+      f.value.cpPaciente,
+      f.value.paisPaciente,
+      f.value.municipio,
+      f.value.estadoPaciente,
+      f.value.poblacion,
+      f.value.calleNumeroPaciente,
+      f.value.referenciaPaciente,
+      )
+      this._pacienteService.setPacientes( paciente )
+      .subscribe( (data: any) => {
+
+        console.log( data )
+
+        if( data.ok === true ) {
+
+          swal(`Bienvenido ${data.paciente.nombrePaciente}`, 'El paciente agregado', 'success');
+
+           f.reset();
+           this.getTodoslosPacientes();
+           this._modalService.ocultarModal();
+           return;
+
+        }else {
+          swal('Algó ocurrio', 'Intenta de nuevo', 'error');
+          console.log('Algo pasó', data );
+        }
+       } )
+  }
 
 }
 
