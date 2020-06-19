@@ -105,7 +105,10 @@ export class EstudiosComponent implements OnInit {
 
   // FUNCION QUE AGREGA AL CARRITO UN ELEMENTO NUEVO
 
-  agregarCarrito( event, item: Estudios ){
+  agregarCarrito( event, item: any ){
+
+
+    console.log( item );
     
     if( event.path[1].classList.contains('precioPublico')  ){ 
     
@@ -115,6 +118,7 @@ export class EstudiosComponent implements OnInit {
         precioSin: item.PUBLICO,
         precioCon: item.MEMBRESIA,
         entrega: item.ENTREGA,
+        departamento: item.name,
         idEstudio:item._id
     }
 
@@ -129,6 +133,7 @@ export class EstudiosComponent implements OnInit {
         nombreEstudio: item.ESTUDIO,
         precioNoche: item.NOCTURNO,
         entrega: item.ENTREGA,
+        departamento: item.name,
         idEstudio:item._id
     }
 
@@ -144,6 +149,7 @@ export class EstudiosComponent implements OnInit {
         precioSin: item.URGENCIA_PUB,
         precioCon: item.URGENCIA_MEM,
         entrega: item.ENTREGA,
+        departamento: item.name,
         idEstudio:item._id
 
     }
@@ -196,21 +202,37 @@ export class EstudiosComponent implements OnInit {
       console.log( valor)
     }
 
+
+
+    // enviamos la cotizacion por el correo
+
     enviar( ){
+
    let cotizacion ={
       correo: this.email,
       carrito: this.carrito
     }
       this._emailService.envioEmail( cotizacion )
-      .subscribe( (data) => {
-        console.log(data);
-      } )
+      .subscribe( (data:any) => {
+          
+        if(data.ok){
+          swal('cotización enviada','se envio exitosamente', 'success');
+          }
+      
+        })
 
     }
+
+    // cerramos la vetana del modal del correo
 
     cerrarModal(){
       this.show = 'false';
     }
+
+
+
+
+    // elimina un elemento del carrrito
 
   eliminar( id ){
 

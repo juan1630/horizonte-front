@@ -2,7 +2,6 @@
 
 
 /* You can add global styles to this file, and also import other style files */
-
 $white: #fff !default;
 $gray-100: #f8f9fc !default;
 $gray-200: #eaecf4 !default;
@@ -232,4 +231,23 @@ $dropdown-border-color: $border-color;
         -webkit-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
     }
+}
+
+$breakpoints:(
+  'phone': 599px,
+  'tablet-portrait': 600px,
+  'tablet-landscape': 960px,
+  'desktop': 1280px,
+  'big-desktop':1920px
+)!default;
+
+@mixin screen($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint ) {
+    @media(max-width: map-get($breakpoints, $breakpoint)){
+      @content;
+    }
+  }
+  @else{
+    @warn "No se encuentra el breakpoint";
+  }
 }

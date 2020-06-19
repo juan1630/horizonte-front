@@ -62,15 +62,9 @@ import { PerfilesNewComponent } from './servivicosInt/laboratorio/perfiles/perfi
 import { PatologiaEditComponent } from './servivicosInt/patologia/patologia-edit/patologia-edit/patologia-edit.component';
 import { PatologiaNewComponent } from './servivicosInt/patologia/patologia-new/patologia-new.component';
 import { PatologiaComponent } from './servivicosInt/patologia/patologia.component';
-// import { PedidoIndividualComponent } from './laboratorio/pedidos/pedido-individual/pedido-individual.component';
-// import { TabuladorAltoriesgoComponent } from './paquetes/altoRiesgo/tabulador-altoriesgo/tabulador-altoriesgo.component';
-// import { PatologiaComponent } from './servivicosInt/patologia/patologia.component'; 
-// import { PerfilesNewComponent } from './servivicosInt/laboratorio/perfiles/perfiles-new/perfiles-new.component';
-// import { PatologiaEditComponent } from './servivicosInt/patologia/patologia-edit/patologia-edit/patologia-edit.component';
-// import {  PatologiaNewComponent  } from './servivicosInt/patologia/patologia-new/patologia-new.component';
+import { MembresiaPaqueteComponent } from './membresia/membresia-paquete/membresia-paquete.component';
 
-// rutas hijas del dashboard
-// LoginGuardGuard
+
 const pagesRoutes : Routes = [
   {
     path: '',
@@ -135,6 +129,7 @@ const pagesRoutes : Routes = [
       { path: 'patologia', component: PatologiaComponent },
       {  path: 'patologia/edit/:id', component: PatologiaEditComponent },
       { path: 'patologia/nueva', component: PatologiaNewComponent },
+      { path: 'consultas/membresia/:id', component: MembresiaPaqueteComponent },
       { path: '', redirectTo: '/dashboard', pathMatch:'full' }
       
     ]

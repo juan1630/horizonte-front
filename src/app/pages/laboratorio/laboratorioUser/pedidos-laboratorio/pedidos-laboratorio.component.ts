@@ -9,7 +9,15 @@ import { EstudioEstudio } from 'src/app/intefaces/pedidosLab';
 })
 export class PedidosLaboratorioComponent implements OnInit {
 
-  public pedidos: any[]=[];
+  public pedidos = {
+    estudios:[],
+    estadoPedido: String,
+    _id:          String,
+    nombre:       String,
+    edad:         Number,
+    sexo:         String,
+    total:        Number,
+  }
 
   constructor(
     private _pedidosService: PedidioSinService

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {  HttpClient } from '@angular/common/http';
+import { URLDEV } from 'src/app/config/index.config';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +14,10 @@ export class EnvioEmailService {
 
   envioEmail( cotizacion ){
 
-    let url = `${URL}/cotizacion`;
+    let url = `${URLDEV}/cotizacion`;
+    // let url = `http://localhost:3200/cotizacion`;
 
-    return this._http.get(url, cotizacion);
+    return this._http.post(url, cotizacion);
   }
 
 }

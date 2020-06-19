@@ -67,6 +67,7 @@ import { TabuladorAltoriesgoComponent } from './paquetes/altoRiesgo/tabulador-al
 import { PatologiaComponent } from './servivicosInt/patologia/patologia.component';
 import { PatologiaEditComponent } from './servivicosInt/patologia/patologia-edit/patologia-edit/patologia-edit.component';
 import { PatologiaNewComponent } from './servivicosInt/patologia/patologia-new/patologia-new.component';
+import { MembresiaPaqueteComponent } from './membresia/membresia-paquete/membresia-paquete.component';
 
 
 @NgModule({
@@ -126,7 +127,8 @@ import { PatologiaNewComponent } from './servivicosInt/patologia/patologia-new/p
     TabuladorAltoriesgoComponent,
     PatologiaComponent,
     PatologiaEditComponent,
-    PatologiaNewComponent
+    PatologiaNewComponent,
+    MembresiaPaqueteComponent
   ],
   exports: [ 
     PageComponent,

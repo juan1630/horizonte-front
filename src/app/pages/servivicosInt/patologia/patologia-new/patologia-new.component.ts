@@ -54,8 +54,6 @@ export class PatologiaNewComponent implements OnInit {
           patologia.classList.add('is-invalid');
           return;
         }
-
-
         
     if(  this.forma.value.PUBLICO <=0   ){
 
@@ -72,6 +70,7 @@ export class PatologiaNewComponent implements OnInit {
     }
 
     this.patologiaService.setANewPatologia( this.forma.value )
+
     .subscribe( (data:any) => {
 
       if(data.ok){

@@ -1,48 +1,194 @@
 <h1 class="centerxd">Servicio Integrado: Otros Servicios</h1>
-<!-- <button type="button" class="btn btn-outline-primary"><i class="fas fa-plus"></i></button> -->
-<button type="button" class="btn btn-info rightxd">Contratar</button>
-<button type="button" class="btn btn-info rightxd xd" [routerLink]="['/otros-nuevo']" routerLinkActive="router-link-active">Agregar</button>
 
+
+<div class="row">
+    <div class="col-md-6">
+
+        <!-- <button type="button" class="btn btn-outline-primary"><i class="fas fa-plus"></i></button> -->
+        <button type="button" class="btn btn-info rightxd">
+            Contratar
+        </button>
+        <button type="button" class="btn btn-info rightxd xd" [routerLink]="['/otros-nuevo']" routerLinkActive="router-link-active">Agregar
+        
+        </button>
+    </div>
+
+</div>
 <!-- <div class="ambulanciaStyle">
-    <ul>
+        <ul>
         <li *ngFor="let ambulanciaService of ambulanciaSI">
             {{ ambulanciaService.DESTINO }}
         </li>
     </ul>
 </div> -->
-<table class="table table-hover">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">Estudio</th>
-            <th scope="col">Indicaciones</th>
-            <th scope="col">Precio Publico</th>
-            <th scope="col">Precio Hospitalización Publico</th>
-            <th scope="col">Precio Urgencias Publico</th>
-            <th scope="col">Precio Hospitalización Urgencias Publico</th>
-            <th scope="col">Precio Membresia</th>
-            <th scope="col">Precio Hospitalización Membresia</th>
-            <th scope="col">Precio Urgencias Membresia</th>
-            <th scope="col">Precio Hospitalización Urgencia Membresia</th>
-            <th scope="col">Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr (click)="alertaDesc()" *ngFor="let otrosServicioss of otrosServiciosSI">
-            <td> {{ otrosServicioss.ESTUDIO }} </td>
-            <td> {{ otrosServicioss.INDICACIONES }}</td>
-            <td> $ {{ otrosServicioss.PRECIO_PUBLICO }}</td>
-            <td> $ {{ otrosServicioss.PRECIO_PUBLICO_HOSPITALIZACION }}</td>
-            <td> $ {{ otrosServicioss.PRECIO_PUBLICO_URGENCIA }}</td>
-            <td> $ {{ otrosServicioss.PRECIO_PUBLICO_HOSPITALIZACIO_URGENCIA }}</td>
-            <td> $ {{ otrosServicioss.PRECIO_MEMBRESIA }}</td>
-            <td> $ {{ otrosServicioss.PRECIO_MEMBRESIA_URGENCIA }}</td>
-            <td> $ {{ otrosServicioss.PRECIO_MEMBRESIA_HOSPITALIZACION }}</td>
-            <td> $ {{ otrosServicioss.PRECIO_MEMBRESIA_HOSPITALIZACIO_URGENCIA }}</td>
-            <td>
-                <button type="button" class="btn btn-outline-success" [routerLink]="['/otros-editar', otrosServicioss._id]" routerLinkActive="router-link-active"><i class="far fa-edit"></i></button>
-                <button type="button" class="btn btn-outline-danger" (click)="delete(otrosServicioss._id)"><i class="fas fa-trash-alt"></i></button>
-            </td>
-        </tr>
-    </tbody>
 
-</table>
+
+<div class="row">
+    <div class="col-md-9">
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Estudio</th>
+                    <th scope="col">Indicaciones</th>
+                    <th scope="col">Precio Publico</th>
+                    <th scope="col">Precio Hospitalización Publico</th>
+                    <th scope="col">Precio Urgencias Publico</th>
+                    <th scope="col">Precio Hospitalización Urgencias Publico</th>
+                    <!-- <th scope="col">Precio Membresia</th>
+                    <th scope="col">Precio Hospitalización Membresia</th>
+                    <th scope="col">Precio Urgencias Membresia</th>
+                    <th scope="col">Precio Hospitalización Urgencia Membresia</th> -->
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let otrosServicioss of otrosServiciosSI">
+                    <td> {{ otrosServicioss.ESTUDIO }} </td>
+                    <td> {{ otrosServicioss.INDICACIONES }}</td>
+
+                    <td (click)="verComparacio(otrosServicioss.PRECIO_PUBLICO, otrosServicioss.PRECIO_MEMBRESIA )"> $ {{ otrosServicioss.PRECIO_PUBLICO }}
+
+                        <button class="btn btn-success precioPublico" (click)="agregarCarrito( $event, otrosServicioss )"> 
+                            <i class="fas fa-plus"></i>  
+                        </button>
+
+                    </td>
+
+                    <td (click)="verComparacio(otrosServicioss.PRECIO_PUBLICO_HOSPITALIZACION, otrosServicioss.PRECIO_MEMBRESIA_HOSPITALIZACION )">
+                        $ {{ otrosServicioss.PRECIO_PUBLICO_HOSPITALIZACION }}
+
+                        <button class="btn btn-success precioPublicoHospitalizacion" (click)="agregarCarrito( $event, otrosServicioss )"> 
+                            <i class="fas fa-plus"></i>  
+                        </button>
+
+                    </td>
+
+                    <td (click)="verComparacio(otrosServicioss.PRECIO_PUBLICO_URGENCIA, otrosServicioss.PRECIO_MEMBRESIA_URGENCIA )">
+
+                        $ {{ otrosServicioss.PRECIO_PUBLICO_URGENCIA }}
+
+                        <button class="btn btn-success precioPublicoUrgencia" (click)="agregarCarrito( $event, otrosServicioss )"> 
+                            <i class="fas fa-plus"></i>  
+                        </button>
+                    </td>
+
+
+                    <td (click)="verComparacio(otrosServicioss.PRECIO_PUBLICO_HOSPITALIZACIO_URGENCIA, otrosServicioss.PRECIO_MEMBRESIA_HOSPITALIZACIO_URGENCIA )">
+
+                        $ {{ otrosServicioss.PRECIO_PUBLICO_HOSPITALIZACIO_URGENCIA }}
+
+                        <button class="btn btn-success precioPublicoHospitalizacionUrgencia" (click)="agregarCarrito( $event, otrosServicioss )"> 
+                            <i class="fas fa-plus"></i>  
+                        </button>
+
+
+
+                    </td>
+
+                    <td>
+                        <button type="button" class="btn btn-outline-success" [routerLink]="['/otros-editar', otrosServicioss._id]" routerLinkActive="router-link-active"><i class="far fa-edit"></i></button>
+                        <button type="button" class="btn btn-outline-danger" (click)="delete(otrosServicioss._id)"><i class="fas fa-trash-alt"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+
+
+
+    <div class="col-md-3">
+
+        <div class="fixed card-fixed" draggable="true">
+
+
+
+            <div class="card border-dark mb-3" style="max-width: 18rem; max-height: 29rem;">
+                <div class="card-header bg-transparent border-dark">
+                    <h5>
+                        Cotización
+
+                    </h5>
+                </div>
+                <div class="card-body card-body-tarjeta text-dark">
+                    <h5 class="card-title">Total: $ {{carrito.totalSin}}</h5>
+                    <h5 class="card-title">Total membresia: $ {{ carrito.totalCon}}</h5>
+                    <h5 class="card-title">Ahorro: $ {{carrito.totalSin - carrito.totalCon}}</h5>
+
+
+
+                    <div class="pedidos">
+                        <p *ngFor="let pedido of carrito.items">
+                            {{ pedido.nombreEstudio }} : {{ pedido.precioSin }} {{ pedido.precioNoche }}
+
+                            <button type="button" (click)="eliminar(pedido.idEstudio)" class="btn btn-danger btn-block mt-2 eliminarelemento btn-tarjeta">
+                        <i class="fas fa-trash"></i>
+                        Eliminar
+                    </button>
+                        </p>
+
+                        <hr>
+
+                    </div>
+
+                </div>
+
+                <div class="card-footer bg-transparent border-success">
+
+                    <div class="pay">
+
+                        <button type="button" class="btn btn-success btn-block btn-tarjeta" [routerLink]="['/pago', 'pedido', 'sin']">
+                  <i class="fas fa-hand-holding-usd"></i>
+                    Pagar
+                </button>
+
+                        <button class="btn btn-dark btn-tarjeta mt-2" [routerLink]="['/paciente']" routerLinkActive="router-link-active">
+                    <i class="fas fa-user-plus"></i>
+                     Nuevo
+                </button>
+
+
+                        <button type="button" class="btn btn-primary btn-block mt-2 btn-tarjeta" [routerLink]="['/imprimir-ticket']">
+        
+                    <i class="far fa-file-pdf" routerLinkActive="router-link-active" ></i>
+                    Imprimir
+                </button>
+
+                        <button class="btn btn-block btn-info  btn-tarjeta" (click)="abrirInputCorreo()">
+                          <i class="fas fa-share-alt"></i>
+                            Enviar
+                    </button>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- Fin del carrito -->
+    </div>
+    <!-- INICIA EL INPUT DEL CORREO -->
+    <div role="alert" id="toastEmail" aria-live="assertive" aria-atomic="true" [ngClass]="show" class="toast" data-autohide="false">
+        <div class="toast-header">
+
+
+            <div class="from-group">
+                <strong class="mr-auto">Email:</strong>
+
+                <form (ngSubmit)="enviar()">
+                    <input type="email" class="form-control" name="email" [(ngModel)]="email" id="email" placeholder="Email">
+                    <button type="submit" class="btn btn-primary"> Enviar </button>
+                </form>
+
+            </div>
+
+
+
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close" (click)="cerrarModal()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+    </div>
+
+    <!-- CIERRA E¿L INPUT DEL CORREO -->
+</div>
