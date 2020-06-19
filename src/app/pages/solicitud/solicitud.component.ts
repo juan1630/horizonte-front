@@ -99,17 +99,17 @@ export class SolicitudComponent implements OnInit {
         .subscribe( (data: any )  => {
 
             this.paqueteSelected = data;
-            // if( this.paqueteSelected.nombrePaquete = "PAQUETE DE CONTROL PRENATAL" ){
-            //   this.anticipo = 1500;
-            // }else if( this.paqueteSelected.nombrePaquete = "PAQUETE MÉDICO LABORAL" ) {
-            //   this.anticipo = 175;
-            // }else if(this.paqueteSelected.nombrePaquete = "PAQUETE NEONATAL"){
+            if( this.paqueteSelected.nombrePaquete == "PAQUETE DE CONTROL PRENATAL" ){
+              this.anticipo = 1500;
+            }else if( this.paqueteSelected.nombrePaquete == "PAQUETE MÉDICO LABORAL" ) {
+              this.anticipo = 175;
+            }else if(this.paqueteSelected.nombrePaquete == "PAQUETE NEONATAL (DE 0 12 MESES)"){
               
-            //   this.anticipo = 1000;
-            // }else if( this.anticipo = "SERVICIO DE LA MEMBRESIA" ){
+              this.anticipo = 1000;
+            }else if( this.anticipo = "SERVICIO DE LA MEMBRESIA" ){
 
-            //   this.anticipo = 500;
-            // }
+              this.anticipo = 500;
+            }
         });
     }
 // esta funcio valida el select, que no vaya vacio
@@ -137,12 +137,12 @@ export class SolicitudComponent implements OnInit {
             if( data.ok ){
               swal('Paquete agregado', '', 'success');
 
-              // if( this.paqueteSelected.nombrePaquete = "PAQUETE DE CONTROL PRENATAL" ){
+              if( this.paqueteSelected.nombrePaquete == "PAQUETE DE CONTROL PRENATAL" ){
 
-              //   this._router.navigateByUrl('/contrato/maternidad');
-              //   // TODO: Remmplzar por el contrato
-              //   return;
-              // }
+                this._router.navigateByUrl('/contrato/maternidad');
+                // TODO: Remmplzar por el contrato
+                return;
+              }
               // else if ( this.paqueteSelected.nombrePaquete === "PAQUETE MÉDICO LABORAL" ){
               //   this._router.navigateByUrl('/paqueteMaternidad');
               // }

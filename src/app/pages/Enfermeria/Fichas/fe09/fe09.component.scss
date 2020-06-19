@@ -1,0 +1,102 @@
+.der {
+    float: right;
+    margin-top: -3rem;
+    margin-right: 1.5rem;
+}
+
+.derxd {
+    display: flex;
+    justify-content: stretch;
+}
+
+input {
+    margin-left: 1rem;
+}
+
+label {
+    margin-left: .5rem;
+}
+
+// .inputss {
+//     width: 2rem;
+//     margin-left: 2rem;
+// }
+// input [type=submit] {
+//     width: 1rem;
+// }
+input:last-of-type {
+    width: 5rem;
+    border-radius: 10px;
+    border: 1px solid #00BBF1;
+    text-align: center;
+}
+
+.xd {
+    margin-top: 2rem;
+}
+
+.antecedentes-inputs {
+    width: 6rem;
+    border-radius: 10px;
+    border: 1px solid #00BBF1;
+    margin-bottom: .79rem;
+}
+
+.antecedentes-inputs:last-of-type {
+    width: 6rem;
+}
+
+.center,
+h3 {
+    text-align: center;
+}
+
+// Tamaño modal Signos Vitales
+.modal-XL {
+    width: 1000px;
+}
+
+// .margen-input,
+// input {
+//     margin-right: 2rem;
+// }
+.sv-inputs {
+    width: 6rem;
+    border-radius: 10px;
+    border: 1px solid #00BBF1;
+    margin-left: 2rem;
+}
+
+.espacio-cols {
+    margin-left: 2rem;
+    text-align: center;
+}
+
+.espacio-cols:first-of-type {
+    margin-left: 1px;
+    ;
+}
+
+.modalNutricion {
+    width: 1100px;
+    margin-left: -9rem;
+}
+
+.esp-nutricion,
+input {
+    margin-left: 1rem;
+    margin-bottom: 6;
+}
+
+.wer {
+    margin-bottom: 2.2rem;
+}
+
+.wer:last-of-type {
+    // margin-top: -1rem;
+    margin-bottom: .2rem;
+}
+
+.btn-primary {
+    margin-right: 5rem;
+}
