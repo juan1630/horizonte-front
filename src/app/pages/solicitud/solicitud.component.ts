@@ -84,7 +84,7 @@ export class SolicitudComponent implements OnInit {
   constructor(
                 public _pacientesServices: PacienteService,
                 public router: ActivatedRoute,
-                private _router: Router,
+                public _router2: Router,
                 public paquetesService: PaqueteService,
                 public _solicitud: SolicitudService
 
@@ -144,10 +144,10 @@ export class SolicitudComponent implements OnInit {
             this.paqueteSelected = data;
               
               this.anticipo = 1000;
-            }else if( this.anticipo = "SERVICIO DE LA MEMBRESIA" ){
+            // }else if( this.anticipo = "SERVICIO DE LA MEMBRESIA" ){
 
-              this.anticipo = 500;
-            }
+            //   this.anticipo = 500;
+            // }
         });
     }
 // esta funcio valida el select, que no vaya vacio
@@ -163,6 +163,8 @@ export class SolicitudComponent implements OnInit {
     // en esta funcion se envia la data necesaria para agregra el paquete al usuario
 
     enviar( f: NgForm  ){
+
+
       let dataForm = f.value;
 
       this._solicitud.setPaquete( dataForm, this.paciente, this.paqueteSelected, this.fecha )
@@ -176,47 +178,67 @@ export class SolicitudComponent implements OnInit {
               swal('Paquete agregado', '', 'success');
               
               return;
-              }
+
               // else if ( this.paqueteSelected.nombrePaquete === "PAQUETE MÉDICO LABORAL" ){
               //   this._router.navigateByUrl('/paqueteMaternidad');
               // }
 
-            }
+              }
 
-          })
+
+ 
       })
+    });
+      
+    }
+
+  
+    
+
+
+
+
+
+      cancelarPaq(){
+
+        swal("¿Estas seguro que deseas salir?",
+        {
+          buttons: {
+          // cancel: "Cancelar",
+          catch: {
+            text: "Confirmar",
+            value: "true",
+          }
+        }
+        })
+        .then(value => {
+          console.log( value );
+          if( value ){
+  
+            this._router2.navigateByUrl('/paciente');
+          
+            
+  
+          }else {
+            return;
+          }
+  
+        }  )
+  
+       if( swal.getState().actions.value  ){
+        this._router2.navigateByUrl('/paciente');
+  
+       }
+  
+     }
+
+
 
     }
 
 
-     cancelarPaq(){
 
-      swal("¿Estas seguro que deseas salir?",
-      {
-        buttons: {
-        // cancel: "Cancelar",
-        catch: {
-          text: "Confirmar",
-          value: "true",
-        }
-      }
-      })
-      .then(value => {
-        console.log( value );
-        if( value ){
 
-          this._router.navigateByUrl('/paciente')
-        }else {
-          return;
-        }
 
-      }  )
+  
 
-     if( swal.getState().actions.value  ){
-      this._router.navigateByUrl('/paciente');
-
-     }
-
-   }
-
-}

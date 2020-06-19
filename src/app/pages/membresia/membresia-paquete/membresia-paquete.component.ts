@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PaquetesMaternidadService } from '../../../services/maternidad/paquetes-maternidad.service';
-import  swal from 'sweetalert';
 import { ActivatedRoute } from '@angular/router';
+import  swal from 'sweetalert';
 @Component({
   selector: 'app-membresia-paquete',
   templateUrl: './membresia-paquete.component.html',
@@ -19,19 +19,7 @@ export class MembresiaPaqueteComponent implements OnInit {
   extras:any[] = []
   farmacia:any[] = []
   medicos:any[] = []
-  todas:any[] = [
-      // { tipo: '2', consulta: 'Estudios basicos', fecha: '11/06/2020', medico: 'Alguien', firma: 'firma' },
-      // { tipo: '2', consulta: 'Estudios basicos', fecha: '10/06/2020', medico: 'Alguien', firma: 'firma' },
-      // { tipo: '2', consulta: 'Estudios especiales', fecha: '10/06/2020', medico: 'Alguien', firma: 'firma' },
-      // { tipo: '2', consulta: 'Estudios especiales', fecha: '10/06/2020', medico: 'Alguien', firma: 'firma' },
-      // { tipo: '1', consulta: 'Nutrición', fecha: '09/05/2020', medico: 'Alguien', firma: 'firma' },
-      // { tipo: '1', consulta: 'Ginecología', fecha: '09/05/2020', medico: 'Alguien', firma: 'firma' },
-      // { tipo: '3', consulta: 'Procedimientos Quirúrgicos', fecha: '09/05/2020', medico: 'Alguien', firma: 'firma' },
-      // { tipo: '3', consulta: 'Procedimientos Quirúrgicos', fecha: '09/05/2020', medico: 'Alguien', firma: 'firma' },
-      // { tipo: '3', consulta: 'Procedimientos Endoscopicos', fecha: '09/05/2020', medico: 'Alguien', firma: 'firma' },
-      // { tipo: '4', consulta: 'Medicamentos para hospitalización', fecha: '09/05/2020', medico: 'Alguien', firma: 'firma' },
-    
-  ]
+  todas:any[] = [ ]
 
 
   constructor(
