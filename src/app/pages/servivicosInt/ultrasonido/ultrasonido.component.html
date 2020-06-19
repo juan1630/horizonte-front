@@ -1,12 +1,12 @@
 <h1 class="centerxd">Servicio Integrado: Ultrasonido</h1>
 
-
+<!-- *ngIf="role === 'admin'" -->
 
 <div class="row">
     <div class="col-md-12">
         <div class="ambulance">
             <button type=" button " class="btn btn-primary separar " [routerLink]="['/hoja-fram']" routerLinkActive="router-link-active">Contratar</button>
-            <button *ngIf="role === 'admin'" type="button " class="btn btn-secondary " [routerLink]="['/ultrasonido-nuevo']" routerLinkActive="router-link-active">Nuevo Ultrasonido</button>
+            <button type="button " class="btn btn-secondary " [routerLink]="['/ultrasonido-nuevo']" routerLinkActive="router-link-active">Nuevo Ultrasonido</button>
         </div>
 
     </div>
@@ -23,19 +23,28 @@
         <table class="table table-hover ">
             <thead class="thead-dark ">
                 <tr>
-                    <th scope="col ">Ultrasonido</th>
-                    <th scope="col ">Indicaciones</th>
-                    <th scope="col ">Precio Público</th>
-                    <th scope="col ">Precio Público Urgente</th>
-                    <th scope="col ">Precio Hospitalización Público</th>
-                    <th scope="col ">Precio Hospitalización Público Urgencia</th>
-                    <th scope="col ">Precio Membresia</th>
+                    <th>Ultrasonido</th>
+                    <th>Indicaciones</th>
+                    <th>Precio Público</th>
+                    <th>Precio Público Urgente</th>
+                    <th>Precio Hospitalización Público</th>
+                    <th>Precio Hospitalización Público Urgencia</th>
+
+
+
+                    <!-- <th scope="col ">Precio Membresia</th>
                     <th scope="col ">Precio Membresia Urgente</th>
                     <th scope="col ">Precio Hospitalización Membresia</th>
-                    <th scope="col ">Precio Hospitalización Membresia Urgencia</th>
+                    <th scope="col ">Precio Hospitalización Membresia Urgencia</th> -->
 
-                    <th scope="col" *ngIf="role === 'admin'">
-                        Acciones</th>
+
+                    <!-- *ngIf="role === 'admin'" -->
+
+                    <th>
+                        Acciones
+
+                    </th>
+
 
                 </tr>
             </thead>
@@ -44,57 +53,38 @@
                 <tr *ngFor="let ultrasonidoS of ultrasonidoSI">
                     <td class="cursor"> {{ ultrasonidoS.ESTUDIO }} </td>
                     <td class="cursor"> {{ ultrasonidoS.INDICACIONES }}</td>
-                    <td class="cursor">
+                    <td class="cursor" (click)="verComparacio(ultrasonidoS.PRECIO_PUBLICO, ultrasonidoS.PRECIO_MEMBRESIA )">
 
                         {{ ultrasonidoS.PRECIO_PUBLICO }}
                         <button class="btn btn-success precioPublico" (click)="agregarCarrito( $event, ultrasonidoS )"> 
                             <i class="fas fa-plus"></i>  
                         </button>
                     </td>
-                    <td class="cursor">
+                    <td class="cursor" (click)="verComparacio(ultrasonidoS.PRECIO_PUBLICO_URGENCIA, ultrasonidoS.PRECIO_MEMBRESIA_URGENCIA)">
                         {{ ultrasonidoS.PRECIO_PUBLICO_URGENCIA }}
-                        <button class="btn btn-success urgencia" (click)="agregarCarrito( $event, ultrasonidoS )"> 
+                        <button class="btn btn-success precioPublicoUrgencia" (click)="agregarCarrito( $event, ultrasonidoS )"> 
                             <i class="fas fa-plus"></i>  
                         </button>
                     </td>
-                    <td class="cursor">
+                    <td class="cursor" (click)="verComparacio(ultrasonidoS.PRECIO_PUBLICO_HOSPITALIZACION, ultrasonidoS.PRECIO_MEMBRESIA_HOSPITALIZACION)">
                         {{ ultrasonidoS.PRECIO_PUBLICO_HOSPITALIZACION }}
-                        <button class="btn btn-success hospitalizacionHorario" (click)="agregarCarrito( $event, ultrasonidoS )"> 
+                        <button class="btn btn-success precioPublicoHospitalizacion" (click)="agregarCarrito( $event, ultrasonidoS )"> 
                             <i class="fas fa-plus"></i>  
                         </button>
                     </td>
-                    <td class="cursor">
+
+                    <td (click)="verComparacio(ultrasonidoS.PRECIO_PUBLICO_HOSPITALIZACIO_URGENCIA, ultrasonidoS.PRECIO_MEMBRESIA_HOSPITALIZACION_URGENCIA)">
+
+
                         <!-- CHECAR POSIBLE ERROR AQUÍ -->
                         {{ ultrasonidoS.PRECIO_PUBLICO_HOSPITALIZACIO_URGENCIA }}
-                        <button class="btn btn-success hospitalizacioUrgente" (click)="agregarCarrito( $event, ultrasonidoS )"> 
+                        <button class="btn btn-success precioPublicoHospitalizacionUrgencia" (click)="agregarCarrito( $event, ultrasonidoS )"> 
                             <i class="fas fa-plus"></i>  
                         </button>
                         <!-- CHECAR POSIBLE ERROR AQUÍ -->
                     </td>
-                    <td class="cursor">
-                        {{ ultrasonidoS.PRECIO_MEMBRESIA }}
-                        <button class="btn btn-success hospitalizacioUrgente" (click)="agregarCarrito( $event, ultrasonidoS )"> 
-                            <i class="fas fa-plus"></i>  
-                        </button>
-                    </td>
-                    <td class="cursor">
-                        {{ ultrasonidoS.PRECIO_MEMBRESIA_URGENCIA }}
-                        <button class="btn btn-success hospitalizacioUrgente" (click)="agregarCarrito( $event, ultrasonidoS )"> 
-                            <i class="fas fa-plus"></i>  
-                        </button>
-                    </td>
-                    <td class="cursor">
-                        {{ ultrasonidoS.PRECIO_MEMBRESIA_HOSPITALIZACION }}
-                        <button class="btn btn-success hospitalizacioUrgente" (click)="agregarCarrito( $event, ultrasonidoS )"> 
-                            <i class="fas fa-plus"></i>  
-                        </button>
-                    </td>
-                    <td class="cursor">
-                        {{ ultrasonidoS.PRECIO_MEMBRESIA_HOSPITALIZACION_URGENCIA }}
-                        <button class="btn btn-success hospitalizacioUrgente" (click)="agregarCarrito( $event, ultrasonidoS )"> 
-                            <i class="fas fa-plus"></i>  
-                        </button>
-                    </td>
+
+
 
 
                     <td>
@@ -117,71 +107,98 @@
         </table>
 
     </div>
-    <!--
+
+
+
     <div class="col-md-3">
 
-        <div class="col-md-3">
+        <div class="card border-dark mb-3" style="max-width: 18rem; max-height: 29rem;">
+            <div class="card-header bg-transparent border-dark">
+                <h5>
+                    Cotización
 
-            <div class="fixed card-fixed">
-                <div class="card border-dark mb-3" style="max-width: 18rem; max-height: 29rem;">
-                    <div class="card-header bg-transparent border-dark">
-                        <h5>
-                            Cotización
+                </h5>
+            </div>
+            <div class="card-body card-body-tarjeta text-dark">
 
-                        </h5>
-                    </div>
-                    <div class="card-body card-body-tarjeta text-dark">
-                        <h5 class="card-title">Total: $ {{carrito.totalSin}}</h5>
-                        <h5 class="card-title">Total membresia: $ {{ carrito.totalCon}}</h5>
-                        <h5 class="card-title">Ahorro: $ {{carrito.totalSin - carrito.totalCon}}</h5>
+                <h5 class="card-title">Total: $ {{ carrito.totalSin }} </h5>
 
+                <h5 class="card-title">Total membresia: $ {{ carrito.totalCon}}</h5>
+                <h5 class="card-title">Ahorro: $ {{carrito.totalSin - carrito.totalCon}}</h5>
 
 
-                        <div class="pedidos">
-                            <p *ngFor="let pedido of carrito.items">
-                                {{ pedido.nombreEstudio }} : {{ pedido.precioSin }} {{ pedido.precioNoche }}
 
-                                <button type="button" (click)="eliminar( pedido.idEstudio )" class="btn btn-danger btn-block mt-2 eliminarelemento btn-tarjeta">
-                                <i class="fas fa-trash"></i>
-                                Eliminar
-                            </button>
-                            </p>
+                <div class="pedidos">
+                    <p *ngFor="let pedido of carrito.items">
+                        {{ pedido.nombreEstudio }} : {{ pedido.precioSin }}
 
-                            <hr>
+                        <button type="button" (click)="eliminar(pedido.idEstudio)" class="btn btn-danger btn-block mt-2 eliminarelemento btn-tarjeta">
+                        <i class="fas fa-trash"></i>
+                        Eliminar
+                    </button>
+                    </p>
 
-                        </div>
+                    <hr>
 
-                    </div>
+                </div>
 
-                    <div class="card-footer bg-transparent border-success">
+            </div>
 
-                        <div class="pay">
-                            <button type="button" class="btn btn-success btn-block btn-tarjeta">
-                          <i class="fas fa-hand-holding-usd"></i>
-                            Pagar
-                        </button>
-                            <button class="btn btn-dark btn-tarjeta mt-2" [routerLink]="['/paciente']" routerLinkActive="router-link-active">
-                            <i class="fas fa-user-plus"></i>
-                             Nuevo
-                        </button>
-                            <button type="button" class="btn btn-primary btn-block mt-2 btn-tarjeta">
+            <div class="card-footer bg-transparent border-success">
+
+                <div class="pay">
+
+                    <button type="button" class="btn btn-success btn-block btn-tarjeta" [routerLink]="['/pago', 'pedido', 'sin']">
+                  <i class="fas fa-hand-holding-usd"></i>
+                    Pagar
+                </button>
+
+                    <button class="btn btn-dark btn-tarjeta mt-2" [routerLink]="['/paciente']" routerLinkActive="router-link-active">
+                    <i class="fas fa-user-plus"></i>
+                     Nuevo
+                </button>
+
+
+                    <button type="button" class="btn btn-primary btn-block mt-2 btn-tarjeta" [routerLink]="['/imprimir-ticket']">
     
-                            <i class="far fa-file-pdf"></i>
-                            Imprimir
-                        </button>
-                            <button class="btn btn-block btn-info  btn-tarjeta">
+                    <i class="far fa-file-pdf" routerLinkActive="router-link-active" ></i>
+                    Imprimir
+                </button>
+
+                    <button class="btn btn-block btn-info  btn-tarjeta" (click)="abrirInputCorreo()">
                           <i class="fas fa-share-alt"></i>
-                          Enviar
-                        </button>
-                        </div>
-                    </div>
+                            Enviar
+                    </button>
+
                 </div>
             </div>
+
 
         </div>
 
 
     </div>
-      -->
 
+
+    <div role="alert" id="toastEmail" aria-live="assertive" aria-atomic="true" [ngClass]="show" class="toast" data-autohide="false">
+        <div class="toast-header">
+
+
+            <div class="from-group">
+                <strong class="mr-auto">Email:</strong>
+
+                <form (ngSubmit)="enviar()">
+                    <input type="email" class="form-control" name="email" [(ngModel)]="email" id="email" placeholder="Email">
+                    <button type="submit" class="btn btn-primary"> Enviar </button>
+                </form>
+
+            </div>
+
+
+
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close" (click)="cerrarModal()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+    </div>
 </div>

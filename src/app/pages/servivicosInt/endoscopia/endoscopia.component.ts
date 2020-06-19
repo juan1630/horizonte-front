@@ -240,6 +240,7 @@ abrirInputCorreo(){
 
   }
 
+  //Aca termina la funcion de agregar los items al carrito
 
   
   restarTotal ( precioSin, precioCon  ) {
@@ -315,5 +316,9 @@ let  membresiaNumber = parseFloat(membresiaTrims);
   title: `Ahorro: ${ ahorro}` ,
   text: `Sin membresia: ${ publico } - Con membresia: ${ membresia }`
 });
+
+
 }
+
+
 }

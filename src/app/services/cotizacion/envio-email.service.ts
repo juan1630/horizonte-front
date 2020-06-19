@@ -15,6 +15,7 @@ export class EnvioEmailService {
   envioEmail( cotizacion ){
 
     let url = `${URLDEV}/cotizacion`;
+    // let url = `http://localhost:3200/cotizacion`;
 
     return this._http.post(url, cotizacion);
   }

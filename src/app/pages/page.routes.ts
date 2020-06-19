@@ -62,6 +62,7 @@ import { PerfilesNewComponent } from './servivicosInt/laboratorio/perfiles/perfi
 import { PatologiaEditComponent } from './servivicosInt/patologia/patologia-edit/patologia-edit/patologia-edit.component';
 import { PatologiaNewComponent } from './servivicosInt/patologia/patologia-new/patologia-new.component';
 import { PatologiaComponent } from './servivicosInt/patologia/patologia.component';
+import { MembresiaPaqueteComponent } from './membresia/membresia-paquete/membresia-paquete.component';
 
 
 const pagesRoutes : Routes = [
@@ -128,6 +129,7 @@ const pagesRoutes : Routes = [
       { path: 'patologia', component: PatologiaComponent },
       {  path: 'patologia/edit/:id', component: PatologiaEditComponent },
       { path: 'patologia/nueva', component: PatologiaNewComponent },
+      { path: 'consultas/membresia/:id', component: MembresiaPaqueteComponent },
       { path: '', redirectTo: '/dashboard', pathMatch:'full' }
       
     ]
