@@ -68,6 +68,9 @@ import { PatologiaComponent } from './servivicosInt/patologia/patologia.componen
 import { PatologiaEditComponent } from './servivicosInt/patologia/patologia-edit/patologia-edit/patologia-edit.component';
 import { PatologiaNewComponent } from './servivicosInt/patologia/patologia-new/patologia-new.component';
 import { MembresiaPaqueteComponent } from './membresia/membresia-paquete/membresia-paquete.component';
+import { HojaDiariaEnfGralComponent } from './Hojas_Diarias/hoja-diaria-enf-gral/hoja-diaria-enf-gral.component';
+import { HojaDiariaEnfUrgenciaComponent } from './Hojas_Diarias/hoja-diaria-enf-urgencia/hoja-diaria-enf-urgencia.component';
+import { EnfermeriaDashboardComponent } from './Enfermeria/enfermeria-dashboard/enfermeria-dashboard.component';
 
 
 @NgModule({
@@ -128,7 +131,10 @@ import { MembresiaPaqueteComponent } from './membresia/membresia-paquete/membres
     PatologiaComponent,
     PatologiaEditComponent,
     PatologiaNewComponent,
-    MembresiaPaqueteComponent
+    MembresiaPaqueteComponent,
+    HojaDiariaEnfGralComponent,
+    HojaDiariaEnfUrgenciaComponent,
+    EnfermeriaDashboardComponent
   ],
   exports: [ 
     PageComponent,
