@@ -8,7 +8,7 @@
   }
 
 
-  .img-fluid{
+  #img-fluid{
     cursor: pointer;
     width: 10em;
     height: 10em;
@@ -18,16 +18,14 @@
     margin-top: 15px;
     margin-bottom: 15px;
   }
-  .card2{
-    display: inline-block !important;
-    width: 70% !important;
-  }
-  .card{
+  #card{
     margin-left: 9em;
     border-radius: 2em;
     box-shadow: 7px 7px 44px -8px rgba(0,22,114,0.9);
     height: 17em;
     margin-bottom: 3em;
+    display: inline-block !important;
+    width: 70% !important;
   }
   h2{
     color:#001672;
@@ -40,4 +38,59 @@
   }
   .primary {
     color: #4e73df;
+  }
+
+
+
+
+
+  @media (min-device-width: 768px) and (max-device-height: 1024px){
+    #content{
+      max-width: 87%;
+    }
+
+    app-spinner{
+      width: 5rem;
+      height: 5rem;
+    }
+
+    #card{
+      margin-left: 4em;
+      border-radius: 2em;
+      box-shadow: 7px 7px 44px -8px rgba(0,22,114,0.9);
+      height: 17em;
+      margin-bottom: 3em;
+      display: inline-block !important;
+      width: 70% !important;
+    }
+    #img-fluid{
+      cursor: pointer;
+      width: 10em;
+      height: 10em;
+      display: block;
+      margin-left: 35px;
+      margin-right: 35px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+  }
+  @media (min-width: 3840px) and (max-height: 2600px){
+  }
+  @media (min-width: 3840px) and (max-height: 1080px){
+  }
+  @media (min-width: 2736px) and (max-height: 1824px){
+  }
+  @media (min-width: 2160px) and (max-height: 1440px){
+  }
+  @media (min-width: 1920px) and (max-height: 1200px){
+  }
+  @media (min-width: 1920px) and (max-height: 1280px){
+  }
+  @media (min-width: 1680px) and (max-height: 1050px){
+  }
+  @media (min-width: 1440px) and (max-height: 900px){
+  }
+  @media (min-width: 1366px) and (max-height: 768px){
+  }
+  @media (min-width: 1280px) and (max-height: 900px){
   }
