@@ -23,6 +23,8 @@ export class OtrosSIComponent implements OnInit {
     items:[]
   };
 
+  public role: string;
+
 
   constructor(
     private _otrosService: OtrosServicios,
@@ -34,6 +36,8 @@ export class OtrosSIComponent implements OnInit {
   ngOnInit(): void {
    
     this.verDatos();
+    this.role = getDataStorage().role;
+    this.carrito = getDataCarrito();
 }
 
 verDatos(){

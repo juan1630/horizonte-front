@@ -1,60 +1,60 @@
-<div class="container2" >
+<div class="container2">
     <!-- <img src="../../../assets/images/encabezado.jpg" class="img-fluid"> -->
 
-<!-- Queda pendiente el celular y el municipio -->
-<h3  class="center"> HOJA DE SOLICITUD  </h3>
+    <!-- Queda pendiente el celular y el municipio -->
+    <h3 class="center"> HOJA DE SOLICITUD </h3>
 
-<form class="formulario" class="container"  #f="ngForm" (ngSubmit)="enviar( f )"  >
+    <form class="formulario" class="container" #f="ngForm" (ngSubmit)="enviar( f )">
 
-<div class="row" >    
+        <div class="row">
 
-    <div class="offset-md-5" ></div>
-    <div class="col-md-3">
-        <div class="form-group" >
-            <!--    -->
-            <input type="text"  placeholder="VENDEDOR"  [value]="usuarioMaq.nombre"  class="form-control" name="vendedor" >
+            <div class="offset-md-5"></div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <!--    -->
+                    <input type="text" placeholder="VENDEDOR" [value]="usuarioMaq.nombre" class="form-control" name="vendedor">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <input type="number" placeholder="FOLIO" class="form-control" name="folio" ngModel>
+
+                </div>
+            </div>
+            <div class="col-md-2">
+                <p> FECHA: {{ fecha }} </p>
+
+            </div>
+
         </div>
-    </div>
-    <div class="col-md-2" >
-        <div class="form-group" >
-            <input type="number" placeholder="FOLIO" class="form-control" name="folio" ngModel >
-
-        </div>
-    </div>
-    <div class="col-md-2" >
-        <p> FECHA: {{ fecha }} </p>
-
-    </div>
-  
-</div>
-<h5 class="center" > DATOS GENERALES </h5>
-    <div class="row" >
-        <div class="col-md-4" >
-            <div class="form-group" >
-                <input type="text" placeholder="NOMBRE"  [value]="paciente.nombrePaciente" class="form-control"  >
+        <h5 class="center"> DATOS GENERALES </h5>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <input type="text" placeholder="NOMBRE" [value]="paciente.nombrePaciente" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <input type="text" placeholder="APELLIDO PATERNO" class="form-control" [value]="paciente.apellidoPaterno">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <input type="text" placeholder="APELLIDO MATERNO" class="form-control" [value]="paciente.apellidoMaterno">
+                </div>
             </div>
         </div>
-        <div class="col-md-4" >
-            <div class="form-group" >
-                <input type="text" placeholder="APELLIDO PATERNO" class="form-control" [value]="paciente.apellidoPaterno" >
+        <div class="row">
+            <div class="col-md-3">
+                <!-- <label> FECHA DE NACIMIENTO: </label> -->
+                <input type="date" class="form-control" [value]="paciente.fechaNacimientoPaciente">
             </div>
-        </div>
-        <div class="col-md-4" >
-            <div class="form-group" >
-                <input type="text" placeholder="APELLIDO MATERNO" class="form-control"  [value]="paciente.apellidoMaterno"  >
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3" >
-            <!-- <label> FECHA DE NACIMIENTO: </label> -->
-            <input type="date"  class="form-control"  [value]="paciente.fechaNacimientoPaciente">
-        </div>
 
-<div class="col-md-2" > 
-    <div class="form-group" >
+            <div class="col-md-2">
+                <div class="form-group">
 
-        <select class="form-control"   >
+                    <select class="form-control">
             <optgroup>
                 <option selected name="genero" >
                     GENERO
@@ -63,95 +63,97 @@
                 <option value="FEMENINO" > FEMENINO </option>
             </optgroup>
         </select>
-    </div>
-</div>
-<div class="col-md-2" >
-    <div class="form-group">
-        
-        <input type="number" placeholder="EDAD" name="EDAD" class="form-control" [value]="paciente.edad"  > 
-    </div>
-</div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
 
-<div class="col-md-2" >
-    <div class="form-group">
-        <input type="text" class="form-control" placeholder="NACIONALIDAD" [value]="paciente.paisPaciente"  >  
-    </div>
-</div>
-<div class="col-md-3" >
-    <div class="form-group">
+                    <input type="number" placeholder="EDAD" name="EDAD" class="form-control" [value]="paciente.edad">
+                </div>
+            </div>
 
-<select class="form-control"  #paq  (blur)="getPaquete( paq.value )" >
+            <div class="col-md-2">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="NACIONALIDAD" [value]="paciente.paisPaciente">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+
+                    <select class="form-control" #paq (blur)="getPaquete( paq.value )">
     
-    <option  *ngFor="let paquete of paquetesDB"  [value]="paquete._id"  > 
-        {{ paquete.nombrePaquete }}
-    </option>
-</select>
+                                <option  *ngFor="let paquete of paquetesDB"  [value]="paquete._id"  > 
+                                    {{ paquete.nombrePaquete }}
+                                </option>           
+                    </select>
 
-    </div>
-</div>
-</div>
-
-<h5 class="center" > DOMICILIO PARTICULAR </h5>
-<div class="row"> 
-<div class="col-md-3">
-    <div  class="form-group" >
-        <input type="text" class="form-control" placeholder="CALLE Y NÚMERO"[value]="paciente.calleNumeroPaciente" >
-    </div>
-</div>
-<div class="col-md-3">
-    <div  class="form-group" >
-        <input type="text" class="form-control" placeholder="COLONIA"[value]="paciente.poblacion" >
-    </div>
-</div>
-<div class="col-md-2">
-    <div  class="form-group" >
-        <input type="text" class="form-control" placeholder="MUNICIPIO" name="municipio" ngModel >
-    </div>
-</div>    
-<div class="col-md-2">
-    <div  class="form-group" >
-        <input type="text" class="form-control" placeholder="ESTADO" [value]="paciente.estadoPaciente" >
-    </div>
-</div> 
-<div class="col-md-2">
-    <div  class="form-group" >
-        <input type="text" class="form-control" placeholder="CÓDIGO POSTAL" [value]="paciente.cpPaciente" >
-    </div>
-</div>    
-
-</div>
-<div class="row" >
-    <div class="col-md-4">
-        <div  class="form-group" >
-            <input type="text" class="form-control" placeholder="TELÉFONO FIJO" [value]="paciente.telefono" >
+                </div>
+            </div>
         </div>
-    </div>    
-    <div class="col-md-4">
-        <div  class="form-group" >
-            <input type="text" class="form-control" placeholder="CELULAR" name="celular" ngModel >
-        </div>
-    </div> 
-    <div class="col-md-4">
-        <div  class="form-group" >
-            <input type="text" class="form-control" placeholder="EMAIL"  [value]="paciente.correo" >
-        </div>
-    </div> 
-</div>
-    <h5  class="center">  DATOS ADICIONALES  </h5>
 
-<div class="row">
-<div class="col-md-3">
-    <p> CONTACTO DE EMERGANCIA 1 </p>
-</div> 
-<div class="col-md-3">
-    <div class="form-group">
-        <input type="text" class="form-control" placeholder="NOMBRE COMPLETO"  [value]="paciente.contactoEmergancia1" >
-    </div>
-</div> 
-<div class="col-md-3">
-    <div class="form-group">
-        <select   class="form-control"  (change)="validarSelect( parentesco1)"  name="paretesco1"  [(ngModel)]="parentesco1" > 
-            <optgroup>
+        <h5 class="center"> DOMICILIO PARTICULAR </h5>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="CALLE Y NÚMERO" [value]="paciente.calleNumeroPaciente" name="calleNumeroPaciente">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="COLONIA" [value]="paciente.poblacion">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="MUNICIPIO" name="municipio" ngModel>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="ESTADO" [value]="paciente.estadoPaciente">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="CÓDIGO POSTAL" [value]="paciente.cpPaciente">
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="TELÉFONO FIJO" [value]="paciente.telefono">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="CELULAR" name="celular" ngModel>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="EMAIL" [value]="paciente.correo">
+                </div>
+            </div>
+        </div>
+        <h5 class="center"> DATOS ADICIONALES </h5>
+
+        <div class="row">
+            <div class="col-md-3">
+                <p> CONTACTO DE EMERGANCIA 1 </p>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="NOMBRE COMPLETO" [value]="paciente.contactoEmergancia1">
+                </div>
+            </div>
+            <div class="col-md-3">
+
+                <div class="form-group">
+
+                    <select class="form-control" (change)="validarSelect( parentesco1)" name="paretesco1"> 
+   
                 <option>    PARENTESCO  </option>
                 <option value="abuelos" >    ABUELOS     </option>
                 <option value="padres" >     PADRES      </option>
@@ -159,32 +161,34 @@
                 <option  value="tios">       TIOS        </option>
                 <option value="otros">       OTROS       </option>
                 <option value="tutor" >      TUTOR       </option>
-            </optgroup>
-            
             
         </select>
-    </div>
-</div>
-<div class="col-md-3">
-    <div class="form-group">    
-        <input type="text" placeholder="TELÉFONO"   class="form-control" [value]="paciente.telefonoContactoEmergencia1" >
-    </div>
-</div>
-</div>
 
 
-<div class="row">
-    <div class="col-md-3">
-        <p> CONTACTO DE EMERGANCIA 2 </p>
-    </div> 
-    <div class="col-md-3">
-        <div class="form-group">
-            <input type="text" name="contactoEmergencia2"  [(ngModel)]="contactoEmergencia2"  class="form-control" placeholder="NOMBRE COMPLETO" >
+                    <!-- <input type="text" class="form-control" name="parentesco1" id="parentesco1" placeholder="Parentesco" [value]="paciente.contactoEmergancia1"> -->
+
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" placeholder="TELÉFONO" class="form-control" [value]="paciente.telefonoContactoEmergencia1">
+                </div>
+            </div>
         </div>
-    </div> 
-    <div class="col-md-3">
-        <div class="form-group">
-            <select   class="form-control"  (change)="validarSelect( parentesco2 )"  name="paretesco2"  [(ngModel)]="parentesco2" > 
+
+
+        <div class="row">
+            <div class="col-md-3">
+                <p> CONTACTO DE EMERGANCIA 2 </p>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" name="contactoEmergencia2" [(ngModel)]="contactoEmergencia2" class="form-control" placeholder="NOMBRE COMPLETO">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <select class="form-control" (change)="validarSelect( parentesco2 )" name="paretesco2" [(ngModel)]="parentesco2"> 
                 <optgroup>
                     <option selected  >    PARENTESCO  </option>
 
@@ -198,123 +202,123 @@
                 
                 
             </select>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="form-group">    
-            <input type="text" placeholder="TELÉFONO" name="telefonoEmergencia2" ngModel class="form-control" >
-        </div>
-    </div>
-</div>
-
-    <h5 class="center">   DOMICILIO FISCAL </h5>
-    <div class="row">
-        <div class="col-md-10">
-            <div class="form-group">    
-                <input type="text" placeholder="NOMBRE O RAZÓN SOCIAL" [value]="paciente.nombreRazonSocial"  class="form-control" >
+                </div>
             </div>
-        </div> 
-        <div class="col-md-2">
-            <div class="form-group">  
-                <input type="text" placeholder="RFC"   class="form-control" [value]="paciente.RFCFiscal" >
-            </div>
-        </div>
-
-
-    </div>
-    <div class="row">
-        <div class="col-md-5">
-            <div class="form-group">    
-                <input type="text" placeholder="CALLLE Y NÚMERO" name="calleYnumeroFiscal" ngModel class="form-control" >
-            </div>
-        </div> 
-        <div class="col-md-5">
-            <div class="form-group">    
-                <input type="text" placeholder="COLONIA" class="form-control"  [value]="paciente.coloniaFiscal" >
-            </div>
-        </div> 
-        <div class="col-md-2">
-            <div class="form-group">    
-                <input type="text" placeholder="C.P." class="form-control"   [value]="paciente.cpFiscal"   >
-            </div>
-        </div>
-    </div>
-    <div class="row">
-
-        <div class="col-md-3">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="MUNICIPIO" [value]="paciente.localidadFiscal"   >
-            </div>
-        </div>
-    
-        <div class="col-md-3">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="ESTADO"  [value]="paciente.entidadFederativa" >
-            </div>
-        </div>
-    
-        <div class="col-md-3">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="TELÉFONO"  name="telefonFiscal" ngModel >
-            </div>
-        </div>
-    
-        <div class="col-md-3">
-            <div class="form-group">
-                <input type="email" class="form-control" placeholder="EMAIL" [value]="paciente.emailFiscal"  >
-            </div>
-        </div>
-    
-    </div>
-    <h5  class="center servicio">  COSTO DEL SERVICIO </h5>
-    <div class="row">
-        <div class="col-md-3">
-            <p>  COSTO DEL PAQUETE </p>
-        </div>
-        <div class="col-md-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">$</span>
-                <input type="number" class="form-control  input-paquete" min="0" disabled name="costoToal" [value]="paqueteSelected.costoTotal"   >
-                <div class="input-group-append ">
-                    <span class="input-group-text"> M.N. </span>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" placeholder="TELÉFONO" name="telefonoEmergencia2" ngModel class="form-control">
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="form-group">
-                <input type="text" class="form-control" name="atendio"  [value]="usuarioMaq.nombre"  placeholder="ATENDIÓ" >    
+
+        <h5 class="center"> DOMICILIO FISCAL </h5>
+        <div class="row">
+            <div class="col-md-10">
+                <div class="form-group">
+                    <input type="text" placeholder="NOMBRE O RAZÓN SOCIAL" [value]="paciente.nombreRazonSocial" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <input type="text" placeholder="RFC" class="form-control" [value]="paciente.RFCFiscal">
+                </div>
+            </div>
+
+
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <input type="text" placeholder="CALLLE Y NÚMERO" name="calleYnumeroFiscal" ngModel class="form-control">
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="form-group">
+                    <input type="text" placeholder="COLONIA" class="form-control" [value]="paciente.coloniaFiscal">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <input type="text" placeholder="C.P." class="form-control" [value]="paciente.cpFiscal">
+                </div>
             </div>
         </div>
-        <!-- <div class="col-md-3" >
+        <div class="row">
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="MUNICIPIO" [value]="paciente.localidadFiscal">
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="ESTADO" [value]="paciente.entidadFederativa">
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="TELÉFONO" name="telefonFiscal" ngModel>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="EMAIL" [value]="paciente.emailFiscal">
+                </div>
+            </div>
+
+        </div>
+        <h5 class="center servicio"> COSTO DEL SERVICIO </h5>
+        <div class="row">
+            <div class="col-md-3">
+                <p> COSTO DEL PAQUETE </p>
+            </div>
+            <div class="col-md-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">$</span>
+                    <input type="number" class="form-control  input-paquete" min="0" disabled name="costoToal" [value]="paqueteSelected.costoTotal">
+                    <div class="input-group-append ">
+                        <span class="input-group-text"> M.N. </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="atendio" [value]="usuarioMaq.nombre" placeholder="ATENDIÓ">
+                </div>
+            </div>
+            <!-- <div class="col-md-3" >
             <div  class="form-group" >  
                 <a class="btn btn-outline-primary" href="../../../assets/pages/contrato/contrato_maternidad.html" target="_blank" > <i class="fas fa-file-pdf"></i> Ver contrato  </a>
             </div>
         </div>
          -->
-    </div>
-
-    <div class="row">
-        <div class="col-md-3">
-            <p>  ANTICIPO </p>
         </div>
-        <div class="col-md-3">
-            <div class="input-group-prepend">
-            
-                <input disabled type="text" class="form-control input-paquete" name="anticipo" [value]="anticipo"  >
-               
+
+        <div class="row">
+            <div class="col-md-3">
+                <p> ANTICIPO </p>
+            </div>
+            <div class="col-md-3">
+                <div class="input-group-prepend">
+
+                    <input disabled type="text" class="form-control input-paquete" name="anticipo" [value]="anticipo">
+
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row" >
-        <div class="col-md-6">
-            
-            <input type="submit" class="btn btn-block btn-success"  value="AÑADIR PAQUETE"  >
+        <div class="row">
+            <div class="col-md-6">
+
+                <input type="submit" class="btn btn-block btn-success" value="AÑADIR PAQUETE">
+            </div>
+            <div class="col-md-6">
+                <button type="button" class="btn btn-block btn-danger" (click)="cancelarPaq()">  CANCELAR </button>
+            </div>
         </div>
-        <div class="col-md-6" >
-            <button type="button"  class="btn btn-block btn-danger"   (click)="cancelarPaq()"  >  CANCELAR </button>
-        </div>
-    </div>
-</form>
+    </form>
 
 
 </div>

@@ -23,7 +23,7 @@ export class SolicitudComponent implements OnInit {
     RFCFiscal: "",
     apellidoMaterno:"1",
     apellidoPaterno:"1",
-    calleNumeroPaciente: "vertice Z  0",
+    calleNumeroPaciente: "",
     coloniaFiscal: "",
     consultas:"1",
     contactoEmergancia1: "",
@@ -47,16 +47,20 @@ export class SolicitudComponent implements OnInit {
     telefono: "" ,
     telefonoContactoEmergencia1: ""
   };
-  public usuarioMaq:any;
-  public paquetesDB= {
 
-    CitasIncluidas: [],
-    costoTotal:0,
-    examenesLaboratorio: [],
-    icon: "",
-    nombrePaquete: "",
-    _id: ""
-  };
+
+  public usuarioMaq:any;
+  
+  public paquetesDB= [
+    {
+      CitasIncluidas: [],
+      costoTotal:0,
+      examenesLaboratorio: [],
+      icon: "",
+      nombrePaquete: "",
+      _id: ""
+    }
+  ];
   public paqueteSelected = {
     nombrePaquete: "",
     CitasIncluidas: [],
@@ -98,7 +102,7 @@ export class SolicitudComponent implements OnInit {
 
               }
 
- ngOnInit(  ) {
+ ngOnInit() {
                 this.getUsuarioLocalStorage();
                 this.getPaquetes();
 
@@ -116,6 +120,7 @@ export class SolicitudComponent implements OnInit {
 
       .subscribe(  (data: any ) => {
 
+        console.log( data );
         this.paquetesDB = data.paquetes;
         console.log( this.paquetesDB );
 

@@ -13,14 +13,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { ServicesModule } from './services/services.module';
 
 // // SOCKET 
-import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
 import { environment } from 'src/environments/environment';
 import { ContratoMaternidadComponent } from './contratos/contrato-maternidad/contrato-maternidad.component';
 import { ContratoMLaboralComponent } from './contratos/contrato-m-laboral/contrato-m-laboral.component';
 import { jqxCalendarModule } from 'jqwidgets-ng/jqxcalendar';
 import { TicketComponent } from './contratos/ticket/ticket/ticket.component';
 
-const config: SocketIoConfig = { url: environment.swUrl , options: {} };
+// import  { PdfMakeWrapper  } from 'pdfmake-wrapper';
+// import pdfFonts from "pdfmake/build/vfs_fonts";
+
+// PdfMakeWrapper.setFonts( pdfFonts );
+
+
+
 
 @NgModule({
   declarations: [
@@ -39,7 +45,6 @@ const config: SocketIoConfig = { url: environment.swUrl , options: {} };
     FormsModule,
     ReactiveFormsModule,
     jqxCalendarModule,
-    SocketIoModule.forRoot(config),
     APP_ROUTES
   ],
   exports: [

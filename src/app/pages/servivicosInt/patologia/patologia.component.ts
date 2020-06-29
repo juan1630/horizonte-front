@@ -19,6 +19,7 @@ export class PatologiaComponent implements OnInit {
     totalCon:0,
     items:[]
   };
+
   show: string = 'hidden';
   public email: string;
 
@@ -52,6 +53,7 @@ export class PatologiaComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.carrito = getDataCarrito();
     this.getAllPatologias();
 
   }

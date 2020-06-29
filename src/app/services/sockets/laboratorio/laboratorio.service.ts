@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Socket } from 'ngx-socket-io';
+// import { Socket } from 'ngx-socket-io';
 
 @Injectable({
   providedIn: 'root'
@@ -7,20 +7,20 @@ import { Socket } from 'ngx-socket-io';
 export class LaboratorioService {
 
   constructor(
-    public socket: Socket
+    // public socket: Socket
   ) { }
 
-    enviarInformacion( pedido ){
+    // enviarInformacion( pedido ){
 
-      this.socket.emit('pedidoLaboratorio', {payload: pedido});
-    }
+    //   this.socket.emit('pedidoLaboratorio', {payload: pedido});
+    // }
 
 
-    verPedido(){
-      this.socket.on('nuevoPedido', (data) => {
-        console.log(data);
-      } );
-    }
+    // verPedido(){
+    //   this.socket.on('nuevoPedido', (data) => {
+    //     console.log(data);
+    //   } );
+    // }
 
 
 }

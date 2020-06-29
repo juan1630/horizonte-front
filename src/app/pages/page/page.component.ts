@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WsLoginService } from 'src/app/services/sockets/login/ws-login.service';
-import { LaboratorioService } from 'src/app/services/sockets/laboratorio/laboratorio.service';
+// import { LaboratorioService } from 'src/app/services/sockets/laboratorio/laboratorio.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 @Component({
@@ -14,7 +14,7 @@ export class PageComponent implements OnInit {
   
   constructor(
     public wsLogin:WsLoginService,
-    private WSLaboratorio: LaboratorioService
+    // private WSLaboratorio: LaboratorioService
   ) { }
 
 
@@ -31,7 +31,7 @@ export class PageComponent implements OnInit {
   }
 
   verPedido(){
-    this.WSLaboratorio.verPedido();
+    // this.WSLaboratorio.verPedido();
   }
 
 }
