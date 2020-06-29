@@ -1,0 +1,36 @@
+<h1 class="center">Hoja Diaria Enfermería Consulta Externa</h1>
+<div class="center">
+    <div class="row">
+        <div class="col-md-10 upset-1">
+
+            <table class="table table-hover izq">
+                <thead class="thead-dark center">
+
+                    <tr>
+                        <th scope="col ">Nombre del Paciente</th>
+                        <th scope="col ">Edad</th>
+                        <th scope="col ">Servicio Médico</th>
+                        <th scope="col ">Médico</th>
+                        <th scope="col ">Hora de Cita</th>
+                        <!-- *ngIf="role==='admin'" -->
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td [routerLink]="['/ficha-enfermeria-01']" routerLinkActive="router-link-active">Katerin Z Jhones</td>
+
+                        <td>9 años</td>
+
+                        <td>Consulta General</td>
+
+                        <td>Dr. David Reyes Salazar</td>
+
+                        <td>17:00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
