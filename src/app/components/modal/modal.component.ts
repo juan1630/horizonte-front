@@ -49,13 +49,20 @@ export class ModalComponent implements OnInit {
   public paisNac: string;
 
   // fiscales
-  // public estadoFiscal: string;
-  // public coloniaFiscal: string;
-  // public municipioFiscal: string;
-  // public ciudadFiscal: string;
-  // public asentamientoFiscal: string[];
-  // public tipoAsentamientoFiscal: string;
-  // public localidFiscal: string;
+  public estadoFiscal: string;
+  public coloniaFiscal: string;
+  public municipioFiscal: string;
+  public ciudadFiscal: string;
+  public asentamientoFiscal: string[];
+  public tipoAsentamientoFiscal: string;
+  public localidFiscal: string;
+  public nombreRazonSocial: string;
+  public RFCFiscal: string;
+  public cpFiscal: string;
+  public codigoFiscal: string;
+  public emailFiscal: string;
+  public localidadFiscal: string;
+
   public pacientes: any= [];
   public pagina: number = 0;
 
@@ -155,7 +162,9 @@ export class ModalComponent implements OnInit {
 
 enviar( f: NgForm ){
 
-  if (this.razonesSociales[2] === undefined && this.razonesSociales[3] === undefined) {
+
+
+    
     let paciente = new Paciente(
       f.value.nombrePaciente,
       f.value.apellidoPaterno,
@@ -176,13 +185,13 @@ enviar( f: NgForm ){
       f.value.poblacion,
       f.value.calleNumeroPaciente,
       f.value.referenciaPaciente,
-      f.value.nombreRazonSocial_2,
-      f.value.entidadFederativa_2,
+      f.value.nombreRazonSocial,
+      f.value.entidadFederativa,
       f.value.poblacion,
-      f.value.RFCFiscal_2,
-      f.value.cpFiscal_2,
-      f.value.localidadFiscal_2,
-      f.value.emailFiscal_2
+      f.value.RFCFiscal,
+      f.value.cpFiscal,
+      f.value.localidadFiscal,
+      f.value.emailFiscal
       // this.razonesSociales[1][1],
       // this.razonesSociales[1][2],
       // this.razonesSociales[1][3],
@@ -195,8 +204,6 @@ enviar( f: NgForm ){
       this._pacienteService.setPacientes( paciente )
       .subscribe( (data: any) => {
 
-        console.log( data )
-
         if( data.ok === true ) {
 
           swal(`Bienvenido ${data.paciente.nombrePaciente}`, 'El paciente agregado', 'success');
@@ -212,173 +219,9 @@ enviar( f: NgForm ){
         }
        } )
 
-  } else if (this.razonesSociales[3] === undefined) {
-    let paciente = new Paciente(
-      f.value.nombrePaciente,
-      f.value.apellidoPaterno,
-      f.value.apellidoMaterno,
-      f.value.fechaNacimientoPaciente,
-      f.value.entidadNacimiento,
-      f.value.edad,
-      f.value.curp,
-      f.value.paisNacimineto,
-      f.value.telefono,
-      f.value.contactoEmergancia,
-      f.value.telefonoEmergencia,
-      f.value.correo,
-      f.value.cpPaciente,
-      f.value.paisPaciente,
-      f.value.municipio,
-      f.value.estadoPaciente,
-      f.value.poblacion,
-      f.value.calleNumeroPaciente,
-      f.value.referenciaPaciente,
-      this.razonesSociales[1][0],
-      this.razonesSociales[1][1],
-      this.razonesSociales[1][2],
-      this.razonesSociales[1][3],
-      this.razonesSociales[1][4],
-      this.razonesSociales[1][5],
-      this.razonesSociales[1][6],
-      this.razonesSociales[1][7],
-      this.razonesSociales[2][0],
-      this.razonesSociales[2][1],
-      this.razonesSociales[2][2],
-      this.razonesSociales[2][3],
-      this.razonesSociales[2][4],
-      this.razonesSociales[2][5],
-      this.razonesSociales[2][6],
-      this.razonesSociales[2][7],
-      )
-      this._pacienteService.setPacientes( paciente )
-      .subscribe( (data: any) => {
+  
 
-        console.log( data );
-
-        if( data.ok === true ) {
-
-          swal(`Bienvenido ${data.paciente.nombrePaciente}`, 'El paciente agregado', 'success');
-
-           f.reset();
-           this.getTodoslosPacientes();
-           this._modalService.ocultarModal();
-           return;
-
-        }else {
-          swal('Algó ocurrio', 'Intenta de nuevo', 'error');
-          console.log('Algo pasó', data );
-        }
-       } )
-
-  } else {
-    let paciente = new Paciente(
-      f.value.nombrePaciente,
-      f.value.apellidoPaterno,
-      f.value.apellidoMaterno,
-      f.value.fechaNacimientoPaciente,
-      f.value.entidadNacimiento,
-      f.value.edad,
-      f.value.curp,
-      f.value.paisNacimineto,
-      f.value.telefono,
-      f.value.contactoEmergancia,
-      f.value.telefonoEmergencia,
-      f.value.correo,
-      f.value.cpPaciente,
-      f.value.paisPaciente,
-      f.value.municipio,
-      f.value.estadoPaciente,
-      f.value.poblacion,
-      f.value.calleNumeroPaciente,
-      f.value.referenciaPaciente,
-      this.razonesSociales[1][0],
-      this.razonesSociales[1][1],
-      this.razonesSociales[1][2],
-      this.razonesSociales[1][3],
-      this.razonesSociales[1][4],
-      this.razonesSociales[1][5],
-      this.razonesSociales[1][6],
-      this.razonesSociales[1][7],
-      this.razonesSociales[2][0],
-      this.razonesSociales[2][1],
-      this.razonesSociales[2][2],
-      this.razonesSociales[2][3],
-      this.razonesSociales[2][4],
-      this.razonesSociales[2][5],
-      this.razonesSociales[2][6],
-      this.razonesSociales[2][7],
-      this.razonesSociales[3][0],
-      this.razonesSociales[3][1],
-      this.razonesSociales[3][2],
-      this.razonesSociales[3][3],
-      this.razonesSociales[3][4],
-      this.razonesSociales[3][5],
-      this.razonesSociales[3][6],
-      this.razonesSociales[3][7],
-      )
-      this._pacienteService.setPacientes( paciente )
-      .subscribe( (data: any) => {
-
-        console.log( data )
-
-        if( data.ok === true ) {
-
-          swal(`Bienvenido ${data.paciente.nombrePaciente}`, 'El paciente agregado', 'success');
-
-           f.reset();
-           this.getTodoslosPacientes();
-           this._modalService.ocultarModal();
-           return;
-
-        }else {
-          swal('Algó ocurrio', 'Intenta de nuevo', 'error');
-          console.log('Algo pasó', data );
-        }
-       } )
-  }
-  if(this.razonesSociales[1] === undefined) {
-    let paciente = new Paciente(
-      f.value.nombrePaciente,
-      f.value.apellidoPaterno,
-      f.value.apellidoMaterno,
-      f.value.fechaNacimientoPaciente,
-      f.value.entidadNacimiento,
-      f.value.edad,
-      f.value.curp,
-      f.value.paisNacimineto,
-      f.value.telefono,
-      f.value.contactoEmergancia,
-      f.value.telefonoEmergencia,
-      f.value.correo,
-      f.value.cpPaciente,
-      f.value.paisPaciente,
-      f.value.municipio,
-      f.value.estadoPaciente,
-      f.value.poblacion,
-      f.value.calleNumeroPaciente,
-      f.value.referenciaPaciente,
-      )
-      this._pacienteService.setPacientes( paciente )
-      .subscribe( (data: any) => {
-
-        console.log( data )
-
-        if( data.ok === true ) {
-
-          swal(`Bienvenido ${data.paciente.nombrePaciente}`, 'El paciente agregado', 'success');
-
-           f.reset();
-           this.getTodoslosPacientes();
-           this._modalService.ocultarModal();
-           return;
-
-        }else {
-          swal('Algó ocurrio', 'Intenta de nuevo', 'error');
-          console.log('Algo pasó', data );
-        }
-       } )
-  }
-
+  
 }
 
 

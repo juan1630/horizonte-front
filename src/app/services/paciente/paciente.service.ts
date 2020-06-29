@@ -7,7 +7,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class PacienteService {
-  public url = "https://horizonte-1.herokuapp.com";
+  // public url = "https://horizonte-1.herokuapp.com";
+  public url = "http://localhost:3200";
 
   constructor(
     private _http: HttpClient
@@ -57,7 +58,7 @@ export class PacienteService {
 
 
 
-  // este servicio agrega un paquete
+  // este servicio agrega un paquete al usuario
   addPaquete( paciente:any,  paqueteSelect: any, f: any, paquetesPaciente ){
 // recibe por parametro el ID del usuario, el paquete y los nuevos valores a actualizar
 
@@ -66,11 +67,6 @@ export class PacienteService {
   // let uri = URLDEV+'/agregarPaquete/'+id;
   let uri =  `${this.url}/agregarPaquete/${id}`;
 
-
-  // console.log( paciente  )
-  // console.log( paqueteSelect  )
-  // console.log( f );
-  // console.log( paquetesPaciente );
 
 // se obteiene la data para actulizar en el paquete
   let paqueteJson = {
@@ -88,7 +84,7 @@ export class PacienteService {
 
    }
 
-   console.log( paqueteJson );
+  //  console.log( paqueteJson );
 
    return this._http.put( uri, paqueteJson )
     .pipe( map( (data) =>  data ));

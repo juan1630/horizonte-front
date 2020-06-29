@@ -1,62 +1,81 @@
 <div class="global">
-    <img src="../../../../assets/images/dibujo-1.svg" alt="LogoHorizonte">
-    <div class="cuadros">
-        <img src="../../../../assets/images/CUADROS.svg" alt="cuadros">
-    </div>
 
-    <div id="imprimirxd">
+    <div class="row">
+        <div class="col-md-6">
 
-        <div class="center">
-            <h1>Cotización</h1>
+            <img src="../../../../assets/images/dibujo-1.svg" alt="LogoHorizonte">
         </div>
-        <div class="row centerxd mt-3">
-            <div class="col-md-9">
 
-                <table class="table table-hover ">
-                    <thead class="thead-dark ">
+        <div class="col-md-3 offset-3">
 
-                        <tr>
-                            <th scope="col ">Artículos</th>
-                            <th scope="col ">Membresia</th>
-                            <th scope="col ">Público</th>
-                        </tr>
-
-                    </thead>
-
-                    <tbody>
-                        <tr *ngFor="let item of carrito.items">
-                            <td> {{ item.nombreEstudio }} </td>
-                            <td> {{ item.precioUrgenciaMembresia }}</td>
-                            <td> {{ item.precioUrgenciaPublico }}</td>
-
-                        </tr>
-
-                        <tr>
-                            <th></th>
-                            <th scope="col">Total: Con Membresia</th>
-                            <th scope="col">Total: Sin Membresia</th>
-                        </tr>
-
-                        <tr>
-                            <td></td>
-                            <td> {{ carrito.totalCon }}</td>
-                            <td> {{ carrito.totalSin }}</td>
-
-                        </tr>
-
-                    </tbody>
-
-
-                </table>
-
-            </div>
+            <img src="../../../../assets/images/CUADROS.svg" class="cuadros-logo" alt="cuadros">
         </div>
     </div>
 
-    <div class="col-md-3">
-        <!-- <app-tarjeta-cotizacion> </app-tarjeta-cotizacion> -->
+
+
+
+    <div class="center">
+        <h1>Cotización</h1>
+    </div>
+
+
+
+    <div class="row mt-3" id="cotizacion">
+        <div class="col-md-9 offset-md-1">
+
+            <table class="table table-hover">
+                <thead class="thead-dark ">
+
+                    <tr>
+                        <th scope="col "> Estudio </th>
+                        <th scope="col "> Membresia </th>
+                        <th scope="col "> Público </th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let item of carrito.items">
+                        <td> {{ item.nombreEstudio }} </td>
+                        <td> {{ item.precioCon }}</td>
+                        <td> {{ item.precioSin }}</td>
+
+                    </tr>
+
+                    <tr>
+                        <th></th>
+                        <th scope="col">Total con Membresia</th>
+                        <th scope="col">Total sin Membresia</th>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td> {{ carrito.totalCon }}</td>
+                        <td> {{ carrito.totalSin }}</td>
+
+                    </tr>
+
+                </tbody>
+
+
+            </table>
+
+        </div>
+    </div>
+
+
+    <div class="col-md-10 offset-md-1 mt-2">
+
+        <button class="btn btn-primary btn-block" (click)="imprimir()">
+
+
+            <i class="fas fa-file-pdf"></i>
+            <!-- <i class="fas fa-print"></i> -->
+            Imprimir
+        
+        </button>
 
     </div>
 
-    <button class="btn btn-primary" (click)="imprimir()">Imprimir</button>
 </div>

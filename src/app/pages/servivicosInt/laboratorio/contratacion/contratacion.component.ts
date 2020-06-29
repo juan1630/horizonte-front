@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
-import { LaboratorioService } from 'src/app/services/sockets/laboratorio/laboratorio.service';
+// import { LaboratorioService } from 'src/app/services/sockets/laboratorio/laboratorio.service';
 
 @Component({
   selector: 'app-contratacion',
@@ -14,7 +14,7 @@ export class ContratacionComponent implements OnInit {
  
  
   constructor(
-    public laboratorio: LaboratorioService
+    // public laboratorio: LaboratorioService
   ) { }
 
   
@@ -38,7 +38,7 @@ export class ContratacionComponent implements OnInit {
     
     // console.log(laboratorio );
    
-    this.laboratorio.enviarInformacion(this.laboratorioPedido);
+    // this.laboratorio.enviarInformacion(this.laboratorioPedido);
     
   }
   

@@ -1,12 +1,19 @@
-<h1 class="center">
-    Cotización
+<h1 class="center font-color">
+    Orden de compra
 </h1>
+
+<p>
+
+
+    <!-- Toner clase para alinear a la derecha -->
+    {{ infoUsuario.fechaCompra }}
+</p>
 
 <form #f='ngForm'>
 
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-6">
 
 
                 <div class="form-group">
@@ -16,9 +23,7 @@
                     <input type="text" name="nombrePaciente" [(ngModel)]="infoUsuario.nombrePaciente" id="nombrePaciente" placeholder="Nombre completo del paciente..." class="form-control" required>
                 </div>
 
-            </div>
 
-            <div class="col-md-2">
 
                 <div class="form-group">
                     <label for="edad">
@@ -26,35 +31,42 @@
                     </label>
                     <input type="number" min="0" max="103" name="edad" [(ngModel)]="infoUsuario.edad" id="edad" class="form-control" required>
                 </div>
-            </div>
 
-            <div class="col-md-3">
+
+
                 <div class="form-group">
-                    <label for="sexo">
-                        Sexo:
-                    </label>
-                    <select name="sexo" [(ngModel)]="infoUsuario.sexo" id="sexo" class="form-control" required>
-                        <option value="" selected > Selecciona el sexo </option>
-                       <option value="maculino"> Maculino </option>
-                       <option value="femenino"> Femenino</option>
-                   </select>
+
+                    <div class="radios">
+
+                        <label for="sexo">
+                            Sexo:
+                        </label>
+                        <br>
+
+
+                        <label for="sexo"> Masculino </label>
+                        <input type="radio" [(ngModel)]="infoUsuario.sexo" name="sexo" value="masculino" id="masculino" class="mr-5">
+
+                        <label for="sexo"> Femenino </label>
+                        <input type="radio" name="sexo" [(ngModel)]="infoUsuario.sexo" value="femenino" id="femenino">
+
+                    </div>
+
+
+
                 </div>
-            </div>
 
-
-            <div class="col-md-2">
 
                 <div class="form-group">
                     <label for="telefono">
                         Teléfono:
                     </label>
-                    <input type="tel" name="telefono" [(ngModel)]="infoUsuario.telefono" id="telefono" placeholder="Teléfono del paciente..." class="form-control">
+                    <input type="tel" name="telefono" [(ngModel)]="infoUsuario.telefono" id="telefono" placeholder="Teléfono del paciente..." class="form-control" required>
                 </div>
-            </div>
 
 
 
-            <div class="col-md-2">
+
 
                 <div class="form-group">
                     <label for="correo">
@@ -62,80 +74,216 @@
                     </label>
                     <input type="email" name="correo" id="correo" [(ngModel)]="infoUsuario.correo" placeholder="Correo del paciente..." class="form-control">
                 </div>
-            </div>
 
-        </div>
 
-        <div class="row">
-            <div class="col-md-3">
                 <div class="form-group">
                     <label for="solicito">Doctor que solicito:</label>
                     <input type="text" name="solicito" id="solicito" [(ngModel)]="infoUsuario.solicito" class="form-control" placeholder="Doctro que solicito...">
                 </div>
-            </div>
 
-            <div class="col-md-3">
+                <!-- 
+
                 <div class="form-group">
                     <label for="tratamiento">Tratamiento:</label>
                     <input type="text" name="tratamiento" id="tratamiento" [(ngModel)]="infoUsuario.tratamineto" placeholder="Tratamiento..." class="form-control">
                 </div>
+ -->
+
             </div>
+
+
+            <div class="col-md-6 mt-5" id="tablePrice">
+
+                <div class="card" style="width: 100%;">
+                    <div class="card-body">
+
+                        <table class="table table-borderless">
+                            <thead>
+                                <tr>
+                                    <th scope="col"> Estudio</th>
+                                    <th scope="col">Costo con membresia</th>
+                                    <th scope="col">Costo sin membresia</th>
+                                    <th scope="col">Entrega </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of carrito.items">
+                                    <td>
+                                        {{ item.nombreEstudio }}
+                                    </td>
+                                    <td>
+                                        {{ item.precioCon }}
+                                    </td>
+                                    <td>
+                                        {{ item.precioSin }}
+                                    </td>
+                                    <td>
+                                        {{ item.entrega }}
+                                    </td>
+                                    <td class="text-danger" (click)="eliminar( item.idEstudio  )">
+                                        Eliminar
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                    </td>
+
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                        TOTAL MEMBRESIA:
+                                    </td>
+                                    <td>
+                                        {{ carrito.totalCon }}
+                                    </td>
+
+                                </tr>
+                                <tr>
+
+
+                                    <td></td>
+                                    <td></td>
+
+                                    <td>
+                                        TOTAL SIN MEMBRESIA:
+                                    </td>
+
+                                    <td>
+                                        {{ carrito.totalSin }}
+                                    </td>
+                                </tr>
+
+                                <tr>
+
+
+                                    <td>
+
+                                    </td>
+
+
+                                    <td>
+
+                                    </td>
+                                    <td> AHORRO:</td>
+                                    <td>
+                                        {{ carrito.totalSin - carrito.totalCon }}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
         </div>
 
 
-        <div class="row">
-            <div class="col-md-11 mt-3">
-                <table class="table">
-                    <thead>
-                        <th> Estudio</th>
-                        <th> Costo sin membresia </th>
-                        <th>
-                            Costo con membresia
-                        </th>
-                        <th>
-                            Entrega
-                        </th>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let item of carrito.items">
-                            <td>
-                                {{ item.nombreEstudio }}
-                            </td>
-                            <td>
-                                {{ item.precioSin }}
-                            </td>
-                            <td>
-                                {{ item.precioCon }}
-                            </td>
-                            <td>
-                                {{ item.entrega }}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
 
-        <div class="row mt-5">
+        <div class="row mb-5">
+            <h4> PAGO </h4>
+
+            <div class="col-md-12">
+
+
+                <input type="radio" id="Tarjeta" name="metodoPago" value="Tarjeta" [(ngModel)]="infoUsuario.metodoPago" (change)="metodoEfectivo()">
+                <label for="Tarjeta">
+
+                    Tarjeta de débito o crédito
+                </label><br>
+
+
+                <input type="radio" id="transferencia" name="metodoPago" value="transferencia" [(ngModel)]="infoUsuario.metodoPago" (change)="metodoEfectivo()">
+                <label for="transferencia">
+
+                    Transferencia bancaria
+                </label><br>
+
+
+                <input type="radio" id="efectivo" name="metodoPago" value="efectivo" [(ngModel)]="infoUsuario.metodoPago" (change)="metodoEfectivo()">
+                <label for="efectivo">
+
+                    Pago en efectivo
+                </label>
+
+            </div>
+
+            <div id="montos" class="row" *ngIf="infoUsuario.metodoPago == 'efectivo'">
+
+
+
+                <div class="col-md-5 mb-4">
+
+
+
+                    <input type="number" name="montoPago" id="montoAPagar" class="form-control input-pago" placeholder="Monto total" [value]="carrito.totalSin" disabled>
+
+
+
+                </div>
+
+                <div class="col-md-5 mb-3">
+
+                    <input type="number" name="montoRecibido" id="montoRecibido" class="form-control input-pago" placeholder="Monto recibido" min="0" (blur)="validarMonto()">
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="col-md-6">
+
+            </div>
+
+
+
+            <!-- CLASES PARA DAR EL ESPACIOO A LOS BOTONES -->
+
+
+            <div class="col-md-4"></div>
+
+
+
             <div class="col-md-4">
 
-                <button class="btn btn-success btn-block" (click)="enviarPeddio( f )">  Enviar  </button>
-            </div>
-            <div class="col-md-4">
-                <button class="btn btn-danger btn-block">  <i class="fas fa-ban"></i>  Cancelar</button>
+
+                <button class="btn btn-primary mr-2" (click)="enviarPeddio(f)">
+                    <i class="fas fa-plus-circle"></i>   
+                    ORDENAR
+                </button>
+
+
+                <button class="btn btn-danger">
+                    <i class="fas fa-times-circle"></i>  
+                    CANCELAR
+                </button>
+
 
             </div>
+            <div class="col-md-4"></div>
+
+
         </div>
+
     </div>
 
 </form>
 
 
-<div class="container-fluid">
+<!-- <div class="container-fluid">
     <div class="row mt-4">
         <div class="col-md-9">
 
             <app-calendar></app-calendar>
         </div>
     </div>
-</div>
+</div> -->
