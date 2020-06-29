@@ -7,7 +7,7 @@
 
     <div class="card-columns animate bounceIn" >
         <a  [routerLink]="module.modules.route" *ngFor="let module of modules">
-        <div class="card card2">
+        <div class="card card2" id="card">
 
             <img [src]="module.modules.icon" class="img-fluid" [routerLink]="module.modules.route">
                  <h2 *ngIf="module.modules.nameModule === 'Servicios integrados'" >Servicios</h2>
