@@ -63,6 +63,9 @@ import { PatologiaEditComponent } from './servivicosInt/patologia/patologia-edit
 import { PatologiaNewComponent } from './servivicosInt/patologia/patologia-new/patologia-new.component';
 import { PatologiaComponent } from './servivicosInt/patologia/patologia.component';
 import { MembresiaPaqueteComponent } from './membresia/membresia-paquete/membresia-paquete.component';
+import { HojaDiariaEnfGralComponent } from './Hojas_Diarias/hoja-diaria-enf-gral/hoja-diaria-enf-gral.component';
+import { EnfermeriaDashboardComponent } from './Enfermeria/enfermeria-dashboard/enfermeria-dashboard.component';
+
 
 
 const pagesRoutes : Routes = [
@@ -129,6 +132,8 @@ const pagesRoutes : Routes = [
       { path: 'patologia', component: PatologiaComponent },
       {  path: 'patologia/edit/:id', component: PatologiaEditComponent },
       { path: 'patologia/nueva', component: PatologiaNewComponent },
+      { path: 'hoja-diaria-enfermeria-general', component: HojaDiariaEnfGralComponent},
+      { path: 'enfermeria-dashboard', component: EnfermeriaDashboardComponent},
       { path: 'consultas/membresia/:id', component: MembresiaPaqueteComponent },
       { path: '', redirectTo: '/dashboard', pathMatch:'full' }
       
