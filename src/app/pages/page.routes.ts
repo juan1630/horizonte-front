@@ -136,7 +136,7 @@ const pagesRoutes : Routes = [
       { path: 'patologia/nueva', component: PatologiaNewComponent },
       { path: 'hoja-diaria-enfermeria-general', component: HojaDiariaEnfGralComponent},
       { path: 'enfermeria-dashboard', component: EnfermeriaDashboardComponent},
-      { path: 'consulta-general', component: ConsultaGeneralComponent},
+      { path: 'consulta-general/:id', component: ConsultaGeneralComponent},
       { path: 'consultas/membresia/:id', component: MembresiaPaqueteComponent },
       { path: 'farmacia/dash', component: DashComponent  },
       { path: '', redirectTo: '/dashboard', pathMatch:'full' }
