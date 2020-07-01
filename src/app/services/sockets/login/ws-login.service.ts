@@ -78,5 +78,11 @@ export class WsLoginService {
 
 
 
+  enviarMensaje( data:any ){
+
+    this.socket.emit('mensaje', { payload: data })
+  }
+
+
 
 }

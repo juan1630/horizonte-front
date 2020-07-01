@@ -1,0 +1,21 @@
+<form class="card chat">
+
+
+    <div class="chat-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+    </div>
+
+    <div class="chat-body">
+
+
+
+    </div>
+
+    <div class="chat-message">
+        <input type="text" name="message" id="message" placeholder="Mensaje" class="form-control chat-input" [(ngModel)]="payload.message">
+        <button class="btn btn-primary btn-chat" (click)="enviarData()"> Enviar </button>
+    </div>
+
+</form>

@@ -23,6 +23,7 @@ import { ModalComponent } from './modal/modal.component';
 import { TarjetaCotizacionComponent } from './cotizacion/tarjeta-cotizacion/tarjeta-cotizacion.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { jqxSchedulerModule, jqxSchedulerComponent } from 'jqwidgets-ng/jqxscheduler';
+import { ChatComponent } from './chat/chat/chat.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { jqxSchedulerModule, jqxSchedulerComponent } from 'jqwidgets-ng/jqxsched
     FiscalesComponent,
     CardPaquetesComponent,
     TarjetaCotizacionComponent,
-    CalendarComponent
+    CalendarComponent,
+    ChatComponent
     
 ],
 schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
@@ -54,7 +56,8 @@ schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
     TarjetaCotizacionComponent,
     SpinnerComponent,
     ReactiveFormsModule,
-    CalendarComponent
+    CalendarComponent,
+    ChatComponent
        ],
   imports: [
     BrowserModule,
