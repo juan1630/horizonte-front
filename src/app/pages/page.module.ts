@@ -72,6 +72,7 @@ import { HojaDiariaEnfGralComponent } from './Hojas_Diarias/hoja-diaria-enf-gral
 import { HojaDiariaEnfUrgenciaComponent } from './Hojas_Diarias/hoja-diaria-enf-urgencia/hoja-diaria-enf-urgencia.component';
 import { EnfermeriaDashboardComponent } from './Enfermeria/enfermeria-dashboard/enfermeria-dashboard.component';
 import { DashComponent } from './farmacia/dash/dash.component';
+import { ConsultaGeneralComponent } from './consultas/consulta-general/consulta-general.component';
 
 
 @NgModule({
@@ -136,7 +137,8 @@ import { DashComponent } from './farmacia/dash/dash.component';
     HojaDiariaEnfGralComponent,
     HojaDiariaEnfUrgenciaComponent,
     EnfermeriaDashboardComponent,
-    DashComponent
+    DashComponent,
+    ConsultaGeneralComponent
   ],
   exports: [ 
     PageComponent,

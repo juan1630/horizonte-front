@@ -66,6 +66,7 @@ import { MembresiaPaqueteComponent } from './membresia/membresia-paquete/membres
 import { HojaDiariaEnfGralComponent } from './Hojas_Diarias/hoja-diaria-enf-gral/hoja-diaria-enf-gral.component';
 import { EnfermeriaDashboardComponent } from './Enfermeria/enfermeria-dashboard/enfermeria-dashboard.component';
 import { DashComponent } from './farmacia/dash/dash.component';
+import { ConsultaGeneralComponent } from './consultas/consulta-general/consulta-general.component';
 
 
 
@@ -135,6 +136,7 @@ const pagesRoutes : Routes = [
       { path: 'patologia/nueva', component: PatologiaNewComponent },
       { path: 'hoja-diaria-enfermeria-general', component: HojaDiariaEnfGralComponent},
       { path: 'enfermeria-dashboard', component: EnfermeriaDashboardComponent},
+      { path: 'consulta-general', component: ConsultaGeneralComponent},
       { path: 'consultas/membresia/:id', component: MembresiaPaqueteComponent },
       { path: 'farmacia/dash', component: DashComponent  },
       { path: '', redirectTo: '/dashboard', pathMatch:'full' }
