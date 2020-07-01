@@ -4,32 +4,29 @@
         <div class="card">
             <div class="row">
                 <div class="col-md-4">
-                    <label for="">Nombre:</label>
-                    <p>Aquí va el nombre</p>
+                    <label for="">Nombre: </label>
+                    <p>{{nombrePaciente}}</p>
                 </div>
                 <div class="col-md-4">
-                    <label for="">Domicilio:</label>
-                    <p>Domiciliooooo</p>
+                    <label for="">Domicilio: </label>
+                    <p>{{calleNumeroPaciente}}</p>
                 </div>
                 <div class="col-md-4">
                     <label for="">Correo:</label>
-                    <p>Correoooo</p>
+                    <p>{{correo}}</p>
                 </div>
                 <div class="col-md-4">
-                    <label for="">Contacto Emergencia:</label>
-                    <p>Contactaaaaaaaaaa</p>
+                    <label for="">Contacto Emergencia: </label>
+                    <p>{{contactoEmergencia1}}</p>
                 </div>
                 <div class="col-md-4">
-                    <label for="">Edad:</label>
-                    <p>Edad</p>
+                    <label for="">Edad: </label>
+                    <p>{{edad}}</p>
                 </div>
+
                 <div class="col-md-4">
-                    <label for="">C.P.:</label>
-                    <p>Código Postal</p>
-                </div>
-                <div class="col-md-4">
-                    <label for="">Teléfono:</label>
-                    <p>999999999999999</p>
+                    <label for="">Teléfono: </label>
+                    <p>{{telefono}}</p>
                 </div>
             </div>
         </div>
@@ -42,37 +39,37 @@
         <div class="col-md-12">
             <div class="row">
                 <div class="col-md-6">
-                    <input type="radio" value="DrX" name="doctores">
-                    <label for="">Dr. X</label>
+                    <input type="radio" value="DrX" id="DrX" name="doctores" [(ngModel)]="enfermeriaVisitas.doctor">
+                    <label for="DrX">Dr. X</label>
                 </div>
-                <select name="consultorios" id="" class="form-control col-md-3 mb-1">
+                <select name="consultorios" id="" class="form-control col-md-3 mb-1" [(ngModel)]="enfermeriaVisitas.consultorio">
                     <option value="" selected>--Seleccione Consultorio--</option>
                     <option value="consultorio1">Consultorio 1</option>
                     <option value="consultorio2" >Consultorio 2</option>
                 </select>
                 <div class="col-md-6">
-                    <input type="radio" value="DrX" name="doctores">
-                    <label for="">Dr. Y</label>
+                    <input type="radio" value="DrY" id="DrY" name="doctores" [(ngModel)]="enfermeriaVisitas.doctor">
+                    <label for="DrY">Dr. Y</label>
                 </div>
-                <select name="consultorios" id="" class="form-control col-md-3 mb-1">
+                <select name="consultorios" id="" class="form-control col-md-3 mb-1" [(ngModel)]="enfermeriaVisitas.consultorio">
                     <option value="" selected>--Seleccione Consultorio--</option>
                     <option value="consultorio1">Consultorio 1</option>
                     <option value="consultorio2" >Consultorio 2</option>
                 </select>
                 <div class="col-md-6">
-                    <input type="radio" value="DrX" name="doctores">
-                    <label for="">Dr. Z</label>
+                    <input type="radio" id="Drz" value="DrZ" name="doctores" [(ngModel)]="enfermeriaVisitas.doctor">
+                    <label for="DrZ">Dr. Z</label>
                 </div>
-                <select name="consultorios" id="" class="form-control col-md-3 mb-1">
+                <select name="consultorios" id="" class="form-control col-md-3 mb-1" [(ngModel)]="enfermeriaVisitas.consultorio">
                     <option value="" selected>--Seleccione Consultorio--</option>
                     <option value="consultorio1">Consultorio 1</option>
                     <option value="consultorio2" >Consultorio 2</option>
                 </select>
                 <div class="col-md-6">
-                    <input type="radio" value="DrX" name="doctores">
-                    <label for="">Dr. Alpha</label>
+                    <input type="radio" value="DrA" id="DrA" name="doctores" [(ngModel)]="enfermeriaVisitas.doctor">
+                    <label for="DrA">Dr. Alpha</label>
                 </div>
-                <select name="consultorios" id="" class="form-control col-md-3">
+                <select name="consultorios" id="" class="form-control col-md-3" [(ngModel)]="enfermeriaVisitas.consultorio">
                     <option value="" selected>--Seleccione Consultorio--</option>
                     <option value="consultorio1">Consultorio 1</option>
                     <option value="consultorio2" >Consultorio 2</option>

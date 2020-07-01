@@ -48,7 +48,7 @@ export class WsLoginService {
     
     
     // esta linea nos ayuda con las consultas generales
-    this.enviarConsultas();
+    // this.enviarConsultas();
     
     
     this.socket.on('event', (data) => {
@@ -64,18 +64,21 @@ export class WsLoginService {
   }
 
   // prueba de consultas generales
-  enviarConsultas(){
+  enviarConsultas(idConsulta){
 
-    this.socket.emit('consultaGeneral',  { id: 'keqgfkjhgqefjkq' }  );
+    this.socket.emit('consultaGeneral',  { id: idConsulta }  );
 
+  }
+
+  escucharConsulta(){
     this.socket.on('consultaNueva', (resp) => {
 
 
       console.log( resp );
+      return resp;
     })
 
   }
-
 
 
   enviarMensaje( data:any ){
