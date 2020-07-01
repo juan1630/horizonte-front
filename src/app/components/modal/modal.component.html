@@ -148,6 +148,32 @@
                                 <h2>Fiscales</h2>
                                 <div class="row fiscales-row">
                                     <app-fiscales *ngFor="let item of razonesSociales"></app-fiscales>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <input type="text" placeholder="Nombre o razón social" class="form-control" name="nombreRazonSocial" [(ngModel)]="nombreRazonSocial">
+                                            <input type="text" placeholder="Entidad federativa" value="{{ estadoFiscal }}" class="form-control" [(ngModel)]="estadoFiscal" name="entidadFederativa">
+                                            <select class="form-control" name="poblacion" placeholder="Lugar" [(ngModel)]="localidad">
+                                              <option value="{{ localidad }}" *ngFor="let localidad of localidades">
+                                                  {{tipoAsentamiento}} - {{ localidad }} </option>
+                                          </select>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <input type="text" [(ngModel)]="RFCFiscal" name="RFCFiscal" class="form-control" placeholder="RFC">
+                                            <input type="text" [(ngModel)]="municipioFiscal" placeholder="Municipio" value="{{ municipioFiscal }}" class="form-control" name="municipioFiscal">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <input type="number" [(ngModel)]="codigoFiscal" #codigo (change)="getUbicacion( codigo.value )" placeholder="Código postal" min="0" class="form-control" name="cpFiscal">
+
+                                            <input type="text" [(ngModel)]="localidadFiscal" placeholder="Localidad" value="{{ municipioFiscal }}" class="form-control" name="localidadFiscal">
+
+                                            <input type="mail" placeholder="Correo electrónico" [(ngModel)]="emailFiscal" class="form-control fiscal-mail" name="emailFiscal">
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="row">
@@ -171,8 +197,8 @@
                             <button type="button" class="btn btn-danger" (click)="_modalService.ocultarModal()"> Cancelar </button>
 
                             <button type="submit" class="btn btn-info">
-            Registrar
-          </button>
+                                Registrar
+                            </button>
                         </div>
                     </div>
 

@@ -71,6 +71,8 @@ import { MembresiaPaqueteComponent } from './membresia/membresia-paquete/membres
 import { HojaDiariaEnfGralComponent } from './Hojas_Diarias/hoja-diaria-enf-gral/hoja-diaria-enf-gral.component';
 import { HojaDiariaEnfUrgenciaComponent } from './Hojas_Diarias/hoja-diaria-enf-urgencia/hoja-diaria-enf-urgencia.component';
 import { EnfermeriaDashboardComponent } from './Enfermeria/enfermeria-dashboard/enfermeria-dashboard.component';
+import { DashComponent } from './farmacia/dash/dash.component';
+import { ConsultaGeneralComponent } from './consultas/consulta-general/consulta-general.component';
 
 
 @NgModule({
@@ -134,7 +136,9 @@ import { EnfermeriaDashboardComponent } from './Enfermeria/enfermeria-dashboard/
     MembresiaPaqueteComponent,
     HojaDiariaEnfGralComponent,
     HojaDiariaEnfUrgenciaComponent,
-    EnfermeriaDashboardComponent
+    EnfermeriaDashboardComponent,
+    DashComponent,
+    ConsultaGeneralComponent
   ],
   exports: [ 
     PageComponent,
