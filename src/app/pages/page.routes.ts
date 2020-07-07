@@ -126,7 +126,7 @@ const pagesRoutes : Routes = [
       { path: 'pago/pedido/sin', component: PedidoSinComponent },
       { path: 'imprimir-ticket', component: TicketComponent},
       { path: 'pedidos/pendientes/laboratorio', component: PedidosLaboratorioComponent  },
-      { path: 'ficha-enfermeria-01', component: FE09Component},
+      { path: 'ficha-enfermeria-01/:id', component: FE09Component},
       { path: 'laboratorio/pendientes/lab', component: PedidoSinComponent  },
       {  path: 'pedido/laboratorios/:id', component: PedidoIndividualComponent },
       { path: 'alto/riesgo/:id', component: TabuladorAltoriesgoComponent },
