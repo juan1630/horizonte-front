@@ -8,13 +8,13 @@
 <div class="container">
     <div class="row">
         <div class="col-sm">
-            <p>Nombre Completo:</p>
-            <p>Domicilio:</p>
-            <p>Lugar de Nacimiento:</p>
+            <p>Nombre Completo: {{ paciente.nombre }} {{ paciente.apellidoPaterno }} {{ paciente.apellidoMaterno }} </p>
+            <p>Domicilio: {{ paciente.domicilio }} </p>
+            <p>Lugar de Nacimiento: {{ paciente.estadoPaciente }} </p>
         </div>
         <div class="col-sm">
-            <p>Fecha de Nacimiento:</p>
-            <p>Telefono:</p>
+            <p>Fecha de Nacimiento: {{ paciente.fechaNacimiento }} </p>
+            <p>Telefono: {{ paciente.telefono }} </p>
             <p>Tipo de Sangre:</p>
             <select name="edades" class="form-control">
                 <option value="Tipo" selected>-- Seleccione Tipo de Sangre --</option>
@@ -34,7 +34,7 @@
             <!-- Agregar select con los tipos de Sangre mas comunes -->
         </div>
         <div class="col-sm">
-            <p>Edad:</p>
+            <p>Edad: {{ paciente.edad }} </p>
         </div>
     </div> <br> <br>
 
@@ -70,15 +70,15 @@
     <div class="row center">
         <div class="col-md-1">
             <label for="">Talla m</label>
-            <input type="text" placeholder="Talla M">
+            <input type="text" placeholder="Talla M" [(ngModel)]="talla">
         </div>
         <div class="col-md-1">
             <label for="">Peso Kg</label>
-            <input type="text" placeholder="Peso">
+            <input type="text" placeholder="Peso" [(ngModel)]="peso" (change)="obtenerIMC()">
         </div>
         <div class="col-md-1">
             <label for="">P/T^2</label>
-            <input type="text" placeholder="IMC">
+            <input type="text" placeholder="IMC" [(ngModel)]="imc" [value]="imc">
             <!-- Crear en base P/T ^ 2, debe ser por defecto -->
         </div>
         <div class="col-md-1">
@@ -93,10 +93,7 @@
             <label for="">°C</label>
             <input type="text" placeholder="TEMP">
         </div>
-        <div class="col-md-1">
-            <label for="">Tamiz</label>
-            <input type="text" placeholder="TAMIZ">
-        </div>
+
         <div class="col-md-1">
             <label for="">PC cm</label>
             <input type="text" placeholder="P.C.">
@@ -110,8 +107,8 @@
             <input type="text" placeholder="P.T.">
         </div>
         <div class="col-md-1">
-            <label for="">SaOr %</label>
-            <input type="text" placeholder="SaOr">
+            <label for="">SaO %</label>
+            <input type="text" placeholder="SaO">
         </div>
     </div><br><br>
 
@@ -215,7 +212,7 @@
                     <!-- Bloque 3 -->
                     <div class="col-md-2"></div>
                     <div class="col-md-2">
-                        <p>Freacturas</p>
+                        <p>Fracturas</p>
                     </div>
                     <div class="col-md-2">
 
@@ -243,7 +240,7 @@
                     <!-- Bloque 3 -->
                     <div class="col-md-2"></div>
                     <div class="col-md-2">
-                        <p>Transfuciones</p>
+                        <p>Transfusiones</p>
                     </div>
                     <div class="col-md-2">
 
@@ -685,8 +682,10 @@
                     </div>
                     <div class="col-md-2 espacio-cols esp-nutricion">
                         <h5>Enf. Previene</h5>
-                        <div class="margen-input">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
+                        <div class="margen-input topsxd">
+                            <!-- <input type="text" placeholder="" class="antecedentes-inputs wer">
+                            p -->
+                            <p>Desnutrición</p>
                             <p>Parasitosis Intestinales</p>
                             <p>Infecciones Respiratorias y Diarreas</p>
                             <p>Anemia</p>
@@ -781,9 +780,11 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                     <button type="button" class="btn btn-primary">Guardar</button>
+                    <button type="button" class="btn btn-success" id="add_field" value="adicionar">Añadir</button>
                 </div>
             </div>
 
@@ -792,3 +793,31 @@
 
     </div>
 </div>
+
+<!-- <script type="text/javascript">
+    var campos_max = 10; //max de 10 campos
+
+    var x = 0;
+    $('#add_field').click(function(e) {
+        console.log("cero");
+
+        e.preventDefault(); //prevenir novos clicks
+        if (x < campos_max) {
+            console.log("uno");
+
+            $('#listas').append('<div>\
+                <input type="text" id="listas" placeholder="" class="antecedentes-inputs wer" name="campo[]">\
+                        <a href="#" class="remover_campo">Remover</a>\
+                        </div>');
+            x++;
+            console.log("dos");
+
+        }
+    });
+    // Remover o div anterior
+    $('#listas').on("click", ".remover_campo", function(e) {
+        e.preventDefault();
+        $(this).parent('div').remove();
+        x--;
+    });
+</script> -->

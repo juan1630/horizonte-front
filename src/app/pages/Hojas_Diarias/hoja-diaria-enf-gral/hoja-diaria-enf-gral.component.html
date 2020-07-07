@@ -7,6 +7,7 @@
                 <thead class="thead-dark center">
 
                     <tr>
+                        <th scope="col"> Número</th>
                         <th scope="col ">Nombre del Paciente</th>
                         <th scope="col ">Edad</th>
                         <th scope="col ">Servicio Médico</th>
@@ -18,16 +19,21 @@
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td [routerLink]="['/ficha-enfermeria-01']" routerLinkActive="router-link-active">Katerin Z Jhones</td>
+                    <tr *ngFor="let listaEsperaP of listaEspera; let i = index">
+                        <td>
+                            {{i+1}}
+                        </td>
+                        <td [routerLink]="['/ficha-enfermeria-01', listaEsperaP.consulta.pacienteId]" routerLinkActive="router-link-active">
+                            {{listaEsperaP.consulta.nombrePaciente}}
+                        </td>
 
-                        <td>9 años</td>
+                        <td>{{listaEsperaP.consulta.edad}}</td>
 
-                        <td>Consulta General</td>
+                        <td>{{listaEsperaP.consulta.servicio}}</td>
 
-                        <td>Dr. David Reyes Salazar</td>
+                        <td>{{listaEsperaP.consulta.doctor}}</td>
 
-                        <td>17:00</td>
+                        <td>{{listaEsperaP.consulta.horallegada}}</td>
                     </tr>
                 </tbody>
             </table>
