@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <label for="">Nombre: </label>
-                    <p>{{nombrePaciente}}</p>
+                    <p>{{nombrePaciente}} {{ enfermeriaVisitas.apellido }} {{ enfermeriaVisitas.apellidoMaterno }} </p>
                 </div>
                 <div class="col-md-4">
                     <label for="">Domicilio: </label>
@@ -39,8 +39,8 @@
         <div class="col-md-12">
             <div class="row">
                 <div class="col-md-6">
-                    <input type="radio" value="DrX" id="DrX" name="doctores" [(ngModel)]="enfermeriaVisitas.doctor">
-                    <label for="DrX">Dr. X</label>
+                    <input type="radio" value="Cristian Vidal Valdez" id="Cristian Vidal Valdez" name="doctores" [(ngModel)]="enfermeriaVisitas.doctor">
+                    <label for="Cristian Vidal Valdez"> Cristian Vidal Valdez </label>
                 </div>
                 <select name="consultorios" id="" class="form-control col-md-3 mb-1" [(ngModel)]="enfermeriaVisitas.consultorio">
                     <option value="" selected>--Seleccione Consultorio--</option>
@@ -48,8 +48,8 @@
                     <option value="consultorio2" >Consultorio 2</option>
                 </select>
                 <div class="col-md-6">
-                    <input type="radio" value="DrY" id="DrY" name="doctores" [(ngModel)]="enfermeriaVisitas.doctor">
-                    <label for="DrY">Dr. Y</label>
+                    <input type="radio" value="Eric Rey Alarcon Segura" id="Eric Rey Alarcon Segura" name="doctores" [(ngModel)]="enfermeriaVisitas.doctor">
+                    <label for="Eric Rey Alarcon Segura">Eric Rey Alarcon Segura</label>
                 </div>
                 <select name="consultorios" id="" class="form-control col-md-3 mb-1" [(ngModel)]="enfermeriaVisitas.consultorio">
                     <option value="" selected>--Seleccione Consultorio--</option>
@@ -57,23 +57,51 @@
                     <option value="consultorio2" >Consultorio 2</option>
                 </select>
                 <div class="col-md-6">
-                    <input type="radio" id="Drz" value="DrZ" name="doctores" [(ngModel)]="enfermeriaVisitas.doctor">
-                    <label for="DrZ">Dr. Z</label>
+                    <input type="radio" id="Arquimides Rueda Cabrera" value="Arquimides Rueda Cabrera" name="doctores" [(ngModel)]="enfermeriaVisitas.doctor">
+                    <label for="Arquimides Rueda Cabrera"> Arquimides Rueda Cabrera  </label>
                 </div>
                 <select name="consultorios" id="" class="form-control col-md-3 mb-1" [(ngModel)]="enfermeriaVisitas.consultorio">
                     <option value="" selected>--Seleccione Consultorio--</option>
                     <option value="consultorio1">Consultorio 1</option>
                     <option value="consultorio2" >Consultorio 2</option>
                 </select>
+
+
                 <div class="col-md-6">
-                    <input type="radio" value="DrA" id="DrA" name="doctores" [(ngModel)]="enfermeriaVisitas.doctor">
-                    <label for="DrA">Dr. Alpha</label>
+                    <input type="radio" value="Jesus Olgin Perez" id="Jesus Olgin Perez" name="doctores" [(ngModel)]="enfermeriaVisitas.doctor">
+                    <label for="Jesus Olgin Perez"> Jesus Olgin Perez</label>
                 </div>
                 <select name="consultorios" id="" class="form-control col-md-3" [(ngModel)]="enfermeriaVisitas.consultorio">
                     <option value="" selected>--Seleccione Consultorio--</option>
                     <option value="consultorio1">Consultorio 1</option>
                     <option value="consultorio2" >Consultorio 2</option>
                 </select>
+
+
+
+                <div class="col-md-6">
+                    <input type="radio" value="Karina Jimenez Valdepeña" id="Karina Jimenez Valdepeña" name="doctores" [(ngModel)]="enfermeriaVisitas.doctor">
+                    <label for="Karina Jimenez Valdepeña"> Karina Jimenez Valdepeña</label>
+                </div>
+                <select name="consultorios" id="" class="form-control col-md-3" [(ngModel)]="enfermeriaVisitas.consultorio">
+                    <option value="" selected>--Seleccione Consultorio--</option>
+                    <option value="consultorio1">Consultorio 1</option>
+                    <option value="consultorio2" >Consultorio 2</option>
+                </select>
+
+
+
+                <div class="col-md-6">
+                    <input type="radio" value="Laura Lizeth Morales Santos" id="Laura Lizeth Morales Santos" name="doctores" [(ngModel)]="enfermeriaVisitas.doctor">
+                    <label for="Laura Lizeth Morales Santos"> Laura Lizeth Morales Santos</label>
+                </div>
+                <select name="consultorios" id="" class="form-control col-md-3" [(ngModel)]="enfermeriaVisitas.consultorio">
+                    <option value="" selected>--Seleccione Consultorio--</option>
+                    <option value="consultorio1">Consultorio 1</option>
+                    <option value="consultorio2" >Consultorio 2</option>
+                </select>
+
+
             </div>
         </div>
     </div>

@@ -9,7 +9,9 @@
 
     <div class="chat-body">
 
-
+        <div class="card message-card" *ngFor="let message of mesages">
+            {{ message.message }}
+        </div>
 
     </div>
 
