@@ -6,6 +6,8 @@ import * as moment from 'moment';
 import { PacienteService } from 'src/app/services/paciente/paciente.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ConsultaGeneralService } from 'src/app/services/consulta-general/consulta-general.service';
+import swal from 'sweetalert';
+
 
 @Component({
   selector: 'app-consulta-general',
@@ -25,13 +27,17 @@ export class ConsultaGeneralComponent implements OnInit {
 
   public enfermeriaVisitas = {
     horaSalida: '',
-    horallegada: '',
-    servicio: '',
-    pacienteId: this.id,
+    horallegada: moment().format('MMMM Do YYYY,h:mm:ss a'),
+    servicio: 'consulta general',
+    pacienteId: '',
     atendio: getDataStorage().nombre,
+    contactoEmergencia: '',
     doctor: '',
     consultorio: '',
-    nombrePaciente: this.nombrePaciente,
+    nombrePaciente: '',
+    apellido : '',
+    apellidoMaterno: '',
+    edad: ''
   }
   constructor( 
     private SocketLoginService: WsLoginService,
@@ -46,7 +52,7 @@ export class ConsultaGeneralComponent implements OnInit {
 
     this._ObtenerPacienteById.getPacienteBtID(this.id).subscribe(
       (res:any) => {
-        console.log(res);
+
         this.nombrePaciente = res.paciente.nombrePaciente;
         this.contactoEmergencia1 = res.paciente.contactoEmergencia1;
         this.telefono = res.paciente.telefono;
@@ -54,6 +60,10 @@ export class ConsultaGeneralComponent implements OnInit {
         this.edad = res.paciente.edad;
         this.correo = res.paciente.correo;
         this.enfermeriaVisitas.nombrePaciente = res.paciente.nombrePaciente;
+        this.enfermeriaVisitas.apellido = res.paciente.apellidoPaterno;
+        this.enfermeriaVisitas.apellidoMaterno = res.paciente.apellidoMaterno;
+        this.enfermeriaVisitas.edad = res.paciente.edad;
+        this.enfermeriaVisitas.contactoEmergencia = res.paciente.contactoEmergencia1;
         this.enfermeriaVisitas.pacienteId = res.paciente._id;
       }
     )
@@ -63,21 +73,22 @@ export class ConsultaGeneralComponent implements OnInit {
   enviarId(){
     
     // this.SocketLoginService.enviarConsultas()
-    console.log(this.id);
-    console.log(this.enfermeriaVisitas);
-    this._ConsutlaService.agregarVisita(this.enfermeriaVisitas).subscribe(
-      res => {
-        console.log(res);
 
-        this.SocketLoginService.enviarConsultas(
-          (res:any) =>{
-            console.log(res);
-            
-            
-          }
-      
-        )
-        
+
+    if( this.enfermeriaVisitas.doctor === ""  ){
+
+      swal('Selecciona un paciente', '', 'error');
+      return;
+
+    }
+
+    this._ConsutlaService.agregarVisita(this.enfermeriaVisitas).subscribe(
+      (res:any) => {
+
+        this.SocketLoginService.enviarConsultas( this.enfermeriaVisitas  );
+
+        swal('Servicio registrado', 'El doctor esta notificado', 'success');
+        this._router.navigateByUrl('/');
       }
     )
   

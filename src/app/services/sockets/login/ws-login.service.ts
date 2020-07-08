@@ -26,7 +26,7 @@ export class WsLoginService {
   checkStatus(){
     this.socket.emit('connect', (usuarios)=> {
 
-      console.log('Conectado al servidor');
+
       console.log( usuarios );
       this.status = true;
 
@@ -69,7 +69,7 @@ export class WsLoginService {
   // prueba de consultas generales
   enviarConsultas(idConsulta){
 
-    this.socket.emit('consultaGeneral',  { id: idConsulta }  );
+    this.socket.emit('consultaGeneral',  { consulta: idConsulta }  );
 
   }
 
@@ -84,6 +84,67 @@ export class WsLoginService {
         }
       )
      
+    }
+
+
+    public escucharMensajes(){
+
+
+      return Observable.create(
+        (observer) => {
+          this.socket.on('mensajeLaboratorio', (resp) => {
+            console.log( resp );
+            observer.next(  resp);
+          })
+        }
+      )
+
+    }
+
+    // este observable escucha a todos los usuarios conectados
+
+    escucahrUsuaurtioConectados(){
+
+      return Observable.create(
+        (observer) => {
+          this.socket.on('usuarioEnLinea', (resp) => {
+            observer.next( resp );
+          })
+        }
+      )
+
+    }
+
+
+    escucharMensajesLab(){
+      return Observable.create(
+        (observer) => {
+          this.socket.on('mensajeLab', (resp) => {
+            observer.next( resp );
+          })
+        }
+      )
+    }
+
+
+    desconectarUsuario( user ){
+
+
+      this.socket.emit('cerrarSesion', { user });
+
+    }
+
+
+    escucharUsuarioDesconectado(){
+
+      return Observable.create(
+        (observer) => {
+
+          this.socket.on('usuarioDesconectado', (resp:any) => {
+            observer.next( resp.userDisconect );
+          })
+        }
+      )
     }
 
 

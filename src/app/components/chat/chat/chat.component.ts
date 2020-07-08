@@ -8,22 +8,31 @@ import { WsLoginService } from 'src/app/services/sockets/login/ws-login.service'
 })
 export class ChatComponent implements OnInit {
 
+  public mesages = [];
+
   public payload={
     message: ''
   };
 
   constructor(
-    private loginService: WsLoginService
+    private wsloginService: WsLoginService
   ) { }
 
   ngOnInit(): void {
+
+    this.wsloginService.escucharMensajesLab()
+    .subscribe( (message) => {
+
+      this.mesages.push( message.payload );
+  
+    } )
+
   }
-
-
 
   enviarData(){
 
-    this.loginService.enviarMensaje( this.payload );
+    this.wsloginService.enviarMensaje( this.payload );
+    this.payload.message = '';
 
   }
 
