@@ -9,13 +9,24 @@ import { WsLoginService } from 'src/app/services/sockets/login/ws-login.service'
 })
 export class HojaDiariaEnfGralComponent implements OnInit {
 
+  public listaEspera = [];
+
   constructor( 
-    private loginService: WsLoginService
-  ) { }
+    public loginService: WsLoginService
+  ) { 
+    
+  }
 
   ngOnInit(): void {
   
-    this.loginService.escucharConsulta();
+    this.loginService.escucharConsulta()
+      .subscribe(arg =>{ 
+        console.log( arg);
+        this.listaEspera.push(arg);
+
+        console.log(this.listaEspera);
+      });
+  
     
 
     

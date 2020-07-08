@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
+import { Observable  } from 'rxjs'
 import * as io from 'socket.io-client';
 import { URLDEV } from 'src/app/config/index.config';
+// import { resolve } from 'dns';
+// import { rejects } from 'assert';
 
 @Injectable({
   providedIn: 'root'
@@ -70,15 +73,18 @@ export class WsLoginService {
 
   }
 
-  escucharConsulta(){
-    this.socket.on('consultaNueva', (resp) => {
+  public escucharConsulta(){
 
-
-      console.log( resp );
-      return resp;
-    })
-
-  }
+    return Observable.create(
+        (observer) => {
+          this.socket.on('consultaNueva', (resp) => {
+            console.log( resp);
+            observer.next( resp );
+            });
+        }
+      )
+     
+    }
 
 
   enviarMensaje( data:any ){
