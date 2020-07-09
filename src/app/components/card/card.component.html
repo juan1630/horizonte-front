@@ -9,10 +9,10 @@
         <a  [routerLink]="module.modules.route" *ngFor="let module of modules">
         <div class="card card2" id="card">
 
-            <img [src]="module.modules.icon" class="img-fluid" [routerLink]="module.modules.route">
-                 <h2 *ngIf="module.modules.nameModule === 'Servicios integrados'" >Servicios</h2>
-                 <h2 *ngIf="module.modules.nameModule === 'Estados de cuenta'" >Cuenta</h2>
-                 <h2 *ngIf="module.modules.nameModule !== 'Servicios integrados' && module.modules.nameModule !== 'Estados de cuenta'" >{{ module.modules.nameModule}}</h2>
+            <img [src]="module.modules.icon" class="img-fluid" id ="img2" [routerLink]="module.modules.route">
+                 <h2 *ngIf="module.modules.nameModule === 'Servicios integrados'" id="h2">Servicios</h2>
+                 <h2 *ngIf="module.modules.nameModule === 'Estados de cuenta'" id="h2">Cuenta</h2>
+                 <h2 *ngIf="module.modules.nameModule !== 'Servicios integrados' && module.modules.nameModule !== 'Estados de cuenta'" id="h2" >{{ module.modules.nameModule}}</h2>
         </div>
       </a>
     </div>

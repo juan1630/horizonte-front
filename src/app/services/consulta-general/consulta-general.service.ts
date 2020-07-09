@@ -13,12 +13,12 @@ export class ConsultaGeneralService {
     public _http: HttpClient
   ) { 
 
-    this.url = "https://horizonte-1.herokuapp.com"
+    this.url = "https://horizonte-1.herokuapp.com/nueva/visita";
 
   }
 
   agregarVisita(visita){
-    this.url += '/nueva/visita';
+    // this.url += '/nueva/visita';
     return this._http.post(this.url, visita );
   }
 }

@@ -42,3 +42,13 @@
     width: 30%;
     margin-left: 5px;
 }
+
+.message-card {
+    background-color: green;
+    color: #ffff;
+}
+
+
+/* .message-card:first-child(odd) {
+    background-color: blue;
+} */
