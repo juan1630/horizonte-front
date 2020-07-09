@@ -48,7 +48,6 @@
     color: #ffff;
 }
 
-
-/* .message-card:first-child(odd) {
+.message-card:nth-child(even) {
     background-color: blue;
-} */
+}

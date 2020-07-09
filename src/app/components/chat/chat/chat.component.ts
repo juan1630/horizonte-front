@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WsLoginService } from 'src/app/services/sockets/login/ws-login.service';
+import { getDataStorage } from '../../../functions/storage/storage.funcion';
 
 @Component({
   selector: 'app-chat',
@@ -9,6 +10,18 @@ import { WsLoginService } from 'src/app/services/sockets/login/ws-login.service'
 export class ChatComponent implements OnInit {
 
   public mesages = [];
+  public usuario = {
+    RFC: "",
+    curp: "",
+    fechaREgistro: "",
+    img: "",
+    nombre: "",
+    password:"" ,
+    role: "",
+    turno:"" ,
+    __v: 0,
+    _id: ""
+  }
 
   public payload={
     message: ''
@@ -20,19 +33,36 @@ export class ChatComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.wsloginService.escucharMensajesLab()
-    .subscribe( (message) => {
 
-      this.mesages.push( message.payload );
-  
-    } )
+    this.usuario = getDataStorage();
+
+
+    if( this.usuario.role === "laboratorio" || this.usuario.role === "recepcion" ){
+      
+
+      this.wsloginService.escucharMensajesLab()
+      .subscribe( (message) => {
+        this.mesages.push( message.payload );
+      });
+
+
+
+    }
+
+
 
   }
 
   enviarData(){
 
-    this.wsloginService.enviarMensaje( this.payload );
-    this.payload.message = '';
+
+    
+    if( this.usuario.role === "laboratorio" || this.usuario.role === "recepcion" ){
+      this.wsloginService.enviarMensaje( this.payload );
+      this.payload.message = '';
+      
+    }
+
 
   }
 
