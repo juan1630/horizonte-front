@@ -65,6 +65,7 @@ export class ModalComponent implements OnInit {
 
   public pacientes: any= [];
   public pagina: number = 0;
+  public sexo: string;
 
   constructor(
     public _modalService: ModalServiceService,
@@ -173,12 +174,13 @@ enviar( f: NgForm ){
       f.value.entidadNacimiento,
       f.value.edad,
       f.value.curp,
+      f.value.sexo,
       f.value.paisNacimineto,
       f.value.telefono,
       f.value.contactoEmergancia,
       f.value.telefonoEmergencia,
       f.value.correo,
-      f.value.cpPaciente,
+      // f.value.cpPaciente,
       f.value.paisPaciente,
       f.value.municipio,
       f.value.estadoPaciente,
@@ -200,7 +202,9 @@ enviar( f: NgForm ){
       // this.razonesSociales[1][6],
       // this.razonesSociales[1][7],
       );
-       console.log( this.razonesSociales );
+
+      console.log( paciente )
+
       this._pacienteService.setPacientes( paciente )
       .subscribe( (data: any) => {
 
