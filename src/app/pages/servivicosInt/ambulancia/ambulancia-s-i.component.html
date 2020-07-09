@@ -1,112 +1,116 @@
-<h1 class="centerxd">Servicio Integrado: Ambulancia</h1>
+<h1 class="centerxd">LISTADO DE TRASLADO</h1>
 <div class="row">
-    <div class="col-md-5">
-        <div class="ambulance">
-            <button type=" button " class="btn btn-primary separar " [routerLink]="['/hoja-fram']" routerLinkActive="router-link-active">
-                Contratar
-            </button>
 
-            <!-- *ngIf="role === 'admin'" -->
-            <button type="button" class="btn btn-secondary " [routerLink]="['/ambulancia-nuevo']" routerLinkActive="router-link-active">Nuevo Destino</button>
-        </div>
+  <div class="col-md-8">
+    <div class="form-group">
+        <input type="text" name="filterPost" placeholder="Buscar" class="form-control" style="margin-left: 25px; max-width:40em">
+        <!-- <button class="btn btn-primary" type="submit">
+            Buscar
+        </button> -->
+    </div>
+  </div>
 
-    </div>
-    <div class="col-md-4">
-        <div class="form-group">
-            <input type="text" name="filterPost" placeholder="Buscar..." class="form-control">
-            <button class="btn btn-primary" type="submit"> 
-                Buscar
-            </button>
-        </div>
-    </div>
+  <div class="col-md-2">
+        <button type=" button " class="btn btn-primary separar boton_contra1" [routerLink]="['/hoja-fram']" routerLinkActive="router-link-active">COTIZAR</button>
+  </div>
+  <div class="col-md-2">
+        <button type="button" class="btn btn-secondary boton_contra2" [routerLink]="['/ambulancia-nuevo']" routerLinkActive="router-link-active">NUEVO</button>
+  </div>
 </div>
 
 
 <div class="row">
     <div class="col-md-9">
-
-        <table class="table table-hover ">
-            <thead class="thead-dark ">
-
-                <tr>
-                    <th scope="col ">Destino</th>
-                    <th scope="col ">Precio Día</th>
-                    <th scope="col ">Redondo Día</th>
-                    <th scope="col ">Precio Noche</th>
-                    <th scope="col ">Redondo Noche</th>
-                    <th scope="col">Acciones</th>
-
-                    <!-- *ngIf="role==='admin'" -->
-                </tr>
-
-            </thead>
-
-            <tbody>
-                <!--  -->
-
-                <tr *ngFor="let ambulanciaSiService of ambulanciaSI">
-                    <td class="cursor">
-                        {{ ambulanciaSiService.DESTINO }}
-                    </td>
-                    <td (click)="alertcomparasion( ambulanciaSiService.PRECIO_PUBLICO_DIA, ambulanciaSiService.PRECIO_MEMBRESIA_DIA )" class="cursor">
-                        {{ ambulanciaSiService.PRECIO_PUBLICO_DIA }}
-                        <button class="btn btn-success precioPublico" (click)="agregarCarrito( $event, ambulanciaSiService )"> 
-                            <i class="fas fa-plus"></i>  
-                        </button>
-                    </td>
-                    <td (click)="alertcomparasion( ambulanciaSiService.PRECIO_PUBLICO_REDONDO_DIA, ambulanciaSiService.PRECIO_MEMBRESIA_REDONDO_DIA)" class="cursor">
-                        {{ ambulanciaSiService.PRECIO_PUBLICO_REDONDO_DIA }}
-                        <button class="btn btn-success precioRedondoDia" (click)="agregarCarrito( $event, ambulanciaSiService )"> 
-                            <i class="fas fa-plus"></i>  
-                        </button>
-
-                    </td>
-                    <td (click)="alertcomparasion( ambulanciaSiService.PRECIO_PUBLICO_NOCHE, ambulanciaSiService.PRECIO_MEMBRESIA_NOCHE  )" class="cursor">
-
-                        {{ ambulanciaSiService.PRECIO_PUBLICO_NOCHE }}
-                        <button class="btn btn-success precioNoche" (click)="agregarCarrito( $event, ambulanciaSiService )"> 
-                            <i class="fas fa-plus"></i>  
-                        </button>
-
-
-                    </td>
-                    <td (click)="alertcomparasion( ambulanciaSiService.PRECIO_PUBLICO_REDONDO_NOCHE, ambulanciaSiService.PRECIO_MEMBRESIA_REDONDO_NOCHE )" class="cursor">
-                        {{ ambulanciaSiService.PRECIO_PUBLICO_REDONDO_NOCHE }}
-
-                        <button class="btn btn-success precioRedondoNoche" (click)="agregarCarrito( $event, ambulanciaSiService )"> 
-                            <i class="fas fa-plus"></i>  
-                        </button>
-
-
-                    </td>
-                    <td>
-
-                        <!-- *ngIf="role==='admin'" -->
-
-
-                        <button class="btn btn-outline-success" (click)="editarAmbulancia()" [routerLink]="['/ambulancia-editar', ambulanciaSiService._id]" routerLinkActive="router-link-active">
-                    
+        <div class="card" style="border-radius: 30px; margin-left: 25px;">
+          <div class="card-heder header">
+            <div class="row">
+              <div class="col-md-2 text_header">
+                <p>Destino</p>
+              </div>
+              <div class="col-md-2 text_header">
+                <p>Traslado de día</p>
+              </div>
+              <div class="col-md-2 text_header">
+                <p>Traslado redondo de día</p>
+              </div>
+              <div class="col-md-2 text_header">
+                <p>Traslado de noche</p>
+              </div>
+              <div class="col-md-2 text_header">
+                <p>Traslado redondo de noche</p>
+              </div>
+              <div class="col-md-2 text_header"></div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div *ngFor="let ambulanciaSiService of ambulanciaSI">
+              <div class="row">
+                <div class="col-md-2">
+                  <label style="margin-right: 50px;">
+                    {{ ambulanciaSiService.DESTINO }}
+                  </label>
+                </div>
+                <div class="col-md-2">
+                  <div (click)="alertcomparasion( ambulanciaSiService.PRECIO_PUBLICO_DIA, ambulanciaSiService.PRECIO_MEMBRESIA_DIA )" class="cursor">
+                    {{ ambulanciaSiService.PRECIO_PUBLICO_DIA }}
+                    <!-- <button class="btn btn-success precioPublico" (click)="agregarCarrito( $event, ambulanciaSiService )">
+                        <i class="fas fa-plus"></i>
+                    </button> -->
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div (click)="alertcomparasion( ambulanciaSiService.PRECIO_PUBLICO_REDONDO_DIA, ambulanciaSiService.PRECIO_MEMBRESIA_REDONDO_DIA)" class="cursor">
+                    {{ ambulanciaSiService.PRECIO_PUBLICO_REDONDO_DIA }}
+                    <!-- <button class="btn btn-success precioRedondoDia" (click)="agregarCarrito( $event, ambulanciaSiService )">
+                        <i class="fas fa-plus"></i>
+                    </button> -->
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div (click)="alertcomparasion( ambulanciaSiService.PRECIO_PUBLICO_NOCHE, ambulanciaSiService.PRECIO_MEMBRESIA_NOCHE  )" class="cursor">
+                    {{ ambulanciaSiService.PRECIO_PUBLICO_NOCHE }}
+                    <!-- <button class="btn btn-success precioNoche" (click)="agregarCarrito( $event, ambulanciaSiService )">
+                        <i class="fas fa-plus"></i>
+                    </button> -->
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div (click)="alertcomparasion( ambulanciaSiService.PRECIO_PUBLICO_REDONDO_NOCHE, ambulanciaSiService.PRECIO_MEMBRESIA_REDONDO_NOCHE )" class="cursor">
+                    {{ ambulanciaSiService.PRECIO_PUBLICO_REDONDO_NOCHE }}
+                    <!-- <button class="btn btn-success precioRedondoNoche" (click)="agregarCarrito( $event, ambulanciaSiService )">
+                        <i class="fas fa-plus"></i>
+                    </button> -->
+                </div>
+                </div>
+                <div class="col-md-2">
+                  <label class="btn btn-outline-success" style="margin: 10px;" (click)="editarAmbulancia()" [routerLink]="['/ambulancia-editar', ambulanciaSiService._id]" routerLinkActive="router-link-active">
                     <i class="far fa-edit"></i>
-                </button>
-                        <button class="btn btn-outline-danger" (click)="delete(ambulanciaSiService._id)">
+                </label>
+               <label class="btn btn-outline-danger" style="margin: 10px;" (click)="delete(ambulanciaSiService._id)">
                     <i class="fas fa-trash-alt "></i>
-                </button>
-
-
-                    </td>
-                </tr>
-            </tbody>
-
-
-        </table>
+                </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
-
     <div class="col-md-3">
-        <div class="fixed card-fixed">
+      <div class="card" style="margin: 10px; height: 33em; border-radius: 24px;">
+        <div class="card-title" style="border-bottom-style: solid;">
+          <h4 style="text-align: center;">COTIZACIÓN</h4>
+        </div>
+        <div class="card-body">
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+        <div class="fixed card">
             <div class="card border-dark mb-3" style="max-width: 18rem; max-height: 29rem;">
                 <div class="card-header bg-transparent border-dark">
                     <h5>
-                        Cotización
+                        COTIZCIÓN
 
                     </h5>
                 </div>
