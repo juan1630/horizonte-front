@@ -3,13 +3,17 @@ import * as moment from 'moment';
 import swal from "sweetAlert";
 import { PacienteService } from 'src/app/services/paciente/paciente.service';
 import { ActivatedRoute } from '@angular/router';
+import { HistoriaClinicaService } from 'src/app/services/historia-clinica/historia-clinica.service';
+
+
 
 
 
 @Component({
   selector: 'app-fe09',
   templateUrl: './fe09.component.html',
-  styleUrls: ['./fe09.component.scss']
+  styleUrls: ['./fe09.component.scss'],
+  providers: [HistoriaClinicaService]
 })
 export class FE09Component implements OnInit {
 
@@ -31,12 +35,14 @@ export class FE09Component implements OnInit {
     estadoPaciente: '',
     fechaNacimiento: '',
     telefono: '',
-    edad: ''
+    edad: 0,
+    sexo: ''
   }
 
   constructor(
       private _ObtenerPacienteService: PacienteService,
-      private _route: ActivatedRoute
+      private _route: ActivatedRoute,
+      private _HistoriaClinicaService: HistoriaClinicaService,
   ) {
 
    }
@@ -61,9 +67,15 @@ export class FE09Component implements OnInit {
         this.paciente.fechaNacimiento = data.paciente.fechaNacimientoPaciente;
         this.paciente.telefono = data.paciente.telefono;
         this.paciente.edad = data.paciente.edad;
+        this.paciente.sexo = data.paciente.sexo;
+
+        data.paciente.edad = parseFloat(data.paciente.edad);
         
       }
     )
+    var btnAdd = document.getElementById("btn_agregar");
+
+  
     
 
   }
@@ -97,4 +109,34 @@ export class FE09Component implements OnInit {
     // this.imc = this.imc.;
   }
 
+  agregarRow() {
+   
+  }
+
+  
+
+  onSubmit(f) {
+    console.log("form Antecedentes Niños xD");
+
+    this._HistoriaClinicaService.agregarHistoriaClinica(this.id, f.value).subscribe( req => {
+      console.log(req);
+      
+    })
+    
+    
+  }
+
+//    crearDin(){
+         
+//     // var padre = document.getElementById("padre");
+//     var input =document.getElementById("padre").innerHTML +=  `
+
+//       <tr>
+//             <input type="text" placeholder="" class="antecedentes-inputs wer">
+//       </tr>
+//     `;
+//  } 
+
+
 }
+
