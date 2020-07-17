@@ -13,7 +13,18 @@ import swal from 'sweetalert';
 })
 export class AmbulanciaEditComponent implements OnInit {
 
-  public ambulanciaEdit: AmbuEdit;
+  public ambulanciaEdit = {
+              _id: "",
+            DESTINO: "",
+            PRECIO_MEMBRESIA_DIA:"",
+            PRECIO_MEMBRESIA_NOCHE: "",
+            PRECIO_MEMBRESIA_REDONDO_DIA: "",
+            PRECIO_MEMBRESIA_REDONDO_NOCHE: "",
+            PRECIO_PUBLICO_DIA: "",
+            PRECIO_PUBLICO_NOCHE: "",
+            PRECIO_PUBLICO_REDONDO_DIA: "",
+            PRECIO_PUBLICO_REDONDO_NOCHE: ""
+  };
   public status: string;
   public is_edit: boolean;
   public id: string;

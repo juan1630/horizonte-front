@@ -9,44 +9,37 @@ import { URLDEV } from 'src/app/config/index.config';
   providedIn: 'root'
 })
 export class WsLoginService {
-
+  
   public status:boolean = false;
   private socket;
+  public audio = new Audio('../../../../assets/sound/chat/mensajes_iphone.mp3');
 
-  constructor(    
+  constructor()  { 
     
+    this.socket = io( URLDEV );
     
-   )  { 
-
-    this.socket = io( URLDEV )
-
-     this.checkStatus();
-   }
-
+    this.checkStatus(); 
+  }
+  
   checkStatus(){
     this.socket.emit('connect', (usuarios)=> {
-
-
+      
+      
       console.log( usuarios );
       this.status = true;
-
+      
     });
-
-
+    
+    
     this.socket.on('usuarioConectado', { message: 'usuario conectado' } ,(data) => {
       console.log(data);
-    })
+    });
 
-
-    // this.socket.on('disconnect', ()=> {
-    //   console.log("Desconectado del servidor");
-    //   this.status = false;
-    // });
   }
-
-
+  
+  
   login( usuario ){
-
+    
     this.socket.emit('usuarioConectado', { usuario } );
     
     
@@ -59,36 +52,36 @@ export class WsLoginService {
     })
 
   }
-
+  
   mostarUsuario(){
     this.socket.on('usuarioEnLinea', (data) => {
         console.log(data)
-    })
-  }
+      })
+    }
 
-  // prueba de consultas generales
-  enviarConsultas(idConsulta){
+    // prueba de consultas generales
+    enviarConsultas(idConsulta){
 
-    this.socket.emit('consultaGeneral',  { consulta: idConsulta }  );
-
-  }
-
-  public escucharConsulta(){
-
-    return Observable.create(
+      this.socket.emit('consultaGeneral',  { consulta: idConsulta }  );
+      
+    }
+    
+    public escucharConsulta(){
+      
+      return Observable.create(
         (observer) => {
           this.socket.on('consultaNueva', (resp) => {
             console.log( resp);
             observer.next( resp );
             });
         }
-      )
+        )
      
     }
-
-
+    
+    
     public escucharMensajes(){
-
+      
 
       return Observable.create(
         (observer) => {
@@ -97,46 +90,64 @@ export class WsLoginService {
             observer.next(  resp);
           })
         }
-      )
+        )
 
-    }
+      }
 
-    // este observable escucha a todos los usuarios conectados
+      // este observable escucha a todos los usuarios conectados
 
-    escucahrUsuaurtioConectados(){
+      escucahrUsuaurtioConectados(){
 
-      return Observable.create(
-        (observer) => {
-          this.socket.on('usuarioEnLinea', (resp) => {
-            observer.next( resp );
-          })
+        return Observable.create(
+          (observer) => {
+            this.socket.on('usuarioEnLinea', (resp) => {
+              observer.next( resp );
+            })
+          }
+          )
+          
         }
-      )
-
+        
+        
+    notificacionAudio(){
+      
+      this.audio.load();
+      this.audio.play();
+      
     }
-
-
+    
+    
     escucharMensajesLab(){
       return Observable.create(
         (observer) => {
           this.socket.on('mensajeLab', (resp) => {
+
+
+
+            if( !resp.payload.horaEnvio  ){
+              this.notificacionAudio();
+
+            }
+
+
+            console.log("Mensaje lab" ,resp );
             observer.next( resp );
           })
         }
-      )
+        )
     }
-
-
+    
+    
     desconectarUsuario( user ){
-
-
+      
+      
       this.socket.emit('cerrarSesion', { user });
-
+      
     }
-
-
+    
+    
     escucharUsuarioDesconectado(){
-
+      
       return Observable.create(
         (observer) => {
 
@@ -144,15 +155,15 @@ export class WsLoginService {
             observer.next( resp.userDisconect );
           })
         }
-      )
-    }
-
-
+        )
+      }
+      
+      
   enviarMensaje( data:any ){
 
     this.socket.emit('mensaje', { payload: data })
   }
 
-
-
+  
+  
 }

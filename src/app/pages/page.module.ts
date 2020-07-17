@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule  } from '@angular/router';
+import { PdfViewerModule } from 'ng2-pdf-viewer'
 
 
 // modules
@@ -39,7 +40,7 @@ import { XraySIComponent } from './servivicosInt/xray/xray-s-i.component';
 import { PagosMaternidadComponent } from './pagos/pagos-maternidad/pagos-maternidad.component';
 import { HojaFramComponent } from './servivicosInt/hoja-fram/hoja-fram.component';
 import { TabuladorPagosComponent } from './pagosMaternidad/tabulador-pagos/tabulador-pagos.component';
-import { MaternidadComponent } from './contrato/maternidad/maternidad.component';
+
 import { EstudiosComponent } from './servivicosInt/laboratorio/estudios/estudios.component';
 import { PerfilesComponent } from './servivicosInt/laboratorio/perfiles/perfiles.component';
 import { ContratacionComponent } from './servivicosInt/laboratorio/contratacion/contratacion.component';
@@ -73,6 +74,8 @@ import { HojaDiariaEnfUrgenciaComponent } from './Hojas_Diarias/hoja-diaria-enf-
 import { EnfermeriaDashboardComponent } from './Enfermeria/enfermeria-dashboard/enfermeria-dashboard.component';
 import { DashComponent } from './farmacia/dash/dash.component';
 import { ConsultaGeneralComponent } from './consultas/consulta-general/consulta-general.component';
+import { PaqueteMedicoLaboralComponent } from './paquete-medico-laboral/paquete-medico-laboral.component';
+import { PediatricoComponent } from './contratos/pediatrico/pediatrico.component';
 
 
 @NgModule({
@@ -117,7 +120,6 @@ import { ConsultaGeneralComponent } from './consultas/consulta-general/consulta-
     UltrasonidoNewComponent,
     PagosMaternidadComponent,
     TabuladorPagosComponent,
-    MaternidadComponent,
     EstudiosComponent,
     PerfilesComponent,
     ContratacionComponent,
@@ -138,7 +140,9 @@ import { ConsultaGeneralComponent } from './consultas/consulta-general/consulta-
     HojaDiariaEnfUrgenciaComponent,
     EnfermeriaDashboardComponent,
     DashComponent,
-    ConsultaGeneralComponent
+    ConsultaGeneralComponent,
+    PaqueteMedicoLaboralComponent,
+    PediatricoComponent
   ],
   exports: [ 
     PageComponent,
@@ -150,7 +154,9 @@ import { ConsultaGeneralComponent } from './consultas/consulta-general/consulta-
     FormsModule,
     RouterModule,
     PAGES_ROUTES,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PdfViewerModule
+
   ]
 
 })

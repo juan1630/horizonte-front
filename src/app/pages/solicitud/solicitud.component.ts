@@ -18,33 +18,34 @@ export class SolicitudComponent implements OnInit {
 
   public fecha = ` ${new Date().toLocaleDateString()}`;
 
-
   public paciente={
     RFCFiscal: "",
-    apellidoMaterno:"1",
-    apellidoPaterno:"1",
+    apellidoMaterno: "",
+    apellidoPaterno: "",
     calleNumeroPaciente: "",
-    coloniaFiscal: "",
-    consultas:"1",
+    consultas:"",
     contactoEmergancia1: "",
     correo: "",
     cpFiscal: "",
-    cpPaciente: "" ,
     curp: "",
-    edad : 0,
+    edad:0,
     emailFiscal: "",
     entidadFederativa: "",
     estadoPaciente: "",
     fechaNacimientoPaciente: "",
     fechaRegistro: "",
+    genero: "",
+    cpPaciente: 0,
     localidadFiscal: "",
-    municipioFiscal: "",
+    municipioFiscal:"" ,
     nombrePaciente: "",
-    nombreRazonSocial:"",
+    nombreRazonSocial: "",
+    coloniaFiscal:"",
+    paisNacimiento: "",
     paisPaciente: "",
-    poblacion: "Maestro ",
+    poblacion: "",
     referenciaPaciente: "",
-    telefono: "" ,
+    telefono:"" ,
     telefonoContactoEmergencia1: ""
   };
 
@@ -71,7 +72,7 @@ export class SolicitudComponent implements OnInit {
   };
   public paquetesPacientes: any;
   // declaradas
-  public anticipo;
+  public anticipo = 0;
   public parentesco1: string;
   public parentesco2: string;
   public celular:string;
@@ -122,7 +123,6 @@ export class SolicitudComponent implements OnInit {
 
         console.log( data );
         this.paquetesDB = data.paquetes;
-        console.log( this.paquetesDB );
 
       })
     }
@@ -133,7 +133,7 @@ export class SolicitudComponent implements OnInit {
 
     this._pacientesServices.getPacienteBtID( id )
     .subscribe( (data:any) => {
-      console.log(data);
+
       this.paciente = data.paciente;
         });
       
@@ -145,14 +145,21 @@ export class SolicitudComponent implements OnInit {
 
         this.paquetesService.getPaqueById( id )
         .subscribe( (data )  => {
-            console.log(data);
+ 
             this.paqueteSelected = data;
               
-              this.anticipo = 1000;
-            // }else if( this.anticipo = "SERVICIO DE LA MEMBRESIA" ){
+            // el anticipo varia de acuerdo al paquete
+            if(this.paqueteSelected.nombrePaquete === 'PAQUETE DE CONTROL PRENATAL') {
+              this.anticipo = 1500;
 
-            //   this.anticipo = 500;
-            // }
+            }else if( this.paqueteSelected.nombrePaquete === 'PAQUETE MÉDICO LABORAL') {
+              
+              this.anticipo = 175;
+
+            }else if(this.paqueteSelected.nombrePaquete === 'SERVICIOS DE LA MEMBRESIA'){
+              this.anticipo = 500;
+            }
+           
         });
     }
 // esta funcio valida el select, que no vaya vacio
@@ -172,34 +179,44 @@ export class SolicitudComponent implements OnInit {
 
       let dataForm = f.value;
 
-      this._solicitud.setPaquete( dataForm, this.paciente, this.paqueteSelected, this.fecha )
+      // console.log("Data form", dataForm );
+
+      this._solicitud.setPaquete( dataForm, this.paciente, this.paqueteSelected, this.fecha, this.anticipo, 1, this.usuarioMaq.nombre, this.usuarioMaq.nombre  )
       .subscribe( (data:any) => {
+
           this.paquetesPacientes = data.paquete;
 
           this._pacientesServices.addPaquete( this.paciente, this.paqueteSelected, dataForm , this.paquetesPacientes )
           .subscribe( (data: any) => {
-            console.log( 'Actualizando info paciente',  data );
+            
             if( data.ok ){
-              swal('Paquete agregado', '', 'success');
-              
-              return;
 
-              // else if ( this.paqueteSelected.nombrePaquete === "PAQUETE MÉDICO LABORAL" ){
-              //   this._router.navigateByUrl('/paqueteMaternidad');
-              // }
+              swal('Paquete agregado', 'Se agrego el paquete', 'success');
+              
+
+
+              if( this.paqueteSelected.nombrePaquete ===  "PAQUETE DE CONTROL PRENATAL"){
+                
+                this._router2.navigateByUrl('/contrato-maternidad');
+
+              }else if( this.paqueteSelected.nombrePaquete === "PAQUETE MÉDICO LABORAL"  ){
+                this._router2.navigateByUrl('/contrato-medico-laboral')
+              
+              }else if(  this.paqueteSelected.nombrePaquete === 'PAQUETE PEDIATRICO (APARTIR DE LOS 12 MESES)' ){
+                this._router2.navigateByUrl('/contrato/pediatrico');
+              }
+              else if( this.paqueteSelected.nombrePaquete === 'PAQUETE VIDA PLENA'  ){
+
+                this._router2.navigateByUrl('/contrato/vida/plena');
+              }
+            
 
               }
-
-
  
       })
     });
       
     }
-
-  
-    
-
 
 
 
@@ -217,7 +234,7 @@ export class SolicitudComponent implements OnInit {
         }
         })
         .then(value => {
-          console.log( value );
+
           if( value ){
   
             this._router2.navigateByUrl('/paciente');

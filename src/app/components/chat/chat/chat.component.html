@@ -1,16 +1,25 @@
 <form class="card chat">
 
 
-    <div class="chat-header">
+    <div class="chat-header" (click)="cerrarVentanachat()">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+            <span aria-hidden="true"           >&times;</span>
           </button>
+
+        <div class="conversacion">
+            <p class="text-warning">
+                {{ roleNotificacion }}
+
+            </p>
+        </div>
+
+
     </div>
 
     <div class="chat-body">
 
         <div class="card message-card" *ngFor="let message of mesages">
-            {{ message.message }}
+            {{ message.message }} <span class="horaMessage"> {{message.horaEnvio}}  </span>
         </div>
 
     </div>

@@ -4,7 +4,7 @@ import { LoginService } from 'src/app/services/login/login.service';
 import { Personal } from 'src/app/intefaces/usuario.interface';
 import { Router } from '@angular/router';
 
-import   swal  from 'sweetalert';
+import swal from 'sweetalert';
 
 
 @Component({
@@ -38,6 +38,36 @@ export class LoginComponent implements OnInit {
 
     this._loginService.login( personal )
     .subscribe( (correcto: any)=> {
+
+
+
+    //  swal({
+    //    title: 'Selecciona un role',
+    //     input: 'select',
+    //     inputOptions: {
+    //       'Fruits': {
+    //         apples: 'Apples',
+    //         bananas: 'Bananas',
+    //         grapes: 'Grapes',
+    //         oranges: 'Oranges'
+    //       },
+    //     inputPlaceholder: 'Selecciona el role',
+    //     showCancelButton: true,
+    //     inputValidator: (value) => {
+    //       return new Promise((resolve) => {
+    //         if (value === 'oranges') {
+    //           resolve()
+    //         } else {
+    //           resolve('You need to select oranges :)')
+    //         }
+    //       })
+    //     }
+    //   }
+    // });
+      
+      // if (fruit) {
+      //   swal.fire(`You selected: ${fruit}`)
+      // }
  
       this.router.navigate(['/dashboard'])
 

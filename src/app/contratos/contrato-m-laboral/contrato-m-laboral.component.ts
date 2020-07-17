@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContratoMLaboralComponent implements OnInit {
 
+
+    
+  public pdfSrc =  "../../../assets/contracts/laboral/ContratoPaqueteMedicoLaboral.pdf";
+
   constructor() { }
 
   ngOnInit(): void {

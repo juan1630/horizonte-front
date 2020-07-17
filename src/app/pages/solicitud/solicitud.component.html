@@ -12,7 +12,7 @@
             <div class="col-md-3">
                 <div class="form-group">
                     <!--    -->
-                    <input type="text" placeholder="VENDEDOR" [value]="usuarioMaq.nombre" class="form-control" name="vendedor">
+                    <input type="text" placeholder="VENDEDOR" disabled [value]="usuarioMaq.nombre" class="form-control" name="vendedor">
                 </div>
             </div>
             <div class="col-md-2">
@@ -54,15 +54,7 @@
             <div class="col-md-2">
                 <div class="form-group">
 
-                    <select class="form-control">
-            <optgroup>
-                <option selected name="genero" >
-                    GENERO
-                </option>
-                <option value="MASCULINO" >  MASCULINO </option>
-                <option value="FEMENINO" > FEMENINO </option>
-            </optgroup>
-        </select>
+                    <input type="text" name="genero" id="genero" class="form-control" [value]="paciente.genero">
                 </div>
             </div>
             <div class="col-md-2">
@@ -74,7 +66,7 @@
 
             <div class="col-md-2">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="NACIONALIDAD" [value]="paciente.paisPaciente">
+                    <input type="text" class="form-control" placeholder="NACIONALIDAD" [value]="paciente.paisNacimiento">
                 </div>
             </div>
             <div class="col-md-3">
@@ -286,7 +278,7 @@
             </div>
             <div class="col-md-3">
                 <div class="form-group">
-                    <input type="text" class="form-control" name="atendio" [value]="usuarioMaq.nombre" placeholder="ATENDIÓ">
+                    <input type="text" class="form-control" disabled name="atendio" [value]="usuarioMaq.nombre" placeholder="ATENDIÓ">
                 </div>
             </div>
             <!-- <div class="col-md-3" >
@@ -302,11 +294,19 @@
                 <p> ANTICIPO </p>
             </div>
             <div class="col-md-3">
+
                 <div class="input-group-prepend">
-
-                    <input disabled type="text" class="form-control input-paquete" name="anticipo" [value]="anticipo">
-
+                    <span class="input-group-text">$</span>
+                    <input type="number" class="form-control input-paquete" min="0" disabled name="anticipo" ngModel [value]="anticipo">
+                    <div class="input-group-append ">
+                        <span class="input-group-text"> M.N. </span>
+                    </div>
                 </div>
+                <!-- <div class="input-group-prepend">
+
+                    <input disabled type="text" class="form-control input-paquete" >
+
+                </div> -->
             </div>
         </div>
         <div class="row">

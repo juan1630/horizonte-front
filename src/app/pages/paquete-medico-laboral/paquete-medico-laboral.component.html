@@ -1,0 +1,159 @@
+<div class="container-fluid">
+    <button class="btn btn-info mb-2" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <i class="fas fa-folder-plus"></i> Agregar consulta
+    </button>
+    <div class="collapse mb-4" id="collapseExample">
+        <div class="card card-body">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>
+                            <select class="form-control">
+                                <option value="" selected>Tipo de consulta o examen...</option>
+                                <option value="1">Citas incluidas</option>
+                                <option value="2">Descuentos</option>
+                                <option value="3">Farmacia</option>
+                                <option value="4">Estudios de laboratorio</option>
+                                <option value="5">Estudios de ultrasonido</option>
+                                <option value="6">Rayos X</option>
+                                <option value="7">Extras</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select class="form-control">
+                                <option value="" selected>Concepto...</option>
+                                <option value="item" >item</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select class="form-control">
+                                <option value="" selected>Medico...</option>
+                                <option *ngFor="let medico of medicos"  value="medico.nombre"  >
+                                    {{ medico.nombre }}
+                                </option>
+                            </select>
+                        </td>
+                        <td><input type="text" class="form-control" placeholder="Firma..."></td>
+                        <td>
+                            <button class="btn btn-danger" (click)="agregarConsulta()">Agregar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="mt-5 p-3 mb-2 border-bottom border-primary text-primary">
+        Citas Incluidas
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12" *ngFor="let item of citas; let i = index">
+                <div class="card border-primary" *ngIf="item.fecha" style="cursor: pointer;" (click)="mostrarDatos(item.consulta, item.medico, '1')">
+                    <div class="card-body">
+                        <span class="badge badge-primary">{{ i + 1 }}</span>
+                        <p class="text-center"><i class="fas fa-file-alt mr-2"></i>{{ item.fecha | date:'short' }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5 p-3 mb-2 border-bottom border-success text-success">
+        Descuentos
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12" *ngFor="let item of citas; let i = index">
+                <div class="card border-success" *ngIf="item.fecha" style="cursor: pointer;" (click)="mostrarDatos(item.consulta, item.medico, '2')">
+                    <div class="card-body">
+                        <span class="badge badge-success">{{ i + 1 }}</span>
+                        <p class="text-center"><i class="fas fa-file-alt mr-2"></i>{{ item.fecha | date:'short' }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5 p-3 mb-2 border-bottom border-info text-info">
+        Farmacia
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12" *ngFor="let item of citas; let i = index">
+                <div class="card border-info" *ngIf="item.fecha" style="cursor: pointer;" (click)="mostrarDatos(item.consulta, item.medico, '3')">
+                    <div class="card-body">
+                        <span class="badge badge-info">{{ i + 1 }}</span>
+                        <p class="text-center"><i class="fas fa-file-alt mr-2"></i>{{ item.fecha | date:'short' }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5 p-3 mb-2 border-bottom border-warning text-warning">
+        Estudios de Laboratorio
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12" *ngFor="let item of citas; let i = index">
+                <div class="card border-warning" *ngIf="item.fecha" style="cursor: pointer;" (click)="mostrarDatos(item.consulta, item.medico, '4')">
+                    <div class="card-body">
+                        <span class="badge badge-warning">{{ i + 1 }}</span>
+                        <p class="text-center"><i class="fas fa-file-alt mr-2"></i>{{ item.fecha | date:'short' }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5 p-3 mb-2 border-bottom border-secondary text-secondary">
+        Estudios de Ultrasonido
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12" *ngFor="let item of citas; let i = index">
+                <div class="card border-secondary" *ngIf="item.fecha" style="cursor: pointer;" (click)="mostrarDatos(item.consulta, item.medico, '5')">
+                    <div class="card-body">
+                        <span class="badge badge-secondary">{{ i + 1 }}</span>
+                        <p class="text-center"><i class="fas fa-file-alt mr-2"></i>{{ item.fecha | date:'short' }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5 p-3 mb-2 border-bottom border-danger text-danger">
+        Rayos X
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12" *ngFor="let item of citas; let i = index">
+                <div class="card border-danger" *ngIf="item.fecha" style="cursor: pointer;" (click)="mostrarDatos(item.consulta, item.medico, '6')">
+                    <div class="card-body">
+                        <span class="badge badge-danger">{{ i + 1 }}</span>
+                        <p class="text-center"><i class="fas fa-file-alt mr-2"></i>{{ item.fecha | date:'short' }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5 p-3 mb-2 border-bottom border-primary text-primary">
+        Extras
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12" *ngFor="let item of citas; let i = index">
+                <div class="card border-primary" *ngIf="item.fecha" style="cursor: pointer;" (click)="mostrarDatos(item.consulta, item.medico, '7')">
+                    <div class="card-body">
+                        <span class="badge badge-primary">{{ i + 1 }}</span>
+                        <p class="text-center"><i class="fas fa-file-alt mr-2"></i>{{ item.fecha | date:'short' }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
