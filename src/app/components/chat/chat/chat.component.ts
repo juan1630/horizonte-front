@@ -37,7 +37,7 @@ export class ChatComponent implements OnInit {
     this.usuario = getDataStorage();
 
 
-    if( this.usuario.role === "laboratorio" || this.usuario.role === "recepcion" ){
+    // if( this.usuario.role === "laboratorio" || this.usuario.role === "recepcion" ){
       
 
       this.wsloginService.escucharMensajesLab()
@@ -47,7 +47,7 @@ export class ChatComponent implements OnInit {
 
 
 
-    }
+    // }
 
 
 
@@ -57,11 +57,11 @@ export class ChatComponent implements OnInit {
 
 
     
-    if( this.usuario.role === "laboratorio" || this.usuario.role === "recepcion" ){
+    // if( this.usuario.role === "laboratorio" || this.usuario.role === "recepcion" ){
       this.wsloginService.enviarMensaje( this.payload );
       this.payload.message = '';
       
-    }
+    // }
 
 
   }

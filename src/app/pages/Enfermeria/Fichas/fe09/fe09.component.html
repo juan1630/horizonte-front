@@ -36,6 +36,9 @@
         <div class="col-sm">
             <p>Edad: {{ paciente.edad }} </p>
         </div>
+        <div class="col-sm">
+            <p>Género: {{paciente.sexo }} </p>
+        </div>
     </div> <br> <br>
 
     <!-- <div class="col-md-3">
@@ -65,759 +68,1462 @@
             </select>
         </div>
     </div> <br><br>
-
-    <p>Somatometría y signos vitales por primera vez</p>
-    <div class="row center">
-        <div class="col-md-1">
-            <label for="">Talla m</label>
-            <input type="text" placeholder="Talla M" [(ngModel)]="talla">
-        </div>
-        <div class="col-md-1">
-            <label for="">Peso Kg</label>
-            <input type="text" placeholder="Peso" [(ngModel)]="peso" (change)="obtenerIMC()">
-        </div>
-        <div class="col-md-1">
-            <label for="">P/T^2</label>
-            <input type="text" placeholder="IMC" [(ngModel)]="imc" [value]="imc">
-            <!-- Crear en base P/T ^ 2, debe ser por defecto -->
-        </div>
-        <div class="col-md-1">
-            <label for="">LPM</label>
-            <input type="text" placeholder="FC">
-        </div>
-        <div class="col-md-1">
-            <label for="">RPM</label>
-            <input type="text" placeholder="FR">
-        </div>
-        <div class="col-md-1">
-            <label for="">°C</label>
-            <input type="text" placeholder="TEMP">
-        </div>
-
-        <div class="col-md-1">
-            <label for="">PC cm</label>
-            <input type="text" placeholder="P.C.">
-        </div>
-        <div class="col-md-1">
-            <label for="">PA cm</label>
-            <input type="text" placeholder="P.A.">
-        </div>
-        <div class="col-md-1">
-            <label for="">PT cm</label>
-            <input type="text" placeholder="P.T.">
-        </div>
-        <div class="col-md-1">
-            <label for="">SaO %</label>
-            <input type="text" placeholder="SaO">
-        </div>
-    </div><br><br>
-
-    <!-- INICIO BOTONES MODALES -->
-    <!-- Antecedentes por medio del Modal -->
-    <div class="botones center">
-        <button id="btn1" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Antecedentes</button>
-        <!-- Button Signos Vitales -->
-        <button id="btn2" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal2">Signos Vitales</button>
-        <!-- Button Signos Vitales -->
-        <button id="btn3" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal3">Esquema de Vacunación</button>
-        <!-- Button Nutrición -->
-        <button id="btn4" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal4">Nutrición</button>
-    </div>
-    <!-- FIN BOTONES MODALES -->
-
-
-
-    <!-- INICIO MODALES -->
-
-    <div id="modal1" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title center">Antecedentes</h3>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="row center">
-                    <div class="col-md-2">
-                        <h5>Listado</h5>
-                    </div>
-                    <div class="col-md-2">
-                        <h5>Personales</h5>
-                    </div>
-                    <div class="col-md-2">
-                        <h5>Fecha</h5>
-                    </div>
-                    <div class="col-md-2">
-                        <h5>Familiares</h5>
-                    </div>
-                    <div class="col-md-2">
-                        <h5>Notas</h5>
-                    </div>
-
-                    <div class="col-md-2"></div>
-                    <div class="col-md-2">
-                        <p>Enfermedades de la Piel</p>
-                    </div>
-                    <div class="col-md-2">
-
-                        <input type="text" placeholder="" class="antecedentes-inputs">
-                    </div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                    <!-- Bloque 2 -->
-                    <div class="col-md-2"></div>
-                    <div class="col-md-2">
-                        <p>Desnutrición</p>
-                    </div>
-                    <div class="col-md-2">
-
-                        <input type="text" placeholder="" class="antecedentes-inputs">
-                    </div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                    <!-- End bloque 2 -->
-                    <!-- Bloque 3 -->
-                    <div class="col-md-2"></div>
-                    <div class="col-md-2">
-                        <p>Obesidad</p>
-                    </div>
-                    <div class="col-md-2">
-
-                        <input type="text" placeholder="" class="antecedentes-inputs">
-                    </div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                    <!-- End bloque 3 -->
-                    <!-- Bloque 3 -->
-                    <div class="col-md-2"></div>
-                    <div class="col-md-2">
-                        <p>Defectos Postulares</p>
-                    </div>
-                    <div class="col-md-2">
-
-                        <input type="text" placeholder="" class="antecedentes-inputs">
-                    </div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                    <!-- End bloque 3 -->
-                    <!-- Bloque 3 -->
-                    <div class="col-md-2"></div>
-                    <div class="col-md-2">
-                        <p>Fracturas</p>
-                    </div>
-                    <div class="col-md-2">
-
-                        <input type="text" placeholder="" class="antecedentes-inputs">
-                    </div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                    <!-- End bloque 3 -->
-                    <!-- Bloque 3 -->
-                    <div class="col-md-2"></div>
-                    <div class="col-md-2">
-                        <p>Hospitalizaciones</p>
-                    </div>
-                    <div class="col-md-2">
-
-                        <input type="text" placeholder="" class="antecedentes-inputs">
-                    </div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                    <!-- End bloque 3 -->
-                    <!-- Bloque 3 -->
-                    <div class="col-md-2"></div>
-                    <div class="col-md-2">
-                        <p>Transfusiones</p>
-                    </div>
-                    <div class="col-md-2">
-
-                        <input type="text" placeholder="" class="antecedentes-inputs">
-                    </div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                    <!-- End bloque 3 -->
-                    <!-- Bloque 3 -->
-                    <div class="col-md-2"></div>
-                    <div class="col-md-2">
-                        <p>Cardiopatias</p>
-                    </div>
-                    <div class="col-md-2">
-
-                        <input type="text" placeholder="" class="antecedentes-inputs">
-                    </div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                    <!-- End bloque 3 -->
-                    <!-- Bloque 3 -->
-                    <div class="col-md-2"></div>
-                    <div class="col-md-2">
-                        <p>Cirugias</p>
-                    </div>
-                    <div class="col-md-2">
-
-                        <input type="text" placeholder="" class="antecedentes-inputs">
-                    </div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                    <!-- End bloque 3 -->
-                    <!-- Bloque 3 -->
-                    <div class="col-md-2"></div>
-                    <div class="col-md-2">
-                        <p>Cancer/Leucemia</p>
-                    </div>
-                    <div class="col-md-2">
-
-                        <input type="text" placeholder="" class="antecedentes-inputs">
-                    </div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                    <!-- End bloque 3 -->
-                    <!-- Bloque 3 -->
-                    <div class="col-md-2"></div>
-                    <div class="col-md-2">
-                        <p>Alergias</p>
-                    </div>
-                    <div class="col-md-2">
-
-                        <input type="text" placeholder="" class="antecedentes-inputs">
-                    </div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                    <!-- End bloque 3 -->
-                    <!-- Bloque 3 -->
-                    <div class="col-md-2"></div>
-                    <div class="col-md-2">
-                        <p>VIH</p>
-                    </div>
-                    <div class="col-md-2">
-
-                        <input type="text" placeholder="" class="antecedentes-inputs">
-                    </div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                    <!-- End bloque 3 -->
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Guardar</button>
-                </div>
+    <div class="" *ngIf="paciente.edad <= 9">
+        <p>Somatometría y signos vitales por primera vez</p>
+        <div class="row center">
+            <div class="col-md-1">
+                <label for="">Talla m</label>
+                <input type="text" placeholder="Talla M" [(ngModel)]="talla">
             </div>
-        </div>
-
-    </div>
-
-    <!-- End Modal Antecedentes -->
-
-
-    <div id="modal2" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="signos-vitales" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content modal-XL">
-                <div class="modal-header">
-                    <h3 id="signos-vitales" class="modal-title center">Signos Vitales</h3>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="row center">
-                    <div class="col-md-1 margen-offset centerxdd">
-                        <h5>Fecha</h5>
-                    </div>
-                    <div class="col-md-1 margen-offset centerxdd">
-                        <h5>FC LPM</h5>
-                    </div>
-                    <div class="col-md-1 margen-offset centerxdd">
-                        <h5>FR RPM</h5>
-                    </div>
-                    <div class="col-md-1 margen-offset centerxdd">
-                        <h5>TEMP °C</h5>
-                    </div>
-                    <div class="col-md-1 margen-offset centerxdd">
-                        <h5>Talla m</h5>
-                    </div>
-                    <div class="col-md-1 margen-offset centerxdd">
-                        <h5>Peso Kg</h5>
-                    </div>
-                    <div class="col-md-1 margen-offset centerxdd">
-                        <h5>IMC P/T^2</h5>
-                    </div>
-                    <div class="col-md-1">
-                        <h5>Notas</h5>
-                    </div>
-
-                    <!-- Bloque 3 -->
-                    <div class="col-md-1"></div>
-                    <div class="col-md-1">
-
-                        <input type="text" [placeholder]="fecha" class="antecedentes-inputs margen-offset-2">
-                    </div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                    <!-- End bloque 3 -->
-                    <!-- Bloque 3 -->
-                    <div class="col-md-1"></div>
-                    <div class="col-md-1">
-
-                        <input type="text" placeholder="" class="antecedentes-inputs margen-offset-2">
-                    </div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                    <!-- End bloque 3 -->
-                    <!-- Bloque 3 -->
-                    <div class="col-md-1"></div>
-                    <div class="col-md-1">
-
-                        <input type="text" placeholder="" class="antecedentes-inputs margen-offset-2">
-                    </div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                    <!-- End bloque 3 -->
-                    <!-- Bloque 3 -->
-                    <div class="col-md-1"></div>
-                    <div class="col-md-1">
-
-                        <input type="text" placeholder="" class="antecedentes-inputs margen-offset-2">
-                    </div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                    <!-- End bloque 3 -->
-                    <!-- Bloque 3 -->
-                    <div class="col-md-1"></div>
-                    <div class="col-md-1">
-
-                        <input type="text" placeholder="" class="antecedentes-inputs margen-offset-2">
-                    </div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                    <!-- End bloque 3 -->
-                    <!-- Bloque 3 -->
-                    <div class="col-md-1"></div>
-                    <div class="col-md-1">
-
-                        <input type="text" placeholder="" class="antecedentes-inputs margen-offset-2">
-                    </div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                    <!-- End bloque 3 -->
-                    <!-- Bloque 3 -->
-                    <div class="col-md-1"></div>
-                    <div class="col-md-1">
-
-                        <input type="text" placeholder="" class="antecedentes-inputs margen-offset-2">
-                    </div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                    <!-- End bloque 3 -->
-                    <!-- Bloque 3 -->
-                    <div class="col-md-1"></div>
-                    <div class="col-md-1">
-
-                        <input type="text" placeholder="" class="antecedentes-inputs margen-offset-2">
-                    </div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                    <!-- End bloque 3 -->
-                    <!-- Bloque 3 -->
-                    <div class="col-md-1"></div>
-                    <div class="col-md-1">
-
-                        <input type="text" placeholder="" class="antecedentes-inputs margen-offset-2">
-                    </div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                    <!-- End bloque 3 -->
-                    <!-- Bloque 3 -->
-                    <div class="col-md-1"></div>
-                    <div class="col-md-1">
-
-                        <input type="text" placeholder="" class="antecedentes-inputs margen-offset-2">
-                    </div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                    <!-- End bloque 3 -->
-                    <!-- Bloque 3 -->
-                    <div class="col-md-1"></div>
-                    <div class="col-md-1">
-
-                        <input type="text" placeholder="" class="antecedentes-inputs margen-offset-2">
-                    </div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                    <!-- End bloque 3 -->
-                    <!-- Bloque 3 -->
-                    <div class="col-md-1"></div>
-                    <div class="col-md-1">
-
-                        <input type="text" placeholder="" class="antecedentes-inputs margen-offset-2">
-                    </div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                    <!-- End bloque 3 -->
-                    <!-- Bloque 3 -->
-                    <div class="col-md-1"></div>
-                    <div class="col-md-1">
-
-                        <input type="text" placeholder="" class="antecedentes-inputs margen-offset-2">
-                    </div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                    <!-- End bloque 3 -->
-                    <!-- Bloque 3 -->
-                    <div class="col-md-1"></div>
-                    <div class="col-md-1">
-
-                        <input type="text" placeholder="" class="antecedentes-inputs margen-offset-2">
-                    </div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                    <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                    <!-- End bloque 3 -->
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" (click)="alerta()">Guardar</button>
-                </div>
+            <div class="col-md-1">
+                <label for="">Peso Kg</label>
+                <input type="text" placeholder="Peso" [(ngModel)]="peso" (change)="obtenerIMC()">
             </div>
-        </div>
-
-    </div>
-    <!-- End Modal Signos Vitales -->
-
-    <!-- Inicio Modal Esquema de Vacunación -->
-    <div id="modal3" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="esquema-vacunacion" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content modal-ext">
-                <div class="modal-header">
-                    <h3 class="modal-title center">Esquema de Vacunación</h3>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="row center">
-                    <div class="col-md-3 parrafos-enf">
-                        <h5>Listado</h5>
-                        <p>BCG</p>
-                        <p>Hepatitis B</p>
-                        <p>Pentavalante</p>
-                        <p>DPT</p>
-                        <p>Rotavirus</p>
-                        <p>Neumococo</p>
-                        <p>Influenza</p>
-                        <p>SRC</p>
-                        <p>Sabin</p>
-                        <p>SRP</p>
-                        <p>Otras Vacunas</p>
-
-                    </div>
-                    <div class="col-md-4 abajo-dosis">
-                        <h5>.</h5>
-                        <p>Tuberculosis</p>
-                        <p>Difteria, Tosferina, Tétanos, Poliomielitis e Infecciones por H. Influenzae b</p>
-                        <p>Difteria, Tosferina y Tétanos</p>
-                        <p>Diarrea por Rotavirus</p>
-                        <p>Infecciones por Neumococo</p>
-                        <p>Influenza</p>
-                        <p>Sarampión, Rubéola, Parotiditis</p>
-                        <p>Poliomielitis</p>
-                        <p>Sarampión y Rubéola</p>
-                        <input type="text" placeholder="" class="antecedentes-inputs">
-                        <input type="text" placeholder="" class="antecedentes-inputs">
-                    </div>
-                    <div class="col-md-2">
-                        <h5>Dosis</h5>
-                        <input type="text" placeholder="" class="antecedentes-inputs">
-                        <input type="text" placeholder="" class="antecedentes-inputs">
-                        <input type="text" placeholder="" class="antecedentes-inputs">
-                        <input type="text" placeholder="" class="antecedentes-inputs">
-                        <input type="text" placeholder="" class="antecedentes-inputs">
-                        <input type="text" placeholder="" class="antecedentes-inputs">
-                        <input type="text" placeholder="" class="antecedentes-inputs">
-                        <input type="text" placeholder="" class="antecedentes-inputs">
-                        <input type="text" placeholder="" class="antecedentes-inputs">
-                        <input type="text" placeholder="" class="antecedentes-inputs">
-                        <input type="text" placeholder="" class="antecedentes-inputs">
-                        <!-- Crear en base P/T ^ 2, debe ser por defecto -->
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Guardar</button>
-                </div>
+            <div class="col-md-1">
+                <label for="">P/T^2</label>
+                <input type="text" placeholder="IMC" [(ngModel)]="imc" [value]="imc">
+                <!-- Crear en base P/T ^ 2, debe ser por defecto -->
             </div>
+            <div class="col-md-1">
+                <label for="">LPM</label>
+                <input type="text" placeholder="FC">
+            </div>
+            <div class="col-md-1">
+                <label for="">RPM</label>
+                <input type="text" placeholder="FR">
+            </div>
+            <div class="col-md-1">
+                <label for="">°C</label>
+                <input type="text" placeholder="TEMP">
+            </div>
+
+            <div class="col-md-1">
+                <label for="">PC cm</label>
+                <input type="text" placeholder="P.C.">
+            </div>
+            <div class="col-md-1">
+                <label for="">PA cm</label>
+                <input type="text" placeholder="P.A.">
+            </div>
+            <div class="col-md-1">
+                <label for="">PT cm</label>
+                <input type="text" placeholder="P.T.">
+            </div>
+            <div class="col-md-1">
+                <label for="">SaO %</label>
+                <input type="text" placeholder="SaO">
+            </div>
+        </div><br><br>
+
+        <!-- INICIO BOTONES MODALES -->
+        <!-- Antecedentes por medio del Modal -->
+        <div class="botones center">
+            <button id="btn1" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Antecedentes</button>
+            <!-- Button Signos Vitales -->
+            <button id="btn2" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal2">Signos Vitales</button>
+            <!-- Button Signos Vitales -->
+            <button id="btn3" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal3">Esquema de Vacunación</button>
+            <!-- Button Nutrición -->
+            <button id="btn4" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal4">Nutrición</button>
         </div>
+        <!-- FIN BOTONES MODALES -->
 
-    </div>
-    <!-- End Modal Esquema de Vacunación -->
 
-    <!-- Inicio Modal Nutrición -->
-    <div id="modal4" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="nutricion" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content modal-XL modalNutricion">
-                <div class="modal-header">
-                    <h3 id="nutricion" class="modal-title center">Nutrición</h3>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+        <!-- INICIO MODALES -->
+        <form #fAntecedentes="ngForm" (ngSumbit)="onSubmit(fAntecedentes)">
+            <div id="modal1" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title center">Antecedentes</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
-                </div>
-                <div class="row center">
-                    <div class="col-md-1 espacio-cols esp-nutricion nutricion-esp">
-                        <h5>Lista</h5>
-                        <div class="margen-input">
-                            <p>Alimentate Sanamente</p>
-                            <p>Desparacitación Intestinal</p>
-                            <p>Vitamina A</p>
-                            <p>Hierro NCBP</p>
-                            <p>Hierro PP</p>
-                            <p>Otros</p>
+                        </div>
+                        <div class="row center">
+                            <div class="col-md-2">
+                                <h5>Listado</h5>
+                            </div>
+                            <div class="col-md-2">
+                                <h5>Personales</h5>
+                            </div>
+                            <div class="col-md-2">
+                                <h5>Fecha</h5>
+                            </div>
+                            <div class="col-md-2">
+                                <h5>Familiares</h5>
+                            </div>
+                            <div class="col-md-2">
+                                <h5>Notas</h5>
+                            </div>
+
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <p>Enfermedades de la Piel</p>
+                            </div>
+                            <div class="col-md-2">
+
+                                <input name="enfPielPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                            </div>
+                            <div class="col-md-2"><input name="enfPielFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input name="enfPielFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input name="enfPielNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                            <!-- Bloque 2 -->
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <p>Desnutrición</p>
+                            </div>
+                            <div class="col-md-2">
+
+                                <input name="desnuPesonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                            </div>
+                            <div class="col-md-2"><input name="desnuFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input name="desnuFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input name="desnuNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                            <!-- End bloque 2 -->
+                            <!-- Bloque 3 -->
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <p>Obesidad</p>
+                            </div>
+                            <div class="col-md-2">
+
+                                <input name="obesidadPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                            </div>
+                            <div class="col-md-2"><input name="obesidadFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input name="obesidadFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input name="obesidadNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                            <!-- End bloque 3 -->
+                            <!-- Bloque 3 -->
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <p>Defectos Postulares</p>
+                            </div>
+                            <div class="col-md-2">
+
+                                <input name="defectosPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                            </div>
+                            <div class="col-md-2"><input name="defectosFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input name="defectosFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input name="defectosNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                            <!-- End bloque 3 -->
+                            <!-- Bloque 3 -->
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <p>Fracturas</p>
+                            </div>
+                            <div class="col-md-2">
+
+                                <input name="fracturasPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                            </div>
+                            <div class="col-md-2"><input name="fracturasFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input name="fracturasFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input name="fracturasNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                            <!-- End bloque 3 -->
+                            <!-- Bloque 3 -->
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <p>Hospitalizaciones</p>
+                            </div>
+                            <div class="col-md-2">
+
+                                <input name="hospPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                            </div>
+                            <div class="col-md-2"><input name="hospFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input name="hospFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input name="hospNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                            <!-- End bloque 3 -->
+                            <!-- Bloque 3 -->
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <p>Transfusiones</p>
+                            </div>
+                            <div class="col-md-2">
+
+                                <input name="transfusionesPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                            </div>
+                            <div class="col-md-2"><input name="transfusionesFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input name="transfusionesFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input name="transfusionesNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                            <!-- End bloque 3 -->
+                            <!-- Bloque 3 -->
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <p>Cardiopatias</p>
+                            </div>
+                            <div class="col-md-2">
+
+                                <input name="cardiopatiasPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                            </div>
+                            <div class="col-md-2"><input name="cardiopatiasFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input name="cardiopatiasFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input name="cardiopatiasNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                            <!-- End bloque 3 -->
+                            <!-- Bloque 3 -->
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <p>Cirugias</p>
+                            </div>
+                            <div class="col-md-2">
+
+                                <input name="cirugiasPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                            </div>
+                            <div class="col-md-2"><input name="cirugiaFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input name="cirugiaFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input name="cirugiaNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                            <!-- End bloque 3 -->
+                            <!-- Bloque 3 -->
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <p>Cancer/Leucemia</p>
+                            </div>
+                            <div class="col-md-2">
+
+                                <input name="clPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                            </div>
+                            <div class="col-md-2"><input name="clFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input name="clFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input name="clNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                            <!-- End bloque 3 -->
+                            <!-- Bloque 3 -->
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <p>Alergias</p>
+                            </div>
+                            <div class="col-md-2">
+
+                                <input name="alergiasPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                            </div>
+                            <div class="col-md-2"><input name="alergiasFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input name="alergiasFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input name="alergiasNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                            <!-- End bloque 3 -->
+                            <!-- Bloque 3 -->
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <p>VIH</p>
+                            </div>
+                            <div class="col-md-2">
+
+                                <input name="vihPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                            </div>
+                            <div class="col-md-2"><input name="vihFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input name="vihFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input name="vihNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                            <!-- End bloque 3 -->
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary" (click)="onSubmit(fAntecedentes)">Guardar</button>
                         </div>
                     </div>
-                    <div class="col-md-2 espacio-cols esp-nutricion">
-                        <h5>Enf. Previene</h5>
-                        <div class="margen-input topsxd">
-                            <!-- <input type="text" placeholder="" class="antecedentes-inputs wer">
+                </div>
+
+            </div>
+        </form>
+
+        <!-- End Modal Antecedentes -->
+
+
+        <div id="modal2" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="signos-vitales" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content modal-XL">
+                    <div class="modal-header">
+                        <h3 id="signos-vitales" class="modal-title center">Signos Vitales</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="row center">
+                        <div class="col-md-1 margen-offset centerxdd">
+                            <h5>Fecha</h5>
+                        </div>
+                        <div class="col-md-1 margen-offset centerxdd">
+                            <h5>FC LPM</h5>
+                        </div>
+                        <div class="col-md-1 margen-offset centerxdd">
+                            <h5>FR RPM</h5>
+                        </div>
+                        <div class="col-md-1 margen-offset centerxdd">
+                            <h5>TEMP °C</h5>
+                        </div>
+                        <div class="col-md-1 margen-offset centerxdd">
+                            <h5>Talla m</h5>
+                        </div>
+                        <div class="col-md-1 margen-offset centerxdd">
+                            <h5>Peso Kg</h5>
+                        </div>
+                        <div class="col-md-1 margen-offset centerxdd">
+                            <h5>IMC P/T^2</h5>
+                        </div>
+                        <!-- <div class="col-md-1 margen-offset centerxdd">
+                        <h5>P.C.</h5>
+                        </div>
+                        <div class="col-md-1 margen-offset centerxdd">
+                        <h5>P.A.</h5>
+                        </div> -->
+                        <div class="col-md-1">
+                            <h5>Notas</h5>
+                        </div>
+
+                        <!-- Bloque 3 -->
+                        <div class="col-md-1"></div>
+                        <div class="col-md-1">
+
+                            <input type="text" [placeholder]="fecha" class="antecedentes-inputs margen-offset-2">
+                        </div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                        <!-- End bloque 3 -->
+                        <!-- Bloque 3 -->
+                        <div class="col-md-1"></div>
+                        <div class="col-md-1">
+
+                            <input type="text" placeholder="" class="antecedentes-inputs margen-offset-2">
+                        </div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                        <!-- End bloque 3 -->
+                        <!-- Bloque 3 -->
+                        <div class="col-md-1"></div>
+                        <div class="col-md-1">
+
+                            <input type="text" placeholder="" class="antecedentes-inputs margen-offset-2">
+                        </div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                        <!-- End bloque 3 -->
+                        <!-- Bloque 3 -->
+                        <div class="col-md-1"></div>
+                        <div class="col-md-1">
+
+                            <input type="text" placeholder="" class="antecedentes-inputs margen-offset-2">
+                        </div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                        <!-- End bloque 3 -->
+                        <!-- Bloque 3 -->
+                        <div class="col-md-1"></div>
+                        <div class="col-md-1">
+
+                            <input type="text" placeholder="" class="antecedentes-inputs margen-offset-2">
+                        </div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                        <!-- End bloque 3 -->
+                        <!-- Bloque 3 -->
+                        <div class="col-md-1"></div>
+                        <div class="col-md-1">
+
+                            <input type="text" placeholder="" class="antecedentes-inputs margen-offset-2">
+                        </div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                        <!-- End bloque 3 -->
+                        <!-- Bloque 3 -->
+                        <div class="col-md-1"></div>
+                        <div class="col-md-1">
+
+                            <input type="text" placeholder="" class="antecedentes-inputs margen-offset-2">
+                        </div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                        <!-- End bloque 3 -->
+                        <!-- Bloque 3 -->
+                        <div class="col-md-1"></div>
+                        <div class="col-md-1">
+
+                            <input type="text" placeholder="" class="antecedentes-inputs margen-offset-2">
+                        </div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                        <!-- End bloque 3 -->
+                        <!-- Bloque 3 -->
+                        <div class="col-md-1"></div>
+                        <div class="col-md-1">
+
+                            <input type="text" placeholder="" class="antecedentes-inputs margen-offset-2">
+                        </div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                        <!-- End bloque 3 -->
+                        <!-- Bloque 3 -->
+                        <div class="col-md-1"></div>
+                        <div class="col-md-1">
+
+                            <input type="text" placeholder="" class="antecedentes-inputs margen-offset-2">
+                        </div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                        <!-- End bloque 3 -->
+                        <!-- Bloque 3 -->
+                        <div class="col-md-1"></div>
+                        <div class="col-md-1">
+
+                            <input type="text" placeholder="" class="antecedentes-inputs margen-offset-2">
+                        </div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                        <!-- End bloque 3 -->
+                        <!-- Bloque 3 -->
+                        <div class="col-md-1"></div>
+                        <div class="col-md-1">
+
+                            <input type="text" placeholder="" class="antecedentes-inputs margen-offset-2">
+                        </div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                        <!-- End bloque 3 -->
+                        <!-- Bloque 3 -->
+                        <div class="col-md-1"></div>
+                        <div class="col-md-1">
+
+                            <input type="text" placeholder="" class="antecedentes-inputs margen-offset-2">
+                        </div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                        <!-- End bloque 3 -->
+                        <!-- Bloque 3 -->
+                        <div class="col-md-1"></div>
+                        <div class="col-md-1">
+
+                            <input type="text" placeholder="" class="antecedentes-inputs margen-offset-2">
+                        </div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                        <div class="col-md-1 margen-offset-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+
+
+                        <!-- End bloque 3 -->
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" (click)="alerta()">Guardar</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- End Modal Signos Vitales -->
+
+        <!-- Inicio Modal Esquema de Vacunación -->
+        <div id="modal3" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="esquema-vacunacion" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content modal-ext ggg">
+                    <div class="modal-header">
+                        <h3 class="modal-title center">Esquema de Vacunación</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="center">
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Listado</th>
+                                    <th>.</th>
+                                    <th>Dosis</th>
+                                    <th>1</th>
+                                    <th>2</th>
+                                    <th>3</th>
+                                    <th>4</th>
+                                    <th>Fecha</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>BCG</td>
+                                    <td>Tuberculosis</td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                </tr>
+                                <tr>
+                                    <td>Hepatitis B</td>
+                                    <td>Hepatitis B</td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                </tr>
+                                <tr>
+                                    <td>Pentavalente</td>
+                                    <td>Difteria, Tosferina, Tétanos, Poliomielitis e Infecciones por H. Influenzae b</td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                </tr>
+                                <tr>
+                                    <td>DPT</td>
+                                    <td>Difteria, Tosferina y Tétanos</td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                </tr>
+                                <tr>
+                                    <td>Rotavirus</td>
+                                    <td>Diarrea por Rotavirus</td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                </tr>
+                                <tr>
+                                    <td>Neumococo</td>
+                                    <td>Infecciones por Neumococo</td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                </tr>
+                                <tr>
+                                    <td>Influenza</td>
+                                    <td>Influenza</td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                </tr>
+                                <tr>
+                                    <td>SRP</td>
+                                    <td>Sarampión, Rubéola, Parotiditis</td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                </tr>
+                                <tr>
+                                    <td>Sabin</td>
+                                    <td>Poliomielitis</td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                </tr>
+                                <tr>
+                                    <td>SR</td>
+                                    <td>Sarampión y Rubéola</td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                </tr>
+                                <tr>
+                                    <td>Otras Vacunas</td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                    <td><input type="text" placeholder="" class="antecedentes-inputs"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <div class="">
+                        <h5>Alergias:</h5>
+                        <textarea name="alergia" id="" class="textarea"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary">Guardar</button>
+                        <!-- <button type="button" class="btn btn-success" id="btn_agregar" value="+" (click)="crearDin()">Añadir</button> -->
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- End Modal Esquema de Vacunación -->
+
+        <!-- Inicio Modal Nutrición -->
+        <div id="modal4" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="nutricion" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content modal-XL modalNutricion" id="nutricion">
+                    <div class="modal-header">
+                        <h3 id="nutricion" class="modal-title center">Nutrición</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="row center">
+                        <div class="col-md-1 espacio-cols esp-nutricion nutricion-esp">
+                            <h5>Lista</h5>
+                            <div class="margen-input">
+                                <p>Alimentate Sanamente</p>
+                                <p>Desparacitación Intestinal</p>
+                                <p>Vitamina A</p>
+                                <p>Hierro NCBP</p>
+                                <p>Hierro PP</p>
+                                <p>Otros</p>
+                            </div>
+                        </div>
+                        <div class="col-md-2 espacio-cols esp-nutricion">
+                            <h5>Enf. Previene</h5>
+                            <div class="margen-input topsxd">
+                                <!-- <input type="text" placeholder="" class="antecedentes-inputs wer">
                             p -->
-                            <p>Desnutrición</p>
-                            <p>Parasitosis Intestinales</p>
-                            <p>Infecciones Respiratorias y Diarreas</p>
-                            <p>Anemia</p>
-                            <p>Anemia</p>
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <p>Desnutrición</p>
+                                <p>Parasitosis Intestinales</p>
+                                <p>Infecciones Respiratorias y Diarreas</p>
+                                <p>Anemia</p>
+                                <p>Anemia</p>
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
 
+                            </div>
+                            <!-- Crear en base P/T ^ 1 espacio-cols esp-nutricion, debe ser por defecto -->
                         </div>
-                        <!-- Crear en base P/T ^ 1 espacio-cols esp-nutricion, debe ser por defecto -->
+                        <div class="col-md-1 espacio-cols esp-nutricion">
+                            <h5>1 mes</h5>
+                            <div class="margen-input">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+
+                            </div>
+                        </div>
+                        <div class="col-md-1 espacio-cols esp-nutricion">
+                            <h5>2 mes</h5>
+                            <div class="margen-input">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+
+                            </div>
+                        </div>
+                        <div class="col-md-1 espacio-cols esp-nutricion">
+                            <h5>3 mes</h5>
+                            <div class="margen-input">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+
+                            </div>
+                        </div>
+                        <div class="col-md-1 espacio-cols esp-nutricion">
+                            <h5>4 mes</h5>
+                            <div class="margen-input">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+
+                            </div>
+                        </div>
+                        <div class="col-md-1 espacio-cols esp-nutricion">
+                            <h5>5 mes</h5>
+                            <div class="margen-input">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+
+                            </div>
+                        </div>
+                        <div class="col-md-1 espacio-cols esp-nutricion">
+                            <h5>6 mes</h5>
+                            <div class="margen-input">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+
+                            </div>
+                        </div>
+                        <div class="col-md-1 espacio-cols esp-nutricion">
+                            <h5>Notas</h5>
+                            <div class="margen-input">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                <input type="text" placeholder="" class="antecedentes-inputs wer">
+
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-1 espacio-cols esp-nutricion">
-                        <h5>1 mes</h5>
-                        <div class="margen-input">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
 
-                        </div>
-                    </div>
-                    <div class="col-md-1 espacio-cols esp-nutricion">
-                        <h5>2 mes</h5>
-                        <div class="margen-input">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-
-                        </div>
-                    </div>
-                    <div class="col-md-1 espacio-cols esp-nutricion">
-                        <h5>3 mes</h5>
-                        <div class="margen-input">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-
-                        </div>
-                    </div>
-                    <div class="col-md-1 espacio-cols esp-nutricion">
-                        <h5>4 mes</h5>
-                        <div class="margen-input">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-
-                        </div>
-                    </div>
-                    <div class="col-md-1 espacio-cols esp-nutricion">
-                        <h5>5 mes</h5>
-                        <div class="margen-input">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-
-                        </div>
-                    </div>
-                    <div class="col-md-1 espacio-cols esp-nutricion">
-                        <h5>6 mes</h5>
-                        <div class="margen-input">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-
-                        </div>
-                    </div>
-                    <div class="col-md-1 espacio-cols esp-nutricion">
-                        <h5>Notas</h5>
-                        <div class="margen-input">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-                            <input type="text" placeholder="" class="antecedentes-inputs wer">
-
-                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary">Guardar</button>
+                        <button type="button" class="btn btn-success" id="add_field" value="adicionar" (click)="agregarRow()">Añadir</button>
                     </div>
                 </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Guardar</button>
-                    <button type="button" class="btn btn-success" id="add_field" value="adicionar">Añadir</button>
-                </div>
             </div>
-
+            <!-- End Modal Nutrición -->
         </div>
-        <!-- End Modal Nutrición -->
 
     </div>
+    <!-- Comparacion xsss -->
+    <div class="" *ngIf="paciente.sexo == 'Femenino' && paciente.edad > 9">
+        <!-- <h2>Aquí empieza la Ficha de Mujeres</h2> -->
+        <div class="mujeres">
+            <!-- Inicio SV por primera Vez -->
+            <p>Somatometría y signos vitales por primera vez</p>
+            <div class="row center signos-mujeres">
+                <div class="col-md-1">
+                    <label for="">Talla m</label>
+                    <input type="text" placeholder="Talla M" [(ngModel)]="talla">
+                </div>
+                <div class="col-md-1">
+                    <label for="">P. Kg</label>
+                    <input type="text" placeholder="Peso" [(ngModel)]="peso" (change)="obtenerIMC()">
+                </div>
+                <div class="col-md-1">
+                    <label for="">P/T^2</label>
+                    <input type="text" placeholder="IMC" [(ngModel)]="imc" [value]="imc">
+                    <!-- Crear en base P/T ^ 2, debe ser por defecto -->
+                </div>
+                <div class="col-md-1">
+                    <label for="">T.A.</label>
+                    <input type="text" placeholder="Sist/Diast">
+                </div>
+                <div class="col-md-1">
+                    <label for="">LPM</label>
+                    <input type="text" placeholder="FC">
+                </div>
+                <div class="col-md-1">
+                    <label for="">RPM</label>
+                    <input type="text" placeholder="FR">
+                </div>
+                <div class="col-md-1">
+                    <label for="">°C</label>
+                    <input type="text" placeholder="TEMP">
+                </div>
+                <div class="col-md-1">
+                    <label for="">mg/dl</label>
+                    <input type="text" placeholder="Glucosa">
+                </div>
+                <div class="col-md-1">
+                    <label for="">PC cm</label>
+                    <input type="text" placeholder="P.C.">
+                </div>
+                <div class="col-md-1">
+                    <label for="">PA cm</label>
+                    <input type="text" placeholder="P.A.">
+                </div>
+                <div class="col-md-1">
+                    <label for="">PT cm</label>
+                    <input type="text" placeholder="P.T.">
+                </div>
+                <div class="col-md-1">
+                    <label for="">Oximetría</label>
+                    <input type="text" placeholder="PaO">
+                    <!-- <sub>2</sub> -->
+                </div>
+            </div> <br> <br>
+            <!-- End Signos Vitales por 1a Vez -->
+
+            <!-- INICIO BOTONES MODALES -->
+            <!-- Antecedentes por medio del Modal -->
+            <div class="botones center">
+                <button id="btn5" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal5">Antecedentes</button>
+                <!-- Button Signos Vitales -->
+                <button id="btn2" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal6">Signos Vitales</button>
+                <!-- Button Signos Vitales -->
+                <!-- <button id="btn3" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal7">Antecedentes Gineco Obstetricos</button> -->
+                <!-- Button Nutrición -->
+                <button id="btn4" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal8">Estudios</button>
+            </div>
+            <!-- FIN BOTONES MODALES -->
+
+
+            <div id="modal5" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title center">Antecedentes</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="row center">
+                            <div class="col-md-2">
+                                <h5>Listado</h5>
+                            </div>
+                            <div class="col-md-2">
+                                <h5>Personales</h5>
+                            </div>
+                            <div class="col-md-2">
+                                <h5>Fecha</h5>
+                            </div>
+                            <div class="col-md-2">
+                                <h5>Familiares</h5>
+                            </div>
+                            <div class="col-md-2">
+                                <h5>Notas</h5>
+                            </div>
+
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <p>Tabaquismo</p>
+                            </div>
+                            <div class="col-md-2">
+
+                                <input type="text" placeholder="" class="antecedentes-inputs">
+                            </div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                            <!-- Bloque 2 -->
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <p>Alcohol</p>
+                            </div>
+                            <div class="col-md-2">
+
+                                <input type="text" placeholder="" class="antecedentes-inputs">
+                            </div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                            <!-- End bloque 2 -->
+                            <!-- Bloque 3 -->
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <p>Obesidad</p>
+                            </div>
+                            <div class="col-md-2">
+
+                                <input type="text" placeholder="" class="antecedentes-inputs">
+                            </div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                            <!-- End bloque 3 -->
+                            <!-- Bloque 3 -->
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <p>Diabetes</p>
+                            </div>
+                            <div class="col-md-2">
+
+                                <input type="text" placeholder="" class="antecedentes-inputs">
+                            </div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                            <!-- End bloque 3 -->
+                            <!-- Bloque 3 -->
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <p>Cardiopatias</p>
+                            </div>
+                            <div class="col-md-2">
+
+                                <input type="text" placeholder="" class="antecedentes-inputs">
+                            </div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                            <!-- End bloque 3 -->
+                            <!-- Bloque 3 -->
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <p>Cáncer</p>
+                            </div>
+                            <div class="col-md-2">
+
+                                <input type="text" placeholder="" class="antecedentes-inputs">
+                            </div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                            <!-- End bloque 3 -->
+                            <!-- Bloque 3 -->
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <p>Tuberculosis</p>
+                            </div>
+                            <div class="col-md-2">
+
+                                <input type="text" placeholder="" class="antecedentes-inputs">
+                            </div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                            <!-- End bloque 3 -->
+                            <!-- Bloque 3 -->
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <p>Osteoporosis</p>
+                            </div>
+                            <div class="col-md-2">
+
+                                <input type="text" placeholder="" class="antecedentes-inputs">
+                            </div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                            <!-- End bloque 3 -->
+                            <!-- Bloque 3 -->
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <p>Cirugias</p>
+                            </div>
+                            <div class="col-md-2">
+
+                                <input type="text" placeholder="" class="antecedentes-inputs">
+                            </div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                            <!-- End bloque 3 -->
+                            <!-- Bloque 3 -->
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <p>Fracturas</p>
+                            </div>
+                            <div class="col-md-2">
+
+                                <input type="text" placeholder="" class="antecedentes-inputs">
+                            </div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                            <!-- End bloque 3 -->
+                            <!-- Bloque 3 -->
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <p>Hospitalizaciones</p>
+                            </div>
+                            <div class="col-md-2">
+
+                                <input type="text" placeholder="" class="antecedentes-inputs">
+                            </div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                            <!-- End bloque 3 -->
+                            <!-- Bloque 3 -->
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <p>Transfusiones</p>
+                            </div>
+                            <div class="col-md-2">
+
+                                <input type="text" placeholder="" class="antecedentes-inputs">
+                            </div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                            <!-- End bloque 3 -->
+                            <!-- Bloque 3 -->
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <p>Deportes</p>
+                            </div>
+                            <div class="col-md-2">
+
+                                <input type="text" placeholder="" class="antecedentes-inputs">
+                            </div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                            <!-- End bloque 3 -->
+                            <!-- Bloque 3 -->
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <p>Enfermedades de los Sentidos</p>
+                            </div>
+                            <div class="col-md-2">
+
+                                <input type="text" placeholder="" class="antecedentes-inputs">
+                            </div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                            <!-- End bloque 3 -->
+                            <!-- Bloque 3 -->
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <p>Exposición Laboral</p>
+                            </div>
+                            <div class="col-md-2">
+
+                                <input type="text" placeholder="" class="antecedentes-inputs">
+                            </div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                            <!-- End bloque 3 -->
+                            <!-- Bloque 3 -->
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <p>Defectos Postquirurgicos</p>
+                            </div>
+                            <div class="col-md-2">
+
+                                <input type="text" placeholder="" class="antecedentes-inputs">
+                            </div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                            <!-- End bloque 3 -->
+                            <!-- Bloque 3 -->
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <p>Otras Enfermedades</p>
+                            </div>
+                            <div class="col-md-2">
+
+                                <input type="text" placeholder="" class="antecedentes-inputs">
+                            </div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+                            <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                            <!-- End bloque 3 -->
+
+                            <select name="enfermedadesInfancia" class="form-control mujeresSelect">
+                            <option value="Tipo" selected>-- Enfermedades de la Infancia --</option>
+                            <option value="asma">Asma</option> 
+                            <option value="miopia">Miopia</option>
+                            
+                           
+                
+                            <!-- Cambiar edades, Hombres de 10 a 99 años
+                                Mujeres de 10 a 99 años, agregando parametros especiales -->
+                        </select>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- End Modal Antecedentes -->
+
+            <!-- Inicio Modal Antecedente Gineco Obstetricos -->
+            <!--  -->
+            <!-- <div id="modal7" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="nutricion" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content modal-ago " id="nutricion">
+                        <div class="modal-header">
+                            <h3 id="nutricion" class="modal-title center">ANTECEDENTES GINECO OBSTETRICOS</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                        </div>
+
+                        <div class="container">
+                            <div class="f-izq">
+                                <div class="mujeresxd">
+                                    <p>¿Embarazada Actualmente?</p>
+                                    <input type="radio" name="RadioSi" id="si" value="si">
+                                    <label for="si">Sí</label>
+                                    <input type="radio" name="RadioNo" id="no" value="no">
+                                    <label for="no" class="mjizq">No</label>
+                                </div>
+                                <div class="mujeresxd">
+                                    <p>¿Embarazada de Riesgo?</p>
+                                    <input type="radio" name="RadioSi" id="si" value="si">
+                                    <label for="si">Sí</label>
+                                    <input type="radio" name="RadioNo" id="no" value="no">
+                                    <label for="no" class="mjizq">No</label>
+                                </div>
+                                <div class="mujeresxd">
+                                    <p>Administración de:</p>
+                                    <input type="text" placeholder="Hierro" class="antecedentes-inputs">
+                                    <input type="text" placeholder="Ácido Folico" class="antecedentes-inputs">
+                                </div>
+                                <div class="mujeresxd">
+                                    <p>Fecha: </p>
+                                    <input type="text" placeholder="dd/mm/aaaa" class="antecedentes-inputs">
+                                    <input type="text" placeholder="dd/mm/aaaa" class="antecedentes-inputs">
+                                </div>
+                                <div class="mujeresxd">
+                                    <p>Inicio de vida sexual activa: </p>
+                                    <input type="text" placeholder="" class="antecedentes-inputs">
+                                </div>
+                                <div class="mujeresxd">
+                                    <p>Fecha del último parto: </p>
+                                    <input type="text" placeholder="" class="antecedentes-inputs">
+                                </div>
+                                <div class="mujeresxd">
+                                    <p>Crecimiento de vellos púbicos: </p>
+                                    <input type="text" placeholder="" class="antecedentes-inputs">
+                                </div>
+                                <div class="mujeresxd">
+                                    <p>Tipo de método de planificación familiar: </p>
+                                    <input type="text" placeholder="" class="antecedentes-inputs">
+                                </div>
+                            </div>
+                            
+
+                            <div class="f-der">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Gestas</th>
+                                            <th>Partos</th>
+                                            <th>Cesareas</th>
+                                            <th>Abortos</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <input type="text" placeholder="" class="antecedentes-inputs">
+                                            </td>
+                                            <td>
+                                                <input type="text" placeholder="" class="antecedentes-inputs">
+                                            </td>
+                                            <td>
+                                                <input type="text" placeholder="" class="antecedentes-inputs">
+                                            </td>
+                                            <td>
+                                                <input type="text" placeholder="" class="antecedentes-inputs">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="mujeresxd">
+                                    <p>Último papanicolao:</p>
+                                    <input type="text" placeholder="" class="antecedentes-inputs">
+                                </div>
+                                <div class="mujeresxd">
+                                    <p>Última colposcopía:</p>
+                                    <input type="text" placeholder="" class="antecedentes-inputs">
+                                </div>
+                                <div class="mujeresxd">
+                                    <p>Última revisión mamaria:</p>
+                                    <input type="text" placeholder="" class="antecedentes-inputs">
+                                </div>
+                                <div class="mujeresxd">
+                                    <p>Nacidos:</p>
+                                    <input type="text" placeholder="Vivos" class="antecedentes-inputs">
+                                    <input type="text" placeholder="Muertos" class="antecedentes-inputs">
+                                </div>
+                                <div class="mujeresxd">
+                                    <p>1era Menstruación:</p>
+                                    <input type="text" placeholder="" class="antecedentes-inputs">
+                                </div>
+                                <div class="mujeresxd">
+                                    <p>Crecimiento de pechos:</p>
+                                    <input type="text" placeholder="" class="antecedentes-inputs">
+                                </div>
+                                <div class="mujeresxd">
+                                    <p>1er Embarazo:</p>
+                                    <input type="text" placeholder="" class="antecedentes-inputs">
+                                </div>
+                                <div class="mujeresxd">
+                                    <p>Fecha:</p>
+                                    <input type="text" placeholder="" class="antecedentes-inputs">
+                                </div>
+                            </div>
+                            fin contenido derecha
+
+                        </div>
+                        end container
+
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-primary">Guardar</button>
+                            <button type="button" class="btn btn-success" id="add_field" value="adicionar" (click)="agregarRow()">Añadir</button>
+                        </div>
+                    </div>
+
+                </div>
+                End Modal Nutrición
+
+
+            </div> -->
+            <!-- End Mujeres -->
+            <!-- Inicio Modal Antecedente Gineco Obstetricos -->
+            <div id="modal8" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="nutricion" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content modal-ago " id="nutricion">
+                        <div class="modal-header">
+                            <h3 id="nutricion" class="modal-title center">MEDICINA PREVENTIVA</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                        </div>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Estudios</th>
+                                    <th>Fecha de Toma</th>
+                                    <th>Fecha de Entrega</th>
+                                    <th>Resultados</th>
+                                    <th>Observaciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Detección de cáncer de estómago</td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                </tr>
+                                <tr>
+                                    <td>Detección de cáncer de colon</td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                </tr>
+                                <tr>
+                                    <td>Detección de cáncer de pulmón</td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                </tr>
+                                <tr>
+                                    <td>Detección de cáncer de mama</td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                </tr>
+                                <tr>
+                                    <td>Detección de cáncer cérvico uterino</td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                </tr>
+                                <tr>
+                                    <td>Campaña de detección de agudeza auditiva</td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                </tr>
+                                <tr>
+                                    <td>Campaña de buena salud bucal</td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                </tr>
+                                <tr>
+                                    <td>Campaña contra la Desnutrición, sobrepeso y obesidad</td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                </tr>
+                                <tr>
+                                    <td>Campaña de detección de diabetes mellitus y dislipidemia</td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                </tr>
+                                <tr>
+                                    <td>Campaña de detección de agudeza visual</td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                </tr>
+                                <tr>
+                                    <td>Campaña de detección de enfermedades respiratorias</td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                </tr>
+                                <tr>
+                                    <td>Campaña de detección de transtorno en la marcha</td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                </tr>
+                                <tr>
+                                    <td>Otros</td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                    <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-primary">Guardar</button>
+                            <button type="button" class="btn btn-success" id="add_field" value="adicionar" (click)="agregarRow()">Añadir</button>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- End Modal Nutrición -->
+
+
+            </div>
+            <!-- End Mujeres -->
+        </div>
+        <!-- End Container -->
+    </div>
+    <!-- <script type="text/javascript">
+       
+    </script> -->
 </div>
-
-<!-- <script type="text/javascript">
-    var campos_max = 10; //max de 10 campos
-
-    var x = 0;
-    $('#add_field').click(function(e) {
-        console.log("cero");
-
-        e.preventDefault(); //prevenir novos clicks
-        if (x < campos_max) {
-            console.log("uno");
-
-            $('#listas').append('<div>\
-                <input type="text" id="listas" placeholder="" class="antecedentes-inputs wer" name="campo[]">\
-                        <a href="#" class="remover_campo">Remover</a>\
-                        </div>');
-            x++;
-            console.log("dos");
-
-        }
-    });
-    // Remover o div anterior
-    $('#listas').on("click", ".remover_campo", function(e) {
-        e.preventDefault();
-        $(this).parent('div').remove();
-        x--;
-    });
-</script> -->

@@ -1,7 +1,7 @@
 export class Ambulancia {
     constructor(
 
-        public DESTINO: String,
+      public DESTINO: String,
       public PRECIO_MEMBRESIA_DIA: String,
       public PRECIO_MEMBRESIA_NOCHE: String,
       public PRECIO_MEMBRESIA_REDONDO_DIA: String,
