@@ -29,10 +29,11 @@ export class ModalComponent implements OnInit {
 
   // @Output() numerofiscalesEvent = new EventEmitter<any[]>();
 
-  datos: any[];
+  public datos: any[];
   public curp;
   public localidad;
   public _idfiscales = 0;
+
   // direccion
   public fechaRegistro;
   public  localidades: Direcciones[] = [];
@@ -65,7 +66,7 @@ export class ModalComponent implements OnInit {
 
   public pacientes: any= [];
   public pagina: number = 0;
-  public sexo: string;
+
 
   constructor(
     public _modalService: ModalServiceService,
@@ -164,48 +165,41 @@ export class ModalComponent implements OnInit {
 enviar( f: NgForm ){
 
 
-
+  console.log( f );
     
-    let paciente = new Paciente(
-      f.value.nombrePaciente,
-      f.value.apellidoPaterno,
-      f.value.apellidoMaterno,
-      f.value.fechaNacimientoPaciente,
-      f.value.entidadNacimiento,
-      f.value.edad,
-      f.value.curp,
-      f.value.sexo,
-      f.value.paisNacimineto,
-      f.value.telefono,
-      f.value.contactoEmergancia,
-      f.value.telefonoEmergencia,
-      f.value.correo,
-      // f.value.cpPaciente,
-      f.value.paisPaciente,
-      f.value.municipio,
-      f.value.estadoPaciente,
-      f.value.poblacion,
-      f.value.calleNumeroPaciente,
-      f.value.referenciaPaciente,
-      f.value.nombreRazonSocial,
-      f.value.entidadFederativa,
-      f.value.poblacion,
-      f.value.RFCFiscal,
-      f.value.cpFiscal,
-      f.value.localidadFiscal,
-      f.value.emailFiscal
-      // this.razonesSociales[1][1],
-      // this.razonesSociales[1][2],
-      // this.razonesSociales[1][3],
-      // this.razonesSociales[1][4],
-      // this.razonesSociales[1][5],
-      // this.razonesSociales[1][6],
-      // this.razonesSociales[1][7],
-      );
+    // let paciente = new Paciente(
 
-      console.log( paciente )
+    //   f.value.nombrePaciente,
+    //   f.value.apellidoPaterno,
+    //   f.value.apellidoMaterno,
+    //   f.value.fechaNacimientoPaciente,
+    //   f.value.generoPaciente,
+    //   f.value.entidadNacimiento,
+    //   f.value.edad,
+    //   f.value.curp,
+    //   f.value.paisNacimineto,
+    //   f.value.telefono,
+    //   f.value.contactoEmergancia,
+    //   f.value.telefonoEmergencia,
+    //   f.value.correo,
+    //   f.value.paisPaciente,
+    //   f.value.municipio,
+    //   f.value.estadoPaciente,
+    //   f.value.poblacion,
+    //   f.value.calleNumeroPaciente,
+    //   f.value.referenciaPaciente,
+    //   f.value.nombreRazonSocial,
+    //   f.value.entidadFederativa,
+    //   f.value.poblacion,
+    //   f.value.RFCFiscal,
+    //   f.value.cpFiscal,
+    //   f.value.localidadFiscal,
+    //   f.value.emailFiscal
 
-      this._pacienteService.setPacientes( paciente )
+    //   );
+
+
+      this._pacienteService.setPacientes( f.value )
       .subscribe( (data: any) => {
 
         if( data.ok === true ) {
@@ -221,10 +215,7 @@ enviar( f: NgForm ){
           swal('Algó ocurrio', 'Intenta de nuevo', 'error');
           console.log('Algo pasó', data );
         }
-       } )
-
-  
-
+       } );
   
 }
 

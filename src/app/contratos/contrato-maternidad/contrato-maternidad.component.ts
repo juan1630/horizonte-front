@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {  ImagenTicketHorizonter } from '../../config/imgeHorizonte';
 import * as jsPDF from 'jspdf';
 
 @Component({
@@ -13,11 +14,7 @@ export class ContratoMaternidadComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  imprimir(){
-    const doc = new jsPDF();
-
-    doc.fromHTML(document.getElementById('imprimirxd'), 5, 5);
-    doc.save('Contrato de Maternidad');
-  }
+  public pdfSrc = "../../../assets/contracts/maternidad/PAQUETEMATERNIDAD.pdf";
+;
 
 }

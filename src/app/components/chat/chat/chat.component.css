@@ -46,8 +46,36 @@
 .message-card {
     background-color: green;
     color: #ffff;
+    width: 80%;
+    font-weight: 200;
+    margin-left: 5%;
+    display: inline-block;
+    text-align: left;
 }
 
 .message-card:nth-child(even) {
     background-color: blue;
+    width: 80%;
+    margin-left: 15%;
+    text-align: right;
+}
+
+.horaMessage {
+    font-weight: 100;
+    font-size: .6rem;
+    width: 50%;
+    margin-left: 3%;
+}
+
+.conversacion {
+    width: 100%;
+    height: auto;
+    color: warning
+}
+
+.text-warning {
+    width: 100%;
+    height: auto;
+    margin-bottom: .3em;
+    font-size: 1.1em;
 }
