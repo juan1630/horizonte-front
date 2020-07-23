@@ -61,7 +61,6 @@ import { PerfilesNewComponent } from './servivicosInt/laboratorio/perfiles/perfi
 import { PatologiaEditComponent } from './servivicosInt/patologia/patologia-edit/patologia-edit/patologia-edit.component';
 import { PatologiaNewComponent } from './servivicosInt/patologia/patologia-new/patologia-new.component';
 import { PatologiaComponent } from './servivicosInt/patologia/patologia.component';
-import { MembresiaPaqueteComponent } from './membresia/membresia-paquete/membresia-paquete.component';
 import { HojaDiariaEnfGralComponent } from './Hojas_Diarias/hoja-diaria-enf-gral/hoja-diaria-enf-gral.component';
 import { EnfermeriaDashboardComponent } from './Enfermeria/enfermeria-dashboard/enfermeria-dashboard.component';
 import { DashComponent } from './farmacia/dash/dash.component';
@@ -69,6 +68,10 @@ import { ConsultaGeneralComponent } from './consultas/consulta-general/consulta-
 import { PaqueteMedicoLaboralComponent } from './paquete-medico-laboral/paquete-medico-laboral.component';
 import { PediatricoComponent } from './contratos/pediatrico/pediatrico.component';
 import { ContratoVidaPlenaComponent } from '../contratos/contratoVidaPlena/contrato-vida-plena/contrato-vida-plena.component';
+
+import { SolicitudMembresiaComponent } from './solicitudMembresia/solicitud-membresia/solicitud-membresia.component';
+import { IdentificacionComponent } from './identificacion/identificacion/identificacion.component';
+import { ContratoNeonatalComponent } from '../contratos/neonatal/contrato-neonatal/contrato-neonatal.component';
 
 
 
@@ -82,18 +85,27 @@ const pagesRoutes : Routes = [
       { path: 'paciente', component: PacienteComponent },
       { path: 'consultar/paquetes', component:PaquetesComponent },
       
+      
+      // SOLICITUDES
+      {  path: 'hoja/solicitud/membresia/:id', component: SolicitudMembresiaComponent  },
+      { path: 'solicitud/:id', component: SolicitudComponent },
+
       // PAQUETES
       
+      // tabuladores de consultas
       { path: 'paqueteMaternidad/:id', component: PaqueteMaternidadComponent },
       { path: 'paquete/laboral/:id', component: PaqueteMedicoLaboralComponent  },
       { path: 'pagos/paquete/maternidad', component:PagosMaternidadComponent },
       { path: 'alto/riesgo/:id', component: TabuladorAltoriesgoComponent },
-    
+      
+      // { path: 'membresia/:id', component: MembresiaPaqueteComponent },
+     
       // CONTRATOS DE LOS PAQUETES
       { path: 'contrato-medico-laboral', component: ContratoMLaboralComponent},
       { path: 'contrato-maternidad', component: ContratoMaternidadComponent },
       { path: 'contrato/pediatrico', component: PediatricoComponent },
       { path: 'contrato/vida/plena', component: ContratoVidaPlenaComponent },
+      { path: 'contrato/neonatal', component: ContratoNeonatalComponent  },
 
       // TABULADORES
 
@@ -120,7 +132,6 @@ const pagesRoutes : Routes = [
       { path: 'ultrasonido', component: UltrasonidoComponent},
       { path: 'urgencias', component: UrgenciasComponent},
       { path: 'otros-servicios', component: OtrosSIComponent},
-      { path: 'solicitud/:id', component: SolicitudComponent },
       { path: 'ambulancia-editar/:id', component: AmbulanciaEditComponent },
       { path: 'ambulancia-nuevo', component: AmbulanciaNewComponent},
       { path: 'xray-editar/:id', component: XrayEditComponent},
@@ -148,7 +159,6 @@ const pagesRoutes : Routes = [
       { path: 'hoja-diaria-enfermeria-general', component: HojaDiariaEnfGralComponent},
       { path: 'enfermeria-dashboard', component: EnfermeriaDashboardComponent},
       { path: 'consulta-general/:id', component: ConsultaGeneralComponent},
-      { path: 'consultas/membresia/:id', component: MembresiaPaqueteComponent },
       { path: 'farmacia/dash', component: DashComponent  },
       { path: 'farmacia', component: FarmaciaComponent},
       // LABORATORIO
@@ -160,6 +170,7 @@ const pagesRoutes : Routes = [
       { path: 'pedido/laboratorios/:id', component: PedidoIndividualComponent },
       { path: 'laboratorio/pendientes/lab', component: PedidoSinComponent  },
       { path: 'ficha-enfermeria-01/:id', component: FE09Component},
+      { path:'identificacion', component: IdentificacionComponent },
       { path: '', redirectTo: '/dashboard', pathMatch:'full' }
       
     ]

@@ -1,0 +1,11 @@
+.inicioCobertura {
+    display: inline-block;
+    width: 48%;
+    height: 90%;
+}
+
+.finCobertura {
+    display: inline-block;
+    width: 48%;
+    height: auto;
+}

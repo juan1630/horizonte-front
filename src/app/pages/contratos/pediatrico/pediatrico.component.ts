@@ -7,8 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PediatricoComponent implements OnInit {
 
-
-  public pdfSrc = "../../../assets/contracts/pediatrico/CONTRATODEPAQUETEPEDIATRICO.pdf";
   
   constructor() { }
 

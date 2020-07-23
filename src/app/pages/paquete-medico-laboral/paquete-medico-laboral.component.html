@@ -8,7 +8,7 @@
                 <tbody>
                     <tr>
                         <td>
-                            <select class="form-control">
+                            <select class="form-control" #select (change)="seleccion($event, select.value)" [(ngModel)]="consultas.tipo">
                                 <option value="" selected>Tipo de consulta o examen...</option>
                                 <option value="1">Citas incluidas</option>
                                 <option value="2">Descuentos</option>
@@ -20,20 +20,18 @@
                             </select>
                         </td>
                         <td>
-                            <select class="form-control">
+                            <select class="form-control" [(ngModel)]="consultas.consulta">
                                 <option value="" selected>Concepto...</option>
-                                <option value="item" >item</option>
+                                <option [value]="item" *ngFor="let item of concepto">{{ item }}</option>
                             </select>
                         </td>
                         <td>
-                            <select class="form-control">
+                            <select class="form-control" [(ngModel)]="consultas.medico">
                                 <option value="" selected>Medico...</option>
-                                <option *ngFor="let medico of medicos"  value="medico.nombre"  >
-                                    {{ medico.nombre }}
-                                </option>
+                                <option [value]="medico.nombre" *ngFor="let medico of medicos">{{ medico.nombre }}</option>
                             </select>
                         </td>
-                        <td><input type="text" class="form-control" placeholder="Firma..."></td>
+                        <td><input type="text" class="form-control" [(ngModel)]="consultas.firma" placeholder="Firma..."></td>
                         <td>
                             <button class="btn btn-danger" (click)="agregarConsulta()">Agregar</button>
                         </td>

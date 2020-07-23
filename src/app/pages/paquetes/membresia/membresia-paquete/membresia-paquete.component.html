@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
     <button class="btn btn-secondary mb-2" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
         <i class="fas fa-folder-plus"></i> Agregar consulta
     </button>
@@ -18,7 +18,7 @@
                             <p class="text-danger" *ngIf="btnDisabled">*No puedes agregar más consultas</p>
                         </td>
                         <td>
-                            <select class="form-control" [(ngModel)]="consultas.consulta" #selectCon (change)="seleccion($event, selectCon.value)">
+                            <select class="form-control" [(ngModel)]="consultas.consulta">
                                 <option value="" selected>Concepto...</option>
                                 <option [value]="item" *ngFor="let item of concepto">{{ item }}</option>
                             </select>
@@ -103,4 +103,7 @@
         </div>
     </div>
 
-</div>
+</div> -->
+
+
+<p> membresia works </p>

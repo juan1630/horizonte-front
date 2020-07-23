@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule  } from '@angular/router';
-import { PdfViewerModule } from 'ng2-pdf-viewer'
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer'
 
 
 // modules
@@ -68,7 +69,6 @@ import { TabuladorAltoriesgoComponent } from './paquetes/altoRiesgo/tabulador-al
 import { PatologiaComponent } from './servivicosInt/patologia/patologia.component';
 import { PatologiaEditComponent } from './servivicosInt/patologia/patologia-edit/patologia-edit/patologia-edit.component';
 import { PatologiaNewComponent } from './servivicosInt/patologia/patologia-new/patologia-new.component';
-import { MembresiaPaqueteComponent } from './membresia/membresia-paquete/membresia-paquete.component';
 import { HojaDiariaEnfGralComponent } from './Hojas_Diarias/hoja-diaria-enf-gral/hoja-diaria-enf-gral.component';
 import { HojaDiariaEnfUrgenciaComponent } from './Hojas_Diarias/hoja-diaria-enf-urgencia/hoja-diaria-enf-urgencia.component';
 import { EnfermeriaDashboardComponent } from './Enfermeria/enfermeria-dashboard/enfermeria-dashboard.component';
@@ -76,6 +76,8 @@ import { DashComponent } from './farmacia/dash/dash.component';
 import { ConsultaGeneralComponent } from './consultas/consulta-general/consulta-general.component';
 import { PaqueteMedicoLaboralComponent } from './paquete-medico-laboral/paquete-medico-laboral.component';
 import { PediatricoComponent } from './contratos/pediatrico/pediatrico.component';
+import { SolicitudMembresiaComponent } from './solicitudMembresia/solicitud-membresia/solicitud-membresia.component';
+import { IdentificacionComponent } from './identificacion/identificacion/identificacion.component';
 
 
 @NgModule({
@@ -135,14 +137,15 @@ import { PediatricoComponent } from './contratos/pediatrico/pediatrico.component
     PatologiaComponent,
     PatologiaEditComponent,
     PatologiaNewComponent,
-    MembresiaPaqueteComponent,
     HojaDiariaEnfGralComponent,
     HojaDiariaEnfUrgenciaComponent,
     EnfermeriaDashboardComponent,
     DashComponent,
     ConsultaGeneralComponent,
     PaqueteMedicoLaboralComponent,
-    PediatricoComponent
+    PediatricoComponent,
+    SolicitudMembresiaComponent,
+    IdentificacionComponent
   ],
   exports: [ 
     PageComponent,
@@ -155,6 +158,7 @@ import { PediatricoComponent } from './contratos/pediatrico/pediatrico.component
     RouterModule,
     PAGES_ROUTES,
     ReactiveFormsModule,
+    NgxExtendedPdfViewerModule,
     PdfViewerModule
 
   ]

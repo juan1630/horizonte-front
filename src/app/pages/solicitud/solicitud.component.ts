@@ -34,7 +34,7 @@ export class SolicitudComponent implements OnInit {
     estadoPaciente: "",
     fechaNacimientoPaciente: "",
     fechaRegistro: "",
-    genero: "",
+    sexo: "",
     cpPaciente: 0,
     localidadFiscal: "",
     municipioFiscal:"" ,
@@ -158,6 +158,11 @@ export class SolicitudComponent implements OnInit {
 
             }else if(this.paqueteSelected.nombrePaquete === 'SERVICIOS DE LA MEMBRESIA'){
               this.anticipo = 500;
+            } else if( this.paqueteSelected.nombrePaquete === 'PAQUETE NEONATAL (DE 0 12 MESES)' ){
+              this.anticipo = 1000;
+            }else if( this.paqueteSelected.nombrePaquete ===  "PAQUETE VIDA PLENA"  ){
+              
+              this.anticipo= 2800;
             }
            
         });
@@ -179,7 +184,6 @@ export class SolicitudComponent implements OnInit {
 
       let dataForm = f.value;
 
-      // console.log("Data form", dataForm );
 
       this._solicitud.setPaquete( dataForm, this.paciente, this.paqueteSelected, this.fecha, this.anticipo, 1, this.usuarioMaq.nombre, this.usuarioMaq.nombre  )
       .subscribe( (data:any) => {
@@ -208,7 +212,8 @@ export class SolicitudComponent implements OnInit {
               else if( this.paqueteSelected.nombrePaquete === 'PAQUETE VIDA PLENA'  ){
 
                 this._router2.navigateByUrl('/contrato/vida/plena');
-              }
+              
+              }else if(this._router2.navigateByUrl('/contrato/neonatal')   ){ }
             
 
               }
