@@ -17,7 +17,6 @@ export class SolicitudService {
   setPaquete( data:any, paciente: any, paquete: any, fecha: string, anticipo:number, folio: number, vendedor: string, atendio:string ) {
 
 
-    //TODO: Queda pendiente la fecha
 
     // esta funcion inserta en la tabla relacional los datos necesarios
 
@@ -37,6 +36,14 @@ export class SolicitudService {
    return this._http.post( uri , dataPaquete )
     .pipe( map( (data) => data ) );
 
+  }
+
+  addMembresia(  body:any ){
+
+
+    let uri = `${URLDEV}/agregar/membresia`;
+
+    return this._http.post( uri, body);
 
   }
 

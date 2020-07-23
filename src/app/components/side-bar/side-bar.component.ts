@@ -9,7 +9,6 @@ import { WsLoginService } from 'src/app/services/sockets/login/ws-login.service'
 })
 export class SideBarComponent implements OnInit {
 
-  public usuarioConectados = [];
 
 
   @Input() nombreUsuario:string;
@@ -18,42 +17,10 @@ export class SideBarComponent implements OnInit {
 
   constructor(
     public router: Router,
-    public wsLoginService: WsLoginService
+    // public wsLoginService: WsLoginService
   ) { }
 
   ngOnInit(): void {
-
-
-    this.wsLoginService.escucahrUsuaurtioConectados()
-    .subscribe( (arg:any) => { 
-      this.usuarioConectados.push( arg.data );
-
-    });
-
-    // escucahmos el mensaje de los usuarios
-
-
-
-    // escuchamos si algun usuario se desconecta
-
-    this.wsLoginService.escucharUsuarioDesconectado()
-      .subscribe(arg =>  {  
-
-
-        this.usuarioConectados.forEach(  (user:any, index) => {
-        
-          if(  user.usuario._id === arg.user._id  ){
-
-
-            this.usuarioConectados.splice(index, 1);
-          }
-
-
-
-        })
-
-       });
-    
     
 
   }
@@ -63,11 +30,14 @@ export class SideBarComponent implements OnInit {
   // esta funcio abre el chat y se elije el departamento
 
 
-  abrirChat(user){
+  // abrirChat(user){
 
-    this.notificarViaChat.emit({ user });
 
-  }
+  //   console.log(  user );
+
+  //   this.notificarViaChat.emit({ user });
+
+  // }
 
 
 }

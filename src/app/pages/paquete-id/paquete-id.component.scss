@@ -7,21 +7,30 @@ h3 {
     font-size: 1.7rem;
     font-weight: 700;
 }
-.text-white{
+
+.text-white {
     font-size: 1.7rem;
     font-weight: 400;
 }
 
-.btn{
+.btn {
     margin-top: 1.6rem;
     border-radius: 0;
 }
 
-.center{
+.center {
     margin-left: 1.3rem;
 }
 
-.col-md-3{
-
+.col-md-3 {
     height: auto;
+}
+
+.fa-exclamation-triangle {
+    color: #FFD700;
+    margin-top: .8em;
+}
+
+.center {
+    text-align: center;
 }

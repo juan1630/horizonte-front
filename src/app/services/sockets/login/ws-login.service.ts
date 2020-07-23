@@ -24,15 +24,14 @@ export class WsLoginService {
   checkStatus(){
     this.socket.emit('connect', (usuarios)=> {
       
-      
-      console.log( usuarios );
       this.status = true;
       
     });
     
     
     this.socket.on('usuarioConectado', { message: 'usuario conectado' } ,(data) => {
-      console.log(data);
+      return data;
+      
     });
 
   }

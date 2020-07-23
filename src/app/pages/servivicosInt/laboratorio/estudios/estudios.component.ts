@@ -7,9 +7,9 @@ import { Router, ActivatedRoute} from '@angular/router';
 import  { getDataStorage, gaurdarCotizacion, eliminarTodoPedido, getDataCarrito }  from '../../../../functions/storage/storage.funcion';
 
 import  {  BusquedaGeneral } from '../../../../intefaces/busquedaGeneral';
+import { EnvioEmailService } from 'src/app/services/cotizacion/envio-email.service';
 
 import  swal from 'sweetalert'; 
-import { EnvioEmailService } from 'src/app/services/cotizacion/envio-email.service';
 
 
 @Component({
