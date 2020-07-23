@@ -20,6 +20,10 @@ import { ContratoMLaboralComponent } from './contratos/contrato-m-laboral/contra
 import { jqxCalendarModule } from 'jqwidgets-ng/jqxcalendar';
 import { TicketComponent } from './contratos/ticket/ticket/ticket.component';
 
+
+import { PdfViewerModule, PDFViewerParams } from 'ng2-pdf-viewer';
+import { ContratoVidaPlenaComponent } from './contratos/contratoVidaPlena/contrato-vida-plena/contrato-vida-plena.component'
+
 // import  { PdfMakeWrapper  } from 'pdfmake-wrapper';
 // import pdfFonts from "pdfmake/build/vfs_fonts";
 
@@ -33,7 +37,8 @@ import { TicketComponent } from './contratos/ticket/ticket/ticket.component';
     AppComponent,
     ContratoMaternidadComponent,
     ContratoMLaboralComponent,
-    TicketComponent
+    TicketComponent,
+    ContratoVidaPlenaComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +50,7 @@ import { TicketComponent } from './contratos/ticket/ticket/ticket.component';
     FormsModule,
     ReactiveFormsModule,
     jqxCalendarModule,
+    PdfViewerModule,
     APP_ROUTES
   ],
   exports: [

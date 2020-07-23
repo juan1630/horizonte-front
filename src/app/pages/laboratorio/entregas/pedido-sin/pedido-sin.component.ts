@@ -6,8 +6,6 @@ import {  numeroALetras  }  from '../../../../functions/storage/generalFunctions
 import { Router } from '@angular/router';
 
 
-
-
 import * as moment from 'moment';
 import * as jsPDF from 'jspdf';
 import swal from 'sweetalert';

@@ -20,7 +20,9 @@ export class LoginService {
     public router: Router
   ) {
     this.cargarStrage =  this.cargarStorage();
-     this.url = "https://horizonte-1.herokuapp.com";
+    
+    
+      this.url = "https://horizonte-1.herokuapp.com";
 
     // this.url = "http://localhost:3200";
    

@@ -13,7 +13,8 @@ export class SideBarComponent implements OnInit {
 
 
   @Input() nombreUsuario:string;
-  @Output() abrirChatPadre = new EventEmitter<any>();
+  
+  @Output() public notificarViaChat = new EventEmitter<any>();
 
   constructor(
     public router: Router,
@@ -64,7 +65,7 @@ export class SideBarComponent implements OnInit {
 
   abrirChat(user){
 
-    this.abrirChatPadre.emit(user);
+    this.notificarViaChat.emit({ user });
 
   }
 

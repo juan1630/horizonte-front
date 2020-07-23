@@ -11,6 +11,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 export class PageComponent implements OnInit {
   
   public usuario;
+  public chatModal = false;
   
   constructor(
     public wsLogin:WsLoginService,
@@ -24,14 +25,28 @@ export class PageComponent implements OnInit {
   }
 
   getRole(){
+
     this.usuario =  JSON.parse (localStorage.getItem('usuario'));
-   
     this.wsLogin.login( this.usuario );
     this.verPedido();
   }
 
   verPedido(){
     // this.WSLaboratorio.verPedido();
+  }
+
+  estadoChat(event ){
+
+      // console.log( event.user.usuario  );
+      this.chatModal = true;
+  }
+
+
+  cerrarVentanaChat(event){
+
+    console.log(event);
+    this.chatModal = false;
+  
   }
 
 }

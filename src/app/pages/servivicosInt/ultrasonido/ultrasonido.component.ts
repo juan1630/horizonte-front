@@ -17,7 +17,7 @@ export class UltrasonidoComponent implements OnInit {
   public show = 'hidden';
   public email: string;
   
-  public ultrasonidoSI = {
+  public ultrasonidoSI = [{
     ESTUDIO:"", 
     PRECIO_HOSPITALIZACION_URGENCIA_MEMBRESIA:"", 
     PRECIO_MEMBRESIA:"", 
@@ -27,8 +27,8 @@ export class UltrasonidoComponent implements OnInit {
     PRECIO_PUBLICO_HOSPITALIZACION:"", 
     PRECIO_PUBLICO_HOSPITALIZACION_URGENCIA:"", 
     PRECIO_PUBLICO_URGENCIA:"", 
-    name:""
-  };
+    name:"" 
+  }];
 
   public carrito = {
     totalSin: 0,

@@ -39,14 +39,24 @@
                                 </li>
                             </ul>
 
-                            <a *ngIf="_modalServicioIntService.pacientePaquete.nombrePaquete === 'PAQUETE DE CONTROL PRENATAL' " [routerLink]="['/paqueteMaternidad', _modalServicioIntService.paqueteVisitas]" routerLinkActive="router-link-active"> Ver consultas  </a>
+                            <a *ngIf="_modalServicioIntService.pacientePaquete.nombrePaquete === 'PAQUETE DE CONTROL PRENATAL' " [routerLink]="['/paqueteMaternidad', _modalServicioIntService.paqueteVisitas]" routerLinkActive="router-link-active"> 
+                                
+                                Ver consultas 
+                            
+                            </a>
+
+                            <a *ngIf="_modalServicioIntService.pacientePaquete.nombrePaquete === 'PAQUETE MÉDICO LABORAL' " [routerLink]="['/paquete/laboral/', _modalServicioIntService.paqueteVisitas]" routerLinkActive="router-link-active"> 
+                                
+                                Ver consultas 
+                            
+                            </a>
 
 
                             <br>
                             <a *ngIf="_modalServicioIntService.pacientePaquete.nombrePaquete === 'SERVICIOS DE LA MEMBRESIA' " [routerLink]="['/consultas/membresia/', _modalServicioIntService.paqueteVisitas]" routerLinkActive="router-link-active"> Ver consultas </a>
                             <br>
 
-                            <a [routerLink]="['/tabulador/pagos/', _modalServicioIntService.paqueteVisitas]" routerLinkActive="router-link-active"> Realizar Pago  </a>
+                            <a *ngIf="_modalServicioIntService.pacientePaquete.nombrePaquete === 'PAQUETE DE CONTROL PRENATAL' " [routerLink]="['/tabulador/pagos/', _modalServicioIntService.paqueteVisitas]" routerLinkActive="router-link-active"> Realizar Pago  </a>
 
 
 
