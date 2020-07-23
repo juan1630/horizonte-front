@@ -42,24 +42,26 @@
               <div class="col-md-2 text_header"></div>
             </div>
           </div>
-          <div class="card-body">
+          <div class="card-body" style="background-color: #f8f9fc;">
             <div *ngFor="let ambulanciaSiService of ambulanciaSI">
               <div class="row">
                 <div class="col-md-2">
-                  <label style="margin-right: 50px;">
+                  <label style="margin-right: 50px; margin-top: 18px;">
                     {{ ambulanciaSiService.DESTINO }}
                   </label>
                 </div>
                 <div class="col-md-2">
-                  <div (click)="alertcomparasion( ambulanciaSiService.PRECIO_PUBLICO_DIA, ambulanciaSiService.PRECIO_MEMBRESIA_DIA )" class="cursor">
+                  <button (click)="alertcomparasion( $event, ambulanciaSiService.PRECIO_PUBLICO_DIA, ambulanciaSiService.PRECIO_MEMBRESIA_DIA, ambulanciaSiService )" class="cursor  btn btn-light" style="margin-top: 3px; margin-left:-14px; width: 9.5em;
+                  height: 4em;">
                     {{ ambulanciaSiService.PRECIO_PUBLICO_DIA }}
                     <!-- <button class="btn btn-success precioPublico" (click)="agregarCarrito( $event, ambulanciaSiService )">
                         <i class="fas fa-plus"></i>
                     </button> -->
-                  </div>
+                  </button>
                 </div>
                 <div class="col-md-2">
-                  <div (click)="alertcomparasion( ambulanciaSiService.PRECIO_PUBLICO_REDONDO_DIA, ambulanciaSiService.PRECIO_MEMBRESIA_REDONDO_DIA)" class="cursor">
+                  <div (click)="alertcomparasion( $event, ambulanciaSiService.PRECIO_PUBLICO_REDONDO_DIA, ambulanciaSiService.PRECIO_MEMBRESIA_REDONDO_DIA, ambulanciaSiService)" class="cursor btn btn-light" style="margin-top: 3px; margin-left:-14px; width: 9.5em;
+                  height: 4em;">
                     {{ ambulanciaSiService.PRECIO_PUBLICO_REDONDO_DIA }}
                     <!-- <button class="btn btn-success precioRedondoDia" (click)="agregarCarrito( $event, ambulanciaSiService )">
                         <i class="fas fa-plus"></i>
@@ -67,7 +69,8 @@
                   </div>
                 </div>
                 <div class="col-md-2">
-                  <div (click)="alertcomparasion( ambulanciaSiService.PRECIO_PUBLICO_NOCHE, ambulanciaSiService.PRECIO_MEMBRESIA_NOCHE  )" class="cursor">
+                  <div (click)="alertcomparasion( $event, ambulanciaSiService.PRECIO_PUBLICO_NOCHE, ambulanciaSiService.PRECIO_MEMBRESIA_NOCHE, ambulanciaSiService  )" class="cursor btn btn-light" style="margin-top: 3px; margin-left:-14px; width: 9.5em;
+                  height: 4em;">
                     {{ ambulanciaSiService.PRECIO_PUBLICO_NOCHE }}
                     <!-- <button class="btn btn-success precioNoche" (click)="agregarCarrito( $event, ambulanciaSiService )">
                         <i class="fas fa-plus"></i>
@@ -75,7 +78,8 @@
                   </div>
                 </div>
                 <div class="col-md-2">
-                  <div (click)="alertcomparasion( ambulanciaSiService.PRECIO_PUBLICO_REDONDO_NOCHE, ambulanciaSiService.PRECIO_MEMBRESIA_REDONDO_NOCHE )" class="cursor">
+                  <div (click)="alertcomparasion( $event, ambulanciaSiService.PRECIO_PUBLICO_REDONDO_NOCHE, ambulanciaSiService.PRECIO_MEMBRESIA_REDONDO_NOCHE, ambulanciaSiService )" class="cursor btn btn-light" style="margin-top: 3px; margin-left:-14px; width: 9.5em;
+                  height: 4em;">
                     {{ ambulanciaSiService.PRECIO_PUBLICO_REDONDO_NOCHE }}
                     <!-- <button class="btn btn-success precioRedondoNoche" (click)="agregarCarrito( $event, ambulanciaSiService )">
                         <i class="fas fa-plus"></i>
@@ -84,10 +88,10 @@
                 </div>
                 <div class="col-md-2">
                   <label class="btn btn-outline-success" style="margin: 10px;" (click)="editarAmbulancia()" [routerLink]="['/ambulancia-editar', ambulanciaSiService._id]" routerLinkActive="router-link-active">
-                    <i class="far fa-edit"></i>
+                    <i class="fas fa-edit"></i>
                 </label>
                <label class="btn btn-outline-danger" style="margin: 10px;" (click)="delete(ambulanciaSiService._id)">
-                    <i class="fas fa-trash-alt "></i>
+                    <i class="fas fa-trash-alt"></i>
                 </label>
                 </div>
               </div>
@@ -100,74 +104,55 @@
         <div class="card-title" style="border-bottom-style: solid;">
           <h4 style="text-align: center;">COTIZACIÓN</h4>
         </div>
-        <div class="card-body">
+        <div class="card-body" style="overflow: auto;">
+          <div class="row" *ngFor="let pedido of carrito.items">
+            <div class="col-md-8">
+             <p style="font-size: 11px; font-weight: 600; margin-top: 10px;
+             text-align: center;"> {{ pedido.nombreEstudio }} : {{ pedido.precioSin }} {{ pedido.precioNoche }} </p>
+            </div>
+            <div class="col-md-2">
+              <button type="button" (click)="eliminar(pedido.idEstudio)" class="btn btn-link" style="color: red;">
+                <!-- <i class="fas fa-trash-alt"></i> -->
+                Eliminar
+                </button>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer" style="border-top-style: solid;">
+          <div class="row">
+            <div class="col-md-10">
+              <h5 style="font-size: 15px; font-weight: 800;">Total: &#36; {{carrito.totalSin}}</h5>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-10">
+              <h5 style="font-size: 15px; font-weight: 800;">Total membrecia: &#36; {{ carrito.totalCon}}</h5>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-10">
+              <h5 style="font-size: 15px; font-weight: 800;">Ahorro: &#36; {{carrito.totalSin - carrito.totalCon}}</h5>
+            </div>
+          </div>
+            <button type="button" class="btn btn-success btn-block btn-tarjeta" [routerLink]="['/pago', 'pedido', 'sin']">
+          <i class="fas fa-hand-holding-usd"></i>
+            Pagar
+        </button>
+            <button class="btn btn-dark btn-tarjeta mt-2" [routerLink]="['/paciente']" routerLinkActive="router-link-active">
+            <i class="fas fa-user-plus"></i>
+             Nuevo
+        </button>
+            <button type="button" class="btn btn-primary btn-block mt-2 btn-tarjeta" [routerLink]="['/imprimir-ticket']">
 
+            <i class="far fa-file-pdf" routerLinkActive="router-link-active" ></i>
+            Imprimir
+        </button>
+            <button class="btn btn-block btn-info  btn-tarjeta">
+                  <i class="fas fa-share-alt"></i>
+                    Enviar
+            </button>
         </div>
       </div>
     </div>
-    <div class="col-md-3">
-        <div class="fixed card">
-            <div class="card border-dark mb-3" style="max-width: 18rem; max-height: 29rem;">
-                <div class="card-header bg-transparent border-dark">
-                    <h5>
-                        COTIZCIÓN
 
-                    </h5>
-                </div>
-                <div class="card-body card-body-tarjeta text-dark">
-                    <h5 class="card-title">Total: $ {{carrito.totalSin}}</h5>
-                    <h5 class="card-title">Total membresia: $ {{ carrito.totalCon}}</h5>
-                    <h5 class="card-title">Ahorro: $ {{carrito.totalSin - carrito.totalCon}}</h5>
-
-
-
-                    <div class="pedidos">
-                        <p *ngFor="let pedido of carrito.items">
-                            {{ pedido.nombreEstudio }} : {{ pedido.precioSin }} {{ pedido.precioNoche }}
-
-                            <button type="button" (click)="eliminar(pedido.idEstudio)" class="btn btn-danger btn-block mt-2 eliminarelemento btn-tarjeta">
-                            <i class="fas fa-trash"></i>
-                            Eliminar
-                        </button>
-                        </p>
-
-                        <hr>
-
-                    </div>
-
-                </div>
-
-                <div class="card-footer bg-transparent border-success">
-
-                    <div class="pay">
-
-                        <button type="button" class="btn btn-success btn-block btn-tarjeta" [routerLink]="['/pago', 'pedido', 'sin']">
-                      <i class="fas fa-hand-holding-usd"></i>
-                        Pagar
-                    </button>
-
-                        <button class="btn btn-dark btn-tarjeta mt-2" [routerLink]="['/paciente']" routerLinkActive="router-link-active">
-                        <i class="fas fa-user-plus"></i>
-                         Nuevo
-                    </button>
-
-
-                        <button type="button" class="btn btn-primary btn-block mt-2 btn-tarjeta" [routerLink]="['/imprimir-ticket']">
-
-                        <i class="far fa-file-pdf" routerLinkActive="router-link-active" ></i>
-                        Imprimir
-                    </button>
-
-                        <!-- (click)="abrirInputCorreo()" -->
-                        <button class="btn btn-block btn-info  btn-tarjeta">
-                              <i class="fas fa-share-alt"></i>
-                                Enviar
-                        </button>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
 </div>

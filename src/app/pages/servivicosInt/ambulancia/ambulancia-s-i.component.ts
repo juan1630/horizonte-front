@@ -18,11 +18,11 @@ export class AmbulanciaSIComponent implements OnInit {
 
   // data de los servicios
   public ambulanciaSI: any [] = [];
-  
-  // data el usuario de la maquina 
+
+  // data el usuario de la maquina
   //public role: String;
 
-// data de la cotizacion 
+// data de la cotizacion
 public carrito = {
   totalSin: 0,
   totalCon:0,
@@ -30,7 +30,7 @@ public carrito = {
 };
 
 ngOnInit(): void {
-  
+
   // this.role = getDataStorage().role;
 
   // aca sugria el problema de la inicializacion de las variables
@@ -44,7 +44,7 @@ ngOnInit(): void {
     };
   }
   this.verDatos();
-  
+
 }
 
 
@@ -101,9 +101,9 @@ agregarCarrito( event, item:any ){
 
 
   console.log( item );
-    
-  if( event.path[1].classList.contains('precioPublico')  ){ 
-  
+
+  if( event.path[1].classList.contains('precioPublico')  ){
+
 
     // en esta parte pasamos el precio de día con y sin
     let  estuidio = {
@@ -112,7 +112,7 @@ agregarCarrito( event, item:any ){
       precioSin: item.PRECIO_PUBLICO_DIA,
       precioCon: item.PRECIO_MEMBRESIA_DIA,
       idEstudio:item._id
-      
+
   }
 
   // pasamos el precio redondo día con y sin
@@ -120,7 +120,7 @@ agregarCarrito( event, item:any ){
     this.sumarTotal(   item.PRECIO_PUBLICO_DIA, item.PRECIO_MEMBRESIA_DIA );
 
     this.carrito.items.push( estuidio );
-    
+
 
   }else if (  event.path[1].classList.contains('precioRedondoDia') )  {
 
@@ -134,11 +134,11 @@ agregarCarrito( event, item:any ){
   this.sumarTotal( item.PRECIO_PUBLICO_REDONDO_DIA, item.PRECIO_MEMBRESIA_REDONDO_DIA );
 
   this.carrito.items.push( estuidio );
-  
+
   }else if( event.path[1].classList.contains('precioNoche') ) {
 
 
-    // evaluamos el precio noche y precio noche sin 
+    // evaluamos el precio noche y precio noche sin
     let  estuidio = {
 
       nombreEstudio: item.DESTINO,
@@ -152,12 +152,12 @@ agregarCarrito( event, item:any ){
 
     this.sumarTotal( item.PRECIO_PUBLICO_NOCHE, item.PRECIO_MEMBRESIA_NOCHE );
     this.carrito.items.push( estuidio );
-    
+
 }else if( event.path[1].classList.contains('precioRedondoNoche')  ){
 
-  
+
   let estudio = {
-    
+
     nombreEstudio: item.DESTINO,
     precioSin: item.PRECIO_PUBLICO_REDONDO_NOCHE,
     precioCon: item.PRECIO_MEMBRESIA_REDONDO_NOCHE,
@@ -167,16 +167,16 @@ agregarCarrito( event, item:any ){
 
   this.sumarTotal( item.PRECIO_PUBLICO_REDONDO_NOCHE, item.PRECIO_MEMBRESIA_REDONDO_NOCHE );
   this.carrito.items.push( estudio );
-
+  console.log(this.carrito);
 }
-  
+
   let carritoString = JSON.stringify( this.carrito );
 
 
   gaurdarCotizacion( carritoString );
-  this.carrito = getDataCarrito();
+  // this.carrito = getDataCarrito();
   console.log( this.carrito );
-  
+
 
 }
 
@@ -187,20 +187,20 @@ eliminar( id ){
 
   this.carrito.items.forEach(  (item, index) => {
 
-    // Agregar algun otro caso que se pueda dar  
-    
+    // Agregar algun otro caso que se pueda dar
+
     if( item.idEstudio  === id ) {
 
       this.carrito.items.splice( index, 1 )
-     
+
       if( item.precioSin && item.precioCon ){
 
         this.restarTotal( item.precioSin, item.precioCon );
-        
+
       }else if( item.precioNoche ){
-  
+
             this.restarTotal( item.precioNoche, item.precioNoche );
-      }  
+      }
     }
 
   } );
@@ -210,7 +210,7 @@ eliminar( id ){
       gaurdarCotizacion(  carritoString );
 
 }
- 
+
 
   // filterPost = '';
 
@@ -218,19 +218,20 @@ eliminar( id ){
     this._ambulanciaService.getDestino().subscribe(
       (res:any) => {
         console.log( res );
-        this.ambulanciaSI = res.servicios; 
+        this.ambulanciaSI = res.servicios;
       },
       err => {
         console.log(<any>err);
-        
+
       }
     );
-  
+
   }
 
 
 
-  alertcomparasion( precioPublico, precioMembresia ){
+  alertcomparasion( ev, precioPublico, precioMembresia, item2:any ){
+    this.agregarCarrito(ev, item2);
 
     let precioSinTrim  =  precioPublico.replace('$', '');
     let precioSinComaPublico = precioSinTrim.replace(',', '');
@@ -238,8 +239,6 @@ eliminar( id ){
 
     let precioMemTrim  =  precioMembresia.replace('$', '');
     let precioMemComaMembresia = precioMemTrim.replace(',', '');
-
-
 
     swal({ title: `Con la memebresia ahorras ${ precioSinComaPublico - precioMemComaMembresia }`    ,icon: 'success' });
 
@@ -273,16 +272,16 @@ eliminar( id ){
       swal("Vamos a llenar el papeleo!", {
         icon: "success",
       });
-      
+
       this._router.navigateByUrl('/hoja-fram');
     } else if( value == null ) {
       swal("Tranquilo, Puedes intentar contratar algun otro destino!", {
         icon: "error",
       });
     }});
-      
+
   }
-  
+
   editarAmbulancia(){
     swal({title: "Estas seguro de Editar este destino?",
     text: "Una vez que se haya editado el destino, no se podrá recuperar",
@@ -301,7 +300,7 @@ eliminar( id ){
       });
       this._router.navigateByUrl('/ambulancia');
     }});
-  
+
   }
 
   eliminarAmbulancia(){
@@ -328,7 +327,7 @@ eliminar( id ){
   })
   .then((willDelete) => {
     if (willDelete) {
-    
+
       swal("Destino Eliminado con Éxito!", {
         icon: "success",
       });
@@ -350,11 +349,11 @@ eliminar( id ){
       },
       error => {
         console.log(error);
-        
+
       }
     );
   }
 
-  
+
 
 }
