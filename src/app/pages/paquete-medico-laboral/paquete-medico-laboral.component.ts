@@ -10,7 +10,6 @@ import swal from 'sweetalert'
 })
 export class PaqueteMedicoLaboralComponent implements OnInit {
 
-
   concepto:any[] = []
   consultas:any = { tipo: '', consulta: '', fecha: '', medico: '', firma: '' }
   citas:any[] = []
@@ -22,10 +21,12 @@ export class PaqueteMedicoLaboralComponent implements OnInit {
   rayosX: any[] = []
   medicos:any[] = []
   todas:any[] = []
+
+
   public id;
 
   constructor(
-    private _serviceMedicos: PaquetesMaternidadService,
+    private _service: PaquetesMaternidadService,
     private _route: ActivatedRoute
   ) { }
 
@@ -34,14 +35,13 @@ export class PaqueteMedicoLaboralComponent implements OnInit {
 
     this.id = this._route.snapshot.paramMap.get('id');
 
-    this._serviceMedicos.getMedicos()
+    this._service.getMedicos()
     .subscribe( (data) => {
       this.medicos = data.medicos
-      console.log(this.medicos);
     })
     this.mostrarTodo()
+    
   }
-
 
   seleccion($event, value){
     switch (value) {
@@ -92,28 +92,21 @@ export class PaqueteMedicoLaboralComponent implements OnInit {
     }
   }
 
-
-
   agregarConsulta(){
-
-    console.log( this.consultas );
-    
     if(this.consultas.tipo == '' || this.consultas.consulta == '' || this.consultas.medico == '' || this.consultas.firma == ''){
       swal('Error!', 'Porfavor ingrese los datos que le piden', 'error')
     }else{
       this.consultas.fecha = new Date()
       this.todas.push(this.consultas)
       console.log(this.consultas)
-      this._serviceMedicos.addVisitas(this.consultas, this.id)
+      this._service.addVisitas(this.consultas, this.id)
       .subscribe( (data) => {
-        console.log( data );
         swal('Consulta Agregada', 'Puede ver las visitas en la tabla', 'success')
         this.mostrarTodo() 
       })
       this.consultas = { tipo: '', consulta: '', fecha: '', medico: '', firma:'' }
     }
 }
-
 
 mostrarDatos(consulta, medico, servicio){
   if(servicio == '1') swal('', 'Cita incluida \n'+'Medico: '+medico, '')
@@ -126,46 +119,76 @@ mostrarDatos(consulta, medico, servicio){
 }
 
 
-  mostrarTodo(){
-  
-    this.citas = []
+mostrarTodo(){
+  this.citas = []
   this.laboratorio = []
   this.ultrasonido = []
   this.extras = []
   this.farmacia = []
   this.descuentos = []
   this.rayosX = []
-  
-  this.todas.forEach( data => {
-    if(data.tipo == '1'){
-      this.citas.push(data)
-      this.todas = []
-    }
-    if(data.tipo == '2'){
-      this.descuentos.push(data)
-      this.todas = []
-    }
-    if(data.tipo == '3'){
-      this.farmacia.push(data)
-      this.todas = []
-    }
-    if(data.tipo == '4'){
-      this.laboratorio.push(data)
-      this.todas = []
-    }
-    if(data.tipo == '5'){
-      this.ultrasonido.push(data)
-      this.todas = []
-    }
-    if(data.tipo == '6'){
-      this.extras.push(data)
-      this.todas = []
-    }
-    if(data.tipo == '7'){
-      this.rayosX.push(data)
-      this.todas = []
-    }
+
+  this._service.getVisitas(  this.id )
+    .subscribe( (data) => {
+
+      console.log( data  );
+      
+      this.todas = data.paquete
+      this.todas.forEach( el => {
+      if(el.tipo == '1'){
+        this.citas.push(el)
+        this.todas = []
+      }
+      if(el.tipo == '2'){
+        this.laboratorio.push(el)
+        this.todas = []
+      }
+      if(el.tipo == '3'){
+
+        this.extras.push(el)
+        this.todas = []
+      }
+      if(el.tipo == '4'){
+        this.farmacia.push(el)
+        this.todas = []
+      }
+    })
   })
+  
+  // this.todas.forEach( data => {
+  //   if(data.tipo == '1'){
+  //     this.citas.push(data)
+  //     this.todas = []
+  //   }
+  //   if(data.tipo == '2'){
+  //     this.descuentos.push(data)
+  //     this.todas = []
+  //   }
+  //   if(data.tipo == '3'){
+  //     this.farmacia.push(data)
+  //     this.todas = []
+  //   }
+  //   if(data.tipo == '4'){
+  //     this.laboratorio.push(data)
+  //     this.todas = []
+  //   }
+  //   if(data.tipo == '5'){
+  //     this.ultrasonido.push(data)
+  //     this.todas = []
+  //   }
+  //   if(data.tipo == '6'){
+  //     this.extras.push(data)
+  //     this.todas = []
+  //   }
+  //   if(data.tipo == '7'){
+  //     this.rayosX.push(data)
+  //     this.todas = []
+  //   }
+  // })
+
+  //TODO: el paquete de alto riesgo se deja de anticipo 1500y las semanas se re ajustan
+  //TODO: agregar boton dentro de los paquetes el boton del alto riesgo
+  
 }
 
 }

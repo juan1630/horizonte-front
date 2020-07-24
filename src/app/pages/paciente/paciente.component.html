@@ -1,65 +1,64 @@
 
 <div class="container-fluid">
 
-
-    <div class="row">
-  
-     
-      <div class="offset-md-6" ></div>
-      
-      <div *ngIf="pacientes.length === 0" class="center" >
-        <app-spinner></app-spinner>
+  <h1 class="centerxd">LISTADO DE PACIENTES</h1>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="form-group">
+          <input type="text" name="filterPost" placeholder="Buscar" class="form-control" style="margin-left: 25px; max-width:40em">
       </div>
-  
-      
-      <div class="col-md-6" >
-        <form #f="ngForm" (ngSubmit)="ingreso( f )" >
-        <div class="form-group">
-          <input type="text" name="buscarPaciente" ngModel placeholder="Buscar paciente"  (keyup)="ingreso( f )" class="form-control search-paciente">
-          <button  type="submit"  class="btn btn-primary" > 
-            <i class="fas fa-search"></i>  
-          </button>
-        </div>
-        </form>
-      </div>
-      
-      </div>
-  
-    <a class="pointer" (click)="modalService.abrirModal()" data-toggle="modal" data-target="#exampleModal"  >
-    <i class="fas fa-user-plus"></i>  Nuevo paciente</a>
-  
-      <!-- <app-search-bar></app-search-bar> -->
-  <div class="table-responsive" >
-    <table class="table table-bordered" >
-      <thead>
-        <th scope="col"> Nombre </th>
-        <th scope="col"> Edad </th>
-        <th scope="col"> Servicios integrados </th>
-      
-        </thead>
-  
-      <tbody>
-          <tr *ngFor="let paciente of pacientes" >
-            <td> {{ paciente.nombrePaciente }} {{ paciente.apellidoPaterno }}  {{ paciente.apellidoMaterno  }} </td>
-            <td >
-               {{ paciente.edad }}
-           
-               <!-- <i class="fas fa-exclamation-triangle"></i> -->
-           
-              </td>
-            <!-- (click)="modalService.abrirModal()" -->
-            <td  (click)="_modalservicioInt.abrirModalServicioIntegrados( paciente )">  
-              <a> Ver.. </a> 
-              <!-- <pre> usuario id {{ paciente | json }} </pre> -->
-            </td>
-            <app-modal-servicios-int [idUser]="paciente._id"></app-modal-servicios-int>
-          </tr>
-      </tbody>
-  
-  </table>
-  
+    </div>
+    <div class="col-md-2">
+      <button type=" button " class="btn btn-secondary boton_contra2" (click)="modalService.abrirModal()">NUEVO</button>
+    </div>
   </div>
-    
+
+  <br>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card"  style="border-radius: 30px; margin-left: 25px;">
+        <div class="card-heder header">
+          <div class="row">
+            <div class="col-md-4 text_header">
+              <p>Nombre</p>
+            </div>
+            <div class="col-md-2 text_header">
+              <p>Género</p>
+            </div>
+            <div class="col-md-2 text_header">
+              <p>Edad</p>
+            </div>
+            <div class="col-md-2 text_header">
+              <p>Telefono</p>
+            </div>
+            <div class="col-md-2 text_header">
+              <p>Servicios integrados</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div *ngFor="let paciente of pacientes">
+            <div class="row">
+              <div class="col-md-4" style="text-align: center;">
+                {{ paciente.nombrePaciente }} {{ paciente.apellidoPaterno }}  {{ paciente.apellidoMaterno  }} <br>
+              </div>
+              <div class="col-md-2" style="text-align: center;"> Sexo <br></div>
+              <div class="col-md-2" style="text-align: center;">
+                {{ paciente.edad }}<br>
+              </div>
+              <div class="col-md-2" style="text-align: center;">
+                {{ paciente.telefono }} <br>
+              </div>
+              <div class="col-md-2" style="text-align: center;" (click)="_modalservicioInt.abrirModalServicioIntegrados( paciente )">
+                <a>Ver...</a> <br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
     <nav aria-label="Page navigation">
       <ul class="pagination justify-content-center">
         <li class="page-item disabled">
@@ -70,9 +69,8 @@
         </li>
       </ul>
     </nav>
-  
+
     <app-modal></app-modal>
-  
+
   </div>
-  
-  
+

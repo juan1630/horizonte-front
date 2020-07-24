@@ -53,7 +53,7 @@
 
 
                             <br>
-                            <a *ngIf="_modalServicioIntService.pacientePaquete.nombrePaquete === 'SERVICIOS DE LA MEMBRESIA' " [routerLink]="['/consultas/membresia/', _modalServicioIntService.paqueteVisitas]" routerLinkActive="router-link-active"> Ver consultas </a>
+                            <a *ngIf="_modalServicioIntService.pacientePaquete.nombrePaquete === 'SERVICIOS DE LA MEMBRESIA' " [routerLink]="['/membresia/', _modalServicioIntService.paqueteVisitas]" routerLinkActive="router-link-active"> Ver consultas </a>
                             <br>
 
                             <a *ngIf="_modalServicioIntService.pacientePaquete.nombrePaquete === 'PAQUETE DE CONTROL PRENATAL' " [routerLink]="['/tabulador/pagos/', _modalServicioIntService.paqueteVisitas]" routerLinkActive="router-link-active"> Realizar Pago  </a>
@@ -118,6 +118,19 @@
                         <a class="plus-button"> <i class="fas fa-plus-circle"></i> Añadir paquete
                         </a>
                     </div>
+                    <div class="offset-8">
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <a (click)="agregarMembresia()"> 
+
+                            CONTRATAR MEMBRESIA
+
+                        </a>
+                    </div>
+
                 </div>
 
             </div>

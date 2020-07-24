@@ -4,7 +4,12 @@
 }
 
 .centerxd {
-    text-align: center;
+    text-align: left;
+    font-size: 40px;
+    font-weight: 600;
+    color: #001672;
+    font-style: italic;
+    margin-left: 15px;
 }
 
 .separar {
@@ -14,11 +19,37 @@
 .ambulance {
     margin: 1rem 1rem;
 }
-
-.fixed {
-    top: 15%;
+.boton_contra1{
+  border-radius: 3em;
+  width: 12em;
+  background-color: #00BBF1;
+  color: white;
+  border-color: #00BBF1;
+  font-weight: 500;
+  font-size: 15px;
 }
+.boton_contra2{
+  border-radius: 3em;
+  width: 12em;
+  // color: #00BBF1;
+  background-color: #E3D049;
+  border-color: #E3D049;
 
+}
+.fixed {
+    top: 27%;
+}
+.header{
+  background-color: #03318C;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+}
+.text_header{
+  text-align: center;
+margin-top: 15px;
+font-weight: 600;
+color: white;
+}
 .cursor:hover {
     cursor: pointer;
     background-color: #2b71a0;

@@ -11,6 +11,7 @@ import { LoginModule } from './login/login/login.module';
 import { PageModule } from './pages/page.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ServicesModule } from './services/services.module';
+import {  NgxExtendedPdfViewerModule  } from 'ngx-extended-pdf-viewer';
 
 // // SOCKET 
 
@@ -22,7 +23,9 @@ import { TicketComponent } from './contratos/ticket/ticket/ticket.component';
 
 
 import { PdfViewerModule, PDFViewerParams } from 'ng2-pdf-viewer';
-import { ContratoVidaPlenaComponent } from './contratos/contratoVidaPlena/contrato-vida-plena/contrato-vida-plena.component'
+import { ContratoVidaPlenaComponent } from './contratos/contratoVidaPlena/contrato-vida-plena/contrato-vida-plena.component';
+import { ContratoNeonatalComponent } from './contratos/neonatal/contrato-neonatal/contrato-neonatal.component';
+
 
 // import  { PdfMakeWrapper  } from 'pdfmake-wrapper';
 // import pdfFonts from "pdfmake/build/vfs_fonts";
@@ -38,7 +41,8 @@ import { ContratoVidaPlenaComponent } from './contratos/contratoVidaPlena/contra
     ContratoMaternidadComponent,
     ContratoMLaboralComponent,
     TicketComponent,
-    ContratoVidaPlenaComponent
+    ContratoVidaPlenaComponent,
+    ContratoNeonatalComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +55,7 @@ import { ContratoVidaPlenaComponent } from './contratos/contratoVidaPlena/contra
     ReactiveFormsModule,
     jqxCalendarModule,
     PdfViewerModule,
+    NgxExtendedPdfViewerModule,
     APP_ROUTES
   ],
   exports: [

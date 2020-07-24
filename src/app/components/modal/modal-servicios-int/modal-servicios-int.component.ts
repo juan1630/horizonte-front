@@ -37,6 +37,12 @@ export class ModalServiciosIntComponent implements OnInit {
     this._router.navigate(['/solicitud', this._modalServicioIntService.idUser]);
 
   }
+
+
+  agregarMembresia(){
+    this._router.navigate(['/hoja/solicitud/membresia', this._modalServicioIntService.idUser]);
+
+  }
  
   cambio( f ){
     console.log( f );

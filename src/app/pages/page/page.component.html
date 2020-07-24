@@ -10,6 +10,6 @@
         <!-- En esta seccio ira el dashboars y sus compoentes  -->
 
         <!-- Inicia la seccion del chat -->
-        <app-chat (cerrarChat)="cerrarVentanaChat($event)" [ngClass]="chatModal ? 'ver-chat' : 'ocultar-chat'" roleNotificacion [roleNotificacion]="usuario.role"></app-chat>
+        <app-chat (cerrarChat)="cerrarVentanaChat($event)" class="ver-chat"></app-chat>
     </div>
 </div>
