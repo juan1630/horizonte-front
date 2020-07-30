@@ -26,7 +26,7 @@
     "mapbox-gl": "^1.10.1",
     "moment": "^2.24.0",
     "ng2-pdf-viewer": "^6.3.2",
-    "ngx-extended-pdf-viewer": "^4.0.2",
+    "ngx-extended-pdf-viewer": "^4.1.0",
     "ngx-socket-io": "^3.0.1",
     "pdfmake": "^0.1.65",
     "pdfmake-wrapper": "^2.0.0",
