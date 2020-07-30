@@ -8,7 +8,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PacienteService {
   public url = "https://horizonte-1.herokuapp.com";
-  // public url = "http://localhost:3200";
+
+  //  public url = "http://localhost:3200";
 
   constructor(
     private _http: HttpClient
