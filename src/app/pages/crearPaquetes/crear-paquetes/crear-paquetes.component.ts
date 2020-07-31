@@ -47,6 +47,7 @@ export class CrearPaquetesComponent implements OnInit {
   public totalPaquete = 0;
 
   infoPaquete= {
+    
     nombrePaquete: "",
     nombreCirujano: "",
     pagoCirujano: 0,
@@ -59,6 +60,9 @@ export class CrearPaquetesComponent implements OnInit {
     nombreAyudante3: "",
     pagoAyudante3:0,
     diasObservacion:"",
+    nombreMateriales: "",
+    cantidadMaterial1: 0,
+    precioMaterial: 0,
     materiales1:"",
     materiales2:"",
     materiales3:"",
