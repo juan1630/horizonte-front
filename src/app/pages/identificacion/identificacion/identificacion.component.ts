@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PacienteService } from 'src/app/services/paciente/paciente.service';
+<<<<<<< Updated upstream
 import { headerImg } from '../../../config/index.config';
 import { getDataStorage  } from '../../../functions/storage/storage.funcion';
 import  { IdentificacionConsultaService } from '../../../services/identificacion-consulta.service';
@@ -11,6 +12,8 @@ import * as jsPDF from 'jspdf';
 moment.locale('es')
 
 
+=======
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-identificacion',
@@ -20,6 +23,7 @@ moment.locale('es')
 export class IdentificacionComponent implements OnInit {
 
 
+<<<<<<< Updated upstream
   public id = "";
   
   public nombreEnfermeraQueIngresa ="";
@@ -28,6 +32,9 @@ export class IdentificacionComponent implements OnInit {
 
   
 
+=======
+  public id = "5e98a29b0eb1ac2b44132b31";
+>>>>>>> Stashed changes
   public paciente = {
     RFCFiscal: "",
     apellidoMaterno: "",
@@ -52,8 +59,11 @@ export class IdentificacionComponent implements OnInit {
     nombrePaciente: "",
     nombreRazonSocial: "",
     paisPaciente: "",
+<<<<<<< Updated upstream
     sexo:"",
     alergias:"",
+=======
+>>>>>>> Stashed changes
     paquetes: "",
     paquetesPacientes: "",
     poblacion: "",
@@ -62,6 +72,7 @@ export class IdentificacionComponent implements OnInit {
     telefonoContactoEmergencia1: "",
     __v: 0,
     _id: ""
+<<<<<<< Updated upstream
 
   }
 
@@ -106,6 +117,16 @@ export class IdentificacionComponent implements OnInit {
     this.getPaciente();
    
 
+=======
+  }
+
+  constructor(
+    private pacienteService: PacienteService
+  ) { }
+
+  ngOnInit(): void {
+    this.getPaciente();
+>>>>>>> Stashed changes
   }
 
 
@@ -117,6 +138,7 @@ export class IdentificacionComponent implements OnInit {
     } )
   }
 
+<<<<<<< Updated upstream
 
   enviarConsulta() {
 
@@ -193,4 +215,6 @@ export class IdentificacionComponent implements OnInit {
 
   }
 
+=======
+>>>>>>> Stashed changes
 }
