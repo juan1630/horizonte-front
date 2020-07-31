@@ -1,0 +1,260 @@
+<form class="container">
+
+    <div class="row mb-3">
+        <div class="col-md-3 offset-md-3 ">
+
+            Vendedor: {{ infoUsuario.atendio }}
+
+        </div>
+        <div class="col-md-3">
+
+            Fecha: {{ fecha }}
+
+        </div>
+        <div class="col-md-3">
+
+            Folio: 1
+        </div>
+
+    </div>
+
+
+    <div class="row mt-5">
+
+        <div class="col-md-12  center mb-4">
+            DATOS DEL CLIENTE
+
+        </div>
+
+        <div class="col-md-6">
+            APELLIDOS: {{ paciente.apellidoPaterno }} {{ paciente.apellidoMaterno}}
+        </div>
+
+        <div class="col-md-6 mb-3">
+            NOMBRES: {{ paciente.nombrePaciente }}
+        </div>
+
+
+        <div class="col-md-3 mt-3">
+            FECHA DE NACIMIENTO: {{ paciente.fechaNacimientoPaciente }}
+        </div>
+
+        <div class="col-md-3 mt-3 mb-3">
+            EDAD: {{ paciente.edad }}
+        </div>
+
+
+        <div class="col-md-3 mt-3">
+            GÉNERO: {{ paciente.sexo }}
+        </div>
+
+        <div class="col-md-3 mt-3">
+            NACIONALIDAD: {{ paciente.paisNacimiento }}
+        </div>
+
+        <div class="col-md-3 mt-3">
+            TIPO DE MEMBRESIA: MEMBRESIA
+        </div>
+
+
+        <div class="col-md-5">
+            <input type="text" name="ocupacion" id="ocupacion" class="form-control" placeholder="OCUPACION" [(ngModel)]="pacienteInfo.ocupacion">
+        </div>
+
+        <div class="col-md-3 mt-3">
+            RFC:
+        </div>
+
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-md-12 center mb-4 ">
+            DOMICILIO FISCAL
+        </div>
+
+
+        <div class="col-md-3">
+            CALLE Y NÚMERO:
+        </div>
+
+        <div class="col-md-3">
+            COLONIA O FRACCIONAMIENTO
+        </div>
+
+        <div class="col-md-2">
+            MUNICIPIO: {{ paciente.municipioFiscal}}
+        </div>
+
+        <div class="col-md-2">
+            ENTIDAD FEDERATIVA: {{ paciente.municipioFiscal }}
+        </div>
+
+        <div class="col-md-2">
+            C.P. {{ paciente.cpPaciente }}
+        </div>
+
+
+
+
+    </div>
+    <!-- 
+    i was goin -  iba a   -->
+
+
+    <div class="row">
+
+        <div class="col-md-12 mt-5 center mb-5">
+            DOMICILIO PARTICULAR
+        </div>
+
+
+        <div class="col-md-3">
+            CALLE Y NÚMERO: {{ paciente.calleNumeroPaciente }}
+        </div>
+
+        <div class="col-md-3">
+            COLONIA O FRACCIONAMIENTO: {{ paciente.poblacion }}
+        </div>
+
+        <div class="col-md-2">
+            MUNICIPIO: {{ paciente.estadoPaciente }}
+        </div>
+
+        <div class="col-md-2">
+            ENTIDAD FEDERATIVA: {{ paciente.estadoPaciente }}
+        </div>
+
+        <div class="col-md-2">
+            C.P. {{ paciente.cpPaciente }}
+        </div>
+
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-12   center  mt-5 mb-5">
+            DATOS DE LA EMPRESA
+        </div>
+
+        <div class="cl-md-3">
+            NOMBRE EMPRESA: {{ paciente.nombreRazonSocial }}
+        </div>
+
+
+        <div class="col-md-3">
+            CALLE Y NÚMERO:
+        </div>
+
+        <div class="col-md-3">
+            COLONIA O FRACCIONAMIENTO: {{ paciente.localidadFiscal }}
+        </div>
+
+        <div class="col-md-2">
+            MUNICIPIO: {{ paciente.municipioFiscal }}
+        </div>
+
+        <div class="col-md-2">
+            ENTIDAD FEDERATIVA {{ paciente.localidadFiscal }}
+        </div>
+
+        <div class="col-md-2">
+            C.P. {{ paciente.cpFiscal}}
+        </div>
+
+    </div>
+
+
+    <div class="row center mt-4 mb-4">
+        <div class="col-md-12">
+            TELEFONOS
+        </div>
+
+
+        <div class="col-md-4 mt-4">
+            EMAIL: {{ paciente.correo }}
+        </div>
+
+        <div class="col-md-4 mt-4">
+            PARTICULAR: {{ paciente.telefono }}
+        </div>
+
+        <!-- 
+        <div class="col-md-4 mt-4">
+            CELULAR:
+        </div> -->
+
+
+    </div>
+
+
+    <div class="row mb-4">
+
+        <div class="col-md-12 center mt-5 mb-5">
+
+            COBERTURA
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="inicioCobertura">
+                Inicio: {{ fecha }}
+
+            </div>
+
+
+            <div class="finCobertura">
+                Finaliza: {{ fechaFinaliza }}
+            </div>
+
+        </div>
+
+        <div class="col-md-4 formaDePago">
+            <select name="formaPagoMembresia" id="formaPagoMembresia" class="form-control" [(ngModel)]="infoUsuario.metodoPago">
+                <option selected > Selecciona la forma de pago  </option>
+                <option value="EFECTIVO"> Efectivo </option>
+                <option value="TARJETA">  Tajerta de credito </option>
+                <option value="CHEQUE">  Cheque </option>
+            </select>
+        </div>
+
+        <div class="col-md-4" *ngIf="infoUsuario.metodoPago ==='EFECTIVO'">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h3> IMPORTE: 420 M.N </h3>
+                </div>
+                <div class="col-md-12">
+                    <h3>
+                        I.V.A: 80 M.N
+                    </h3>
+                </div>
+
+
+                <div class="col-md-12">
+
+                    <h3>
+
+                        TOTAL: 500 M.N.
+                    </h3>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-6 offset-3 mb-3">
+
+            <button class="btn btn-primary btn-block" (click)="enviar()">   Registrar </button>
+
+        </div>
+
+    </div>
+
+</form>

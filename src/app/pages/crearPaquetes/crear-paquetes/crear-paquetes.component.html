@@ -1,0 +1,479 @@
+<form>
+    <div class="row ml-2 ml-1">
+
+
+        <div class="col-md-5 mr-3">
+            <label for="nombrePaquete">Nombre del paquete:</label>
+            <input type="text" name="nombrePaquete" class="form-control" placeholder="Nombre del paquete" id="nombrePaquete" [(ngModel)]="infoPaquete.nombrePaquete">
+        </div>
+
+    </div>
+
+
+
+    <div class="row ml-2 mt-2">
+
+        <!-- INICIA EL FORMULARIO DE MANO DE OBRA -->
+
+        <div class="col-md-12">
+
+            <h2 class="center"> MANO DE OBRA </h2>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <label for="cirujano">
+              CIRUJANO :
+            </label>
+
+            <input type="text" name="cirujano" id="cirujano" placeholder="NOMBRE DEL CIRUJANO" class="form-control" [(ngModel)]="infoPaquete.nombreCirujano">
+
+        </div>
+
+        <div class="col-md-2">
+
+            <label for="pagoCirujano">
+              PAGO :
+            </label>
+
+            <input type="text" name="pagoCirujano" id="pagoCirujano" placeholder="PAGO AL CIRUJANO" class="form-control" [(ngModel)]="infoPaquete.pagoCirujano">
+
+        </div>
+
+
+
+
+        <div class="col-md-3">
+
+            <label for="anestesiologo">
+                ANESTESIÓLOGO:
+              </label>
+
+            <input type="text" name="anestesiologo" id="anestesiologo" placeholder="NOMBRE DEL ANESTECIOLOGO" class="form-control" [(ngModel)]="infoPaquete.nombreAnestesiologo">
+
+        </div>
+
+        <div class="col-md-2">
+
+            <label for="pagoAnestesiologo">
+                PAGO:
+              </label>
+
+            <input type="text" name="pagoAnestesiologo" id="pagoAnestesiologo" placeholder="PAGO CIRUJANO" class="form-control" [(ngModel)]="infoPaquete.pagoAnesteciologo">
+
+        </div>
+
+
+        <div class="col-md-3 mt-3">
+
+            <label for="ayudante1">
+                PRIMER AYUDANTE:
+            </label>
+
+            <input type="text" name="ayudante1" id="ayudante1" placeholder="NOMBRE DEL PRIMER AYUDANTE" class="form-control" [(ngModel)]="infoPaquete.nombreAyudante1">
+
+        </div>
+
+        <div class="col-md-2 mt-3">
+
+            <label for="pagoAyudante1">
+                PAGO:
+              </label>
+
+            <input type="text" name="pagoAyudante1" id="pagoAyudante1" placeholder="PAGO AYUDANTE 1" class="form-control" [(ngModel)]="infoPaquete.pagoAyudante1">
+
+        </div>
+
+        <div class="col-md-3 mt-3">
+
+            <label for="ayudante1">
+                SEGUNDO AYUDANTE:
+              </label>
+
+            <input type="text" name="ayudante2" id="ayudante2" placeholder="NOMBRE DEL SEGUNDO AYUDANTE " class="form-control" [(ngModel)]="infoPaquete.nombreAyudante2">
+
+
+        </div>
+
+        <div class="col-md-2 mt-3">
+
+            <label for="pagoAyudante2">
+                PAGO:
+              </label>
+
+            <input type="text" name="pagoAyudante2" id="pagoAyudante2" placeholder="PAGO AYUDANTE 2" class="form-control" [(ngModel)]="infoPaquete.pagoAyudante2">
+
+        </div>
+
+
+        <div class="col-md-4 mt-3">
+
+            <label for="ayudante3">
+                TERCER AYUDANTE:
+              </label>
+
+            <input type="text" name="ayudante3" id="ayudante3" placeholder="NOMBRE DEL TERCER AYUDANTE " class="form-control" [(ngModel)]="infoPaquete.nombreAyudante3">
+
+        </div>
+
+        <div class="col-md-2 mt-3">
+
+            <label for="pagoAyudante3">
+                PAGO:
+              </label>
+
+            <input type="text" name="pagoAyudante3" id="pagoAyudante3" placeholder="PAGO AYUDANTE 2" class="form-control" [(ngModel)]="infoPaquete.pagoAyudante3">
+
+        </div>
+
+        <div class="col-md-3 mt-3">
+            <h4> TOTAL MANO DE OBRA: </h4>
+        </div>
+
+
+
+    </div>
+
+
+    <!-- TERMINA EL FORMULARIO DE MANO DE OBRA -->
+
+
+    <!-- INICIA EL FORMULARIO DE LAS MAQUINAS  -->
+
+
+
+    <div class="row ml-2 mt-4 ml-1 mb-2">
+
+        <div class="col-md-12">
+
+            <h2 class="center"> MAQUINAS </h2>
+        </div>
+
+
+
+        <!-- PRIMER MAQUINA  -->
+
+        <div class="col-md-3">
+
+            <label for="nombreMaquina"> NOMBRE DE LA MAQUINA: </label>
+
+            <input type="text" name="nombreMaquina" id="nombreMaquina" class="form-control" placeholder="NOMBRE DE LA MAQUINA" [(ngModel)]="infoPaquete.maquina1">
+
+        </div>
+
+        <div class="col-md-2">
+
+            <label for="costoDeMaquinaPorHora1"> COSTO  * HORA: </label>
+
+            <input type="number" name="costoDeMaquinaPorHora1" id="costoDeMaquinaPorHora1" class="form-control" placeholder="COSTO DE LA MAQUINA POR HORA" [(ngModel)]="costoDeMaquinaPorHora1">
+
+        </div>
+
+
+        <div class="col-md-2">
+
+
+            <label for="horasAusarMaquina1"> HORAS A USAR</label>
+            <input type="number" name="horasAusarMaquina1" id="horasAusarMaquina1" [(ngModel)]="horasAusarMaquina1" class="form-control" placeholder="HORAS" (blur)="sumarTotalMaquinas()">
+
+
+        </div>
+
+
+        <div class="col-md-4">
+            <h5> TOTAL: {{ totalSimple }} </h5>
+        </div>
+
+        <!-- SEGUNDA MAQUINA -->
+
+        <div class="col-md-3">
+
+            <label for="nombreMaquina"> NOMBRE DE LA MAQUINA: </label>
+
+            <input type="text" name="nombreMaquina" id="nombreMaquina" class="form-control" placeholder="NOMBRE DE LA MAQUINA" [(ngModel)]="infoPaquete.maquina1">
+
+        </div>
+
+        <div class="col-md-2">
+
+            <label for="costoDeMaquinaPorHora2"> COSTO  * HORA: </label>
+            <input type="number" name="costoDeMaquinaPorHora2" id="costoDeMaquinaPorHora2" class="form-control" placeholder="COSTO DE LA MAQUINA POR HORA" [(ngModel)]="costoDeMaquinaPorHora2">
+
+        </div>
+
+
+        <div class="col-md-2">
+
+
+            <label for="horasAusar"> HORAS A USAR</label>
+            <input type="number" name="horasAusarMaquina2" id="horasAusarMaquina2" class="form-control" placeholder="HORAS" (blur)="sumarTotalMaquinas2()" [(ngModel)]="horasAusarMaquina2">
+
+
+        </div>
+
+
+        <div class="col-md-4">
+            <h5> TOTAL: {{ totalSimple2 }} </h5>
+        </div>
+
+
+        <!-- TERCERA MAQUINA -->
+
+
+        <div class="col-md-3">
+
+            <label for="nombreMaquina"> NOMBRE DE LA MAQUINA: </label>
+
+            <input type="text" name="nombreMaquina" id="nombreMaquina" class="form-control" placeholder="NOMBRE DE LA MAQUINA" [(ngModel)]="infoPaquete.maquina1">
+
+        </div>
+
+        <div class="col-md-2">
+
+            <label for="costoDeMaquinaPorHora3"> COSTO  * HORA: </label>
+
+            <input type="number" name="costoDeMaquinaPorHora3" id="costoDeMaquinaPorHora3" class="form-control" placeholder="COSTO DE LA MAQUINA POR HORA" [(ngModel)]="costoDeMaquinaPorHora3">
+
+        </div>
+
+
+        <div class="col-md-2">
+
+
+            <label for="horasAusarMaquina3"> HORAS A USAR</label>
+            <input type="number" [(ngModel)]="horasAusarMaquina3" name="horasAusarMaquina3" id="horasAusarMaquina3" class="form-control" placeholder="HORAS" (blur)="sumarTotalMaquinas3()">
+
+
+        </div>
+
+
+        <div class="col-md-4">
+            <h5> TOTAL: {{ totalSimple3 }} </h5>
+        </div>
+
+
+        <!-- CUARTA MAQUNA -->
+
+
+        <div class="col-md-3">
+
+            <label for="nombreMaquina"> NOMBRE DE LA MAQUINA: </label>
+
+            <input type="text" name="nombreMaquina" id="nombreMaquina" class="form-control" placeholder="NOMBRE DE LA MAQUINA" [(ngModel)]="infoPaquete.maquina1">
+
+        </div>
+
+        <div class="col-md-2">
+
+            <label for="costoDeMaquinaPorHora4"> COSTO  * HORA: </label>
+
+            <input type="number" name="costoDeMaquinaPorHora4" id="costoDeMaquinaPorHora4" class="form-control" placeholder="COSTO DE LA MAQUINA POR HORA" [(ngModel)]="costoDeMaquinaPorHora4">
+
+        </div>
+
+
+        <div class="col-md-2">
+
+
+            <label for="horasAusarMaquina4"> HORAS A USAR</label>
+            <input type="number" name="horasAusarMaquina4" [(ngModel)]="horasAusarMaquina4" id="horasAusarMaquina4" class="form-control" placeholder="HORAS" (blur)="sumarTotalMaquinas4()">
+
+
+        </div>
+
+
+        <div class="col-md-4">
+            <h5> TOTAL: {{ totalSimple4 }} </h5>
+        </div>
+
+
+        <!-- QUINTA MAQUINA -->
+
+
+
+        <div class="col-md-3">
+
+            <label for="nombreMaquina"> NOMBRE DE LA MAQUINA: </label>
+
+            <input type="text" name="nombreMaquina" id="nombreMaquina" class="form-control" placeholder="NOMBRE DE LA MAQUINA" [(ngModel)]="infoPaquete.maquina1">
+
+        </div>
+
+        <div class="col-md-2">
+
+            <label for="costoDeMaquinaPorHora5"> COSTO  * HORA: </label>
+
+            <input type="number" name="costoDeMaquinaPorHora5" id="costoDeMaquinaPorHora5" class="form-control" placeholder="COSTO DE LA MAQUINA POR HORA" [(ngModel)]="costoDeMaquinaPorHora5">
+
+        </div>
+
+
+        <div class="col-md-2">
+
+
+            <label for="horasAusarMaquina5"> HORAS A USAR</label>
+            <input type="number" name="horasAusarMaquina5" id="horasAusarMaquina5" class="form-control" placeholder="HORAS" [(ngModel)]="horasAusarMaquina5" (blur)="sumarTotalMaquinas5()">
+
+
+        </div>
+
+
+        <div class="col-md-4">
+            <h5> TOTAL: {{ totalSimple5 }} </h5>
+        </div>
+
+
+
+        <div class="mt-2 offset-md-7 col-md-3">
+            <h4> TOTAL DE MAQUINAS: {{ totalMaquinas}} </h4>
+        </div>
+
+
+        <!-- <div class="col-md-3">
+            <button class="btn btn-success btn-block" (click)="agregarMaquina()"> Agrega maquina </button>
+        </div> -->
+
+
+
+    </div>
+
+
+
+    <!-- TERMINA EL FORMULARIO DE LAS MAQUINAS  -->
+
+    <!-- INICIAN LOS MATERIALES -->
+
+    <div class="row">
+
+
+        <div class="col-md-12">
+            <h2>MATERIALES</h2>
+        </div>
+
+        <div class="col-md-3">
+
+            <label for="material1">
+                MATERIAL A USAR:
+            </label>
+
+            <input type="text" name="material1" id="material1" placeholder="MATERIALES A OCUPAR" [(ngModel)]="infoPaquete.nombreMateriales" class="form-control">
+
+        </div>
+
+        <div class="col-md-2">
+
+            <label for="material1">
+               CANTIDAD :
+            </label>
+
+            <input type="text" name="material1" id="material1" placeholder="CANTIDAD" [(ngModel)]="infoPaquete.cantidadMaterial1" class="form-control">
+
+
+        </div>
+
+
+
+        <div class="col-md-2">
+
+            <label for="material1">
+               COSTO * UNIDAD :
+            </label>
+
+            <input type="text" name="material1" id="material1" placeholder="COSTO" [(ngModel)]="infoPaquete.materiales1" class="form-control">
+
+
+        </div>
+
+        <div class="col-md-2">
+            <h4>TOTAL: </h4>
+        </div>
+
+        <div class="col-md-2">
+
+            <button class="btn btn-block btn-info mt-4" (click)="agregarMaquina()">  agregar   </button>
+
+        </div>
+
+
+
+    </div>
+
+
+    <div class="row">
+
+
+        <div class="col-md-3" id="container-maquinas">
+
+        </div>
+
+
+        <div class="col-md-2" id="content-cantidad">
+
+
+
+
+        </div>
+
+
+        <div class="col-md-2" id="contente-precio">
+
+
+
+        </div>
+
+        <div class="col-md-2" id="content-totales">
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+    <!-- TERMINAN LOS MATERIALES -->
+
+    <!-- INCIA LOS DIAS EN OBSERVACION -->
+
+
+
+    <div class="row mt-2 ml-1">
+
+        <div class="col-md-12">
+            <h2> DÍAS EN OBSERVACIÓN </h2>
+        </div>
+
+        <div class="col-md-4">
+            <label for="diasObservacion">DÍAS DE RECUPERACIÓN</label>
+            <input type="number" name="diasObservacion" id="diasObservacion" placeholder="DÍAS DE RECUPERACIÓN" [(ngModel)]="diasRecuperacion" class="form-control">
+        </div>
+
+        <div class="col-md-3">
+            <label for="costoDiasRecuperacion"> COSTO DÍAS DE RECUPERACIÓN </label>
+            <input type="number" class="form-control" name="costoDiasRecuperacion" id="costoDiasRecuperacion" [(ngModel)]="costoDiasRecuperacion" (blur)="diasDeObservacion()">
+        </div>
+
+        <div class="col-md-3">
+
+            <h4> TOTAL OBSERVACIÓN: {{ totalDiasRcuperacion }} </h4>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- TERMINA LOS DIAS EN OBSERVACION -->
+
+
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <!-- -->
+            <input type="submit" class="btn btn-info btn-block" value="Añadir" (click)="enviar()">
+        </div>
+    </div>
+
+
+</form>

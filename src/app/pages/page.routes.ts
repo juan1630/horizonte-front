@@ -32,7 +32,6 @@ import { PaqueteMaternidadComponent } from './paquete-maternidad/paquete-materni
 import { SolicitudComponent } from './solicitud/solicitud.component';
 import { PagosMaternidadComponent } from './pagos/pagos-maternidad/pagos-maternidad.component';
 import { HojaFramComponent } from './servivicosInt/hoja-fram/hoja-fram.component';
-import { MaternidadComponent } from './contrato/maternidad/maternidad.component';
 import { PerfilesComponent } from './servivicosInt/laboratorio/perfiles/perfiles.component';
 import { TabuladorPagosComponent } from './pagosMaternidad/tabulador-pagos/tabulador-pagos.component';
 import { EstudiosComponent } from './servivicosInt/laboratorio/estudios/estudios.component';
@@ -62,15 +61,23 @@ import { PerfilesNewComponent } from './servivicosInt/laboratorio/perfiles/perfi
 import { PatologiaEditComponent } from './servivicosInt/patologia/patologia-edit/patologia-edit/patologia-edit.component';
 import { PatologiaNewComponent } from './servivicosInt/patologia/patologia-new/patologia-new.component';
 import { PatologiaComponent } from './servivicosInt/patologia/patologia.component';
-// import { PedidoIndividualComponent } from './laboratorio/pedidos/pedido-individual/pedido-individual.component';
-// import { TabuladorAltoriesgoComponent } from './paquetes/altoRiesgo/tabulador-altoriesgo/tabulador-altoriesgo.component';
-// import { PatologiaComponent } from './servivicosInt/patologia/patologia.component'; 
-// import { PerfilesNewComponent } from './servivicosInt/laboratorio/perfiles/perfiles-new/perfiles-new.component';
-// import { PatologiaEditComponent } from './servivicosInt/patologia/patologia-edit/patologia-edit/patologia-edit.component';
-// import {  PatologiaNewComponent  } from './servivicosInt/patologia/patologia-new/patologia-new.component';
+import { HojaDiariaEnfGralComponent } from './Hojas_Diarias/hoja-diaria-enf-gral/hoja-diaria-enf-gral.component';
+import { EnfermeriaDashboardComponent } from './Enfermeria/enfermeria-dashboard/enfermeria-dashboard.component';
+import { DashComponent } from './farmacia/dash/dash.component';
+import { ConsultaGeneralComponent } from './consultas/consulta-general/consulta-general.component';
+import { PaqueteMedicoLaboralComponent } from './paquete-medico-laboral/paquete-medico-laboral.component';
+import { PediatricoComponent } from './contratos/pediatrico/pediatrico.component';
+import { ContratoVidaPlenaComponent } from '../contratos/contratoVidaPlena/contrato-vida-plena/contrato-vida-plena.component';
 
-// rutas hijas del dashboard
-// LoginGuardGuard
+import { SolicitudMembresiaComponent } from './solicitudMembresia/solicitud-membresia/solicitud-membresia.component';
+import { IdentificacionComponent } from './identificacion/identificacion/identificacion.component';
+import { ContratoNeonatalComponent } from '../contratos/neonatal/contrato-neonatal/contrato-neonatal.component';
+import { AltoRiesgoComponent } from '../contratos/alto-riesgo/alto-riesgo.component';
+import { CrearPaquetesComponent } from "./crearPaquetes/crear-paquetes/crear-paquetes.component";
+import { JefaturaEnfermeriaComponent } from './indicadores/jefatura-enfermeria/jefatura-enfermeria.component';
+
+
+
 const pagesRoutes : Routes = [
   {
     path: '',
@@ -80,26 +87,60 @@ const pagesRoutes : Routes = [
       // aca se iran agregando las rutas para el dashboard
       { path: 'paciente', component: PacienteComponent },
       { path: 'consultar/paquetes', component:PaquetesComponent },
+
+
+      // SOLICITUDES
+      {  path: 'hoja/solicitud/membresia/:id', component: SolicitudMembresiaComponent  },
+      { path: 'solicitud/:id', component: SolicitudComponent },
+
+      // PAQUETES
+
+      // tabuladores de consultas
       { path: 'paqueteMaternidad/:id', component: PaqueteMaternidadComponent },
+      { path: 'paquete/laboral/:id', component: PaqueteMedicoLaboralComponent  },
+      { path: 'pagos/paquete/maternidad', component:PagosMaternidadComponent },
+      { path: 'alto/riesgo/:id', component: TabuladorAltoriesgoComponent },
+
+      // { path: 'membresia/:id', component: MembresiaPaqueteComponent },
+
+      // CONTRATOS DE LOS PAQUETES
+      { path: 'contrato-medico-laboral', component: ContratoMLaboralComponent},
+      { path: 'contrato-maternidad', component: ContratoMaternidadComponent },
+      { path: 'contrato/pediatrico', component: PediatricoComponent },
+      { path: 'contrato/vida/plena', component: ContratoVidaPlenaComponent },
+      { path: 'contrato/neonatal', component: ContratoNeonatalComponent  },
+      { path: 'anexo/alto/riesgo', component: AltoRiesgoComponent },
+
+      // TABULADORES
+
+      // TABULADOR DE PAGOS DEL PAQUETE DE MATERNIDAD
+      { path: 'tabulador/pagos/:id', component: TabuladorPagosComponent },
+
+      // crear paquetes de quirofano
+
+
+      { path: 'crear/paquete', component: CrearPaquetesComponent  },
+
+
+      // SERVICIOS INTEGRADOS
+
       { path:'serviciosInt', component: ServiciosIntComponent  },
-      {path: 'ambulancia', component: AmbulanciaSIComponent},
+      { path: 'ambulancia', component: AmbulanciaSIComponent},
       { path: 'hoja-fram', component: HojaFramComponent},
-      {path: 'consulta/especialista', component: ConsultaEspecialistaComponent},
-      {path: 'medicina/general', component: ConsultaMedGralComponent},
-      {path: 'endoscopia', component: EndoscopiaComponent},
-      {path: 'entrega-resultados', component: ResultadosComponent},
-      {path: 'farmacia', component: FarmaciaComponent},
-      {path: 'hospitalizacion', component: HospitalizacionComponent},
-      {path: 'laboratorio', component: LaboratorioComponent},
-      {path: 'quirofano', component: QuirofanoComponent},
-      {path: 'xray', component: XraySIComponent},
-      {path: 'resonancia', component: ResonanciaComponent},
-      {path: 'tomografia', component: TomografiaComponent},
-      {path: 'trabajo-social', component: TrabajoSocialComponent},
-      {path: 'ultrasonido', component: UltrasonidoComponent},
-      {path: 'urgencias', component: UrgenciasComponent},
-      {path: 'otros-servicios', component: OtrosSIComponent},
-      { path:'solicitud/:id', component: SolicitudComponent },
+      { path: 'consulta/especialista', component: ConsultaEspecialistaComponent},
+      { path: 'medicina/general', component: ConsultaMedGralComponent},
+      { path: 'endoscopia', component: EndoscopiaComponent},
+      { path: 'entrega-resultados', component: ResultadosComponent},
+      { path: 'hospitalizacion', component: HospitalizacionComponent},
+      { path: 'laboratorio', component: LaboratorioComponent},
+      { path: 'quirofano', component: QuirofanoComponent},
+      { path: 'xray', component: XraySIComponent},
+      { path: 'resonancia', component: ResonanciaComponent},
+      { path: 'tomografia', component: TomografiaComponent},
+      { path: 'trabajo-social', component: TrabajoSocialComponent},
+      { path: 'ultrasonido', component: UltrasonidoComponent},
+      { path: 'urgencias', component: UrgenciasComponent},
+      { path: 'otros-servicios', component: OtrosSIComponent},
       { path: 'ambulancia-editar/:id', component: AmbulanciaEditComponent },
       { path: 'ambulancia-nuevo', component: AmbulanciaNewComponent},
       { path: 'xray-editar/:id', component: XrayEditComponent},
@@ -117,26 +158,33 @@ const pagesRoutes : Routes = [
       { path: 'estudios/laboratorio', component: EstudiosComponent },
       { path: 'laboratorio/pendientes', component: PedidosLaboratorioComponent },
       { path: 'laboratorio/contrato', component: ContratacionComponent },
-      { path: 'maternidad', component: MaternidadComponent },
-      { path:'tabulador/pagos/:id', component: TabuladorPagosComponent },
-      { path:'pagos/paquete/maternidad', component:PagosMaternidadComponent },
       { path: 'laboratorio/estudios/:id', component: PreciosMembresiaComponent },
       { path: 'nuevo/laboratorio', component: NuevoLabComponent },
-      { path: 'contrato-maternidad', component: ContratoMaternidadComponent },
-      {path: 'contrato-medico-laboral', component: ContratoMLaboralComponent},
-      { path: 'pago/pedido/sin', component: PedidoSinComponent },
       { path: 'imprimir-ticket', component: TicketComponent},
-      { path: 'pedidos/pendientes/laboratorio', component: PedidosLaboratorioComponent  },
-      { path: 'ficha-enfermeria-01', component: FE09Component},
-      { path: 'laboratorio/pendientes/lab', component: PedidoSinComponent  },
-      {  path: 'pedido/laboratorios/:id', component: PedidoIndividualComponent },
-      { path: 'alto/riesgo/:id', component: TabuladorAltoriesgoComponent },
       { path: 'perfiles/nuevo', component: PerfilesNewComponent  },
       { path: 'patologia', component: PatologiaComponent },
-      {  path: 'patologia/edit/:id', component: PatologiaEditComponent },
+      { path: 'patologia/edit/:id', component: PatologiaEditComponent },
       { path: 'patologia/nueva', component: PatologiaNewComponent },
+      { path: 'hoja-diaria-enfermeria-general', component: HojaDiariaEnfGralComponent},
+      { path: 'enfermeria-dashboard', component: EnfermeriaDashboardComponent},
+      { path: 'consulta-general/:id', component: ConsultaGeneralComponent},
+      { path: 'farmacia/dash', component: DashComponent  },
+      { path: 'farmacia', component: FarmaciaComponent},
+      // LABORATORIO
+      // hoja de solictud de servicios integrados y pago
+      { path: 'pago/pedido/sin', component: PedidoSinComponent },
+      // pedidos pendientes en lab
+      { path: 'pedidos/pendientes/laboratorio', component: PedidosLaboratorioComponent  },
+      // pedidos individuales en lab
+      { path: 'pedido/laboratorios/:id', component: PedidoIndividualComponent },
+      { path: 'laboratorio/pendientes/lab', component: PedidoSinComponent  },
+      { path: 'ficha-enfermeria-01/:id', component: FE09Component},
+      // IDENTIFICACION
+
+      { path:'identificacion/:id', component: IdentificacionComponent },
+      {path: 'indicadores/enfermeria', component: JefaturaEnfermeriaComponent  },
       { path: '', redirectTo: '/dashboard', pathMatch:'full' }
-      
+
     ]
   }
 ];

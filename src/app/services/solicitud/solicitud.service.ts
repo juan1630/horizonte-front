@@ -14,24 +14,36 @@ export class SolicitudService {
   ) { }
 
 
-  setPaquete( data:any, paciente: any, paquete: any, fecha: string ) {
+  setPaquete( data:any, paciente: any, paquete: any, fecha: string, anticipo:number, folio: number, vendedor: string, atendio:string ) {
+
+
+
+    // esta funcion inserta en la tabla relacional los datos necesarios
 
     let dataPaquete = {
-      folio: data.folio,
-      vendedor: data.vendedor,
+
+      folio,
+      vendedor,
       paciente: paciente._id,
       paquete:paquete._id,
-      atendio: data.atendio,
-      anticipo: parseFloat( data.anticipo)
+      atendio,
+      anticipo
+    
     }
-
-    console.log( dataPaquete );
 
     let uri = `${URLDEV}/nuevo/paquete/usuario`;
 
    return this._http.post( uri , dataPaquete )
     .pipe( map( (data) => data ) );
 
+  }
+
+  addMembresia(  body:any ){
+
+
+    let uri = `${URLDEV}/agregar/membresia`;
+
+    return this._http.post( uri, body);
 
   }
 

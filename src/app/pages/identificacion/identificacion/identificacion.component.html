@@ -1,0 +1,160 @@
+<div class="row">
+
+
+    <div class="col-md-4">
+        <img src="../../../../assets/images/dibujo-1.svg" alt="aqui va una imagen">
+    </div>
+
+    <div class="offset-md-3">
+
+    </div>
+
+
+    <div class="col-md-4">
+        <h2>
+            {{ fechaDeIngreso }}
+        </h2>
+    </div>
+
+</div>
+
+
+
+
+
+<div id="name">
+
+
+    <div class="row">
+        <div class="col-sm-12">
+
+            <h1 class="center">
+                <b> IDENTIFICACIÓN </b>
+            </h1>
+
+        </div>
+
+        <div class="col-md-12">
+
+            <h2>Nombre: {{paciente.nombrePaciente}} {{ paciente.apellidoPaterno }}
+            </h2>
+
+        </div>
+
+        <div class="col-md-4 mt-4">
+
+            <h4><label>CURP: </label> {{paciente.curp}} </h4>
+
+        </div>
+
+        <div class="col-md-6">
+
+            <h2> FECHA DE NACIMIENTO: {{ paciente.fechaNacimientoPaciente }} </h2>
+
+        </div>
+
+
+
+        <div class="col-md-6 mt-4 ">
+
+            <h4>Sexo: {{ paciente.sexo }} </h4>
+
+
+        </div>
+
+        <div class="col-md-6 mt-4">
+            <h4><label>Edad</label> {{paciente.edad}}
+            </h4>
+
+        </div>
+
+
+        <div class="col-md-6">
+            <h4> FECHA DE INGRESO: {{ fechaDeIngreso }} </h4>
+        </div>
+
+        <div class="col-md-5">
+            <h4> HORA DE INGRESO: {{horaDeIngreso}} </h4>
+        </div>
+
+        <div class="col-md-4 mt-3">
+            <h4> ALERGIAS: {{ paciente.alergias }} </h4>
+        </div>
+
+    </div>
+
+
+    <form>
+
+
+        <div class="row mt-4">
+
+
+            <div class="col-md-6 mt-3">
+
+                <label for="diagnosticoInicial">
+                    DIAGNOSTICO INICIAL:
+
+                </label>
+
+
+                <input type="text" name="diagnosticoInicial" id="diagnosticoInicial" placeholder="DIAGNOSTICO INICIAL" class="form-control" [(ngModel)]="infoConsulta.diagnosticoInicial">
+
+            </div>
+
+            <div class="col-md-6 mt-3">
+                <label for="diagnosticoActual">
+                    DIAGNOSTICO ACTUAL:
+
+                </label>
+
+
+                <input type="text" name="diagnosticoActual" id="diagnosticoActual" placeholder="DIAGNOSTICO ACTUAL" class="form-control" [(ngModel)]="infoConsulta.diagnosticoActual">
+
+            </div>
+
+            <div class="col-md-5 mt-3">
+
+                <label for="medicoTratante">
+                    MEDICO TRATANTE:
+
+                </label>
+
+
+                <input type="text" name="medicoTratante" id="medicoTratante" placeholder="MEDICO TRATANTE" class="form-control" [(ngModel)]="infoConsulta.medicoTrante" (blur)="validarCampos()">
+
+            </div>
+
+            <div class="col-md-6 mt-3">
+
+                <h4>
+                    Enfermera que ingresa: {{ nombreEnfermeraQueIngresa }}
+
+                </h4>
+
+            </div>
+
+            <div class="col-md-6 mt-5">
+
+                <button type="button" class="btn btn-primary btn-block" (click)="imprimir()" [disabled]="validado  === true ">
+                    <i class="fas fa-file-pdf"></i>
+                    Imprimir
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+
+
+    </form>
+
+
+    <!-- <label for="caida">Riesgo de caida:</label>
+    <input type="radio" name="caida" id="caida"> -->
+
+
+
+</div>

@@ -1,0 +1,119 @@
+<h2>Consulta Médico General</h2>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="">Nombre: </label>
+                    <p>{{nombrePaciente}} {{ enfermeriaVisitas.apellido }} {{ enfermeriaVisitas.apellidoMaterno }} </p>
+                </div>
+                <div class="col-md-4">
+                    <label for="">Domicilio: </label>
+                    <p>{{calleNumeroPaciente}}</p>
+                </div>
+                <div class="col-md-4">
+                    <label for="">Correo:</label>
+                    <p>{{correo}}</p>
+                </div>
+                <div class="col-md-4">
+                    <label for="">Contacto Emergencia: </label>
+                    <p>{{contactoEmergencia1}}</p>
+                </div>
+                <div class="col-md-4">
+                    <label for="">Edad: </label>
+                    <p>{{edad}}</p>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="">Teléfono: </label>
+                    <p>{{telefono}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<h2>Médicos Generales Disponibles</h2>
+<form action="">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="radio" value="Cristian Vidal Valdez" id="Cristian Vidal Valdez" name="doctores" [(ngModel)]="enfermeriaVisitas.doctor">
+                    <label for="Cristian Vidal Valdez"> Cristian Vidal Valdez </label>
+                </div>
+                <select name="consultorios" id="" class="form-control col-md-3 mb-1" [(ngModel)]="enfermeriaVisitas.consultorio">
+                    <option value="" selected>--Seleccione Consultorio--</option>
+                    <option value="consultorio1">Consultorio 1</option>
+                    <option value="consultorio2" >Consultorio 2</option>
+                </select>
+                <div class="col-md-6">
+                    <input type="radio" value="Eric Rey Alarcon Segura" id="Eric Rey Alarcon Segura" name="doctores" [(ngModel)]="enfermeriaVisitas.doctor">
+                    <label for="Eric Rey Alarcon Segura">Eric Rey Alarcon Segura</label>
+                </div>
+                <select name="consultorios" id="" class="form-control col-md-3 mb-1" [(ngModel)]="enfermeriaVisitas.consultorio">
+                    <option value="" selected>--Seleccione Consultorio--</option>
+                    <option value="consultorio1">Consultorio 1</option>
+                    <option value="consultorio2" >Consultorio 2</option>
+                </select>
+                <div class="col-md-6">
+                    <input type="radio" id="Arquimides Rueda Cabrera" value="Arquimides Rueda Cabrera" name="doctores" [(ngModel)]="enfermeriaVisitas.doctor">
+                    <label for="Arquimides Rueda Cabrera"> Arquimides Rueda Cabrera  </label>
+                </div>
+                <select name="consultorios" id="" class="form-control col-md-3 mb-1" [(ngModel)]="enfermeriaVisitas.consultorio">
+                    <option value="" selected>--Seleccione Consultorio--</option>
+                    <option value="consultorio1">Consultorio 1</option>
+                    <option value="consultorio2" >Consultorio 2</option>
+                </select>
+
+
+                <div class="col-md-6">
+                    <input type="radio" value="Jesus Olgin Perez" id="Jesus Olgin Perez" name="doctores" [(ngModel)]="enfermeriaVisitas.doctor">
+                    <label for="Jesus Olgin Perez"> Jesus Olgin Perez</label>
+                </div>
+                <select name="consultorios" id="" class="form-control col-md-3" [(ngModel)]="enfermeriaVisitas.consultorio">
+                    <option value="" selected>--Seleccione Consultorio--</option>
+                    <option value="consultorio1">Consultorio 1</option>
+                    <option value="consultorio2" >Consultorio 2</option>
+                </select>
+
+
+
+                <div class="col-md-6">
+                    <input type="radio" value="Karina Jimenez Valdepeña" id="Karina Jimenez Valdepeña" name="doctores" [(ngModel)]="enfermeriaVisitas.doctor">
+                    <label for="Karina Jimenez Valdepeña"> Karina Jimenez Valdepeña</label>
+                </div>
+                <select name="consultorios" id="" class="form-control col-md-3" [(ngModel)]="enfermeriaVisitas.consultorio">
+                    <option value="" selected>--Seleccione Consultorio--</option>
+                    <option value="consultorio1">Consultorio 1</option>
+                    <option value="consultorio2" >Consultorio 2</option>
+                </select>
+
+
+
+                <div class="col-md-6">
+                    <input type="radio" value="Laura Lizeth Morales Santos" id="Laura Lizeth Morales Santos" name="doctores" [(ngModel)]="enfermeriaVisitas.doctor">
+                    <label for="Laura Lizeth Morales Santos"> Laura Lizeth Morales Santos</label>
+                </div>
+                <select name="consultorios" id="" class="form-control col-md-3" [(ngModel)]="enfermeriaVisitas.consultorio">
+                    <option value="" selected>--Seleccione Consultorio--</option>
+                    <option value="consultorio1">Consultorio 1</option>
+                    <option value="consultorio2" >Consultorio 2</option>
+                </select>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <button class="btn btn-primary" (click)="enviarId()">Enviar</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <button class="btn btn-danger">Cancelar</button>
+        </div>
+    </div>
+</form>

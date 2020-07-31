@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PaqueteService } from 'src/app/services/paquete/paquete.service';
 import { Paquetes } from 'src/app/intefaces/paquetes.interfaces';
@@ -9,9 +9,25 @@ import { Paquetes } from 'src/app/intefaces/paquetes.interfaces';
   templateUrl: './paquete-id.component.html',
   styleUrls: ['./paquete-id.component.scss']
 })
-export class PaqueteIdComponent implements OnInit {
+export class PaqueteIdComponent implements OnInit, OnChanges {
 
-public paquete: Paquetes[]=[];
+  public id: string;
+
+public paquete= {
+  nombrePaquete: "",
+  CitasIncluidas: [],
+  consultasGinecologia: 0,
+  ultrasonidos: [],
+  costoTotal:0,
+  examenesLaboratorio: [],
+  descuentos: [],
+  farmacia: [],
+  extras: [],
+  estudios: [],
+  rayosX: [],
+  icon: "",
+  _id: ""
+};
         
   constructor(
               public router: ActivatedRoute, 
@@ -20,9 +36,9 @@ public paquete: Paquetes[]=[];
 
   ngOnInit() {
 
-    let id = this.router.snapshot.paramMap.get('id');
+    this.id = this.router.snapshot.paramMap.get('id');
 
-    this.obtenerPaquete(id);
+    this.obtenerPaquete(this.id);
   }
 
 
@@ -33,6 +49,24 @@ public paquete: Paquetes[]=[];
       this.paquete = data;
     } )
     
+  }
+
+  ngOnChanges( changes ) {
+
+
+    console.log( changes );
+
+    this.id = this.router.snapshot.paramMap.get('id');
+
+    this.obtenerPaquete( this.id );
+    
+  }
+
+  reloadPage(){
+
+    this.id = this.router.snapshot.paramMap.get('id');
+
+    this.obtenerPaquete( this.id );
   }
 
  

@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule  } from '@angular/router';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer'
 
 
 // modules
@@ -39,7 +41,7 @@ import { XraySIComponent } from './servivicosInt/xray/xray-s-i.component';
 import { PagosMaternidadComponent } from './pagos/pagos-maternidad/pagos-maternidad.component';
 import { HojaFramComponent } from './servivicosInt/hoja-fram/hoja-fram.component';
 import { TabuladorPagosComponent } from './pagosMaternidad/tabulador-pagos/tabulador-pagos.component';
-import { MaternidadComponent } from './contrato/maternidad/maternidad.component';
+
 import { EstudiosComponent } from './servivicosInt/laboratorio/estudios/estudios.component';
 import { PerfilesComponent } from './servivicosInt/laboratorio/perfiles/perfiles.component';
 import { ContratacionComponent } from './servivicosInt/laboratorio/contratacion/contratacion.component';
@@ -67,6 +69,19 @@ import { TabuladorAltoriesgoComponent } from './paquetes/altoRiesgo/tabulador-al
 import { PatologiaComponent } from './servivicosInt/patologia/patologia.component';
 import { PatologiaEditComponent } from './servivicosInt/patologia/patologia-edit/patologia-edit/patologia-edit.component';
 import { PatologiaNewComponent } from './servivicosInt/patologia/patologia-new/patologia-new.component';
+import { HojaDiariaEnfGralComponent } from './Hojas_Diarias/hoja-diaria-enf-gral/hoja-diaria-enf-gral.component';
+import { HojaDiariaEnfUrgenciaComponent } from './Hojas_Diarias/hoja-diaria-enf-urgencia/hoja-diaria-enf-urgencia.component';
+import { EnfermeriaDashboardComponent } from './Enfermeria/enfermeria-dashboard/enfermeria-dashboard.component';
+import { DashComponent } from './farmacia/dash/dash.component';
+import { ConsultaGeneralComponent } from './consultas/consulta-general/consulta-general.component';
+import { PaqueteMedicoLaboralComponent } from './paquete-medico-laboral/paquete-medico-laboral.component';
+import { PediatricoComponent } from './contratos/pediatrico/pediatrico.component';
+import { SolicitudMembresiaComponent } from './solicitudMembresia/solicitud-membresia/solicitud-membresia.component';
+import { IdentificacionComponent } from './identificacion/identificacion/identificacion.component';
+import { QuirofanoFormComponent } from './Quirofanos/quirofano-form/quirofano-form.component';
+import { CrearPaquetesComponent } from './crearPaquetes/crear-paquetes/crear-paquetes.component';
+import { JefaturaEnfermeriaComponent } from './indicadores/jefatura-enfermeria/jefatura-enfermeria.component';
+import { ChartsModule } from 'ng2-charts'
 
 
 @NgModule({
@@ -111,7 +126,6 @@ import { PatologiaNewComponent } from './servivicosInt/patologia/patologia-new/p
     UltrasonidoNewComponent,
     PagosMaternidadComponent,
     TabuladorPagosComponent,
-    MaternidadComponent,
     EstudiosComponent,
     PerfilesComponent,
     ContratacionComponent,
@@ -126,7 +140,19 @@ import { PatologiaNewComponent } from './servivicosInt/patologia/patologia-new/p
     TabuladorAltoriesgoComponent,
     PatologiaComponent,
     PatologiaEditComponent,
-    PatologiaNewComponent
+    PatologiaNewComponent,
+    HojaDiariaEnfGralComponent,
+    HojaDiariaEnfUrgenciaComponent,
+    EnfermeriaDashboardComponent,
+    DashComponent,
+    ConsultaGeneralComponent,
+    PaqueteMedicoLaboralComponent,
+    PediatricoComponent,
+    SolicitudMembresiaComponent,
+    IdentificacionComponent,
+    QuirofanoFormComponent,
+    CrearPaquetesComponent,
+    JefaturaEnfermeriaComponent
   ],
   exports: [ 
     PageComponent,
@@ -137,8 +163,12 @@ import { PatologiaNewComponent } from './servivicosInt/patologia/patologia-new/p
     ComponentsModule,
     FormsModule,
     RouterModule,
+    ChartsModule,
     PAGES_ROUTES,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxExtendedPdfViewerModule,
+    PdfViewerModule
+
   ]
 
 })

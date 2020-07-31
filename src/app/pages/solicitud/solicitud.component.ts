@@ -18,14 +18,61 @@ export class SolicitudComponent implements OnInit {
 
   public fecha = ` ${new Date().toLocaleDateString()}`;
 
+  public paciente={
+    RFCFiscal: "",
+    apellidoMaterno: "",
+    apellidoPaterno: "",
+    calleNumeroPaciente: "",
+    consultas:"",
+    contactoEmergancia1: "",
+    correo: "",
+    cpFiscal: "",
+    curp: "",
+    edad:0,
+    emailFiscal: "",
+    entidadFederativa: "",
+    estadoPaciente: "",
+    fechaNacimientoPaciente: "",
+    fechaRegistro: "",
+    sexo: "",
+    cpPaciente: 0,
+    localidadFiscal: "",
+    municipioFiscal:"" ,
+    nombrePaciente: "",
+    nombreRazonSocial: "",
+    coloniaFiscal:"",
+    paisNacimiento: "",
+    paisPaciente: "",
+    poblacion: "",
+    referenciaPaciente: "",
+    telefono:"" ,
+    telefonoContactoEmergencia1: ""
+  };
 
-  public paciente:any[]=[];
+
   public usuarioMaq:any;
-  public paquetesDB:Paquetes[]=[];
-  public paqueteSelected: PaquetesDB[]=[];
+  
+  public paquetesDB= [
+    {
+      CitasIncluidas: [],
+      costoTotal:0,
+      examenesLaboratorio: [],
+      icon: "",
+      nombrePaquete: "",
+      _id: ""
+    }
+  ];
+  public paqueteSelected = {
+    nombrePaquete: "",
+    CitasIncluidas: [],
+    costoTotal:0,
+    examenesLaboratorio: [],
+    icon: "",
+    _id: ""
+  };
   public paquetesPacientes: any;
   // declaradas
-  public anticipo;
+  public anticipo = 0;
   public parentesco1: string;
   public parentesco2: string;
   public celular:string;
@@ -42,7 +89,7 @@ export class SolicitudComponent implements OnInit {
   constructor(
                 public _pacientesServices: PacienteService,
                 public router: ActivatedRoute,
-                private _router: Router,
+                public _router2: Router,
                 public paquetesService: PaqueteService,
                 public _solicitud: SolicitudService
 
@@ -56,7 +103,7 @@ export class SolicitudComponent implements OnInit {
 
               }
 
- ngOnInit(  ) {
+ ngOnInit() {
                 this.getUsuarioLocalStorage();
                 this.getPaquetes();
 
@@ -74,8 +121,8 @@ export class SolicitudComponent implements OnInit {
 
       .subscribe(  (data: any ) => {
 
+        console.log( data );
         this.paquetesDB = data.paquetes;
-        console.log( this.paquetesDB );
 
       })
     }
@@ -86,9 +133,10 @@ export class SolicitudComponent implements OnInit {
 
     this._pacientesServices.getPacienteBtID( id )
     .subscribe( (data:any) => {
-      console.log(data);
+
       this.paciente = data.paciente;
-        })
+        });
+      
 
     }
 
@@ -96,20 +144,29 @@ export class SolicitudComponent implements OnInit {
     getPaquete( id: string  ){
 
         this.paquetesService.getPaqueById( id )
-        .subscribe( (data: any )  => {
-
+        .subscribe( (data )  => {
+ 
             this.paqueteSelected = data;
-            if( this.paqueteSelected.nombrePaquete == "PAQUETE DE CONTROL PRENATAL" ){
-              this.anticipo = 1500;
-            }else if( this.paqueteSelected.nombrePaquete == "PAQUETE MÉDICO LABORAL" ) {
-              this.anticipo = 175;
-            }else if(this.paqueteSelected.nombrePaquete == "PAQUETE NEONATAL (DE 0 12 MESES)"){
               
-              this.anticipo = 1000;
-            }else if( this.anticipo = "SERVICIO DE LA MEMBRESIA" ){
+            // el anticipo varia de acuerdo al paquete
+            if(this.paqueteSelected.nombrePaquete === 'PAQUETE DE CONTROL PRENATAL') {
+              this.anticipo = 1500;
 
+            }else if( this.paqueteSelected.nombrePaquete === 'PAQUETE MÉDICO LABORAL') {
+              
+              this.anticipo = 175;
+
+            }else if(this.paqueteSelected.nombrePaquete === 'SERVICIOS DE LA MEMBRESIA'){
               this.anticipo = 500;
+            } else if( this.paqueteSelected.nombrePaquete === 'PAQUETE NEONATAL (DE 0 12 MESES)' ){
+              this.anticipo = 1000;
+            }else if( this.paqueteSelected.nombrePaquete ===  "PAQUETE VIDA PLENA"  ){
+              
+              this.anticipo= 2800;
+            }else if(this.paqueteSelected.nombrePaquete === 'PAQUETE DE CONTROL PRENATAL DE ALTO RIESGO'){
+                this.anticipo = 1500;
             }
+           
         });
     }
 // esta funcio valida el select, que no vaya vacio
@@ -125,64 +182,96 @@ export class SolicitudComponent implements OnInit {
     // en esta funcion se envia la data necesaria para agregra el paquete al usuario
 
     enviar( f: NgForm  ){
+
+
       let dataForm = f.value;
 
-      this._solicitud.setPaquete( dataForm, this.paciente, this.paqueteSelected, this.fecha )
+
+      this._solicitud.setPaquete( dataForm, this.paciente, this.paqueteSelected, this.fecha, this.anticipo, 1, this.usuarioMaq.nombre, this.usuarioMaq.nombre  )
       .subscribe( (data:any) => {
+
           this.paquetesPacientes = data.paquete;
 
           this._pacientesServices.addPaquete( this.paciente, this.paqueteSelected, dataForm , this.paquetesPacientes )
           .subscribe( (data: any) => {
-            console.log( 'Actualizando info paciente',  data );
+            
             if( data.ok ){
-              swal('Paquete agregado', '', 'success');
 
-              if( this.paqueteSelected.nombrePaquete == "PAQUETE DE CONTROL PRENATAL" ){
+              swal('Paquete agregado', 'Se agrego el paquete', 'success');
+              
 
-                this._router.navigateByUrl('/contrato/maternidad');
-                // TODO: Remmplzar por el contrato
-                return;
+
+              if( this.paqueteSelected.nombrePaquete ===  "PAQUETE DE CONTROL PRENATAL"){
+                
+                this._router2.navigateByUrl('/contrato-maternidad');
+
+              }else if( this.paqueteSelected.nombrePaquete === "PAQUETE MÉDICO LABORAL"  ){
+                this._router2.navigateByUrl('/contrato-medico-laboral')
+              
+              }else if(  this.paqueteSelected.nombrePaquete === 'PAQUETE PEDIATRICO (APARTIR DE LOS 12 MESES)' ){
+                this._router2.navigateByUrl('/contrato/pediatrico');
               }
-              // else if ( this.paqueteSelected.nombrePaquete === "PAQUETE MÉDICO LABORAL" ){
-              //   this._router.navigateByUrl('/paqueteMaternidad');
-              // }
+              else if( this.paqueteSelected.nombrePaquete === 'PAQUETE VIDA PLENA'  ){
 
-            }
+                this._router2.navigateByUrl('/contrato/vida/plena');
+              
+              }else if( this.paqueteSelected.nombrePaquete === 'PAQUETE NEONATAL (DE 0 12 MESES)' ){ 
+                this._router2.navigateByUrl('/contrato/neonatal') 
+              }else if( this.paqueteSelected.nombrePaquete === 'PAQUETE DE CONTROL PRENATAL DE ALTO RIESGO'){
+                  this._router2.navigateByUrl('/anexo/alto/riesgo');
+              }
+            
 
-          })
+              }
+ 
       })
+    });
+      
+    }
+
+
+
+
+      cancelarPaq(){
+
+        swal("¿Estas seguro que deseas salir?",
+        {
+          buttons: {
+          // cancel: "Cancelar",
+          catch: {
+            text: "Confirmar",
+            value: "true",
+          }
+        }
+        })
+        .then(value => {
+
+          if( value ){
+  
+            this._router2.navigateByUrl('/paciente');
+          
+            
+  
+          }else {
+            return;
+          }
+  
+        }  )
+  
+       if( swal.getState().actions.value  ){
+        this._router2.navigateByUrl('/paciente');
+  
+       }
+  
+     }
+
+
 
     }
 
 
-     cancelarPaq(){
 
-      swal("¿Estas seguro que deseas salir?",
-      {
-        buttons: {
-        // cancel: "Cancelar",
-        catch: {
-          text: "Confirmar",
-          value: "true",
-        }
-      }
-      })
-      .then(value => {
-        console.log( value );
-        if( value ){
 
-          this._router.navigateByUrl('/paciente')
-        }else {
-          return;
-        }
 
-      }  )
+  
 
-     if( swal.getState().actions.value  ){
-      this._router.navigateByUrl('/paciente');
-
-     }
-
-   }
-
-}

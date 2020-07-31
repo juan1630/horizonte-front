@@ -53,7 +53,8 @@ h3 {
 
 // Tamaño modal Signos Vitales
 .modal-XL {
-    width: 1000px;
+    width: 1200px;
+    margin: 0 0 0 -9rem;
 }
 
 // .margen-input,
@@ -99,4 +100,112 @@ input {
 
 .btn-primary {
     margin-right: 5rem;
+}
+
+// Parrafos Enfermeria
+.parrafos-enf {
+    margin-top: 2rem;
+}
+
+.parrafos-enf:first-of-type {
+    margin-top: -6px;
+}
+
+.modal-ext {
+    width: 1000px;
+}
+
+.abajo-dosis {
+    margin-bottom: 1.2rem;
+}
+
+.margen-offset {
+    margin-right: 2rem;
+}
+
+.margen-offset-2 {
+    margin-left: 2rem;
+}
+
+.margen-offset-2:first-of-type {
+    margin-left: .1rem;
+}
+
+.centerxdd {
+    text-align: center;
+    margin-right: 16px;
+}
+
+.input-pegado {
+    margin-left: 1px;
+}
+
+.topsxd {
+    margin-top: 1.2rem;
+    margin-left: 1rem;
+}
+
+// .modal-grande {
+//     width: 1100px;
+// }
+// Mujeres
+.mujeresSelect {
+    max-width: 20rem;
+    margin-left: 3rem;
+}
+
+.mujeresxd {
+    display: block;
+    align-items: flex-end;
+}
+
+.mjizq {
+    margin-left: -1.9rem;
+}
+
+.f-izq {
+    // 
+    width: 500px;
+    margin-left: 2rem;
+}
+
+.f-der {
+    // border: 4px solid blue;
+    float: right;
+    width: 520px;
+    margin-top: -40rem;
+}
+
+.modal-ago {
+    width: 900px;
+}
+
+// .tabla-sv {
+//     margin-left: 2rem;
+// }
+.signos-mujeres {
+    margin-right: 2rem;
+}
+
+.textarea {
+    margin-left: 1.2rem;
+    width: 60rem;
+    height: 4rem;
+    border-radius: 10px;
+    border: 1px solid #00BBF1;
+}
+
+.textarea,
+h5 {
+    margin-left: 1.2rem;
+}
+
+.disp {
+    display: inline;
+}
+
+.ggg {
+    width: 1100px;
+    /* margin-right: -57rem; */
+    margin-left: -5rem;
 }

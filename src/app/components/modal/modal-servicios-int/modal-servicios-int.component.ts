@@ -37,6 +37,12 @@ export class ModalServiciosIntComponent implements OnInit {
     this._router.navigate(['/solicitud', this._modalServicioIntService.idUser]);
 
   }
+
+
+  agregarMembresia(){
+    this._router.navigate(['/hoja/solicitud/membresia', this._modalServicioIntService.idUser]);
+
+  }
  
   cambio( f ){
     console.log( f );
@@ -49,6 +55,8 @@ export class ModalServiciosIntComponent implements OnInit {
         this._router.navigate(['/laboratorio/estudios/', this._modalServicioIntService.idUser])
     }else if(f ===  "otros"){ 
       this._router.navigate(['otros-servicios'])
+    }else if(f === "consultaGeneral"){
+      this._router.navigate(['/consulta-general', this._modalServicioIntService.idUser])
     }
   }
 

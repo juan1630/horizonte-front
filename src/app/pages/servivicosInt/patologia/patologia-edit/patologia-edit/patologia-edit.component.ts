@@ -12,8 +12,7 @@ import { Patologia } from 'src/app/intefaces/patologia.interface';
 export class PatologiaEditComponent implements OnInit {
 
   public id: string;
-  public patologia: Patologia[]=[];
-
+  public patologia: Patologia;
 
 
   constructor(

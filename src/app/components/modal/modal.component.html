@@ -1,182 +1,224 @@
-<div class="fondo-negro" [ngClass]="_modalService.ocultar" >
+<div class="fondo-negro" [ngClass]="_modalService.ocultar">
 
-  <div class="modal" style="display:block; overflow: scroll"  tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
+    <div class="modal" style="display:block; overflow: scroll" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
 
-    <div class="modal-content">
-      <div class="modal-header pointer ">
-        <h5 class="modal-title"> Agregar paciente nuevo </h5>
+            <div class="modal-content">
+                <div class="modal-header pointer ">
+                    <h5 class="modal-title"> Agregar paciente nuevo </h5>
 
-        <!-- <div class="ml-5" > {{ fechaRegistro }}  </div> -->
-        <span>  {{ fechaRegistro }} </span>
-        <button type="button" class="close" (click)="_modalService.ocultarModal()"  data-dismiss="modal" aria-label="Close">
+                    <!-- <div class="ml-5" > {{ fechaRegistro }}  </div> -->
+                    <span>  {{ fechaRegistro }} </span>
+                    <button type="button" class="close" (click)="_modalService.ocultarModal()" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-      </div>
+                </div>
 
-      <form  #f="ngForm" (ngSubmit)="enviar( f )" >
+                <form #f="ngForm" (ngSubmit)="enviar( f )">
 
-        <div class="modal-body ">
+                    <div class="modal-body ">
 
-          <ul class="nav nav-tabs">
+                        <ul class="nav nav-tabs">
 
-            <li class="nav-item">
-              <a class="nav-link active" href="#personales" data-toggle="tab" aria-controls="personales"  role="tab"  aria-selected="true">
-                Personales
-              </a>
-            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#personales" data-toggle="tab" aria-controls="personales" role="tab" aria-selected="true">
+                                Personales
+                            </a>
+                            </li>
 
-            <li class="nav-item">
-              <a class="nav-link"  href="#direccion" data-toggle="tab" role="tab" aria-controls="direccion"  aria-selected="false">
-                Dirección
-              </a>
-            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#direccion" data-toggle="tab" role="tab" aria-controls="direccion" aria-selected="false">
+                                Dirección
+                            </a>
+                            </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="#fiscales" data-toggle="tab" role="tab" aria-controls="fiscales" aria-selected="false">
-              Fiscales
-              </a>
-            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#fiscales" data-toggle="tab" role="tab" aria-controls="fiscales" aria-selected="false">
+                                    Fiscales
+                                    </a>
+                            </li>
 
-          </ul>
+                        </ul>
 
 
-          <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="personales" role="tabpanel" aria-labelledby="personales-tab">
-              <div class="row">
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="personales" role="tabpanel" aria-labelledby="personales-tab">
+                                <div class="row">
 
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <input type="text"   name="nombrePaciente"    minlength="3"  ngModel class="form-control" placeholder="Nombre del paciente" >
-                      <input type="text"   name="apellidoPaterno" minlength="3"  ngModel class="form-control" placeholder="Apellido paterno" >
-                      <input type="text" name="apellidoMaterno"   minlength="3"  ngModel  class="form-control" placeholder="Apellido materno" >
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <input type="text" name="nombrePaciente" minlength="3" ngModel class="form-control" placeholder="Nombre del paciente">
+                                            <input type="text" name="apellidoPaterno" minlength="3" ngModel class="form-control" placeholder="Apellido paterno">
+                                            <input type="text" name="apellidoMaterno" minlength="3" ngModel class="form-control" placeholder="Apellido materno">
 
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <input type="text" name="curp"  maxlength="18"  class="form-control" [(ngModel)]="curp"  placeholder="CURP" >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <input type="text" name="curp" maxlength="18" class="form-control" [(ngModel)]="curp" placeholder="CURP">
 
-                      <input type="number" min="0" name="edad" class="form-control" ngModel placeholder="Edad" >
+                                            <input type="number" min="0" name="edad" class="form-control" ngModel placeholder="Edad">
 
-                    <!-- Aca va el de los paises -->
-                    <select  class="form-control"   name="paisNac" [(ngModel)]="paisNac">
+                                            <!-- Aca va el de los paises -->
+                                            <select class="form-control" name="paisNac" [(ngModel)]="paisNac">
                       <option  selected disabled > País de nacimiento </option>
-                      <option value="{{ pais }}"  *ngFor="let pais of paises">{{ pais }}</option>
+                      <option value="{{ pais.name }}"  *ngFor="let pais of paises">{{ pais.name }}</option>
                   </select>
-                  <!-- los paises se repiten -->
+                                            <!-- los paises se repiten -->
 
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-group">
-                  <input type="tel" name="telefono"   length="18" ngModel  class="form-control" placeholder="Telefono" >
-                    <input type="text" name="contactoEmergancia" ngModel   class="form-control" placeholder="En caso de emergencia llamar a..." >
-                    <input type="number" name="telefonoEmergencia"  ngModel class="form-control" placeholder="Telefono de emergencia" >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <input type="tel" name="telefono" length="18" ngModel class="form-control" placeholder="Telefono">
+                                            <input type="text" name="contactoEmergancia" ngModel class="form-control" placeholder="En caso de emergencia llamar a...">
+                                            <input type="number" name="telefonoEmergencia" ngModel class="form-control" placeholder="Telefono de emergencia">
 
-                  </div>
-                </div>
-
-
-
-                <div class="col-md-6 offset-md-1">
-                  <div class="form-group">
-                    <input type="email" name="correo" ngModel class="form-control" placeholder="Correo electronico del paciente" >
-                  </div>
-                </div>
+                                        </div>
+                                    </div>
 
 
-                <div class="col-md- offset-md-1 mt-2">
-                  <div class="form-group" >
-                    <label> Fecha de nacimiento: </label>
-                    <input type="date" name="fechaNacimientoPaciente" ngModel  class="form-control"  >
-                  </div>
-                </div>
 
-                <!-- Cierre de los datos personales -->
+                                    <div class="col-md-6 offset-md-1">
+                                        <div class="form-group">
+                                            <input type="email" name="correo" ngModel class="form-control" placeholder="Correo electronico del paciente">
+                                        </div>
+
+                                    </div>
 
 
-              </div>
+                                    <div class="col-md- offset-md-1 mt-2">
+                                        <div class="form-group">
+                                            <label> Fecha de nacimiento: </label>
+                                            <input type="date" name="fechaNacimientoPaciente" ngModel class="form-control">
+                                        </div>
 
-            </div>
+                                        <div class="form-group">
 
-          <div class="tab-pane fade" id="direccion" role="tabpanel" aria-labelledby="direccion-tab">
-            <h2> Dirección </h2>
-            <div class="row">
-              <div class="col-md-4">
+                                            <select name="sexo" class="form-control" ngModel>
 
-                <div class="form-group">
-                  <!-- Codigo postal -->
-                    <input type="text"  #codigo  name="cpPaciente" (change)="getUbicacion( codigo.value )" ngModel class="form-control" placeholder="Código postal"  >
-                    <input type="text"  name="paisPaciente" class="form-control" placeholder="País"  [(ngModel)]="pais"  value="{{pais}}"  >
-                    <input type="text" name="municipio"  class="form-control" placeholder="Municipio" [(ngModel)]="municipio" value="{{ municipio }}" >
-                </div>
-                </div>
+                                                <option value="Femenino">
+                                                    Femenino
+                                                </option>
+                                                <option value="Masculino">
+                                                    Masculino
+                                                </option>
+                                            </select>
 
-          <div class="col-md-4">
-            <div class="form-group">
-              <input type="text" name="estadoPaciente"  class="form-control" placeholder="Estado"  [(ngModel)]="estado" value="{{estado}}"  >
+                                        </div>
+                                    </div>
 
-              <select name="poblacion" placeholder="Lugar" class="form-control" [(ngModel)]="localidad"  >
+                                    <!-- Cierre de los datos personales -->
+
+
+                                </div>
+
+                            </div>
+
+                            <div class="tab-pane fade" id="direccion" role="tabpanel" aria-labelledby="direccion-tab">
+                                <h2> Dirección </h2>
+                                <div class="row">
+                                    <div class="col-md-4">
+
+                                        <div class="form-group">
+                                            <!-- Codigo postal -->
+                                            <input type="text" #codigo name="cpPaciente" (change)="getUbicacion( codigo.value )" ngModel class="form-control" placeholder="Código postal">
+                                            <input type="text" name="paisPaciente" class="form-control" placeholder="País" [(ngModel)]="pais" value="{{pais}}">
+                                            <input type="text" name="municipio" class="form-control" placeholder="Municipio" [(ngModel)]="municipio" value="{{ municipio }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <input type="text" name="estadoPaciente" class="form-control" placeholder="Estado" [(ngModel)]="estado" value="{{estado}}">
+
+                                            <select name="poblacion" placeholder="Lugar" class="form-control" [(ngModel)]="localidad">
                 <option value="{{ localidad }}"  *ngFor="let localidad of localidades" >{{ tipoAsentamiento }} - {{ localidad }} </option>
               </select>
 
-            <input type="text" class="form-control" ngModel  placeholder="Calle y numero" name="calleNumeroPaciente">
+                                            <input type="text" class="form-control" ngModel placeholder="Calle y numero" name="calleNumeroPaciente">
 
-            </div>
-          </div>
+                                        </div>
+                                    </div>
 
-          <div class="col-md-4" >
-            <div class="form-group" >
-              <input type="text" class="form-control" ngModel placeholder="Agregar referencia" name="referenciaPaciente">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" ngModel placeholder="Agregar referencia" name="referenciaPaciente">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div id="mymap" class="map"> </div>
+                                    </div>
+                                    <!-- Mapa -->
+                                </div>
+                                <!-- Tab direccion -->
+                            </div>
+
+
+
+                            <div class="tab-pane fade" id="fiscales" role="tabpanel" aria-labelledby="fiscales-tab">
+
+                                <h2>Fiscales</h2>
+                                <div class="row fiscales-row">
+                                    <app-fiscales *ngFor="let item of razonesSociales"></app-fiscales>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <input type="text" placeholder="Nombre o razón social" class="form-control" name="nombreRazonSocial" [(ngModel)]="nombreRazonSocial">
+                                            <input type="text" placeholder="Entidad federativa" value="{{ estadoFiscal }}" class="form-control" [(ngModel)]="estadoFiscal" name="entidadFederativa">
+                                            <select class="form-control" name="poblacion" placeholder="Lugar" [(ngModel)]="localidad">
+                                              <option value="{{ localidad }}" *ngFor="let localidad of localidades">
+                                                  {{tipoAsentamiento}} - {{ localidad }} </option>
+                                          </select>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <input type="text" [(ngModel)]="RFCFiscal" name="RFCFiscal" class="form-control" placeholder="RFC">
+                                            <input type="text" [(ngModel)]="municipioFiscal" placeholder="Municipio" value="{{ municipioFiscal }}" class="form-control" name="municipioFiscal">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <input type="number" [(ngModel)]="codigoFiscal" #codigo (change)="getUbicacion( codigo.value )" placeholder="Código postal" min="0" class="form-control" name="cpFiscal">
+
+                                            <input type="text" [(ngModel)]="localidadFiscal" placeholder="Localidad" value="{{ municipioFiscal }}" class="form-control" name="localidadFiscal">
+
+                                            <input type="mail" placeholder="Correo electrónico" [(ngModel)]="emailFiscal" class="form-control fiscal-mail" name="emailFiscal">
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-2 offset-md-8">
+                                        <div class=" btn-danger btn-circle" (click)="quitarElementos()">
+                                            <i class="fas fa-minus"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <div class=" btn-info btn-circle" (click)="agregarCampos()" *ngIf="_idfiscales !== 3">
+                                            <i class="fas fa-plus"></i>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="button" class="btn btn-danger" (click)="_modalService.ocultarModal()"> Cancelar </button>
+
+                            <button type="submit" class="btn btn-info">
+                                Registrar
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
             </div>
-          </div>
-          </div>
-        <div class="row">
-          <div class="col-12">
-              <div id="mymap" class="map">  </div>
-          </div>
-        <!-- Mapa -->
-      </div>
-          <!-- Tab direccion -->
+        </div>
     </div>
-
-
-
-          <div class="tab-pane fade" id="fiscales" role="tabpanel" aria-labelledby="fiscales-tab">
-
-            <h2>Fiscales</h2>
-            <div class="row fiscales-row" >
-              <app-fiscales *ngFor="let item of razonesSociales" ></app-fiscales>
-            </div>
-
-            <div class="row">
-              <div class="col-md-2 offset-md-8">
-                <div  class=" btn-danger btn-circle" (click)="quitarElementos()">
-                  <i class="fas fa-minus"></i>
-                </div>
-              </div>
-              <div class="col-md-2" >
-
-                <div  class=" btn-info btn-circle" (click)="agregarCampos()" *ngIf="_idfiscales !== 3">
-                  <i class="fas fa-plus"></i>
-                </div>
-
-              </div>
-              </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-
-          <button type="button" class="btn btn-danger" (click)="_modalService.ocultarModal()"> Cancelar </button>
-
-          <button type="submit" class="btn btn-info">
-            Registrar
-          </button>
-        </div>
-      </div>
-
-  </form>
-  </div>
-  </div>
-  </div>

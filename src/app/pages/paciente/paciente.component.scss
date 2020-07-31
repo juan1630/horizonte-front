@@ -4,7 +4,34 @@
   margin-left: 8%;
 }
 
+.centerxd {
+  text-align: left;
+  font-size: 40px;
+  font-weight: 600;
+  color: #001672;
+  font-style: italic;
+  margin-left: 15px;
+}
 
+.boton_contra2{
+  border-radius: 3em !important;
+  width: 12em !important;
+  // color: #00BBF1;
+  background-color: #E3D049;
+  border-color: #E3D049;
+
+}
+.header{
+  background-color: #03318C;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+}
+.text_header{
+  text-align: center;
+  margin-top: 15px;
+  font-weight: 600;
+  color: white;
+}
 a > i {
   color: blue;
 }
@@ -20,7 +47,7 @@ a{
   margin-top: 5%;
 }
 
-  .fa-arrow-left, 
+  .fa-arrow-left,
   .fa-arrow-right{
     font-size: 2.3rem;
 

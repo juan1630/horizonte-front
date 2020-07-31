@@ -7,11 +7,14 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class PacienteService {
-  public url:string;
+  public url = "https://horizonte-1.herokuapp.com";
+
+  //  public url = "http://localhost:3200";
+
   constructor(
     private _http: HttpClient
   ) {
-    this.url = "https://horizonte-1.herokuapp.com";
+
    }
 
 
@@ -19,8 +22,8 @@ export class PacienteService {
 
     console.log("Intervalo", intervalo );
 
-    let url = this.url+'/paciente/'+ intervalo;
-    return this._http.get( url )
+    let uri = this.url+'/paciente/'+ intervalo;
+    return this._http.get( uri )
     .pipe(  map( (data) => {
       console.log( data )
       return data;
@@ -31,9 +34,9 @@ export class PacienteService {
   // este servicio crea un nuevo paciente en la DB
   setPacientes( data: any ){
 
-    let url = this.url + `/paciente`;
+    let uri = this.url + `/paciente`;
 
-    return this._http.post( url, data  )
+    return this._http.post( uri, data  )
     .pipe( map( (resp) =>   resp  ) )
 
   }
@@ -45,7 +48,7 @@ export class PacienteService {
 
 
     // let uri = URLDEV + '/paciente/'+nombre;
-    let uri = `${URLDEV}/pacientes/nombre/${nombre}`;
+    let uri = `${this.url}/pacientes/nombre/${nombre}`;
 
     return this._http.get(uri)
     .pipe(  map( (data) => {
@@ -56,20 +59,15 @@ export class PacienteService {
 
 
 
-  // este servicio agrega un paquete
+  // este servicio agrega un paquete al usuario
   addPaquete( paciente:any,  paqueteSelect: any, f: any, paquetesPaciente ){
 // recibe por parametro el ID del usuario, el paquete y los nuevos valores a actualizar
 
   let id = paciente._id;
 
   // let uri = URLDEV+'/agregarPaquete/'+id;
-  let uri =  `${URLDEV}/agregarPaquete/${id}`;
+  let uri =  `${this.url}/agregarPaquete/${id}`;
 
-
-  // console.log( paciente  )
-  // console.log( paqueteSelect  )
-  // console.log( f );
-  // console.log( paquetesPaciente );
 
 // se obteiene la data para actulizar en el paquete
   let paqueteJson = {
@@ -87,7 +85,7 @@ export class PacienteService {
 
    }
 
-   console.log( paqueteJson );
+  //  console.log( paqueteJson );
 
    return this._http.put( uri, paqueteJson )
     .pipe( map( (data) =>  data ));
@@ -99,7 +97,7 @@ export class PacienteService {
 
   getPacienteBtID(id: string) {
 
-    let uri = `${ URLDEV }/pacientes/${id}`;
+    let uri = `${ this.url }/pacientes/${id}`;
 
    return this._http.get( uri )
     .pipe( map( (paciente) =>  paciente  ) );

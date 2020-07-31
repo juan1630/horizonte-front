@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WsLoginService } from 'src/app/services/sockets/login/ws-login.service';
-import { LaboratorioService } from 'src/app/services/sockets/laboratorio/laboratorio.service';
+// import { LaboratorioService } from 'src/app/services/sockets/laboratorio/laboratorio.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 @Component({
@@ -11,10 +11,11 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 export class PageComponent implements OnInit {
   
   public usuario;
+  public chatModal = false;
   
   constructor(
     public wsLogin:WsLoginService,
-    private WSLaboratorio: LaboratorioService
+    // private WSLaboratorio: LaboratorioService
   ) { }
 
 
@@ -24,14 +25,28 @@ export class PageComponent implements OnInit {
   }
 
   getRole(){
+
     this.usuario =  JSON.parse (localStorage.getItem('usuario'));
-   
     this.wsLogin.login( this.usuario );
     this.verPedido();
   }
 
   verPedido(){
-    this.WSLaboratorio.verPedido();
+    // this.WSLaboratorio.verPedido();
+  }
+
+  estadoChat(event ){
+
+      // console.log( event.user.usuario  );
+      this.chatModal = true;
+  }
+
+
+  cerrarVentanaChat(event){
+
+    console.log(event);
+    this.chatModal = false;
+  
   }
 
 }
