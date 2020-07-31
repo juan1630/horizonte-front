@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { PaquetesMaternidadService } from '../../services/maternidad/paquetes-maternidad.service';
 import { ActivatedRoute } from '@angular/router';
+import * as jsPDF from 'jspdf'
+import 'jspdf-autotable'
+
 import swal from 'sweetalert';
 
 @Component({
@@ -11,6 +14,14 @@ import swal from 'sweetalert';
 export class PaqueteMaternidadComponent implements OnInit {
 
   public id: string;
+  visitas:any[] = [
+    {tipo: '1', consulta: 'Consulta', fecha: new Date(), medico: 'Nelson Barrera', firma: 'alday'},
+    {tipo: '3', consulta: 'USG Obstetrico', fecha: new Date(), medico: 'Nelson Barrera', firma: 'alday'},
+    {tipo: '5', consulta: 'Parto', fecha: new Date(), medico: 'Nelson Barrera', firma: 'alday'},
+    {tipo: '2', consulta: 'Consulta', fecha: new Date(), medico: 'Nelson Barrera', firma: 'alday'},
+    {tipo: '4', consulta: 'Biometría hemática completa', fecha: new Date(), medico: 'Nelson Barrera', firma: 'alday'},
+    {tipo: '4', consulta: 'V.I.H', fecha: new Date(), medico: 'Nelson Barrera', firma: 'alday'},
+  ]
   
   medicos:any[] = []
   concepto:any[] = []
@@ -209,7 +220,7 @@ export class PaqueteMaternidadComponent implements OnInit {
         this.consultas.fecha = new Date()
         // this.allConsultas.push(this.consultas)
         console.log(this.consultas)
-        this._serviceMedicos.addVisitas(this.consultas, this.id)
+        this._serviceMedicos.addVisitas(this.consultas, this.id )
         .subscribe( (data) => {
           swal('Consulta Agregada', 'Puede ver las visitas en la tabla', 'success')
           this.mostrarConsultas() 
@@ -232,13 +243,10 @@ export class PaqueteMaternidadComponent implements OnInit {
     this.ultrasonido = []
     this.laboratorio = []
     this.partos = []
-    this._serviceMedicos.getVisitas( this.id )
+    this._serviceMedicos.getVisitas(this.id)
     .subscribe( (data) => {
-      console.log( data );
-      this.allConsultas = data.paquete
+      this.allConsultas = data.pacientesPaquetes.paquetesPacientes.visitas
 
-
-      
       this.allConsultas.forEach( data => {
           if(data.tipo == '1'){
             this.medicinaGen.push(data)
@@ -295,6 +303,41 @@ export class PaqueteMaternidadComponent implements OnInit {
         }
 
     })
+  }
+
+  download(){
+    console.log('Downloading pdf...')
+
+    const doc = new jsPDF()
+    
+    doc.text(15, 20, 'Paquete de Maternidad')
+
+    var columnas = ['Consulta', 'Concepto', 'Fecha', 'Medico', 'Firma']
+
+    const data = this.allConsultas.map( item => {
+
+      if(item.tipo == 1) var tipo = 'Consulta Prenatal por Medicina General'
+      if(item.tipo == 2) var tipo = 'Consulta Prenatal por Ginecologia y Obstetrica'
+      if(item.tipo == 3) var tipo = 'Estudio de Ultrasonido'
+      if(item.tipo == 4) var tipo = 'Estudio de Laboratorio'
+      if(item.tipo == 5) var tipo = 'Conclusión'
+
+      var año = item.fecha.getFullYear()
+      var mes:any = item.fecha.getMonth() + 1
+      if(mes < 10) mes = '0'+mes
+      var dia = item.fecha.getDate()
+      var fecha = `${dia}/${mes}/${año}`
+      return [
+        tipo,
+        item.consulta,
+        fecha,
+        item.medico,
+        item.firma
+      ]
+    })
+    doc.autoTable(columnas, data, { margin: { top: 25 }})
+
+    doc.save('first.pdf')
   }
 
 }
