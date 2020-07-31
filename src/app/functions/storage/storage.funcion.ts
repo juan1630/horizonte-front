@@ -65,8 +65,11 @@ export function eliminarUnElemento ( ) {}
 // FUNCIÓN PARA invocar LOS PACIENTES EN LA HOJA DE ENFERMERÍA XD
 //////////////////////////////////////////////
 export function getPacienteStorage() {
+
      let pacienteSt = [];
+
      pacienteSt = JSON.parse(localStorage.getItem('paciente'));
+     
      return pacienteSt;
 }
 
@@ -83,6 +86,7 @@ export function guardarPacienteStorage( paciente ) {
 ///////////////////////////////////////////////
 // FUNCIÓN PARA ELIMINAR LOS PACIENTES EN LA HOJA DE ENFERMERÍA XD
 //////////////////////////////////////////////
+
 export function eliminarPacienteStorage ( ) {
 
      return localStorage.removeItem('paciente');

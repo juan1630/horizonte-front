@@ -7,9 +7,11 @@ import * as moment from 'moment';
 
 
 @Component({
+
   selector: 'app-hoja-diaria-enf-gral',
   templateUrl: './hoja-diaria-enf-gral.component.html',
   styleUrls: ['./hoja-diaria-enf-gral.component.css']
+
 })
 export class HojaDiariaEnfGralComponent implements OnInit {
 
@@ -17,8 +19,10 @@ export class HojaDiariaEnfGralComponent implements OnInit {
   public getPacienteSotageX = this.listaEspera;
   public fechatl;
 
-  constructor( 
+  constructor(
+
     public loginService: WsLoginService
+
   ) { 
     
   }
@@ -65,6 +69,7 @@ export class HojaDiariaEnfGralComponent implements OnInit {
   }
 
   imprimirBitacora(){
+    
     const doc = new jsPDF();
 
     doc.autoTable({ html: "#bitacora" });

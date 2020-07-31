@@ -1,12 +1,17 @@
 <h1 class="center">Hoja Diaria Enfermería Consulta Externa</h1>
+
 <div class="center">
+
     <div class="row">
+
         <div class="col-md-10 upset-1">
 
             <table class="table table-hover izq" id="bitacora">
+
                 <thead class="thead-dark center">
 
                     <tr>
+
                         <th scope="col"> Número</th>
                         <th scope="col ">Nombre del Paciente</th>
                         <th scope="col ">Edad</th>
@@ -14,11 +19,13 @@
                         <th scope="col ">Médico</th>
                         <th scope="col ">Hora de Cita</th>
                         <!-- *ngIf="role==='admin'" -->
+
                     </tr>
 
                 </thead>
 
                 <tbody>
+
                     <tr *ngFor="let listaEsperaP of listaEspera; let i = index">
                         <td>
                             {{i+1}}
@@ -34,13 +41,21 @@
                         <td>{{listaEsperaP.doctor}}</td>
 
                         <td>{{listaEsperaP.horallegada}}</td>
+
                     </tr>
+
                 </tbody>
 
             </table>
+
         </div>
+
     </div>
+
     <div class="btn">
+
         <button class="btn btn-primary" (click)="imprimirBitacora()">Imprimir Bitácora</button>
+
     </div>
+
 </div>
