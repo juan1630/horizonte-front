@@ -25,7 +25,8 @@ import { TicketComponent } from './contratos/ticket/ticket/ticket.component';
 import { PdfViewerModule, PDFViewerParams } from 'ng2-pdf-viewer';
 import { ContratoVidaPlenaComponent } from './contratos/contratoVidaPlena/contrato-vida-plena/contrato-vida-plena.component';
 import { ContratoNeonatalComponent } from './contratos/neonatal/contrato-neonatal/contrato-neonatal.component';
-
+import { AltoRiesgoComponent } from './contratos/alto-riesgo/alto-riesgo.component';
+import { ChartsModule } from 'ng2-charts';
 
 // import  { PdfMakeWrapper  } from 'pdfmake-wrapper';
 // import pdfFonts from "pdfmake/build/vfs_fonts";
@@ -42,7 +43,8 @@ import { ContratoNeonatalComponent } from './contratos/neonatal/contrato-neonata
     ContratoMLaboralComponent,
     TicketComponent,
     ContratoVidaPlenaComponent,
-    ContratoNeonatalComponent
+    ContratoNeonatalComponent,
+    AltoRiesgoComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +57,7 @@ import { ContratoNeonatalComponent } from './contratos/neonatal/contrato-neonata
     ReactiveFormsModule,
     jqxCalendarModule,
     PdfViewerModule,
+    ChartsModule,
     NgxExtendedPdfViewerModule,
     APP_ROUTES
   ],

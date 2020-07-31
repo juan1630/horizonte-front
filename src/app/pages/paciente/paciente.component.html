@@ -22,6 +22,7 @@
             <div class="col-md-4 text_header">
               <p>Nombre</p>
             </div>
+
             <div class="col-md-2 text_header">
               <p>Género</p>
             </div>
@@ -49,8 +50,9 @@
               <div class="col-md-2" style="text-align: center;">
                 {{ paciente.telefono }} <br>
               </div>
-              <div class="col-md-2" style="text-align: center;" (click)="_modalservicioInt.abrirModalServicioIntegrados( paciente )">
-                <a>Ver...</a> <br>
+              <div class="col-md-2" style="text-align: center;">
+                <a (click)="_modalservicioInt.abrirModalServicioIntegrados( paciente )">Ver...</a> <br>
+                <app-modal-servicios-int>[idUser]="paciente._id"</app-modal-servicios-int>
               </div>
             </div>
           </div>

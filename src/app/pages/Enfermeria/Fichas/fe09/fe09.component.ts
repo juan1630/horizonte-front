@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import * as moment from 'moment';
-import swal from "sweetAlert";
 import { PacienteService } from 'src/app/services/paciente/paciente.service';
 import { ActivatedRoute } from '@angular/router';
 import { HistoriaClinicaService } from 'src/app/services/historia-clinica/historia-clinica.service';
 
+import * as moment from 'moment';
 
+import swal from "sweetAlert";
 
 
 

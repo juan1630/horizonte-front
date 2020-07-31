@@ -16,6 +16,7 @@ export class BusquedaGeneralService {
     console.log( termino);
     let url = `${URLDEV}/todos/servicios/busqueda/${termino}`;
     return this._http.get(url);
+    
   }
 
 

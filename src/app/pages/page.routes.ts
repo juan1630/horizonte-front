@@ -72,6 +72,9 @@ import { ContratoVidaPlenaComponent } from '../contratos/contratoVidaPlena/contr
 import { SolicitudMembresiaComponent } from './solicitudMembresia/solicitud-membresia/solicitud-membresia.component';
 import { IdentificacionComponent } from './identificacion/identificacion/identificacion.component';
 import { ContratoNeonatalComponent } from '../contratos/neonatal/contrato-neonatal/contrato-neonatal.component';
+import { AltoRiesgoComponent } from '../contratos/alto-riesgo/alto-riesgo.component';
+import { CrearPaquetesComponent } from "./crearPaquetes/crear-paquetes/crear-paquetes.component";
+import { JefaturaEnfermeriaComponent } from './indicadores/jefatura-enfermeria/jefatura-enfermeria.component';
 
 
 
@@ -84,37 +87,43 @@ const pagesRoutes : Routes = [
       // aca se iran agregando las rutas para el dashboard
       { path: 'paciente', component: PacienteComponent },
       { path: 'consultar/paquetes', component:PaquetesComponent },
-      
-      
+
+
       // SOLICITUDES
       {  path: 'hoja/solicitud/membresia/:id', component: SolicitudMembresiaComponent  },
       { path: 'solicitud/:id', component: SolicitudComponent },
 
       // PAQUETES
-      
+
       // tabuladores de consultas
       { path: 'paqueteMaternidad/:id', component: PaqueteMaternidadComponent },
       { path: 'paquete/laboral/:id', component: PaqueteMedicoLaboralComponent  },
       { path: 'pagos/paquete/maternidad', component:PagosMaternidadComponent },
       { path: 'alto/riesgo/:id', component: TabuladorAltoriesgoComponent },
-      
+
       // { path: 'membresia/:id', component: MembresiaPaqueteComponent },
-     
+
       // CONTRATOS DE LOS PAQUETES
       { path: 'contrato-medico-laboral', component: ContratoMLaboralComponent},
       { path: 'contrato-maternidad', component: ContratoMaternidadComponent },
       { path: 'contrato/pediatrico', component: PediatricoComponent },
       { path: 'contrato/vida/plena', component: ContratoVidaPlenaComponent },
       { path: 'contrato/neonatal', component: ContratoNeonatalComponent  },
+      { path: 'anexo/alto/riesgo', component: AltoRiesgoComponent },
 
       // TABULADORES
 
       // TABULADOR DE PAGOS DEL PAQUETE DE MATERNIDAD
       { path: 'tabulador/pagos/:id', component: TabuladorPagosComponent },
 
+      // crear paquetes de quirofano
+
+
+      { path: 'crear/paquete', component: CrearPaquetesComponent  },
+
 
       // SERVICIOS INTEGRADOS
-      
+
       { path:'serviciosInt', component: ServiciosIntComponent  },
       { path: 'ambulancia', component: AmbulanciaSIComponent},
       { path: 'hoja-fram', component: HojaFramComponent},
@@ -162,7 +171,7 @@ const pagesRoutes : Routes = [
       { path: 'farmacia/dash', component: DashComponent  },
       { path: 'farmacia', component: FarmaciaComponent},
       // LABORATORIO
-      // hoja de solictud de servicios integrados y pago 
+      // hoja de solictud de servicios integrados y pago
       { path: 'pago/pedido/sin', component: PedidoSinComponent },
       // pedidos pendientes en lab
       { path: 'pedidos/pendientes/laboratorio', component: PedidosLaboratorioComponent  },
@@ -170,9 +179,12 @@ const pagesRoutes : Routes = [
       { path: 'pedido/laboratorios/:id', component: PedidoIndividualComponent },
       { path: 'laboratorio/pendientes/lab', component: PedidoSinComponent  },
       { path: 'ficha-enfermeria-01/:id', component: FE09Component},
-      { path:'identificacion', component: IdentificacionComponent },
+      // IDENTIFICACION
+
+      { path:'identificacion/:id', component: IdentificacionComponent },
+      {path: 'indicadores/enfermeria', component: JefaturaEnfermeriaComponent  },
       { path: '', redirectTo: '/dashboard', pathMatch:'full' }
-      
+
     ]
   }
 ];

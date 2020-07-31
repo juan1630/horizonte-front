@@ -78,6 +78,10 @@ import { PaqueteMedicoLaboralComponent } from './paquete-medico-laboral/paquete-
 import { PediatricoComponent } from './contratos/pediatrico/pediatrico.component';
 import { SolicitudMembresiaComponent } from './solicitudMembresia/solicitud-membresia/solicitud-membresia.component';
 import { IdentificacionComponent } from './identificacion/identificacion/identificacion.component';
+import { QuirofanoFormComponent } from './Quirofanos/quirofano-form/quirofano-form.component';
+import { CrearPaquetesComponent } from './crearPaquetes/crear-paquetes/crear-paquetes.component';
+import { JefaturaEnfermeriaComponent } from './indicadores/jefatura-enfermeria/jefatura-enfermeria.component';
+import { ChartsModule } from 'ng2-charts'
 
 
 @NgModule({
@@ -145,7 +149,10 @@ import { IdentificacionComponent } from './identificacion/identificacion/identif
     PaqueteMedicoLaboralComponent,
     PediatricoComponent,
     SolicitudMembresiaComponent,
-    IdentificacionComponent
+    IdentificacionComponent,
+    QuirofanoFormComponent,
+    CrearPaquetesComponent,
+    JefaturaEnfermeriaComponent
   ],
   exports: [ 
     PageComponent,
@@ -156,6 +163,7 @@ import { IdentificacionComponent } from './identificacion/identificacion/identif
     ComponentsModule,
     FormsModule,
     RouterModule,
+    ChartsModule,
     PAGES_ROUTES,
     ReactiveFormsModule,
     NgxExtendedPdfViewerModule,
