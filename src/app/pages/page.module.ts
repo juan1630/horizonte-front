@@ -27,6 +27,7 @@ import { FarmaciaComponent } from './servivicosInt/farmacia/farmacia.component';
 import { HospitalizacionComponent } from './servivicosInt/hospitalizacion/hospitalizacion.component';
 import { LaboratorioComponent } from './servivicosInt/laboratorio/laboratorio.component';
 import { QuirofanoComponent } from './servivicosInt/quirofano/quirofano.component';
+
 import { ResonanciaComponent } from './servivicosInt/resonancia/resonancia.component';
 import { TomografiaComponent } from './servivicosInt/tomografia/tomografia.component';
 import { TrabajoSocialComponent } from './servivicosInt/trabajo-social/trabajo-social.component';
@@ -78,13 +79,10 @@ import { PaqueteMedicoLaboralComponent } from './paquete-medico-laboral/paquete-
 import { PediatricoComponent } from './contratos/pediatrico/pediatrico.component';
 import { SolicitudMembresiaComponent } from './solicitudMembresia/solicitud-membresia/solicitud-membresia.component';
 import { IdentificacionComponent } from './identificacion/identificacion/identificacion.component';
-<<<<<<< Updated upstream
 import { QuirofanoFormComponent } from './Quirofanos/quirofano-form/quirofano-form.component';
 import { CrearPaquetesComponent } from './crearPaquetes/crear-paquetes/crear-paquetes.component';
 import { JefaturaEnfermeriaComponent } from './indicadores/jefatura-enfermeria/jefatura-enfermeria.component';
 import { ChartsModule } from 'ng2-charts'
-=======
->>>>>>> Stashed changes
 
 
 @NgModule({
@@ -152,14 +150,10 @@ import { ChartsModule } from 'ng2-charts'
     PaqueteMedicoLaboralComponent,
     PediatricoComponent,
     SolicitudMembresiaComponent,
-<<<<<<< Updated upstream
     IdentificacionComponent,
     QuirofanoFormComponent,
     CrearPaquetesComponent,
     JefaturaEnfermeriaComponent
-=======
-    IdentificacionComponent
->>>>>>> Stashed changes
   ],
   exports: [ 
     PageComponent,
