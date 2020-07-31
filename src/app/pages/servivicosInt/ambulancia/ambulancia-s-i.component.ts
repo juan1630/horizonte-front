@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { AmbulanciaService } from 'src/app/services/ambulancia/ambulancia.service';
 import { Router} from '@angular/router';
-import swal from 'sweetalert';
-
+import { BusquedaGeneralService } from '../../../services/busquedas/busquedaGeneral/busqueda-general.service';
 import  { getDataStorage, gaurdarCotizacion, getDataCarrito }  from '../../../functions/storage/storage.funcion';
-
 import { getCarritoStorage, guardarStorage, }  from '../../../functions/storage/pacienteIntegrados';
 
+
+import swal from 'sweetalert';
 @Component({
   selector: 'app-ambulancia-s-i',
   templateUrl: './ambulancia-s-i.component.html',
@@ -18,6 +18,21 @@ export class AmbulanciaSIComponent implements OnInit {
 
   // data de los servicios
   public ambulanciaSI: any [] = [];
+  public termino: string;
+  public showTableAmbulanacia = true;
+
+  public todosLosServicios = {
+    ambulancia: [],
+    endoscopia: [],
+    laboratorios: [],
+    message: "",
+    ok:false,
+    otrosServicio: [],
+    patologia: [],
+    rayosX: [],
+    tomografia: [],
+    ultrasonido: []
+  }
 
   // data el usuario de la maquina
   //public role: String;
@@ -37,11 +52,13 @@ ngOnInit(): void {
   this.carrito = getCarritoStorage();
 
   if( this.carrito == null ){
+
     this.carrito = {
       totalSin: 0,
       totalCon:0,
       items:[]
     };
+ 
   }
   this.verDatos();
 
@@ -50,7 +67,8 @@ ngOnInit(): void {
 
 constructor(
   private _ambulanciaService: AmbulanciaService,
-  private _router: Router
+  private _router: Router,
+  private _buscadorGlobal: BusquedaGeneralService
 ) { }
 
 restarTotal ( precioSin, precioCon  ) {
@@ -73,28 +91,45 @@ restarTotal ( precioSin, precioCon  ) {
 
     }
 
-sumarTotal(  precioSin, precioCon  ){
+
+    busquedaGeneral(  ){
+
+      this._buscadorGlobal.getAllDepartments( this.termino )
+      .subscribe(  (data:any) => {
+
+        this.todosLosServicios = data;
+      
+        this.showTableAmbulanacia = false;
+        console.log( this.todosLosServicios );
+
+      })
+    
+      
+
+    }
+
+  sumarTotal(  precioSin, precioCon  ){
 
 
   // se le quitan los caracteres $ y , al precio con membresia
 
-let precioConMembresia  = precioCon.replace('$', '');
-let precioConSinComa  = precioConMembresia.replace(',', '');
-let precioConMembresiaNumber = parseFloat( precioConSinComa );
+    let precioConMembresia  = precioCon.replace('$', '');
+    let precioConSinComa  = precioConMembresia.replace(',', '');
+    let precioConMembresiaNumber = parseFloat( precioConSinComa );
 
 
 
-// se le quitan los caracteres $ y , al precio sin membresia
-let costoSin = precioSin.replace('$', '');
-let costoSinComa = costoSin.replace(',', '');
-let costoSinNumber = parseFloat( costoSinComa );
+    // se le quitan los caracteres $ y , al precio sin membresia
+    let costoSin = precioSin.replace('$', '');
+    let costoSinComa = costoSin.replace(',', '');
+    let costoSinNumber = parseFloat( costoSinComa );
 
 
-this.carrito.totalSin = this.carrito.totalSin + costoSinNumber;
-this.carrito.totalCon = this.carrito.totalCon + precioConMembresiaNumber;
+    this.carrito.totalSin = this.carrito.totalSin + costoSinNumber;
+    this.carrito.totalCon = this.carrito.totalCon + precioConMembresiaNumber;
 
 
-}
+  }
 
 
 agregarCarrito( event, item:any ){
@@ -231,14 +266,14 @@ eliminar( id ){
 
 
   alertcomparasion( ev, precioPublico, precioMembresia, item2:any ){
-    this.agregarCarrito(ev, item2);
-
+   
     let precioSinTrim  =  precioPublico.replace('$', '');
     let precioSinComaPublico = precioSinTrim.replace(',', '');
 
 
     let precioMemTrim  =  precioMembresia.replace('$', '');
     let precioMemComaMembresia = precioMemTrim.replace(',', '');
+
 
     swal({ title: `Con la memebresia ahorras ${ precioSinComaPublico - precioMemComaMembresia }`    ,icon: 'success' });
 

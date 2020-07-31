@@ -12,9 +12,11 @@ import * as jsPDF from 'jspdf';
 export class TicketComponent implements OnInit {
 
   public carrito = {
+   
     totalSin: 0, 
     totalCon: 0, 
     items:[]
+  
   }
 
   constructor() { }
