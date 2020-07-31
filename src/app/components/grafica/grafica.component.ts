@@ -14,6 +14,10 @@ export class GraficaComponent implements OnInit {
   }
 
 
+
+
+
+  
   
   public barChartOptions: ChartOptions = {
     responsive: true,

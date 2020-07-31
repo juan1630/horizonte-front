@@ -18,6 +18,7 @@ export class AmbulanciaSIComponent implements OnInit {
 
   // data de los servicios
   public ambulanciaSI: any [] = [];
+<<<<<<< Updated upstream
   public termino: string;
   public showTableAmbulanacia = true;
 
@@ -33,6 +34,8 @@ export class AmbulanciaSIComponent implements OnInit {
     tomografia: [],
     ultrasonido: []
   }
+=======
+>>>>>>> Stashed changes
 
   // data el usuario de la maquina
   //public role: String;
@@ -260,10 +263,20 @@ eliminar( id ){
 
       }
     );
+<<<<<<< Updated upstream
+=======
+
+  }
+>>>>>>> Stashed changes
 
   }
 
 
+<<<<<<< Updated upstream
+=======
+  alertcomparasion( ev, precioPublico, precioMembresia, item2:any ){
+    this.agregarCarrito(ev, item2);
+>>>>>>> Stashed changes
 
   alertcomparasion( ev, precioPublico, precioMembresia, item2:any ){
    
@@ -274,7 +287,10 @@ eliminar( id ){
     let precioMemTrim  =  precioMembresia.replace('$', '');
     let precioMemComaMembresia = precioMemTrim.replace(',', '');
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     swal({ title: `Con la memebresia ahorras ${ precioSinComaPublico - precioMemComaMembresia }`    ,icon: 'success' });
 
   }

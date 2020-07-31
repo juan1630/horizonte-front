@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-10 upset-1">
 
-            <table class="table table-hover izq">
+            <table class="table table-hover izq" id="bitacora">
                 <thead class="thead-dark center">
 
                     <tr>
@@ -23,20 +23,24 @@
                         <td>
                             {{i+1}}
                         </td>
-                        <td [routerLink]="['/ficha-enfermeria-01', listaEsperaP.consulta.pacienteId]" routerLinkActive="router-link-active">
-                            {{listaEsperaP.consulta.nombrePaciente}}
+                        <td class="clickss" [routerLink]="['/ficha-enfermeria-01', listaEsperaP.pacienteId]" routerLinkActive="router-link-active">
+                            {{listaEsperaP.nombrePaciente}}
                         </td>
 
-                        <td>{{listaEsperaP.consulta.edad}}</td>
+                        <td>{{listaEsperaP.edad}}</td>
 
-                        <td>{{listaEsperaP.consulta.servicio}}</td>
+                        <td>{{listaEsperaP.servicio}}</td>
 
-                        <td>{{listaEsperaP.consulta.doctor}}</td>
+                        <td>{{listaEsperaP.doctor}}</td>
 
-                        <td>{{listaEsperaP.consulta.horallegada}}</td>
+                        <td>{{listaEsperaP.horallegada}}</td>
                     </tr>
                 </tbody>
+
             </table>
         </div>
+    </div>
+    <div class="btn">
+        <button class="btn btn-primary" (click)="imprimirBitacora()">Imprimir Bitácora</button>
     </div>
 </div>

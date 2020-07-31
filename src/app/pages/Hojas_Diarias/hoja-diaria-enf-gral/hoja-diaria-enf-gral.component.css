@@ -1,3 +1,13 @@
 .izq {
     margin-left: 5rem;
 }
+
+.clickss {
+    cursor: pointer;
+}
+
+.clickss:hover {
+    background-color: #3176df;
+    color: #ffffff;
+    font-weight: bold;
+}

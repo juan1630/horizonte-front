@@ -17,7 +17,7 @@
             <p>Telefono: {{ paciente.telefono }} </p>
             <p>Tipo de Sangre:</p>
             <select name="edades" class="form-control">
-                <option value="Tipo" selected>-- Seleccione Tipo de Sangre --</option>
+                <option value="Tipo" selected>--Tipo de Sangre --</option>
                 <option value="AB+">AB+</option> 
                 <option value="AB-">AB-</option>
                 <option value="A+">A+</option>
@@ -33,6 +33,32 @@
             </select>
             <!-- Agregar select con los tipos de Sangre mas comunes -->
         </div>
+
+        <!-- Religiones
+         -->
+
+        <div class="col-sm">
+            <p>Religión:</p>
+            <select name="edades" class="form-control">
+                <option value="Tipo" selected>-- Religión --</option>
+                <option value="judios">Judío</option> 
+                <option value="catolicos">Católico</option>
+                <option value="evangelicos">Evangélico</option>
+                <option value="menonitas">Menonita</option>
+                <option value="pentecostales">Pentecostés</option>
+                <option value="bautista">Bautista</option>
+                <option value="metodistas">Metodista</option>
+                <option value="adventistas">Adventista</option>
+                <option value="budistas">Budista</option>
+                <option value="krishnas">Krishna</option>
+                <option value="presbiterianos">Presbiteriano</option>
+                <option value="testigos_de_jehova">Testigo de Jehová</option>
+                <option value="islamicos">Islámico</option> 
+            </select>
+            <!-- Agregar select con los tipos de Sangre mas comunes -->
+        </div>
+
+
         <div class="col-sm">
             <p>Edad: {{ paciente.edad }} </p>
         </div>
@@ -109,6 +135,10 @@
             <div class="col-md-1">
                 <label for="">PT cm</label>
                 <input type="text" placeholder="P.T.">
+            </div>
+            <div class="col-md-1">
+                <label for="">APGAR</label>
+                <input type="text" placeholder="0 - 10">
             </div>
             <div class="col-md-1">
                 <label for="">SaO %</label>
@@ -336,6 +366,8 @@
 
             </div>
         </form>
+
+
 
         <!-- End Modal Antecedentes -->
 

@@ -89,12 +89,15 @@ const pagesRoutes : Routes = [
       { path: 'consultar/paquetes', component:PaquetesComponent },
 
 
+      
+      
       // SOLICITUDES
       {  path: 'hoja/solicitud/membresia/:id', component: SolicitudMembresiaComponent  },
       { path: 'solicitud/:id', component: SolicitudComponent },
 
       // PAQUETES
 
+      
       // tabuladores de consultas
       { path: 'paqueteMaternidad/:id', component: PaqueteMaternidadComponent },
       { path: 'paquete/laboral/:id', component: PaqueteMedicoLaboralComponent  },
@@ -103,6 +106,9 @@ const pagesRoutes : Routes = [
 
       // { path: 'membresia/:id', component: MembresiaPaqueteComponent },
 
+      
+      // { path: 'membresia/:id', component: MembresiaPaqueteComponent },
+     
       // CONTRATOS DE LOS PAQUETES
       { path: 'contrato-medico-laboral', component: ContratoMLaboralComponent},
       { path: 'contrato-maternidad', component: ContratoMaternidadComponent },
@@ -183,6 +189,7 @@ const pagesRoutes : Routes = [
 
       { path:'identificacion/:id', component: IdentificacionComponent },
       {path: 'indicadores/enfermeria', component: JefaturaEnfermeriaComponent  },
+      { path:'identificacion', component: IdentificacionComponent },
       { path: '', redirectTo: '/dashboard', pathMatch:'full' }
 
     ]

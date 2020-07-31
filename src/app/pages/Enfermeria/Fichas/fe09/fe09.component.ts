@@ -40,22 +40,25 @@ export class FE09Component implements OnInit {
   }
 
   constructor(
+
       private _ObtenerPacienteService: PacienteService,
       private _route: ActivatedRoute,
       private _HistoriaClinicaService: HistoriaClinicaService,
+
   ) {
 
    }
 
   ngOnInit(): void {
 
-      this.fecha = moment().format('MMMM Do YYYY');
-    console.log(moment());
+      this.fecha = moment().format('LLL');
+    // console.log(moment());
 
     // Obtener Id del paciente
     this.id = this._route.snapshot.paramMap.get('id');
 
     this._ObtenerPacienteService.getPacienteBtID(this.id).subscribe(
+
       (data:any) => {
         console.log(data);
 
@@ -76,6 +79,13 @@ export class FE09Component implements OnInit {
     var btnAdd = document.getElementById("btn_agregar");
 
   
+
+
+
+
+
+
+    
     
 
   }
