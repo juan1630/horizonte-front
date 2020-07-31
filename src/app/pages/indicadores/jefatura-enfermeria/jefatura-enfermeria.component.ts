@@ -11,6 +11,9 @@ export class JefaturaEnfermeriaComponent implements OnInit {
 
   constructor() { }
 
+
+
+  
   ngOnInit(): void {
   }
 

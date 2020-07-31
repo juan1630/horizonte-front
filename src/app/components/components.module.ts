@@ -27,7 +27,7 @@ import { TarjetaCotizacionComponent } from './cotizacion/tarjeta-cotizacion/tarj
 import { CalendarComponent } from './calendar/calendar.component';
 import { jqxSchedulerModule, jqxSchedulerComponent } from 'jqwidgets-ng/jqxscheduler';
 import { ChatComponent } from './chat/chat/chat.component';
-import { GraficaComponent } from './grafica/grafica.component';
+
 import { ChartsModule  } from 'ng2-charts'
 
 
@@ -46,7 +46,7 @@ import { ChartsModule  } from 'ng2-charts'
     TarjetaCotizacionComponent,
     CalendarComponent,
     ChatComponent,
-    GraficaComponent
+
     
 ],
 schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
@@ -63,7 +63,7 @@ schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
     SpinnerComponent,
     ReactiveFormsModule,
     CalendarComponent,
-    GraficaComponent,
+
     ChatComponent
        ],
   imports: [

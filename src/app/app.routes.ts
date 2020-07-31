@@ -12,7 +12,6 @@ import { PaqueteIdComponent } from './pages/paquete-id/paquete-id.component';
 //============================
 
 
-
 const appRoutes: Routes = [
     { 
         path: '', 
