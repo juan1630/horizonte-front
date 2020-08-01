@@ -8,7 +8,9 @@ import { Router, ActivatedRoute  } from '@angular/router';
 import * as moment from 'moment';
 import * as jsPDF from 'jspdf';
 
-moment.locale('es')
+moment.locale('es');
+// =======
+// >>>>>>> Stashed changes
 
 
 
@@ -21,12 +23,11 @@ export class IdentificacionComponent implements OnInit {
 
 
   public id = "";
-  
+
   public nombreEnfermeraQueIngresa ="";
   public fechaDeIngreso = "";
   public horaDeIngreso = "";
 
-  
 
   public paciente = {
     RFCFiscal: "",
@@ -70,7 +71,7 @@ export class IdentificacionComponent implements OnInit {
 
 
   public infoConsulta = {
-    
+
     fechaIngreso: "",
     horaIngreso: "",
     enfermeraAtendio: "",
@@ -78,7 +79,7 @@ export class IdentificacionComponent implements OnInit {
     diagnosticoActual:"",
     medicoTrante: "",
     paciente: "",
-    
+
   }
 
 
@@ -100,11 +101,10 @@ export class IdentificacionComponent implements OnInit {
 
   ngOnInit(): void {
 
-    
+
     this.id = this._route.snapshot.paramMap.get('id');
 
     this.getPaciente();
-   
 
   }
 
@@ -124,13 +124,13 @@ export class IdentificacionComponent implements OnInit {
     this.infoConsulta.fechaIngreso = this.fechaDeIngreso;
     this.infoConsulta.horaIngreso = this.horaDeIngreso;
     this.infoConsulta.paciente = this.paciente._id;
-    
+
 
     this._identifiacionService.agregarConsulta( this.infoConsulta )
     .subscribe( (data:any) => {
 
       console.log( data );
-      
+
         if( data.ok ) {
           alert('datos guardados');
         }
@@ -144,7 +144,7 @@ export class IdentificacionComponent implements OnInit {
     if(this.infoConsulta.diagnosticoInicial == "" || this.infoConsulta.diagnosticoActual == "" || this.infoConsulta.medicoTrante == "" ){
       alert('Debes de validar los campos');
       return;
-      
+
     }else {
       this.validado = false;
     }
@@ -155,7 +155,7 @@ export class IdentificacionComponent implements OnInit {
   imprimir(){
 
 
-  
+
 
 
 
@@ -165,7 +165,7 @@ export class IdentificacionComponent implements OnInit {
       doc.addImage( headerImg, 'JPEG', 5 , 0, 200, 50 );
 
       doc.text(  10, 60,  `NOMBRE:  ${this.paciente.nombrePaciente}   ${this.paciente.apellidoPaterno}   ${this.paciente.apellidoMaterno}` );
-      
+
       doc.text(  10, 70,  `CURP:  ${this.paciente.curp} ` );
 
       doc.text(100, 70, `FECHA DE NACIMIENTO:  ${this.paciente.fechaNacimientoPaciente}`);
@@ -186,10 +186,10 @@ export class IdentificacionComponent implements OnInit {
       doc.text(  120, 60,  `ALERGIAS:  ${this.paciente.alergias} ` );
 
       this.enviarConsulta();
-      
-      
+
+
       doc.save('IDETIFICACION');
-    
+
 
   }
 
