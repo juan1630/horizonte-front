@@ -83,7 +83,7 @@ export class IdentificacionComponent implements OnInit {
     paciente: "",
     genero:"",
     notificacionDeIdentificacion:''
-    
+
   }
 
 
@@ -113,10 +113,10 @@ export class IdentificacionComponent implements OnInit {
   }
 
 
-  ngOnInit(): void {
-    this.getPaciente();
->>>>>>> Stashed changes
-  }
+//   ngOnInit(): void {
+//     this.getPaciente();
+// // >>>>>>> Stashed changes
+//   }
 
 
   getPaciente(){
@@ -134,7 +134,7 @@ export class IdentificacionComponent implements OnInit {
     this.infoConsulta.fechaIngreso = this.fechaDeIngreso;
     this.infoConsulta.horaIngreso = this.horaDeIngreso;
     this.infoConsulta.paciente = this.paciente._id;
-    
+
 
 
     this._identifiacionService.agregarConsulta( this.infoConsulta )
@@ -196,10 +196,10 @@ export class IdentificacionComponent implements OnInit {
       doc.text(  120, 60,  `ALERGIAS:  ${this.paciente.alergias} ` );
 
       this.enviarConsulta();
-      
-      
+
+
       doc.save('IDETIFICACION');
-    
+
 
 
   }
