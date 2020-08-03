@@ -27,6 +27,7 @@ export class IdentificacionComponent implements OnInit {
   public nombreEnfermeraQueIngresa ="";
   public fechaDeIngreso = "";
   public horaDeIngreso = "";
+  public genero = "";
 
 
   public paciente = {
@@ -79,7 +80,9 @@ export class IdentificacionComponent implements OnInit {
     diagnosticoActual:"",
     medicoTrante: "",
     paciente: "",
-
+    genero:"",
+    notificacionDeIdentificacion:''
+    
   }
 
 
@@ -124,6 +127,7 @@ export class IdentificacionComponent implements OnInit {
     this.infoConsulta.fechaIngreso = this.fechaDeIngreso;
     this.infoConsulta.horaIngreso = this.horaDeIngreso;
     this.infoConsulta.paciente = this.paciente._id;
+    
 
 
     this._identifiacionService.agregarConsulta( this.infoConsulta )
@@ -158,7 +162,6 @@ export class IdentificacionComponent implements OnInit {
 
 
 
-
       let name = document.getElementById('name');
 
       let doc = new jsPDF();
@@ -186,9 +189,10 @@ export class IdentificacionComponent implements OnInit {
       doc.text(  120, 60,  `ALERGIAS:  ${this.paciente.alergias} ` );
 
       this.enviarConsulta();
-
-
+      
+      
       doc.save('IDETIFICACION');
+    
 
 
   }
