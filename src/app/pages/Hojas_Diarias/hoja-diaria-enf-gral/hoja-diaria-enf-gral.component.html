@@ -6,7 +6,7 @@
 
         <div class="col-md-10 upset-1">
 
-            <table class="table table-hover izq" id="bitacora">
+            <table class="table table-hover colors izq" id="bitacora">
 
                 <thead class="thead-dark center">
 
@@ -18,6 +18,7 @@
                         <th scope="col ">Servicio Médico</th>
                         <th scope="col ">Médico</th>
                         <th scope="col ">Hora de Cita</th>
+                        <th scope="col ">Status</th>
                         <!-- *ngIf="role==='admin'" -->
 
                     </tr>
@@ -41,6 +42,10 @@
                         <td>{{listaEsperaP.doctor}}</td>
 
                         <td>{{listaEsperaP.horallegada}}</td>
+
+                        <td class="form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        </td>
 
                     </tr>
 
