@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { URLDEV } from '../config/index.config'
+// import { URLDEV } from '../config/index.config'
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class IdentificacionConsultaService {
   agregarConsulta( body ){
 
 
-    let url = `${URLDEV}/consultas/general/identificacion`;
+    let url = `http://localhost:3200/consultas/general/identificacion`;
 
 
     return this._http.post(url, body);
