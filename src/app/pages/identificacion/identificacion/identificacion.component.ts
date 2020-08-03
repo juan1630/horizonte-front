@@ -25,6 +25,7 @@ export class IdentificacionComponent implements OnInit {
   public nombreEnfermeraQueIngresa ="";
   public fechaDeIngreso = "";
   public horaDeIngreso = "";
+  public genero = "";
 
   
 
@@ -78,6 +79,8 @@ export class IdentificacionComponent implements OnInit {
     diagnosticoActual:"",
     medicoTrante: "",
     paciente: "",
+    genero:"",
+    notificacionDeIdentificacion:''
     
   }
 
@@ -124,6 +127,7 @@ export class IdentificacionComponent implements OnInit {
     this.infoConsulta.fechaIngreso = this.fechaDeIngreso;
     this.infoConsulta.horaIngreso = this.horaDeIngreso;
     this.infoConsulta.paciente = this.paciente._id;
+    this.infoConsulta.genero = this.paciente.sexo;
     
 
     this._identifiacionService.agregarConsulta( this.infoConsulta )
@@ -153,9 +157,6 @@ export class IdentificacionComponent implements OnInit {
 
 
   imprimir(){
-
-
-  
 
 
 
@@ -188,7 +189,7 @@ export class IdentificacionComponent implements OnInit {
       this.enviarConsulta();
       
       
-      doc.save('IDETIFICACION');
+      // doc.save('IDETIFICACION');
     
 
   }
