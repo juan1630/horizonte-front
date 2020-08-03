@@ -220,54 +220,53 @@ export class SolicitudComponent implements OnInit {
               }else if( this.paqueteSelected.nombrePaquete === 'PAQUETE DE CONTROL PRENATAL DE ALTO RIESGO'){
                   this._router2.navigateByUrl('/anexo/alto/riesgo');
               }
+              }else if(this._router2.navigateByUrl('/contrato/neonatal')   ){ }
             
 
-              }
+              });
  
-      })
+            
     });
+  }
+    cancelarPaq(){
+
+      swal("¿Estas seguro que deseas salir?",
+      {
+        buttons: {
+        // cancel: "Cancelar",
+        catch: {
+          text: "Confirmar",
+          value: "true",
+        }
+      }
+      })
+      .then(value => {
+
+        if( value ){
+
+          this._router2.navigateByUrl('/paciente');
+        
+          
+
+        }else {
+          return;
+        }
+
+      }  )
+
+     if( swal.getState().actions.value  ){
+      this._router2.navigateByUrl('/paciente');
+
+     }
+
+   }
       
     }
 
 
 
 
-      cancelarPaq(){
-
-        swal("¿Estas seguro que deseas salir?",
-        {
-          buttons: {
-          // cancel: "Cancelar",
-          catch: {
-            text: "Confirmar",
-            value: "true",
-          }
-        }
-        })
-        .then(value => {
-
-          if( value ){
-  
-            this._router2.navigateByUrl('/paciente');
-          
-            
-  
-          }else {
-            return;
-          }
-  
-        }  )
-  
-       if( swal.getState().actions.value  ){
-        this._router2.navigateByUrl('/paciente');
-  
-       }
-  
-     }
-
-
-
-    }
+      
 
 
 

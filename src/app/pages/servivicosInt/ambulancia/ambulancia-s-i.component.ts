@@ -265,6 +265,9 @@ eliminar( id ){
 
 
 
+  // alertcomparasion( ev, precioPublico, precioMembresia, item2:any ){
+  //   this.agregarCarrito(ev, item2);
+
   alertcomparasion( ev, precioPublico, precioMembresia, item2:any ){
    
     let precioSinTrim  =  precioPublico.replace('$', '');
@@ -274,6 +277,10 @@ eliminar( id ){
     let precioMemTrim  =  precioMembresia.replace('$', '');
     let precioMemComaMembresia = precioMemTrim.replace(',', '');
 
+<<<<<<< Updated upstream
+
+=======
+>>>>>>> Stashed changes
     swal({ title: `Con la memebresia ahorras ${ precioSinComaPublico - precioMemComaMembresia }`    ,icon: 'success' });
 
   }
@@ -387,7 +394,4 @@ eliminar( id ){
       }
     );
   }
-
-
-
 }

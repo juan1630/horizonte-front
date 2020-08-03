@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   maboxApiKey: 'pk.eyJ1IjoianVhbmoxNjMwIiwiYSI6ImNrN3BrNGFvbDBsZjAzZXBidnVzODIzYXAifQ.lUBl4JN7wnoiYWPCB_MKkw',
-  swUrl: 'https://horizonte-1.herokuapp.com'
+  swUrl: 'https://sleepy-tor-20835.herokuapp.com'
 };
 
 /*

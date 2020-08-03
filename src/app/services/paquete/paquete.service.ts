@@ -13,7 +13,7 @@ export class PaqueteService {
   // este servicio lista todos los paquetes sin nigun termino de busqueda
   getPaquetes(){
 
-    let uri = "https://horizonte-1.herokuapp.com" + '/paquetes';
+    let uri = "https://sleepy-tor-20835.herokuapp.com" + '/paquetes';
 
     return  this._http.get(uri)
       .pipe( map( (data:any) => {

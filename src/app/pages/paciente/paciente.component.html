@@ -21,6 +21,7 @@
                         <div class="col-md-4 text_header">
                             <p>Nombre</p>
                         </div>
+
                         <div class="col-md-2 text_header">
                             <p>Género</p>
                         </div>
@@ -51,25 +52,27 @@
                             <div class="col-md-2" style="text-align: center;">
                                 <a (click)="_modalservicioInt.abrirModalServicioIntegrados( paciente )">Ver...</a> <br>
                                 <app-modal-servicios-int>[idUser]="paciente._id"</app-modal-servicios-int>
+                                <div class="col-md-2" style="text-align: center;" (click)="_modalservicioInt.abrirModalServicioIntegrados( paciente )">
+                                    <a>Ver...</a> <br>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" (click)="paginaAnterior()"> <i class="fas fa-arrow-left"></i> </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" (click)="siguentePagina()"> <i class="fas fa-arrow-right"></i> </a>
+                </li>
+            </ul>
+        </nav>
+
+        <app-modal></app-modal>
+
     </div>
-
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-                <a class="page-link" (click)="paginaAnterior()"> <i class="fas fa-arrow-left"></i> </a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" (click)="siguentePagina()"> <i class="fas fa-arrow-right"></i> </a>
-            </li>
-        </ul>
-    </nav>
-
-    <app-modal></app-modal>
-
-</div>

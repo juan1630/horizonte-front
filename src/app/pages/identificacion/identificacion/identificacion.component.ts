@@ -30,6 +30,7 @@ export class IdentificacionComponent implements OnInit {
   public genero = "";
 
 
+  // public id = "5e98a29b0eb1ac2b44132b31";
   public paciente = {
     RFCFiscal: "",
     apellidoMaterno: "",
@@ -109,6 +110,12 @@ export class IdentificacionComponent implements OnInit {
 
     this.getPaciente();
 
+  }
+
+
+  ngOnInit(): void {
+    this.getPaciente();
+>>>>>>> Stashed changes
   }
 
 

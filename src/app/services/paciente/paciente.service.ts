@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class PacienteService {
-  public url = "https://horizonte-1.herokuapp.com";
+  public url = "https://sleepy-tor-20835.herokuapp.com";
 
   //  public url = "http://localhost:3200";
 
