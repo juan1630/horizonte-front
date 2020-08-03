@@ -6,8 +6,19 @@
     cursor: pointer;
 }
 
-.clickss:hover {
+
+/* .clickss:hover {
     background-color: #3176df;
+    color: #ffffff;
+    font-weight: bold;
+} */
+
+.table-hover:hover {
+    color: #ffffff;
+}
+
+.colors {
+    background-color: #fa284b8e;
     color: #ffffff;
     font-weight: bold;
 }
