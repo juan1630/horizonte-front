@@ -27,7 +27,7 @@ export class PaquetesMaternidadService {
   }
 
   addVisitas( body:any, id:string ){
-    let URL = 'https://horizonte-1.herokuapp.com/paciente/paquete/visitas/'+id;
+    let URL = 'https://sleepy-tor-20835.herokuapp.com/paciente/paquete/visitas/'+id;
    
     return this._http.post( URL, body )
     .pipe( map( ( data:any ) => {
@@ -38,7 +38,7 @@ export class PaquetesMaternidadService {
   }
 
   getVisitas( id: string ){
-    let URL = 'https://horizonte-1.herokuapp.com/paciente/paquete/visitas/'+id;
+    let URL = 'https://sleepy-tor-20835.herokuapp.com/paciente/paquete/visitas/'+id;
     
     return this._http.get( URL )
     .pipe( map( ( data:any )=> {

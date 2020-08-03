@@ -11,7 +11,7 @@ export class OtrosServicios {
     constructor (
         public _http: HttpClient
     ){
-        this.url = "https://horizonte-1.herokuapp.com/otros"
+        this.url = "https://sleepy-tor-20835.herokuapp.com/otros"
     }
 
     getOtrosServicios(): Observable<any>{

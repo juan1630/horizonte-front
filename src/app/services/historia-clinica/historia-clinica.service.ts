@@ -15,7 +15,7 @@ export class HistoriaClinicaService {
 
   ) { 
 
-    this.url = "https://horizonte-1.herokuapp.com"
+    this.url = "https://sleepy-tor-20835.herokuapp.com"
 
   }
 

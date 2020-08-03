@@ -163,11 +163,8 @@ export class SolicitudComponent implements OnInit {
             }else if( this.paqueteSelected.nombrePaquete ===  "PAQUETE VIDA PLENA"  ){
               
               this.anticipo= 2800;
-<<<<<<< Updated upstream
             }else if(this.paqueteSelected.nombrePaquete === 'PAQUETE DE CONTROL PRENATAL DE ALTO RIESGO'){
                 this.anticipo = 1500;
-=======
->>>>>>> Stashed changes
             }
            
         });
@@ -218,63 +215,58 @@ export class SolicitudComponent implements OnInit {
 
                 this._router2.navigateByUrl('/contrato/vida/plena');
               
-<<<<<<< Updated upstream
               }else if( this.paqueteSelected.nombrePaquete === 'PAQUETE NEONATAL (DE 0 12 MESES)' ){ 
                 this._router2.navigateByUrl('/contrato/neonatal') 
               }else if( this.paqueteSelected.nombrePaquete === 'PAQUETE DE CONTROL PRENATAL DE ALTO RIESGO'){
                   this._router2.navigateByUrl('/anexo/alto/riesgo');
               }
-=======
               }else if(this._router2.navigateByUrl('/contrato/neonatal')   ){ }
->>>>>>> Stashed changes
             
 
-              }
+              });
  
-      })
+            
     });
+  }
+    cancelarPaq(){
+
+      swal("¿Estas seguro que deseas salir?",
+      {
+        buttons: {
+        // cancel: "Cancelar",
+        catch: {
+          text: "Confirmar",
+          value: "true",
+        }
+      }
+      })
+      .then(value => {
+
+        if( value ){
+
+          this._router2.navigateByUrl('/paciente');
+        
+          
+
+        }else {
+          return;
+        }
+
+      }  )
+
+     if( swal.getState().actions.value  ){
+      this._router2.navigateByUrl('/paciente');
+
+     }
+
+   }
       
     }
 
 
 
 
-      cancelarPaq(){
-
-        swal("¿Estas seguro que deseas salir?",
-        {
-          buttons: {
-          // cancel: "Cancelar",
-          catch: {
-            text: "Confirmar",
-            value: "true",
-          }
-        }
-        })
-        .then(value => {
-
-          if( value ){
-  
-            this._router2.navigateByUrl('/paciente');
-          
-            
-  
-          }else {
-            return;
-          }
-  
-        }  )
-  
-       if( swal.getState().actions.value  ){
-        this._router2.navigateByUrl('/paciente');
-  
-       }
-  
-     }
-
-
-
-    }
+      
 
 
 
