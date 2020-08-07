@@ -82,7 +82,10 @@ import { IdentificacionComponent } from './identificacion/identificacion/identif
 import { QuirofanoFormComponent } from './Quirofanos/quirofano-form/quirofano-form.component';
 import { CrearPaquetesComponent } from './crearPaquetes/crear-paquetes/crear-paquetes.component';
 import { JefaturaEnfermeriaComponent } from './indicadores/jefatura-enfermeria/jefatura-enfermeria.component';
-import { ChartsModule } from 'ng2-charts'
+import { ChartsModule } from 'ng2-charts';
+import { HojaDiariaComponent } from './indicadores/jefaturaEnfermeria/hoja-diaria/hoja-diaria.component';
+import { EncuestaComponent } from './indicadores/jefaturaEnfermeria/encuesta/encuesta.component';
+import { MaqYMedicamentosPaqueteComponent } from './servivicosInt/quirofano/maq-ymedicamentos-paquete/maq-ymedicamentos-paquete.component'
 
 
 @NgModule({
@@ -153,7 +156,10 @@ import { ChartsModule } from 'ng2-charts'
     IdentificacionComponent,
     QuirofanoFormComponent,
     CrearPaquetesComponent,
-    JefaturaEnfermeriaComponent
+    JefaturaEnfermeriaComponent,
+    HojaDiariaComponent,
+    EncuestaComponent,
+    MaqYMedicamentosPaqueteComponent
   ],
   exports: [ 
     PageComponent,

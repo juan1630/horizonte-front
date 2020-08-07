@@ -9,8 +9,7 @@ import * as moment from 'moment';
 import * as jsPDF from 'jspdf';
 
 moment.locale('es');
-// =======
-// >>>>>>> Stashed changes
+
 
 
 
@@ -82,7 +81,14 @@ export class IdentificacionComponent implements OnInit {
     medicoTrante: "",
     paciente: "",
     genero:"",
-    notificacionDeIdentificacion:''
+    nombre:"",
+    apellidoMaterno:"",
+    apellidoPaterno:"",
+    notificacionDeIdentificacion:'',
+    membretesLegible:"",
+    importtanciaIdentificacio:"",
+    solicitudesDeEstudioDeGabinete:"",
+    solicitudesDeEstudio:"",
 
   }
 
@@ -115,7 +121,7 @@ export class IdentificacionComponent implements OnInit {
 
 //   ngOnInit(): void {
 //     this.getPaciente();
-// // >>>>>>> Stashed changes
+
 //   }
 
 
@@ -133,7 +139,11 @@ export class IdentificacionComponent implements OnInit {
     this.infoConsulta.enfermeraAtendio = this.nombreEnfermeraQueIngresa;
     this.infoConsulta.fechaIngreso = this.fechaDeIngreso;
     this.infoConsulta.horaIngreso = this.horaDeIngreso;
+    this.infoConsulta.nombre = this.paciente.nombrePaciente;
+    this.infoConsulta.apellidoPaterno= this.paciente.apellidoPaterno;
+    this.infoConsulta.apellidoMaterno= this.paciente.apellidoMaterno;
     this.infoConsulta.paciente = this.paciente._id;
+    this.infoConsulta.genero = this.paciente.sexo;
 
 
 

@@ -1,0 +1,84 @@
+<div class="card">
+
+    <div class="row card ml-2">
+        <div class="col-md-12  mt-2 mb-3">
+
+            <h2 class="center"> Agregar maquina o medicamentos </h2>
+
+        </div>
+
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-3 offset-md-4 mt-3">
+
+            <select name="tipoMaquina" id="tipoMaquina" class="form-control" [(ngModel)]="tipoDeInsumo">
+            <option value=""> Que deseas agregar</option>
+            <option value="maquina">Maquina</option>
+            <option value="medicamentos" > Medicamentos</option>
+
+    
+        </select>
+        </div>
+    </div>
+
+    <div class="row mt-3" *ngIf="tipoDeInsumo == 'maquina'">
+
+
+        <div class="col-md-4 offset-md-2">
+
+            <label for="nombreMaquina">  Nombre de la maquina: </label>
+            <input type="text" name="nombreMaquina" id="nombreMaquina" placeholder="Nombre de la maquina" class="form-control" [(ngModel)]="maquinas.nombreMaquina">
+
+        </div>
+
+        <div class="col-md-3 offset-md-1">
+
+            <label for="costoDeLaMaquinaPorHora">  Costo de la maquina por hora: </label>
+            <input type="number" name="costoDeLaMaquinaPorHora" id="costoDeLaMaquinaPorHora" placeholder="Costo de la maquina por hora" class="form-control" [(ngModel)]="maquinas.costoDeLaMaquinaPorHora" (blur)="validarCamposMaquina()">
+
+        </div>
+    </div>
+
+    <div class="row mt-3" *ngIf="tipoDeInsumo == 'medicamentos'">
+
+
+        <div class="col-md-4 offset-md-2">
+
+            <label for="nombreMedicamento">  Nombre del medicamento: </label>
+
+            <input type="text" name="nombreMedicamento" id="nombreMedicamento" placeholder="Nombre del medicamento" class="form-control" [(ngModel)]="medicamentos.nombreMedicamento">
+
+        </div>
+
+        <div class="col-md-3 offset-md-1">
+
+            <label for="costoMedicamento">  Costo del medicamento: </label>
+
+            <input type="number" name="costoMedicamento" id="costoMedicamento" placeholder="Costo del medicamento" class="form-control" [(ngModel)]="medicamentos.costoMedicamento" (chage)="validarMedicamentos()">
+
+        </div>
+    </div>
+
+
+
+    <!-- BOTONES -->
+
+    <div class="row mt-4 mb-4">
+        <div class="offset-md-4"></div>
+        <div class="col-md-2">
+
+            <button class="btn btn-block btn-success" (click)="guardar()" [disabled]="!validBtn"> Guardar </button>
+
+        </div>
+
+        <div class="col-md-2">
+
+            <button class="btn btn-block btn-danger">  Salir  </button>
+
+        </div>
+        <div class="offset-md-4"></div>
+    </div>
+
+</div>

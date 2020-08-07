@@ -107,7 +107,7 @@
         </div>
 
 
-        <div class="col-md-4 mt-3">
+        <div class="col-md-3 mt-3">
 
             <label for="ayudante3">
                 TERCER AYUDANTE:
@@ -127,11 +127,22 @@
 
         </div>
 
+        <div class="col-md-3 mt-5">
+            <button class="btn btn-block btn-info" (click)="otrosParticipantes()">
+                Otros participantes
+            </button>
+        </div>
+
         <div class="col-md-3 mt-3">
             <h4> TOTAL MANO DE OBRA: </h4>
         </div>
 
+        <div class="col-md-3" id="otrosParticipantes">
 
+        </div>
+
+
+        <div class="col-md-2" id="costosManoDeObra"></div>
 
     </div>
 
@@ -308,16 +319,24 @@
 
         </div>
 
+        <div class="col-md-5">
 
-        <div class="col-md-2">
-
-
-            <label for="horasAusarMaquina5"> HORAS A USAR</label>
-            <input type="number" name="horasAusarMaquina5" id="horasAusarMaquina5" class="form-control" placeholder="HORAS" [(ngModel)]="horasAusarMaquina5" (blur)="sumarTotalMaquinas5()">
-
+            <!-- 
+                    <label for="horasAusarMaquina5"> HORAS A USAR</label>
+                    <input type="number" name="horasAusarMaquina5" id="horasAusarMaquina5" class="form-control" placeholder="HORAS" [(ngModel)]="horasAusarMaquina5" (blur)="sumarTotalMaquinas5()"> -->
+            <button class="btn btn-block btn-info mt-5" (click)="agregarMaquinas()"> Agregar </button>
 
         </div>
 
+
+        <div class="col-md-3" id="maquinasContainer">
+
+        </div>
+
+        <div class="col-md-2" id="maquinasCostoContainer">
+
+
+        </div>
 
         <div class="col-md-4">
             <h5> TOTAL: {{ totalSimple5 }} </h5>

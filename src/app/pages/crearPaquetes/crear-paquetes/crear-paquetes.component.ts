@@ -12,6 +12,11 @@ export class CrearPaquetesComponent implements OnInit {
   public maquinaCantidad: HTMLElement;
   public maquinaCosto: HTMLElement;
   public contentTotales: HTMLElement;
+  public otrosParticipantesDiv: HTMLElement;
+  public costosManoDeObraDiv : HTMLElement;
+  public maquinasContainer: HTMLElement;
+  public maquinasCostoContainer: HTMLElement;
+
 
   public costoDeMaquinaPorHora1 = 0;
   public horasAusarMaquina1 = 0;
@@ -78,7 +83,10 @@ export class CrearPaquetesComponent implements OnInit {
     maquina4:"",
     maquina4Costo:0,
     maquina5:"",
-    maquina5Costo:0
+    maquina5Costo:0,
+    maquina6: "",
+    maquinaCosto6 : 0 
+
 
   }
 
@@ -93,6 +101,10 @@ export class CrearPaquetesComponent implements OnInit {
     this.maquinaCantidad = document.getElementById('content-cantidad');
     this.maquinaCosto = document.getElementById('contente-precio');
     this.contentTotales = document.getElementById('content-totales');
+    this.otrosParticipantesDiv = document.getElementById('otrosParticipantes');
+    this.costosManoDeObraDiv = document.getElementById('costosManoDeObra');
+    this.maquinasContainer = document.getElementById('maquinasContainer');
+    this.maquinasCostoContainer = document.getElementById('maquinasCostoContainer')
   
   
   }
@@ -142,7 +154,7 @@ export class CrearPaquetesComponent implements OnInit {
 
   diasDeObservacion(){
 
-    this.totalDiasRcuperacion = this.diasRecuperacion + this.costoDiasRecuperacion;
+    this.totalDiasRcuperacion = this.diasRecuperacion * this.costoDiasRecuperacion;
 
     this.totalPaquete = this.totalPaquete * this.totalDiasRcuperacion;
 
@@ -167,6 +179,8 @@ export class CrearPaquetesComponent implements OnInit {
 
     this.maquinaCantidad.append( elememtCantidad );
 
+
+    // costo 
     let elementoCosto = document.createElement('input');
 
     elementoCosto.setAttribute('class', 'form-control mt-2');
@@ -187,8 +201,57 @@ export class CrearPaquetesComponent implements OnInit {
 
 
     console.log( this.infoPaquete );
+  
+  }
+
+  agregarMaquinas() {
+
+    let maquina = document.createElement('input');
+
+    maquina.setAttribute('class', 'form-control mt-2');
+    maquina.setAttribute('placeholder', 'NOMBRE DE LA MAQUINA');
+
+
+    this.maquinasContainer.append( maquina  );
     
 
+    let costoMaquina = document.createElement('input');
+
+    costoMaquina.setAttribute('class', 'form-control mt-2');
+    costoMaquina.setAttribute('placeholder', 'COSTO');
+    
+
+    this.maquinasCostoContainer.append( costoMaquina  )
+
+
+
+
   }
+
+  otrosParticipantes(){
+
+      
+    let elememtCantidad = document.createElement('input');
+
+    elememtCantidad.setAttribute('class', 'form-control mt-2');
+    elememtCantidad.setAttribute('placeholder', 'OTRO PARTICIPANTE');
+
+    this.otrosParticipantesDiv.append(  elememtCantidad );
+
+    
+    let elememtCosto = document.createElement('input');
+
+    elememtCosto.setAttribute('class', 'form-control mt-2');
+    elememtCosto.setAttribute('placeholder', 'COSTO');
+
+    this.costosManoDeObraDiv.append(  elememtCosto );
+
+
+
+  }
+
+
+  sumarTotalMaquinas6() {}
+
 
 }

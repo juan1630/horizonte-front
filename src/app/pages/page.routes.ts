@@ -75,6 +75,10 @@ import { ContratoNeonatalComponent } from '../contratos/neonatal/contrato-neonat
 import { AltoRiesgoComponent } from '../contratos/alto-riesgo/alto-riesgo.component';
 import { CrearPaquetesComponent } from "./crearPaquetes/crear-paquetes/crear-paquetes.component";
 import { JefaturaEnfermeriaComponent } from './indicadores/jefatura-enfermeria/jefatura-enfermeria.component';
+import { HojaDiariaComponent } from './indicadores/jefaturaEnfermeria/hoja-diaria/hoja-diaria.component';
+import { combineAll } from 'rxjs/operators';
+import { EncuestaComponent } from './indicadores/jefaturaEnfermeria/encuesta/encuesta.component';
+import { MaqYMedicamentosPaqueteComponent } from './servivicosInt/quirofano/maq-ymedicamentos-paquete/maq-ymedicamentos-paquete.component';
 
 
 
@@ -123,9 +127,9 @@ const pagesRoutes : Routes = [
       { path: 'tabulador/pagos/:id', component: TabuladorPagosComponent },
 
       // crear paquetes de quirofano
-
-
       { path: 'crear/paquete', component: CrearPaquetesComponent  },
+      // CREACION DE PAQUETES DE QUIROFANO
+      { path: 'agregar/maquinas/medicamentos',  component: MaqYMedicamentosPaqueteComponent },
 
 
       // SERVICIOS INTEGRADOS
@@ -171,12 +175,26 @@ const pagesRoutes : Routes = [
       { path: 'patologia', component: PatologiaComponent },
       { path: 'patologia/edit/:id', component: PatologiaEditComponent },
       { path: 'patologia/nueva', component: PatologiaNewComponent },
+      
+      // TERMINA EL AREA DE SERVICIOS INTREGADOS
+
+
+      // INICIA EL AREA DE CONSULTA GENERAL
       { path: 'hoja-diaria-enfermeria-general', component: HojaDiariaEnfGralComponent},
       { path: 'enfermeria-dashboard', component: EnfermeriaDashboardComponent},
       { path: 'consulta-general/:id', component: ConsultaGeneralComponent},
+      { path: 'ficha-enfermeria-01/:id', component: FE09Component},
+     
+      // TERMINA EL AREA DE CONSULTA GENERAL
+      // ESTAS RUTAS SON PARA EL CRUD DE FARMACIA
+     
       { path: 'farmacia/dash', component: DashComponent  },
       { path: 'farmacia', component: FarmaciaComponent},
+
+      // TERMINA EL AREA DE FARMACIA
+
       // LABORATORIO
+
       // hoja de solictud de servicios integrados y pago
       { path: 'pago/pedido/sin', component: PedidoSinComponent },
       // pedidos pendientes en lab
@@ -184,12 +202,16 @@ const pagesRoutes : Routes = [
       // pedidos individuales en lab
       { path: 'pedido/laboratorios/:id', component: PedidoIndividualComponent },
       { path: 'laboratorio/pendientes/lab', component: PedidoSinComponent  },
-      { path: 'ficha-enfermeria-01/:id', component: FE09Component},
+       
+      // PEDIDOS DE SERVICIOS 
+      
       // IDENTIFICACION
 
       { path:'identificacion/:id', component: IdentificacionComponent },
-      {path: 'indicadores/enfermeria', component: JefaturaEnfermeriaComponent  },
+      { path: 'indicadores/enfermeria', component: JefaturaEnfermeriaComponent  },
       { path:'identificacion', component: IdentificacionComponent },
+      { path: 'hoja/diaria/jefatura/enfermeria', component: HojaDiariaComponent },
+      { path: 'indentificacion/jefatura/enfermeria/:id', component: EncuestaComponent },
       { path: '', redirectTo: '/dashboard', pathMatch:'full' }
 
     ]

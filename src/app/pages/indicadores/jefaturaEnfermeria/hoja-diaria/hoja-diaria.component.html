@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="col-md-11">
+
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col"> Número</th>
+                    <th scope="col"> Nombre completo </th>
+
+                    <th scope="col"> Sexo </th>
+                    <th scope="col"> Hora de ingreso </th>
+                    <th scope="col"> Diagnostico inicial </th>
+
+                    <th scope="col"> Diagnostico actual </th>
+                    <!-- <th scope="col" >    </th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let  consulta of servicioJefatura">
+
+                    <td [routerLink]="['/indentificacion/jefatura/enfermeria/',consulta._id]"> {{ consulta.nombre }} {{ consulta.apellidoPaterno }} {{ consulta.apellidoMaterno }} </td>
+
+                    <td> {{ consulta.genero }} </td>
+
+                    <td> {{ consulta.horaIngreso }} </td>
+
+                    <td> {{ consulta.diagnosticoInicial }} </td>
+
+                    <td> {{ consulta.diagnosticoActual}} </td>
+
+                </tr>
+                <tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
