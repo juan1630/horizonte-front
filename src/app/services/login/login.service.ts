@@ -1,9 +1,11 @@
+import { WsLoginService } from 'src/app/services/sockets/login/ws-login.service';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 // import {  Personal } from 'src/app/intefaces/usuario.interface';
 import { map } from 'rxjs/operators';
 import { URLDEV } from 'src/app/config/index.config';
+
 
 
 @Injectable({
@@ -17,28 +19,27 @@ export class LoginService {
   public url: string;
   constructor(
     public http: HttpClient,
-    public router: Router
+    public router: Router,
+    public WService: WsLoginService,
   ) {
     this.cargarStrage =  this.cargarStorage();
-    
-    
+
+
       this.url = "https://sleepy-tor-20835.herokuapp.com";
 
     // this.url = "http://localhost:3200";
-   
+
   }
 
 
    login( personal: any ) {
 
-      console.log( personal );
-
     if( this.cargarStorage  ){
       this.logout();
     }
-      
+
       let url = `${this.url}`+`/login`;
-  
+
       return this.http.post(url, personal )
       .pipe( map( (resp: any)=> {
           localStorage.setItem('token', resp.token);
