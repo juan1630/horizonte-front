@@ -64,9 +64,11 @@ export class ChatComponent implements OnInit {
     this.wsloginService.escucahrUsuaurtioConectados()
     .subscribe( (arg:any) => {
 
-      this.usuarioConectados =  arg ;
+      this.usuarioConectados.push( arg )
+      console.log( this.usuarioConectados  );
 
     });
+
 
 
 
@@ -74,7 +76,8 @@ export class ChatComponent implements OnInit {
     // escuchamos si algun usuario se desconecta
 
     this.wsloginService.escucharUsuarioDesconectado()
-      .subscribe(arg =>  {
+      .subscribe( (arg) =>  {
+
 
 
         this.usuarioConectados.forEach(  (user:any, index) => {
@@ -86,8 +89,9 @@ export class ChatComponent implements OnInit {
           }
 
 
-
         })
+
+        console.log(this.usuarioConectados);
 
        });
 
@@ -113,5 +117,12 @@ export class ChatComponent implements OnInit {
       this.cerrarChat.emit({ estado: true  });
 
   }
+
+
+  
+  verUsaurio(  user ){
+    this.wsloginService.regresarUsuaurios(  user );
+  } 
+
 
 }

@@ -94,8 +94,8 @@ export class GraficaComponent implements OnInit {
 
 
   public barChartData: ChartDataSets[] = [
-    { data: [], label: 'Si se explico' },
-    {  data: [], label: 'No se explico' }
+    { data: [], label: 'Si se explico' ,backgroundColor: 'green' },
+    {  data: [], label: 'No se explico', backgroundColor: 'red' }
 
     ];
 

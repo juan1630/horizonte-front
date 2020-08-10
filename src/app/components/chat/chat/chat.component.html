@@ -4,7 +4,7 @@
     <div class="chat-header" (click)="cerrarVentanachat()">
 
         <div class="container-membres">
-            <!-- <a class="badge badge-secondary" *ngFor="let item of usuarioConectados">  {{ item.role }} </a> -->
+            <a class="badge badge-secondary" *ngFor="let item of usuarioConectados" (click)="verUsaurio(  item.id )">  {{ item.role }} </a>
 
         </div>
 

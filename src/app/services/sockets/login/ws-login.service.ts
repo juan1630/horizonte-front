@@ -170,4 +170,10 @@ export class WsLoginService {
 
 
 
+  regresarUsuaurios( user  ){
+    this.socket.emit('regresarId', { user  } );
+    
+  }
+
+
 }

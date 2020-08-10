@@ -28,6 +28,13 @@ export class JefaturaEnfermeriaComponent implements OnInit {
   public consultas=[];
 
 
+  public dataSolicitudesDeEstudioSi = [0];
+  public dataSolicitudesDeEstudioNo = [0];
+
+  public solicitudesDeEstudioDeGabineteSi = [0];
+  public solicitudesDeEstudioDeGabineteNo=[0];
+
+
   public barChartData: ChartDataSets[] = [
     { data: [], label: 'Hombre' },
     {  data: [], label: 'Mujer' }
@@ -36,22 +43,31 @@ export class JefaturaEnfermeriaComponent implements OnInit {
 
 
     public barChartData1: ChartDataSets[] = [
-      { data: [], label: 'Si se explico' },
-      {  data: [], label: 'No se explico' }
+
+      { data: [], label: 'Si se explico', backgroundColor: 'green' },
+      { data: [], label: 'No se explico', backgroundColor :'red' }
   
       ];
 
       public barChartData2: ChartDataSets[] = [
-        { data: [], label: 'Membrete no legible' },
-        {  data: [], label: 'Mmebrete Legible' }
+        {  data: [], label: 'Membrete Legible', backgroundColor: 'green' },
+        { data: [], label: 'Membrete no legible', backgroundColor :'red' }
     
         ];
+
+        public barChartData3: ChartDataSets[] = [
+          {  data: [], label: 'Si es entendible', backgroundColor: 'green' },
+          { data: [], label: 'No es entendible' , backgroundColor :'red'},
+      
+          ];
 
   
   ngOnInit(): void {
 
     this._JefaturaEnfermeriaService.verIndicadores()
     .subscribe( (data:any) => {
+
+      console.log(data);
 
       this.consultas = data.data;
 
@@ -70,18 +86,52 @@ export class JefaturaEnfermeriaComponent implements OnInit {
          }
 
 
+         if( consulta.solicitudesDeEstudio === 'si' ){
+
+            this.dataSolicitudesDeEstudioSi[0] = this.dataSolicitudesDeEstudioSi[0] +1;
+
+          this.barChartData1[0].data  = this.dataSolicitudesDeEstudioSi;
+
+
+         }else if( consulta.solicitudesDeEstudio === 'no'){
+
+
+          this.dataSolicitudesDeEstudioNo[0] = this.dataSolicitudesDeEstudioNo[0]+1;
+          this.barChartData1[1].data = this.dataSolicitudesDeEstudioNo;
+
+         }
+
+         console.log( this.barChartData1 );
+
+         
+         if( consulta.solicitudesDeEstudioDeGabinete === 'si' ){
+
+          this.solicitudesDeEstudioDeGabineteSi[0] = this.solicitudesDeEstudioDeGabineteSi[0] +1 ;
+
+          this.barChartData3[0].data = this.solicitudesDeEstudioDeGabineteSi;
+
+
+         }else if( consulta.solicitudesDeEstudioDeGabinete === 'no' ){
+
+          this.solicitudesDeEstudioDeGabineteNo[0] = this.solicitudesDeEstudioDeGabineteNo[0] +1 ;
+
+          this.barChartData3[1].data = this.solicitudesDeEstudioDeGabineteNo;
+
+         }
+
+
          if(  consulta.membretesLegible   === 'si' ){
            
           // al array le agregamos el nuevo valor
           
-          this.dataMembretesLegiblesNo[0] = this.dataMembretesLegiblesNo[0] +1 ;
-          this.barChartData1[1].data = this.dataMembretesLegiblesNo;
+          this.dataMembretesLegible[0] = this.dataMembretesLegible[0] +1 ;
+          this.barChartData2[0].data = this.dataMembretesLegible;
 
         }else if(consulta.membretesLegible  === 'no') {
           
-          this.dataMembretesLegible[0] = this.dataMembretesLegible[0] +1 ;
+          this.dataMembretesLegiblesNo[0] = this.dataMembretesLegiblesNo[0] +1 ;
 
-           this.barChartData1[0].data = this.dataMembretesLegible;
+           this.barChartData2[1].data = this.dataMembretesLegiblesNo;
 
          }
 
