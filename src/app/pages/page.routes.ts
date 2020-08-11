@@ -76,9 +76,9 @@ import { AltoRiesgoComponent } from '../contratos/alto-riesgo/alto-riesgo.compon
 import { CrearPaquetesComponent } from "./crearPaquetes/crear-paquetes/crear-paquetes.component";
 import { JefaturaEnfermeriaComponent } from './indicadores/jefatura-enfermeria/jefatura-enfermeria.component';
 import { HojaDiariaComponent } from './indicadores/jefaturaEnfermeria/hoja-diaria/hoja-diaria.component';
-import { combineAll } from 'rxjs/operators';
 import { EncuestaComponent } from './indicadores/jefaturaEnfermeria/encuesta/encuesta.component';
 import { MaqYMedicamentosPaqueteComponent } from './servivicosInt/quirofano/maq-ymedicamentos-paquete/maq-ymedicamentos-paquete.component';
+import { DashIndicadoresComponent } from '../pages/indicadores/dash-indicadores/dash-indicadores.component'
 
 
 
@@ -205,6 +205,7 @@ const pagesRoutes : Routes = [
        
       // PEDIDOS DE SERVICIOS 
       
+      { path: 'indicadores', component: DashIndicadoresComponent },
       // IDENTIFICACION
 
       { path:'identificacion/:id', component: IdentificacionComponent },
