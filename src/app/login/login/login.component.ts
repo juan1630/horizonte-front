@@ -4,7 +4,7 @@ import { LoginService } from 'src/app/services/login/login.service';
 import { Personal } from 'src/app/intefaces/usuario.interface';
 import { Router } from '@angular/router';
 
-import swal from 'sweetalert';
+import swal from 'sweetAlert';
 
 
 @Component({
