@@ -16,6 +16,8 @@ export class JefaturaEnfermeriaService {
 
    verIndicadores(){
 
+    // este servicio lista las consultas y se ocupa en la grafica
+
     let url = `${URLDEV}/ver/consultas/identificacion`;
      
    return  this._http.get(  url );

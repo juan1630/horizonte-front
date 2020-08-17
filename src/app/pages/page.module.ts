@@ -88,6 +88,11 @@ import { HEvolucionCGComponent } from './Doctores/hevolucion-cg/hevolucion-cg.co
 import { HEvolucionCEComponent } from './Doctores/hevolucion-ce/hevolucion-ce.component';
 import { HIngresoHospitalComponent } from './Doctores/h-ingreso-hospital/h-ingreso-hospital.component'
 
+import { HojaDiariaComponent } from './indicadores/jefaturaEnfermeria/hoja-diaria/hoja-diaria.component';
+import { EncuestaComponent } from './indicadores/jefaturaEnfermeria/encuesta/encuesta.component';
+import { MaqYMedicamentosPaqueteComponent } from './servivicosInt/quirofano/maq-ymedicamentos-paquete/maq-ymedicamentos-paquete.component';
+import { DashIndicadoresComponent } from './indicadores/dash-indicadores/dash-indicadores.component'
+
 
 @NgModule({
   declarations: [
@@ -158,9 +163,16 @@ import { HIngresoHospitalComponent } from './Doctores/h-ingreso-hospital/h-ingre
     QuirofanoFormComponent,
     CrearPaquetesComponent,
     JefaturaEnfermeriaComponent,
+
     HEvolucionCGComponent,
     HEvolucionCEComponent,
     HIngresoHospitalComponent
+
+    HojaDiariaComponent,
+    EncuestaComponent,
+    MaqYMedicamentosPaqueteComponent,
+    DashIndicadoresComponent
+
   ],
   exports: [ 
     PageComponent,

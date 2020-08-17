@@ -29,6 +29,7 @@ import { jqxSchedulerModule, jqxSchedulerComponent } from 'jqwidgets-ng/jqxsched
 import { ChatComponent } from './chat/chat/chat.component';
 
 import { ChartsModule  } from 'ng2-charts'
+import { GraficaComponent } from './grafica/grafica.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { ChartsModule  } from 'ng2-charts'
     TarjetaCotizacionComponent,
     CalendarComponent,
     ChatComponent,
+    GraficaComponent
 
     
 ],
@@ -63,7 +65,8 @@ schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
     SpinnerComponent,
     ReactiveFormsModule,
     CalendarComponent,
-    ChatComponent
+    ChatComponent,
+    GraficaComponent
        ],
   imports: [
     BrowserModule,

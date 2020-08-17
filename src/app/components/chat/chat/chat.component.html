@@ -4,7 +4,7 @@
     <div class="chat-header" (click)="cerrarVentanachat()">
 
         <div class="container-membres">
-            <!-- <a class="badge badge-secondary" *ngFor="let item of usuarioConectados">  {{ item.role }} </a> -->
+            <a class="badge badge-secondary" *ngFor="let item of usuarioConectados" (click)="verUsaurio(  item.id )">  {{ item.role }} </a>
 
         </div>
 
@@ -31,7 +31,7 @@
     </div>
 
     <div class="chat-message">
-        <input type="text" name="message" id="message" placeholder="Mensaje" class="form-control chat-input" [(ngModel)]="payload.message">
+        <input type="text" name="message" id="message" placeholder="Mensaje" class="form-control chat-input" [(ngModel)]="message">
         <button class="btn btn-primary btn-chat" (click)="enviarData()"> Enviar </button>
     </div>
 

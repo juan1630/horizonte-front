@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { APP_ROUTES } from './app.routes';
 
@@ -15,7 +15,7 @@ import {  NgxExtendedPdfViewerModule  } from 'ngx-extended-pdf-viewer';
 
 // // SOCKET 
 
-import { environment } from 'src/environments/environment';
+  
 import { ContratoMaternidadComponent } from './contratos/contrato-maternidad/contrato-maternidad.component';
 import { ContratoMLaboralComponent } from './contratos/contrato-m-laboral/contrato-m-laboral.component';
 import { jqxCalendarModule } from 'jqwidgets-ng/jqxcalendar';

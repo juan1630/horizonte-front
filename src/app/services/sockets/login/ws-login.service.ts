@@ -9,49 +9,50 @@ import { URLDEV } from 'src/app/config/index.config';
   providedIn: 'root'
 })
 export class WsLoginService {
-  
+
   public status:boolean = false;
   private socket;
+  private _idUser;
   public audio = new Audio('../../../../assets/sound/chat/mensajes_iphone.mp3');
 
-  constructor()  { 
-    
-    this.socket = io( URLDEV );
-    
-    this.checkStatus(); 
-  }
-  
-  checkStatus(){
-    this.socket.emit('connect', (usuarios)=> {
-      
-      this.status = true;
-      
-    });
-    
-    
-    this.socket.on('usuarioConectado', { message: 'usuario conectado' } ,(data) => {
-      return data;
-      
-    });
+  constructor()  {
 
+    this.socket = io( URLDEV );
+
+    // this.checkStatus();
   }
-  
-  
+
+  checkStatus( usuarios ){
+    console.log(usuarios);
+    this.socket.emit('connect', (usuarios)=> {
+
+      this.status = true;
+
+    });
+    // this.socket.on('usuarioConectado', { message: 'usuario conectado' } ,(data) => {
+    //   return data;
+    // });
+
+    // this.socket.emit('usuarioConectado', { usuarios } );
+  }
+
+
   login( usuario ){
-    
-    this.socket.emit('usuarioConectado', { usuario } );
-    
-    
+
+    this._idUser = usuario._id;
+    this.socket.emit('usuarioConectado',  usuario );
+
+
     // esta linea nos ayuda con las consultas generales
     // this.enviarConsultas();
-    
-    
+
+
     this.socket.on('event', (data) => {
       console.log( data );
     })
 
   }
-  
+
   mostarUsuario(){
     this.socket.on('usuarioEnLinea', (data) => {
         console.log(data)
@@ -62,11 +63,11 @@ export class WsLoginService {
     enviarConsultas(idConsulta){
 
       this.socket.emit('consultaGeneral',  { consulta: idConsulta }  );
-      
+
     }
-    
+
     public escucharConsulta(){
-      
+
       return Observable.create(
         (observer) => {
           this.socket.on('consultaNueva', (resp) => {
@@ -75,12 +76,15 @@ export class WsLoginService {
             });
         }
         )
-     
+
     }
-    
-    
+
+
     public escucharMensajes(){
-      
+
+      this.socket.on('MsgLaboratorio', response => {
+
+      });
 
       return Observable.create(
         (observer) => {
@@ -104,22 +108,23 @@ export class WsLoginService {
             })
           }
           )
-          
+
         }
-        
-        
+
+
     notificacionAudio(){
-      
+
       this.audio.load();
       this.audio.play();
-      
+
     }
-    
-    
+
+
     escucharMensajesLab(){
+
       return Observable.create(
         (observer) => {
-          this.socket.on('mensajeLab', (resp) => {
+          this.socket.emit('mensajeLab', (resp) => {
 
 
 
@@ -135,18 +140,18 @@ export class WsLoginService {
         }
         )
     }
-    
-    
+
+
     desconectarUsuario( user ){
-      
-      
+
+
       this.socket.emit('cerrarSesion', { user });
-      
+
     }
-    
-    
+
+
     escucharUsuarioDesconectado(){
-      
+
       return Observable.create(
         (observer) => {
 
@@ -156,13 +161,19 @@ export class WsLoginService {
         }
         )
       }
-      
-      
-  enviarMensaje( data:any ){
 
-    this.socket.emit('mensaje', { payload: data })
+
+  enviarMensaje(data){
+
+    this.socket.emit('enviarMensajePrivado',{mensaje:data,id:this._idUser});
   }
 
-  
-  
+
+
+  regresarUsuaurios( user  ){
+    this.socket.emit('regresarId', { user  } );
+    
+  }
+
+
 }

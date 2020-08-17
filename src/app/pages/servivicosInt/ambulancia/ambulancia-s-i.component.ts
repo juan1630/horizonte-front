@@ -58,7 +58,7 @@ ngOnInit(): void {
       totalCon:0,
       items:[]
     };
- 
+
   }
   this.verDatos();
 
@@ -98,13 +98,13 @@ restarTotal ( precioSin, precioCon  ) {
       .subscribe(  (data:any) => {
 
         this.todosLosServicios = data;
-      
+
         this.showTableAmbulanacia = false;
         console.log( this.todosLosServicios );
 
       })
-    
-      
+
+
 
     }
 
@@ -269,7 +269,7 @@ eliminar( id ){
   //   this.agregarCarrito(ev, item2);
 
   alertcomparasion( ev, precioPublico, precioMembresia, item2:any ){
-   
+
     let precioSinTrim  =  precioPublico.replace('$', '');
     let precioSinComaPublico = precioSinTrim.replace(',', '');
 
@@ -277,10 +277,7 @@ eliminar( id ){
     let precioMemTrim  =  precioMembresia.replace('$', '');
     let precioMemComaMembresia = precioMemTrim.replace(',', '');
 
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
     swal({ title: `Con la memebresia ahorras ${ precioSinComaPublico - precioMemComaMembresia }`    ,icon: 'success' });
 
   }

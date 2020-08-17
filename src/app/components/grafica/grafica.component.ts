@@ -8,8 +8,7 @@ import { JefaturaEnfermeriaService } from 'src/app/services/indicadores/jefatura
 
 @Component({
   selector: 'app-grafica',
-  templateUrl: './grafica.component.html',
-  styleUrls: ['./grafica.component.css']
+  templateUrl: './grafica.component.html'
 })
 export class GraficaComponent implements OnInit {
 
@@ -39,9 +38,6 @@ export class GraficaComponent implements OnInit {
 
 
           
-
-          console.log( indi.notificacionDeIdentificacion === 'no' )
-          
           if( indi.notificacionDeIdentificacion === 'si' ){
             
             
@@ -54,7 +50,7 @@ export class GraficaComponent implements OnInit {
             
             this.dataNoSeExplico[0] = this.dataNoSeExplico[0] + 1;
 
-            console.log( this.dataNoSeExplico );
+
 
             this.barChartData[1].data = this.dataNoSeExplico;
             
@@ -63,14 +59,13 @@ export class GraficaComponent implements OnInit {
 
             this.dataNoSeExplico[0] = this.dataNoSeExplico[0] + 1;
 
-            console.log( this.dataNoSeExplico );
+
 
             this.barChartData[1].data = this.dataNoSeExplico;
             
           }
            
-          
-          console.log( this.barChartData);
+        
 
 
         })
@@ -99,8 +94,8 @@ export class GraficaComponent implements OnInit {
 
 
   public barChartData: ChartDataSets[] = [
-    { data: [], label: 'Si se explico' },
-    {  data: [], label: 'No se explico' }
+    { data: [], label: 'Si se explico' ,backgroundColor: 'green' },
+    {  data: [], label: 'No se explico', backgroundColor: 'red' }
 
     ];
 
