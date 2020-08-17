@@ -63,7 +63,6 @@ schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
     SpinnerComponent,
     ReactiveFormsModule,
     CalendarComponent,
-
     ChatComponent
        ],
   imports: [

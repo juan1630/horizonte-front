@@ -277,7 +277,10 @@ eliminar( id ){
     let precioMemTrim  =  precioMembresia.replace('$', '');
     let precioMemComaMembresia = precioMemTrim.replace(',', '');
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     swal({ title: `Con la memebresia ahorras ${ precioSinComaPublico - precioMemComaMembresia }`    ,icon: 'success' });
 
   }
