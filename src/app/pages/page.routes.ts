@@ -54,7 +54,7 @@ import { PedidoSinComponent } from './laboratorio/entregas/pedido-sin/pedido-sin
 import { TicketComponent } from '../contratos/ticket/ticket/ticket.component';
 import { PedidosLaboratorioComponent } from './laboratorio/laboratorioUser/pedidos-laboratorio/pedidos-laboratorio.component';
 import { ContratoMLaboralComponent } from '../contratos/contrato-m-laboral/contrato-m-laboral.component';
-import {FE09Component } from '../pages/Enfermeria/Fichas/fe09/fe09.component'
+import { FE09Component } from '../pages/Enfermeria/Fichas/fe09/fe09.component'
 import { PedidoIndividualComponent } from './laboratorio/pedidos/pedido-individual/pedido-individual.component';
 import { TabuladorAltoriesgoComponent } from './paquetes/altoRiesgo/tabulador-altoriesgo/tabulador-altoriesgo.component';
 import { PerfilesNewComponent } from './servivicosInt/laboratorio/perfiles/perfiles-new/perfiles-new.component';
@@ -75,6 +75,11 @@ import { ContratoNeonatalComponent } from '../contratos/neonatal/contrato-neonat
 import { AltoRiesgoComponent } from '../contratos/alto-riesgo/alto-riesgo.component';
 import { CrearPaquetesComponent } from "./crearPaquetes/crear-paquetes/crear-paquetes.component";
 import { JefaturaEnfermeriaComponent } from './indicadores/jefatura-enfermeria/jefatura-enfermeria.component';
+
+import { from } from 'rxjs';
+import { HEvolucionCGComponent } from './Doctores/hevolucion-cg/hevolucion-cg.component';
+import { HIngresoHospitalComponent } from './Doctores/h-ingreso-hospital/h-ingreso-hospital.component';
+
 import { HojaDiariaComponent } from './indicadores/jefaturaEnfermeria/hoja-diaria/hoja-diaria.component';
 import { EncuestaComponent } from './indicadores/jefaturaEnfermeria/encuesta/encuesta.component';
 import { MaqYMedicamentosPaqueteComponent } from './servivicosInt/quirofano/maq-ymedicamentos-paquete/maq-ymedicamentos-paquete.component';
@@ -202,6 +207,14 @@ const pagesRoutes : Routes = [
       // pedidos individuales en lab
       { path: 'pedido/laboratorios/:id', component: PedidoIndividualComponent },
       { path: 'laboratorio/pendientes/lab', component: PedidoSinComponent  },
+
+      { path: 'ficha-enfermeria-01/:id', component: FE09Component},
+
+      //Doctores
+      { path: 'hoja-evolucion-cg/:id', component: HEvolucionCGComponent },
+      { path: 'hoja-ingreso-hospitalario/:id', component: HIngresoHospitalComponent},
+
+
        
       // PEDIDOS DE SERVICIOS 
       

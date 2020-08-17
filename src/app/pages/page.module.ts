@@ -39,6 +39,7 @@ import { AmbulanciaSIComponent } from './servivicosInt/ambulancia/ambulancia-s-i
 import { ConsultaEspecialistaComponent } from './servivicosInt/consulta-especialista/consulta-especialista.component';
 import { AgendaComponent } from './agenda/agenda/agenda.component';
 import { XraySIComponent } from './servivicosInt/xray/xray-s-i.component';
+
 import { PagosMaternidadComponent } from './pagos/pagos-maternidad/pagos-maternidad.component';
 import { HojaFramComponent } from './servivicosInt/hoja-fram/hoja-fram.component';
 import { TabuladorPagosComponent } from './pagosMaternidad/tabulador-pagos/tabulador-pagos.component';
@@ -83,6 +84,10 @@ import { QuirofanoFormComponent } from './Quirofanos/quirofano-form/quirofano-fo
 import { CrearPaquetesComponent } from './crearPaquetes/crear-paquetes/crear-paquetes.component';
 import { JefaturaEnfermeriaComponent } from './indicadores/jefatura-enfermeria/jefatura-enfermeria.component';
 import { ChartsModule } from 'ng2-charts';
+import { HEvolucionCGComponent } from './Doctores/hevolucion-cg/hevolucion-cg.component';
+import { HEvolucionCEComponent } from './Doctores/hevolucion-ce/hevolucion-ce.component';
+import { HIngresoHospitalComponent } from './Doctores/h-ingreso-hospital/h-ingreso-hospital.component'
+
 import { HojaDiariaComponent } from './indicadores/jefaturaEnfermeria/hoja-diaria/hoja-diaria.component';
 import { EncuestaComponent } from './indicadores/jefaturaEnfermeria/encuesta/encuesta.component';
 import { MaqYMedicamentosPaqueteComponent } from './servivicosInt/quirofano/maq-ymedicamentos-paquete/maq-ymedicamentos-paquete.component';
@@ -158,10 +163,16 @@ import { DashIndicadoresComponent } from './indicadores/dash-indicadores/dash-in
     QuirofanoFormComponent,
     CrearPaquetesComponent,
     JefaturaEnfermeriaComponent,
+
+    HEvolucionCGComponent,
+    HEvolucionCEComponent,
+    HIngresoHospitalComponent
+
     HojaDiariaComponent,
     EncuestaComponent,
     MaqYMedicamentosPaqueteComponent,
     DashIndicadoresComponent
+
   ],
   exports: [ 
     PageComponent,

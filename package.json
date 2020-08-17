@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~9.0.3",
     "@angular/platform-browser-dynamic": "~9.0.3",
     "@angular/router": "~9.0.3",
+    "@javascriptsoldier/angular-editor": "^1.0.2",
     "bootstrap-sweetalert": "^1.0.1",
     "chart.js": "^2.9.3",
     "jqwidgets-ng": "^9.1.6",

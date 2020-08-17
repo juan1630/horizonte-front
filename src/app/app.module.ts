@@ -27,6 +27,8 @@ import { ContratoVidaPlenaComponent } from './contratos/contratoVidaPlena/contra
 import { ContratoNeonatalComponent } from './contratos/neonatal/contrato-neonatal/contrato-neonatal.component';
 import { AltoRiesgoComponent } from './contratos/alto-riesgo/alto-riesgo.component';
 import { ChartsModule } from 'ng2-charts';
+// import { AngularEditorModule } from '@javascriptsoldier/angular-editor';
+
 
 
 // import  { PdfMakeWrapper  } from 'pdfmake-wrapper';
@@ -45,7 +47,8 @@ import { ChartsModule } from 'ng2-charts';
     TicketComponent,
     ContratoVidaPlenaComponent,
     ContratoNeonatalComponent,
-    AltoRiesgoComponent
+    AltoRiesgoComponent,
+  
 
   ],
   imports: [
@@ -61,10 +64,11 @@ import { ChartsModule } from 'ng2-charts';
     PdfViewerModule,
     ChartsModule,
     NgxExtendedPdfViewerModule,
+    // AngularEditorModule,
     APP_ROUTES
-  ],
+    ],
   exports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

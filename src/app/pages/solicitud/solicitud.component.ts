@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import {  PaqueteService } from '../../services/paquete/paquete.service';
 import { NgForm } from '@angular/forms';
 import { SolicitudService } from '../../services/solicitud/solicitud.service';
-import   swal  from 'sweetalert';
+import   swal  from 'sweetAlert';
 import { Paquetes } from 'src/app/intefaces/paquetes.interfaces';
 import { PaquetesDB } from 'src/app/intefaces/pacientePaqueteDB.interfaces';
 
