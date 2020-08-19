@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable  } from 'rxjs'
+import { ObserveOnOperator } from 'rxjs/internal/operators/observeOn';
 import * as io from 'socket.io-client';
 import { URLDEV } from 'src/app/config/index.config';
 // import { resolve } from 'dns';
@@ -102,15 +103,22 @@ export class WsLoginService {
 
       escucahrUsuaurtioConectados(){
 
-        return Observable.create(
-          (observer) => {
-            this.socket.on('usuarioEnLinea', (resp) => {
-              observer.next( resp );
-            })
-          }
-          )
 
-        }
+        return  Observable.create(
+        
+          (observer) => {
+
+            this.socket.on('usuarioEnLinea', (resp) => {
+
+              console.log( resp );
+         
+                observer.next( resp );
+
+          
+            })
+          })
+
+      }
 
 
     notificacionAudio(){
@@ -143,10 +151,11 @@ export class WsLoginService {
     }
 
 
-    desconectarUsuario( user ){
+    desconectarUsuario( role ){
 
+        console.log(role);
 
-      this.socket.emit('cerrarSesion', { user });
+      this.socket.emit('cerrarSesion', { role });
 
     }
 
@@ -164,13 +173,44 @@ export class WsLoginService {
       }
 
 
+
+      escucahrNuevoMensajes() {
+
+
+        console.log("entro aca");
+
+        return Observable.create(
+          (observable) => {
+            this.socket.on('crearMensaje', (res) => {
+            
+              observable.next( res  );
+            
+            })
+          }
+        )
+      }
+
+
   enviarMensaje(data){
      var chat = this._idUser + "_" + this._idUser2;
     this.socket.emit('entrarChatPrivado',{
-    mensaje:data, room:chat, role1:this._idUser, role2:this._idUser2 });
+   
+      mensaje:data, room:chat, role1:this._idUser, role2:this._idUser2 });
+
+    this.socket.emit('enviarMensajePrivado', {  mensaje:data, room:chat, role1:this._idUser, role2:this._idUser2 })
+
+
   }
 
 
+  // enviarMensajePrivado(data) {
+    
+  //   var chat = this._idUser + "_" + this._idUser2;
+  //   this.socket.emit('entrarChatPrivado',{
+  //   mensaje:data, room:chat, role1:this._idUser, role2:this._idUser2 });
+
+
+  // }
 
   regresarUsuaurios( user  ){
     this._idUser2 = user;
