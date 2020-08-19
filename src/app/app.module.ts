@@ -47,11 +47,6 @@ import { ChartsModule } from 'ng2-charts';
     ContratoVidaPlenaComponent,
     ContratoNeonatalComponent,
     AltoRiesgoComponent,
-<<<<<<< HEAD
-=======
-  
-
->>>>>>> master
   ],
   imports: [
     BrowserModule,

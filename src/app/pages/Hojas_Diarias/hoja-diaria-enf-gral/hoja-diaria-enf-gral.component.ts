@@ -4,7 +4,7 @@ import { guardarPacienteStorage, getPacienteStorage, eliminarPacienteStorage } f
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import * as moment from 'moment';
-import { get } from 'http';
+// import { get } from 'http';
 
 
 @Component({

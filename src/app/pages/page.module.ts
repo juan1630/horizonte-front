@@ -170,21 +170,17 @@ import { PaqueteQuirofanoComponent } from './paquetes/paquete-quirofano/paquete-
 
     HEvolucionCGComponent,
     HEvolucionCEComponent,
-    HIngresoHospitalComponent
-
+    HIngresoHospitalComponent,
     HojaDiariaComponent,
     EncuestaComponent,
     MaqYMedicamentosPaqueteComponent,
-<<<<<<< HEAD
     DashIndicadoresComponent,
     CrearPaquetesDirective,
     AgregarMedicmentoDirective,
     HojaDiariaHospitalizacionComponent,
     PaqueteQuirofanoComponent,
-=======
     DashIndicadoresComponent
 
->>>>>>> master
   ],
 
   exports: [ 
