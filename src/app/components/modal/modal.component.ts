@@ -2,7 +2,7 @@ import { FiscalesComponent } from './../fiscales/fiscales.component';
 import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import * as Mapboxgl from 'mapbox-gl';
-import  swal from 'sweetalert';
+import  swal from 'sweetAlert';
 //===============================
 // SERVICES
 //===============================

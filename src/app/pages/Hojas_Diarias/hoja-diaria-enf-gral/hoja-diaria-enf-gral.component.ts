@@ -4,6 +4,7 @@ import { guardarPacienteStorage, getPacienteStorage, eliminarPacienteStorage } f
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import * as moment from 'moment';
+import { get } from 'http';
 
 
 @Component({
@@ -30,40 +31,36 @@ export class HojaDiariaEnfGralComponent implements OnInit {
   ngOnInit(): void {
 
     this.fechatl = moment().format('L');
-
+        
     this.listaEspera = getPacienteStorage();
-    // console.log("Imprimir  GetPAcienteStorage");
-    
-    // console.log(this.listaEspera);
-    
-    this.loginService.escucharConsulta()
-      .subscribe(arg =>{ 
-        // console.log('Argumentos:::');
-        
-        // console.log( arg);
-        this.listaEspera.push(arg.consulta);
-        
-        // console.log('Esta es la lista de espera');
-        // console.log(this.listaEspera);
-        
-        eliminarPacienteStorage();
-        
-        let storageLista = JSON.stringify(this.listaEspera);
-        
-         //Guardar los pacientes en el local storage
-        guardarPacienteStorage(storageLista);
-        // console.log("Imprimir Storage Lista");
-        
-        // console.log(storageLista);
-        
-        
-        //Obtener el paciente del localstorge
-        
-       this.listaEspera = getPacienteStorage();
-      //  console.log("Imprimir  GetPAcienteStorage");
-       
-      //  console.log(this.listaEspera);
-      });
+        if(getPacienteStorage() == null){
+         this.listaEspera = [];
+        }
+
+      this.loginService.escucharConsulta()
+        .subscribe(arg => {
+
+          // if(getPacienteStorage()){
+          this.listaEspera.push(arg.consulta);
+          console.log("lista de espera");
+          
+          console.log(this.listaEspera);
+
+          var storageLista = JSON.stringify(this.listaEspera);
+          guardarPacienteStorage(storageLista);
+          console.log(getPacienteStorage());
+          
+          this.listaEspera = getPacienteStorage();  
+          console.log(this.listaEspera);
+          
+
+          
+            
+
+      
+        }); 
+
+
 
     
   }

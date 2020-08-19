@@ -14,11 +14,12 @@
 
                         <th scope="col"> Número</th>
                         <th scope="col ">Nombre del Paciente</th>
+                        <th scope="col ">CURP</th>
                         <th scope="col ">Edad</th>
                         <th scope="col ">Servicio Médico</th>
                         <th scope="col ">Médico</th>
                         <th scope="col ">Hora de Cita</th>
-                        <th scope="col ">Status</th>
+
                         <!-- *ngIf="role==='admin'" -->
 
                     </tr>
@@ -34,6 +35,9 @@
                         <td class="clickss" [routerLink]="['/ficha-enfermeria-01', listaEsperaP.pacienteId]" routerLinkActive="router-link-active">
                             {{listaEsperaP.nombrePaciente}}
                         </td>
+                        <td>
+
+                        </td>
 
                         <td>{{listaEsperaP.edad}}</td>
 
@@ -42,10 +46,6 @@
                         <td>{{listaEsperaP.doctor}}</td>
 
                         <td>{{listaEsperaP.horallegada}}</td>
-
-                        <td class="form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        </td>
 
                     </tr>
 
