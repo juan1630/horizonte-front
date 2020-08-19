@@ -1,0 +1,40 @@
+<div class="row ml-1 mb-2">
+    <div class="col-md-3">
+
+        <label for="nombreMaquina"> NOMBRE DE LA MAQUINA: </label>
+
+        <select name="nombreMaquina" id="nombreMaquina" [(ngModel)]="infoMaquina.nombreMaquina" class="form-control">
+            <option value=""  selected >  Selecciona una maquina  </option>
+            <option [value]=" maquina.nombreDeLaMaquina"  *ngFor="let maquina of maquinas">   {{ maquina.nombreDeLaMaquina }}  </option>
+        </select>
+
+    </div>
+
+    <div class="col-md-2">
+
+        <label for="costoDeMaquinaPorHora"> COSTO  * HORA: </label>
+
+        <select name="costoDeMaquinaPorHora" [(ngModel)]="infoMaquina.costoMaquinaPorHora" id="costoDeMaquinaPorHora" class="form-control costoMaquina ">
+
+            <option value="" selected  > Selecciona el costo maquina</option>
+            <option [value]=" maquina.costoMaquina " *ngFor="let maquina of maquinas"> {{ maquina.costoMaquina }} </option>
+
+
+        </select>
+
+    </div>
+
+
+    <div class="col-md-2">
+
+
+        <label for="horasAusarMaquina1"> HORAS A USAR</label>
+        <input type="number" [(ngModel)]="infoMaquina.horasAusarMaquina" name="horasAusarMaquina" id="horasAusarMaquina" class="form-control horasUsar" placeholder="HORAS" (blur)="calcularCosto()">
+
+
+    </div>
+
+    <div class="col-md-2">
+        <h4> TOTAL: <span class="totalMaquinas"> {{ totalMaquina}}</span> </h4>
+    </div>
+</div>

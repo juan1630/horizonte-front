@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-md-3">
+
+        <label for="medicamentos">
+            MEDICAMENTO A USAR:
+        </label>
+
+        <select name="medicamentos" id="medicamentos" class="form-control">
+                <option value=""> Seleccciona un medicamento </option>
+                <option [value]="item.nombreDelMedicamento"   *ngFor="let item of medicamentos">    {{  item.nombreDelMedicamento }}  </option>
+        </select>
+
+    </div>
+
+    <div class="col-md-2">
+
+        <label for="material1">
+           CANTIDAD :
+        </label>
+
+        <input type="text" name="material1" id="material1" placeholder="CANTIDAD" class="form-control cantidadMedicamento">
+
+
+    </div>
+
+    <div class="col-md-2">
+
+        <label for="material1">
+           COSTO * UNIDAD :
+        </label>
+
+        <input type="text" name="material1" id="material1" placeholder="COSTO" class="form-control costoMedicamento" (blur)="sumarMedicamentos()">
+
+    </div>
+
+    <div class="col-md-2">
+        TOTAL: {{ totalMedicamentos}}
+    </div>
+</div>

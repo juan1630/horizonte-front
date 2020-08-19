@@ -85,7 +85,12 @@ import { JefaturaEnfermeriaComponent } from './indicadores/jefatura-enfermeria/j
 import { ChartsModule } from 'ng2-charts';
 import { HojaDiariaComponent } from './indicadores/jefaturaEnfermeria/hoja-diaria/hoja-diaria.component';
 import { EncuestaComponent } from './indicadores/jefaturaEnfermeria/encuesta/encuesta.component';
-import { MaqYMedicamentosPaqueteComponent } from './servivicosInt/quirofano/maq-ymedicamentos-paquete/maq-ymedicamentos-paquete.component'
+import { MaqYMedicamentosPaqueteComponent } from './servivicosInt/quirofano/maq-ymedicamentos-paquete/maq-ymedicamentos-paquete.component';
+import { DashIndicadoresComponent } from './indicadores/dash-indicadores/dash-indicadores.component';
+import { CrearPaquetesDirective } from './crear-paquetes.directive';
+import { AgregarMedicmentoDirective } from './agregar-medicmento.directive';
+import { HojaDiariaHospitalizacionComponent } from './hoja-diaria-hospitalizacion/hoja-diaria-hospitalizacion.component';
+import { PaqueteQuirofanoComponent } from './paquetes/paquete-quirofano/paquete-quirofano.component'
 
 
 @NgModule({
@@ -159,12 +164,19 @@ import { MaqYMedicamentosPaqueteComponent } from './servivicosInt/quirofano/maq-
     JefaturaEnfermeriaComponent,
     HojaDiariaComponent,
     EncuestaComponent,
-    MaqYMedicamentosPaqueteComponent
+    MaqYMedicamentosPaqueteComponent,
+    DashIndicadoresComponent,
+    CrearPaquetesDirective,
+    AgregarMedicmentoDirective,
+    HojaDiariaHospitalizacionComponent,
+    PaqueteQuirofanoComponent,
   ],
+
   exports: [ 
     PageComponent,
     ReactiveFormsModule
   ],
+
   imports: [
     BrowserModule,
     ComponentsModule,
@@ -177,6 +189,7 @@ import { MaqYMedicamentosPaqueteComponent } from './servivicosInt/quirofano/maq-
     PdfViewerModule
 
   ]
+  
 
 })
 

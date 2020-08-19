@@ -56,7 +56,7 @@
 
             <label for="costoMedicamento">  Costo del medicamento: </label>
 
-            <input type="number" name="costoMedicamento" id="costoMedicamento" placeholder="Costo del medicamento" class="form-control" [(ngModel)]="medicamentos.costoMedicamento" (chage)="validarMedicamentos()">
+            <input type="number" name="costoMedicamento" id="costoMedicamento" placeholder="Costo del medicamento" class="form-control" [(ngModel)]="medicamentos.costoMedicamento" (blur)="validarMedicamentos()">
 
         </div>
     </div>

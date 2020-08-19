@@ -160,8 +160,10 @@ export class IdentificacionComponent implements OnInit {
   }
 
 
+  
 
   validarCampos(){
+
     if(this.infoConsulta.diagnosticoInicial == "" || this.infoConsulta.diagnosticoActual == "" || this.infoConsulta.medicoTrante == "" ){
       alert('Debes de validar los campos');
       return;
@@ -174,9 +176,6 @@ export class IdentificacionComponent implements OnInit {
 
 
   imprimir(){
-
-
-
 
 
       let name = document.getElementById('name');

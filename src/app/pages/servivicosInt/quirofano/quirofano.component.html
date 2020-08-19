@@ -1,1 +1,24 @@
-<p>quirofano works!</p>
+<div class="row">
+    <div class="col-md-12">
+        <h3 class="center"> PAQUETES DE QUIROFANO </h3>
+    </div>
+
+
+
+    <div class="col-md-12">
+
+        <div class="card-columns">
+            <div class="card" *ngFor="let item of paquetes">
+
+
+                <div class="card-body" [routerLink]="['/paquete/quirofano', item._id]">
+                    <h5 class="card-title"> {{ item.nombrePaquete}} </h5>
+                    <p class="card-text"> {{ item.especialiastas }} </p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

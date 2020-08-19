@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { element } from 'protractor';
+import { Component, OnInit   } from '@angular/core';
+import  {  FormArray, FormBuilder, ValidationErrors, Validators, FormControl, FormGroup  }  from '@angular/forms'
+import { total } from 'src/app/functions/storage/pacienteIntegrados';
+import { MaquinasService,  } from 'src/app/services/paquetesQuirofano/agregarMaquinas/maquinas.service';
+import { PacienteService } from 'src/app/services/paciente/paciente.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-crear-paquetes',
@@ -8,250 +12,319 @@ import { element } from 'protractor';
 })
 export class CrearPaquetesComponent implements OnInit {
 
-  public maquinasContent: HTMLElement;
-  public maquinaCantidad: HTMLElement;
-  public maquinaCosto: HTMLElement;
-  public contentTotales: HTMLElement;
-  public otrosParticipantesDiv: HTMLElement;
-  public costosManoDeObraDiv : HTMLElement;
-  public maquinasContainer: HTMLElement;
-  public maquinasCostoContainer: HTMLElement;
 
-
-  public costoDeMaquinaPorHora1 = 0;
-  public horasAusarMaquina1 = 0;
-  public totalSimple = 0 ;
-
-  public costoDeMaquinaPorHora2 = 0;
-  public horasAusarMaquina2 = 0;
-  public totalSimple2 = 0;
-
-  public costoDeMaquinaPorHora3 = 0;
-  public horasAusarMaquina3 = 0;
-  public totalSimple3 = 0;
-
-
-  public costoDeMaquinaPorHora4 = 0;
-  public horasAusarMaquina4 = 0;
-  public totalSimple4 = 0;
 
   
-  public costoDeMaquinaPorHora5 = 0;
-  public horasAusarMaquina5 = 0;
-  public totalSimple5 = 0;
 
-  public diasRecuperacion = 0;
-  public costoDiasRecuperacion = 0;
-  public totalDiasRcuperacion = 0;
+  public registerForm: FormGroup;
+  public allMaquinas:[] =[];
+  public allMedicena: []=[];
+  public id = "";
+  public totalMaquinas = 0;
+  public totalMedicamentos = 0;
+  public totalHorasRecuperacionNumber = 0;
+  public totalEspecialista = 0;
+  
  
   
-  public totalMaquinas = 0;
-  public maquinas = [];
-
-
-  public totalPaquete = 0;
-
-  infoPaquete= {
-    
-    nombrePaquete: "",
-    nombreCirujano: "",
-    pagoCirujano: 0,
-    nombreAnestesiologo: "",
-    pagoAnesteciologo: 0,
-    nombreAyudante1: "",
-    pagoAyudante1:0,
-    nombreAyudante2: "",
-    pagoAyudante2:0,
-    nombreAyudante3: "",
-    pagoAyudante3:0,
-    diasObservacion:"",
-    nombreMateriales: "",
-    cantidadMaterial1: 0,
-    precioMaterial: 0,
-    materiales1:"",
-    materiales2:"",
-    materiales3:"",
-    materiales4:"",
-    materiales5:"",
-
-    maquina1:"",
-    maquina1Costos:0,
-    maquina2: "",
-    maquina2Costo:0,
-    maquina3:"",
-    maquina3Costo:0,
-    maquina4:"",
-    maquina4Costo:0,
-    maquina5:"",
-    maquina5Costo:0,
-    maquina6: "",
-    maquinaCosto6 : 0 
-
-
-  }
-
-  constructor() { }
-
-
-
-  ngOnInit(): void {
-
-
-    this.maquinasContent = document.getElementById('container-maquinas');
-    this.maquinaCantidad = document.getElementById('content-cantidad');
-    this.maquinaCosto = document.getElementById('contente-precio');
-    this.contentTotales = document.getElementById('content-totales');
-    this.otrosParticipantesDiv = document.getElementById('otrosParticipantes');
-    this.costosManoDeObraDiv = document.getElementById('costosManoDeObra');
-    this.maquinasContainer = document.getElementById('maquinasContainer');
-    this.maquinasCostoContainer = document.getElementById('maquinasCostoContainer')
+  public pacienteTxt = "";
   
   
-  }
 
+  public pacientesDB=[{
+    RFCFiscal: "",
+    apellidoMaterno: "",
+    apellidoPaterno: "",
+    calleNumeroPaciente: "",
+    coloniaFiscal: "",
+    consultas: "",
+    contactoEmergancia1: "",
+    correo: "",
+    cpFiscal: "",
+    cpPaciente: 0,
+    curp: "",
+    edad: 0,
+    emailFiscal: "",
+    entidadFederativa: "",
+    estadoPaciente: "",
+    fechaNacimientoPaciente: "",
+    fechaRegistro: "",
+    historiaClinica: [],
+    localidadFiscal: "",
+    municipioFiscal: "",
+    nombrePaciente: "",
+    nombreRazonSocial: "",
+    genero:"",
+    paisPaciente: "",
+    paquetes: {_id: "", nombrePaquete: "", costoTotal: "" , consultasGinecologia: 0, examenesLaboratorio: [],},
+    paquetesVisitas: "",
+    poblacion: "",
+    referenciaPaciente: "",
+    telefono: 73456456,
+    telefonoContactoEmergencia1: "",
+    __v: 0,
+    _id: ""
+  }] 
 
-
-  sumarTotalMaquinas(){
-
-    this.totalSimple = this.costoDeMaquinaPorHora1 * this.horasAusarMaquina1;
-    this.totalMaquinas = this.totalMaquinas + this.totalSimple;
-
-
-  }
-
-  sumarTotalMaquinas2(){
-
-    this.totalSimple2 = this.costoDeMaquinaPorHora2 * this.horasAusarMaquina2;
-    this.totalMaquinas = this.totalMaquinas + this.totalSimple2;
-
-
-  }
-
-  sumarTotalMaquinas3(){
-
-    this.totalSimple3 = this.costoDeMaquinaPorHora3 * this.horasAusarMaquina3;
-    this.totalMaquinas = this.totalMaquinas + this.totalSimple3;
-
-
-  }
-
-  sumarTotalMaquinas4(){
-
-    this.totalSimple4 = this.costoDeMaquinaPorHora4 * this.horasAusarMaquina4;
-    this.totalMaquinas = this.totalMaquinas + this.totalSimple4;
-
-  }
-
-
-  sumarTotalMaquinas5(){
-
-    this.totalSimple5 = this.costoDeMaquinaPorHora5 * this.horasAusarMaquina5;
-    this.totalMaquinas = this.totalMaquinas + this.totalSimple5;
-
-  }
-
-  // ESTA FUNCION CALCULA EL COSTO DE LOS DÍAS DE OBSERVACIÓN
-
-  diasDeObservacion(){
-
-    this.totalDiasRcuperacion = this.diasRecuperacion * this.costoDiasRecuperacion;
-
-    this.totalPaquete = this.totalPaquete * this.totalDiasRcuperacion;
-
-  }
-
-// ESTA FUNCION AGREGA LOS INPUTS DE LOS MATERIALES
-  agregarMaquina(){ 
-
-    let element = document.createElement('input') ;
-
-    element.setAttribute('class', 'form-control mt-2');
-   
-    element.setAttribute('placeholder', 'MATERIAL A OCUPAR')
-
-    this.maquinasContent.append( element  );
-
-
-    let elememtCantidad = document.createElement('input');
-
-    elememtCantidad.setAttribute('class', 'form-control mt-2');
-    elememtCantidad.setAttribute('placeholder', 'CANTIDAD');
-
-    this.maquinaCantidad.append( elememtCantidad );
-
-
-    // costo 
-    let elementoCosto = document.createElement('input');
-
-    elementoCosto.setAttribute('class', 'form-control mt-2');
-    elementoCosto.setAttribute('placeholder', 'COSTO');
-
-    this.maquinaCosto.append(elementoCosto );
-
-
-    let totalCAntidad =document.createElement('h4');
-    totalCAntidad.setAttribute('class', 'center mt-2');
-    totalCAntidad.textContent = "Totales"
-
-    this.contentTotales.append( totalCAntidad );
-
-  }
-
-  enviar( ){
-
-
-    console.log( this.infoPaquete );
   
-  }
+ 
+  
 
-  agregarMaquinas() {
+    constructor(  
+     private _maquinasService: MaquinasService,
+     public formBuilder : FormBuilder,
+     private _route: ActivatedRoute,
+    private _pacienteService: PacienteService
+    ) { 
+    }
 
-    let maquina = document.createElement('input');
-
-    maquina.setAttribute('class', 'form-control mt-2');
-    maquina.setAttribute('placeholder', 'NOMBRE DE LA MAQUINA');
-
-
-    this.maquinasContainer.append( maquina  );
     
-
-    let costoMaquina = document.createElement('input');
-
-    costoMaquina.setAttribute('class', 'form-control mt-2');
-    costoMaquina.setAttribute('placeholder', 'COSTO');
     
+    ngOnInit(): void {
 
-    this.maquinasCostoContainer.append( costoMaquina  )
-
-
-
-
-  }
-
-  otrosParticipantes(){
-
+      this.crearFormulario();
+      this.otrosParticipantes();
+      this.addMachines();
+      this.addMedicine();
       
-    let elememtCantidad = document.createElement('input');
+    this._maquinasService.verMaquinas()
+    .subscribe( (data:any) => {
+        this.allMaquinas = data.data;
 
-    elememtCantidad.setAttribute('class', 'form-control mt-2');
-    elememtCantidad.setAttribute('placeholder', 'OTRO PARTICIPANTE');
-
-    this.otrosParticipantesDiv.append(  elememtCantidad );
-
-    
-    let elememtCosto = document.createElement('input');
-
-    elememtCosto.setAttribute('class', 'form-control mt-2');
-    elememtCosto.setAttribute('placeholder', 'COSTO');
-
-    this.costosManoDeObraDiv.append(  elememtCosto );
+    } );
 
 
+    this._maquinasService.verMedicamentos()
+    .subscribe( (data:any) => {
+      this.allMedicena = data.data
+
+    } )
+
+}
+
+
+get medicine(){
+  return this.registerForm.get('medicamentos') as FormArray;
+}
+
+
+get participantes() {
+
+  return  this.registerForm.get('participantes')  as FormArray;
+}
+
+get maquinas() {
+  return this.registerForm.get('maquinas') as FormArray;
+}
+
+
+agregarPaquete( id ) {
+  console.log(id)
+
+  this._maquinasService.agregarPaqueteQuirofano(  id, this.registerForm.value )
+    .subscribe(  (data:any) => {
+        if(data.ok == true){
+          alert('Paquete agregado');
+        }
+    } )
 
   }
 
 
-  sumarTotalMaquinas6() {}
+buscarPaciente(){
+
+  this._pacienteService.getPacientePorNombre( this.pacienteTxt )
+  .subscribe( (data: any ) => {
+
+    
+    if(  data.pacientes === undefined){
+      return;
+    }
+    this.pacientesDB = data.pacientes
+
+  } )
+
+}
+
+crearFormulario() {
+
+      this.registerForm = this.formBuilder.group({
+        nombrePaquete: [''],
+        totalEspecialista: this.totalEspecialista,
+        participantes : this.formBuilder.array([]),
+        maquinas: this.formBuilder.array([]),
+        medicamentos: this.formBuilder.array([]),
+        horaRecuperacion: [''],
+        costoRecuperacion : ['']
+      });
+    }
+
+
+     
+    otrosParticipantes() {
+
+    const participantesGroup = this.formBuilder.group({
+        especialista: '',
+        montoEspecialista: 0,
+        totalEspecialista: 0
+    });
+
+
+
+    this.participantes.push( participantesGroup );
+
+  }
+
+  addMachines(){ 
+    const maquinasAdd = this.formBuilder.group({
+      nombreMaquina: '',
+      costoPorHora: 0,
+      horasAUsar: 0
+
+    });
+
+    this.maquinas.push( maquinasAdd);
+    
+  }
+
+  addMedicine(){
+
+    const medicamentosForm  = this.formBuilder.group({
+      nombreMedicamentos: '',
+      cantidadMedicamento: 0,
+      costoMedicamento: 0
+    })
+
+    this.medicine.push( medicamentosForm );
+
+  }
+
+
+  // calculamos el total de los especialistas
+
+  calcularTotalEspecialista() {
+
+    
+    let costosEspecialistasArrayDom = document.querySelectorAll('.totalEspecialista');
+    let costoParse = 0; 
+    let resultado = 0;
+    
+    for ( let i = 0;  costosEspecialistasArrayDom.length > 0;  i++) {
+            
+            
+            costoParse = parseFloat(costosEspecialistasArrayDom[i]['value'])
+
+             resultado =  costoParse + resultado;
+             
+             this.totalEspecialista = resultado;
+
+    }
+  
+  }
+
+
+  calcularTotalMaquinas() {
+
+
+    let costoMaquina = document.querySelectorAll('.cosotoHoras');
+    let maquinasHorasAUsar = document.querySelectorAll('.horasMaquina')
+    let costoMaquinaParse = 0;
+
+    let  horasAUsaeParse = 0 ;
+    let costoResultado = 0;
+
+
+    this.totalMaquinas = 0;
+    
+
+    for (  let j =0;  costoMaquina.length >= j && maquinasHorasAUsar.length >= j; j++ ) {
+
+            horasAUsaeParse = parseFloat(maquinasHorasAUsar[j]['value']);
+            costoMaquinaParse = parseFloat(  costoMaquina[j]['value'] );
+
+
+
+            costoResultado =  costoMaquinaParse *  horasAUsaeParse ;
+
+          this.totalMaquinas += costoResultado
+
+          console.log(  this.totalMaquinas );
+
+
+    }
+    
+
+   }
+
+
+  calcularTotalMedicamentos() {
+
+    let cantidadesMedicamentosDom = document.querySelectorAll('.cantidadMedicamento');
+    let costoUnitarioDom = document.querySelectorAll('.costoMedicamento');
+    let cantidadParse = 0;
+    let costoUnitarioParse = 0;
+    let resultado = 0;
+    this.totalMedicamentos =0;
+
+
+
+    for( let i =0; cantidadesMedicamentosDom.length >= i && costoUnitarioDom.length >= i; i++ ){
+
+
+            if( costoUnitarioDom[i]['value'] === undefined|| costoUnitarioDom[i]['value'] === undefined ){
+              return;
+            }
+
+    
+            cantidadParse = parseFloat( cantidadesMedicamentosDom[i]['value']  );
+            costoUnitarioParse = parseFloat( costoUnitarioDom[i]['value'] );
+            resultado = cantidadParse * costoUnitarioParse
+            
+            this.totalMedicamentos += resultado;
+            
+            console.log( this.totalMedicamentos );
+
+
+    }
+
+  }
+
+
+  
+  totalHorasRecuperacion(){
+   
+    this.totalHorasRecuperacionNumber = 0;
+
+    let horasRecuperacion = document.querySelectorAll('.horasRecuperacion');
+    let costoHorasRecuperacion = document.querySelectorAll('.costoHorasRecuperacion');
+    let resultado = 0;
+    let horasParse = 0 ;
+    let costoHorasParse=0;
+
+   horasParse =  horasRecuperacion[0]['value'];
+   costoHorasParse = costoHorasRecuperacion[0]['value'];
+
+   resultado = horasParse * costoHorasParse;
+
+   this.totalHorasRecuperacionNumber = resultado;
+   
+   console.log( this.totalHorasRecuperacionNumber );
+
+  }
+
+
+  
+  enviar() {
+
+
+    console.log(this.registerForm.value);
+
+    this._maquinasService.crearPaqueteQuirofano( this.registerForm.value )
+    .subscribe( (data) => {
+      console.log(data);
+    } )
+  
+    }
 
 
 }

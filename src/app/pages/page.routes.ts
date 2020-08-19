@@ -76,9 +76,10 @@ import { AltoRiesgoComponent } from '../contratos/alto-riesgo/alto-riesgo.compon
 import { CrearPaquetesComponent } from "./crearPaquetes/crear-paquetes/crear-paquetes.component";
 import { JefaturaEnfermeriaComponent } from './indicadores/jefatura-enfermeria/jefatura-enfermeria.component';
 import { HojaDiariaComponent } from './indicadores/jefaturaEnfermeria/hoja-diaria/hoja-diaria.component';
-import { combineAll } from 'rxjs/operators';
 import { EncuestaComponent } from './indicadores/jefaturaEnfermeria/encuesta/encuesta.component';
 import { MaqYMedicamentosPaqueteComponent } from './servivicosInt/quirofano/maq-ymedicamentos-paquete/maq-ymedicamentos-paquete.component';
+import { DashIndicadoresComponent } from '../pages/indicadores/dash-indicadores/dash-indicadores.component'
+import { PaqueteQuirofanoComponent } from './paquetes/paquete-quirofano/paquete-quirofano.component';
 
 
 
@@ -184,6 +185,7 @@ const pagesRoutes : Routes = [
       { path: 'enfermeria-dashboard', component: EnfermeriaDashboardComponent},
       { path: 'consulta-general/:id', component: ConsultaGeneralComponent},
       { path: 'ficha-enfermeria-01/:id', component: FE09Component},
+      { path: 'paquete/quirofano/:id', component: PaqueteQuirofanoComponent },
      
       // TERMINA EL AREA DE CONSULTA GENERAL
       // ESTAS RUTAS SON PARA EL CRUD DE FARMACIA
@@ -205,12 +207,14 @@ const pagesRoutes : Routes = [
        
       // PEDIDOS DE SERVICIOS 
       
+      { path: 'indicadores', component: DashIndicadoresComponent },
       // IDENTIFICACION
 
       { path:'identificacion/:id', component: IdentificacionComponent },
       { path: 'indicadores/enfermeria', component: JefaturaEnfermeriaComponent  },
       { path:'identificacion', component: IdentificacionComponent },
       { path: 'hoja/diaria/jefatura/enfermeria', component: HojaDiariaComponent },
+      // encuesat de jefatura de consulta general
       { path: 'indentificacion/jefatura/enfermeria/:id', component: EncuestaComponent },
       { path: '', redirectTo: '/dashboard', pathMatch:'full' }
 

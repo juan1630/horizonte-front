@@ -85,9 +85,11 @@
     margin-bottom: .5em;
     color: white;
     cursor: pointer;
+    width: 20px;
+    height: auto;
 }
 
 .container-membres {
-    overflow-x: scroll;
+    overflow-y: scroll;
     margin-bottom: .3em;
 }

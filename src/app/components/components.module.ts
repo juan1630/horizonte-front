@@ -30,6 +30,9 @@ import { ChatComponent } from './chat/chat/chat.component';
 
 import { ChartsModule  } from 'ng2-charts'
 import { GraficaComponent } from './grafica/grafica.component';
+import { AgregarMaquinasComponent } from './crearPaquete/agregar-maquinas/agregar-maquinas.component';
+import { CrearPaquetesComponent } from '../pages/crearPaquetes/crear-paquetes/crear-paquetes.component';
+import { AgregarMedciametosComponent } from './agregarPaquete/agregar-medciametos/agregar-medciametos.component';
 
 
 @NgModule({
@@ -47,7 +50,9 @@ import { GraficaComponent } from './grafica/grafica.component';
     TarjetaCotizacionComponent,
     CalendarComponent,
     ChatComponent,
-    GraficaComponent
+    GraficaComponent,
+    AgregarMaquinasComponent,
+    AgregarMedciametosComponent
 
     
 ],
@@ -74,6 +79,10 @@ schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
     RouterModule,
     ChartsModule,
     jqxSchedulerModule
+  ],
+  entryComponents:[
+    AgregarMaquinasComponent,
+    AgregarMedciametosComponent
   ],
   providers: [
     ModalServiciosIntComponent
