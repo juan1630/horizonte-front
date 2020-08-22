@@ -47,8 +47,6 @@ export class AmbulanciaEditComponent implements OnInit {
 
   ngOnInit() {
     this.getAmbulancia();
-    console.log('weeey yaaaaaa...');
-
     
     this.id = this._route.snapshot.paramMap.get('id');
   }

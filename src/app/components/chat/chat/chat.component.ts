@@ -73,7 +73,7 @@ export class ChatComponent implements OnInit {
       console.log( arg  );
 
       this.usuarioConectados = arg 
-      console.log( this.usuarioConectados  );
+      // console.log( this.usuarioConectados  );
 
     });
 
@@ -99,7 +99,7 @@ export class ChatComponent implements OnInit {
         
       })
       
-      console.log(this.usuarioConectados);
+      // console.log(this.usuarioConectados);
       
        });
 
@@ -115,7 +115,7 @@ export class ChatComponent implements OnInit {
           .subscribe(arg => {
 
 
-            console.log(arg);
+            // console.log(arg);
 
             this.mesages = arg;
 

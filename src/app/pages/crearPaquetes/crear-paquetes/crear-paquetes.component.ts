@@ -150,7 +150,7 @@ crearFormulario() {
 
       this.registerForm = this.formBuilder.group({
         nombrePaquete: [''],
-        totalEspecialista: this.totalEspecialista,
+        // totalEspecialista: this.totalEspecialista,
         participantes : this.formBuilder.array([]),
         maquinas: this.formBuilder.array([]),
         medicamentos: this.formBuilder.array([]),

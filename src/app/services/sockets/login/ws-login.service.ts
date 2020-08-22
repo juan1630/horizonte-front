@@ -25,7 +25,7 @@ export class WsLoginService {
   }
 
   checkStatus( usuarios ){
-    console.log(usuarios);
+    // console.log(usuarios);
     this.socket.emit('connect', (usuarios)=> {
 
       this.status = true;
@@ -50,14 +50,14 @@ export class WsLoginService {
 
 
     this.socket.on('event', (data) => {
-      console.log( data );
+      // console.log( data );
     })
 
   }
 
   mostarUsuario(){
     this.socket.on('usuarioEnLinea', (data) => {
-        console.log(data)
+        // console.log(data)
       })
     }
 
@@ -73,7 +73,7 @@ export class WsLoginService {
       return Observable.create(
         (observer) => {
           this.socket.on('consultaNueva', (resp) => {
-            console.log( resp);
+            // console.log( resp);
             observer.next( resp );
             });
         }
@@ -91,7 +91,7 @@ export class WsLoginService {
       return Observable.create(
         (observer) => {
           this.socket.on('mensajeLaboratorio', (resp) => {
-            console.log( resp );
+            // console.log( resp );
             observer.next(  resp);
           })
         }
@@ -110,7 +110,7 @@ export class WsLoginService {
 
             this.socket.on('usuarioEnLinea', (resp) => {
 
-              console.log( resp );
+              // console.log( resp );
          
                 observer.next( resp );
 

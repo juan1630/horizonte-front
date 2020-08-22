@@ -73,4 +73,13 @@ export class MaquinasService {
 
   }
 
+
+  verPaquetePorId( id ){
+
+    let url = 'http://localhost:3200/' + "ver/paquete/" +id; 
+
+    return this._http.get( url );
+  
+  }
+
 }
