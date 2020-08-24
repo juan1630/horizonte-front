@@ -166,7 +166,7 @@ import { DashIndicadoresComponent } from './indicadores/dash-indicadores/dash-in
 
     HEvolucionCGComponent,
     HEvolucionCEComponent,
-    HIngresoHospitalComponent
+    HIngresoHospitalComponent,
 
     HojaDiariaComponent,
     EncuestaComponent,

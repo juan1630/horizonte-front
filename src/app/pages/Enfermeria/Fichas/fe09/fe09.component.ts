@@ -7,6 +7,8 @@ import { Color, BaseChartDirective, Label } from 'ng2-charts';
 import { ChartDataSets, ChartOptions } from 'chart.js';
 
 import swal from "sweetAlert";
+// import { getPacienteStorageById, guardarPacienteStorage, getPacienteStorage } from 'src/app/functions/storage/storage.funcion';
+// import { getPacienteStorageById, guardarPacienteStorage } from 'src/app/functions/storage/storage.funcion';
 
 
 
@@ -23,6 +25,10 @@ export class FE09Component implements OnInit {
   public peso: number;
   public tallaL: number;
   public pesoL: number;
+
+  public listaEspera = [];
+  public listaPacientesAtendidos = [];
+
 
   public validate = true;
 
@@ -45,14 +51,18 @@ export class FE09Component implements OnInit {
     sexo: ''
   }
 
+  public pacienteHistorial = [{
+  }];
+
+  ///////////////////////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////////////// 
+  //////////////////////////////////////LINEAS NIÑOS
   // Grafica Mamalona de peso
   public lineChartData: ChartDataSets[] = [
     { data: [10.673, 11.633, 13.291, 14.990, 16.500, 17.900, 19.900, 22.076, 24.380, 26.562, 29.472, 32.600, 36.712, 41.149, 45.459, 49.866, 51.69, 53.148, 54.200], label: 'Peso Mínimo' },
     { data: [15.668, 18.045, 20.739, 24.461, 28.271, 32.149, 36.983, 39.666, 46.566, 48.863, 56.260, 63.308, 69.705, 76.420, 82.735, 88.504, 93.779, 97.245, 99.185, 102.300], label: 'Peso Máximo' },
     { data:[  0, 0, 0, 0, 0, 0, ], label: 'Peso Actual'},
 
-
-    // , yAxisID: 'y-axis-1' 
   ];
 
   // Grafica de estatura :D
@@ -62,6 +72,34 @@ export class FE09Component implements OnInit {
     { data: [0, 0, 0, 0, 0, 0, ], label: 'Estatura Actual'}
   ];
 
+  // Grafica de IMC
+  public lineChartIMC: ChartDataSets [] = [
+    { data: [14.5, 14.09, 13.81, 13.64, 13.54, 13.52, 13.57, 13.78, 13.96, 14.28, 14.68, 15.10, 15.66, 16.16, 16.77, 17.28, 17.85, 18.30, 19.21], label: 'IMC Mínimo'},
+    { data: [19.66, 18.69, 18.23, 18.44, 19.10, 20.08, 21.23, 22.37, 23.72, 24.92, 26.03, 27.02, 27.88, 28.63, 29.30, 29.88, 30.61, 31.20, 32.10], label: "IMC Máximo"},
+    { data: [0, 0, 0, 0, 0, 0,], label: "IMC Actual"}
+
+  ];
+  
+  ///////////////////////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////////////// 
+  //////////////////////////////////////LINEAS NIñas
+  public lineChartTallaNina: ChartDataSets [] = [
+    { data: [.78, .86, .94, 1.01, 1.08, 1.14, 1.20, 1.24, 1.30, 1.38, 1.45, 1.48, 1.50, 1.56, 1.59, 1.61], label: 'Estatura Mínima'},
+    { data: [.92, 1.01, 1.11, 1.20,  1.28, 1.36, 1.43, 1.50, 1.57, 1.65, 1.71, 1.73, 1.74, 1.7526, 1.7536], label: 'Estatura Máxima'},
+    { data: [0, 0, 0, 0, 0, 0,], label: 'Estatura Actual' }
+  ];
+
+  public lineChartPesoNina: ChartDataSets [] = [
+    { data: [10.17, 11.38, 12.65, 14.34, 16.01, 17.72, 19.64, 21.58, 23.99, 26.81, 29.74, 33.12, 36.70, 39.37, 41.82, 43.23, 44.24, 45.01], label: 'Peso Mínimo'},
+    { data: [15.35, 18.0, 21.28, 24.62, 28.92, 33.36, 38.07, 44.58, 51.42, 58.10, 65.32, 71.87, 77.68, 81.36, 84.36, 86.04, 87.34, 88.15], label: 'Peso Máximo'},
+    { data: [0, 0, 0, 0, 0, 0,], label: 'Peso Actual' }
+  ];
+
+  public lineChartIMCNina: ChartDataSets [] = [
+    { data: [14.07, 13.77, 13.51, 13.33, 13.22, 13.22, 13.27, 13.44, 13.76, 14.11, 14.53, 14.94, 15.44, 15.97, 16.37, 16.86, 17.97, 18.33], label: 'IMC Mínimo'},
+    { data: [19.51, 18.70, 18.61, 18.99, 19.67, 20.78, 21.87, 23.27, 24.50, 25.80, 27.05, 28.22, 29.31, 30.30, 31.30, 32.11, 32.99], label: 'IMC Máximo'},
+    { data:  [0, 0, 0, 0, 0, 0,], label: 'IMC Actual' }
+  ];
   public lineChartLabels: Label[] = ['2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'];
 
   // Eje de las X
@@ -153,11 +191,19 @@ export class FE09Component implements OnInit {
 
   ngOnInit(): void {
 
+    // Leer Local Storage
+   
+    // this.listaEspera = getPacienteStorage();
+        
+
+       
+    this.historialNinos();
+
     this.obtenerPeso();
-    console.log(this.obtenerPeso());
+    // console.log(this.obtenerPeso());
     
     this.obtenerTalla();
-    console.log(this.obtenerTalla());
+    // console.log(this.obtenerTalla());
     
 
       this.fechaPacienteHistorial = moment().format('L');
@@ -170,7 +216,7 @@ export class FE09Component implements OnInit {
     this._ObtenerPacienteService.getPacienteBtID(this.id).subscribe(
 
       (data:any) => {
-        console.log(data);
+        // console.log(data);
 
         this.paciente.nombre = data.paciente.nombrePaciente;
         this.paciente.apellidoPaterno = data.paciente.apellidoPaterno;
@@ -184,17 +230,39 @@ export class FE09Component implements OnInit {
 
         data.paciente.edad = parseFloat(data.paciente.edad);
 
+      
+
       }
     )
     // var btnAdd = document.getElementById("btn_agregar");
 
   }
+
+  historialNinos(){
+    this.pacienteHistorial = [];
+    this.id = this._route.snapshot.paramMap.get('id');
+
+    this._ObtenerPacienteService.getPacienteBtID(this.id).subscribe(
+
+      (data:any) => {
+        // console.log(data);
+
+        for (let i = 0; data.paciente.historiaClinica.length -1 >= i ; i++){
+          // console.log(data.paciente.historiaClinica[i]);
+          
+          this.pacienteHistorial.push(data.paciente.historiaClinica[i]);
+          // console.log(this.pacienteHistorial);
+          
+        }
+  });
+  }
+
   validar(){
     if(this.infPaciente.esquemaVacunacion === "si"){
-      console.log("pulsaste sí");
+      // console.log("pulsaste sí");
 
     }else{
-      console.log("pulsaste no");
+      // console.log("pulsaste no");
 
     }
   }
@@ -207,20 +275,31 @@ export class FE09Component implements OnInit {
 
     this.imc = ((this.peso)/(this.talla * this.talla));
     let imcL = this.imc.toString();
-    console.log(typeof imcL);
+    // console.log(typeof imcL);
 
-
+    //Punto de Peso
     this.lineChartData[2].data[7]= this.peso;
-    console.log(this.peso);
-    
-    console.log(this.lineChartData);
+    // console.log(this.peso);
+    // console.log(this.lineChartData);
 
+    // Peso Niña
+    this.lineChartPesoNina[2].data[7] = this.peso;
 
+    // Punto de Etatura
     this.lineChartEstatura[2].data[7]= this.tallaL;
-    console.log(this.tallaL);
+    // console.log(this.tallaL);
+    // console.log(this.lineChartEstatura);
 
-    console.log(this.lineChartEstatura);
+    // Talla Niña
+    this.lineChartTallaNina[2].data[7]= this.tallaL;
+
+    // Punto de IMC
+    this.lineChartIMC[2].data[7] = this.imc;
+    // console.log(this.imc);
+    // console.log(this.lineChartIMC);
     
+    // IMC Niña
+    this.lineChartIMCNina[2].data[7] = this.imc;
     
 
 
@@ -238,19 +317,19 @@ export class FE09Component implements OnInit {
   
   obtenerPeso(){
     this.peso;
-    console.log(this.peso);
+    // console.log(this.peso);
     this.pesoL = this.peso;
     return this.pesoL;
   }
   obtenerTalla(){
     this.talla;
-    console.log(this.talla);
+    // console.log(this.talla);
     this.tallaL = this.talla;
     return this.tallaL;
     
   }
  validarBtn(f) {
-   console.log(f);
+  //  console.log(f);
    
   if(f.invalid == false) {
     this.validate = false;
@@ -258,8 +337,10 @@ export class FE09Component implements OnInit {
  }
 
   onSubmit(f) {
-    console.log("form Antecedentes Niños xD");
-    console.log(f.invalid);
+
+    this.pacienteHistorial = [];
+    // console.log("form Antecedentes Niños xD");
+    // console.log(f.invalid);
 
     
     
@@ -269,11 +350,39 @@ export class FE09Component implements OnInit {
 
       swal("Datos Guardados con Éxito", "Se ha notificado al Doctor", "success");
 
-      this._ObtenerPacienteService.getPacienteBtID(this.id).subscribe( req => {
-        console.log(req);
+      this._ObtenerPacienteService.getPacienteBtID(this.id).subscribe( (req:any) => {
+        // console.log(req);
 
+        for (let i = 0; req.paciente.historiaClinica.length -1 > i ; i++){
+          // console.log(req.paciente.historiaClinica[i]);
+          
+          this.pacienteHistorial.push(req.paciente.historiaClinica[i]);
+          // console.log(this.pacienteHistorial);
+          
+        }
+
+        this.historialNinos();
 
       });
+      
+      // let actualizarEstado = getPacienteStorageById(this.id);
+      // // console.log("Arregloooooooo", actualizarEstado);
+      // let estadoActualizado = actualizarEstado[0].status = 'Finalizado';
+      // // console.log("weeeeeeeeeeeee", actualizarEstado);
+
+      // let patient = this.listaEspera.indexOf(actualizarEstado[0].pacienteId)
+      // console.log(patient);
+      
+
+      // // let pacienteStatusOk = estadoActualizado.indexOf(this.id);
+      // // console.log("INDEXOF", pacienteStatusOk);
+      
+
+      // let prro = guardarPacienteStorage(estadoActualizado);
+      // console.log("Hola, soy un String xd",prro);
+      
+      
+      
 
       this._router.navigateByUrl('/hoja-diaria-enfermeria-general');
 
@@ -298,7 +407,7 @@ export class FE09Component implements OnInit {
 
   // events
   public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
-    console.log(event, active);
+    // console.log(event, active);
   }
 
   public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
