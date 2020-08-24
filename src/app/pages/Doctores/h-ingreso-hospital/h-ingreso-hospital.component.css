@@ -1,11 +1,6 @@
-/* .containerxd {
-    /* text-align: center; */
-
-
-/* margin-left: 3rem; */
-
-
-/* }  */
+.containerxd {
+    margin-left: -3rem;
+}
 
 .head-container {
     border: 1px solid #282788;
