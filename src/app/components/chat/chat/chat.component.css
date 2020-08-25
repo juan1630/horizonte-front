@@ -1,7 +1,7 @@
 .chat {
     height: 400px;
     width: 400px;
-    display: flex;
+    display: none;
 }
 
 .chat-header {

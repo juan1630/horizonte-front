@@ -84,19 +84,8 @@
 
         <br> <br>
 
-        <!-- Graficas -->
-        <div class="col-sm-6">
-            <div class="flex">
-                <div class="flex-item">
-                    <div style="display: block;">
-                        <canvas baseChart width="400" height="400" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins" (chartHover)="chartHovered($event)"
-                            (chartClick)="chartClicked($event)"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-6 muf">
+        <!-- Grafica Estatura Niño -->
+        <div class="col-sm-4 muf" *ngIf="paciente.sexo == 'Masculino' && paciente.edad <= 9">
 
             <div class="flex">
                 <div class="flex-item">
@@ -107,13 +96,77 @@
                 </div>
 
             </div>
+        </div>
 
+        <!-- Grafica Peso Niño -->
+        <div class="col-sm-4" *ngIf="paciente.sexo == 'Masculino' && paciente.edad <= 9">
+            <div class="flex">
+                <div class="flex-item">
+                    <div style="display: block;">
+                        <canvas baseChart width="400" height="400" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins" (chartHover)="chartHovered($event)"
+                            (chartClick)="chartClicked($event)"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <!-- Grafica IMC Niño -->
+        <div class="col-sm-4 muf" *ngIf="paciente.sexo == 'Masculino' && paciente.edad <= 9">
 
+            <div class="flex">
+                <div class="flex-item">
+                    <div style="display: block;">
+                        <canvas baseChart width="400" height="400" [datasets]="lineChartIMC" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins" (chartHover)="chartHovered($event)"
+                            (chartClick)="chartClicked($event)"></canvas>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
 
 
+
+
+        <!-- Grafica Niñas -->
+        <div class="col-sm-4 muf" *ngIf="paciente.sexo == 'Femenino' && paciente.edad <= 9">
+
+            <div class="flex">
+                <div class="flex-item">
+                    <div style="display: block;">
+                        <canvas baseChart width="400" height="400" [datasets]="lineChartTallaNina" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins" (chartHover)="chartHovered($event)"
+                            (chartClick)="chartClicked($event)"></canvas>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Grafica Peso Niño -->
+        <div class="col-sm-4" *ngIf="paciente.sexo == 'Femenino' && paciente.edad <= 9">
+            <div class="flex">
+                <div class="flex-item">
+                    <div style="display: block;">
+                        <canvas baseChart width="400" height="400" [datasets]="lineChartPesoNina" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins" (chartHover)="chartHovered($event)"
+                            (chartClick)="chartClicked($event)"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grafica IMC Niño -->
+        <div class="col-sm-4 muf" *ngIf="paciente.sexo == 'Femenino' && paciente.edad <= 9">
+
+            <div class="flex">
+                <div class="flex-item">
+                    <div style="display: block;">
+                        <canvas baseChart width="400" height="400" [datasets]="lineChartIMCNina" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins" (chartHover)="chartHovered($event)"
+                            (chartClick)="chartClicked($event)"></canvas>
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
 
         <div class="" *ngIf="paciente.edad <= 9">
@@ -407,7 +460,7 @@
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content modal-XL">
                             <div class="modal-header">
-                                <h3 id="signos-vitales" class="modal-title center">Signos Vitales</h3>
+                                <h3 id="signos-vitales" class="modal-title center">Signos Vitales: {{paciente.nombre}} {{paciente.apellidoPaterno}} {{paciente.apellidoMaterno}}</h3>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -430,6 +483,18 @@
                                     </thead>
                                     <tbody>
                                         <!-- AQUI DEBE APLICARSE EL NG FOR :) -->
+                                        <tr *ngFor="let pacienteH of pacienteHistorial">
+                                            <td>{{pacienteH.tallaNino}}</td>
+                                            <td>{{pacienteH.pesoNino}}</td>
+                                            <td>{{pacienteH.imcNino}}</td>
+                                            <td>{{pacienteH.fcNino}}</td>
+                                            <td>{{pacienteH.frNino}}</td>
+                                            <td>{{pacienteH.tempNino}}</td>
+                                            <td>{{pacienteH.pcNino}}</td>
+                                            <td>{{pacienteH.paNino}}</td>
+                                            <td>{{pacienteH.ptNino}}</td>
+                                            <td>{{pacienteH.saoNino}}</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                                 <!-- End bloque 3 -->
@@ -765,11 +830,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr *ngFor="let pacienteH of pacienteHistorial">
                                         <td>{{paciente.nombre}} {{paciente.apellidoPaterno}} {{paciente.apellidoMaterno}}</td>
-                                        <td>{{talla}}</td>
-                                        <td>{{peso}}</td>
-                                        <td>{{imc}}</td>
+                                        <td>{{pacienteH.tallaNino}}</td>
+                                        <td>{{pacienteH.pesoNino}}</td>
+                                        <td>{{pacienteH.imcNino}}</td>
+                                        <td>{{pacienteH.fcNino}}</td>
+                                        <td>{{pacienteH.frNino}}</td>
+                                        <td>{{pacienteH.tempNino}}</td>
+                                        <td>{{pacienteH.pcNino}}</td>
+                                        <td>{{pacienteH.paNino}}</td>
+                                        <td>{{pacienteH.ptNino}}</td>
+                                        <td>{{pacienteH.saoNino}}</td>
                                     </tr>
                                 </tbody>
                             </table>

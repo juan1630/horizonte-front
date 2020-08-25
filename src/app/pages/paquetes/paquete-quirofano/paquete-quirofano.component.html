@@ -1,8 +1,103 @@
 <div class="row">
     <div class="col-md-12">
+        <h3 class="center"> {{ paquete.nombrePaquete}} </h3>
+    </div>
+
+</div>
+
+
+<div class="row">
+    <div class="col-md-6">
+
+        <h2 class="center">
+            ESPECIALISTAS:
+
+        </h2>
+
+        <div class="especialistas" *ngFor="let item of paquete.participantes">
+            <p> {{ item.especialista }} {{ item.montoEspecialista }} </p>
+
+        </div>
 
     </div>
     <div class="col-md-6">
-
+        <form>
+            <input type="text" name="buscarPaciente" placeholder="Buscar paciente" (keyup)="buscarPaciente()" class="form-control" [(ngModel)]="nombrePacienteTxt">
+        </form>
     </div>
 </div>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>
+            MAQUINAS:
+
+        </h2>
+
+        <div class="especialistas" *ngFor="let item of paquete.maquinas">
+            <p> NOMBRE DE LA MAQUINA: {{ item.nombreMaquina }} COSTO POR HORA DE LA MAQUINA: {{ item.costoPorHora }} HORAS CONTEMPLADAS: {{ item.horasAUsar }} </p>
+        </div>
+
+    </div>
+
+    <div class="col-md-6">
+        <table class="table">
+
+            <thead class="thead-dark">
+                <tr>
+                    <!-- <th scope="col"> ID </th> -->
+                    <th scope="col">Nombre </th>
+                    <th scope="col">Edad</th>
+                    <th scope="col">Sexo</th>
+                    <th scope="col"> Añadir </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let item of pacientes">
+                    <!-- <td>
+                        {{ item._id }}
+                    </td> -->
+                    <td>
+                        {{ item.nombrePaciente }} {{ item.apellidoPaterno}} {{ item.apellidoMaterno }}
+                    </td>
+                    <td>
+                        {{ item.edad }}
+                    </td>
+                    <td>
+                        {{item.sexo}}
+                    </td>
+                    <td>
+                        <button class="btn btn-success" (click)="agregarPaquete( item._id  )">
+                            Añadir
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <h2> MEDICAMENTOS Y MATERIALES </h2>
+        <div class="especialistas" *ngFor="let item of paquete.medicamentos">
+            <p> NOMBRE DE LA MAQUINA: {{ item.nombreMedicamentos }} COSTO POR HORA DE LA MAQUINA: {{ item.cantidadMedicamento }} HORAS CONTEMPLADAS: {{ item.costoMedicamento }} </p>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <h3>
+        HORAS DE RECUPERACIÓN: {{ paquete.horaRecuperacion }} COSTO POR HORA: {{ paquete.costoHorasRecuperacion }}
+    </h3>
+</div>
+
+
+<pre>
+    {{ paquete | json }}
+</pre>
