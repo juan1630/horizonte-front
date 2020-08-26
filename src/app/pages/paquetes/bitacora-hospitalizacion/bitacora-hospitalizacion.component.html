@@ -1,0 +1,114 @@
+<div class="table-responsive">
+    <table class="table"  id="hoja"  >
+        <thead  class="thead-dark"  >
+            <th> N </th>
+            <th>
+                Fecha de ingreso
+            </th>
+            <th>
+                Hora de ingreso
+            </th>
+            <th>
+                Nombre del paciente
+            </th>
+            <th>
+                Edad
+            </th>
+            <th>
+                Sexo
+            </th>
+            <th>
+                CURP
+            </th>
+            <th>
+                Diagnostico de ingreso
+            </th>
+            <th>
+                Enfermera que ingresa
+            </th>
+          <th>
+            Procendencia  
+          </th>
+      
+          <th>
+              Fecha y hora de egreso
+          </th>
+      
+          <th>
+              Diagnostico de egreso
+      
+          </th>
+          <th>
+              Medico que egresa
+          </th>
+      
+          <th>
+              Enfermera que egresa
+          </th>
+      
+          <th>
+              Firma del familiar responsable
+          </th>
+        </thead>
+        <tbody>
+            <tr   *ngFor="let item of pacientesHospitalizados; let i = index"  >
+      
+
+                <td>
+                            {{ i+1 }}
+                </td>
+
+              <td>
+                {{  item.fechaIngreso  }}
+              
+            </td>
+            
+
+
+            <td>
+                {{ item.horaIngreso   }}
+            </td>
+            
+            <td   [routerLink]="['/hoja/consumo/', item.idPaciente._id]"      >
+                {{ item.nombre }}  {{ item.apellidoPaterno }} {{ item.apellidoMaterno }}
+            </td>
+
+
+            <td>
+                {{ item.edad }}
+            </td>
+            <td>
+                 {{item.genero }}
+            </td>
+
+            <td>
+                {{ item.curp }}
+            </td>
+
+
+            <td>
+                {{ item.diagnosticoInicial }}
+            </td>
+
+
+            <td>
+                {{ item.enfermeraAtendio }}
+            </td>
+
+            <td>
+                {{ item.tipoConsulta }}
+            </td>
+            </tr>
+        </tbody>
+      </table>
+
+</div>
+
+<div class="row">
+    <div class="col-md-4 offset-md-4 mt-5">
+        <button class="btn btn-info btn-block"   (click)=" imprimir() "    > 
+            <i class="fas fa-file-pdf"></i>
+            Imprimir    
+        </button>
+    </div>
+</div>

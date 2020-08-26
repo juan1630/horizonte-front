@@ -85,6 +85,8 @@ import { EncuestaComponent } from './indicadores/jefaturaEnfermeria/encuesta/enc
 import { MaqYMedicamentosPaqueteComponent } from './servivicosInt/quirofano/maq-ymedicamentos-paquete/maq-ymedicamentos-paquete.component';
 import { DashIndicadoresComponent } from '../pages/indicadores/dash-indicadores/dash-indicadores.component'
 import { PaqueteQuirofanoComponent } from './paquetes/paquete-quirofano/paquete-quirofano.component';
+import { BitacoraHospitalizacionComponent } from './paquetes/bitacora-hospitalizacion/bitacora-hospitalizacion.component';
+import { HojaDiariaConsumoComponent } from './hoja-diaria-hospitalizacion/hoja-diaria-consumo/hoja-diaria-consumo.component';
 
 
 
@@ -147,7 +149,9 @@ const pagesRoutes : Routes = [
       { path: 'medicina/general', component: ConsultaMedGralComponent},
       { path: 'endoscopia', component: EndoscopiaComponent},
       { path: 'entrega-resultados', component: ResultadosComponent},
+      // INICA EL PROCESO DE LA HOSPITALIZACION
       { path: 'hospitalizacion', component: HospitalizacionComponent},
+      { path: 'hoja/consumo/:id', component: HojaDiariaConsumoComponent  },
       { path: 'laboratorio', component: LaboratorioComponent},
       { path: 'quirofano', component: QuirofanoComponent},
       { path: 'xray', component: XraySIComponent},
@@ -191,6 +195,7 @@ const pagesRoutes : Routes = [
       { path: 'consulta-general/:id', component: ConsultaGeneralComponent},
       { path: 'ficha-enfermeria-01/:id', component: FE09Component},
       { path: 'paquete/quirofano/:id', component: PaqueteQuirofanoComponent },
+      {  path: 'bitacora/hospitalizacion', component: BitacoraHospitalizacionComponent },
      
       // TERMINA EL AREA DE CONSULTA GENERAL
       // ESTAS RUTAS SON PARA EL CRUD DE FARMACIA

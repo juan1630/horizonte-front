@@ -6,7 +6,7 @@ import { Endoscopia } from 'src/app/models/Endoscopia/enodscopia';
 import { Estudios } from 'src/app/intefaces/estudiosLaboratorio';
 import { gaurdarCotizacion, getDataCarrito , getDataStorage } from '../../../functions/storage/storage.funcion'
  
-import swal from 'sweetalert';
+import swal from 'sweetAlert';
 import { EnvioEmailService } from 'src/app/services/cotizacion/envio-email.service';
 
 

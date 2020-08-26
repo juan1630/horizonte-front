@@ -1,0 +1,96 @@
+<div class="row">
+    <div class="col-md-12">
+        <h2  class="center">   Hoja diaría de consumo   </h2>
+    </div>
+
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+            <div class="row">
+                <div class="col-md-3">
+                    Nombre paciente: {{ paciente.nombrePaciente }} {{ paciente.apellidoPaterno }} {{  paciente.apellidoMaterno }}
+                    ID: {{  paciente._id }}
+                </div>
+                 <div class="col-md-3">
+                    Sexo : 
+                </div>
+                <div class="col-md-3">
+                    Edad: {{ paciente.edad }}
+                </div>
+                <div class="col-md-3">
+                    CURP: {{ paciente.curp }}
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-6 card">
+        <h3 class="center">  PAQUETE:   {{ paciente.paquetesQuirofano[0].nombrePaquete  }}   </h3>
+                <h4 class="center" > 
+                    Contenido
+            </h4>
+
+            <div  *ngFor="let item of paciente.paquetesQuirofano[0].participantes"  >
+            
+                <h5> 
+                    Participante:  {{ item.especialista  }}
+                    
+                    Monto : {{  item.montoEspecialista }}
+                    
+                </h5>
+                
+            </div>
+
+        <h5 *ngFor="let item of paciente.paquetesQuirofano[0].maquinas"   >  Maquina: {{ item.nombreMaquina  }} Horas {{ item.horasAUsar  }}  Costo de la maquina por hora {{  item.costoPorHora }}    </h5>
+        <h5 *ngFor="let item of paciente.paquetesQuirofano[0].medicamentos"> 
+            Medicamentos o materiales: {{  item.nombreMedicamentos  }}
+                Cantidad: {{ item.cantidadMedicamento }} 
+                Costo medicamento: {{ item.costoMedicamento  }}
+       </h5>         
+</div>
+
+<div class="col-md-6 card">
+    <h3  class="center">
+        Excedentes: 
+    </h3>
+
+    <form   [formGroup]="excedentesForm">
+
+        <div  formArrayName="excedentes" >
+
+            <div *ngFor="let item of  excedentes.controls; let i = index" >
+                <div [formGroupName]="i">
+                
+                    <div class="row mb-2">
+                        <div class="col-md-4">
+                            <input type="text" placeholder="Nombre" class="form-control" formControlName="nombre">
+
+                        </div>
+                        <div class="col-md-4">
+                            <input type="number" placeholder="monto" class="form-control totalEspecialista" formControlName="cantidad">
+
+                        </div>
+                        <div class="col-md-4">
+
+                            <input type="type" class="form-control" name="horareunion"  placeholder="Hora de aplicacion"  formControlName="horaAplicacion"  > 
+                        </div>
+
+                
+                      
+
+                     </div>
+                </div>
+            </div>
+            <button class="btn btn-info btn-block"   (click)="agregarExcedentes()"  > Agregar </button>
+        </div>
+    </form>
+</div>
+
+
+<div class="col-md-6">
+    <!-- <pre>
+        {{ excedentesForm.value | json }}
+    </pre> -->
+</div>

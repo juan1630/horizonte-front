@@ -95,7 +95,9 @@ import { DashIndicadoresComponent } from './indicadores/dash-indicadores/dash-in
 import { CrearPaquetesDirective } from './crear-paquetes.directive';
 import { AgregarMedicmentoDirective } from './agregar-medicmento.directive';
 import { HojaDiariaHospitalizacionComponent } from './hoja-diaria-hospitalizacion/hoja-diaria-hospitalizacion.component';
-import { PaqueteQuirofanoComponent } from './paquetes/paquete-quirofano/paquete-quirofano.component'
+import { PaqueteQuirofanoComponent } from './paquetes/paquete-quirofano/paquete-quirofano.component';
+import { BitacoraHospitalizacionComponent } from './paquetes/bitacora-hospitalizacion/bitacora-hospitalizacion.component';
+import { HojaDiariaConsumoComponent } from './hoja-diaria-hospitalizacion/hoja-diaria-consumo/hoja-diaria-consumo.component'
 import { PacientesPipe } from '../pipes/pacientes.pipe';
 
 
@@ -180,7 +182,9 @@ import { PacientesPipe } from '../pipes/pacientes.pipe';
     AgregarMedicmentoDirective,
     HojaDiariaHospitalizacionComponent,
     PaqueteQuirofanoComponent,
-    DashIndicadoresComponent
+    DashIndicadoresComponent,
+    BitacoraHospitalizacionComponent,
+    HojaDiariaConsumoComponent
 
   ],
 
