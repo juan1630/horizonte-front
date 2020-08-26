@@ -27,6 +27,7 @@ import { ContratoVidaPlenaComponent } from './contratos/contratoVidaPlena/contra
 import { ContratoNeonatalComponent } from './contratos/neonatal/contrato-neonatal/contrato-neonatal.component';
 import { AltoRiesgoComponent } from './contratos/alto-riesgo/alto-riesgo.component';
 import { ChartsModule } from 'ng2-charts';
+//import { PacientesPipe } from './pipes/pacientes.pipe'
 // import { AngularEditorModule } from '@javascriptsoldier/angular-editor';
 
 
@@ -47,6 +48,7 @@ import { ChartsModule } from 'ng2-charts';
     ContratoVidaPlenaComponent,
     ContratoNeonatalComponent,
     AltoRiesgoComponent,
+    //PacientesPipe
   ],
   imports: [
     BrowserModule,
@@ -70,5 +72,6 @@ import { ChartsModule } from 'ng2-charts';
  
   providers: [],
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }

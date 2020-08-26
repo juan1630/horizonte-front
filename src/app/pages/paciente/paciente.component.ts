@@ -3,21 +3,25 @@ import { ModalServiceService } from 'src/app/components/modal/modal-service.serv
 import { ModalServicioIntService } from 'src/app/components/modal/modal-servicios-int/modal-servicio-int.service';
 import { PacienteService } from 'src/app/services/paciente/paciente.service';
 import { NgForm } from '@angular/forms';
+//import { PacientesPipe } from 'src/app/pipes/pacientes.pipe';
+
 
 @Component({
   selector: 'app-paciente',
   templateUrl: './paciente.component.html',
   styleUrls: ['./paciente.component.scss']
 })
+
 export class PacienteComponent implements OnInit {
 
 
-  public pacientes:any = [];
+  public pacientes2:any = [];
   public pagina : number = 0;
-
+  filtropacientes = '';
   constructor( public modalService: ModalServiceService,
               public _pacienteService: PacienteService,
               public _modalservicioInt: ModalServicioIntService,
+              //public Pacicentespipe: PacientesPipe
               ) { }
 
   ngOnInit() {
@@ -25,7 +29,7 @@ export class PacienteComponent implements OnInit {
     this._pacienteService.getPacientes( this.pagina )
     .subscribe( (data: any) => {
       console.log( data );
-       this.pacientes = data.users;
+       this.pacientes2 = data.users;
 
        
     })
@@ -40,7 +44,7 @@ export class PacienteComponent implements OnInit {
     this._pacienteService.getPacientes( this.pagina)
     .subscribe( (data: any) => {
       console.log( data.users );
-      this.pacientes = data.users;
+      this.pacientes2 = data.users;
     } )
   }
 
@@ -49,7 +53,7 @@ export class PacienteComponent implements OnInit {
     this._pacienteService.getPacientes( this.pagina)
     .subscribe( (data: any) => {
       // console.log( data.users );
-      this.pacientes = data.users;
+      this.pacientes2= data.users;
     } )
   }
     
@@ -63,7 +67,7 @@ export class PacienteComponent implements OnInit {
     this._pacienteService.getPacientePorNombre( nombre )
     .subscribe( (data: any) => {
       // console.log(data.pacientes)
-      this.pacientes = data.pacientes;
+      this.pacientes2 = data.pacientes;
     } )
   
   }

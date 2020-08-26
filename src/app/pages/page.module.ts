@@ -96,6 +96,7 @@ import { CrearPaquetesDirective } from './crear-paquetes.directive';
 import { AgregarMedicmentoDirective } from './agregar-medicmento.directive';
 import { HojaDiariaHospitalizacionComponent } from './hoja-diaria-hospitalizacion/hoja-diaria-hospitalizacion.component';
 import { PaqueteQuirofanoComponent } from './paquetes/paquete-quirofano/paquete-quirofano.component'
+import { PacientesPipe } from '../pipes/pacientes.pipe';
 
 
 @NgModule({
@@ -167,7 +168,7 @@ import { PaqueteQuirofanoComponent } from './paquetes/paquete-quirofano/paquete-
     QuirofanoFormComponent,
     CrearPaquetesComponent,
     JefaturaEnfermeriaComponent,
-
+    PacientesPipe,
     HEvolucionCGComponent,
     HEvolucionCEComponent,
     HIngresoHospitalComponent,
@@ -197,7 +198,7 @@ import { PaqueteQuirofanoComponent } from './paquetes/paquete-quirofano/paquete-
     PAGES_ROUTES,
     ReactiveFormsModule,
     NgxExtendedPdfViewerModule,
-    PdfViewerModule
+    PdfViewerModule,
 
   ]
   
@@ -205,4 +206,4 @@ import { PaqueteQuirofanoComponent } from './paquetes/paquete-quirofano/paquete-
 })
 
 
-export class PageModule { }
+export class PageModule {  }
