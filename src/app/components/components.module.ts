@@ -50,6 +50,7 @@ import { AgregarMedciametosComponent } from './agregarPaquete/agregar-medciameto
     TarjetaCotizacionComponent,
     CalendarComponent,
     ChatComponent,
+    SearchBarComponent,
     GraficaComponent,
     AgregarMaquinasComponent,
     AgregarMedciametosComponent

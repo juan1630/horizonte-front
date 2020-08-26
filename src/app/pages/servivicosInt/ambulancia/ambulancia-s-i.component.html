@@ -1,43 +1,25 @@
 <h1 class="centerxd">LISTADO DE TRASLADO</h1>
 
 <div class="row">
-
-    <div class="col-md-8">
-        <div class="form-group">
-
-            <input type="text" name="filterPost" placeholder="Buscar" class="form-control" style="margin-left: 25px; max-width:40em" (keyup)="busquedaGeneral( )" [(ngModel)]="termino">
-            <!-- <button class="btn btn-primary" type="submit">
-            Buscar
-        </button> -->
-        </div>
-    </div>
-
-    <div class="col-md-2">
-        <button type=" button " class="btn btn-primary separar boton_contra1" [routerLink]="['/hoja-fram']" routerLinkActive="router-link-active">COTIZAR</button>
-    </div>
-    <div class="col-md-2">
-        <button type="button" class="btn btn-secondary boton_contra2" [routerLink]="['/ambulancia-nuevo']" routerLinkActive="router-link-active">NUEVO</button>
-    </div>
+    <div class="container-fluid">
     <div class="row">
-
-        <div class="col-md-8">
+        <div class="col-md-8 col-sm-6">
             <div class="form-group">
-                <input type="text" name="filterPost" placeholder="Buscar" class="form-control" style="margin-left: 25px; max-width:40em">
+
+                <input type="text" name="filterPost" placeholder="Buscar" class="form-control" id="buscador" (keyup)="busquedaGeneral( )" [(ngModel)]="termino">
                 <!-- <button class="btn btn-primary" type="submit">
-            Buscar
-        </button> -->
+                Buscar
+            </button> -->
             </div>
         </div>
-
-        <div class="col-md-2">
-            <button type=" button " class="btn btn-primary separar boton_contra1" [routerLink]="['/hoja-fram']" routerLinkActive="router-link-active">COTIZAR</button>
+        <div class="col-auto">
+            <button type=" button " class="btn btn-primary separar" id="boton_contra1" [routerLink]="['/hoja-fram']" routerLinkActive="router-link-active">COTIZAR</button>
         </div>
-        <div class="col-md-2">
-            <button type="button" class="btn btn-secondary boton_contra2" [routerLink]="['/ambulancia-nuevo']" routerLinkActive="router-link-active">NUEVO</button>
+        <div class="col-auto">
+            <button type="button" class="btn btn-secondary" id="boton_contra2" [routerLink]="['/ambulancia-nuevo']" routerLinkActive="router-link-active">NUEVO</button>
         </div>
     </div>
-
-
+</div>
     <div class="row">
 
         <div class="col-md-9" *ngIf="showTableAmbulanacia">
@@ -664,6 +646,9 @@
                 </button>
                 </div>
             </div>
+
+
+
             <div class="col-md-9">
                 <div class="card" style="border-radius: 30px; margin-left: 25px;">
                     <div class="card-heder header">

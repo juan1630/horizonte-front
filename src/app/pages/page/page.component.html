@@ -1,15 +1,24 @@
 <div id="wrapper" class="wrapper">
-    <!-- Content Wrapper -->
+    <!-- Content Wrapper 
 
     <app-side-bar (notificarViaChat)="estadoChat($event )" [nombreUsuario]="usuario.nombre" class="orden"></app-side-bar>
-
+-->
     <div id="content-wrapper" class="d-flex flex-column">
 
         <app-nav-bar [nombreUsuario]="usuario.nombre"></app-nav-bar>
-        <router-outlet></router-outlet>
+        <section class="container">
+            <router-outlet></router-outlet>
+        </section>
+        <!--app-search-bar></app-search-bar-->
         <!-- En esta seccio ira el dashboars y sus compoentes  -->
 
         <!-- Inicia la seccion del chat -->
         <app-chat (cerrarChat)="cerrarVentanaChat($event)" class="ver-chat contact"></app-chat>
+        <footer class="fbg-dark text-dark" style="background-color: white; margin-top: -2em !important;">
+            <h6 style="text-align: center;">Powered by Emiexsec.com</h6>
+            <!-- Copyright -->
+            <!-- Copyright -->
+          
+          </footer> 
     </div>
 </div>

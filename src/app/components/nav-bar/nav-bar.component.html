@@ -1,6 +1,10 @@
 
 
     <!-- Content Wrapper -->
+
+
+
+    
     <div id="content-wrapper" class="d-flex flex-column">
 
         <!-- Main Content -->
@@ -8,16 +12,18 @@
 
           <!-- Topbar -->
           <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow mr-auto">
-
-            <!-- Sidebar Toggle (Topbar) -->
+              <a class="nav-link" [routerLink]="['/']">
+                  <img src="../../../assets/images/dibujo-1.svg" width="150" height="150">
+                  <!--span> Ir al Inicio </span-->
+              </a>
+            <!-- Sidebar Toggle (Topbar) 
             <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
               <i class="fa fa-bars"></i>
-            </button>
+            </button-->
 
 
             <!-- Topbar Navbar -->
             <ul class=" ml-auto">
-
               <!-- Nav Item - Search Dropdown (Visible Only XS) -->
               <!-- <li class="nav-item dropdown no-arrow d-sm-none">
                 <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -88,7 +94,7 @@
 
                 <a  (click)="cerrarSesion()" >
                   <!-- <i class="fas fa-sign-out-alt fa-sm fa-fw"></i> -->
-                  <span class="mr-2 d-none d-lg-inline text-gray-600 medium"> CERRAR SESIÓN </span>
+                  <span class="mr-2 d-none d-lg-inline text-gray-600 medium">CERRAR SESIÓN </span>
                 </a>
 
                 <!-- Dropdown - Messages -->
