@@ -101,4 +101,18 @@ export class MaquinasService {
     return this._http.get( url );
   }
 
+  agregarExcedentes( id, body  ) {
+    let url = 'http://localhost:3200/agregar/excedentes/' + id; 
+
+    let info = { excedentes : body  } 
+
+    return this._http.put( url, info  ); 
+  }
+
+  verPacienteHospitalizadoById(id) {
+    let url = "http://localhost:3200/paciente/hospitalizado/"+ id;
+
+    return this._http.get(  url  );
+  }
+
 }
