@@ -16,6 +16,7 @@ export class PacienteComponent implements OnInit {
 
 
   public pacientes2:any = [];
+  public totalpaciente: string;
   public pagina : number = 0;
   filtropacientes = '';
   constructor( public modalService: ModalServiceService,
@@ -30,6 +31,7 @@ export class PacienteComponent implements OnInit {
     .subscribe( (data: any) => {
       console.log( data );
        this.pacientes2 = data.users;
+       this.totalpaciente = data.users.results;
 
        
     })
