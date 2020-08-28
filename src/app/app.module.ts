@@ -12,6 +12,7 @@ import { PageModule } from './pages/page.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ServicesModule } from './services/services.module';
 import {  NgxExtendedPdfViewerModule  } from 'ngx-extended-pdf-viewer';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 // // SOCKET 
 
@@ -63,6 +64,7 @@ import { ChartsModule } from 'ng2-charts';
     PdfViewerModule,
     ChartsModule,
     NgxExtendedPdfViewerModule,
+    NgxPaginationModule, 
     // AngularEditorModule,
     APP_ROUTES
     ],

@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule  } from '@angular/router';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
-import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer'
-
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 // modules
 
@@ -99,6 +99,7 @@ import { PaqueteQuirofanoComponent } from './paquetes/paquete-quirofano/paquete-
 import { BitacoraHospitalizacionComponent } from './paquetes/bitacora-hospitalizacion/bitacora-hospitalizacion.component';
 import { HojaDiariaConsumoComponent } from './hoja-diaria-hospitalizacion/hoja-diaria-consumo/hoja-diaria-consumo.component'
 import { PacientesPipe } from '../pipes/pacientes.pipe';
+import { from } from 'rxjs';
 
 
 @NgModule({
@@ -203,6 +204,7 @@ import { PacientesPipe } from '../pipes/pacientes.pipe';
     ReactiveFormsModule,
     NgxExtendedPdfViewerModule,
     PdfViewerModule,
+    NgxPaginationModule,
 
   ]
   
