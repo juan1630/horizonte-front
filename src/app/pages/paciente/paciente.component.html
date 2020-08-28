@@ -14,7 +14,7 @@
 
     <br>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 col-lg-12">
             <div class="card" style="border-radius: 30px; margin-left: 25px;">
                 <div class="card-heder header">
                     <div class="row">
@@ -39,7 +39,7 @@
                 <div class="card-body">
                     <div *ngFor="let paciente of pacientes2 | pacientes:filtropacientes | paginate:{id:'listapacientes',
                     itemsPerPage: 10,
-                    currentPage:pagina,
+                    currentPage:0,
                     totalItems:totalpaciente}">
                         <div class="row">
                             <div class="col-md-4" style="text-align: center;">
@@ -58,6 +58,7 @@
                                                             
                             </div>
                         </div>
+                        
                     </div>
                 </div>
                 <div class="">
