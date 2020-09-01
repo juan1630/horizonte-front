@@ -25,9 +25,10 @@
     //box-shadow: 7px 7px 10px 3px rgba(0,22,114,0.9);
     box-shadow: 19px 18px 20px -8px rgba(196,192,196,1);
     //height: 17em;
+   
+    width: 80% !important;
     margin-bottom: 3em;
     //display: inline-block !important;
-    width: 80% !important;
   }
   #img2{
     max-width: 80% !important;
@@ -93,10 +94,10 @@
       border-radius: 2em;
       //box-shadow: 7px 7px 10px 3px rgba(0,22,114,0.9);
       box-shadow: 19px 18px 20px -8px rgba(196,192,196,1);
+      width: 80% !important;
       //height: 17em;
       margin-bottom: 3em;
       //display: inline-block !important;
-      width: 100% !important;
     }
   }
   @media (min-width: 992px) and (max-width:1199px){

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { WsLoginService } from 'src/app/services/sockets/login/ws-login.service';
 // import { LaboratorioService } from 'src/app/services/sockets/laboratorio/laboratorio.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-page',
@@ -40,7 +41,11 @@ export class PageComponent implements OnInit {
       // console.log( event.user.usuario  );
       this.chatModal = true;
   }
-
+  abrirVentanaChat(event){
+    console.log(event);
+    this.chatModal = true;
+    
+  }
 
   cerrarVentanaChat(event){
 

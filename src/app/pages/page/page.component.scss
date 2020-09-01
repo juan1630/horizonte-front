@@ -1,10 +1,30 @@
 app-nav-bar {
     width: 125%;
 }
+.btn-circle.btn-xl {
+    width: 80px;
+    height: 80px;
+    padding: 10px 16px;
+    border-radius: 50px;
+    font-size: 24px;
+    line-height: 1.33;
+    background-color: white;
+    box-shadow: 3px 3px 10px gray;
+    float: right;
+}
 
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+}
 .ver-chat {
-    display: none;
-    // position: fixed;
+    display: block;
+    position: fixed;
 }
 
 .ocultar-chat {

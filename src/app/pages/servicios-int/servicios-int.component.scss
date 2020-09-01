@@ -2,12 +2,15 @@
     cursor: pointer;
 }
 #card{
-    margin: 1em;
     border-radius: 3em;
     border-radius: 2em;
-    box-shadow: 7px 7px 44px -8px rgba(0, 22, 114, 0.9);
-    width: 16em;
-    height: 19em;
+    box-shadow: 10px 10px 20px -8px rgba(196,192,196,1);
+    width: 80% !important;
+}
+#img2{
+  max-width: 80% !important;
+  display: block;
+  margin: auto;
 }
 #h2{
 color: #001672;
@@ -19,4 +22,9 @@ font-weight: 800;
 }
 a {
   color: white !important ;
+}
+.card-columns {
+  -webkit-column-count: 4;
+  -moz-column-count: 4;
+  column-count: 4;
 }

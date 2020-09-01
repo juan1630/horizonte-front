@@ -11,6 +11,11 @@
         </section>
        
         <!-- En esta seccio ira el dashboars y sus compoentes  -->
+        <div class="container-fluid" style="position: fixed; margin-top:40rem;">
+            <button type="button" class="btn btn-circle btn-xl" (click)="abrirVentanaChat($event)" [style.display]="block">
+                <img src="../../../assets/icons/comment.svg" width="50" height="50" (click)="abrirVentanaChat($event)">
+                </button>
+        </div>
 
         <!-- Inicia la seccion del chat -->
         <app-chat (cerrarChat)="cerrarVentanaChat($event)" class="ver-chat contact"></app-chat>
