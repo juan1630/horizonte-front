@@ -1,27 +1,10 @@
-<form class="card chat">
+<form class="chat">
 
     <div class="container-membres">
         <a class="badge badge-secondary" *ngFor="let item of usuarioConectados" (click)="verUsaurio(  item.role )">  {{ item.role }} </a>
 
     </div>
 
-
-    <div class="chat-header" (click)="cerrarVentanachat()">
-
-
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-
-        <div class="conversacion">
-            <!-- <p class="text-warning">
-                {{ roleNotificacion }}
-
-            </p> -->
-        </div>
-
-
-    </div>
 
     <div class="chat-body">
 
