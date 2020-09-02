@@ -51,6 +51,13 @@
   //      Responsive design 
 
   @media(max-width:575px){
+    #card{
+      border-color: white;
+      border-radius: 2em;
+      box-shadow: 19px 18px 20px -8px rgba(196,192,196,1);
+      width: 80% !important;
+      margin-bottom: 1em;
+    }
   .card-columns {
       -webkit-column-count: 2;
       -moz-column-count: 2;
@@ -78,8 +85,16 @@
     margin-top: 1em;
     font-size: 20px;
   }
+  #card{
+    border-color: white;
+    border-radius: 2em;
+    box-shadow: 19px 18px 20px -8px rgba(196,192,196,1);
+    width: 70% !important;
+    margin-bottom: 1em;
+  }
   }
   @media (min-width: 768px) and (max-width:991px){
+
     #h2{
       color:#001672;
       text-align: center;
@@ -87,14 +102,18 @@
       margin-top: 1em;
       font-size: 20px;
     }
-    
+    #img2{
+      max-width: 90% !important;
+      display: block;
+      margin: auto;
+    }
     #card{
       //margin-left: 9em;
       border-color: white;
       border-radius: 2em;
       //box-shadow: 7px 7px 10px 3px rgba(0,22,114,0.9);
       box-shadow: 19px 18px 20px -8px rgba(196,192,196,1);
-      width: 80% !important;
+      width: 85% !important;
       //height: 17em;
       margin-bottom: 3em;
       //display: inline-block !important;
@@ -116,6 +135,22 @@
       display: block;
       margin-top: 40%;
     }
+    #card{
+      //margin-left: 9em;
+      border-color: white;
+      border-radius: 2em;
+      //box-shadow: 7px 7px 10px 3px rgba(0,22,114,0.9);
+      box-shadow: 19px 18px 20px -8px rgba(196,192,196,1);
+      //height: 17em;
+      width: 70% !important;
+      margin-bottom: 1em;
+      //display: inline-block !important;
+    }
+    #img2{
+      max-width: 90% !important;
+      display: block;
+      margin: auto;
+    }
   }
   @media (min-width: 1200px){
     #img-fluid{
@@ -132,5 +167,17 @@
     #logo{
       display: block;
       margin-top: 20%;
+    }
+    #card{
+      border-color: white;
+      border-radius: 2em;
+      box-shadow: 19px 18px 20px -8px rgba(196,192,196,1);
+      width: 60% !important;
+      margin-bottom: 1em;
+    }
+    #img2{
+      max-width: 75% !important;
+      display: block;
+      margin: auto;
     }
   }

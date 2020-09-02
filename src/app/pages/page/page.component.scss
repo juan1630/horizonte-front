@@ -46,21 +46,21 @@ app-nav-bar {
 @media(max-width:575px){
     #boton_chat{
         position: fixed; 
-        margin-top:-8em; 
+        margin-top:-7em; 
         margin-left: -1em;
     }
 }
 @media (min-width: 576px) and (max-width:767px){
     #boton_chat{
         position: fixed; 
-        margin-top:-12em; 
-        margin-left: -1em;
+        margin-top:-16em; 
+        margin-left: -2em;
     }
 }
 @media (min-width: 768px) and (max-width:991px){
     #boton_chat{
         position: fixed; 
-        margin-top:-9em; 
+        margin-top:-8em; 
         margin-left: -1em;
     }
 }
@@ -74,7 +74,7 @@ app-nav-bar {
 @media (min-width: 1200px){
     #boton_chat{
         position: fixed; 
-        margin-top:-8.5em; 
-        margin-left: -2em;
+        margin-top:-6em; 
+        margin-left: -4em;
     }
 } 
