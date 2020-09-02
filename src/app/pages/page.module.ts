@@ -100,6 +100,7 @@ import { BitacoraHospitalizacionComponent } from './paquetes/bitacora-hospitaliz
 import { HojaDiariaConsumoComponent } from './hoja-diaria-hospitalizacion/hoja-diaria-consumo/hoja-diaria-consumo.component'
 import { PacientesPipe } from '../pipes/pacientes.pipe';
 import { from } from 'rxjs';
+import { NuevaResonanciaComponent } from './servivicosInt/resonancia/nueva-resonancia/nueva-resonancia.component';
 
 
 @NgModule({
@@ -185,7 +186,8 @@ import { from } from 'rxjs';
     PaqueteQuirofanoComponent,
     DashIndicadoresComponent,
     BitacoraHospitalizacionComponent,
-    HojaDiariaConsumoComponent
+    HojaDiariaConsumoComponent,
+    NuevaResonanciaComponent
 
   ],
 

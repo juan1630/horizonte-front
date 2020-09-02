@@ -1,1 +1,105 @@
-<p>resonancia works!</p>
+<div class="row">
+    <div class="col-md-6">
+        <input type="text" placeholder="Buscar" name="buscar" class="form-control">
+    </div>
+    <div class="col-md-6">
+        <button id="boton_contra1" class="btn"> Cotizar </button>
+        <button id="boton_contra2" class="btn" [routerLink]="['/nueva/resonancia']">Nuevo</button>
+    </div>
+
+
+    <div class="card">
+
+
+
+        <div class="col-md-12">
+            <div class="card-heder header">
+                <div class="row">
+                    <div class="col-md-2 text_header">
+                        <p>ESTUDIOS</p>
+                    </div>
+                    <div class="col-md-2 text_header">
+                        <p> INDICACIONES </p>
+                    </div>
+                    <div class="col-md-2 text_header">
+                        <p> PRECIO PUBLICO </p>
+                    </div>
+                    <div class="col-md-2 text_header">
+                        <p> PRECIO HOSPITALIZACION </p>
+                    </div>
+                    <div class="col-md-2 text_header">
+                        <p> PRECIO HOSPITALIZACION URGENCIA </p>
+                    </div>
+                    <div class="col-md-2 text_header">
+                        PRECIO URGENCIA
+                    </div>
+                    <div class="col-md-2 text_header">
+                        <!-- PRECIO URGENCIA -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card-body">
+
+
+            <div *ngFor="let item of resonacias">
+
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label style="margin-right: 50px; margin-top: 18px;">
+                            {{ item.ESTUDIO }}
+                          </label>
+                    </div>
+                    <div class="col-md-2">
+                        <label style="margin-right: 50px; margin-top: 18px;">
+                            {{ item.INDICACIONES }}
+                          </label>
+                    </div>
+                    <div class="col-md-2">
+                        <label style="margin-right: 50px; margin-top: 18px;">
+                            {{ item.PRECIO_PUBLICO }}
+                          </label>
+                    </div>
+                    <div class="col-md-2">
+                        <label style="margin-right: 50px; margin-top: 18px;">
+                            {{ item.PRECIO_PUBLICO_HOSPITALIZACION }}
+                          </label>
+                    </div>
+                    <div class="col-md-2">
+                        <label style="margin-right: 50px; margin-top: 18px;">
+                            {{ item.PRECIO_PUBLICO_HOSPITALIZACIO_URGENCIA }}
+                          </label>
+                    </div>
+
+                    <div class="col-md-2">
+                        <label style="margin-right: 50px; margin-top: 18px;">
+                            {{ item.PRECIO_PUBLICO_URGENCIA }}
+                          </label>
+                    </div>
+                    <!-- [routerLink]="['/ambulancia-editar', ambulanciaSiService._id]" -->
+
+                    <div class="col-md-2">
+                        <label class="btn btn-outline-success" style="margin: 10px;" (click)="editarAmbulancia()">
+                                <i class="fas fa-edit"></i>
+                        </label>
+                        <label class="btn btn-outline-danger" style="margin: 10px;" (click)="delete(item._id)">
+                                <i class="fas fa-trash-alt"></i>
+                        </label>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- <pre>
+    {{ resonacias | json }}
+</pre> -->

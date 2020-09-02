@@ -87,6 +87,7 @@ import { DashIndicadoresComponent } from '../pages/indicadores/dash-indicadores/
 import { PaqueteQuirofanoComponent } from './paquetes/paquete-quirofano/paquete-quirofano.component';
 import { BitacoraHospitalizacionComponent } from './paquetes/bitacora-hospitalizacion/bitacora-hospitalizacion.component';
 import { HojaDiariaConsumoComponent } from './hoja-diaria-hospitalizacion/hoja-diaria-consumo/hoja-diaria-consumo.component';
+import { NuevaResonanciaComponent } from './servivicosInt/resonancia/nueva-resonancia/nueva-resonancia.component';
 
 
 
@@ -149,6 +150,7 @@ const pagesRoutes : Routes = [
       { path: 'medicina/general', component: ConsultaMedGralComponent},
       { path: 'endoscopia', component: EndoscopiaComponent},
       { path: 'entrega-resultados', component: ResultadosComponent},
+
       // INICA EL PROCESO DE LA HOSPITALIZACION
       { path: 'hospitalizacion', component: HospitalizacionComponent},
       { path: 'hoja/consumo/:id', component: HojaDiariaConsumoComponent  },
@@ -185,7 +187,7 @@ const pagesRoutes : Routes = [
       { path: 'patologia', component: PatologiaComponent },
       { path: 'patologia/edit/:id', component: PatologiaEditComponent },
       { path: 'patologia/nueva', component: PatologiaNewComponent },
-      
+      { path: 'nueva/resonancia', component: NuevaResonanciaComponent  },
       // TERMINA EL AREA DE SERVICIOS INTREGADOS
 
 

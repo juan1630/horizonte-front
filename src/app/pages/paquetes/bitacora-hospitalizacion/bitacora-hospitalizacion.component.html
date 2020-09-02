@@ -1,10 +1,11 @@
 <div class="table-responsive">
-    <table class="table"  id="hoja"  >
-        <thead  class="thead-dark"  >
+    <table class="table" id="hoja">
+        <thead class="thead-dark">
             <th> N </th>
             <th>
                 Fecha de ingreso
             </th>
+
             <th>
                 Hora de ingreso
             </th>
@@ -26,87 +27,87 @@
             <th>
                 Enfermera que ingresa
             </th>
-          <th>
-            Procendencia  
-          </th>
-      
-          <th>
-              Fecha y hora de egreso
-          </th>
-      
-          <th>
-              Diagnostico de egreso
-      
-          </th>
-          <th>
-              Medico que egresa
-          </th>
-      
-          <th>
-              Enfermera que egresa
-          </th>
-      
-          <th>
-              Firma del familiar responsable
-          </th>
+            <th>
+                Procendencia
+            </th>
+
+            <th>
+                Fecha y hora de egreso
+            </th>
+
+            <th>
+                Diagnostico de egreso
+
+            </th>
+            <th>
+                Medico que egresa
+            </th>
+
+            <th>
+                Enfermera que egresa
+            </th>
+
+            <th>
+                Firma del familiar responsable
+            </th> -->
         </thead>
         <tbody>
-            <tr   *ngFor="let item of pacientesHospitalizados; let i = index"  >
-      
+            <tr *ngFor="let item of pacientesHospitalizados; let i = index">
+
 
                 <td>
-                            {{ i+1 }}
+                    {{ i+1 }}
                 </td>
 
-              <td>
-                {{  item.fechaIngreso  }}
-              
-            </td>
-            
+                <td>
+                    {{ item.fechaIngreso }}
+
+                </td>
 
 
-            <td>
-                {{ item.horaIngreso   }}
-            </td>
-            
-            <td   [routerLink]="['/hoja/consumo/', item._id]"      >
-                {{ item.nombre }}  {{ item.apellidoPaterno }} {{ item.apellidoMaterno }}
-            </td>
+
+                <td>
+                    {{ item.horaIngreso }}
+                </td>
+
+                <td [routerLink]="['/hoja/consumo/', item._id]">
+                    {{ item.nombre }} {{ item.apellidoPaterno }} {{ item.apellidoMaterno }}
+                </td>
 
 
-            <td>
-                {{ item.edad }}
-            </td>
-            <td>
-                 {{item.genero }}
-            </td>
+                <td>
+                    {{ item.edad }}
+                </td>
+                <td>
+                    {{item.genero }}
+                </td>
 
-            <td>
-                {{ item.curp }}
-            </td>
-
-
-            <td>
-                {{ item.diagnosticoInicial }}
-            </td>
+                <td>
+                    {{ item.curp }}
+                </td>
 
 
-            <td>
-                {{ item.enfermeraAtendio }}
-            </td>
+                <td>
+                    {{ item.diagnosticoInicial }}
+                </td>
 
-            <td>
-                {{ item.tipoConsulta }}
-            </td>
+
+                <td>
+                    {{ item.enfermeraAtendio }}
+                </td>
+
+                <td>
+                    {{ item.tipoConsulta }}
+                </td>
             </tr>
         </tbody>
-      </table>
+    </table>
 
 </div>
 
 <div class="row">
     <div class="col-md-4 offset-md-4 mt-5">
-        <button class="btn btn-info btn-block"   (click)=" imprimir() "    > 
+        <button class="btn btn-info btn-block" (click)=" imprimir() "> 
             <i class="fas fa-file-pdf"></i>
             Imprimir    
         </button>
