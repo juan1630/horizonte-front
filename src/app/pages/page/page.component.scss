@@ -1,6 +1,9 @@
 app-nav-bar {
     width: 125%;
 }
+.modal-backdrop {
+    background-color: rgba(0,0,0,.0001) !important;
+}
 .btn-circle.btn-xl {
     width: 80px;
     height: 80px;
@@ -24,7 +27,7 @@ app-nav-bar {
 }
 .ver-chat {
     display: block;
-    position: fixed;
+    position: absolute;
 }
 
 .ocultar-chat {
@@ -33,8 +36,8 @@ app-nav-bar {
 
 .contact {
     position: fixed;
-    margin-top: 23em;
-    padding-left: 30em;
+    margin-top: 10em;
+    padding-left: 0em;
     height: 4.5em;
     display: flex;
     flex-direction: column;

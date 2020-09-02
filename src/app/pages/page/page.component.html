@@ -12,17 +12,38 @@
        
         <!-- En esta seccio ira el dashboars y sus compoentes  -->
         <div class="container-fluid" style="position: fixed; margin-top:40rem;">
-            <button type="button" class="btn btn-circle btn-xl" (click)="abrirVentanaChat($event)" [style.display]="block">
-                <img src="../../../assets/icons/comment.svg" width="50" height="50" (click)="abrirVentanaChat($event)">
+            <button type="button" 
+                class="btn btn-circle btn-xl" 
+                (click)="abrirVentanaChat($event)" 
+                data-toggle="modal" 
+                data-target="#ChatModal" 
+                data-backdrop="false">
+                <img src="../../../assets/icons/comment.svg" width="50" height="50"/>
                 </button>
         </div>
 
+        <div class="modal" id="ChatModal" tabindex="-1" aria-labelledby="ChatModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content" style="margin-top: 14em;
+              margin-left: 13em;">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Chat</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body" style="height: 28em">
+                    <app-chat (cerrarChat)="cerrarVentanaChat($event)" class="ver-chat contact"
+                    style="padding: 1em;"></app-chat>
+                </div>
+              </div>
+            </div>
+          </div>
         <!-- Inicia la seccion del chat -->
-        <app-chat (cerrarChat)="cerrarVentanaChat($event)" class="ver-chat contact"></app-chat>
+        
          <!--app-search-bar></app-search-bar -->
-<!--         <footer class="fbg-dark text-dark" style="background-color: white; margin-top: 0em !important;">
+         <!--footer class="fbg-dark text-dark" style="background-color: white; margin-top: 0em !important;">
             <h6 style="text-align: center;">Powered by emiexsec.com</h6>
-          
           </footer>  -->
     </div>
 </div>
