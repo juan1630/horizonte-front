@@ -8,19 +8,20 @@
         <app-nav-bar [nombreUsuario]="usuario.nombre"></app-nav-bar>
         <section style="padding-left: 2em; padding-right: 2em;">
             <router-outlet></router-outlet>
+            <div class="container-fluid" style="position: fixed; margin-top:-14em; margin-left: -2em;">
+              <button type="button" 
+                  class="btn btn-circle btn-xl" 
+                  (click)="abrirVentanaChat($event)" 
+                  data-toggle="modal" 
+                  data-target="#ChatModal" 
+                  data-backdrop="false">
+                  <img src="../../../assets/icons/comment.svg" width="50" height="50"/>
+                  </button>
+          </div>
         </section>
 
         <!-- En esta seccio ira el dashboars y sus compoentes  -->
-        <div class="container-fluid" style="position: fixed; margin-top:40rem;">
-            <button type="button" 
-                class="btn btn-circle btn-xl" 
-                (click)="abrirVentanaChat($event)" 
-                data-toggle="modal" 
-                data-target="#ChatModal" 
-                data-backdrop="false">
-                <img src="../../../assets/icons/comment.svg" width="50" height="50"/>
-                </button>
-        </div>
+
 
         <div class="modal" id="ChatModal" tabindex="-1" aria-labelledby="ChatModalLabel" aria-hidden="true">
             <div class="modal-dialog">
