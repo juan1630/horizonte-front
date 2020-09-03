@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TomografiaNewComponent } from './tomografia-new.component';
+import { TomografiaNuevoComponent } from './tomografia-nuevo.component';
 
-describe('TomografiaNewComponent', () => {
-  let component: TomografiaNewComponent;
-  let fixture: ComponentFixture<TomografiaNewComponent>;
+describe('TomografiaNuevoComponent', () => {
+  let component: TomografiaNuevoComponent;
+  let fixture: ComponentFixture<TomografiaNuevoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TomografiaNewComponent ]
+      declarations: [ TomografiaNuevoComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TomografiaNewComponent);
+    fixture = TestBed.createComponent(TomografiaNuevoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
