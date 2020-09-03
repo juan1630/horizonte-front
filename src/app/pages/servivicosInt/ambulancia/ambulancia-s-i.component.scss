@@ -19,37 +19,42 @@
 .ambulance {
     margin: 1rem 1rem;
 }
-#boton_contra1{
-  border-radius: 3em;
-  width: 12em;
-  background-color: #00BBF1;
-  color: white;
-  border-color: #00BBF1;
-  font-weight: 500;
-  font-size: 15px;
-}
-#boton_contra2{
-  border-radius: 3em;
-  width: 12em;
-  // color: #00BBF1;
-  background-color: #E3D049;
-  border-color: #E3D049;
 
+#boton_contra1 {
+    border-radius: 3em;
+    width: 12em;
+    background-color: #00BBF1;
+    color: white;
+    border-color: #00BBF1;
+    font-weight: 500;
+    font-size: 15px;
 }
+
+#boton_contra2 {
+    border-radius: 3em;
+    width: 12em;
+    // color: #00BBF1;
+    background-color: #E3D049;
+    border-color: #E3D049;
+}
+
 .fixed {
     top: 27%;
 }
-.header{
-  background-color: #03318C;
-  border-top-left-radius: 24px;
-  border-top-right-radius: 24px;
+
+.header {
+    background-color: #03318C;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
 }
-.text_header{
-  text-align: center;
-margin-top: 15px;
-font-weight: 600;
-color: white;
+
+.text_header {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 600;
+    color: white;
 }
+
 .cursor:hover {
     cursor: pointer;
     background-color: #2b71a0;
@@ -65,40 +70,39 @@ color: white;
 .btn-dark {
     width: 100%;
 }
-#buscador{
-  margin-left: 25px; 
-  max-width:40em;
+
+#buscador {
+    margin-left: 25px;
+    max-width: 40em;
 }
 
-@media(max-width:575px){
-  #buscador{
-    margin: 3px;
-    max-width: 23em;
-  }
-  #boton_contra1{
-    border-radius: 3em;
-    width: 10em;
-    background-color: #00BBF1;
-    color: white;
-    border-color: #00BBF1;
-    font-weight: 500;
-    font-size: 15px;
-  }
-  #boton_contra2{
-    border-radius: 3em;
-    width: 10em;
-    // color: #00BBF1;
-    background-color: #E3D049;
-    border-color: #E3D049;
-  
-  }
+@media(max-width:575px) {
+    #buscador {
+        margin: 3px;
+        max-width: 23em;
+    }
+    #boton_contra1 {
+        border-radius: 3em;
+        width: 10em;
+        background-color: #00BBF1;
+        color: white;
+        border-color: #00BBF1;
+        font-weight: 500;
+        font-size: 15px;
+    }
+    #boton_contra2 {
+        border-radius: 3em;
+        width: 10em;
+        // color: #00BBF1;
+        background-color: #E3D049;
+        border-color: #E3D049;
+    }
 }
-@media (min-width: 576px) and (max-width:767px){
-}
-@media (min-width: 768px) and (max-width:991px){
-}
-@media (min-width: 992px) and (max-width:1199px){
 
-}
-@media (min-width: 1200px){
-} 
+@media (min-width: 576px) and (max-width:767px) {}
+
+@media (min-width: 768px) and (max-width:991px) {}
+
+@media (min-width: 992px) and (max-width:1199px) {}
+
+@media (min-width: 1200px) {}

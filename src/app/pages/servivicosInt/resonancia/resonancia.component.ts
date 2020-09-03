@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ResonanciaService } from 'src/app/services/resonancia/resonancia.service';
 
 @Component({
   selector: 'app-resonancia',
@@ -7,9 +8,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResonanciaComponent implements OnInit {
 
-  constructor() { }
+  public resonacias:[]=[];
+
+
+  constructor(
+      private resonanciaService: ResonanciaService
+  ) { }
 
   ngOnInit(): void {
+    this.getResonancias();
   }
+
+
+
+  getResonancias(){
+    
+    this.resonanciaService.verResonancias()
+    .subscribe( (data:any) => {
+
+      this.resonacias = data.data;
+
+    });
+
+  }
+
+
+  delete(id){
+    this.resonanciaService.eliminarResonancia( id )
+    .subscribe( (data) => {
+        console.log(data)
+        this.getResonancias();
+    } )
+  }
+
 
 }

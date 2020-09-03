@@ -32,7 +32,7 @@ export class BitacoraHospitalizacionComponent implements OnInit {
     .subscribe( (data:any) => {
       console.log(data);
         this.pacientesHospitalizados = data.data;
-        // console.log( "Paciente", this.pacientesHospitalizados );
+         console.log( "Paciente", this.pacientesHospitalizados );
     });
   }
 

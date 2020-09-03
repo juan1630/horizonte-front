@@ -7,6 +7,47 @@
 
 <div class="card">
 
+    <div class="card-header">
+        <div class="row">
+
+            <div class="col-md-3">
+
+                ID: {{ paciente._id }}
+
+            </div>
+            <div class="col-md-4">
+                Nombre paciente: {{ paciente.nombre }} {{ paciente.apellidoPaterno }} {{ paciente.apellidoMaterno }}
+            </div>
+            <div class="col-md-2">
+                Sexo :
+            </div>
+            <div class="col-md-2">
+                Edad: {{ paciente.edad }}
+            </div>
+            <div class="col-md-3">
+                CURP: {{ paciente.curp }}
+            </div>
+            <div class="col-md-3">
+                Direccion: {{ paciente.direccion }}
+            </div>
+            <div class="col-md-3">
+                <strong>
+
+                    Dx: {{ paciente.diagnosticoInicial }}
+                </strong>
+            </div>
+            <div class="col-md-3">
+                <strong>
+                    Diagnostico Actual: {{ paciente.diagnosticoActual }}
+                </strong>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
     <div class="card-body">
         <div class="container">
             <div class="row">
