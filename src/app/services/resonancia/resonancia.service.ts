@@ -40,4 +40,20 @@ eliminarResonancia(id){
   }
 
 
+  editarResonancia( id, info  ){
+    let url = `${URLDEV}/editar/resonancia/${id}`;
+    
+    return this._http.put(url, info);
+
+  }
+
+
+  obtenerPorId( id){
+
+    let url = `${URLDEV}/resoancia/uno/`+id;
+    return this._http.get( url );
+    
+  }
+
+
 }

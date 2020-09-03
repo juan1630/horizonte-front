@@ -101,7 +101,7 @@ import { HojaDiariaConsumoComponent } from './hoja-diaria-hospitalizacion/hoja-d
 import { PacientesPipe } from '../pipes/pacientes.pipe';
 import { from } from 'rxjs';
 import { NuevaResonanciaComponent } from './servivicosInt/resonancia/nueva-resonancia/nueva-resonancia.component';
-
+import { ResonanciaEditComponent } from './servivicosInt/resonancia/resonancia-edit/resonancia-edit.component'
 
 @NgModule({
   declarations: [
@@ -187,7 +187,8 @@ import { NuevaResonanciaComponent } from './servivicosInt/resonancia/nueva-reson
     DashIndicadoresComponent,
     BitacoraHospitalizacionComponent,
     HojaDiariaConsumoComponent,
-    NuevaResonanciaComponent
+    NuevaResonanciaComponent,
+    ResonanciaEditComponent
 
   ],
 

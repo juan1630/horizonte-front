@@ -88,6 +88,7 @@ import { PaqueteQuirofanoComponent } from './paquetes/paquete-quirofano/paquete-
 import { BitacoraHospitalizacionComponent } from './paquetes/bitacora-hospitalizacion/bitacora-hospitalizacion.component';
 import { HojaDiariaConsumoComponent } from './hoja-diaria-hospitalizacion/hoja-diaria-consumo/hoja-diaria-consumo.component';
 import { NuevaResonanciaComponent } from './servivicosInt/resonancia/nueva-resonancia/nueva-resonancia.component';
+import { ResonanciaEditComponent } from './servivicosInt/resonancia/resonancia-edit/resonancia-edit.component';
 
 
 
@@ -188,6 +189,7 @@ const pagesRoutes : Routes = [
       { path: 'patologia/edit/:id', component: PatologiaEditComponent },
       { path: 'patologia/nueva', component: PatologiaNewComponent },
       { path: 'nueva/resonancia', component: NuevaResonanciaComponent  },
+      { path: 'editar/resonancia/:id', component: ResonanciaEditComponent   },
       // TERMINA EL AREA DE SERVICIOS INTREGADOS
 
 
