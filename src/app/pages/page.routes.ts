@@ -84,7 +84,7 @@ import { HojaDiariaComponent } from './indicadores/jefaturaEnfermeria/hoja-diari
 import { EncuestaComponent } from './indicadores/jefaturaEnfermeria/encuesta/encuesta.component';
 import { MaqYMedicamentosPaqueteComponent } from './servivicosInt/quirofano/maq-ymedicamentos-paquete/maq-ymedicamentos-paquete.component';
 import { DashIndicadoresComponent } from '../pages/indicadores/dash-indicadores/dash-indicadores.component'
-
+import { RecetaComponent } from '../pages/Doctores/receta/receta.component';
 
 
 const pagesRoutes : Routes = [
@@ -213,6 +213,7 @@ const pagesRoutes : Routes = [
       //Doctores
       { path: 'hoja-evolucion-cg/:id', component: HEvolucionCGComponent },
       { path: 'hoja-ingreso-hospitalario/:id', component: HIngresoHospitalComponent},
+      { path: 'receta-medica/:id', component: RecetaComponent},
 
 
        

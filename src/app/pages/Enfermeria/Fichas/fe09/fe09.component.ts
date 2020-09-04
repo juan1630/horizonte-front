@@ -5,10 +5,11 @@ import { HistoriaClinicaService } from '../../../../services/historia-clinica/hi
 import * as moment from 'moment';
 import { Color, BaseChartDirective, Label } from 'ng2-charts';
 import { ChartDataSets, ChartOptions } from 'chart.js';
+import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
 
 import swal from "sweetAlert";
-// import { getPacienteStorageById, guardarPacienteStorage, getPacienteStorage } from 'src/app/functions/storage/storage.funcion';
-// import { getPacienteStorageById, guardarPacienteStorage } from 'src/app/functions/storage/storage.funcion';
+import { threadId } from 'worker_threads';
 
 
 
@@ -196,8 +197,14 @@ export class FE09Component implements OnInit {
     // this.listaEspera = getPacienteStorage();
         
 
-       
     this.historialNinos();
+
+    
+    // this.historialMujeres();
+
+    // this.historialHombres();
+
+
 
     this.obtenerPeso();
     // console.log(this.obtenerPeso());
@@ -239,23 +246,52 @@ export class FE09Component implements OnInit {
   }
 
   historialNinos(){
-    this.pacienteHistorial = [];
-    this.id = this._route.snapshot.paramMap.get('id');
+      this.pacienteHistorial = [];
+      this.id = this._route.snapshot.paramMap.get('id');
 
-    this._ObtenerPacienteService.getPacienteBtID(this.id).subscribe(
+      this._ObtenerPacienteService.getPacienteBtID(this.id).subscribe(
 
-      (data:any) => {
-        // console.log(data);
+        (data:any) => {
+          // console.log(data);
 
-        for (let i = 0; data.paciente.historiaClinica.length -1 >= i ; i++){
-          // console.log(data.paciente.historiaClinica[i]);
-          
-          this.pacienteHistorial.push(data.paciente.historiaClinica[i]);
-          // console.log(this.pacienteHistorial);
-          
-        }
-  });
+          for (let i = 0; data.paciente.historiaClinica.length -1 >= i ; i++){
+            // console.log(data.paciente.historiaClinica[i]);
+            
+            this.pacienteHistorial.push(data.paciente.historiaClinica[i]);
+            // console.log(this.pacienteHistorial);
+            
+          }
+    });
   }
+
+  // historialMujeres(){
+  //   this.pacienteHistorial = [];
+  //   this.id = this._route.snapshot.paramMap.get('id');
+
+  //   this._ObtenerPacienteService.getPacienteBtID(this.id).subscribe(
+  //     (data:any) => {
+        
+  //       for (let i = 0; data.paciente.historiaClinica.length -1 >= i ; i++){
+
+  //         this.pacienteHistorial.push(data.paciente.historiaClinica[i]);
+  //       }
+  //     }
+  //   );
+  // }
+
+  // historialHombres(){
+  //   this.pacienteHistorial = [];
+  //   this.id = this._route.snapshot.paramMap.get('id');
+
+  //   this._ObtenerPacienteService.getPacienteBtID(this.id).subscribe(
+  //     (data:any) => {
+
+  //       for (let i = 0; data.paciente.historiaClinica.length -1 >= i ; i++){
+  //         this.pacienteHistorial.push(data.paciente.historiaClinica[i]);
+  //       }
+  //     }
+  //   );
+  // }
 
   validar(){
     if(this.infPaciente.esquemaVacunacion === "si"){
@@ -336,6 +372,12 @@ export class FE09Component implements OnInit {
   }
  }
 
+ imprimirHistorial(){
+   var doc = new jsPDF();
+   doc.autoTable({html: '#historialPaciente'});
+   doc.save('Historial de:_' + this.paciente.nombre + '_Fecha_' + this.fecha + '.pdf');
+ }
+
   onSubmit(f) {
 
     this.pacienteHistorial = [];
@@ -346,45 +388,36 @@ export class FE09Component implements OnInit {
     
 
     this._HistoriaClinicaService.agregarHistoriaClinica(this.id, f.value).subscribe( req => {
-      // console.log(req);
+      console.log(req);
 
       swal("Datos Guardados con Éxito", "Se ha notificado al Doctor", "success");
 
       this._ObtenerPacienteService.getPacienteBtID(this.id).subscribe( (req:any) => {
-        // console.log(req);
+        console.log(req);
+
+
+        // RESOLVER ERROR DEL -1 EN MUJERES 
 
         for (let i = 0; req.paciente.historiaClinica.length -1 > i ; i++){
-          // console.log(req.paciente.historiaClinica[i]);
+          console.log(req.paciente.historiaClinica[i]);
           
           this.pacienteHistorial.push(req.paciente.historiaClinica[i]);
-          // console.log(this.pacienteHistorial);
+          console.log(this.pacienteHistorial);
           
         }
 
         this.historialNinos();
+        // this.historialMujeres();
+        // this.historialHombres();
+        // console.log(this.historialNinos());
+        
 
       });
       
-      // let actualizarEstado = getPacienteStorageById(this.id);
-      // // console.log("Arregloooooooo", actualizarEstado);
-      // let estadoActualizado = actualizarEstado[0].status = 'Finalizado';
-      // // console.log("weeeeeeeeeeeee", actualizarEstado);
-
-      // let patient = this.listaEspera.indexOf(actualizarEstado[0].pacienteId)
-      // console.log(patient);
+       
       
 
-      // // let pacienteStatusOk = estadoActualizado.indexOf(this.id);
-      // // console.log("INDEXOF", pacienteStatusOk);
-      
-
-      // let prro = guardarPacienteStorage(estadoActualizado);
-      // console.log("Hola, soy un String xd",prro);
-      
-      
-      
-
-      this._router.navigateByUrl('/hoja-diaria-enfermeria-general');
+      // this._router.navigateByUrl('/hoja-diaria-enfermeria-general');
 
     });
 
@@ -437,6 +470,8 @@ export class FE09Component implements OnInit {
     this.lineChartLabels[2] = ['1st Line', '2nd Line'];
     // this.chart.update();
   }
+
+
 
 
 }

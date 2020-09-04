@@ -1,0 +1,139 @@
+<div class="container">
+    <div class="container head-container">
+        <h1 class="center">
+            Receta Médica
+        </h1>
+
+        <div class="row">
+            <div class="col-md">
+                <p>Nombre: <span>{{paciente.apellidoPaterno}} {{paciente.apellidoMaterno}} {{paciente.nombre}}</span> </p>
+                <p>Edad: {{paciente.edad}} </p>
+                <p>Sexo: {{paciente.sexo}} </p>
+                <!-- <p>Médico: {{medico}} </p> -->
+            </div>
+
+            <div class="col-md">
+                <p>Fecha: {{fecha}} {{hora}} </p>
+                <p>Registro: {{paciente.registro}} </p>
+                <p>Dirección: {{paciente.direccion}} </p>
+            </div>
+
+            <div class="col-md">
+                <p>Folio: 000000001</p>
+            </div>
+
+            <div class="col-md-12 center row">
+                <p>=============================================================================================================</p>
+                <!-- <h2>Posología:</h2> -->
+                <button class="btn btn-primary btn-reverso">Reverso Receta</button>
+                <button type="button" class="btn btn-success buttons" data-toggle="modal" data-target="#medicamentoModal">Ingresar Medicamento</button>
+
+                <div id="medicamentoModal" class="modal fade bd-example-modal-lg center" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content modal-medicamento">
+                            <div class="modal-header">
+                                <h3 class="modal-title center">Registro Nuevo Medicamento:</h3>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="nombreComercial">Nombre Comercial:</label>
+                                    <input type="text" class="inputStyle inModalS" style="
+                                    margin: -2rem 0 2rem 0;">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="sustamciaActiva">Sustancia Activa:</label>
+                                    <input type="text" class="inputStyle inModalS" style="
+                                    margin: -2rem 0 2rem 0;">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="presentacion">Presentación:</label>
+                                    <input type="text" class="inputStyle inModalS" style="
+                                    margin: -2rem 0 2rem 0;">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="contenido">Contenido del frasco:</label>
+                                    <input type="text" class="inputStyle inModalS" style="
+                                    margin: -2rem 0 2rem 0;">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="viaAdmon">Vía de Administración:</label>
+                                    <input type="text" class="inputStyle inModalS" style="
+                                    margin: -2rem 0 2rem 0;">
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <h2 class="col-md-12">Medicamentos: </h2>
+                <div class="col-md-4">
+                    <span>1.-</span><input class="inputStyle" type="text" placeholder="Ingrese palabras clave...">
+                    <textarea class="txt-area der" name="" placeholder="<--- Indicaciones --->" id="" cols="28" rows="2" autocomplete="on"></textarea>
+
+                </div>
+
+                <div class="col-md-4">
+                    <span>2.-</span><input class="inputStyle" type="text" placeholder="Ingrese palabras clave...">
+                    <textarea class="txt-area der" name="" placeholder="<--- Indicaciones --->" id="" cols="28" rows="2" autocomplete="on"></textarea>
+
+                </div>
+
+                <div class="col-md-4">
+                    <span>3.-</span><input class="inputStyle" type="text" placeholder="Ingrese palabras clave...">
+                    <textarea class="txt-area der" name="" placeholder="<--- Indicaciones --->" id="" cols="28" rows="2" autocomplete="on"></textarea>
+
+                </div>
+
+                <div class="col-md-4">
+                    <span>4.-</span><input class="inputStyle" type="text" placeholder="Ingrese palabras clave...">
+                    <textarea class="txt-area der" name="" placeholder="<--- Indicaciones --->" id="" cols="28" rows="2" autocomplete="on"></textarea>
+
+                </div>
+
+                <div class="col-md-4">
+                    <span>5.-</span><input class="inputStyle" type="text" placeholder="Ingrese palabras clave...">
+                    <textarea class="txt-area der" name="" placeholder="<--- Indicaciones --->" id="" cols="28" rows="2" autocomplete="on"></textarea>
+
+                </div>
+                <div class="col-md-4">
+                    <span>6.-</span><input class="inputStyle" type="text" placeholder="Ingrese palabras clave...">
+                    <textarea class="txt-area der" name="" placeholder="<--- Indicaciones --->" id="" cols="28" rows="2" autocomplete="on"></textarea>
+
+                </div>
+
+
+                <!-- <textarea class="txt-area" name="" id="" cols="90" rows="10" autocomplete="on"></textarea> -->
+                <p>=============================================================================================================</p>
+            </div>
+
+            <div class="col-md">
+                <p>Médico: {{medico}} </p>
+                <p>Grado: Médico Especialista</p>
+            </div>
+
+            <div class="col-md">
+                <p>Cédula(s): 123456</p>
+                <p>Firma E.:</p>
+            </div>
+
+            <div class="col-md">
+                <button class="btn btn-primary">Guardar Consulta</button>
+                <button class="btn btn-info buttons">Imprimir Receta</button>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>

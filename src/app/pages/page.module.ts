@@ -91,7 +91,8 @@ import { HIngresoHospitalComponent } from './Doctores/h-ingreso-hospital/h-ingre
 import { HojaDiariaComponent } from './indicadores/jefaturaEnfermeria/hoja-diaria/hoja-diaria.component';
 import { EncuestaComponent } from './indicadores/jefaturaEnfermeria/encuesta/encuesta.component';
 import { MaqYMedicamentosPaqueteComponent } from './servivicosInt/quirofano/maq-ymedicamentos-paquete/maq-ymedicamentos-paquete.component';
-import { DashIndicadoresComponent } from './indicadores/dash-indicadores/dash-indicadores.component'
+import { DashIndicadoresComponent } from './indicadores/dash-indicadores/dash-indicadores.component';
+import { RecetaComponent } from './Doctores/receta/receta.component'
 
 
 @NgModule({
@@ -171,7 +172,8 @@ import { DashIndicadoresComponent } from './indicadores/dash-indicadores/dash-in
     HojaDiariaComponent,
     EncuestaComponent,
     MaqYMedicamentosPaqueteComponent,
-    DashIndicadoresComponent
+    DashIndicadoresComponent,
+    RecetaComponent
 
   ],
   exports: [ 
