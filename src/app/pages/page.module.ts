@@ -56,8 +56,8 @@ import { OtrosNewComponent } from './servivicosInt/vistas/otros-new/otros-new.co
 import { OtrosEditComponent } from './servivicosInt/vistas/otros-edit/otros-edit.component';
 import { EndoscopiaNewComponent } from './servivicosInt/vistas/Endoscopia/endoscopia-new/endoscopia-new.component';
 import { EndoscopiaEditComponent } from './servivicosInt/vistas/Endoscopia/endoscopia-edit/endoscopia-edit.component';
-import { TomografiaNewComponent } from './servivicosInt/vistas/Tomografia/tomografia-new/tomografia-new.component';
-import { TomografiaEditComponent } from './servivicosInt/vistas/Tomografia/tomografia-edit/tomografia-edit.component';
+// import { TomografiaNewComponent } from './servivicosInt/vistas/Tomografia/tomografia-new/tomografia-new.component';
+// import { TomografiaEditComponent } from './servivicosInt/vistas/Tomografia/tomografia-edit/tomografia-edit.component';
 import { UltrasonidoEditComponent } from './servivicosInt/vistas/Ultrasonido/ultrasonido-edit/ultrasonido-edit.component';
 import { UltrasonidoNewComponent } from './servivicosInt/vistas/Ultrasonido/ultrasonido-new/ultrasonido-new.component';
 
@@ -101,8 +101,9 @@ import { HojaDiariaConsumoComponent } from './hoja-diaria-hospitalizacion/hoja-d
 import { PacientesPipe } from '../pipes/pacientes.pipe';
 import { from } from 'rxjs';
 import { NuevaResonanciaComponent } from './servivicosInt/resonancia/nueva-resonancia/nueva-resonancia.component';
-import { ResonanciaEditComponent } from './servivicosInt/resonancia/resonancia-edit/resonancia-edit.component'
-
+import { ResonanciaEditComponent } from './servivicosInt/resonancia/resonancia-edit/resonancia-edit.component';
+import { TomografiaNuevoComponent } from './servivicosInt/tomografia/tomografia-nuevo/tomografia-nuevo.component'
+import { TomografiaEditComponent  } from './servivicosInt/tomografia/tomografia-edit/tomografia-edit.component'
 @NgModule({
   declarations: [
     PageComponent,
@@ -139,8 +140,8 @@ import { ResonanciaEditComponent } from './servivicosInt/resonancia/resonancia-e
     OtrosEditComponent,
     EndoscopiaNewComponent,
     EndoscopiaEditComponent,
-    TomografiaNewComponent,
-    TomografiaEditComponent,
+    // TomografiaNewComponent,
+    // TomografiaEditComponent,
     UltrasonidoEditComponent,
     UltrasonidoNewComponent,
     PagosMaternidadComponent,
@@ -188,7 +189,9 @@ import { ResonanciaEditComponent } from './servivicosInt/resonancia/resonancia-e
     BitacoraHospitalizacionComponent,
     HojaDiariaConsumoComponent,
     NuevaResonanciaComponent,
-    ResonanciaEditComponent
+    ResonanciaEditComponent,
+    TomografiaNuevoComponent,
+    TomografiaEditComponent
 
   ],
 

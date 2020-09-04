@@ -47,8 +47,8 @@ import { UltrasonidoNewComponent } from './servivicosInt/vistas/Ultrasonido/ultr
 import { UltrasonidoEditComponent } from './servivicosInt/vistas/Ultrasonido/ultrasonido-edit/ultrasonido-edit.component';
 import { EndoscopiaEditComponent } from './servivicosInt/vistas/Endoscopia/endoscopia-edit/endoscopia-edit.component';
 import { EndoscopiaNewComponent } from './servivicosInt/vistas/Endoscopia/endoscopia-new/endoscopia-new.component';
-import { TomografiaNewComponent } from './servivicosInt/vistas/Tomografia/tomografia-new/tomografia-new.component';
-import { TomografiaEditComponent } from './servivicosInt/vistas/Tomografia/tomografia-edit/tomografia-edit.component';
+// import { TomografiaNewComponent } from './servivicosInt/vistas/Tomografia/tomografia-new/tomografia-new.component';
+// import { TomografiaEditComponent } from './servivicosInt/vistas/Tomografia/tomografia-edit/tomografia-edit.component';
 import { ContratoMaternidadComponent } from '../contratos/contrato-maternidad/contrato-maternidad.component';
 import { PedidoSinComponent } from './laboratorio/entregas/pedido-sin/pedido-sin.component';
 import { TicketComponent } from '../contratos/ticket/ticket/ticket.component';
@@ -89,7 +89,8 @@ import { BitacoraHospitalizacionComponent } from './paquetes/bitacora-hospitaliz
 import { HojaDiariaConsumoComponent } from './hoja-diaria-hospitalizacion/hoja-diaria-consumo/hoja-diaria-consumo.component';
 import { NuevaResonanciaComponent } from './servivicosInt/resonancia/nueva-resonancia/nueva-resonancia.component';
 import { ResonanciaEditComponent } from './servivicosInt/resonancia/resonancia-edit/resonancia-edit.component';
-
+import { TomografiaNuevoComponent } from './servivicosInt/tomografia/tomografia-nuevo/tomografia-nuevo.component';
+import { TomografiaEditComponent  } from './servivicosInt/tomografia/tomografia-edit/tomografia-edit.component'
 
 
 const pagesRoutes : Routes = [
@@ -175,8 +176,8 @@ const pagesRoutes : Routes = [
       { path: 'ultrasonido-editar/:id', component: UltrasonidoEditComponent},
       { path: 'endoscopia-nuevo', component: EndoscopiaNewComponent},
       { path: 'endoscopia-editar/:id', component: EndoscopiaEditComponent},
-      { path: 'tomografia-nuevo', component: TomografiaNewComponent},
-      { path: 'tomografia-editar/:id', component: TomografiaEditComponent},
+      // { path: 'tomografia-nuevo', component: TomografiaNewComponent},
+      // { path: 'tomografia-editar/:id', component: TomografiaEditComponent},
       { path: 'perfiles', component: PerfilesComponent },
       { path: 'estudios/laboratorio', component: EstudiosComponent },
       { path: 'laboratorio/pendientes', component: PedidosLaboratorioComponent },
@@ -190,6 +191,8 @@ const pagesRoutes : Routes = [
       { path: 'patologia/nueva', component: PatologiaNewComponent },
       { path: 'nueva/resonancia', component: NuevaResonanciaComponent  },
       { path: 'editar/resonancia/:id', component: ResonanciaEditComponent   },
+      { path: 'nueva/tomografia', component: TomografiaNuevoComponent  },
+      { path: 'editar/tomografia/:id', component:  TomografiaEditComponent  },
       // TERMINA EL AREA DE SERVICIOS INTREGADOS
 
 
