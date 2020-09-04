@@ -1,6 +1,6 @@
 
-        <div class="containeer">
-          <section id="team">
+      <div class="containeer">
+<!--           <section id="team">
             <div class="container animate bounceIn">
               <div class="card-columns">
                 <div class="card" id="card">
@@ -107,14 +107,6 @@
                     </div>
                   </a>
                 </div>
-               <div class="card" id="card">
-                  <a [routerLink]="['/urgencias']">
-                    <div class="card-body text-center">
-                      <img class="img-fluid cursor" id="img2" src="../../../assets/icons/serviciosIconos/emergency.svg" alt="card image">
-                      <h2 class="card-title" id="h2">URGENCIA</h2>
-                    </div>
-                  </a>
-                </div> 
                 <div class="card" id="card">
                   <a [routerLink]="['/otros-servicios']">
                     <div class="card-body text-center">
@@ -125,5 +117,27 @@
                 </div>
               </div>
             </div>
+          </section> -->
+
+          <section id="team">
+            <div class="container">
+              <div class="card-columns">
+                  <a [routerLink]="module.url" *ngFor="let module of servicios | paginate:{
+                    id:'lstadoservicios',
+                    itemsPerPage:6,
+                    currentPage:pagina,
+                    totalItems: totalservicios}">
+                    <div class="card" id="card">
+                    <div class="card-body text-center">
+                      <img class="img-fluid cursor" id="img2" [src]="module.img" alt="card image">
+                      <h2 class="card-title" id="h2">{{module.nombre}}</h2>
+                    </div>
+                  </div>
+                  </a>
+              </div>
+            </div>
           </section>
-      </div>
+          <div class="container-fluid">
+            <pagination-controls id="lstadoservicios" maxSize="6" directionLinks="true" (pageChange)="pagina = $event"></pagination-controls>
+          </div>
+        </div>
