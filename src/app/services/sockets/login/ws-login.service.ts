@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable  } from 'rxjs'
+import { ObserveOnOperator } from 'rxjs/internal/operators/observeOn';
 import * as io from 'socket.io-client';
 import { URLDEV } from 'src/app/config/index.config';
 // import { resolve } from 'dns';
@@ -14,6 +15,7 @@ export class WsLoginService {
   private socket;
   private _idUser;
   public audio = new Audio('../../../../assets/sound/chat/mensajes_iphone.mp3');
+  private _idUser2: any;
 
   constructor()  {
 
@@ -23,7 +25,7 @@ export class WsLoginService {
   }
 
   checkStatus( usuarios ){
-    console.log(usuarios);
+    // console.log(usuarios);
     this.socket.emit('connect', (usuarios)=> {
 
       this.status = true;
@@ -39,7 +41,7 @@ export class WsLoginService {
 
   login( usuario ){
 
-    this._idUser = usuario._id;
+    this._idUser = usuario.role;
     this.socket.emit('usuarioConectado',  usuario );
 
 
@@ -48,14 +50,14 @@ export class WsLoginService {
 
 
     this.socket.on('event', (data) => {
-      console.log( data );
+      // console.log( data );
     })
 
   }
 
   mostarUsuario(){
     this.socket.on('usuarioEnLinea', (data) => {
-        console.log(data)
+        // console.log(data)
       })
     }
 
@@ -71,7 +73,7 @@ export class WsLoginService {
       return Observable.create(
         (observer) => {
           this.socket.on('consultaNueva', (resp) => {
-            console.log( resp);
+            // console.log( resp);
             observer.next( resp );
             });
         }
@@ -89,7 +91,7 @@ export class WsLoginService {
       return Observable.create(
         (observer) => {
           this.socket.on('mensajeLaboratorio', (resp) => {
-            console.log( resp );
+            // console.log( resp );
             observer.next(  resp);
           })
         }
@@ -101,15 +103,22 @@ export class WsLoginService {
 
       escucahrUsuaurtioConectados(){
 
-        return Observable.create(
-          (observer) => {
-            this.socket.on('usuarioEnLinea', (resp) => {
-              observer.next( resp );
-            })
-          }
-          )
 
-        }
+        return  Observable.create(
+        
+          (observer) => {
+
+            this.socket.on('usuarioEnLinea', (resp) => {
+
+              // console.log( resp );
+         
+                observer.next( resp );
+
+          
+            })
+          })
+
+      }
 
 
     notificacionAudio(){
@@ -142,10 +151,11 @@ export class WsLoginService {
     }
 
 
-    desconectarUsuario( user ){
+    desconectarUsuario( role ){
 
+        console.log(role);
 
-      this.socket.emit('cerrarSesion', { user });
+      this.socket.emit('cerrarSesion', { role });
 
     }
 
@@ -163,16 +173,52 @@ export class WsLoginService {
       }
 
 
-  enviarMensaje(data){
 
-    this.socket.emit('enviarMensajePrivado',{mensaje:data,id:this._idUser});
+      escucahrNuevoMensajes() {
+
+
+        console.log("entro aca");
+
+        return Observable.create(
+          (observable) => {
+            this.socket.on('crearMensaje', (res) => {
+            
+              observable.next( res  );
+            
+            })
+          }
+        )
+      }
+
+
+  enviarMensaje(data){
+     var chat = this._idUser + "_" + this._idUser2;
+    this.socket.emit('entrarChatPrivado',{
+   
+      mensaje:data, room:chat, role1:this._idUser, role2:this._idUser2 });
+
+    this.socket.emit('enviarMensajePrivado', {  mensaje:data, room:chat, role1:this._idUser, role2:this._idUser2 })
+
+
   }
 
 
+  // enviarMensajePrivado(data) {
+    
+  //   var chat = this._idUser + "_" + this._idUser2;
+  //   this.socket.emit('entrarChatPrivado',{
+  //   mensaje:data, room:chat, role1:this._idUser, role2:this._idUser2 });
+
+
+  // }
 
   regresarUsuaurios( user  ){
+    this._idUser2 = user;
+    var chat = this._idUser + "_" + this._idUser2;
     this.socket.emit('regresarId', { user  } );
-    
+
+    this.socket.emit('entrarChatPrivado',{room:chat, role1:this._idUser, role2:this._idUser2 });
+
   }
 
 

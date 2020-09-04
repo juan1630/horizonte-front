@@ -84,6 +84,7 @@ import { HojaDiariaComponent } from './indicadores/jefaturaEnfermeria/hoja-diari
 import { EncuestaComponent } from './indicadores/jefaturaEnfermeria/encuesta/encuesta.component';
 import { MaqYMedicamentosPaqueteComponent } from './servivicosInt/quirofano/maq-ymedicamentos-paquete/maq-ymedicamentos-paquete.component';
 import { DashIndicadoresComponent } from '../pages/indicadores/dash-indicadores/dash-indicadores.component'
+import { PaqueteQuirofanoComponent } from './paquetes/paquete-quirofano/paquete-quirofano.component';
 import { RecetaComponent } from '../pages/Doctores/receta/receta.component';
 
 
@@ -189,6 +190,7 @@ const pagesRoutes : Routes = [
       { path: 'enfermeria-dashboard', component: EnfermeriaDashboardComponent},
       { path: 'consulta-general/:id', component: ConsultaGeneralComponent},
       { path: 'ficha-enfermeria-01/:id', component: FE09Component},
+      { path: 'paquete/quirofano/:id', component: PaqueteQuirofanoComponent },
      
       // TERMINA EL AREA DE CONSULTA GENERAL
       // ESTAS RUTAS SON PARA EL CRUD DE FARMACIA
@@ -226,6 +228,7 @@ const pagesRoutes : Routes = [
       { path: 'indicadores/enfermeria', component: JefaturaEnfermeriaComponent  },
       { path:'identificacion', component: IdentificacionComponent },
       { path: 'hoja/diaria/jefatura/enfermeria', component: HojaDiariaComponent },
+      // encuesat de jefatura de consulta general
       { path: 'indentificacion/jefatura/enfermeria/:id', component: EncuestaComponent },
       { path: '', redirectTo: '/dashboard', pathMatch:'full' }
 

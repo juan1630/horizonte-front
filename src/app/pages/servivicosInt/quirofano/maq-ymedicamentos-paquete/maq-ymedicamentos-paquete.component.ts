@@ -52,15 +52,24 @@ export class MaqYMedicamentosPaqueteComponent implements OnInit {
 
       nombreMedicamento.classList.add('is-invalid');
 
-      this.validBtn = false;
+    
 
-       }else if(this.medicamentos.costoMedicamento === 0   ) {
+       } 
+       
+       
+       if(this.medicamentos.costoMedicamento === 0   ) {
 
          costoMedicamento.classList.add('is-invalid');
-         this.validBtn = false;
-       
+         
         }
 
+        console.log(  this.medicamentos );
+
+        if(  this.medicamentos.nombreMedicamento.length > 0  && this.medicamentos.costoMedicamento > 0){
+          
+          this.validBtn = true;
+        }
+        
     
   }
 
@@ -113,6 +122,12 @@ export class MaqYMedicamentosPaqueteComponent implements OnInit {
         } )      
 
     }else if( this.tipoDeInsumo === 'medicamentos'  ) {
+
+
+      this._maquinaService.agregarMaquina( this.tipoDeInsumo, this.medicamentos )
+      .subscribe(  (data) => {
+        console.log(data);
+      })
 
     }
 

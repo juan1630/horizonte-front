@@ -3,7 +3,7 @@ import {  ActivatedRoute  } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { map } from 'rxjs/operators';
 import { MaternidadService } from 'src/app/services/tabulador/maternidad.service';
-import  swal from 'sweetalert';
+import  swal from 'sweetAlert';
 import * as moment from 'moment';
 
 @Component({

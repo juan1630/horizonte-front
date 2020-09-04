@@ -30,7 +30,6 @@ import { ChartsModule } from 'ng2-charts';
 // import { AngularEditorModule } from '@javascriptsoldier/angular-editor';
 
 
-
 // import  { PdfMakeWrapper  } from 'pdfmake-wrapper';
 // import pdfFonts from "pdfmake/build/vfs_fonts";
 
@@ -48,8 +47,6 @@ import { ChartsModule } from 'ng2-charts';
     ContratoVidaPlenaComponent,
     ContratoNeonatalComponent,
     AltoRiesgoComponent,
-  
-
   ],
   imports: [
     BrowserModule,
@@ -70,6 +67,7 @@ import { ChartsModule } from 'ng2-charts';
   exports: [
     ReactiveFormsModule,
   ],
+ 
   providers: [],
   bootstrap: [AppComponent]
 })

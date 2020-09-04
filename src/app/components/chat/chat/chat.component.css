@@ -1,7 +1,7 @@
 .chat {
     height: 400px;
-    width: 300px;
-    display: inline-block;
+    width: 400px;
+    display: none;
 }
 
 .chat-header {
@@ -85,9 +85,11 @@
     margin-bottom: .5em;
     color: white;
     cursor: pointer;
+    width: auto;
+    height: auto;
 }
 
 .container-membres {
-    overflow-x: scroll;
+    overflow-y: scroll;
     margin-bottom: .3em;
 }

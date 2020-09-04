@@ -1,1 +1,372 @@
-<p>encuesta works!</p>
+<h4>HORIZONTE</h4>
+<hr>
+<form autocomplete="off" #form="ngForm">
+
+    <div>
+
+        <div class="form-group row">
+            <label class="col-3 col-form-label">Servicio de área a evaluar</label>
+            <div class="col-8">
+
+                <select class="form-control" id="servicios" name="servicios" (change)="validarSelect()" [(ngModel)]="tipoConsulta">
+        <option value="">SELECCIONE UNA ÁREA</option>
+        <option value="consulta_general"> CONSULTA GENERAL</option>
+        <option  value="comedor">COMEDOR</option>
+        <option value="hospitalizacion"> HOSPITALIZACIÓN</option>
+        <option value="urgencias"> URGENCIAS</option>
+        <option value="quirofano">QUIROFANO</option>
+
+     
+        </select>
+
+            </div>
+            <!--FIN COL-8-->
+        </div>
+        <!--FIN Form group row-->
+
+        <div class="form-group row">
+            <label class="col-3 col-form-label">Enfermera responsable</label>
+            <div class="col-8">
+
+                <input class="form-control" type="text" name="nombre" placeholder="Enfermera responsable">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-3 col-form-label">No. expediente</label>
+            <div class="col-8">
+
+                <input class="form-control" type="text" name="expendiente" placeholder="No. expediente">
+            </div>
+        </div>
+
+    </div>
+    <hr>
+
+
+    <!--PREGUNTAS-->
+    <!-- <div class="form-group row">
+    <label class="col-9 col-form-label"> Genero</label>
+  
+        <div class="form-check form-check-inline">
+         
+            <input class="form-check-input" type="radio" 
+            value="Hombre"
+             name="genero" 
+             >
+
+             <label class="form-check-label">Hombre</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+         
+              <input  type="radio"
+             value="Mujer" 
+             name="genero"
+              >
+               <label class="form-check-label">Mujer</label>
+              </div>
+  </div> FIN form-group -->
+
+    <div *ngIf="congeneral" class="form-group ">
+
+
+        <div class="form-group row">
+            <label class="col-9 col-form-label">1. ¿La enfermera le explico la importancia de la identificación?</label>
+
+            <div class="form-group">
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="si" name="dos" [(ngModel)]="info.notificacionDeIdentificacion1" [ngModel]="uncheck">
+                    <label class="form-check-label"> SI</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="no" name="dos" [(ngModel)]="info.notificacionDeIdentificacion1" [ngModel]="uncheck">
+                    <label class="form-check-label">NO</label>
+                </div>
+            </div>
+            <!--FIN form-group-->
+        </div>
+
+
+        <div class="form-group row">
+            <label class="col-9 col-form-label">2. ¿Los membretes son legibles?</label>
+
+            <div class="form-group">
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="si" name="tres" [(ngModel)]="info.notificacionDeIdentificacion2" [ngModel]="uncheck">
+                    <label class="form-check-label"> SI</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="no" name="tres" [(ngModel)]="info.notificacionDeIdentificacion2" [ngModel]="uncheck">
+                    <label class="form-check-label">NO</label>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <label class="col-9 col-form-label">8. ¿Las soluciones de estudio del gabinete cuentan con la identificación completa del paciente?</label>
+
+            <div class="form-group">
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="si" name="ocho" [(ngModel)]="info.notificacionDeIdentificacion8" [ngModel]="uncheck">
+                    <label class="form-check-label"> SI</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="no" name="ocho" [(ngModel)]="info.notificacionDeIdentificacion8" [ngModel]="uncheck">
+                    <label class="form-check-label">NO</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-9 col-form-label">9. ¿Las soluciones de estudio de laboratorio cuentan con la identificación completa del paciente?</label>
+
+            <div class="form-group">
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="si" name="nueve" [(ngModel)]="info.notificacionDeIdentificacion9" [ngModel]="uncheck">
+                    <label class="form-check-label"> SI</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="no" name="nueve" [(ngModel)]="info.notificacionDeIdentificacion9" [ngModel]="uncheck">
+                    <label class="form-check-label">NO</label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--Row-->
+
+
+
+    <div *ngIf="comedor" class="form-group ">
+        <div class="form-group row">
+            <label class="col-9 col-form-label">1. ¿La enfermera le explico la importancia de la identificación?</label>
+
+            <div class="form-group">
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="si" name="uno" [(ngModel)]="info.notificacionDeIdentificacion1" [ngModel]="uncheck">
+                    <label class="form-check-label"> SI</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="no" name="uno" [(ngModel)]="info.notificacionDeIdentificacion1" [ngModel]="uncheck">
+                    <label class="form-check-label">NO</label>
+                </div>
+            </div>
+            <!--FIN form-group-->
+        </div>
+    </div>
+    <!--Row-->
+
+
+    <div *ngIf="hospitalizacion" class="form-group ">
+
+        <div class="form-group row">
+            <label class="col-9 col-form-label">1. ¿La enfermera le explico la importancia de la identificación?</label>
+
+            <div class="form-group">
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="si" name="uno" [(ngModel)]="info.notificacionDeIdentificacion1" [ngModel]="radio.pregunta1">
+                    <label class="form-check-label"> SI</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="no" name="uno" [(ngModel)]="info.notificacionDeIdentificacion1" [ngModel]="radio.pregunta1">
+                    <label class="form-check-label">NO</label>
+                </div>
+            </div>
+            <!--FIN form-group-->
+        </div>
+
+        <div class="form-group row">
+            <label class="col-9 col-form-label">2. ¿Los membretes son legibles?</label>
+
+            <div class="form-group">
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="si" name="dos" [(ngModel)]="info.notificacionDeIdentificacion2" [ngModel]="radio.pregunta2">
+                    <label class="form-check-label"> SI</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="no" name="dos" [(ngModel)]="info.notificacionDeIdentificacion2" [ngModel]="radio.pregunta2">
+                    <label class="form-check-label">NO</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-9 col-form-label">3. ¿Cuenta con membrete de identificación completa en la cabecera?</label>
+
+            <div class="form-group">
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="si" name="tres" required [(ngModel)]="info.notificacionDeIdentificacion3" [ngModel]="radio.pregunta3">
+                    <label class="form-check-label"> SI</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="no" name="tres" required [(ngModel)]="info.notificacionDeIdentificacion3" [ngModel]="radio.pregunta3">
+                    <label class="form-check-label">NO</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-9 col-form-label">4. ¿Cuenta con brazalete de identificación completa?</label>
+
+            <div class="form-group">
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="si" name="cuatro" required [(ngModel)]="info.notificacionDeIdentificacion4" [ngModel]="radio.pregunta4">
+                    <label class="form-check-label"> SI</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="no" name="cuatro" required [(ngModel)]="info.notificacionDeIdentificacion4" [ngModel]="radio.pregunta4">
+                    <label class="form-check-label">NO</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-9 col-form-label">5. ¿El medicamento del paciente cuenta con identificación completa?</label>
+
+            <div class="form-group">
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="si" name="cinco" required [(ngModel)]="info.notificacionDeIdentificacion5" [ngModel]="radio.pregunta5">
+                    <label class="form-check-label"> SI</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="no" name="cinco" required [(ngModel)]="info.notificacionDeIdentificacion5" [ngModel]="radio.pregunta5">
+                    <label class="form-check-label">NO</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-9 col-form-label">6. ¿La solución intravenosa cuenta con membrete de identificación completa?</label>
+
+            <div class="form-group">
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="si" name="seis" required [(ngModel)]="info.notificacionDeIdentificacion6" [ngModel]="radio.pregunta6">
+                    <label class="form-check-label"> SI</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="no" name="seis" required [(ngModel)]="info.notificacionDeIdentificacion6" [ngModel]="radio.pregunta26">
+                    <label class="form-check-label">NO</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-9 col-form-label">7. ¿El hemoderivado se encuentra identificado con los datos correctos del paciente?</label>
+
+            <div class="form-group">
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="si" name="siete" required [(ngModel)]="info.notificacionDeIdentificacion7" [ngModel]="radio.pregunta7">
+                    <label class="form-check-label"> SI</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="no" name="siete" required [(ngModel)]="info.notificacionDeIdentificacion7" [ngModel]="radio.pregunta7">
+                    <label class="form-check-label">NO</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-9 col-form-label">8. ¿Las soluciones de estudio del gabinete cuentan con la identificación completa del paciente?</label>
+
+            <div class="form-group">
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="si" name="ocho" [(ngModel)]="info.notificacionDeIdentificacion8" [ngModel]="radio.pregunta8">
+                    <label class="form-check-label"> SI</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="no" name="ocho" [(ngModel)]="info.notificacionDeIdentificacion8" [ngModel]="radio.pregunta8">
+                    <label class="form-check-label">NO</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-9 col-form-label">9. ¿Las soluciones de estudio de laboratorio cuentan con la identificación completa del paciente?</label>
+
+            <div class="form-group">
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="si" name="nueve" [(ngModel)]="info.notificacionDeIdentificacion9" [ngModel]="radio.pregunta9">
+                    <label class="form-check-label"> SI</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="no" name="nueve" [(ngModel)]="info.notificacionDeIdentificacion9" [ngModel]="radio.pregunta9">
+                    <label class="form-check-label">NO</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-9 col-form-label">10. ¿Las soluciones de dotación de dieta cuentan con la identificación completa del paciente?</label>
+
+            <div class="form-group">
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="si" name="diez" required [(ngModel)]="info.notificacionDeIdentificacion10" [ngModel]="radio.pregunta10">
+                    <label class="form-check-label"> SI</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="no" name="diez" required [(ngModel)]="info.notificacionDeIdentificacion10" [ngModel]="radio.pregunta10">
+                    <label class="form-check-label">NO</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-9 col-form-label">11. ¿El paciente cuenta con algun tipo de sonda o drenaje?</label>
+
+            <div class="form-group">
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="si" name="once" required [(ngModel)]="info.notificacionDeIdentificacion11" [ngModel]="radio.pregunta11">
+                    <label class="form-check-label"> SI</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="no" name="once" required [(ngModel)]="info.notificacionDeIdentificacion11" [ngModel]="radio.pregunta11">
+                    <label class="form-check-label">NO</label>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <label class="col-9 col-form-label">12. ¿La sonda o drenaje se encuentra identificada con los datos del paciente?</label>
+
+            <div class="form-group">
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="si" name="doce" required [(ngModel)]="info.notificacionDeIdentificacion12" [ngModel]="radio.pregunta12">
+                    <label class="form-check-label"> SI</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" value="no" name="doce" required [(ngModel)]="info.notificacionDeIdentificacion12" [ngModel]="radio.pregunta12">
+                    <label class="form-check-label">NO</label>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!--hospitalizacion-->
+
+
+
+    <!--INICIO BOTONES-->
+    <div class="form-group row">
+        <label class="col-5 col-form-label">&nbsp;</label>
+        <div class="input-group col-md-2">
+            <button (click)="enviar()" type="button" class="btn btn-outline-primary btn-block">
+        Guardar
+      </button>
+        </div>
+
+
+        <div class="input-group col-md-2">
+            <button type="button" class="btn btn-outline-primary btn-block">
+          Imprimir
+        </button>
+        </div>
+
+    </div>
+
+
+
+</form>

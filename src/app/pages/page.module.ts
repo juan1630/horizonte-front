@@ -92,6 +92,10 @@ import { HojaDiariaComponent } from './indicadores/jefaturaEnfermeria/hoja-diari
 import { EncuestaComponent } from './indicadores/jefaturaEnfermeria/encuesta/encuesta.component';
 import { MaqYMedicamentosPaqueteComponent } from './servivicosInt/quirofano/maq-ymedicamentos-paquete/maq-ymedicamentos-paquete.component';
 import { DashIndicadoresComponent } from './indicadores/dash-indicadores/dash-indicadores.component';
+import { CrearPaquetesDirective } from './crear-paquetes.directive';
+import { AgregarMedicmentoDirective } from './agregar-medicmento.directive';
+import { HojaDiariaHospitalizacionComponent } from './hoja-diaria-hospitalizacion/hoja-diaria-hospitalizacion.component';
+import { PaqueteQuirofanoComponent } from './paquetes/paquete-quirofano/paquete-quirofano.component'
 import { RecetaComponent } from './Doctores/receta/receta.component'
 
 
@@ -168,18 +172,18 @@ import { RecetaComponent } from './Doctores/receta/receta.component'
     HEvolucionCGComponent,
     HEvolucionCEComponent,
     HIngresoHospitalComponent,
-
     HojaDiariaComponent,
     EncuestaComponent,
     MaqYMedicamentosPaqueteComponent,
-    DashIndicadoresComponent,
-    RecetaComponent
+    DashIndicadoresComponent
 
   ],
+
   exports: [ 
     PageComponent,
     ReactiveFormsModule
   ],
+
   imports: [
     BrowserModule,
     ComponentsModule,
@@ -192,6 +196,7 @@ import { RecetaComponent } from './Doctores/receta/receta.component'
     PdfViewerModule
 
   ]
+  
 
 })
 

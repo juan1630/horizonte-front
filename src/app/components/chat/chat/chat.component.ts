@@ -30,82 +30,112 @@ export class ChatComponent implements OnInit {
     __v: 0,
     _id: ""
   }
-
+  
   public payload = {
     message: '',
     horaEnvio: this.horaEnvio
   };
-
-    message = '';
-
+  
+  message = '';
+  
   public usuarioConectados = [];
-
-
-
+  
+  
+  
   constructor(
     private wsloginService: WsLoginService
     ) { }
-
+    
     ngOnInit(): void {
-
+      
       this.usuario = getDataStorage();
 
+      this.obtenerMensajes();
+      
 
-      this.wsloginService.escucharMensajesLab()
-      .subscribe( (message) => {
-        console.log(  message);
-
-        this.mesages.push( message.payload );
-
-      });
+      
+      // this.wsloginService.escucharMensajesLab()
+      // .subscribe( (message) => {
+      //   console.log(  message);
+        
+      //   this.mesages.push( message.payload );
+        
+      // });
 
 
       // escucahmos el mensaje de los usuarios
     this.wsloginService.escucahrUsuaurtioConectados()
-    .subscribe( (arg:any) => {
+    .subscribe( (arg) => {
 
-      this.usuarioConectados.push( arg )
-      console.log( this.usuarioConectados  );
+
+      console.log('entro aqui')
+
+      console.log( arg  );
+
+      this.usuarioConectados = arg 
+      // console.log( this.usuarioConectados  );
 
     });
 
 
-
-
-
+    
+    
     // escuchamos si algun usuario se desconecta
 
     this.wsloginService.escucharUsuarioDesconectado()
-      .subscribe( (arg) =>  {
-
-
-
-        this.usuarioConectados.forEach(  (user:any, index) => {
-
-          if(  user.usuario._id === arg.user._id  ){
-
-
-            this.usuarioConectados.splice(index, 1);
-          }
-
-
-        })
-
-        console.log(this.usuarioConectados);
-
+    
+    .subscribe( (arg) =>  {
+      
+      
+      
+      this.usuarioConectados.forEach(  (user:any, index) => {
+        
+        if(  user.usuario._id === arg.user._id  ){
+          
+          
+          this.usuarioConectados.splice(index, 1);
+        }
+        
+        
+      })
+      
+      // console.log(this.usuarioConectados);
+      
        });
 
+       
+
+       
+      }
+      
+      
+      obtenerMensajes() {
+
+        this.wsloginService.escucahrNuevoMensajes()
+          .subscribe(arg => {
 
 
+            // console.log(arg);
 
-  }
+            this.mesages = arg;
 
+          } ) ;
+        
+      }
+      
+      // enviarMensaje() {
+        //   this.wsloginService.enviarMensajePrivado( this.mesages );
 
+        // }
+        
+        
 
-  enviarData(){
-
+        enviarData(){
+          
       // this.wsloginService.enviarMensaje( this.payload );
       // this.payload.message = '';
+   
+      this.obtenerMensajes();
       this.wsloginService.enviarMensaje(this.message);
 
   }
@@ -121,6 +151,9 @@ export class ChatComponent implements OnInit {
 
   
   verUsaurio(  user ){
+
+   
+    this.obtenerMensajes()
     this.wsloginService.regresarUsuaurios(  user );
   } 
 

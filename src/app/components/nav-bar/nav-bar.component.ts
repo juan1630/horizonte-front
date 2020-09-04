@@ -12,7 +12,9 @@ import { getDataStorage} from '../../functions/storage/storage.funcion';
 export class NavBarComponent implements OnInit {
 
   @Input() nombreUsuario: string;
-  public usuario = {};
+  public usuario = {
+    role: ""
+  };
 
   constructor(  
     public _loginService: LoginService,
@@ -31,7 +33,7 @@ export class NavBarComponent implements OnInit {
 
 
     this._loginService.logout();
-    this.wsLoginService.desconectarUsuario(  this.usuario )
+    this.wsLoginService.desconectarUsuario(  this.usuario.role )
       
 
   }
