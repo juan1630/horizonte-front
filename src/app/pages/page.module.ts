@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule  } from '@angular/router';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
-import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer'
-
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 // modules
 
@@ -56,8 +56,8 @@ import { OtrosNewComponent } from './servivicosInt/vistas/otros-new/otros-new.co
 import { OtrosEditComponent } from './servivicosInt/vistas/otros-edit/otros-edit.component';
 import { EndoscopiaNewComponent } from './servivicosInt/vistas/Endoscopia/endoscopia-new/endoscopia-new.component';
 import { EndoscopiaEditComponent } from './servivicosInt/vistas/Endoscopia/endoscopia-edit/endoscopia-edit.component';
-import { TomografiaNewComponent } from './servivicosInt/vistas/Tomografia/tomografia-new/tomografia-new.component';
-import { TomografiaEditComponent } from './servivicosInt/vistas/Tomografia/tomografia-edit/tomografia-edit.component';
+// import { TomografiaNewComponent } from './servivicosInt/vistas/Tomografia/tomografia-new/tomografia-new.component';
+// import { TomografiaEditComponent } from './servivicosInt/vistas/Tomografia/tomografia-edit/tomografia-edit.component';
 import { UltrasonidoEditComponent } from './servivicosInt/vistas/Ultrasonido/ultrasonido-edit/ultrasonido-edit.component';
 import { UltrasonidoNewComponent } from './servivicosInt/vistas/Ultrasonido/ultrasonido-new/ultrasonido-new.component';
 
@@ -95,7 +95,15 @@ import { DashIndicadoresComponent } from './indicadores/dash-indicadores/dash-in
 import { CrearPaquetesDirective } from './crear-paquetes.directive';
 import { AgregarMedicmentoDirective } from './agregar-medicmento.directive';
 import { HojaDiariaHospitalizacionComponent } from './hoja-diaria-hospitalizacion/hoja-diaria-hospitalizacion.component';
-import { PaqueteQuirofanoComponent } from './paquetes/paquete-quirofano/paquete-quirofano.component'
+import { PaqueteQuirofanoComponent } from './paquetes/paquete-quirofano/paquete-quirofano.component';
+import { BitacoraHospitalizacionComponent } from './paquetes/bitacora-hospitalizacion/bitacora-hospitalizacion.component';
+import { HojaDiariaConsumoComponent } from './hoja-diaria-hospitalizacion/hoja-diaria-consumo/hoja-diaria-consumo.component'
+import { PacientesPipe } from '../pipes/pacientes.pipe';
+import { from } from 'rxjs';
+import { NuevaResonanciaComponent } from './servivicosInt/resonancia/nueva-resonancia/nueva-resonancia.component';
+import { ResonanciaEditComponent } from './servivicosInt/resonancia/resonancia-edit/resonancia-edit.component';
+import { TomografiaNuevoComponent } from './servivicosInt/tomografia/tomografia-nuevo/tomografia-nuevo.component'
+import { TomografiaEditComponent  } from './servivicosInt/tomografia/tomografia-edit/tomografia-edit.component'
 import { RecetaComponent } from './Doctores/receta/receta.component'
 
 
@@ -135,8 +143,8 @@ import { RecetaComponent } from './Doctores/receta/receta.component'
     OtrosEditComponent,
     EndoscopiaNewComponent,
     EndoscopiaEditComponent,
-    TomografiaNewComponent,
-    TomografiaEditComponent,
+    // TomografiaNewComponent,
+    // TomografiaEditComponent,
     UltrasonidoEditComponent,
     UltrasonidoNewComponent,
     PagosMaternidadComponent,
@@ -168,13 +176,18 @@ import { RecetaComponent } from './Doctores/receta/receta.component'
     QuirofanoFormComponent,
     CrearPaquetesComponent,
     JefaturaEnfermeriaComponent,
-
+    PacientesPipe,
     HEvolucionCGComponent,
     HEvolucionCEComponent,
     HIngresoHospitalComponent,
     HojaDiariaComponent,
     EncuestaComponent,
     MaqYMedicamentosPaqueteComponent,
+    DashIndicadoresComponent,
+    CrearPaquetesDirective,
+    AgregarMedicmentoDirective,
+    HojaDiariaHospitalizacionComponent,
+    PaqueteQuirofanoComponent,
     DashIndicadoresComponent
 
   ],
@@ -193,7 +206,8 @@ import { RecetaComponent } from './Doctores/receta/receta.component'
     PAGES_ROUTES,
     ReactiveFormsModule,
     NgxExtendedPdfViewerModule,
-    PdfViewerModule
+    PdfViewerModule,
+    NgxPaginationModule,
 
   ]
   
@@ -201,4 +215,4 @@ import { RecetaComponent } from './Doctores/receta/receta.component'
 })
 
 
-export class PageModule { }
+export class PageModule {  }

@@ -1,37 +1,20 @@
-<form class="card chat">
+<form class="chat">
+    <div class="row">
+        <div class="col-9">
+            <div class="chat-body">
 
-    <div class="container-membres">
-        <a class="badge badge-secondary" *ngFor="let item of usuarioConectados" (click)="verUsaurio(  item.role )">  {{ item.role }} </a>
-
-    </div>
-
-
-    <div class="chat-header" (click)="cerrarVentanachat()">
-
-
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-
-        <div class="conversacion">
-            <!-- <p class="text-warning">
-                {{ roleNotificacion }}
-
-            </p> -->
+                <div class="card message-card" *ngFor="let message of mesages">
+                    {{ message.message }} <span class="horaMessage"> {{message.horaEnvio}}  </span>
+                </div>
+        
+            </div>
         </div>
-
-
-    </div>
-
-    <div class="chat-body">
-
-        <div class="card message-card" *ngFor="let message of mesages">
-            {{ message.message }} <span class="horaMessage"> {{message.horaEnvio}}  </span>
+        <div class="col-3">
+            <div class="container-membres">
+                <a class="badge badge-secondary" *ngFor="let item of usuarioConectados" (click)="verUsaurio(  item.role )">  {{ item.role }} </a>
+            </div>
         </div>
-
     </div>
-
-
     <div class="chat-message">
         <input type="text" name="message" id="message" placeholder="Mensaje" class="form-control chat-input" [(ngModel)]="message">
         <button class="btn btn-primary btn-chat" (click)="enviarData()"> Enviar </button>

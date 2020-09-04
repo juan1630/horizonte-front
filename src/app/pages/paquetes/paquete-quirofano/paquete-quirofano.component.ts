@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PacienteService } from 'src/app/services/paciente/paciente.service';
 import { MaquinasService } from 'src/app/services/paquetesQuirofano/agregarMaquinas/maquinas.service';
+// import { info } from 'console';
 
 @Component({
   selector: 'app-paquete-quirofano',
@@ -30,7 +31,8 @@ export class PaqueteQuirofanoComponent implements OnInit {
   constructor(
     private _maquinasService: MaquinasService,
     private _route: ActivatedRoute,
-    private _pacienteService: PacienteService
+    private _pacienteService: PacienteService,
+    private _router: Router
   ) { }
 
   ngOnInit(): void {
@@ -59,14 +61,22 @@ export class PaqueteQuirofanoComponent implements OnInit {
     .subscribe( (data:any) =>  {
       // console.log( data );
       this.pacientes = data.pacientes
-    } )
-
+    } );
   }
 
+  agregarPaquete( id ) { 
 
+    this._maquinasService.agregarPaqueteAunPaciente( id, this.id )
+    .subscribe(  (data:any) => {
+      // console.log( data );
 
-  agregarPaquete( id ) {
-    console.log(id);
+      if(data.ok){
+        alert('Se agrego el paquete');
+        this._router.navigate(['/bitacora/hospitalizacion'])
+
+      }
+    }  )
+    
   }
 
 }

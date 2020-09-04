@@ -83,15 +83,18 @@
                         <input type="text" class="form-control horasMaquina" formControlName="horasAUsar" (blur)="calcularTotalMaquinas()">
                     </div>
                     <div class="col-md-2">
-                        <h4 class="totales">
-                            TOTAL:
-                        </h4>
-                    </div>
+                                           </div>
 
                 </div>
             </div>
 
         </div>
+
+        <!-- puse el total de aca para que no se repita -->
+        <h4 class="totales">
+            TOTAL: {{ totalMaquinas}}
+        </h4>
+
 
         <div>
             <button class="btn btn-info" (click)="addMachines()"> Agregar Maquinas </button>
@@ -147,9 +150,11 @@
                 </div>
             </div>
         </div>
+       
         <div class="col-md-2">
             <h4 class=" totales totalMedicamento">TOTAL: {{ totalMedicamentos }} </h4>
         </div>
+
         <div class="col-md-2">
 
             <button class="btn btn-block btn-info mt-4" (click)="addMedicine()">  AGREGAR  </button>
@@ -176,6 +181,19 @@
             <h4> Total: {{ totalHorasRecuperacionNumber }} </h4>
         </div>
 
+    </div>
+
+
+
+    <div class="col-md-3">
+        <h3> 
+            TOTAL DEL PAQUETE:  {{ totalPaquete }}
+        </h3>
+    </div>
+
+
+    <div class="col-md-3">
+        TOTAL SIN I.V.A: {{ totalIva }}
     </div>
 
 

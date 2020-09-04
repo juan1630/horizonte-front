@@ -13,7 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 export class CrearPaquetesComponent implements OnInit {
 
 
-
+public totalIva = 0;
   
 
   public registerForm: FormGroup;
@@ -24,6 +24,7 @@ export class CrearPaquetesComponent implements OnInit {
   public totalMedicamentos = 0;
   public totalHorasRecuperacionNumber = 0;
   public totalEspecialista = 0;
+  public totalPaquete = 0;
   
  
   
@@ -165,8 +166,7 @@ crearFormulario() {
 
     const participantesGroup = this.formBuilder.group({
         especialista: '',
-        montoEspecialista: 0,
-        totalEspecialista: 0
+        montoEspecialista: 0
     });
 
 
@@ -200,6 +200,22 @@ crearFormulario() {
   }
 
 
+
+  calcularIvaPaquete() {
+ 
+    this.totalIva =  this.totalPaquete * 0.16;
+
+    console.log( this.totalIva );
+
+  }
+
+  calcularTotalDelPaquete() {
+    this.totalPaquete = 0;
+    this.totalPaquete = this.totalEspecialista + this.totalMaquinas + this.totalMedicamentos + this.totalHorasRecuperacionNumber;
+    this.calcularIvaPaquete();
+
+  }
+
   // calculamos el total de los especialistas
 
   calcularTotalEspecialista() {
@@ -218,6 +234,8 @@ crearFormulario() {
              
              this.totalEspecialista = resultado;
 
+             this.calcularTotalDelPaquete();
+
     }
   
   }
@@ -233,22 +251,25 @@ crearFormulario() {
     let  horasAUsaeParse = 0 ;
     let costoResultado = 0;
 
-
     this.totalMaquinas = 0;
     
 
-    for (  let j =0;  costoMaquina.length >= j && maquinasHorasAUsar.length >= j; j++ ) {
-
+    for (  let j =0;  costoMaquina.length > j && maquinasHorasAUsar.length > j; j++ ) {
+      
+      if(  maquinasHorasAUsar[j]['value'] == ""    && costoMaquina[j]['value'] == "" ){
+        return 
+        
+      }
             horasAUsaeParse = parseFloat(maquinasHorasAUsar[j]['value']);
             costoMaquinaParse = parseFloat(  costoMaquina[j]['value'] );
 
 
+            // console.log( horasAUsaeParse );
 
             costoResultado =  costoMaquinaParse *  horasAUsaeParse ;
 
-          this.totalMaquinas += costoResultado
-
-          console.log(  this.totalMaquinas );
+          this.totalMaquinas += costoResultado;
+          this.calcularTotalDelPaquete();
 
 
     }
@@ -281,9 +302,7 @@ crearFormulario() {
             resultado = cantidadParse * costoUnitarioParse
             
             this.totalMedicamentos += resultado;
-            
-            console.log( this.totalMedicamentos );
-
+            this.calcularTotalDelPaquete();
 
     }
 
@@ -297,6 +316,7 @@ crearFormulario() {
 
     let horasRecuperacion = document.querySelectorAll('.horasRecuperacion');
     let costoHorasRecuperacion = document.querySelectorAll('.costoHorasRecuperacion');
+
     let resultado = 0;
     let horasParse = 0 ;
     let costoHorasParse=0;
@@ -306,10 +326,8 @@ crearFormulario() {
 
    resultado = horasParse * costoHorasParse;
 
-   this.totalHorasRecuperacionNumber = resultado;
-   
-   console.log( this.totalHorasRecuperacionNumber );
-
+   this.totalHorasRecuperacionNumber = resultado;    
+   this.calcularTotalDelPaquete();
   }
 
 

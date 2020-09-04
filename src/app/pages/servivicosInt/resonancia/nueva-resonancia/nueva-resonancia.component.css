@@ -1,0 +1,17 @@
+#boton_contra1 {
+    border-radius: 3em;
+    width: 12em;
+    background-color: #00BBF1;
+    color: white;
+    border-color: #00BBF1;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+#boton_contra2 {
+    border-radius: 3em;
+    width: 12em;
+    color: #FFFF;
+    background-color: #E3D049;
+    border-color: #E3D049;
+}

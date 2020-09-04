@@ -1,0 +1,101 @@
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="center"> Editar resonancia </h2>
+    </div>
+</div>
+
+<form>
+    <div class="card">
+        <div class="row mt-3">
+
+            <div class="col-md-4">
+                <div class="form-group">
+
+                    <input type="text" name="nombre" [(ngModel)]="infoServicio.nombre" id="nombre" placeholder="Nombre" class="form-control">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+
+                    <input type="text" name="indicaciones" [(ngModel)]="infoServicio.indicaciones" id="indicaciones" class="form-control" placeholder="Indicaciones">
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+
+
+                    <input type="text" name="precioPublico" [(ngModel)]="infoServicio.precioPublico" id="precioPublico" class="form-control" placeholder="Precio publico">
+
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="form-group">
+                    <input type="text" name="precioMembresia" [(ngModel)]="infoServicio.precioMembresia" id="precioMembresia" class="form-control" placeholder="Precio membresia">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="for group">
+                    <input type="text" name="precioHospitalizacionPublico" [(ngModel)]="infoServicio.precioHospitalizacionPublico" id="precioHospitalizacionPublico" class="form-control" placeholder="Precio hospitalizacion publico">
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <input type="text" name="precioHospitalizacionMembresia" [(ngModel)]="infoServicio.precioHospitalizacionMembresia" id="precioHospitalizacionMembresia" class="form-control" placeholder="Precio hospitalizacion membresia">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <input type="text" name="precioUrgenciaPublico" [(ngModel)]="infoServicio.precioUrgenciaPublico" id="precioUrgenciaPublico" class="form-control" placeholder="Precio urgencia publico">
+
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <input type="text" name="precioUrgenciaMembresia" [(ngModel)]="infoServicio.precioUrgenciaMembresia" id="precioUrgenciaMembresia" class="form-control" placeholder="Precio urgencia membresia">
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <input type="text" name="precioHospitalizacionUrgenciaPublico" [(ngModel)]="infoServicio.precioHospitalizacionUrgenciaPublico" id="precioHospitalizacionUrgenciaPublico" class="form-control" placeholder="Precio hospitalizacion urgencia publico">
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <input type="text" name="precioHospitalizacionUrgenciaMembresia" [(ngModel)]="infoServicio.precioHospitalizacionUrgenciaMembresia" id="precioHospitalizacionUrgenciaMembresia" class="form-control" placeholder="Precio hospitalizacion urgencia membresia">
+
+                </div>
+            </div>
+
+
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-4"></div>
+            <div class="col-md-2">
+
+                <button type="submit" class="btn" id="boton_contra1" (click)="enviar()"> Guardar </button>
+            </div>
+            <div class="col-md-2">
+                <button class="btn" id="boton_contra2" (click)="enviar()"> Cancelar </button>
+            </div>
+            <div class="col-md-4"></div>
+
+
+        </div>
+    </div>
+</form>

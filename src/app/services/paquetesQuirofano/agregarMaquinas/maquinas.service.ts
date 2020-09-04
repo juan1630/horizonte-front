@@ -82,4 +82,37 @@ export class MaquinasService {
   
   }
 
+  // agrega un paquete de quirofano a un paciente
+
+  agregarPaqueteAunPaciente(  idPaciente, idPaquete  ) {
+
+    let url = 'http://localhost:3200/' + 'agregar/paquete/quirofano/' + idPaciente ;
+
+
+    return this._http.put( url, idPaquete );
+
+  }
+
+// este servicio nos muestra los paciente que se encuentran hospitalizados
+
+  verPacientesHospitalizados(){
+    let url =  'http://localhost:3200/ver/pacientes/hospitalizados';
+    
+    return this._http.get( url );
+  }
+
+  agregarExcedentes( id, body  ) {
+    let url = 'http://localhost:3200/agregar/excedentes/' + id; 
+
+    let info = { excedentes : body  } 
+
+    return this._http.put( url, info  ); 
+  }
+
+  verPacienteHospitalizadoById(id) {
+    let url = "http://localhost:3200/paciente/hospitalizado/"+ id;
+
+    return this._http.get(  url  );
+  }
+
 }

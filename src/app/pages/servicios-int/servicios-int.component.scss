@@ -2,21 +2,44 @@
     cursor: pointer;
 }
 #card{
-    margin: 1em;
-    border-radius: 3em;
     border-radius: 2em;
-    box-shadow: 7px 7px 44px -8px rgba(0, 22, 114, 0.9);
-    width: 16em;
-    height: 19em;
+    box-shadow: 10px 10px 20px -8px rgba(196,192,196,1);
+    width: 90%;
+    margin-bottom: 2em;
+}
+#img2{
+  max-width: 65% !important;
+  display: block;
+  margin: auto;
 }
 #h2{
 color: #001672;
 text-align: center;
 font-weight: bold;
 margin-top: 10px;
-font-size: 23px;
+font-size: 18px;
 font-weight: 800;
 }
 a {
   color: white !important ;
 }
+
+@media (min-width: 576px) and (max-width:767px){
+  .card-columns {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+  }
+}
+@media (min-width: 768px) and (max-width:991px){
+}
+@media (min-width: 992px) and (max-width:1199px){
+
+}
+@media (min-width: 1200px){
+  .card-columns {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+  }
+} 

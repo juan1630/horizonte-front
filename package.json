@@ -31,6 +31,7 @@
     "ng2-charts": "^2.3.2",
     "ng2-pdf-viewer": "^6.3.2",
     "ngx-extended-pdf-viewer": "^4.1.0",
+    "ngx-pagination": "^5.0.0",
     "ngx-socket-io": "^3.0.1",
     "pdfmake": "^0.1.65",
     "pdfmake-wrapper": "^2.0.0",

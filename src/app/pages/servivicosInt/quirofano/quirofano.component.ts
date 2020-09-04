@@ -32,9 +32,19 @@ export class QuirofanoComponent implements OnInit {
   verPaquetes() {
     this.paquetesService.verPaquetes()
     .subscribe( (data:any ) => {
-      this.paquetes = data.data;
-      console.log(this.paquetes);
+      this.paquetes = data.data;  
     } )
   }
+
+
+  ageregarPaqueteQuirofano(  id, info  ) {
+
+    this.paquetesService.agregarPaqueteQuirofano( id, info )
+    .subscribe( (data) => {
+      console.log(  data );
+    } )
+
+  }
+  
 
 }

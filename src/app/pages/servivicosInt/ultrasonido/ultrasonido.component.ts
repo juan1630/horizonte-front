@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UltraSonidoService } from 'src/app/services/ultrasonido/ultrasonido.service';
 import { Router, ActivatedRoute, RouterLink } from '@angular/router';
 import { getDataStorage, getDataCarrito, gaurdarCotizacion } from '../../../functions/storage/storage.funcion';
-import swal from 'sweetalert';
+import swal from 'sweetAlert';
 import { EnvioEmailService } from 'src/app/services/cotizacion/envio-email.service';
 
 @Component({

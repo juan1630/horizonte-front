@@ -18,7 +18,9 @@ export class AmbulanciaSIComponent implements OnInit {
 
   // data de los servicios
   public ambulanciaSI: any [] = [];
+  public totalAmbulancia : string;
   public termino: string;
+  public pagina :number = 0;
   public showTableAmbulanacia = true;
 
   public todosLosServicios = {
@@ -254,6 +256,7 @@ eliminar( id ){
       (res:any) => {
         console.log( res );
         this.ambulanciaSI = res.servicios;
+        this.totalAmbulancia = res.servicios.results;
       },
       err => {
         console.log(<any>err);
