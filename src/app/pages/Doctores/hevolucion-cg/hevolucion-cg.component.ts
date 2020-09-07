@@ -5,7 +5,7 @@ import * as moment from 'moment';
 import { ActivatedRoute } from '@angular/router';
 import { Color, BaseChartDirective, Label } from 'ng2-charts';
 import { ChartDataSets, ChartOptions } from 'chart.js';
-import { LOADIPHLPAPI } from 'dns';
+// import { LOADIPHLPAPI } from 'dns';
 import { Cie10Service } from 'src/app/services/cie10/cie10.service';
 
 

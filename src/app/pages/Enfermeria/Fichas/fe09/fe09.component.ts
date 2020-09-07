@@ -9,7 +9,7 @@ import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 
 import swal from "sweetAlert";
-import { threadId } from 'worker_threads';
+// import { threadId } from 'worker_threads';
 
 
 
