@@ -48,3 +48,7 @@ span {
 button:last-of-type {
     margin-left: 2rem;
 }
+
+i {
+    cursor: pointer;
+}

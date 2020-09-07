@@ -104,6 +104,9 @@ import { NuevaResonanciaComponent } from './servivicosInt/resonancia/nueva-reson
 import { ResonanciaEditComponent } from './servivicosInt/resonancia/resonancia-edit/resonancia-edit.component';
 import { TomografiaNuevoComponent } from './servivicosInt/tomografia/tomografia-nuevo/tomografia-nuevo.component'
 import { TomografiaEditComponent  } from './servivicosInt/tomografia/tomografia-edit/tomografia-edit.component'
+import { RecetaComponent } from './Doctores/receta/receta.component'
+
+
 @NgModule({
   declarations: [
     PageComponent,
@@ -185,13 +188,7 @@ import { TomografiaEditComponent  } from './servivicosInt/tomografia/tomografia-
     AgregarMedicmentoDirective,
     HojaDiariaHospitalizacionComponent,
     PaqueteQuirofanoComponent,
-    DashIndicadoresComponent,
-    BitacoraHospitalizacionComponent,
-    HojaDiariaConsumoComponent,
-    NuevaResonanciaComponent,
-    ResonanciaEditComponent,
-    TomografiaNuevoComponent,
-    TomografiaEditComponent
+    DashIndicadoresComponent
 
   ],
 

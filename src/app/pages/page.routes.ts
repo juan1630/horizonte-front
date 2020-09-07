@@ -91,6 +91,7 @@ import { NuevaResonanciaComponent } from './servivicosInt/resonancia/nueva-reson
 import { ResonanciaEditComponent } from './servivicosInt/resonancia/resonancia-edit/resonancia-edit.component';
 import { TomografiaNuevoComponent } from './servivicosInt/tomografia/tomografia-nuevo/tomografia-nuevo.component';
 import { TomografiaEditComponent  } from './servivicosInt/tomografia/tomografia-edit/tomografia-edit.component'
+import { RecetaComponent } from '../pages/Doctores/receta/receta.component';
 
 
 const pagesRoutes : Routes = [
@@ -227,6 +228,7 @@ const pagesRoutes : Routes = [
       //Doctores
       { path: 'hoja-evolucion-cg/:id', component: HEvolucionCGComponent },
       { path: 'hoja-ingreso-hospitalario/:id', component: HIngresoHospitalComponent},
+      { path: 'receta-medica/:id', component: RecetaComponent},
 
 
        
