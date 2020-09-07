@@ -62,17 +62,82 @@
                                 {{ item.INDICACIONES }}
                             </div>
                             <div class="col-md-2">
-                                {{ item.PRECIO_PUBLICO}}
+                                <button (click)="alertcomparasion( $event, item.PRECIO_PUBLICO, item.PRECIO_MEMBRESIA, item )" class="cursor  btn btn-light precioPublico" style="margin-top: 3px; margin-left:-14px; width: 9.5em; height: 4em; 
+                                background-color: white;
+                                border: none;
+                            ">
+
+
+                                
+                              <p  (click)="agregarCarrito( $event, item )" >
+                                
+                                  {{ item.PRECIO_PUBLICO}}
+                            
+                            </p>
+
+
+                            </button>
+
                             </div>
                             <div class="col-md-2">
-                                {{ item.PRECIO_PUBLICO_HOSPITALIZACION}}
+
+
+
+                                <div (click)="alertcomparasion( $event, item.PRECIO_PUBLICO_HOSPITALIZACION, item.PRECIO_MEMBRESIA_HOSPITALIZACION, item)" class="cursor btn btn-light precioHospitalizacion" style="margin-top: 3px; margin-left:-14px; width: 9.5em;
+                                height: 4em; background-color: white;
+                                              border: none;">
+
+
+                                    <h6 (click)="agregarCarrito( $event, item )">
+                                        {{ item.PRECIO_PUBLICO_HOSPITALIZACION}}
+
+                                    </h6>
+
+
+
+                                </div>
+
+
+
+
                             </div>
                             <div class="col-md-2">
-                                {{ item.PRECIO_PUBLICO_HOSPITALIZACIO_URGENCIA}}
+
+                                <!-- precioHospitalizacionUrgencia -->
+
+                                <div (click)="alertcomparasion( $event, item.PRECIO_PUBLICO_HOSPITALIZACIO_URGENCIA, item.PRECIO_MEMBRESIA_HOSPITALIZACION_URGENCIA, item)" class="cursor btn btn-light precioHospitalizacionUrgencia" style="margin-top: 3px; margin-left:-14px; width: 9.5em;
+                                height: 4em; background-color: white;
+                                              border: none;">
+
+
+                                    <h6 (click)="agregarCarrito( $event, item )">
+
+                                        {{ item.PRECIO_PUBLICO_HOSPITALIZACIO_URGENCIA}}
+                                    </h6>
+
+
+
+                                </div>
+
+
                             </div>
                             <div class="col-md-2">
-                                {{ item.PRECIO_PUBLICO_URGENCIA}}
+
+
+                                <div (click)="alertcomparasion( $event, item.PRECIO_PUBLICO_URGENCIA, item.PRECIO_MEMBRESIA_URGENCIA, item)" class="cursor btn btn-light precioPublicoUrgencia" style="margin-top: 3px; margin-left:-14px; width: 9.5em;
+                                height: 4em; background-color: white;
+                                              border: none;">
+
+
+                                    <h6 (click)="agregarCarrito( $event, item )">
+
+
+                                        {{ item.PRECIO_PUBLICO_URGENCIA}}
+                                    </h6>
+
+                                </div>
                             </div>
+
                             <div class="col-md-2">
                                 <label class="btn btn-outline-success" style="margin: 10px;" [routerLink]="['/editar/tomografia/', item._id]" routerLinkActive="router-link-active">
                                             <i class="fas fa-edit"></i>
