@@ -10,38 +10,36 @@ export class NuevaResonanciaComponent implements OnInit {
 
   public infoServicio = {
 
-    nombre:"",
-    indicaciones: "",
-    precioPublico: "",
-    precioMembresia: "",
-    precioHospitalizacionPublico:"",
-    precioHospitalizacionMembresia:"",
-    precioUrgenciaPublico: "",
-    precioUrgenciaMembresia: "",
-    precioHospitalizacionUrgenciaPublico:"",
-    precioHospitalizacionUrgenciaMembresia:""
-
-  }
+    nombre: '',
+    indicaciones: '',
+    precioPublico: '',
+    precioMembresia: '',
+    precioHospitalizacionPublico: '',
+    precioHospitalizacionMembresia: '',
+    precioUrgenciaPublico: '',
+    precioUrgenciaMembresia: '',
+    precioHospitalizacionUrgenciaPublico: '',
+    precioHospitalizacionUrgenciaMembresia: ''
+  };
 
   constructor(
     private resonanciaService: ResonanciaService
   ) { }
 
   ngOnInit(): void {
-  
+
   }
 
 
 
-  enviar(){
-    
+  enviar() {
+
       this.resonanciaService.agregarResonancia( this.infoServicio )
-      .subscribe(  
+      .subscribe(
         (data) => {
           console.log( data );
-        }
-       )
-  
+        });
+
   }
 
 }

@@ -241,6 +241,8 @@ const pagesRoutes: Routes = [
 
       // termina farmacia
 
+      { path: 'consulta/especialista', component: ConsultaEspecialistaComponent  },
+
       { path: 'identificacion/:id', component: IdentificacionComponent },
       { path: 'indicadores/enfermeria', component: JefaturaEnfermeriaComponent  },
       { path: 'identificacion', component: IdentificacionComponent },

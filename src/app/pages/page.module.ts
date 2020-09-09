@@ -194,8 +194,8 @@ import { ObtenermedicamentosComponent } from './farmacia/dash/obtenermedicamento
     NuevaResonanciaComponent,
     ResonanciaEditComponent,
     TomografiaNuevoComponent,
-    TomografiaEditComponent
-
+    TomografiaEditComponent,
+    AgregarComponent
   ],
 
   exports: [

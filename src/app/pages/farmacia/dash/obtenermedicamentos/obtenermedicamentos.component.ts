@@ -9,7 +9,15 @@ import { AgregarService } from 'src/app/services/farmacia/agregar.service';
 export class ObtenermedicamentosComponent implements OnInit {
 
   //Array
-public medicamentos:[]=[]
+public medicamentos=[
+  {
+    contenidoFrasco: "",
+nombreComercial: "",
+nombreDeSalOsustanciaActiva: "",
+presentacio: "",
+viaDeAdministracion: ""
+  }
+]
 
   constructor( public _obtenermedicamentos: AgregarService) { }
 
@@ -18,7 +26,7 @@ public medicamentos:[]=[]
     this._obtenermedicamentos.obtenermedicamento().subscribe (
       (data:any)=>{console.log(data)
       this.medicamentos=data.data
-      console.log (this.medicamentos)
+      console.log (this.medicamentos);
       }
     )
   }

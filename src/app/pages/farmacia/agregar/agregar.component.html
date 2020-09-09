@@ -8,8 +8,8 @@
     </div>
 
     <div class=" col-md-4 ">
-        <label for="sustanciaActiva ">Sustancia Activa:</label>
-        <input type="text " class="inputStyle inModalS form-control " style=" margin: -2rem 0 2rem 0; " name="sustanciaActiva" [(ngModel)]="medicamento.nombreDeSalOsustanciaActiva">
+        <label for="sustanciaActiva ">Nombre de la sal o sustancia activa:</label>
+        <input type="text " class="inputStyle inModalS form-control " style=" margin: -2rem 0 2rem 0; " name="nombreDeSalOsustanciaActiva" [(ngModel)]="medicamento.nombreDeSalOsustanciaActiva">
     </div>
     <div class="col-md-4 ">
         <label for="presentacio ">Presentación:</label>
@@ -21,9 +21,9 @@
     </div>
     <div class="col-md-4 ">
         <label for="viaAdmon ">Vía de Administración:</label>
-        <input type="text " class="inputStyle inModalS form-control " style=" margin: -2rem 0 2rem 0; " name="viaAdmon" [(ngModel)]="medicamento.viaDeAdministracion">
+        <input type="text " class="inputStyle inModalS form-control " style=" margin: -2rem 0 2rem 0; " name="viaDeAdministracion" [(ngModel)]="medicamento.viaDeAdministracion">
     </div>
 
-    <button class=" btn btn-primary " (click)="enviar() ">Guardar</button>
+    <button class=" btn btn-primary" (click)="enviar() ">Guardar</button>
 
 </div>

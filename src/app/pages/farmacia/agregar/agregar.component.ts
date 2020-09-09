@@ -9,14 +9,14 @@ import { AgregarService } from 'src/app/services/farmacia/agregar.service';
 export class AgregarComponent implements OnInit {
 
 
-  public  medicamento= {
+  public medicamento = {
     nombreComercial:"",
     nombreDeSalOsustanciaActiva:"",
     presentacio:"",
     contenidoFrasco:"",
     viaDeAdministracion:"",
   }
-  
+
 
 
   constructor( public _agregarmedicamentoservice: AgregarService) {
