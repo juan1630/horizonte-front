@@ -11,7 +11,7 @@
 
 .modal-medicamento {
     width: 70rem;
-    margin-left: -7rem;
+    margin-left: -9rem;
 }
 
 .inModalS,
@@ -29,10 +29,10 @@ span {
     border: 1px solid #1558bd;
     background-color: transparent;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 100%;
+    /* font-weight: 600; */
     padding: 15px;
-    border-block-style: none;
+    /* border-block-style: none; */
     margin-top: 0.3rem;
     text-align: center;
 }
@@ -50,11 +50,15 @@ span {
     border-radius: 10px;
     border: 1px solid #1558bd;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 120%;
+    font-weight: 400;
     margin-top: 1rem;
 }
 
 .der {
     margin-right: -1rem;
+}
+
+.inputMedicamento {
+    width: 40rem;
 }
