@@ -1,9 +1,9 @@
-import { Routes, RouterModule } from "@angular/router";
+import { Routes, RouterModule } from '@angular/router';
 
-//components
+// components
 import { PageComponent } from './page/page.component';
 import { PacienteComponent } from './paciente/paciente.component';
-import { AmbulanciaSIComponent } from './servivicosInt/ambulancia/ambulancia-s-i.component'
+import { AmbulanciaSIComponent } from './servivicosInt/ambulancia/ambulancia-s-i.component';
 import { ConsultaEspecialistaComponent } from './servivicosInt/consulta-especialista/consulta-especialista.component';
 import {  ConsultaMedGralComponent } from './servivicosInt/consulta-med-gral/consulta-med-gral.component';
 import { EndoscopiaComponent } from './servivicosInt/endoscopia/endoscopia.component';
@@ -54,7 +54,7 @@ import { PedidoSinComponent } from './laboratorio/entregas/pedido-sin/pedido-sin
 import { TicketComponent } from '../contratos/ticket/ticket/ticket.component';
 import { PedidosLaboratorioComponent } from './laboratorio/laboratorioUser/pedidos-laboratorio/pedidos-laboratorio.component';
 import { ContratoMLaboralComponent } from '../contratos/contrato-m-laboral/contrato-m-laboral.component';
-import { FE09Component } from '../pages/Enfermeria/Fichas/fe09/fe09.component'
+import { FE09Component } from '../pages/Enfermeria/Fichas/fe09/fe09.component';
 import { PedidoIndividualComponent } from './laboratorio/pedidos/pedido-individual/pedido-individual.component';
 import { TabuladorAltoriesgoComponent } from './paquetes/altoRiesgo/tabulador-altoriesgo/tabulador-altoriesgo.component';
 import { PerfilesNewComponent } from './servivicosInt/laboratorio/perfiles/perfiles-new/perfiles-new.component';
@@ -73,7 +73,7 @@ import { SolicitudMembresiaComponent } from './solicitudMembresia/solicitud-memb
 import { IdentificacionComponent } from './identificacion/identificacion/identificacion.component';
 import { ContratoNeonatalComponent } from '../contratos/neonatal/contrato-neonatal/contrato-neonatal.component';
 import { AltoRiesgoComponent } from '../contratos/alto-riesgo/alto-riesgo.component';
-import { CrearPaquetesComponent } from "./crearPaquetes/crear-paquetes/crear-paquetes.component";
+import { CrearPaquetesComponent } from './crearPaquetes/crear-paquetes/crear-paquetes.component';
 import { JefaturaEnfermeriaComponent } from './indicadores/jefatura-enfermeria/jefatura-enfermeria.component';
 
 import { from } from 'rxjs';
@@ -83,21 +83,21 @@ import { HIngresoHospitalComponent } from './Doctores/h-ingreso-hospital/h-ingre
 import { HojaDiariaComponent } from './indicadores/jefaturaEnfermeria/hoja-diaria/hoja-diaria.component';
 import { EncuestaComponent } from './indicadores/jefaturaEnfermeria/encuesta/encuesta.component';
 import { MaqYMedicamentosPaqueteComponent } from './servivicosInt/quirofano/maq-ymedicamentos-paquete/maq-ymedicamentos-paquete.component';
-import { DashIndicadoresComponent } from '../pages/indicadores/dash-indicadores/dash-indicadores.component'
+import { DashIndicadoresComponent } from '../pages/indicadores/dash-indicadores/dash-indicadores.component';
 import { PaqueteQuirofanoComponent } from './paquetes/paquete-quirofano/paquete-quirofano.component';
 import { BitacoraHospitalizacionComponent } from './paquetes/bitacora-hospitalizacion/bitacora-hospitalizacion.component';
 import { HojaDiariaConsumoComponent } from './hoja-diaria-hospitalizacion/hoja-diaria-consumo/hoja-diaria-consumo.component';
 import { NuevaResonanciaComponent } from './servivicosInt/resonancia/nueva-resonancia/nueva-resonancia.component';
 import { ResonanciaEditComponent } from './servivicosInt/resonancia/resonancia-edit/resonancia-edit.component';
 import { TomografiaNuevoComponent } from './servivicosInt/tomografia/tomografia-nuevo/tomografia-nuevo.component';
-import { TomografiaEditComponent  } from './servivicosInt/tomografia/tomografia-edit/tomografia-edit.component'
+import { TomografiaEditComponent  } from './servivicosInt/tomografia/tomografia-edit/tomografia-edit.component';
 import { FarmaciaDashComponent } from './farmacia/farmacia-dash/farmacia-dash.component';
 import { AgregarComponent } from './farmacia/agregar/agregar.component';
 import { ObtenermedicamentosComponent } from './farmacia/dash/obtenermedicamentos/obtenermedicamentos.component';
 import { RecetaComponent } from '../pages/Doctores/receta/receta.component';
 
 
-const pagesRoutes : Routes = [
+const pagesRoutes: Routes = [
   {
     path: '',
     component: PageComponent,
@@ -105,29 +105,23 @@ const pagesRoutes : Routes = [
     children: [
       // aca se iran agregando las rutas para el dashboard
       { path: 'paciente', component: PacienteComponent },
-      { path: 'consultar/paquetes', component:PaquetesComponent },
+      { path: 'consultar/paquetes', component: PaquetesComponent },
 
-
-      
-      
       // SOLICITUDES
       {  path: 'hoja/solicitud/membresia/:id', component: SolicitudMembresiaComponent  },
       { path: 'solicitud/:id', component: SolicitudComponent },
 
       // PAQUETES
 
-      
       // tabuladores de consultas
       { path: 'paqueteMaternidad/:id', component: PaqueteMaternidadComponent },
       { path: 'paquete/laboral/:id', component: PaqueteMedicoLaboralComponent  },
-      { path: 'pagos/paquete/maternidad', component:PagosMaternidadComponent },
+      { path: 'pagos/paquete/maternidad', component: PagosMaternidadComponent },
       { path: 'alto/riesgo/:id', component: TabuladorAltoriesgoComponent },
 
       // { path: 'membresia/:id', component: MembresiaPaqueteComponent },
 
-      
       // { path: 'membresia/:id', component: MembresiaPaqueteComponent },
-     
       // CONTRATOS DE LOS PAQUETES
       { path: 'contrato-medico-laboral', component: ContratoMLaboralComponent},
       { path: 'contrato-maternidad', component: ContratoMaternidadComponent },
@@ -149,7 +143,7 @@ const pagesRoutes : Routes = [
 
       // SERVICIOS INTEGRADOS
 
-      { path:'serviciosInt', component: ServiciosIntComponent  },
+      { path: 'serviciosInt', component: ServiciosIntComponent  },
       { path: 'ambulancia', component: AmbulanciaSIComponent},
       { path: 'hoja-fram', component: HojaFramComponent},
       { path: 'consulta/especialista', component: ConsultaEspecialistaComponent},
@@ -207,10 +201,10 @@ const pagesRoutes : Routes = [
       { path: 'ficha-enfermeria-01/:id', component: FE09Component},
       { path: 'paquete/quirofano/:id', component: PaqueteQuirofanoComponent },
       {  path: 'bitacora/hospitalizacion', component: BitacoraHospitalizacionComponent },
-     
+
       // TERMINA EL AREA DE CONSULTA GENERAL
       // ESTAS RUTAS SON PARA EL CRUD DE FARMACIA
-     
+
       // { path: 'farmacia/dash', component: DashComponent  },
       { path: 'farmacia', component: FarmaciaComponent},
 
@@ -228,33 +222,32 @@ const pagesRoutes : Routes = [
 
       { path: 'ficha-enfermeria-01/:id', component: FE09Component},
 
-      //Doctores
+      // Doctores
       { path: 'hoja-evolucion-cg/:id', component: HEvolucionCGComponent },
       { path: 'hoja-ingreso-hospitalario/:id', component: HIngresoHospitalComponent},
       { path: 'receta-medica/:id', component: RecetaComponent},
 
 
-       
-      // PEDIDOS DE SERVICIOS 
-      
+      // PEDIDOS DE SERVICIOS
+
       { path: 'indicadores', component: DashIndicadoresComponent },
       // IDENTIFICACION
 
 
-      //Nuevo Farmacia
-      { path:'farmacia/dash', component: FarmaciaDashComponent},
+      // Nuevo Farmacia
+      { path: 'farmacia/dash', component: FarmaciaDashComponent},
       { path: 'agregar/medicamento', component: AgregarComponent   },
       { path: 'ver/medicamentos', component: ObtenermedicamentosComponent},
 
       // termina farmacia
 
-      { path:'identificacion/:id', component: IdentificacionComponent },
+      { path: 'identificacion/:id', component: IdentificacionComponent },
       { path: 'indicadores/enfermeria', component: JefaturaEnfermeriaComponent  },
-      { path:'identificacion', component: IdentificacionComponent },
+      { path: 'identificacion', component: IdentificacionComponent },
       { path: 'hoja/diaria/jefatura/enfermeria', component: HojaDiariaComponent },
       // encuesat de jefatura de consulta general
       { path: 'indentificacion/jefatura/enfermeria/:id', component: EncuestaComponent },
-      { path: '', redirectTo: '/dashboard', pathMatch:'full' }
+      { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
 
     ]
   }
