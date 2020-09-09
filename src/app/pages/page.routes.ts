@@ -94,6 +94,7 @@ import { TomografiaEditComponent  } from './servivicosInt/tomografia/tomografia-
 import { FarmaciaDashComponent } from './farmacia/farmacia-dash/farmacia-dash.component';
 import { AgregarComponent } from './farmacia/agregar/agregar.component';
 import { ObtenermedicamentosComponent } from './farmacia/dash/obtenermedicamentos/obtenermedicamentos.component';
+import { RecetaComponent } from '../pages/Doctores/receta/receta.component';
 
 
 const pagesRoutes: Routes = [
@@ -224,6 +225,7 @@ const pagesRoutes: Routes = [
       // Doctores
       { path: 'hoja-evolucion-cg/:id', component: HEvolucionCGComponent },
       { path: 'hoja-ingreso-hospitalario/:id', component: HIngresoHospitalComponent},
+      { path: 'receta-medica/:id', component: RecetaComponent},
 
 
       // PEDIDOS DE SERVICIOS
