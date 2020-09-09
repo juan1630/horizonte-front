@@ -102,11 +102,11 @@ import { PacientesPipe } from '../pipes/pacientes.pipe';
 import { from } from 'rxjs';
 import { NuevaResonanciaComponent } from './servivicosInt/resonancia/nueva-resonancia/nueva-resonancia.component';
 import { ResonanciaEditComponent } from './servivicosInt/resonancia/resonancia-edit/resonancia-edit.component';
-import { TomografiaNuevoComponent } from './servivicosInt/tomografia/tomografia-nuevo/tomografia-nuevo.component'
+import { TomografiaNuevoComponent } from './servivicosInt/tomografia/tomografia-nuevo/tomografia-nuevo.component';
 import { TomografiaEditComponent  } from './servivicosInt/tomografia/tomografia-edit/tomografia-edit.component';
 import { FarmaciaDashComponent } from './farmacia/farmacia-dash/farmacia-dash.component';
 import { AgregarComponent } from './farmacia/agregar/agregar.component';
-import { ObtenermedicamentosComponent } from './farmacia/dash/obtenermedicamentos/obtenermedicamentos.component'
+import { ObtenermedicamentosComponent } from './farmacia/dash/obtenermedicamentos/obtenermedicamentos.component';
 @NgModule({
   declarations: [
     PageComponent,
@@ -201,7 +201,7 @@ import { ObtenermedicamentosComponent } from './farmacia/dash/obtenermedicamento
 
   ],
 
-  exports: [ 
+  exports: [
     PageComponent,
     ReactiveFormsModule
   ],
@@ -219,7 +219,7 @@ import { ObtenermedicamentosComponent } from './farmacia/dash/obtenermedicamento
     NgxPaginationModule,
 
   ]
-  
+
 
 })
 
