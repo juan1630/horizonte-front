@@ -14,9 +14,8 @@ import { ServicesModule } from './services/services.module';
 import {  NgxExtendedPdfViewerModule  } from 'ngx-extended-pdf-viewer';
 import { NgxPaginationModule } from 'ngx-pagination';
 
-// // SOCKET 
+// // SOCKET
 
-  
 import { ContratoMaternidadComponent } from './contratos/contrato-maternidad/contrato-maternidad.component';
 import { ContratoMLaboralComponent } from './contratos/contrato-m-laboral/contrato-m-laboral.component';
 import { jqxCalendarModule } from 'jqwidgets-ng/jqxcalendar';
@@ -64,14 +63,14 @@ import { ChartsModule } from 'ng2-charts';
     PdfViewerModule,
     ChartsModule,
     NgxExtendedPdfViewerModule,
-    NgxPaginationModule, 
+    NgxPaginationModule,
     // AngularEditorModule,
     APP_ROUTES
     ],
   exports: [
     ReactiveFormsModule,
   ],
- 
+
   providers: [],
   bootstrap: [AppComponent]
 
