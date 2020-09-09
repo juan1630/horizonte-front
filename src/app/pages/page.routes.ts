@@ -63,7 +63,7 @@ import { PatologiaNewComponent } from './servivicosInt/patologia/patologia-new/p
 import { PatologiaComponent } from './servivicosInt/patologia/patologia.component';
 import { HojaDiariaEnfGralComponent } from './Hojas_Diarias/hoja-diaria-enf-gral/hoja-diaria-enf-gral.component';
 import { EnfermeriaDashboardComponent } from './Enfermeria/enfermeria-dashboard/enfermeria-dashboard.component';
-import { DashComponent } from './farmacia/dash/dash.component';
+// import { DashComponent } from './farmacia/dash/dash.component';
 import { ConsultaGeneralComponent } from './consultas/consulta-general/consulta-general.component';
 import { PaqueteMedicoLaboralComponent } from './paquete-medico-laboral/paquete-medico-laboral.component';
 import { PediatricoComponent } from './contratos/pediatrico/pediatrico.component';
@@ -91,6 +91,9 @@ import { NuevaResonanciaComponent } from './servivicosInt/resonancia/nueva-reson
 import { ResonanciaEditComponent } from './servivicosInt/resonancia/resonancia-edit/resonancia-edit.component';
 import { TomografiaNuevoComponent } from './servivicosInt/tomografia/tomografia-nuevo/tomografia-nuevo.component';
 import { TomografiaEditComponent  } from './servivicosInt/tomografia/tomografia-edit/tomografia-edit.component'
+import { FarmaciaDashComponent } from './farmacia/farmacia-dash/farmacia-dash.component';
+import { AgregarComponent } from './farmacia/agregar/agregar.component';
+import { ObtenermedicamentosComponent } from './farmacia/dash/obtenermedicamentos/obtenermedicamentos.component';
 
 
 const pagesRoutes : Routes = [
@@ -207,7 +210,7 @@ const pagesRoutes : Routes = [
       // TERMINA EL AREA DE CONSULTA GENERAL
       // ESTAS RUTAS SON PARA EL CRUD DE FARMACIA
      
-      { path: 'farmacia/dash', component: DashComponent  },
+      // { path: 'farmacia/dash', component: DashComponent  },
       { path: 'farmacia', component: FarmaciaComponent},
 
       // TERMINA EL AREA DE FARMACIA
@@ -234,6 +237,14 @@ const pagesRoutes : Routes = [
       
       { path: 'indicadores', component: DashIndicadoresComponent },
       // IDENTIFICACION
+
+
+      //Nuevo Farmacia
+      { path:'farmacia/dash', component: FarmaciaDashComponent},
+      { path: 'agregar/medicamento', component: AgregarComponent   },
+      { path: 'ver/medicamentos', component: ObtenermedicamentosComponent},
+
+      // termina farmacia
 
       { path:'identificacion/:id', component: IdentificacionComponent },
       { path: 'indicadores/enfermeria', component: JefaturaEnfermeriaComponent  },
