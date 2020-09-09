@@ -107,6 +107,7 @@ import { TomografiaEditComponent  } from './servivicosInt/tomografia/tomografia-
 import { FarmaciaDashComponent } from './farmacia/farmacia-dash/farmacia-dash.component';
 import { AgregarComponent } from './farmacia/agregar/agregar.component';
 import { ObtenermedicamentosComponent } from './farmacia/dash/obtenermedicamentos/obtenermedicamentos.component';
+import { ConsultasGralComponent } from './servivicosInt/consulta-md-gral/consultas-gral/consultas-gral.component';
 @NgModule({
   declarations: [
     PageComponent,
@@ -195,7 +196,8 @@ import { ObtenermedicamentosComponent } from './farmacia/dash/obtenermedicamento
     ResonanciaEditComponent,
     TomografiaNuevoComponent,
     TomografiaEditComponent,
-    AgregarComponent
+    AgregarComponent,
+    ConsultasGralComponent
   ],
 
   exports: [

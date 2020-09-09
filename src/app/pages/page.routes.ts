@@ -95,6 +95,7 @@ import { FarmaciaDashComponent } from './farmacia/farmacia-dash/farmacia-dash.co
 import { AgregarComponent } from './farmacia/agregar/agregar.component';
 import { ObtenermedicamentosComponent } from './farmacia/dash/obtenermedicamentos/obtenermedicamentos.component';
 import { RecetaComponent } from '../pages/Doctores/receta/receta.component';
+import { ConsultasGralComponent } from './servivicosInt/consulta-md-gral/consultas-gral/consultas-gral.component';
 
 
 const pagesRoutes: Routes = [
@@ -198,6 +199,7 @@ const pagesRoutes: Routes = [
       { path: 'hoja-diaria-enfermeria-general', component: HojaDiariaEnfGralComponent},
       { path: 'enfermeria-dashboard', component: EnfermeriaDashboardComponent},
       { path: 'consulta-general/:id', component: ConsultaGeneralComponent},
+      {path: 'consulta/medicina/general' , component: ConsultasGralComponent  },
       { path: 'ficha-enfermeria-01/:id', component: FE09Component},
       { path: 'paquete/quirofano/:id', component: PaqueteQuirofanoComponent },
       {  path: 'bitacora/hospitalizacion', component: BitacoraHospitalizacionComponent },
@@ -209,6 +211,9 @@ const pagesRoutes: Routes = [
       { path: 'farmacia', component: FarmaciaComponent},
 
       // TERMINA EL AREA DE FARMACIA
+
+
+
 
       // LABORATORIO
 
