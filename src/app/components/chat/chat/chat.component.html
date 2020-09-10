@@ -11,13 +11,16 @@
         </div>
         <div class="col-3">
             <div class="container-membres">
-                <a class="badge badge-secondary" *ngFor="let item of usuarioConectados" (click)="verUsaurio(  item.role )">  {{ item.role }} </a>
+                <diV *ngFor="let item of usuarioConectados">
+                <a class="badge badge-secondary"  (click)="verUsaurio(  item.role )">  {{ item.role }} </a>
+                </diV>
             </div>
         </div>
     </div>
+
     <div class="chat-message">
-        <input type="text" name="message" id="message" placeholder="Mensaje" class="form-control chat-input" [(ngModel)]="message">
-        <button class="btn btn-primary btn-chat" (click)="enviarData()"> Enviar </button>
+        <textarea type="text" rows="1" name="message" id="message" placeholder="Mensaje" class="form-control chat-input" [(ngModel)]="message"></textarea>
+        <button class="btn btn-primary btn-chat" (click)="enviarData()" [disabled]="message === ''"> Enviar </button>
     </div>
 
 </form>
