@@ -13,11 +13,10 @@ import { PaqueteIdComponent } from './pages/paquete-id/paquete-id.component';
 
 
 const appRoutes: Routes = [
-    { 
-        path: '', 
+    {
+        path: '',
         component: PageComponent,
         children: [
-            
             { path: 'dashboard', component: DashboardComponent },
             { path: 'solicitud/:id', component: SolicitudComponent },
             { path: 'consultar/paquetes', component: VerPaquetesComponent },

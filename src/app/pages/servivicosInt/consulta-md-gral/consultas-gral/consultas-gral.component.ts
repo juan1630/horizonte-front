@@ -1,19 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { BusquedaGeneralService } from 'src/app/services/busquedas/busquedaGeneral/busqueda-general.service';
 import { gaurdarCotizacion } from 'src/app/functions/storage/storage.funcion';
-import * as swal from 'sweetAlert';
+import { BusquedaGeneralService } from 'src/app/services/busquedas/busquedaGeneral/busqueda-general.service';
 
 @Component({
-  selector: 'app-consulta-especialista',
-  templateUrl: './consulta-especialista.component.html',
-  styleUrls: ['./consulta-especialista.component.scss']
+  selector: 'app-consultas-gral',
+  templateUrl: './consultas-gral.component.html',
+  styleUrls: ['./consultas-gral.component.css']
 })
-export class ConsultaEspecialistaComponent implements OnInit {
-
-  constructor(
-    // tslint:disable-next-line:variable-name
-    private _buscadorGlobal: BusquedaGeneralService
-  ) { }
+export class ConsultasGralComponent implements OnInit {
 
   public todosLosServicios = {
     ambulancia: [],
@@ -32,8 +26,8 @@ export class ConsultaEspecialistaComponent implements OnInit {
 
   public consulta = {
     estudio : 'Consulta con especialista',
-    precioSin:500,
-    precioCon:100,
+    precioSin:100,
+    precioCon:0,
     _id: "1"
   }
 
@@ -44,6 +38,11 @@ export class ConsultaEspecialistaComponent implements OnInit {
   };
 
   public showTableAmbulanacia = true;
+
+  constructor(
+
+    private _buscadorGlobal: BusquedaGeneralService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -198,7 +197,6 @@ restarTotal( precioSin, precioCon  ) {
 
 
     }
-
 
 
 }

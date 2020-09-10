@@ -29,7 +29,7 @@
                
     
                 <!-- Cambiar edades, Hombres de 10 a 99 años
-                    Mujeres de 10 a 99 años, agregando parametros especiales -->
+                    Hombrees de 10 a 99 años, agregando parametros especiales -->
             </select>
             <!-- Agregar select con los tipos de Sangre mas comunes -->
         </div>
@@ -813,7 +813,7 @@
                 </button>
                         </div>
                         <div class="container">
-                            <table class="table">
+                            <table class="table" id="historialPaciente">
                                 <thead class="thead-dark">
                                     <tr>
                                         <th>Nombre</th>
@@ -849,7 +849,7 @@
                         </div>
 
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-secondary" (click)="imprimirHistorial()">Imprimir</button>
                             <button type="button" class="btn btn-primary" (click)="onSubmit(fSignosV)">Guardar</button>
                         </div>
                     </div>
@@ -864,58 +864,63 @@
             <div class="mujeres">
                 <!-- Inicio SV por primera Vez -->
                 <p>Somatometría y signos vitales por primera vez</p>
-                <div class="row center signos-mujeres">
-                    <div class="col-md-1">
-                        <label for="">Talla m</label>
-                        <input type="text" placeholder="Talla M" [(ngModel)]="talla">
+                <form #fSignosVMujeres="ngForm">
+                    <div class="row center signos-mujeres">
+                        <div class="col-md-1">
+                            <label for="">Talla m</label>
+                            <input type="text" name="tallaMujer" placeholder="Talla M" required [(ngModel)]="talla">
+                        </div>
+                        <div class="col-md-1">
+                            <label for="">P. Kg</label>
+                            <input type="text" name="pesoMujer" placeholder="Peso" required [(ngModel)]="peso" (change)="obtenerIMC()">
+                        </div>
+                        <div class="col-md-1">
+                            <label for="">P/T^2</label>
+                            <input type="text" name="imcMujer" placeholder="IMC" required [(ngModel)]="imc" [value]="imc">
+                            <!-- Crear en base P/T ^ 2, debe ser por defecto -->
+                        </div>
+                        <div class="col-md-1">
+                            <label for="">T.A.</label>
+                            <input type="text" name="taMujer" required ngModel placeholder="Sist/Diast">
+                        </div>
+                        <div class="col-md-1">
+                            <label for="">LPM</label>
+                            <input type="text" name="fcMujer" required ngModel placeholder="FC">
+                        </div>
+                        <div class="col-md-1">
+                            <label for="">RPM</label>
+                            <input type="text" name="frMujer" required ngModel placeholder="FR">
+                        </div>
+                        <div class="col-md-1">
+                            <label for="">°C</label>
+                            <input type="text" name="tempMujer" required required ngModel placeholder="TEMP">
+                        </div>
+                        <div class="col-md-1">
+                            <label for="">mg/dl</label>
+                            <input type="text" name="glucosaMujer" required ngModel placeholder="Glucosa">
+                        </div>
+                        <div class="col-md-1">
+                            <label for="">PC cm</label>
+                            <input type="text" name="pcMujer" required ngModel placeholder="P.C.">
+                        </div>
+                        <div class="col-md-1">
+                            <label for="">PA cm</label>
+                            <input type="text" name="paMujer" required ngModel placeholder="P.A.">
+                        </div>
+                        <div class="col-md-1">
+                            <label for="">PT cm</label>
+                            <input type="text" name="ptMujer" required ngModel placeholder="P.T.">
+                        </div>
+                        <div class="col-md-1">
+                            <label for="">Oximetría</label>
+                            <input type="text" name="paoMujer" required ngModel placeholder="PaO" (blur)="validarBtn(fSignosVMujeres)">
+                            <!-- <sub>2</sub> -->
+                        </div>
+                        <div class="col-md-1">
+                            <button class="btn btn-primary btn-izq" (click)="onSubmit(fSignosVMujeres)" [disabled]="validate">Guardad</button>
+                        </div>
                     </div>
-                    <div class="col-md-1">
-                        <label for="">P. Kg</label>
-                        <input type="text" placeholder="Peso" [(ngModel)]="peso" (change)="obtenerIMC()">
-                    </div>
-                    <div class="col-md-1">
-                        <label for="">P/T^2</label>
-                        <input type="text" placeholder="IMC" [(ngModel)]="imc" [value]="imc">
-                        <!-- Crear en base P/T ^ 2, debe ser por defecto -->
-                    </div>
-                    <div class="col-md-1">
-                        <label for="">T.A.</label>
-                        <input type="text" placeholder="Sist/Diast">
-                    </div>
-                    <div class="col-md-1">
-                        <label for="">LPM</label>
-                        <input type="text" placeholder="FC">
-                    </div>
-                    <div class="col-md-1">
-                        <label for="">RPM</label>
-                        <input type="text" placeholder="FR">
-                    </div>
-                    <div class="col-md-1">
-                        <label for="">°C</label>
-                        <input type="text" placeholder="TEMP">
-                    </div>
-                    <div class="col-md-1">
-                        <label for="">mg/dl</label>
-                        <input type="text" placeholder="Glucosa">
-                    </div>
-                    <div class="col-md-1">
-                        <label for="">PC cm</label>
-                        <input type="text" placeholder="P.C.">
-                    </div>
-                    <div class="col-md-1">
-                        <label for="">PA cm</label>
-                        <input type="text" placeholder="P.A.">
-                    </div>
-                    <div class="col-md-1">
-                        <label for="">PT cm</label>
-                        <input type="text" placeholder="P.T.">
-                    </div>
-                    <div class="col-md-1">
-                        <label for="">Oximetría</label>
-                        <input type="text" placeholder="PaO">
-                        <!-- <sub>2</sub> -->
-                    </div>
-                </div> <br> <br>
+                </form> <br> <br>
                 <!-- End Signos Vitales por 1a Vez -->
 
                 <!-- INICIO BOTONES MODALES -->
@@ -925,296 +930,288 @@
                     <!-- Button Signos Vitales -->
                     <button id="btn6" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal6">Signos Vitales</button>
                     <!-- Button Signos Vitales -->
-                    <!-- <button id="btn3" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal7">Antecedentes Gineco Obstetricos</button> -->
-                    <!-- Button Nutrición -->
                     <button id="btn4" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal8">Medicina Preventiva</button>
+                    <button id="btn3" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalMujer">Historial del Paciente</button>
+                    <!-- Button Nutrición -->
                 </div>
                 <!-- FIN BOTONES MODALES -->
 
 
-                <div id="modal5" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h3 class="modal-title center">Antecedentes</h3>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                            </div>
-                            <div class="row center">
-                                <div class="col-md-2">
-                                    <h5>Listado</h5>
+                <form #fAntecedentesMujeres="ngForm">
+                    <div id="modal5" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="modal-title center">Antecedentes</h3>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
                                 </div>
-                                <div class="col-md-2">
-                                    <h5>Personales</h5>
-                                </div>
-                                <div class="col-md-2">
-                                    <h5>Fecha</h5>
-                                </div>
-                                <div class="col-md-2">
-                                    <h5>Familiares</h5>
-                                </div>
-                                <div class="col-md-2">
-                                    <h5>Notas</h5>
-                                </div>
+                                <div class="row center">
+                                    <div class="col-md-2">
+                                        <h5>Listado</h5>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <h5>Personales</h5>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <h5>Fecha</h5>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <h5>Familiares</h5>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <h5>Notas</h5>
+                                    </div>
 
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Tabaquismo</p>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Tabaquismo</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input type="text" name="tabaquismoMujerPersonales" ngModel placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="tabaquismoMujerFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="tabaquismoMujerFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="tabaquismoMujerNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- Bloque 2 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Alcohol</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input type="text" name="alcoholMujerPersonales" ngModel placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="alcoholMujerFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="alcoholMujerFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="alcoholMujerNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 2 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Obesidad</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="obesidadMujerPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="obesidadMujerFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="obesidadMujerFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="obesidadMujerNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Diabetes</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="diabetesMujerPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="diabetesMujerFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="diabetesMujerFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="diabetesMujerNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Cardiopatias</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="cardiopatiasMujerPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="cardiopatiasMujerFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="cardiopatiasMujerFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="cardiopatiasMujerNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Cáncer</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="cancerMujerPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="cancerMujerFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="cancerMujerFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="cancerMujerNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Tuberculosis</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="tuberculosisMujerPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="tuberculosisMujerFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="tuberculosisMujerFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="tuberculosisMujerNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Osteoporosis</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="osteoporosisMujerPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="osteoporosisMujerFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="osteoporosisMujerFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="osteoporosisMujerNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Cirugias</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="cirugiasMujerPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="cirugiasMujerFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="cirugiasMujerFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="cirugiasMujerNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Fracturas</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="fracturasMujerPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="fracturasMujerFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="fracturasMujerFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="fracturasMujerNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Hospitalizaciones</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="hospMujerPersonles" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="hospMujerFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="hospMujerFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="hospMujerNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Transfusiones</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="transfuMujerPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="transfuMujerFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="transfuMujerFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="transfuMujerNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Deportes</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="deportesMujerPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="deportesMujerFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="deportesMujerFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="deportesMujerNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Enfermedades de los Sentidos</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="enfSentidosMujerPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="enfSentidosMujerFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="enfSentidosMujerFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="enfSentidosMujerNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Exposición Laboral</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="expoLaboralMujeresPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="expoLaboralMujeresFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="expoLaboralMujeresFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="expoLaboralMujeresNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Defectos Postquirurgicos</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="postQuirurgicoMujerPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="postQuirurgicoMujerFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="postQuirurgicoMujerFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="postQuirurgicoMujerNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Otras Enfermedades</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="otrasEnfMujerPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="otrasEnfMujerFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="otrasEnfMujerFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="otrasEnfMujerNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
                                 </div>
                                 <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
+                                    <textarea name="enfermedadesInfanciaMujer" placeholder="Enfermedades de la Infancia" ngModel id="" cols="90" rows="3"></textarea>
                                 </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- Bloque 2 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Alcohol</p>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn btn-primary" (click)="onSubmit(fAntecedentesMujeres)">Guardar</button>
                                 </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 2 -->
-                                <!-- Bloque 3 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Obesidad</p>
-                                </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 3 -->
-                                <!-- Bloque 3 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Diabetes</p>
-                                </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 3 -->
-                                <!-- Bloque 3 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Cardiopatias</p>
-                                </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 3 -->
-                                <!-- Bloque 3 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Cáncer</p>
-                                </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 3 -->
-                                <!-- Bloque 3 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Tuberculosis</p>
-                                </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 3 -->
-                                <!-- Bloque 3 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Osteoporosis</p>
-                                </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 3 -->
-                                <!-- Bloque 3 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Cirugias</p>
-                                </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 3 -->
-                                <!-- Bloque 3 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Fracturas</p>
-                                </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 3 -->
-                                <!-- Bloque 3 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Hospitalizaciones</p>
-                                </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 3 -->
-                                <!-- Bloque 3 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Transfusiones</p>
-                                </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 3 -->
-                                <!-- Bloque 3 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Deportes</p>
-                                </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 3 -->
-                                <!-- Bloque 3 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Enfermedades de los Sentidos</p>
-                                </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 3 -->
-                                <!-- Bloque 3 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Exposición Laboral</p>
-                                </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 3 -->
-                                <!-- Bloque 3 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Defectos Postquirurgicos</p>
-                                </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 3 -->
-                                <!-- Bloque 3 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Otras Enfermedades</p>
-                                </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 3 -->
-
-                                <select name="enfermedadesInfancia" class="form-control mujeresSelect">
-                            <option value="Tipo" selected>-- Enfermedades de la Infancia --</option>
-                            <option value="asma">Asma</option> 
-                            <option value="miopia">Miopia</option>
-                            
-                           
-                
-                            <!-- Cambiar edades, Hombres de 10 a 99 años
-                                Mujeres de 10 a 99 años, agregando parametros especiales -->
-                        </select>
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-primary">Guardar</button>
                             </div>
                         </div>
-                    </div>
 
-                </div>
+                    </div>
+                </form>
                 <!-- End Modal Antecedentes -->
 
                 <!-- Inicio Modal Antecedente Gineco Obstetricos -->
@@ -1223,7 +1220,7 @@
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content modal-ago " id="nutricion">
                             <div class="modal-header">
-                                <h3 id="nutricion" class="modal-title center">Signos Vitales</h3>
+                                <h3 id="nutricion" class="modal-title center">Signos Vitales: {{ paciente.nombre }}</h3>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -1248,7 +1245,20 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <!-- AQUI DEBE APLICARSE EL NG FOR :) -->
+                                        <tr *ngFor="let pacienteH of pacienteHistorial">
+                                            <td>{{pacienteH.tallaMujer}}</td>
+                                            <td>{{pacienteH.pesoMujer}}</td>
+                                            <td>{{pacienteH.imcMujer}}</td>
+                                            <td>{{pacienteH.taMujer}}</td>
+                                            <td>{{pacienteH.fcMujer}}</td>
+                                            <td>{{pacienteH.frMujer}}</td>
+                                            <td>{{pacienteH.tempMujer}}</td>
+                                            <td>{{pacienteH.glucosaMujer}}</td>
+                                            <td>{{pacienteH.pcMujer}}</td>
+                                            <td>{{pacienteH.paMujer}}</td>
+                                            <td>{{pacienteH.ptMujer}}</td>
+                                            <td>{{pacienteH.paoMujer}}</td>
+                                        </tr>
                                     </tbody>
                                 </table>
 
@@ -1270,121 +1280,201 @@
                 </div>
                 <!-- End SV Mujeres -->
                 <!-- Inicio Modal Antecedente Gineco Obstetricos -->
-                <div id="modal8" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="nutricion" aria-hidden="true">
+                <form #fAntecedentesGO="ngForm">
+                    <div id="modal8" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="nutricion" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content modal-ago " id="nutricion">
+                                <div class="modal-header">
+                                    <h3 id="nutricion" class="modal-title center">MEDICINA PREVENTIVA</h3>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                        </button>
+                                </div>
+
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>Estudios</th>
+                                            <th>Fecha de Toma</th>
+                                            <th>Fecha de Entrega</th>
+                                            <th>Resultados</th>
+                                            <th>Observaciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Detección de cáncer de estómago</td>
+                                            <td> <input name="cancerEstomagoMujerFechaToma" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="cancerEstomagoMujerFechaEntrega" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="cancerEstomagoMujerResultados" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="cancerEstomagoMujerObservaciones" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Detección de cáncer de colon</td>
+                                            <td> <input name="cancerColonMujerFechaToma" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="cancerColonMujerFechaEntrega" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="cancerColonMujerResultados" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="cancerColonMujerObservaciones" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Detección de cáncer de pulmón</td>
+                                            <td> <input name="cacerPulmonMujerFechaToma" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="cacerPulmonMujerFechaEntrega" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="cacerPulmonMujerResultados" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="cacerPulmonMujerObservaciones" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Detección de cáncer de mama</td>
+                                            <td> <input name="cancerMamaMujerFechaToma" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="cancerMamaMujerFechaEntrega" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="cancerMamaMujerResultados" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="cancerMamaMujerObservaciones" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Detección de cáncer cérvico uterino</td>
+                                            <td> <input name="cancerCUMujerFechaToma" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="cancerCUMujerFechaEntrega" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="cancerCUMujerResultados" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="cancerCUMujerObservaciones" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Campaña de detección de agudeza auditiva</td>
+                                            <td> <input name="auditivaMujeresFechaToma" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="auditivaMujeresFechaEntrega" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="auditivaMujeresResultados" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="auditivaMujeresObservaciones" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Campaña de buena salud bucal</td>
+                                            <td> <input name="bucalMujeresFechaToma" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="bucalMujeresFechaEntrega" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="bucalMujeresResultados" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="bucalMujeresObservaciones" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Campaña contra la Desnutrición, sobrepeso y obesidad</td>
+                                            <td> <input name="nutricionMujeresFechaToma" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="nutricionMujeresFechaEntrega" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="nutricionMujeresResultados" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="nutricionMujeresObservaciones" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Campaña de detección de diabetes mellitus y dislipidemia</td>
+                                            <td> <input name="diabetesMujeresFechaToma" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="diabetesMujeresFechaEntrega" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="diabetesMujeresResultados" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="diabetesMujeresObservaciones" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Campaña de detección de agudeza visual</td>
+                                            <td> <input name="visualMujeresFechaToma" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="visualMujeresFechaEntrega" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="visualMujeresResultados" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="visualMujeresObservaciones" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Campaña de detección de enfermedades respiratorias</td>
+                                            <td> <input name="respiratoriasFechaToma" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="respiratoriasFechaEntrega" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="respiratoriasResultados" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="respiratoriasObservaciones" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Campaña de detección de transtorno en la marcha</td>
+                                            <td> <input name="marchaMujeresFechaToma" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="marchaMujeresFechaEntrega" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="marchaMujeresResultados" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="marchaMujeresObservaciones" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Otros</td>
+                                            <td> <input name="otrosMujeresFechaToma" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="otrosMujeresFechaEntrega" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="otrosMujeresResultados" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="otrosMujeresObservaciones" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn btn-primary" (click)="onSubmit(fAntecedentesGO)">Guardar</button>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- End Modal Nutrición -->
+
+
+                    </div>
+                    <!-- End Mujeres -->
+                </form>
+
+
+                <div id="modalMujer" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="nutricion" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
-                        <div class="modal-content modal-ago " id="nutricion">
+                        <div class="modal-content modal-ago superXL">
                             <div class="modal-header">
-                                <h3 id="nutricion" class="modal-title center">MEDICINA PREVENTIVA</h3>
+                                <h3 id="nutricion" class="modal-title center">Historial del paciente</h3>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                             </div>
 
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Estudios</th>
-                                        <th>Fecha de Toma</th>
-                                        <th>Fecha de Entrega</th>
-                                        <th>Resultados</th>
-                                        <th>Observaciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Detección de cáncer de estómago</td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Detección de cáncer de colon</td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Detección de cáncer de pulmón</td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Detección de cáncer de mama</td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Detección de cáncer cérvico uterino</td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Campaña de detección de agudeza auditiva</td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Campaña de buena salud bucal</td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Campaña contra la Desnutrición, sobrepeso y obesidad</td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Campaña de detección de diabetes mellitus y dislipidemia</td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Campaña de detección de agudeza visual</td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Campaña de detección de enfermedades respiratorias</td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Campaña de detección de transtorno en la marcha</td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Otros</td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                    </tr>
+                            <div class="container">
+                                <table class="table tableIzq">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>Fecha de Visita</th>
+                                            <th>Nombre</th>
+                                            <th>Apellido Paterno</th>
+                                            <th>Apellido Materno</th>
+                                            <th>Edad</th>
+                                            <th>Género</th>
+                                            <th>Talla (m)</th>
+                                            <th>Peso (kg)</th>
+                                            <th>IMC (P/T^2)</th>
+                                            <th>T.A.</th>
+                                            <th>F.C. (LPM)</th>
+                                            <th>F.R. (RPM)</th>
+                                            <th>Temp °C</th>
+                                            <th>Glucosa mg/dl</th>
+                                            <th>P.C. (cm)</th>
+                                            <th>P.A. (cm)</th>
+                                            <th>P.T. (cm)</th>
+                                            <th>Oximetría (PaO)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- AQUI DEBE APLICARSE EL NG FOR :) -->
+                                        <tr *ngFor="let pacienteH of pacienteHistorial">
+                                            <td> {{fechaPacienteHistorial}} </td>
+                                            <td> {{paciente.nombre}} </td>
+                                            <td> {{paciente.apellidoPaterno}} </td>
+                                            <td> {{paciente.apellidoMaterno}}</td>
+                                            <td> {{paciente.edad}} </td>
+                                            <td> {{paciente.sexo}} </td>
+                                            <td>{{pacienteH.tallaMujer}}</td>
+                                            <td>{{pacienteH.pesoMujer}}</td>
+                                            <td>{{pacienteH.imcMujer}}</td>
+                                            <td>{{pacienteH.taMujer}}</td>
+                                            <td>{{pacienteH.fcMujer}}</td>
+                                            <td>{{pacienteH.frMujer}}</td>
+                                            <td>{{pacienteH.tempMujer}}</td>
+                                            <td>{{pacienteH.glucosaMujer}}</td>
+                                            <td>{{pacienteH.pcMujer}}</td>
+                                            <td>{{pacienteH.paMujer}}</td>
+                                            <td>{{pacienteH.ptMujer}}</td>
+                                            <td>{{pacienteH.paoMujer}}</td>
+                                        </tr>
 
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <!-- end container -->
+
 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -1394,11 +1484,9 @@
                         </div>
 
                     </div>
-                    <!-- End Modal Nutrición -->
 
 
                 </div>
-                <!-- End Mujeres -->
             </div>
             <!-- End Container Mujeres-->
         </div>
@@ -1407,65 +1495,68 @@
         <!-- INICIO HOMBRES -->
 
         <!-- *ngIf="paciente.sexo == 'Masculino' && paciente.edad > 9" -->
+
         <div class="" *ngIf="paciente.sexo == 'Masculino' && paciente.edad > 9">
             <div class="hombres">
                 <!-- Inicio SV por primera Vez -->
                 <p>Somatometría y signos vitales por primera vez</p>
-                <div class="row center signos-mujeres">
-                    <div class="col-md-1">
-                        <label for="">Talla m</label>
-                        <input type="text" placeholder="Talla M" [(ngModel)]="talla">
+                <form #fSignosVitalesHombres="ngForm">
+                    <div class="row center signos-mujeres">
+                        <div class="col-md-1">
+                            <label for="">Talla m</label>
+                            <input name="tallaHombre" type="text" placeholder="Talla M" [(ngModel)]="talla">
+                        </div>
+                        <div class="col-md-1">
+                            <label for="">P. Kg</label>
+                            <input name="pesoHombre" type="text" placeholder="Peso" [(ngModel)]="peso" (change)="obtenerIMC()">
+                        </div>
+                        <div class="col-md-1">
+                            <label for="">P/T^2</label>
+                            <input name="imcHombre" type="text" placeholder="IMC" [(ngModel)]="imc" [value]="imc">
+                            <!-- Crear en base P/T ^ 2, debe ser por defecto -->
+                        </div>
+                        <div class="col-md-1">
+                            <label for="">T.A.</label>
+                            <input name="taHombre" ngModel type="text" placeholder="Sist/Diast">
+                        </div>
+                        <div class="col-md-1">
+                            <label for="">LPM</label>
+                            <input name="fcHombre" ngModel type="text" placeholder="FC">
+                        </div>
+                        <div class="col-md-1">
+                            <label for="">RPM</label>
+                            <input name="frHombre" ngModel type="text" placeholder="FR">
+                        </div>
+                        <div class="col-md-1">
+                            <label for="">°C</label>
+                            <input name="tempHombre" ngModel type="text" placeholder="TEMP">
+                        </div>
+                        <div class="col-md-1">
+                            <label for="">mg/dl</label>
+                            <input name="glucosaHombre" ngModel type="text" placeholder="Glucosa">
+                        </div>
+                        <div class="col-md-1">
+                            <label for="">PC cm</label>
+                            <input name="pcHombre" ngModel type="text" placeholder="P.C.">
+                        </div>
+                        <div class="col-md-1">
+                            <label for="paHombre">PA cm</label>
+                            <input name="" ngModel type="text" placeholder="P.A.">
+                        </div>
+                        <div class="col-md-1">
+                            <label for="">PT cm</label>
+                            <input name="ptHombre" ngModel type="text" placeholder="P.T.">
+                        </div>
+                        <div class="col-md-1">
+                            <label for="">Oximetría</label>
+                            <input name="paoHombre" ngModel type="text" placeholder="PaO">
+                            <!-- <sub>2</sub> -->
+                        </div>
+                        <div class="col-md-1">
+                            <button class="btn btn-primary btn-izq" (click)="onSubmit(fSignosVitalesHombres)">Guardar</button>
+                        </div>
                     </div>
-                    <div class="col-md-1">
-                        <label for="">P. Kg</label>
-                        <input type="text" placeholder="Peso" [(ngModel)]="peso" (change)="obtenerIMC()">
-                    </div>
-                    <div class="col-md-1">
-                        <label for="">P/T^2</label>
-                        <input type="text" placeholder="IMC" [(ngModel)]="imc" [value]="imc">
-                        <!-- Crear en base P/T ^ 2, debe ser por defecto -->
-                    </div>
-                    <div class="col-md-1">
-                        <label for="">T.A.</label>
-                        <input type="text" placeholder="Sist/Diast">
-                    </div>
-                    <div class="col-md-1">
-                        <label for="">LPM</label>
-                        <input type="text" placeholder="FC">
-                    </div>
-                    <div class="col-md-1">
-                        <label for="">RPM</label>
-                        <input type="text" placeholder="FR">
-                    </div>
-                    <div class="col-md-1">
-                        <label for="">°C</label>
-                        <input type="text" placeholder="TEMP">
-                    </div>
-                    <div class="col-md-1">
-                        <label for="">mg/dl</label>
-                        <input type="text" placeholder="Glucosa">
-                    </div>
-                    <div class="col-md-1">
-                        <label for="">PC cm</label>
-                        <input type="text" placeholder="P.C.">
-                    </div>
-                    <div class="col-md-1">
-                        <label for="">PA cm</label>
-                        <input type="text" placeholder="P.A.">
-                    </div>
-                    <div class="col-md-1">
-                        <label for="">PT cm</label>
-                        <input type="text" placeholder="P.T.">
-                    </div>
-                    <div class="col-md-1">
-                        <label for="">Oximetría</label>
-                        <input type="text" placeholder="PaO">
-                        <!-- <sub>2</sub> -->
-                    </div>
-                    <!-- <div class="">
-                        <button class="btn btn-primary btn-izq" (click)="onSubmit(fSignosV)" [disabled]="validate">Guardar</button>
-                    </div> -->
-                </div> <br> <br>
+                </form> <br> <br>
                 <!-- End Signos Vitales por 1a Vez -->
 
 
@@ -1487,286 +1578,280 @@
 
                 <!-- Modal  Antecedentes :D -->
                 <div id="modal9" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h3 class="modal-title center">Antecedentes</h3>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                            </div>
-                            <div class="row center">
-                                <div class="col-md-2">
-                                    <h5>Listado</h5>
+                    <form #fAntecedentesHombres="ngForm">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="modal-title center">Antecedentes</h3>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
                                 </div>
-                                <div class="col-md-2">
-                                    <h5>Personales</h5>
-                                </div>
-                                <div class="col-md-2">
-                                    <h5>Fecha</h5>
-                                </div>
-                                <div class="col-md-2">
-                                    <h5>Familiares</h5>
-                                </div>
-                                <div class="col-md-2">
-                                    <h5>Notas</h5>
+                                <div class="row center">
+                                    <div class="col-md-2">
+                                        <h5>Listado</h5>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <h5>Personales</h5>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <h5>Fecha</h5>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <h5>Familiares</h5>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <h5>Notas</h5>
+                                    </div>
+
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Tabaquismo</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input type="text" name="tabaquismoHombrePersonales" ngModel placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="tabaquismoHombreFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="tabaquismoHombreFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="tabaquismoHombreNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- Bloque 2 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Alcohol</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input type="text" name="alcoholHombrePersonales" ngModel placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="alcoholHombreFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="alcoholHombreFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="alcoholHombreNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 2 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Obesidad</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="obesidadHombrePersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="obesidadHombreFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="obesidadHombreFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="obesidadHombreNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Diabetes</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="diabetesHombrePersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="diabetesHombreFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="diabetesHombreFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="diabetesHombreNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Cardiopatias</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="cardiopatiasHombrePersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="cardiopatiasHombreFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="cardiopatiasHombreFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="cardiopatiasHombreNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Cáncer</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="cancerHombrePersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="cancerHombreFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="cancerHombreFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="cancerHombreNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Tuberculosis</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="tuberculosisHombrePersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="tuberculosisHombreFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="tuberculosisHombreFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="tuberculosisHombreNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Osteoporosis</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="osteoporosisHombrePersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="osteoporosisHombreFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="osteoporosisHombreFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="osteoporosisHombreNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Cirugias</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="cirugiasHombrePersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="cirugiasHombreFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="cirugiasHombreFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="cirugiasHombreNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Fracturas</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="fracturasHombrePersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="fracturasHombreFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="fracturasHombreFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="fracturasHombreNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Hospitalizaciones</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="hospHombrePersonles" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="hospHombreFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="hospHombreFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="hospHombreNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Transfusiones</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="transfuHombrePersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="transfuHombreFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="transfuHombreFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="transfuHombreNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Deportes</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="deportesHombrePersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="deportesHombreFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="deportesHombreFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="deportesHombreNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Enfermedades de los Sentidos</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="enfSentidosHombrePersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="enfSentidosHombreFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="enfSentidosHombreFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="enfSentidosHombreNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Exposición Laboral</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="expoLaboralHombreesPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="expoLaboralHombreesFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="expoLaboralHombreesFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="expoLaboralHombreesNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Defectos Postquirurgicos</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="postQuirurgicoHombrePersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="postQuirurgicoHombreFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="postQuirurgicoHombreFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="postQuirurgicoHombreNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Otras Enfermedades</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="otrasEnfHombrePersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="otrasEnfHombreFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="otrasEnfHombreFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="otrasEnfHombreNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+
                                 </div>
 
-                                <div class="col-md-2"></div>
                                 <div class="col-md-2">
-                                    <p>Tabaquismo</p>
+                                    <textarea name="enfermedadesInfanciaHombre" placeholder="Enfermedades de la Infancia" ngModel id="" cols="90" rows="3"></textarea>
                                 </div>
-                                <div class="col-md-2">
 
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn btn-primary" (click)="onSubmit(fAntecedentesHombres)">Guardar</button>
                                 </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- Bloque 2 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Alcohol</p>
-                                </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 2 -->
-                                <!-- Bloque 3 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Obesidad</p>
-                                </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 3 -->
-                                <!-- Bloque 3 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Diabetes</p>
-                                </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 3 -->
-                                <!-- Bloque 3 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Cardiopatias</p>
-                                </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 3 -->
-                                <!-- Bloque 3 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Cáncer</p>
-                                </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 3 -->
-                                <!-- Bloque 3 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Tuberculosis</p>
-                                </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 3 -->
-                                <!-- Bloque 3 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Osteoporosis</p>
-                                </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 3 -->
-                                <!-- Bloque 3 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Cirugias</p>
-                                </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 3 -->
-                                <!-- Bloque 3 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Fracturas</p>
-                                </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 3 -->
-                                <!-- Bloque 3 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Hospitalizaciones</p>
-                                </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 3 -->
-                                <!-- Bloque 3 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Transfusiones</p>
-                                </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 3 -->
-                                <!-- Bloque 3 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Deportes</p>
-                                </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 3 -->
-                                <!-- Bloque 3 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Enfermedades de los Sentidos</p>
-                                </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 3 -->
-                                <!-- Bloque 3 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Exposición Laboral</p>
-                                </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 3 -->
-                                <!-- Bloque 3 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Defectos Postquirurgicos</p>
-                                </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 3 -->
-                                <!-- Bloque 3 -->
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <p>Otras Enfermedades</p>
-                                </div>
-                                <div class="col-md-2">
-
-                                    <input type="text" placeholder="" class="antecedentes-inputs">
-                                </div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input type="text" placeholder="" class="antecedentes-inputs"></div>
-
-                                <!-- End bloque 3 -->
-
-                                <select name="enfermedadesInfancia" class="form-control mujeresSelect">
-                            <option value="Tipo" selected>-- Enfermedades de la Infancia --</option>
-                            <option value="asma">Asma</option> 
-                            <option value="miopia">Miopia</option>
-                            
-                           
-                
-                            <!-- Cambiar edades, Hombres de 10 a 99 años
-                                Mujeres de 10 a 99 años, agregando parametros especiales -->
-                        </select>
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-primary">Guardar</button>
                             </div>
                         </div>
-                    </div>
+                    </form>
 
                 </div>
                 <!-- End Modal Antecedentes -->
@@ -1800,7 +1885,20 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <!-- AQUI DEBE APLICARSE EL NG FOR :) -->
+                                        <tr *ngFor="let pacienteH of pacienteHistorial">
+                                            <td>{{pacienteH.tallaHombre}}</td>
+                                            <td>{{pacienteH.pesoHombre}}</td>
+                                            <td>{{pacienteH.imcHombre}}</td>
+                                            <td>{{pacienteH.taHombre}}</td>
+                                            <td>{{pacienteH.fcHombre}}</td>
+                                            <td>{{pacienteH.frHombre}}</td>
+                                            <td>{{pacienteH.tempHombre}}</td>
+                                            <td>{{pacienteH.glucosaHombre}}</td>
+                                            <td>{{pacienteH.pcHombre}}</td>
+                                            <td>{{pacienteH.paHombre}}</td>
+                                            <td>{{pacienteH.ptHombre}}</td>
+                                            <td>{{pacienteH.paoHombre}}</td>
+                                        </tr>
                                     </tbody>
                                 </table>
 
@@ -1822,134 +1920,137 @@
                 <!-- End SV Hombres -->
 
                 <!-- Inicio Modal Antecedente Gineco Obstetricos -->
-                <div id="modal11" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="nutricion" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content modal-ago " id="nutricion">
-                            <div class="modal-header">
-                                <h3 id="nutricion" class="modal-title center">MEDICINA PREVENTIVA</h3>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
+                <form #fMedicinaPreventivaHombres="ngForm">
+                    <div id="modal11" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="nutricion" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content modal-ago " id="nutricion">
+                                <div class="modal-header">
+                                    <h3 id="nutricion" class="modal-title center">MEDICINA PREVENTIVA</h3>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Estudios</th>
+                                            <th>Fecha de Toma</th>
+                                            <th>Fecha de Entrega</th>
+                                            <th>Resultados</th>
+                                            <th>Observaciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr>
+                                            <td>Detección de cáncer de estómago</td>
+                                            <td> <input name="cancerEstomagoHombresFechaToma" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="cancerEstomagoHombresFechaEntrega" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="cancerEstomagoHombresResultados" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="cancerEstomagoHombresObservaciones" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Detección de cáncer de colon</td>
+                                            <td> <input name="cancerColonHombresFechaToma" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="cancerColonHombresFechaEntrega" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="cancerColonHombresResultados" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="cancerColonHombresObservaciones" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Detección de cáncer de pulmón</td>
+                                            <td> <input name="cacerPulmonHombresFechaToma" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="cacerPulmonHombresFechaEntrega" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="cacerPulmonHombresResultados" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="cacerPulmonHombresObservaciones" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Detección de cáncer de próstata</td>
+                                            <td> <input name="cancerProstataHombresFechaToma" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="cancerProstataHombresFechaEntrega" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="cancerProstataHombresResultados" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="cancerProstataHombresObservaciones" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Detección de leucemia</td>
+                                            <td> <input name="leucemiaHombresFechaToma" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="leucemiaHombresFechaEntrega" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="leucemiaHombresResultados" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="leucemiaHombresObservaciones" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Campaña de detección de agudeza auditiva</td>
+                                            <td> <input name="auditivaHombresFechaToma" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="auditivaHombresFechaEntrega" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="auditivaHombresResultados" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="auditivaHombresObservaciones" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Campaña de buena salud bucal</td>
+                                            <td> <input name="bucalHombresFechaToma" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="bucalHombresFechaEntrega" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="bucalHombresResultados" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="bucalHombresObservaciones" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Campaña contra la Desnutrición, sobrepeso y obesidad</td>
+                                            <td> <input name="nutricionHombresFechaToma" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="nutricionHombresFechaEntrega" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="nutricionHombresResultados" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="nutricionHombresObservaciones" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Campaña de detección de diabetes mellitus y dislipidemia</td>
+                                            <td> <input name="diabetesHombresFechaToma" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="diabetesHombresFechaEntrega" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="diabetesHombresResultados" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="diabetesHombresObservaciones" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Campaña de detección de agudeza visual</td>
+                                            <td> <input name="visualHombresFechaToma" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="visualHombresFechaEntrega" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="visualHombresResultados" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="visualHombresObservaciones" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Campaña de detección de enfermedades respiratorias</td>
+                                            <td> <input name="respiratoriasHombresFechaToma" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="respiratoriasHombresFechaEntrega" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="respiratoriasHombresResultados" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="respiratoriasHombresObservaciones" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Campaña de detección de transtorno en la marcha</td>
+                                            <td> <input name="marchaHombresFechaToma" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="marchaHombresFechaEntrega" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="marchaHombresResultados" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="marchaHombresObservaciones" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Otros</td>
+                                            <td> <input name="otrosHombresFechaToma" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="otrosHombresFechaEntrega" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="otrosHombresResultados" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                            <td> <input name="otrosHombresObservaciones" ngModel type="text" placeholder="" class="antecedentes-inputs"> </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn btn-primary" (click)="onSubmit(fMedicinaPreventivaHombres)">Guardar</button>
+
+                                </div>
                             </div>
 
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Estudios</th>
-                                        <th>Fecha de Toma</th>
-                                        <th>Fecha de Entrega</th>
-                                        <th>Resultados</th>
-                                        <th>Observaciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Detección de cáncer de próstata</td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Detección de cáncer de pulmón</td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Detección de cáncer de colon</td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Detección de cáncer de estómago</td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Detección de leucemia</td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Campaña de detección de agudeza auditiva</td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Campaña de buena salud bucal</td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Campaña contra la Desnutrición, sobrepeso y obesidad</td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Campaña de detección de diabetes mellitus y dislipidemia</td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Campaña de detección de agudeza visual</td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Campaña de detección de enfermedades respiratorias</td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Campaña de detección de transtorno en la marcha</td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Otros</td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                        <td> <input type="text" placeholder="" class="antecedentes-inputs"> </td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
-
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-primary">Guardar</button>
-
-                            </div>
                         </div>
+                        <!-- End Modal Nutrición -->
+
 
                     </div>
-                    <!-- End Modal Nutrición -->
-
-
-                </div>
+                </form>
                 <!-- End Hombres -->
 
                 <!-- Signos Vitales Hombres  -->
@@ -1989,13 +2090,25 @@
                                     </thead>
                                     <tbody>
                                         <!-- AQUI DEBE APLICARSE EL NG FOR :) -->
-                                        <tr>
+                                        <tr *ngFor="let pacienteH of pacienteHistorial">
                                             <td> {{fechaPacienteHistorial}} </td>
                                             <td> {{paciente.nombre}} </td>
                                             <td> {{paciente.apellidoPaterno}} </td>
                                             <td> {{paciente.apellidoMaterno}}</td>
                                             <td> {{paciente.edad}} </td>
                                             <td> {{paciente.sexo}} </td>
+                                            <td>{{pacienteH.tallaHombre}}</td>
+                                            <td>{{pacienteH.pesoHombre}}</td>
+                                            <td>{{pacienteH.imcHombre}}</td>
+                                            <td>{{pacienteH.taHombre}}</td>
+                                            <td>{{pacienteH.fcHombre}}</td>
+                                            <td>{{pacienteH.frHombre}}</td>
+                                            <td>{{pacienteH.tempHombre}}</td>
+                                            <td>{{pacienteH.glucosaHombre}}</td>
+                                            <td>{{pacienteH.pcHombre}}</td>
+                                            <td>{{pacienteH.paHombre}}</td>
+                                            <td>{{pacienteH.ptHombre}}</td>
+                                            <td>{{pacienteH.paoHombre}}</td>
                                         </tr>
 
                                     </tbody>

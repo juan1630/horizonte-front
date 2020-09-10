@@ -18,23 +18,23 @@ export class AmbulanciaSIComponent implements OnInit {
 
   // data de los servicios
   public ambulanciaSI: any [] = [];
-  public totalAmbulancia : string;
+  public totalAmbulancia: string;
   public termino: string;
-  public pagina :number = 0;
+  public pagina = 0;
   public showTableAmbulanacia = true;
 
   public todosLosServicios = {
     ambulancia: [],
     endoscopia: [],
     laboratorios: [],
-    message: "",
-    ok:false,
+    message: '',
+    ok: false,
     otrosServicio: [],
     patologia: [],
     rayosX: [],
     tomografia: [],
     ultrasonido: []
-  }
+  };
 
   // data el usuario de la maquina
   //public role: String;
@@ -42,8 +42,8 @@ export class AmbulanciaSIComponent implements OnInit {
 // data de la cotizacion
 public carrito = {
   totalSin: 0,
-  totalCon:0,
-  items:[]
+  totalCon: 0,
+  items: []
 };
 
 ngOnInit(): void {
@@ -53,12 +53,12 @@ ngOnInit(): void {
   // aca sugria el problema de la inicializacion de las variables
   this.carrito = getCarritoStorage();
 
-  if( this.carrito == null ){
+  if ( this.carrito == null ){
 
     this.carrito = {
       totalSin: 0,
-      totalCon:0,
-      items:[]
+      totalCon: 0,
+      items: []
     };
 
   }
@@ -134,7 +134,7 @@ restarTotal ( precioSin, precioCon  ) {
   }
 
 
-agregarCarrito( event, item:any ){
+agregarCarrito( event, item: any ) {
 
 
   console.log( item );
@@ -143,12 +143,12 @@ agregarCarrito( event, item:any ){
 
 
     // en esta parte pasamos el precio de día con y sin
-    let  estuidio = {
+    const  estuidio = {
 
       nombreEstudio: item.DESTINO,
       precioSin: item.PRECIO_PUBLICO_DIA,
       precioCon: item.PRECIO_MEMBRESIA_DIA,
-      idEstudio:item._id
+      idEstudio: item._id
 
   }
 
@@ -166,7 +166,7 @@ agregarCarrito( event, item:any ){
       precioSin: item.PRECIO_PUBLICO_REDONDO_DIA,
       precioCon: item.PRECIO_MEMBRESIA_REDONDO_DIA ,
       idEstudio:item._id
-  }
+  };
 
   this.sumarTotal( item.PRECIO_PUBLICO_REDONDO_DIA, item.PRECIO_MEMBRESIA_REDONDO_DIA );
 
@@ -181,9 +181,9 @@ agregarCarrito( event, item:any ){
       nombreEstudio: item.DESTINO,
       precioSin: item.PRECIO_PUBLICO_NOCHE,
       precioCon: item.PRECIO_MEMBRESIA_NOCHE,
-      idEstudio:item._id
+      idEstudio: item._id
 
-  }
+  };
 
   console.log( estuidio );
 
@@ -198,7 +198,7 @@ agregarCarrito( event, item:any ){
     nombreEstudio: item.DESTINO,
     precioSin: item.PRECIO_PUBLICO_REDONDO_NOCHE,
     precioCon: item.PRECIO_MEMBRESIA_REDONDO_NOCHE,
-    idEstudio:item._id
+    idEstudio: item._id
 
   }
 
@@ -219,14 +219,14 @@ agregarCarrito( event, item:any ){
 
 
 
-eliminar( id ){
+eliminar( id ) {
 
 
   this.carrito.items.forEach(  (item, index) => {
 
     // Agregar algun otro caso que se pueda dar
 
-    if( item.idEstudio  === id ) {
+    if ( item.idEstudio  === id ) {
 
       this.carrito.items.splice( index, 1 )
 
@@ -253,7 +253,7 @@ eliminar( id ){
 
   verDatos(){
     this._ambulanciaService.getDestino().subscribe(
-      (res:any) => {
+      (res: any) => {
         console.log( res );
         this.ambulanciaSI = res.servicios;
         this.totalAmbulancia = res.servicios.results;

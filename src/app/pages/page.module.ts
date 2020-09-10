@@ -74,7 +74,7 @@ import { PatologiaNewComponent } from './servivicosInt/patologia/patologia-new/p
 import { HojaDiariaEnfGralComponent } from './Hojas_Diarias/hoja-diaria-enf-gral/hoja-diaria-enf-gral.component';
 import { HojaDiariaEnfUrgenciaComponent } from './Hojas_Diarias/hoja-diaria-enf-urgencia/hoja-diaria-enf-urgencia.component';
 import { EnfermeriaDashboardComponent } from './Enfermeria/enfermeria-dashboard/enfermeria-dashboard.component';
-import { DashComponent } from './farmacia/dash/dash.component';
+// import { DashComponent } from './farmacia/dash/dash.component';
 import { ConsultaGeneralComponent } from './consultas/consulta-general/consulta-general.component';
 import { PaqueteMedicoLaboralComponent } from './paquete-medico-laboral/paquete-medico-laboral.component';
 import { PediatricoComponent } from './contratos/pediatrico/pediatrico.component';
@@ -102,8 +102,12 @@ import { PacientesPipe } from '../pipes/pacientes.pipe';
 import { from } from 'rxjs';
 import { NuevaResonanciaComponent } from './servivicosInt/resonancia/nueva-resonancia/nueva-resonancia.component';
 import { ResonanciaEditComponent } from './servivicosInt/resonancia/resonancia-edit/resonancia-edit.component';
-import { TomografiaNuevoComponent } from './servivicosInt/tomografia/tomografia-nuevo/tomografia-nuevo.component'
-import { TomografiaEditComponent  } from './servivicosInt/tomografia/tomografia-edit/tomografia-edit.component'
+import { TomografiaNuevoComponent } from './servivicosInt/tomografia/tomografia-nuevo/tomografia-nuevo.component';
+import { TomografiaEditComponent  } from './servivicosInt/tomografia/tomografia-edit/tomografia-edit.component';
+import { FarmaciaDashComponent } from './farmacia/farmacia-dash/farmacia-dash.component';
+import { AgregarComponent } from './farmacia/agregar/agregar.component';
+import { ObtenermedicamentosComponent } from './farmacia/dash/obtenermedicamentos/obtenermedicamentos.component';
+import { ConsultasGralComponent } from './servivicosInt/consulta-md-gral/consultas-gral/consultas-gral.component';
 @NgModule({
   declarations: [
     PageComponent,
@@ -164,7 +168,7 @@ import { TomografiaEditComponent  } from './servivicosInt/tomografia/tomografia-
     HojaDiariaEnfGralComponent,
     HojaDiariaEnfUrgenciaComponent,
     EnfermeriaDashboardComponent,
-    DashComponent,
+    // DashComponent,
     ConsultaGeneralComponent,
     PaqueteMedicoLaboralComponent,
     PediatricoComponent,
@@ -191,11 +195,12 @@ import { TomografiaEditComponent  } from './servivicosInt/tomografia/tomografia-
     NuevaResonanciaComponent,
     ResonanciaEditComponent,
     TomografiaNuevoComponent,
-    TomografiaEditComponent
-
+    TomografiaEditComponent,
+    AgregarComponent,
+    ConsultasGralComponent
   ],
 
-  exports: [ 
+  exports: [
     PageComponent,
     ReactiveFormsModule
   ],
@@ -213,7 +218,7 @@ import { TomografiaEditComponent  } from './servivicosInt/tomografia/tomografia-
     NgxPaginationModule,
 
   ]
-  
+
 
 })
 

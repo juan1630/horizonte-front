@@ -1,0 +1,61 @@
+<h1 class="center"><b>MEDICAMENTOS</b></h1>
+
+<!-- REALIZAR UN ngFor y guiarme de ambulancia/ patologia -->
+
+
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-md-9">
+            <table class="table table-hover">
+                <thead class="thead-dark">
+
+                    <tr>
+
+                        <th>Nombre Comercial</th>
+
+                        <th>Nombre de la Sal o Sustancia Actica</th>
+
+                        <th>
+                            Presentación
+                        </th>
+
+
+                        <th>
+                            Contenido de Frasco
+                        </th>
+
+                        <th>
+                            Vía de Administración
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let medicamento of medicamentos">
+
+                        <td>
+                            {{medicamento.nombreComercial}}
+
+                        </td>
+
+                        <td>
+                            {{medicamento.nombreDeSalOsustanciaActiva}}
+                        </td>
+
+                        <td>
+                            {{medicamento.presentacio}}
+                        </td>
+
+                        <td>
+                            {{medicamento.contenidoFrasco}}
+                        </td>
+
+                        <td>
+                            {{medicamento.viaDeAdministracion}}
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

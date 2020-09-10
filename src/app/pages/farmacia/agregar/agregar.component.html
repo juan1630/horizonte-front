@@ -1,0 +1,29 @@
+<h1><b>Agregar Nuevo Medicamento</b></h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <label for="nombreComercial" class="name">Nombre Comercial:</label>
+        <input type="text" class="inputStyle inModalS form-control" style="margin: -2rem 0 2rem 0;" name="nombreComercial" [(ngModel)]="medicamento.nombreComercial">
+
+    </div>
+
+    <div class=" col-md-4 ">
+        <label for="sustanciaActiva ">Nombre de la sal o sustancia activa:</label>
+        <input type="text " class="inputStyle inModalS form-control " style=" margin: -2rem 0 2rem 0; " name="nombreDeSalOsustanciaActiva" [(ngModel)]="medicamento.nombreDeSalOsustanciaActiva">
+    </div>
+    <div class="col-md-4 ">
+        <label for="presentacio ">Presentación:</label>
+        <input type="text " class="inputStyle inModalS form-control " style=" margin: -2rem 0 2rem 0; " name="presentacio" [(ngModel)]="medicamento.presentacio">
+    </div>
+    <div class="col-md-4 ">
+        <label for="contenido ">Contenido del frasco:</label>
+        <input type="text " class="inputStyle inModalS form-control " style=" margin: -2rem 0 2rem 0; " name="contenido" [(ngModel)]="medicamento.contenidoFrasco">
+    </div>
+    <div class="col-md-4 ">
+        <label for="viaAdmon ">Vía de Administración:</label>
+        <input type="text " class="inputStyle inModalS form-control " style=" margin: -2rem 0 2rem 0; " name="viaDeAdministracion" [(ngModel)]="medicamento.viaDeAdministracion">
+    </div>
+
+    <button class=" btn btn-primary" (click)="enviar() ">Guardar</button>
+
+</div>

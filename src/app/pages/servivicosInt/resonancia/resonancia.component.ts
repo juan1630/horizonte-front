@@ -8,7 +8,7 @@ import { ResonanciaService } from 'src/app/services/resonancia/resonancia.servic
 })
 export class ResonanciaComponent implements OnInit {
 
-  public resonacias:[]=[];
+  public resonacias: [] = [];
 
 
   constructor(
@@ -21,10 +21,10 @@ export class ResonanciaComponent implements OnInit {
 
 
 
-  getResonancias(){
-    
+  getResonancias() {
+
     this.resonanciaService.verResonancias()
-    .subscribe( (data:any) => {
+    .subscribe( (data: any) => {
 
       this.resonacias = data.data;
 
@@ -33,12 +33,12 @@ export class ResonanciaComponent implements OnInit {
   }
 
 
-  delete(id){
+  delete(id) {
     this.resonanciaService.eliminarResonancia( id )
     .subscribe( (data) => {
-        console.log(data)
+        console.log(data);
         this.getResonancias();
-    } )
+    } );
   }
 
 
