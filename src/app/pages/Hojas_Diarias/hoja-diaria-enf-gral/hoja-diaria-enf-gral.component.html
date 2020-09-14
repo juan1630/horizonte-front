@@ -1,6 +1,63 @@
-<h1 class="center">Hoja Diaria Enfermería Consulta Externa</h1>
+<div class="container-fluid">
+    <h1 class="centerxd">Hoja Diaria Enfermería Consulta Externa1</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="card" style="border-radius: 30px; margin-left: 25px;">
+                    <div class="card-header header">
+                        <div class="row">
+                            <div class="col-md-2 text_header">
+                                <p>Número</p>
+                            </div>
+                            <div class="col-md-2 text_header">
+                                <p>Nombre</p>
+                            </div>
+                            <div class="col-md-2 text_header">
+                                <p>Edad</p>
+                            </div>
+                            <div class="col-md-2 text_header">
+                                <p>Servicio</p>
+                            </div>
+                            <div class="col-md-2 text_header">
+                                <p>Médico</p>
+                            </div>
+                            <div class="col-md-2 text_header">
+                                <p>Hora</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body" style="background-color: #ffffff;">
+                        <div *ngFor="let listaEsperaP of listaEspera; let i = index">
+                            <div class="row" [routerLink]="['/ficha-enfermeria-01', listaEsperaP.pacienteId]">
+                                <div class="col-md-2">
+                                    <label style="margin-right: 50px; margin-top: 18px;">{{i+1}}</label>
+                                </div>
+                                <div class="col-md-2">
+                                    <label style="margin-right: 50px; margin-top: 18px;">{{listaEsperaP.nombrePaciente}}</label>
+                                </div>
+                                <div class="col-md-2">
+                                    <label style="margin-right: 50px; margin-top: 18px;">{{listaEsperaP.edad}}</label>
+                                </div>
+                                <div class="col-md-2">
+                                    <label style="margin-right: 50px; margin-top: 18px;">{{listaEsperaP.servicio}}</label>
+                                </div>
+                                <div class="col-md-2">
+                                    <label style="margin-right: 50px; margin-top: 18px;">{{listaEsperaP.doctor}}</label>
+                                </div>
+                                <div class="col-md-2">
+                                    <label style="margin-right: 50px; margin-top: 18px;">{{listaEsperaP.horallegada}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-<div class="center">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="center">
 
     <div class="row">
 
@@ -20,7 +77,7 @@
                         <th scope="col ">Médico</th>
                         <th scope="col ">Hora de Cita</th>
 
-                        <!-- *ngIf="role==='admin'" -->
+                         *ngIf="role==='admin'" 
 
                     </tr>
 
@@ -63,4 +120,4 @@
 
     </div>
 
-</div>
+</div> -->

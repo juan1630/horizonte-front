@@ -114,7 +114,7 @@ export class ConsultasGralComponent implements OnInit {
     // let precioMemComaMembresia = precioMemTrim.replace(',', '');
 
 
-    swal({ title: `Con la memebresia ahorras ${ this.consulta.precioSin - this.consulta.precioCon }`    ,icon: 'success' });
+    Swal({ title: `Con la memebresia ahorras ${ this.consulta.precioSin - this.consulta.precioCon }`    ,icon: 'success' });
 
   }
 

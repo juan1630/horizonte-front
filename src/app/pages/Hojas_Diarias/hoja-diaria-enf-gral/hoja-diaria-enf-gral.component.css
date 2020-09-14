@@ -5,7 +5,25 @@
 .clickss {
     cursor: pointer;
 }
-
+.header {
+    background-color: #03318C;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+}
+.text_header {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 600;
+    color: white;
+}
+.centerxd {
+    text-align: left;
+    font-size: 40px;
+    font-weight: 600;
+    color: #001672;
+    font-style: italic;
+    margin-left: 15px;
+}
 
 /* .clickss:hover {
     background-color: #3176df;
