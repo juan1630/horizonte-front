@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+// import { BrowserModule } from '@angular/platform-browser';
 import { AgregarService } from 'src/app/services/farmacia/agregar.service';
 
 @Component({
@@ -12,10 +13,10 @@ export class ObtenermedicamentosComponent implements OnInit {
 public medicamentos=[
   {
     contenidoFrasco: "",
-nombreComercial: "",
-nombreDeSalOsustanciaActiva: "",
-presentacio: "",
-viaDeAdministracion: ""
+    nombreComercial: "",
+    nombreDeSalOsustanciaActiva: "",
+    presentacio: "",
+    viaDeAdministracion: ""
   }
 ]
 

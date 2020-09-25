@@ -1,1 +1,78 @@
-<p>pendientes works!</p>
+<h2 class="center"  >
+  CONTRATOS Y DOCUMENTACIÓN PENDIENTE POR SUBIR
+</h2>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header header">
+        <div class="row">
+
+
+          <div class="col-md-4">
+            <h4  class="center">
+              Nombre paciente
+            </h4>
+          </div>
+
+
+          <div class="col-md-4">
+            <h4 class="center">
+              Paquete
+            </h4>
+          </div>
+
+        <div class="col-md-4">
+          <h4  class="center" >
+
+            Status
+
+          </h4>
+        </div>
+
+        </div>
+      </div>
+      <div class="card-body">
+
+        <div class="row"  *ngFor="let item of pendientes"   >
+            <div class="col-md-4">
+
+
+
+              <h5>
+
+                <a [routerLink]="['/pendientes',item.paciente._id]">
+
+
+                  {{  item.paciente.nombrePaciente }}                {{  item.paciente.apellidoPaterno }}
+                  {{  item.paciente.apellidoMaterno }}
+
+
+                </a>
+              </h5>
+
+            </div>
+
+            <div class="col-md-4">
+
+              <h5>
+                {{ item.paquete.nombrePaquete }}
+
+              </h5>
+
+            </div>
+
+
+             <div class="col-md-4 center">
+               <h5>
+
+                 <i class="fa fa-skull-crossbones"></i>
+               </h5>
+             </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

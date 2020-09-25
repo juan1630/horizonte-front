@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PendientesContratosService } from 'src/app/services/pendientes-contratos.service';
 
 @Component({
   selector: 'app-pendientes',
@@ -7,9 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PendientesComponent implements OnInit {
 
-  constructor() { }
+
+  public pendientes: [] = [];
+
+  constructor(
+    private _pendientesService: PendientesContratosService
+  ) { }
+
+
 
   ngOnInit(): void {
+
+    this.obtenerPendientes();
+
   }
+
+  obtenerPendientes(){
+    this._pendientesService.verPendientes()
+    .subscribe(
+      (data: any) => {
+        console.log(data);
+        this.pendientes = data.data;
+
+      }
+     )
+  }
+
 
 }

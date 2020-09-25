@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BusquedaGeneralService } from 'src/app/services/busquedas/busquedaGeneral/busqueda-general.service';
 import { gaurdarCotizacion } from 'src/app/functions/storage/storage.funcion';
-import * as swal from 'sweetAlert';
+// import * as swal from 'sweetAlert';
 
 @Component({
   selector: 'app-consulta-especialista',
@@ -115,7 +115,7 @@ export class ConsultaEspecialistaComponent implements OnInit {
     // let precioMemComaMembresia = precioMemTrim.replace(',', '');
 
 
-    swal({ title: `Con la memebresia ahorras ${ this.consulta.precioSin - this.consulta.precioCon }`    ,icon: 'success' });
+    // swal({ title: `Con la memebresia ahorras ${ this.consulta.precioSin - this.consulta.precioCon }`    ,icon: 'success' });
 
   }
 

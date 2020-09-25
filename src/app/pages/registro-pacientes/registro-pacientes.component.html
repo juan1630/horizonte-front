@@ -1,0 +1,636 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h2>
+                Agregar paciente
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>
+                            Personales
+                        </h3>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <!-- <ng-stepper #cdkStepper [linear]="true">
+
+                <cdk-step [stepControl]="stepOne.stepOneForm" [optional]="false">
+                  <ng-template cdkStepLabel>
+                    <div class="step-bullet">1</div>
+                    <div class="step-title">Personal Details <span class="required">*</span></div>
+                  </ng-template>
+                  <app-step-one #stepOne></app-step-one>
+                </cdk-step>
+
+                <cdk-step [stepControl]="stepTwo.stepTwoForm" [optional]="true">
+                  <ng-template cdkStepLabel>
+                    <div class="step-bullet">2</div>
+                    <div class="step-title">Address</div>
+                  </ng-template>
+                  <app-step-two #stepTwo></app-step-two>
+                </cdk-step>
+             </ng-stepper> -->
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-2 offset-1">
+
+                        <label for="nombre">  Nombre(s) </label>
+
+
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" name="nombre" id="nombre" class="form-control">
+
+                    </div>
+
+
+                    <div class="col-md-2">
+
+                        <label for="apellidoPaterno">  Apellido Paterno </label>
+
+
+                    </div>
+                    <div class="col-md-3">
+
+                        <input type="text" name="apellidoPaterno" id="apellidoPaterno" class="form-control">
+
+                    </div>
+
+                    <div class="col-md-2 offset-1">
+
+                        <label for="apellidoMaterno">  Apellido Materno </label>
+
+
+                    </div>
+                    <div class="col-md-3">
+
+                        <input type="text" name="apellidoMaterno" id="apellidoMaterno" class="form-control">
+
+                    </div>
+
+
+                    <div class="col-md-2">
+
+                        <label for="curp">  CURP </label>
+
+
+                    </div>
+                    <div class="col-md-3">
+
+                        <input type="text" name="curp" id="curp" class="form-control">
+
+                    </div>
+
+
+
+                    <div class="col-md-2 offset-1">
+
+                        <label for="lugarOrigen">  Lugar de origen </label>
+
+
+                    </div>
+                    <div class="col-md-3">
+
+                        <select name="lugarOrigen" id="lugarOrigen" class="form-control">
+                            <option value="" selected>  Selecciona el pais </option>
+                            <option [value]="pais.name"  *ngFor="let pais of paises" >  {{  pais.name }} </option>
+                          </select>
+
+                    </div>
+                    <div class="col-md-2">
+
+                        <label for="fechaNacimiento">  Fecha de nacimiento </label>
+
+
+                    </div>
+                    <div class="col-md-3">
+
+                        <input type="text" name="fechaNacimiento" id="fechaNacimiento" class="form-control">
+
+                    </div>
+
+
+                    <div class="col-md-2 offset-1">
+                        <label for="edad"> Edad </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="edad" id="edad" class="form-control">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="telefono"> Telefono </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="telefono" id="telefono" class="form-control">
+                    </div>
+
+
+                    <div class="col-md-2 offset-1">
+                        <label for="estadoCivil"> Estado civil </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="estadoCivil" id="estadoCivil" class="form-control">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="genero"> Genero </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="genero" id="genero" class="form-control">
+                    </div>
+
+                    <div class="col-md-2 offset-1">
+                        <label for="correo">  Correo </label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="email" name="correo" id="correo" class="form-control">
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <h3>
+                            Dirección
+                        </h3>
+                    </div>
+
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="col-md-2 offset-1">
+                        <label for="codigoPostal"> Codigo postal </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="codigoPostal" id="codigoPostal" class="form-control">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="estado"> Estado </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="estado" id="estado" class="form-control">
+                    </div>
+
+                    <!-- inicia el pais  y la localidad -->
+
+                    <div class="col-md-2 offset-1">
+                        <label for="paisActual"> País </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="paisActual" id="paisActual" class="form-control">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="localidad"> Localidad </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="localidad" id="localidad" class="form-control">
+                    </div>
+
+                    <!-- termina la localidad  -->
+
+                    <!-- inicia calle y número -->
+
+                    <div class="col-md-2 offset-1">
+                        <label for="calle"> Calle </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="calle" id="calle" class="form-control">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="numeroInterior"> N° Interior </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="numeroInterior" id="numeroInterior" class="form-control">
+                    </div>
+
+
+                    <!-- termina calle y numero -->
+
+
+
+                    <!-- inician las referencias -->
+
+                    <div class="col-md-2 offset-1">
+                        <label for="referencia1"> Referencia 1 </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="referencia1" id="referencia1" class="form-control">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="referencia2"> Referencia 2 </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="referencia2" id="referencia2" class="form-control">
+                    </div>
+
+
+                    <!-- terminan las referencias  -->
+
+
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <h3>
+                            Datos fiscales
+                        </h3>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+
+
+
+
+                    <!-- Inician los datos fiscales -->
+
+                    <div class="col-md-2 offset-1">
+                        <label for="razonSocial">  Razón social </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="razonSocial" id="razonSocial" class="form-control">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="rfcRazonSocial">  RFC </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="rfcRazonSocial" id="rfcRazonSocial" class="form-control">
+                    </div>
+
+
+                    <div class="col-md-2 offset-1">
+                        <label for="cpRazonSocial"> C.P </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="cpRazonSocial" id="cpRazonSocial" class="form-control">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="estadoRazonSocial">  Estado </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="estadoRazonSocial" id="estadoRazonSocial" class="form-control">
+                    </div>
+
+
+                    <div class="col-md-2 offset-1">
+                        <label for="municipioRazonSocial"> Municipio </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="municipioRazonSocial" id="municipioRazonSocial" class="form-control">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="localidadRazonSocial">  Localidad </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="localidadRazonSocial" id="localidadRazonSocial" class="form-control">
+                    </div>
+
+
+                    <div class="col-md-2 offset-1">
+                        <label for="correoRazonSocial"> Correo </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="correoRazonSocial" id="correoRazonSocial" class="form-control">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="calleRazonSocial">  Calle </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="calleRazonSocial" id="calleRazonSocial" class="form-control">
+                    </div>
+
+
+                    <!-- terminan los datos fiscales  -->
+
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>
+                            Datos fiscales
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- Inician los datos fiscales 2  -->
+
+
+                <div class="row">
+
+
+
+
+                    <!-- Inician los datos fiscales -->
+
+                    <div class="col-md-2 offset-1">
+                        <label for="razonSocial2">  Razón social </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="razonSocial2" id="razonSocial2" class="form-control">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="rfcRazonSocial2">  RFC </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="rfcRazonSocial2" id="rfcRazonSocial2" class="form-control">
+                    </div>
+
+
+                    <div class="col-md-2 offset-1">
+                        <label for="cpRazonSocial2"> C.P </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="cpRazonSocial2" id="cpRazonSocial2" class="form-control">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="estadoRazonSocial2">  Estado </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="estadoRazonSocial2" id="estadoRazonSocial2" class="form-control">
+                    </div>
+
+
+                    <div class="col-md-2 offset-1">
+                        <label for="municipioRazonSocial2"> Municipio </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="municipioRazonSocial2" id="municipioRazonSocial2" class="form-control">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="localidadRazonSocial2">  Localidad </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="localidadRazonSocial2" id="localidadRazonSocial2" class="form-control">
+                    </div>
+
+
+                    <div class="col-md-2 offset-1">
+                        <label for="correoRazonSocial2"> Correo </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="correoRazonSocial2" id="correoRazonSocial2" class="form-control">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="calleRazonSocial2">  Calle </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="calleRazonSocial2" id="calleRazonSocial2" class="form-control">
+                    </div>
+
+
+                    <!-- terminan los datos fiscales  -->
+
+
+                </div>
+
+                <!-- Terminan los datos fiscales 2   -->
+
+
+                <!-- Inician los contactos de emergencia -->
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>
+                            Contacto de emergencia 1
+                        </h3>
+                    </div>
+                </div>
+
+
+                <div class="row">
+
+
+                    <div class="col-md-2 offset-1">
+                        <label for="nombreContactoDeEmergencia"> Nombre (s) </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="nombreContactoDeEmergencia" id="nombreContactoDeEmergencia" class="form-control">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="apellidoPaternoContactoDeEmergencia"> Apellido paterno </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="apellidoPaternoContactoDeEmergencia" id="apellidoPaternoContactoDeEmergencia" class="form-control">
+                    </div>
+
+
+
+
+
+                    <div class="col-md-2 offset-1">
+                        <label for="apellidoMaternoContactoDeEmergencia"> Apellido materno</label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="apellidoMaternoContactoDeEmergencia" id="apellidoMaternoContactoDeEmergencia" class="form-control">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="curpContactoDeEmergencia">  CURP </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="curpContactoDeEmergencia" id="curpContactoDeEmergencia" class="form-control">
+                    </div>
+
+
+
+                    <div class="col-md-2 offset-1">
+                        <label for="edadContactoDeemergencia">  Edad  </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="edadContactoDeemergencia" id="edadContactoDeemergencia" class="form-control">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="telefonoContactoDeEmergencia">  Teléfono </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="telefonoContactoDeEmergencia" id="telefonoContactoDeEmergencia" class="form-control">
+                    </div>
+
+
+
+                    <div class="col-md-2 offset-1">
+                        <label for="estadoCivilContactoDeEmergencia">  Estado civil  </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="estadoCivilContactoDeEmergencia" id="estadoCivilContactoDeEmergencia" class="form-control">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="generoContactoDeEmergencia">  Género </label>
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <select name="generoContactoDeEmergencia" id="generoContactoDeEmergencia" class="form-control">
+                        <option value="femenino">  Femenino </option>
+                        <option value="masculino"> Masculino </option>
+                      </select>
+                    </div>
+
+                    <!-- Terminan los contactos de emergencia -->
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>
+                            Contato de emergencia 2
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="row">
+
+
+                    <div class="col-md-2 offset-1">
+                        <label for="nombreContactoDeEmergencia2"> Nombre (s) </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="nombreContactoDeEmergencia2" id="nombreContactoDeEmergencia2" class="form-control">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="apellidoPaternoContactoDeEmergencia2"> Apellido paterno </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="apellidoPaternoContactoDeEmergencia2" id="apellidoPaternoContactoDeEmergencia2" class="form-control">
+                    </div>
+
+                    <div class="col-md-2 offset-1">
+                        <label for="apellidoMaternoContactoDeEmergencia2"> Apellido materno</label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="apellidoMaternoContactoDeEmergencia2" id="apellidoMaternoContactoDeEmergencia2" class="form-control">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="curpContactoDeEmergencia2">  CURP </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="curpContactoDeEmergencia2" id="curpContactoDeEmergencia2" class="form-control">
+                    </div>
+
+
+
+                    <div class="col-md-2 offset-1">
+                        <label for="edadContactoDeemergencia2">  Edad  </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="edadContactoDeemergencia2" id="edadContactoDeemergencia2" class="form-control">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="telefonoContactoDeEmergencia2">  Teléfono </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="telefonoContactoDeEmergencia2" id="telefonoContactoDeEmergencia2" class="form-control">
+                    </div>
+
+
+
+                    <div class="col-md-2 offset-1">
+                        <label for="estadoCivilContactoDeEmergencia2">  Estado civil  </label>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input type="text" name="estadoCivilContactoDeEmergencia2" id="estadoCivilContactoDeEmergencia2" class="form-control">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="generoContactoDeEmergencia2">  Género </label>
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <select name="generoContactoDeEmergencia2" id="generoContactoDeEmergencia2" class="form-control">
+                      <option value="femenino">  Femenino </option>
+                      <option value="masculino"> Masculino </option>
+                    </select>
+                    </div>
+
+                    <!-- Terminan los contactos de emergencia -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

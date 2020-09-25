@@ -96,6 +96,9 @@ import { AgregarComponent } from './farmacia/agregar/agregar.component';
 import { ObtenermedicamentosComponent } from './farmacia/dash/obtenermedicamentos/obtenermedicamentos.component';
 import { RecetaComponent } from '../pages/Doctores/receta/receta.component';
 import { ConsultasGralComponent } from './servivicosInt/consulta-md-gral/consultas-gral/consultas-gral.component';
+import { PendientePacienteComponent } from './pendientes/pendiente-paciente/pendiente-paciente.component';
+import { RegistroPacientesComponent } from './registro-pacientes/registro-pacientes.component';
+import { VerPacienteComponent } from './pacientes/ver-paciente/ver-paciente.component';
 
 
 const pagesRoutes: Routes = [
@@ -106,6 +109,10 @@ const pagesRoutes: Routes = [
     children: [
       // aca se iran agregando las rutas para el dashboard
       { path: 'paciente', component: PacienteComponent },
+
+      // REGISTRO DE PACIENTES
+      {  path: 'registro/pacientes', component: RegistroPacientesComponent  },
+      {  path: 'paciente/:id', component: VerPacienteComponent },
       { path: 'consultar/paquetes', component: PaquetesComponent },
 
       // SOLICITUDES
@@ -214,7 +221,8 @@ const pagesRoutes: Routes = [
 
 
 
-
+      { path: 'pendientes', component : PendientesComponent  },
+      {path: 'pendientes/:id', component: PendientePacienteComponent},
       // LABORATORIO
 
       // hoja de solictud de servicios integrados y pago

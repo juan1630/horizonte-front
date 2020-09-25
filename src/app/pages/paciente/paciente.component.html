@@ -8,7 +8,7 @@
             </div>
         </div>
         <div class="col-md-2">
-            <button type=" button " class="btn btn-secondary boton_contra2" (click)="modalService.abrirModal()">NUEVO</button>
+            <a type="button" class="btn btn-secondary boton_contra2" [routerLink]="['/registro', 'pacientes']">NUEVO</a>
         </div>
     </div>
 
@@ -53,19 +53,18 @@
                                 {{ paciente.telefono }} <br>
                             </div>
                             <div class="col-md-2" style="text-align: center;">
-                                <a (click)="_modalservicioInt.abrirModalServicioIntegrados( paciente )">Ver...</a> <br>
-                                <app-modal-servicios-int>[idUser]="paciente._id"</app-modal-servicios-int>
-                                                            
+                                <a [routerLink]="['/paciente', paciente._id]">Ver...</a> <br>
+
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
                 <div class="">
-                <pagination-controls id="listapacientes" maxSize="6" directionLinks="true" (pageChange)="pagina = $event"></pagination-controls>
+                    <pagination-controls id="listapacientes" maxSize="6" directionLinks="true" (pageChange)="pagina = $event"></pagination-controls>
                 </div>
             </div>
         </div>
-        <app-modal></app-modal>
+        <!-- <app-modal></app-modal> -->
 
     </div>
