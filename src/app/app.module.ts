@@ -27,16 +27,13 @@ import { ContratoVidaPlenaComponent } from './contratos/contratoVidaPlena/contra
 import { ContratoNeonatalComponent } from './contratos/neonatal/contrato-neonatal/contrato-neonatal.component';
 import { AltoRiesgoComponent } from './contratos/alto-riesgo/alto-riesgo.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {CdkStepperModule} from '@angular/cdk/stepper';
-import {NgStepperModule} from 'angular-ng-stepper';
+import {  MatStepperModule  } from '@angular/material/stepper'
 import { ChartsModule } from 'ng2-charts';
-//import { PacientesPipe } from './pipes/pacientes.pipe'
+
+
 // import { AngularEditorModule } from '@javascriptsoldier/angular-editor';
-
-
 // import  { PdfMakeWrapper  } from 'pdfmake-wrapper';
 // import pdfFonts from "pdfmake/build/vfs_fonts";
-
 // PdfMakeWrapper.setFonts( pdfFonts );
 
 
@@ -74,8 +71,6 @@ import { ChartsModule } from 'ng2-charts';
     ],
   exports: [
     ReactiveFormsModule,
-    CdkStepperModule,
-    NgStepperModule
   ],
 
   providers: [],

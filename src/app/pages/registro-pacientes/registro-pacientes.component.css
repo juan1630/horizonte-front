@@ -3,3 +3,7 @@ h3 {
     font-weight: 700;
     font-size: 1.5rem;
 }
+
+app-stepper {
+    max-height: calc( 100% - 2rem);
+}

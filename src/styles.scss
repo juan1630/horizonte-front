@@ -4,6 +4,13 @@
     --principal-text: #001672;
     --button-principal: #E3D049;
     --button-secondary: #00BBF1;
+    --text-header: #03318c;
+    --button-package: green;
+    --font: 'Montserrat', sans-serif;
+}
+
+.center {
+    text-align: center;
 }
 
 
@@ -255,6 +262,16 @@ $breakpoints:( 'phone': 599px, 'tablet-portrait': 600px, 'tablet-landscape': 960
     @else {
         @warn "No se encuentra el breakpoint";
     }
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 html,

@@ -1,0 +1,596 @@
+<form #form='ngForm'>
+    <mat-horizontal-stepper linear #stepper>
+        <mat-step label="Datos personales">
+
+            <h3>
+                Personales
+            </h3>
+            <div class="row">
+                <div class="col-md-3">
+
+                    <mat-label> Nombre(s) </mat-label>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <input matInput type="text" name="nombrePaciente" ngModel id="nombre" class="form-control">
+                </div>
+
+                <div class="col-md-3">
+
+                    <label for="apellidoPaterno">  Apellido Paterno </label>
+
+
+                </div>
+                <div class="col-md-3">
+
+                    <input type="text" ngModel name="apellidoPaterno" id="apellidoPaterno" class="form-control">
+
+                </div>
+                <div class="col-md-3">
+
+                    <label for="apellidoMaterno">  Apellido Materno </label>
+
+
+                </div>
+                <div class="col-md-3">
+
+                    <input type="text" ngModel name="apellidoMaterno" id="apellidoMaterno" class="form-control">
+
+                </div>
+
+
+                <div class="col-md-3">
+
+                    <label for="curp">  CURP </label>
+
+
+                </div>
+                <div class="col-md-3">
+
+                    <input type="text" ngModel name="curp" id="curp" class="form-control">
+
+                </div>
+
+
+
+                <div class="col-md-3">
+
+                    <label for="lugarOrigen">  Lugar de origen </label>
+
+
+                </div>
+                <div class="col-md-3">
+
+                    <select name="lugarOrigen" ngModel id="lugarOrigen" class="form-control">
+                    <option value="" selected>  Selecciona el pais </option>
+                    <option [value]="pais.name"  *ngFor="let pais of paises" >  {{  pais.name }} </option>
+              </select>
+
+                </div>
+                <div class="col-md-3">
+
+                    <label for="fechaNacimiento">  Fecha de nacimiento </label>
+
+
+                </div>
+                <div class="col-md-3">
+
+                    <input type="date" ngModel name="fechaNacimiento" id="fechaNacimiento" class="form-control">
+
+                </div>
+
+
+                <div class="col-md-3">
+                    <label for="edad"> Edad </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="number" ngModel name="edad" id="edad" min="0" max="120" class="form-control">
+                </div>
+
+                <div class="col-md-3">
+                    <label for="telefono"> Telefono </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="number" ngModel name="telefono" id="telefono" class="form-control">
+                </div>
+
+
+                <div class="col-md-3">
+                    <label for="estadoCivil"> Estado civil </label>
+                </div>
+
+                <div class="col-md-3">
+
+
+                    <select name="estadoCivil" id="estadoCivil" class="form-control">
+                        <option value="Casado">  Casado  </option>
+                        <option value="Soltero">  Soltero  </option>
+                        <option value="Viudo">  Viudo  </option>
+                    </select>
+
+                </div>
+
+                <div class="col-md-3">
+                    <label for="genero"> Genero </label>
+                </div>
+
+                <div class="col-md-3">
+
+                    <select name="genero" ngModel id="genero" class="form-control">
+                        <option value="femenino">  Femenino </option>
+                        <option value="masculino"> Masculino </option>
+                    </select>
+
+                </div>
+
+                <div class="col-md-3">
+                    <label for="correoPaciente">  Correo </label>
+                </div>
+                <div class="col-md-9">
+                    <input type="email" ngModel name="correoPaciente" id="correoPaciente" class="form-control">
+                </div>
+
+
+
+                <div class="col-md-12">
+                    <h3>
+                        Dirección
+                    </h3>
+                </div>
+
+
+                <div class="col-md-3">
+                    <label for="estado"> Estado </label>
+                </div>
+
+                <div class="col-md-3">
+                    <select name="estado" class="form-control" id="" [(ngModel)]="estado" (change)="buscarMunicipios()">
+                        <option [value]="estado" *ngFor="let estado of estados"    >   {{ estado }}  </option>
+                    </select>
+                </div>
+
+
+                <div class="col-md-3">
+                    <label for="codigoPostal"> Codigo postal </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="text" ngModel name="codigoPostal" id="codigoPostal" class="form-control">
+                </div>
+
+
+                <!-- inicia el pais  y la localidad -->
+
+                <div class="col-md-3">
+                    <label for="paisActual"> País </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input ngModel type="text" name="paisActual" id="paisActual" class="form-control">
+                </div>
+
+                <div class="col-md-3">
+                    <label for="localidad"> Municipio </label>
+                </div>
+
+                <div class="col-md-3">
+                    <select name="municipio" id="municipio" class="form-control" ngModel>
+                     <option value=""  *ngFor="let item of municipios" > {{ item  }} </option>
+                   </select>
+                </div>
+
+                <!-- termina la localidad  -->
+
+                <!-- inicia calle y número -->
+
+                <div class="col-md-3">
+                    <label for="calle"> Calle </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="text" ngModel name="calle" id="calle" class="form-control">
+                </div>
+
+                <div class="col-md-3">
+                    <label for="numeroInterior"> N° Interior </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="text" ngModel name="numeroInterior" id="numeroInterior" class="form-control">
+                </div>
+
+
+                <!-- termina calle y numero -->
+
+                <!-- inician las referencias -->
+
+                <div class="col-md-3">
+                    <label for="referencia1"> Referencia 1 </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input ngModel type="text" name="referencia1" id="referencia1" class="form-control">
+                </div>
+
+                <div class="col-md-3">
+                    <label for="referencia2"> Referencia 2 </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input ngModel type="text" name="referencia2" id="referencia2" class="form-control">
+                </div>
+            </div>
+        </mat-step>
+        <mat-step label="Datos fiscales">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <h3>
+                        Datos fiscales
+                    </h3>
+                </div>
+
+            </div>
+
+
+
+            <div class="row">
+                <!-- Inician los datos fiscales -->
+
+                <div class="col-md-2 offset-1">
+                    <label for="razonSocial">  Razón social </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="text" name="razonSocial" ngModel id="razonSocial" class="form-control">
+                </div>
+
+                <div class="col-md-2">
+                    <label for="rfcRazonSocial">  RFC </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="text" name="rfcRazonSocial" ngModel id="rfcRazonSocial" class="form-control">
+                </div>
+
+
+                <div class="col-md-2 offset-1">
+                    <label for="cpRazonSocial"> C.P </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="text" name="cpRazonSocial" ngModel id="cpRazonSocial" class="form-control">
+                </div>
+
+                <div class="col-md-2">
+                    <label for="estadoRazonSocial">  Estado </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="text" name="estadoRazonSocial" ngModel id="estadoRazonSocial" class="form-control">
+                </div>
+
+
+                <div class="col-md-2 offset-1">
+                    <label for="municipioRazonSocial"> Municipio </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="text" name="municipioRazonSocial" ngModel id="municipioRazonSocial" class="form-control">
+                </div>
+
+                <div class="col-md-2">
+                    <label for="localidadRazonSocial">  Localidad </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="text" name="localidadRazonSocial" ngModel id="localidadRazonSocial" class="form-control">
+                </div>
+
+
+                <div class="col-md-2 offset-1">
+                    <label for="correoRazonSocial"> Correo </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="text" name="correoRazonSocial" ngModel id="correoRazonSocial" class="form-control">
+                </div>
+
+                <div class="col-md-2">
+                    <label for="calleRazonSocial">  Calle </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="text" name="calleRazonSocial" ngModel id="calleRazonSocial" class="form-control">
+                </div>
+
+
+                <!-- terminan los datos fiscales  -->
+
+
+            </div>
+
+
+            <div class="row">
+
+                <!-- Inician los datos fiscales -->
+
+                <div class="col-md-2 offset-1">
+                    <label for="razonSocial2">  Razón social </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input ngModel type="text" name="razonSocial2" id="razonSocial2" class="form-control">
+                </div>
+
+                <div class="col-md-2">
+                    <label for="rfcRazonSocial2">  RFC </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input ngModel type="text" name="rfcRazonSocial2" id="rfcRazonSocial2" class="form-control">
+                </div>
+
+
+                <div class="col-md-2 offset-1">
+                    <label for="cpRazonSocial2"> C.P </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="text" ngModel name="cpRazonSocial2" id="cpRazonSocial2" class="form-control">
+                </div>
+
+                <div class="col-md-2">
+                    <label for="estadoRazonSocial2">  Estado </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="text" name="estadoRazonSocial2" ngModel id="estadoRazonSocial2" class="form-control">
+                </div>
+
+
+                <div class="col-md-2 offset-1">
+                    <label for="municipioRazonSocial2"> Municipio </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="text" name="municipioRazonSocial2" ngModel id="municipioRazonSocial2" class="form-control">
+                </div>
+
+                <div class="col-md-2">
+                    <label for="localidadRazonSocial2">  Localidad </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="text" name="localidadRazonSocial2" ngModel id="localidadRazonSocial2" class="form-control">
+                </div>
+
+
+                <div class="col-md-2 offset-1">
+                    <label for="correoRazonSocial2"> Correo </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="text" name="correoRazonSocial2" ngModel id="correoRazonSocial2" class="form-control">
+                </div>
+
+                <div class="col-md-2">
+                    <label for="calleRazonSocial2">  Calle </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="text" name="calleRazonSocial2" ngModel id="calleRazonSocial2" class="form-control">
+                </div>
+
+
+                <!-- terminan los datos fiscales  -->
+            </div>
+        </mat-step>
+
+
+        <mat-step label="Contacto">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>
+                        Contacto de emergencia 1
+                    </h3>
+                </div>
+            </div>
+
+
+            <div class="row">
+
+
+                <div class="col-md-2 offset-1">
+                    <label for="nombreContactoDeEmergencia"> Nombre (s) </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="text" name="nombreContactoDeEmergencia" ngModel id="nombreContactoDeEmergencia" class="form-control">
+                </div>
+
+                <div class="col-md-2">
+                    <label for="apellidoPaternoContactoDeEmergencia"> Apellido paterno </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="text" name="apellidoPaternoContactoDeEmergencia" ngModel id="apellidoPaternoContactoDeEmergencia" class="form-control">
+                </div>
+
+
+
+
+
+                <div class="col-md-2 offset-1">
+                    <label for="apellidoMaternoContactoDeEmergencia"> Apellido materno</label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="text" name="apellidoMaternoContactoDeEmergencia" ngModel id="apellidoMaternoContactoDeEmergencia" class="form-control">
+                </div>
+
+                <div class="col-md-2">
+                    <label for="curpContactoDeEmergencia">  CURP </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="text" name="curpContactoDeEmergencia" ngModel id="curpContactoDeEmergencia" class="form-control">
+                </div>
+
+
+
+                <div class="col-md-2 offset-1">
+                    <label for="edadContactoDeemergencia">  Edad  </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="number" name="edadContactoDeemergencia" ngModel id="edadContactoDeemergencia" class="form-control">
+                </div>
+
+                <div class="col-md-2">
+                    <label for="telefonoContactoDeEmergencia">  Teléfono </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="tel" name="telefonoContactoDeEmergencia" ngModel id="telefonoContactoDeEmergencia" class="form-control">
+                </div>
+
+
+
+                <div class="col-md-2 offset-1">
+                    <label for="estadoCivilContactoDeEmergencia">  Estado civil  </label>
+                </div>
+
+                <div class="col-md-3">
+
+                    <select name="estadoCivilContactoDeEmergencia" id="estadoCivilContactoDeEmergencia" class="form-control">
+                    <option value="Casado">  Casado  </option>
+                    <option value="Soltero">  Soltero  </option>
+                    <option value="Viudo">  Viudo  </option>
+                </select>
+
+                </div>
+
+                <div class="col-md-2">
+                    <label for="generoContactoDeEmergencia">  Género </label>
+                </div>
+
+                <div class="col-md-3">
+
+                    <select name="generoContactoDeEmergencia" ngModel id="generoContactoDeEmergencia" class="form-control">
+                      <option value="femenino">  Femenino </option>
+                      <option value="masculino"> Masculino </option>
+                  </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>
+                        Contato de emergencia 2
+                    </h3>
+                </div>
+            </div>
+
+            <div class="row">
+
+
+                <div class="col-md-2 offset-1">
+                    <label for="nombreContactoDeEmergencia2"> Nombre (s) </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="text" name="nombreContactoDeEmergencia2" ngModel id="nombreContactoDeEmergencia2" class="form-control">
+                </div>
+
+                <div class="col-md-2">
+                    <label for="apellidoPaternoContactoDeEmergencia2"> Apellido paterno </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="text" name="apellidoPaternoContactoDeEmergencia2" ngModel id="apellidoPaternoContactoDeEmergencia2" class="form-control">
+                </div>
+
+                <div class="col-md-2 offset-1">
+                    <label for="apellidoMaternoContactoDeEmergencia2"> Apellido materno</label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="text" name="apellidoMaternoContactoDeEmergencia2" ngModel id="apellidoMaternoContactoDeEmergencia2" class="form-control">
+                </div>
+
+                <div class="col-md-2">
+                    <label for="curpContactoDeEmergencia2">  CURP </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="text" name="curpContactoDeEmergencia2" ngModel id="curpContactoDeEmergencia2" class="form-control">
+                </div>
+
+
+
+                <div class="col-md-2 offset-1">
+                    <label for="edadContactoDeemergencia2">  Edad  </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="number" name="edadContactoDeemergencia2" ngModel id="edadContactoDeemergencia2" class="form-control">
+                </div>
+
+                <div class="col-md-2">
+                    <label for="telefonoContactoDeEmergencia2">  Teléfono </label>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="tel" name="telefonoContactoDeEmergencia2" ngModel id="telefonoContactoDeEmergencia2" class="form-control">
+                </div>
+
+
+
+                <div class="col-md-2 offset-1">
+                    <label for="estadoCivilContactoDeEmergencia2">  Estado civil  </label>
+                </div>
+
+
+                <div class="col-md-3">
+
+                    <select name="estadoCivilContactoDeEmergencia2" id="estadoCivilContactoDeEmergencia2" class="form-control">
+                    <option value="Casado">  Casado  </option>
+                    <option value="Soltero">  Soltero  </option>
+                    <option value="Viudo">  Viudo  </option>
+                </select>
+
+                </div>
+
+                <div class="col-md-2">
+                    <label for="generoContactoDeEmergencia2">  Género </label>
+                </div>
+
+                <div class="col-md-3">
+
+                    <select name="generoContactoDeEmergencia2" ngModel id="generoContactoDeEmergencia2" class="form-control">
+                        <option value="femenino">  Femenino </option>
+                        <option value="masculino"> Masculino </option>
+                      </select>
+                </div>
+
+                <!-- Terminan los contactos de emergencia -->
+            </div>
+
+        </mat-step>
+
+
+        <mat-step label="Paquetes">
+
+            <div class="center">
+                <button mat-button matStepperNext (click)="enviar(form)">   Agregar </button>
+            </div>
+
+
+        </mat-step>
+    </mat-horizontal-stepper>
+</form>

@@ -35,11 +35,8 @@ export class PacienteService {
   // este servicio crea un nuevo paciente en la DB
   setPacientes( data: any ){
 
-    let uri = this.url + `/paciente`;
-
-    return this._http.post( uri, data  )
-    .pipe( map( (resp) =>   resp  ) )
-
+    let uri = `http://localhost:3200/paciente`;
+    return this._http.post( uri, data  );
   }
 
 
