@@ -20,7 +20,7 @@
           </div> -->
 
                     <div class="col-md-6">
-                        <!-- <div> 
+                        <!-- <div>
                 <button (click)="verPaquetesDelPaciente()"  >  Ver paquetes </button>
             </div>
             <pre>
@@ -39,16 +39,16 @@
                                 </li>
                             </ul>
 
-                            <a *ngIf="_modalServicioIntService.pacientePaquete.nombrePaquete === 'PAQUETE DE CONTROL PRENATAL' " [routerLink]="['/paqueteMaternidad', _modalServicioIntService.paqueteVisitas]" routerLinkActive="router-link-active"> 
-                                
-                                Ver consultas 
-                            
+                            <a *ngIf="_modalServicioIntService.pacientePaquete.nombrePaquete === 'PAQUETE DE CONTROL PRENATAL' " [routerLink]="['/paqueteMaternidad', _modalServicioIntService.paqueteVisitas]" routerLinkActive="router-link-active">
+
+                                Ver consultas
+
                             </a>
 
-                            <a *ngIf="_modalServicioIntService.pacientePaquete.nombrePaquete === 'PAQUETE MÉDICO LABORAL' " [routerLink]="['/paquete/laboral/', _modalServicioIntService.paqueteVisitas]" routerLinkActive="router-link-active"> 
-                                
-                                Ver consultas 
-                            
+                            <a *ngIf="_modalServicioIntService.pacientePaquete.nombrePaquete === 'PAQUETE MÉDICO LABORAL' " [routerLink]="['/paquete/laboral/', _modalServicioIntService.paqueteVisitas]" routerLinkActive="router-link-active">
+
+                                Ver consultas
+
                             </a>
 
 
@@ -66,11 +66,11 @@
 
                         <!-- <div *ngIf="_modalServicioIntService.pacientePaquete">
               <h4> Estos son tus paquetes: </h4>
-                 <ul> 
-                  <li >  
-                    <i class="fas fa-check text-success"></i> 
+                 <ul>
+                  <li >
+                    <i class="fas fa-check text-success"></i>
                      {{_modalServicioIntService.pacientePaquete.nombrePaquete}}  </li>
-                </ul> 
+                </ul>
             </div> -->
 
                         <div *ngIf="!_modalServicioIntService.pacientePaquete">
@@ -124,7 +124,7 @@
 
                     <div class="col-md-4">
 
-                        <a (click)="agregarMembresia()"> 
+                        <a (click)="agregarMembresia()">
 
                             CONTRATAR MEMBRESIA
 

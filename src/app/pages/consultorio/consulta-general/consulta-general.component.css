@@ -1,0 +1,56 @@
+.consultorioxd {
+    float: right;
+    margin-right: 1rem;
+    max-width: 7 rem;
+}
+
+
+/* 
+.consultorioxd:first-of-type {
+    margin-left: rem;
+} */
+
+.consultorioxd:last-of-type {
+    margin-left: 9rem;
+}
+
+.cardxd {
+    margin-top: 2rem;
+}
+
+.centerxd {
+    margin-top: 2rem;
+    width: 1200px;
+}
+
+.tabla-header {
+    background-color: #2460ce;
+    text-align: center;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-weight: 800;
+}
+
+.searchInput {
+    margin-top: 2rem;
+    width: 277;
+    margin-right: 3rem;
+}
+
+.selectStyle {
+    text-align-last: center;
+}
+
+.dupla {
+    margin-right: 3rem;
+}
+
+.timexD {
+    margin-top: 1rem;
+    margin-left: .5rem;
+}
+
+
+/* .btnNuevo {
+    float: right;
+} */
