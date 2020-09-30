@@ -112,13 +112,9 @@ export class ChatComponent implements OnInit {
       obtenerMensajes() {
 
         this.wsloginService.escucahrNuevoMensajes()
-          .subscribe(arg => {
-
-
-            // console.log(arg);
-
-            this.mesages = arg;
-
+          .subscribe(data => {
+            console.log(data);
+              this.mesages = data;
           } ) ;
         
       }

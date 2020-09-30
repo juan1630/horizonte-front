@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BusquedaGeneralService } from 'src/app/services/busquedas/busquedaGeneral/busqueda-general.service';
 import { gaurdarCotizacion } from 'src/app/functions/storage/storage.funcion';
-// import * as swal from 'sweetAlert';
-import swal from 'sweetalert';
+import * as swal from 'sweetAlert';
 
 @Component({
   selector: 'app-consulta-especialista',
@@ -32,8 +31,10 @@ export class ConsultaEspecialistaComponent implements OnInit {
   public termino = '';
 
   public consulta = {
+    estudio : 'Consulta con especialista',
     precioSin:500,
-    precioCon:100
+    precioCon:100,
+    _id: "1"
   }
 
   public carrito = {
@@ -52,73 +53,30 @@ export class ConsultaEspecialistaComponent implements OnInit {
 
     console.log( item );
 
-    if( event.path[1].classList.contains('precioPublico')  ){
+      console.log( 'entra' )
 
 
       // en esta parte pasamos el precio de día con y sin
       let  estuidio = {
 
-        nombreEstudio: item.DESTINO,
-        precioSin: item.PRECIO_PUBLICO_DIA,
-        precioCon: item.PRECIO_MEMBRESIA_DIA,
+        nombreEstudio: item.estudio,
+        precioSin: item.precioSin,
+        precioCon: item.precioCon,
         idEstudio:item._id
 
     }
 
-    // pasamos el precio redondo día con y sin
-
-      this.sumarTotal(   item.PRECIO_PUBLICO_DIA, item.PRECIO_MEMBRESIA_DIA );
-
-      this.carrito.items.push( estuidio );
-
-
-    }else if (  event.path[1].classList.contains('precioRedondoDia') )  {
-
-      let  estuidio = {
-        nombreEstudio: item.DESTINO,
-        precioSin: item.PRECIO_PUBLICO_REDONDO_DIA,
-        precioCon: item.PRECIO_MEMBRESIA_REDONDO_DIA ,
-        idEstudio:item._id
-    }
-
-    this.sumarTotal( item.PRECIO_PUBLICO_REDONDO_DIA, item.PRECIO_MEMBRESIA_REDONDO_DIA );
-
-    this.carrito.items.push( estuidio );
-
-    }else if( event.path[1].classList.contains('precioNoche') ) {
-
-
-      // evaluamos el precio noche y precio noche sin
-      let  estuidio = {
-
-        nombreEstudio: item.DESTINO,
-        precioSin: item.PRECIO_PUBLICO_NOCHE,
-        precioCon: item.PRECIO_MEMBRESIA_NOCHE,
-        idEstudio:item._id
-
-    }
 
     console.log( estuidio );
 
-      this.sumarTotal( item.PRECIO_PUBLICO_NOCHE, item.PRECIO_MEMBRESIA_NOCHE );
+    // pasamos el precio redondo día con y sin
+
+      this.sumarTotal(   item.precioSin, item.precioCon );
+
       this.carrito.items.push( estuidio );
 
-  }else if( event.path[1].classList.contains('precioRedondoNoche')  ){
 
 
-    let estudio = {
-
-      nombreEstudio: item.DESTINO,
-      precioSin: item.PRECIO_PUBLICO_REDONDO_NOCHE,
-      precioCon: item.PRECIO_MEMBRESIA_REDONDO_NOCHE,
-      idEstudio:item._id
-
-    }
-
-    this.sumarTotal( item.PRECIO_PUBLICO_REDONDO_NOCHE, item.PRECIO_MEMBRESIA_REDONDO_NOCHE );
-    this.carrito.items.push( estudio );
-    console.log(this.carrito);
-  }
 
     const carritoString = JSON.stringify( this.carrito );
 
@@ -157,7 +115,7 @@ export class ConsultaEspecialistaComponent implements OnInit {
     // let precioMemComaMembresia = precioMemTrim.replace(',', '');
 
 
-    swal({ title: `Con la memebresia ahorras ${ this.consulta.precioSin - this.consulta.precioCon }`    ,icon: 'success' });
+    // swal({ title: `Con la memebresia ahorras ${ this.consulta.precioSin - this.consulta.precioCon }`    ,icon: 'success' });
 
   }
 
@@ -165,22 +123,27 @@ export class ConsultaEspecialistaComponent implements OnInit {
   sumarTotal(  precioSin, precioCon  ){
 
 
+
+    console.table({
+       precioSin, precioCon
+    })
+
     // se le quitan los caracteres $ y , al precio con membresia
 
-      let precioConMembresia  = precioCon.replace('$', '');
-      let precioConSinComa  = precioConMembresia.replace(',', '');
-      let precioConMembresiaNumber = parseFloat( precioConSinComa );
+      // let precioConMembresia  = precioCon.replace('$', '');
+      // let precioConSinComa  = precioConMembresia.replace(',', '');
+      // let precioConMembresiaNumber = parseFloat( precioConSinComa );
 
 
 
-      // se le quitan los caracteres $ y , al precio sin membresia
-      let costoSin = precioSin.replace('$', '');
-      let costoSinComa = costoSin.replace(',', '');
-      let costoSinNumber = parseFloat( costoSinComa );
+      // // se le quitan los caracteres $ y , al precio sin membresia
+      // let costoSin = precioSin.replace('$', '');
+      // let costoSinComa = costoSin.replace(',', '');
+      // let costoSinNumber = parseFloat( costoSinComa );
 
 
-      this.carrito.totalSin = this.carrito.totalSin + costoSinNumber;
-      this.carrito.totalCon = this.carrito.totalCon + precioConMembresiaNumber;
+      this.carrito.totalSin = this.carrito.totalSin + precioSin;
+      this.carrito.totalCon = this.carrito.totalCon + precioCon;
 
 
     }

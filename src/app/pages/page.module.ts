@@ -107,7 +107,13 @@ import { TomografiaEditComponent  } from './servivicosInt/tomografia/tomografia-
 import { FarmaciaDashComponent } from './farmacia/farmacia-dash/farmacia-dash.component';
 import { AgregarComponent } from './farmacia/agregar/agregar.component';
 import { ObtenermedicamentosComponent } from './farmacia/dash/obtenermedicamentos/obtenermedicamentos.component';
-import { HojaDiariaEnfHospComponent } from './Hojas_Diarias/hoja-diaria-enf-hosp/hoja-diaria-enf-hosp.component';
+import { ConsultasGralComponent } from './servivicosInt/consulta-md-gral/consultas-gral/consultas-gral.component';
+import { PendientePacienteComponent } from './pendientes/pendiente-paciente/pendiente-paciente.component';
+import { RegistroPacientesComponent } from './registro-pacientes/registro-pacientes.component';
+import {CdkStepperModule} from '@angular/cdk/stepper';
+import {NgStepperModule} from 'angular-ng-stepper';
+import { VerPacienteComponent } from './pacientes/ver-paciente/ver-paciente.component';
+
 @NgModule({
   declarations: [
     PageComponent,
@@ -197,12 +203,17 @@ import { HojaDiariaEnfHospComponent } from './Hojas_Diarias/hoja-diaria-enf-hosp
     TomografiaNuevoComponent,
     TomografiaEditComponent,
     AgregarComponent,
-    HojaDiariaEnfHospComponent
+    ConsultasGralComponent,
+    PendientePacienteComponent,
+    RegistroPacientesComponent,
+    VerPacienteComponent
   ],
 
   exports: [
     PageComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CdkStepperModule,
+    NgStepperModule
   ],
 
   imports: [

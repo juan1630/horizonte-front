@@ -33,7 +33,8 @@ import { GraficaComponent } from './grafica/grafica.component';
 import { AgregarMaquinasComponent } from './crearPaquete/agregar-maquinas/agregar-maquinas.component';
 import { CrearPaquetesComponent } from '../pages/crearPaquetes/crear-paquetes/crear-paquetes.component';
 import { AgregarMedciametosComponent } from './agregarPaquete/agregar-medciametos/agregar-medciametos.component';
-
+import { StepperComponent } from './stepper/stepper.component';
+import {  MatStepper, MatStepperModule } from '@angular/material/stepper'
 
 @NgModule({
   declarations: [
@@ -53,9 +54,10 @@ import { AgregarMedciametosComponent } from './agregarPaquete/agregar-medciameto
     SearchBarComponent,
     GraficaComponent,
     AgregarMaquinasComponent,
-    AgregarMedciametosComponent
+    AgregarMedciametosComponent,
+    StepperComponent
 
-    
+
 ],
 schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   exports: [
@@ -72,13 +74,15 @@ schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
     ReactiveFormsModule,
     CalendarComponent,
     ChatComponent,
-    GraficaComponent
+    GraficaComponent,
+    StepperComponent
        ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule,
     ChartsModule,
+    MatStepperModule,
     jqxSchedulerModule
   ],
   entryComponents:[

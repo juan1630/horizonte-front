@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class PacienteService {
-  
+
   public url = "https://sleepy-tor-20835.herokuapp.com";
 
   //  public url = "http://localhost:3200";
@@ -35,11 +35,8 @@ export class PacienteService {
   // este servicio crea un nuevo paciente en la DB
   setPacientes( data: any ){
 
-    let uri = this.url + `/paciente`;
-
-    return this._http.post( uri, data  )
-    .pipe( map( (resp) =>   resp  ) )
-
+    let uri = `http://localhost:3200/paciente`;
+    return this._http.post( uri, data  );
   }
 
 
@@ -98,7 +95,7 @@ export class PacienteService {
 
   getPacienteBtID(id: string) {
 
-    let uri = `${ this.url }/pacientes/${id}`;
+    let uri = `http://localhost:3200/pacientes/${id}`;
 
    return this._http.get( uri )
     .pipe( map( (paciente) =>  paciente  ) );

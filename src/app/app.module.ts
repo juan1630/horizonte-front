@@ -26,14 +26,14 @@ import { PdfViewerModule, PDFViewerParams } from 'ng2-pdf-viewer';
 import { ContratoVidaPlenaComponent } from './contratos/contratoVidaPlena/contrato-vida-plena/contrato-vida-plena.component';
 import { ContratoNeonatalComponent } from './contratos/neonatal/contrato-neonatal/contrato-neonatal.component';
 import { AltoRiesgoComponent } from './contratos/alto-riesgo/alto-riesgo.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {  MatStepperModule  } from '@angular/material/stepper'
 import { ChartsModule } from 'ng2-charts';
-//import { PacientesPipe } from './pipes/pacientes.pipe'
+
+
 // import { AngularEditorModule } from '@javascriptsoldier/angular-editor';
-
-
 // import  { PdfMakeWrapper  } from 'pdfmake-wrapper';
 // import pdfFonts from "pdfmake/build/vfs_fonts";
-
 // PdfMakeWrapper.setFonts( pdfFonts );
 
 
@@ -65,7 +65,9 @@ import { ChartsModule } from 'ng2-charts';
     NgxExtendedPdfViewerModule,
     NgxPaginationModule,
     // AngularEditorModule,
-    APP_ROUTES
+    APP_ROUTES,
+    BrowserAnimationsModule,
+
     ],
   exports: [
     ReactiveFormsModule,

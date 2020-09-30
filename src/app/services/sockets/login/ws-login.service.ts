@@ -16,6 +16,8 @@ export class WsLoginService {
   private _idUser;
   public audio = new Audio('../../../../assets/sound/chat/mensajes_iphone.mp3');
   private _idUser2: any;
+  roleUser: any;
+  room: any;
 
   constructor()  {
 
@@ -41,14 +43,15 @@ export class WsLoginService {
 
   login( usuario ){
 
-    this._idUser = usuario.role;
-    this.socket.emit('usuarioConectado',  usuario );
+    this._idUser = usuario._id;
+    this.roleUser = usuario.role;
+    this.socket.emit('usuarioConectado', {Id: this._idUser, role: this.roleUser});
 
 
     // esta linea nos ayuda con las consultas generales
     // this.enviarConsultas();
 
-
+ 
     this.socket.on('event', (data) => {
       // console.log( data );
     })
@@ -156,6 +159,9 @@ export class WsLoginService {
         console.log(role);
 
       this.socket.emit('cerrarSesion', { role });
+      this.socket.emit('disconnect', function () {
+        console.log('desconectado')
+      })
 
     }
 
@@ -178,13 +184,12 @@ export class WsLoginService {
 
 
         console.log("entro aca");
-
+        
         return Observable.create(
           (observable) => {
-            this.socket.on('crearMensaje', (res) => {
-            
-              observable.next( res  );
-            
+            this.socket.on('crearMensaje', (data) => {
+              observable.next( data  );
+
             })
           }
         )
@@ -192,12 +197,10 @@ export class WsLoginService {
 
 
   enviarMensaje(data){
-     var chat = this._idUser + "_" + this._idUser2;
-    this.socket.emit('entrarChatPrivado',{
-   
-      mensaje:data, room:chat, role1:this._idUser, role2:this._idUser2 });
+     var chat = this.roleUser + "_" + this._idUser2;
+    //this.socket.emit('entrarChatPrivado',{mensaje:data, room:chat, role1:this.roleUser, role2:this._idUser2 });
 
-    this.socket.emit('enviarMensajePrivado', {  mensaje:data, room:chat, role1:this._idUser, role2:this._idUser2 })
+    this.socket.emit('enviarMensajePrivado', {  mensaje:data, room:this.room, role1:this.roleUser, role2:this._idUser2 })
 
 
   }
@@ -214,10 +217,14 @@ export class WsLoginService {
 
   regresarUsuaurios( user  ){
     this._idUser2 = user;
-    var chat = this._idUser + "_" + this._idUser2;
+    var _arrayP = [];
+    _arrayP.push(this.roleUser)
+    _arrayP.push(this._idUser2)
+    this.room = _arrayP.sort().join('_');
+    //var chat = this.roleUser + "_" + this._idUser2;
     this.socket.emit('regresarId', { user  } );
 
-    this.socket.emit('entrarChatPrivado',{room:chat, role1:this._idUser, role2:this._idUser2 });
+    this.socket.emit('entrarChatPrivado',{room:this.room, role1:this.roleUser, role2:this._idUser2 });
 
   }
 
