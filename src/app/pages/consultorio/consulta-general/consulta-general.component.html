@@ -1,0 +1,137 @@
+<div class="container">
+    <h1>Agregar Consultas Generales</h1>
+
+    <div class="btnNuevo">
+        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Nuevo</button>
+    </div>
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Nueva Cita</h5>
+                    <div class="searchInput">
+                        <input class="form-control" type="text" placeholder="Buscar...">
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Consultorio:</label>
+                            <select class="selectStyle form-control" name="consultorioSelect" id="">
+                                <option value="seleccionarConsultorio">-- Seleccione Consultorio --</option>
+                                <option value="consultorioUno">Consultorio 1</option>
+                                <option value="consultorioDos">Consultorio 2</option>
+                                <option value="consultorioTres">Consultorio 3</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Servicio:</label>
+                            <select class="selectStyle form-control" name="consultorioSelect" id="">
+                                <option value="seleccionarConsultorio">-- Seleccione Servicio --</option>
+                                <option value="consultorioUno">Ambulacia</option>
+                                <option value="consultorioDos">Endoscopia</option>
+                                <option value="consultorioTres">Consulta General</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Motivo:</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+
+                        <div class="row dupla center">
+                            <div class="col-md">
+                                <label for="">Fecha</label>
+                                <input type="date">
+                                <label for="hora">Hora:</label>
+                                <input class="timexD" type="time">
+                            </div>
+                            <div class="col-md">
+                                <label for="">Fecha</label>
+                                <input type="date">
+                                <label for="hora">Hora:</label>
+                                <input class="timexD" type="time"></div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Nota:</label>
+                            <textarea class="form-control" id="message-text"></textarea>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Send message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="row center">
+        <div class="cardxd">
+            <div class="card bg-light consultorioxd mb-3" style="max-width: 18rem;">
+                <div class="card-header">Consultorio</div>
+                <div class="card-body">
+                    <h2 class="card-title">1</h2>
+                    <h5 class="card-text">Ficha: 23</h5>
+                    <p class="card-text">Doctor: José Juan Patrón Guerrero</p>
+                </div>
+            </div>
+
+            <div class="card bg-light consultorioxd mb-3" style="max-width: 18rem;">
+                <div class="card-header">Consultorio</div>
+                <div class="card-body">
+                    <h2 class="card-title">2</h2>
+                    <h5 class="card-text">Ficha: 23</h5>
+                    <p class="card-text">Doctor: José Juan Patrón Guerrero</p>
+                </div>
+            </div>
+
+            <div class="card bg-light consultorioxd mb-3" style="max-width: 18rem;">
+                <div class="card-header">Consultorio</div>
+                <div class="card-body">
+                    <h2 class="card-title">3</h2>
+                    <h5 class="card-text">Ficha: 23</h5>
+                    <p class="card-text">Doctor: José Juan Patrón Guerrero</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="centerxd">
+            <h2 class="center tabla-header">sala de espera</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>=============================</th>
+                        <th>=============================</th>
+                        <th>=============================</th>
+                        <th>=============================</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Guillermo Urzúa Sánchez</td>
+                        <td>Guillermo Urzúa Sánchez</td>
+                        <td>Guillermo Urzúa Sánchez</td>
+                        <td>Guillermo Urzúa Sánchez</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

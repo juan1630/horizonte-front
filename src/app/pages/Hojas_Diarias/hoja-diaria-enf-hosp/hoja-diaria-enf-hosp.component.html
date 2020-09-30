@@ -1,0 +1,63 @@
+<h1 class="center">Hoja Diaria Enfermería Hospitalización</h1>
+
+<div class="containerxD center">
+
+    <div class="row">
+
+        <div class="col-md-10 upset-1">
+
+            <table class="table table-hover colors izq" id="bitacora">
+
+                <thead class="thead-dark center moveTable">
+
+                    <tr>
+
+                        <th scope="col"> Número</th>
+                        <th scope="col ">Nombre del Paciente</th>
+                        <th scope="col ">CURP</th>
+                        <th scope="col ">Edad</th>
+                        <th scope="col ">Servicio Médico</th>
+                        <th scope="col ">Médico</th>
+                        <th scope="col ">Diagnostico</th>
+                        <th>Motivo de Ingreso</th>
+                        <th>Fecha de Ingreso</th>
+                        <th>Hora de Ingreso</th>
+
+                        <!-- *ngIf="role==='admin'" -->
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>1</td>
+                        <td>Carlos Arturo Valdez</td>
+                        <td>VAAC881125HMSRNL03</td>
+                        <td>32</td>
+                        <td>Consulta General</td>
+                        <td>Dr. David Reyes Salazar</td>
+                        <td>Actinomicosis abdominal</td>
+                        <td>Realización de Endoscopia</td>
+                        <td>11/09/2020</td>
+                        <td>12:00 pm</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <div class="btn">
+
+        <button class="btn btn-primary">Imprimir Bitácora</button>
+
+        <!-- (click)="imprimirBitacora()" -->
+
+    </div>
+
+</div>

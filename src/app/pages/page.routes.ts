@@ -64,7 +64,8 @@ import { PatologiaComponent } from './servivicosInt/patologia/patologia.componen
 import { HojaDiariaEnfGralComponent } from './Hojas_Diarias/hoja-diaria-enf-gral/hoja-diaria-enf-gral.component';
 import { EnfermeriaDashboardComponent } from './Enfermeria/enfermeria-dashboard/enfermeria-dashboard.component';
 // import { DashComponent } from './farmacia/dash/dash.component';
-import { ConsultaGeneralComponent } from './consultas/consulta-general/consulta-general.component';
+// import { ConsultaGeneralComponent } from './consultas/consulta-general/consulta-general.component';
+import { ConsultaGeneralComponent } from '../pages/consultorio/consulta-general/consulta-general.component'; 
 import { PaqueteMedicoLaboralComponent } from './paquete-medico-laboral/paquete-medico-laboral.component';
 import { PediatricoComponent } from './contratos/pediatrico/pediatrico.component';
 import { ContratoVidaPlenaComponent } from '../contratos/contratoVidaPlena/contrato-vida-plena/contrato-vida-plena.component';
@@ -95,6 +96,9 @@ import { FarmaciaDashComponent } from './farmacia/farmacia-dash/farmacia-dash.co
 import { AgregarComponent } from './farmacia/agregar/agregar.component';
 import { ObtenermedicamentosComponent } from './farmacia/dash/obtenermedicamentos/obtenermedicamentos.component';
 import { RecetaComponent } from '../pages/Doctores/receta/receta.component';
+import { HojaDiariaEnfHospComponent } from './Hojas_Diarias/hoja-diaria-enf-hosp/hoja-diaria-enf-hosp.component';
+import { componentFactoryName } from '@angular/compiler';
+
 
 
 const pagesRoutes: Routes = [
@@ -197,7 +201,7 @@ const pagesRoutes: Routes = [
       // INICIA EL AREA DE CONSULTA GENERAL
       { path: 'hoja-diaria-enfermeria-general', component: HojaDiariaEnfGralComponent},
       { path: 'enfermeria-dashboard', component: EnfermeriaDashboardComponent},
-      { path: 'consulta-general/:id', component: ConsultaGeneralComponent},
+      { path: 'consulta-general/:id', component: ConsultaMedGralComponent},
       { path: 'ficha-enfermeria-01/:id', component: FE09Component},
       { path: 'paquete/quirofano/:id', component: PaqueteQuirofanoComponent },
       {  path: 'bitacora/hospitalizacion', component: BitacoraHospitalizacionComponent },
@@ -226,7 +230,11 @@ const pagesRoutes: Routes = [
       { path: 'hoja-evolucion-cg/:id', component: HEvolucionCGComponent },
       { path: 'hoja-ingreso-hospitalario/:id', component: HIngresoHospitalComponent},
       { path: 'receta-medica/:id', component: RecetaComponent},
+      { path: 'consulta', component: ConsultaGeneralComponent },
 
+
+      // Hojas Diarias
+      { path: 'hoja-diaria-enfermeria-hospitalizacion/:id', component: HojaDiariaEnfHospComponent},
 
       // PEDIDOS DE SERVICIOS
 
