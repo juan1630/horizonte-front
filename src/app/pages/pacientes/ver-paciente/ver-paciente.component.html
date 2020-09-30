@@ -2,7 +2,6 @@
     <div class="col-md-4 offset-1">
         <h3> {{ paciente.nombrePaciente }} {{ paciente.apellidoPaterno}} {{ paciente.apellidoMaterno }} </h3>
     </div>
-
     <div class="col-md-3"></div>
 
     <div class="col-md-4">
@@ -60,7 +59,7 @@
 
         <div class="col-md-3">
             <p>
-                Dirección
+                {{ paciente.direccion.callePaciente }} {{ paciente.direccion.estadoPaciente }}, {{ paciente.direccion.paisPaciente }}
             </p>
         </div>
 
@@ -91,7 +90,9 @@
         </div>
 
         <div class="col-md-3">
-            <p> 62890</p>
+            <p>
+                {{ paciente.cp }}
+            </p>
         </div>
 
     </div>
@@ -118,13 +119,13 @@
 </div>
 
 
-<h3 class="center color-text"> Tus paquetes </h3>
+<h3 class="center color-text mt-5"> Tus paquetes </h3>
 
 <div class="row mt-2">
 
-    <div class="col-md-4 offset-1" *ngFor="let item of paciente.paquetes">
+    <div class="col-md-4 offset-1" *ngIf="paciente.paquetes.length == 0">
 
-        <div class="card">
+        <div class="card" *ngFor="let item of paciente.paquetes">
             <img class="card-img-top img" [src]="item.icon" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title color-text"> {{ item.nombrePaquete }} </h5>
@@ -135,5 +136,20 @@
         </div>
 
     </div>
+
+
+
+    <div class="col-md-6 offset-3">
+
+        <div class="card">
+            <div class="alert alert-light center" role="alert">
+                <p>
+                    Aún no tienes paquetes
+                </p>
+            </div>
+        </div>
+
+    </div>
+
 
 </div>

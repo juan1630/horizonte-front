@@ -24,7 +24,12 @@ export class VerPacienteComponent implements OnInit {
     curp:"",
     telefono:0,
     id:"",
-    direccion:"",
+    direccion: {
+      estadoPaciente:"",
+      callePaciente:"",
+      paisPaciente:"",
+      cp:""
+    },
     correo: "",
     cp:"",
     edad:"",
@@ -54,8 +59,12 @@ export class VerPacienteComponent implements OnInit {
       this.paciente.apellidoPaterno = data.paciente.apellidoPaterno;
       this.paciente.apellidoMaterno = data.paciente.apellidoMaterno;
       this.paciente.cp = data.paciente.cpPaciente;
+      this.paciente.direccion.estadoPaciente = data['paciente']['estadoPaciente'];
+      this.paciente.direccion.paisPaciente = data['paciente']['paisPaciente'];
+      this.paciente.direccion.callePaciente = data['paciente']['callePaciente'];
+      this.paciente.direccion.cp = data['paciente']['cpPaciente'];
       this.paciente.edad = data.paciente.edad;
-      this.paciente.correo = data.paciente.correo;
+      this.paciente.correo = data.paciente.correoPaciente;
       this.paciente.curp = data.paciente.curp;
       this.paciente.id = data.paciente._id;
       this.paciente.paquetes = data.paciente.paquetes;

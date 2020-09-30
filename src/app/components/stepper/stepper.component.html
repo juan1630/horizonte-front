@@ -106,7 +106,7 @@
                 <div class="col-md-3">
 
 
-                    <select name="estadoCivil" id="estadoCivil" class="form-control">
+                    <select name="estadoCivil" id="Paciente" class="form-control">
                         <option value="Casado">  Casado  </option>
                         <option value="Soltero">  Soltero  </option>
                         <option value="Viudo">  Viudo  </option>
@@ -148,7 +148,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <select name="estado" class="form-control" id="" [(ngModel)]="estado" (change)="buscarMunicipios()">
+                    <select name="estadoPaciente" class="form-control" id="" [(ngModel)]="estado" (change)="buscarMunicipios()">
                         <option [value]="estado" *ngFor="let estado of estados"    >   {{ estado }}  </option>
                     </select>
                 </div>
@@ -192,7 +192,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <input type="text" ngModel name="calle" id="calle" class="form-control">
+                    <input type="text" ngModel name="callePaciente" id="calle" class="form-control">
                 </div>
 
                 <div class="col-md-3">
@@ -200,7 +200,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <input type="text" ngModel name="numeroInterior" id="numeroInterior" class="form-control">
+                    <input type="text" ngModel name="numeroPaciente" id="numeroInterior" class="form-control">
                 </div>
 
 
@@ -254,7 +254,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <input type="text" name="rfcRazonSocial" ngModel id="rfcRazonSocial" class="form-control">
+                    <input type="text" name="razoncocial1RFC" ngModel id="razoncocial1RFC" class="form-control">
                 </div>
 
 
@@ -284,11 +284,11 @@
                 </div>
 
                 <div class="col-md-2">
-                    <label for="localidadRazonSocial">  Localidad </label>
+                    <label for="localidadRazonSocial">  Calle </label>
                 </div>
 
                 <div class="col-md-3">
-                    <input type="text" name="localidadRazonSocial" ngModel id="localidadRazonSocial" class="form-control">
+                    <input type="text" name="razonSocial1Calle" ngModel id="razonSocial1Calle" class="form-control">
                 </div>
 
 
@@ -332,7 +332,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <input ngModel type="text" name="rfcRazonSocial2" id="rfcRazonSocial2" class="form-control">
+                    <input ngModel type="text" name="razoncocial2RFC" id="razoncocial2RFC" class="form-control">
                 </div>
 
 
@@ -349,7 +349,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <input type="text" name="estadoRazonSocial2" ngModel id="estadoRazonSocial2" class="form-control">
+                    <input type="text" name="razonSocial2Estado" ngModel id="razonSocial2Estado" class="form-control">
                 </div>
 
 
@@ -362,11 +362,11 @@
                 </div>
 
                 <div class="col-md-2">
-                    <label for="localidadRazonSocial2">  Localidad </label>
+                    <label for="localidadRazonSocial2">  Calle  </label>
                 </div>
 
                 <div class="col-md-3">
-                    <input type="text" name="localidadRazonSocial2" ngModel id="localidadRazonSocial2" class="form-control">
+                    <input type="text" name="calleRazonSocial2" ngModel id="calleRazonSocial2" class="form-control">
                 </div>
 
 
@@ -410,7 +410,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <input type="text" name="nombreContactoDeEmergencia" ngModel id="nombreContactoDeEmergencia" class="form-control">
+                    <input type="text" name="contactoEmergencia1Nombre" ngModel id="contactoEmergencia1Nombre" class="form-control">
                 </div>
 
                 <div class="col-md-2">
@@ -418,7 +418,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <input type="text" name="apellidoPaternoContactoDeEmergencia" ngModel id="apellidoPaternoContactoDeEmergencia" class="form-control">
+                    <input type="text" name="contactoEmergencia1ApellidoPaterno" ngModel id="contactoEmergencia1ApellidoPaterno" class="form-control">
                 </div>
 
 
@@ -430,7 +430,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <input type="text" name="apellidoMaternoContactoDeEmergencia" ngModel id="apellidoMaternoContactoDeEmergencia" class="form-control">
+                    <input type="text" name="contactoEmergencia1ApellidoMaterno" ngModel id="contactoEmergencia1ApellidoMaterno" class="form-control">
                 </div>
 
                 <div class="col-md-2">
@@ -438,7 +438,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <input type="text" name="curpContactoDeEmergencia" ngModel id="curpContactoDeEmergencia" class="form-control">
+                    <input type="text" name="contactoEmergencia1Curp" ngModel id="contactoEmergencia1Curp" class="form-control">
                 </div>
 
 
@@ -448,7 +448,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <input type="number" name="edadContactoDeemergencia" ngModel id="edadContactoDeemergencia" class="form-control">
+                    <input type="number" name="contactoEmergencia1Edad" ngModel id="contactoEmergencia1Edad" class="form-control">
                 </div>
 
                 <div class="col-md-2">
@@ -456,7 +456,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <input type="tel" name="telefonoContactoDeEmergencia" ngModel id="telefonoContactoDeEmergencia" class="form-control">
+                    <input type="tel" name="contactoEmergencia1Telefono" ngModel id="contactoEmergencia1Telefono" class="form-control">
                 </div>
 
 
@@ -467,7 +467,7 @@
 
                 <div class="col-md-3">
 
-                    <select name="estadoCivilContactoDeEmergencia" id="estadoCivilContactoDeEmergencia" class="form-control">
+                    <select name="contactoEmergencia1EstadoCivil" id="contactoEmergencia1EstadoCivil" class="form-control">
                     <option value="Casado">  Casado  </option>
                     <option value="Soltero">  Soltero  </option>
                     <option value="Viudo">  Viudo  </option>
@@ -481,11 +481,14 @@
 
                 <div class="col-md-3">
 
-                    <select name="generoContactoDeEmergencia" ngModel id="generoContactoDeEmergencia" class="form-control">
+                    <select name="contactoEmergencia1Genero" ngModel id="contactoEmergencia1Genero" class="form-control">
                       <option value="femenino">  Femenino </option>
                       <option value="masculino"> Masculino </option>
                   </select>
                 </div>
+
+
+
             </div>
 
             <div class="row">
@@ -504,7 +507,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <input type="text" name="nombreContactoDeEmergencia2" ngModel id="nombreContactoDeEmergencia2" class="form-control">
+                    <input type="text" name="contactoEmergencia1Genero" ngModel id="contactoEmergencia1Genero" class="form-control">
                 </div>
 
                 <div class="col-md-2">
@@ -512,7 +515,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <input type="text" name="apellidoPaternoContactoDeEmergencia2" ngModel id="apellidoPaternoContactoDeEmergencia2" class="form-control">
+                    <input type="text" name="contactoEmergencia2ApellidoPaterno" ngModel id="contactoEmergencia2ApellidoPaterno" class="form-control">
                 </div>
 
                 <div class="col-md-2 offset-1">
@@ -520,7 +523,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <input type="text" name="apellidoMaternoContactoDeEmergencia2" ngModel id="apellidoMaternoContactoDeEmergencia2" class="form-control">
+                    <input type="text" name="contactoEmergencia2ApellidoMaterno" ngModel id="contactoEmergencia2ApellidoMaterno" class="form-control">
                 </div>
 
                 <div class="col-md-2">
@@ -528,7 +531,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <input type="text" name="curpContactoDeEmergencia2" ngModel id="curpContactoDeEmergencia2" class="form-control">
+                    <input type="text" name="contactoEmergencia2Curp" ngModel id="contactoEmergencia2Curp" class="form-control">
                 </div>
 
 
@@ -538,7 +541,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <input type="number" name="edadContactoDeemergencia2" ngModel id="edadContactoDeemergencia2" class="form-control">
+                    <input type="number" name="contactoEmergencia2Edad" ngModel id="contactoEmergencia2Edad" class="form-control">
                 </div>
 
                 <div class="col-md-2">
@@ -558,7 +561,7 @@
 
                 <div class="col-md-3">
 
-                    <select name="estadoCivilContactoDeEmergencia2" id="estadoCivilContactoDeEmergencia2" class="form-control">
+                    <select name="contactoEmergencia2EstadoCivil" id="contactoEmergencia2EstadoCivil" class="form-control">
                     <option value="Casado">  Casado  </option>
                     <option value="Soltero">  Soltero  </option>
                     <option value="Viudo">  Viudo  </option>
@@ -572,7 +575,7 @@
 
                 <div class="col-md-3">
 
-                    <select name="generoContactoDeEmergencia2" ngModel id="generoContactoDeEmergencia2" class="form-control">
+                    <select name="contactoEmergencia2Genero" ngModel id="contactoEmergencia2Genero" class="form-control">
                         <option value="femenino">  Femenino </option>
                         <option value="masculino"> Masculino </option>
                       </select>
@@ -582,6 +585,8 @@
             </div>
 
         </mat-step>
+
+
 
 
         <mat-step label="Paquetes">
