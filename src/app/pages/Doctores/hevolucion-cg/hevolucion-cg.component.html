@@ -22,87 +22,89 @@
                 <p>Hora: <span> {{hora}} </span></p>
 
                 <h4>Signos Vitales: </h4>
-                <p>Talla: <span> {{paciente.talla}} m </span> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalTallaNino"><i class="fas fa-chart-bar"></i></button></p>
+                <div class="row">
+                    <p class="col-sm-6">Talla: <span> {{paciente.talla}} m </span> <button type="button" class="btn btn-primary col-sm-8" data-toggle="modal" data-target="#modalTallaNino"><i class="fas fa-chart-bar"></i></button></p>
 
-                <div id="modalTallaNino" class="modal fade bd-example-modal-lg center" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-grafica">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h3 class="modal-title center">Gráficas Talla:</h3>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <div id="modalTallaNino" class="modal fade bd-example-modal-lg center" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-grafica">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="modal-title center">Gráficas Talla:</h3>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                                 </button>
-                            </div>
-                            <div class="flex">
-                                <div class="flex-item center">
-                                    <div style="display: block; height: 400px;">
-                                        <canvas baseChart width="auto" height="auto" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins" (chartHover)="chartHovered($event)"
-                                            (chartClick)="chartClicked($event)"></canvas>
+                                </div>
+                                <div class="flex">
+                                    <div class="flex-item center">
+                                        <div style="display: block; height: 400px;">
+                                            <canvas baseChart width="auto" height="auto" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins" (chartHover)="chartHovered($event)"
+                                                (chartClick)="chartClicked($event)"></canvas>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
 
-                <p>Peso: <span> {{paciente.peso}} Kg </span> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPesoNino"><i class="fas fa-chart-bar"></i></button></p>
+                    <p class="col-sm-6">Peso: <span> {{paciente.peso}} Kg </span> <button type="button" class="btn btn-primary col-sm-8" data-toggle="modal" data-target="#modalPesoNino"><i class="fas fa-chart-bar"></i></button></p>
 
-                <div id="modalPesoNino" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-grafica">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h3 class="modal-title center">Gráficas Peso:</h3>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <div id="modalPesoNino" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-grafica">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="modal-title center">Gráficas Peso:</h3>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                                 </button>
-                            </div>
-                            <div class="flex">
-                                <div class="flex-item">
-                                    <div style="display: block;">
-                                        <canvas baseChart width="auto" height="auto" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins" (chartHover)="chartHovered($event)"
-                                            (chartClick)="chartClicked($event)"></canvas>
+                                </div>
+                                <div class="flex">
+                                    <div class="flex-item">
+                                        <div style="display: block;">
+                                            <canvas baseChart width="auto" height="auto" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins" (chartHover)="chartHovered($event)"
+                                                (chartClick)="chartClicked($event)"></canvas>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+
+                    <p class="col-sm-6">IMC: <span> {{paciente.imc}} P/T^2 </span> <button type="button" class="btn btn-primary col-sm-8" data-toggle="modal" data-target="#modalPesoNino"><i class="fas fa-chart-bar"></i></button> </p>
+
+
+                    <p class="col-sm-6">FC: <span> {{paciente.fc}} LPM </span> <button type="button" class="btn btn-primary col-sm-8" data-toggle="modal" data-target="#modalPesoNino"><i class="fas fa-chart-bar"></i></button> </p>
+
+
+                    <p class="col-sm-6">FR: <span> {{paciente.fr}} RPM </span> <button type="button" class="btn btn-primary col-sm-8" data-toggle="modal" data-target="#modalPesoNino"><i class="fas fa-chart-bar"></i></button> </p>
+
+
+                    <p class="col-sm-6">TEMP: <span> {{paciente.temp}} °C </span> <button type="button" class="btn btn-primary col-sm-8" data-toggle="modal" data-target="#modalPesoNino"><i class="fas fa-chart-bar"></i></button> </p>
+
+
+                    <p class="col-sm-6">P.C.: <span> {{paciente.pc}} cm </span> <button type="button" class="btn btn-primary col-sm-8" data-toggle="modal" data-target="#modalPesoNino"><i class="fas fa-chart-bar"></i></button> </p>
+
+
+                    <p class="col-sm-6">P.A.: <span> {{paciente.pa}} cm </span> <button type="button" class="btn btn-primary col-sm-8" data-toggle="modal" data-target="#modalPesoNino"><i class="fas fa-chart-bar"></i></button> </p>
+
+
+                    <p class="col-sm-6">P.T.: <span> {{paciente.pa}} cm </span> <button type="button" class="btn btn-primary col-sm-8" data-toggle="modal" data-target="#modalPesoNino"><i class="fas fa-chart-bar"></i></button> </p>
+
+
+                    <p class="col-sm-6">APGAR: <span> {{paciente.apgar}} </span> <button type="button" class="btn btn-primary col-sm-8" data-toggle="modal" data-target="#modalPesoNino"><i class="fas fa-chart-bar"></i></button> </p>
+
+
+                    <p class="col-sm-6">SaO: <span> {{paciente.sao}} % </span> <button type="button" class="btn btn-primary col-sm-8" data-toggle="modal" data-target="#modalPesoNino"><i class="fas fa-chart-bar"></i></button> </p>
+                    <span>=========================</span>
+                    <h4>Alergias:</h4>
+                    <p> <span> {{paciente.alergias}} </span></p>
+                    <span>=========================</span>
+                    <h4>Paquetes:</h4>
+                    <!-- <p> -->
+                    <!-- <pre>  {{paciente.paquetesQuirofano | json }} </pre> -->
+                    <!-- </p> -->
                 </div>
-
-
-                <p>IMC: <span> {{paciente.imc}} P/T^2 </span> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPesoNino"><i class="fas fa-chart-bar"></i></button> </p>
-
-
-                <p>FC: <span> {{paciente.fc}} LPM </span> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPesoNino"><i class="fas fa-chart-bar"></i></button> </p>
-
-
-                <p>FR: <span> {{paciente.fr}} RPM </span> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPesoNino"><i class="fas fa-chart-bar"></i></button> </p>
-
-
-                <p>TEMP: <span> {{paciente.temp}} °C </span> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPesoNino"><i class="fas fa-chart-bar"></i></button> </p>
-
-
-                <p>P.C.: <span> {{paciente.pc}} cm </span> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPesoNino"><i class="fas fa-chart-bar"></i></button> </p>
-
-
-                <p>P.A.: <span> {{paciente.pa}} cm </span> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPesoNino"><i class="fas fa-chart-bar"></i></button> </p>
-
-
-                <p>P.T.: <span> {{paciente.pa}} cm </span> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPesoNino"><i class="fas fa-chart-bar"></i></button> </p>
-
-
-                <p>APGAR: <span> {{paciente.apgar}} </span> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPesoNino"><i class="fas fa-chart-bar"></i></button> </p>
-
-
-                <p>SaO: <span> {{paciente.sao}} % </span> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPesoNino"><i class="fas fa-chart-bar"></i></button> </p>
-                <span>=========================</span>
-                <h4>Alergias:</h4>
-                <p> <span> {{paciente.alergias}} </span></p>
-                <span>=========================</span>
-                <h4>Paquetes:</h4>
-                <!-- <p> -->
-                <!-- <pre>  {{paciente.paquetesQuirofano | json }} </pre> -->
-                <!-- </p> -->
 
 
 
@@ -116,7 +118,7 @@
             <div class="col-md">
                 <h2 class="center">Evolución</h2>
                 <div class="txt-area">
-                    <textarea name="" id="" cols="75" rows="15"></textarea>
+                    <textarea name="" id="" cols="88" rows="15"></textarea>
                 </div>
                 <span>==================================================================</span>
                 <h4>Diagóstico CIE-10:</h4>

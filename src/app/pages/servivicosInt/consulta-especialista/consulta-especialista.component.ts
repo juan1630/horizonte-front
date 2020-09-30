@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BusquedaGeneralService } from 'src/app/services/busquedas/busquedaGeneral/busqueda-general.service';
 import { gaurdarCotizacion } from 'src/app/functions/storage/storage.funcion';
-import * as swal from 'sweetAlert';
+// import * as swal from 'sweetAlert';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-consulta-especialista',
