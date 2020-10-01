@@ -14,7 +14,7 @@ import swal from 'sweetAlert';
 })
 export class LoginComponent implements OnInit {
 
-  constructor( 
+  constructor(
         public _loginService: LoginService,
         private router: Router
    ) { }
@@ -38,6 +38,8 @@ export class LoginComponent implements OnInit {
 
     this._loginService.login( personal )
     .subscribe( (correcto: any)=> {
+
+      console.log(  correcto  );
 
 
 
@@ -64,15 +66,15 @@ export class LoginComponent implements OnInit {
     //     }
     //   }
     // });
-      
+
       // if (fruit) {
       //   swal.fire(`You selected: ${fruit}`)
       // }
- 
+
       this.router.navigate(['/dashboard'])
 
 
-    }) 
+    })
 
   }
 

@@ -65,7 +65,7 @@ import { HojaDiariaEnfGralComponent } from './Hojas_Diarias/hoja-diaria-enf-gral
 import { EnfermeriaDashboardComponent } from './Enfermeria/enfermeria-dashboard/enfermeria-dashboard.component';
 // import { DashComponent } from './farmacia/dash/dash.component';
 // import { ConsultaGeneralComponent } from './consultas/consulta-general/consulta-general.component';
-import { ConsultaGeneralComponent } from '../pages/consultorio/consulta-general/consulta-general.component'; 
+import { ConsultaGeneralComponent } from '../pages/consultorio/consulta-general/consulta-general.component';
 import { PaqueteMedicoLaboralComponent } from './paquete-medico-laboral/paquete-medico-laboral.component';
 import { PediatricoComponent } from './contratos/pediatrico/pediatrico.component';
 import { ContratoVidaPlenaComponent } from '../contratos/contratoVidaPlena/contrato-vida-plena/contrato-vida-plena.component';
@@ -100,6 +100,7 @@ import { ConsultasGralComponent } from './servivicosInt/consulta-md-gral/consult
 import { PendientePacienteComponent } from './pendientes/pendiente-paciente/pendiente-paciente.component';
 import { RegistroPacientesComponent } from './registro-pacientes/registro-pacientes.component';
 import { VerPacienteComponent } from './pacientes/ver-paciente/ver-paciente.component';
+import { HojaDiariaEnfHospComponent } from './Hojas_Diarias/hoja-diaria-enf-hosp/hoja-diaria-enf-hosp.component';
 
 
 

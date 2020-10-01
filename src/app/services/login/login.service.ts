@@ -38,7 +38,7 @@ export class LoginService {
       this.logout();
     }
 
-      let url = `${this.url}`+`/login`;
+      let url = `http://localhost:3200/login`;
 
       return this.http.post(url, personal )
       .pipe( map( (resp: any)=> {
