@@ -108,7 +108,7 @@ const pagesRoutes: Routes = [
   {
     path: '',
     component: PageComponent,
-    canActivate: [  ],
+    canActivate: [],
     children: [
       // aca se iran agregando las rutas para el dashboard
       { path: 'paciente', component: PacienteComponent },
@@ -209,6 +209,7 @@ const pagesRoutes: Routes = [
       { path: 'hoja-diaria-enfermeria-general', component: HojaDiariaEnfGralComponent},
       { path: 'enfermeria-dashboard', component: EnfermeriaDashboardComponent},
       { path: 'consulta-general/:id', component: ConsultaGeneralComponent},
+
       {path: 'consulta/medicina/general' , component: ConsultasGralComponent  },
       { path: 'ficha-enfermeria-01/:id', component: FE09Component},
       { path: 'paquete/quirofano/:id', component: PaqueteQuirofanoComponent },
@@ -242,9 +243,11 @@ const pagesRoutes: Routes = [
       { path: 'hoja-evolucion-cg/:id', component: HEvolucionCGComponent },
       { path: 'hoja-ingreso-hospitalario/:id', component: HIngresoHospitalComponent},
       { path: 'receta-medica/:id', component: RecetaComponent},
+
+
+
+      { path: 'consulta/:id', component: ConsultaGeneralComponent },
       { path: 'consulta', component: ConsultaGeneralComponent },
-
-
       // Hojas Diarias
       { path: 'hoja-diaria-enfermeria-hospitalizacion/:id', component: HojaDiariaEnfHospComponent},
 

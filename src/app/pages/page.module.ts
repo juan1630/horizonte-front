@@ -113,6 +113,7 @@ import { RegistroPacientesComponent } from './registro-pacientes/registro-pacien
 import {CdkStepperModule} from '@angular/cdk/stepper';
 import {NgStepperModule} from 'angular-ng-stepper';
 import { VerPacienteComponent } from './pacientes/ver-paciente/ver-paciente.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -227,6 +228,7 @@ import { VerPacienteComponent } from './pacientes/ver-paciente/ver-paciente.comp
     NgxExtendedPdfViewerModule,
     PdfViewerModule,
     NgxPaginationModule,
+    CommonModule
 
   ]
 

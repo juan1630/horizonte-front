@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+
+
+
 import { PacienteService } from 'src/app/services/paciente/paciente.service';
 import * as moment from 'moment';
 
@@ -38,7 +41,8 @@ export class VerPacienteComponent implements OnInit {
 
   constructor(
     private _pacienteService:PacienteService,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    public _router: Router
   ) { }
 
   ngOnInit(): void {
@@ -73,6 +77,13 @@ export class VerPacienteComponent implements OnInit {
       console.log(this.paciente.paquetes);
 
     });
+  }
+
+
+
+  irAUnServicio(  servicio ){
+    // console.log( servicio)
+    this._router.navigate(['/consulta', this.id ]);
   }
 
 }

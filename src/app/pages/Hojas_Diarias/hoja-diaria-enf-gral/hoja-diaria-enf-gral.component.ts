@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { WsLoginService } from 'src/app/services/sockets/login/ws-login.service';
-import { guardarPacienteStorage, getPacienteStorage, eliminarPacienteStorage } from '../../../../app/functions/storage/storage.funcion';
+
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import * as moment from 'moment';
-// import { get } from 'http';
+import { IdentificacionConsultaService } from 'src/app/services/identificacion-consulta.service';
 
 
 @Component({
@@ -22,51 +22,49 @@ export class HojaDiariaEnfGralComponent implements OnInit {
 
   constructor(
 
-    public loginService: WsLoginService
+    public loginService: WsLoginService,
+    public _consultasService: IdentificacionConsultaService
 
-  ) { 
-    
+  ) {
+
   }
 
   ngOnInit(): void {
 
+
+    this.obtenerConsultas();
+
     this.fechatl = moment().format('L');
-        
-    this.listaEspera = getPacienteStorage();
-        if(getPacienteStorage() == null){
-         this.listaEspera = [];
-        }
+
 
       this.loginService.escucharConsulta()
         .subscribe(arg => {
 
-          // if(getPacienteStorage()){
-          this.listaEspera.push(arg.consulta);
-          console.log("lista de espera");
-          
-          console.log(this.listaEspera);
+          if( arg  != "" ){
+            this.obtenerConsultas();
+          }
 
-          var storageLista = JSON.stringify(this.listaEspera);
-          guardarPacienteStorage(storageLista);
-          console.log(getPacienteStorage());
-          
-          this.listaEspera = getPacienteStorage();  
-          console.log(this.listaEspera);
-          
-
-          
-            
-
-      
-        }); 
+        });
 
 
-
-    
   }
 
+
+
+  obtenerConsultas(){
+    this._consultasService.verConsultaIdentificacion()
+    .subscribe( (data) => {
+      console.log(data);
+      this.listaEspera = data['data'];
+     });
+
+  }
+
+
+
+
   imprimirBitacora(){
-    
+
     const doc = new jsPDF();
 
     doc.autoTable({ html: "#bitacora" });
@@ -74,8 +72,6 @@ export class HojaDiariaEnfGralComponent implements OnInit {
     doc.save('Bitácora_Hoja_Diaria_Enf_Gral_'+this.fechatl+'_.pdf');
   }
 
-  
 
-  
 
 }

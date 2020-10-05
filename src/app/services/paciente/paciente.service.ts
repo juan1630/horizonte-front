@@ -23,10 +23,10 @@ export class PacienteService {
 
     console.log("Intervalo", intervalo );
 
-    let uri = this.url+'/paciente/'+ intervalo;
+    let uri = 'http://localhost:3200/paciente/'+ intervalo;
     return this._http.get( uri )
     .pipe(  map( (data) => {
-      console.log( data )
+      // console.log( data )
       return data;
     } ) )
   }
@@ -46,7 +46,7 @@ export class PacienteService {
 
 
     // let uri = URLDEV + '/paciente/'+nombre;
-    let uri = `${this.url}/pacientes/nombre/${nombre}`;
+    let uri = `http://localhost:3200/pacientes/nombre/${nombre}`;
 
     return this._http.get(uri)
     .pipe(  map( (data) => {

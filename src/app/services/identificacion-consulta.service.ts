@@ -17,7 +17,14 @@ export class IdentificacionConsultaService {
 
 
     return this._http.post(url, body);
+  }
 
+
+  verConsultaIdentificacion(){
+
+    let url = `http://localhost:3200/ver/consultas/identificacion`;
+
+    return this._http.get(  url );
 
   }
 

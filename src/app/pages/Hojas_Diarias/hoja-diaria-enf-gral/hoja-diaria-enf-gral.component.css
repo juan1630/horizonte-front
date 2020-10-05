@@ -6,6 +6,10 @@
     cursor: pointer;
 }
 
+th {
+    font-weight: 500;
+}
+
 
 /* .clickss:hover {
     background-color: #3176df;
@@ -20,5 +24,5 @@
 .colors {
     background-color: #fa284b8e;
     color: #ffffff;
-    font-weight: bold;
+    font-weight: 500;
 }

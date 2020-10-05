@@ -27,7 +27,7 @@ import { ContratoVidaPlenaComponent } from './contratos/contratoVidaPlena/contra
 import { ContratoNeonatalComponent } from './contratos/neonatal/contrato-neonatal/contrato-neonatal.component';
 import { AltoRiesgoComponent } from './contratos/alto-riesgo/alto-riesgo.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {  MatStepperModule  } from '@angular/material/stepper'
+// import {  MatStepperModule  } from '@angular/material/stepper'
 import { ChartsModule } from 'ng2-charts';
 
 

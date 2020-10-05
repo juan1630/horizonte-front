@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {  MatStepper  } from '@angular/material/stepper'
+import { CountriesService } from 'src/app/services/countries/countries.service';
 import { CodigoPostalService } from 'src/app/services/index.services';
 import { PacienteService } from 'src/app/services/paciente/paciente.service';
 import { PaqueteService } from 'src/app/services/paquete/paquete.service';
@@ -20,7 +21,8 @@ export class StepperComponent implements OnInit {
   constructor(
     private _ubicacionService: CodigoPostalService,
     public _pacienteService: PacienteService,
-    public _paqueteService: PaqueteService
+    public _paqueteService: PaqueteService,
+    public _conuntriesService: CountriesService
   ) { }
 
   ngOnInit(): void {
@@ -28,10 +30,21 @@ export class StepperComponent implements OnInit {
 
     this.obtenerEstados();
     this.obtenerPaquetes();
+    this.obtenerPaises();
 
   }
 
 
+  obtenerPaises(){
+
+    this._conuntriesService.getCountries()
+    .subscribe(
+      (data:any) => {
+        // console.log( data );
+       this.paises = data;
+
+      });
+  }
 
 
   obtenerEstados(){
@@ -45,7 +58,7 @@ export class StepperComponent implements OnInit {
   obtenerPaquetes(){
     this._paqueteService.getPaquetes()
     .subscribe(  (data:any) => {
-      // console.log(data);
+
       this.paquetes = data;
       console.log(this.paquetes);
     });
@@ -70,6 +83,9 @@ export class StepperComponent implements OnInit {
 
 
   enviar( form  ){
+
+
+    console.log( form );
 
     this._pacienteService.setPacientes(   form.value  )
     .subscribe((data) =>  console.log(data))

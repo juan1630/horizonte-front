@@ -51,7 +51,7 @@ export class WsLoginService {
     // esta linea nos ayuda con las consultas generales
     // this.enviarConsultas();
 
- 
+
     this.socket.on('event', (data) => {
       // console.log( data );
     })
@@ -79,9 +79,7 @@ export class WsLoginService {
             // console.log( resp);
             observer.next( resp );
             });
-        }
-        )
-
+        });
     }
 
 
@@ -108,16 +106,16 @@ export class WsLoginService {
 
 
         return  Observable.create(
-        
+
           (observer) => {
 
             this.socket.on('usuarioEnLinea', (resp) => {
 
               // console.log( resp );
-         
+
                 observer.next( resp );
 
-          
+
             })
           })
 
@@ -184,7 +182,7 @@ export class WsLoginService {
 
 
         console.log("entro aca");
-        
+
         return Observable.create(
           (observable) => {
             this.socket.on('crearMensaje', (data) => {
@@ -207,7 +205,7 @@ export class WsLoginService {
 
 
   // enviarMensajePrivado(data) {
-    
+
   //   var chat = this._idUser + "_" + this._idUser2;
   //   this.socket.emit('entrarChatPrivado',{
   //   mensaje:data, room:chat, role1:this._idUser, role2:this._idUser2 });
