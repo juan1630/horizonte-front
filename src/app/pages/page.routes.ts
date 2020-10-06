@@ -101,6 +101,9 @@ import { PendientePacienteComponent } from './pendientes/pendiente-paciente/pend
 import { RegistroPacientesComponent } from './registro-pacientes/registro-pacientes.component';
 import { VerPacienteComponent } from './pacientes/ver-paciente/ver-paciente.component';
 import { HojaDiariaEnfHospComponent } from './Hojas_Diarias/hoja-diaria-enf-hosp/hoja-diaria-enf-hosp.component';
+import { MedicosGuard } from '../guards/validaciones/medicos.guard';
+import { EnfermeriaGuard } from '../guards/validaciones/enfermeria.guard';
+import { ValidarRecepcionGuard } from '../guards/validaciones/recpecion/validar-recepcion.guard';
 
 
 
@@ -111,12 +114,19 @@ const pagesRoutes: Routes = [
     canActivate: [],
     children: [
       // aca se iran agregando las rutas para el dashboard
-      { path: 'paciente', component: PacienteComponent },
+      { path: 'paciente', component: PacienteComponent, canActivate: [ValidarRecepcionGuard] },
+
 
       // REGISTRO DE PACIENTES
-      {  path: 'registro/pacientes', component: RegistroPacientesComponent  },
-      {  path: 'paciente/:id', component: VerPacienteComponent },
-      { path: 'consultar/paquetes', component: PaquetesComponent },
+      {   path: 'registro/pacientes', component: RegistroPacientesComponent, canActivate: [ValidarRecepcionGuard ]  },
+      {   path: 'paciente/:id', component: VerPacienteComponent, canActivate:[ ValidarRecepcionGuard] },
+      {   path: 'consultar/paquetes', component: PaquetesComponent },
+
+
+      // consulta general
+
+      { path: 'consulta/:id', component: ConsultaGeneralComponent, canActivate: [ValidarRecepcionGuard] },
+      { path: 'consulta', component: ConsultaGeneralComponent, canActivate: [ValidarRecepcionGuard] },
 
       // SOLICITUDES
       {  path: 'hoja/solicitud/membresia/:id', component: SolicitudMembresiaComponent  },
@@ -206,7 +216,7 @@ const pagesRoutes: Routes = [
 
 
       // INICIA EL AREA DE CONSULTA GENERAL
-      { path: 'hoja-diaria-enfermeria-general', component: HojaDiariaEnfGralComponent},
+      { path: 'hoja-diaria-enfermeria-general', component: HojaDiariaEnfGralComponent , canActivate:[ MedicosGuard, EnfermeriaGuard]  },
       { path: 'enfermeria-dashboard', component: EnfermeriaDashboardComponent},
       { path: 'consulta-general/:id', component: ConsultaGeneralComponent},
 
@@ -246,8 +256,6 @@ const pagesRoutes: Routes = [
 
 
 
-      { path: 'consulta/:id', component: ConsultaGeneralComponent },
-      { path: 'consulta', component: ConsultaGeneralComponent },
       // Hojas Diarias
       { path: 'hoja-diaria-enfermeria-hospitalizacion/:id', component: HojaDiariaEnfHospComponent},
 

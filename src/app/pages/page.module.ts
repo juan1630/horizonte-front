@@ -115,6 +115,7 @@ import {NgStepperModule} from 'angular-ng-stepper';
 import { VerPacienteComponent } from './pacientes/ver-paciente/ver-paciente.component';
 import { CommonModule } from '@angular/common';
 
+
 @NgModule({
   declarations: [
     PageComponent,
@@ -214,7 +215,7 @@ import { CommonModule } from '@angular/common';
     PageComponent,
     ReactiveFormsModule,
     CdkStepperModule,
-    NgStepperModule
+    NgStepperModule,
   ],
 
   imports: [

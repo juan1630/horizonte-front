@@ -52,7 +52,15 @@ export class ConsultaGeneralComponent implements OnInit {
   ngOnInit(): void {
     this.idPaciente =  this._route.snapshot.paramMap.get('id');
     // console.log(  this.idPaciente );
-    this.obtenerPacientePorId();
+
+    if( this.idPaciente == null ){
+
+      return;
+    }else {
+
+      this.obtenerPacientePorId();
+    }
+
 
   }
 
@@ -106,6 +114,20 @@ export class ConsultaGeneralComponent implements OnInit {
   notaEnfermera( nota ){
 
     this.paciente.notaDeLaEnfermera = nota['value'];
+  }
+
+  buscarPaciente(  nombre ){
+    // console.log( nombre );
+    this._pacienteService.getPacientePorNombre( nombre )
+    .subscribe(
+       (data) => {
+        this.paciente.nombrePaciente = data['paciente']['nombrePaciente'];
+        this.paciente.apellidoPaterno = data['paciente']['apellidoPaterno'];
+        this.paciente.apellidoMaterno = data['paciente']['apellidoMaterno'];
+        this.paciente.curp = data['paciente']['curp'];
+        this.paciente.genero = data['paciente']['genero']
+        this.paciente.id = data['paciente']['_id'];
+        } );
   }
 
   enviar(){
