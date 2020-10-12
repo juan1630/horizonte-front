@@ -9,16 +9,18 @@
     <div class="row">
         <div class="col-sm">
             <p>Nombre Completo: {{ paciente.nombre }} {{ paciente.apellidoPaterno }} {{ paciente.apellidoMaterno }} </p>
-            <p>Domicilio: {{ paciente.domicilio }} </p>
-            <p>Lugar de Nacimiento: {{ paciente.estadoPaciente }} </p>
+            <p>Domicilio: {{ paciente.callePaciente }} {{paciente.estadoPaciente }} {{ paciente.paisPaciente }} </p>
+            <p>Lugar de Nacimiento: {{ paciente.estadoPaciente }} {{ paciente.paisPaciente }} </p>
         </div>
         <div class="col-sm">
-            <p>Fecha de Nacimiento: {{ paciente.fechaNacimiento }} </p>
+
+            <!-- TODO: Falta por ver la fecha -->
+            <p>Fecha de Nacimiento: Falta por ver la fecha </p>
             <p>Telefono: {{ paciente.telefono }} </p>
             <p>Tipo de Sangre:</p>
             <select name="tSangre" class="form-control">
                 <option value="Tipo" selected>--Tipo Sangre --</option>
-                <option value="AB+">AB+</option> 
+                <option value="AB+">AB+</option>
                 <option value="AB-">AB-</option>
                 <option value="A+">A+</option>
                 <option value="A-">A-</option>
@@ -26,8 +28,8 @@
                 <option value="B-">B-</option>
                 <option value="O+">O+</option>
                 <option value="O-">O-</option>
-               
-    
+
+
                 <!-- Cambiar edades, Hombres de 10 a 99 años
                     Hombrees de 10 a 99 años, agregando parametros especiales -->
             </select>
@@ -37,7 +39,7 @@
             <p>Religión:</p>
             <select name="religion" class="form-control">
                 <option value="Tipo" selected>-- Religión --</option>
-                <option value="judios">Judío</option> 
+                <option value="judios">Judío</option>
                 <option value="catolicos">Católico</option>
                 <option value="evangelicos">Evangélico</option>
                 <option value="menonitas">Menonita</option>
@@ -49,7 +51,7 @@
                 <option value="krishnas">Krishna</option>
                 <option value="presbiterianos">Presbiteriano</option>
                 <option value="testigos_de_jehova">Testigo de Jehová</option>
-                <option value="islamicos">Islámico</option> 
+                <option value="islamicos">Islámico</option>
                 <option value="otraReligion">Otra</option>
             </select>
             <!-- Agregar select con los tipos de Sangre mas comunes -->
@@ -196,50 +198,51 @@
                     </div>
                     <div class="col-md-1">
                         <label for="">°C</label>
-                        <input type="text" name="tempNino" ngModel required placeholder="TEMP">
+                        <input type="text" name="temp" [(ngModel)]="signosVitales.temp" required placeholder="TEMP">
                     </div>
 
                     <div class="col-md-1">
                         <label for="">PC cm</label>
-                        <input type="text" name="pcNino" ngModel required placeholder="P.C.">
+                        <input type="text" name="pc" [(ngModel)]="signosVitales.pc" required placeholder="P.C.">
                     </div>
                     <div class="col-md-1">
                         <label for="">PA cm</label>
-                        <input type="text" name="paNino" ngModel required placeholder="P.A.">
+                        <input type="text" name="paNino" [(ngModel)]="signosVitales.pa" required placeholder="P.A.">
                     </div>
                     <div class="col-md-1">
                         <label for="">PT cm</label>
-                        <input type="text" name="ptNino" ngModel required placeholder="P.T.">
+                        <input type="text" name="ptNino" [(ngModel)]="signosVitales.pt" required placeholder="P.T.">
                     </div>
                     <div class="col-md-1">
                         <label for="">APGAR</label>
-                        <input type="text" name="apgarNino" ngModel required placeholder="0 - 10">
+                        <input type="text" name="apgarNino" [(ngModel)]="signosVitales.apgar" required placeholder="0 - 10">
                     </div>
                     <div class="col-md-1">
                         <label for="">SaO %</label>
-                        <input type="text" name="saoNino" ngModel required placeholder="SaO" (blur)="validarBtn(fSignosV)">
+                        <input type="text" name="saoNino" [(ngModel)]="signosVitales.SaO" required placeholder="SaO" (blur)="validarBtn(fSignosV)">
                     </div>
                     <div class="col-md-1">
-                        <!-- <label for=""></label> -->
+
                         <div class="">
-                            <button class="btn btn-primary btn-izq" (click)="onSubmit(fSignosV)" [disabled]="validate">Guardar</button>
+                            <button class="btn btn-primary btn-izq" (click)="ageragrSignos()" [disabled]="validate">Guardar</button>
                         </div>
                     </div>
                 </div>
             </form><br><br>
 
             <!-- INICIO BOTONES MODALES -->
+
             <!-- Antecedentes por medio del Modal -->
             <div class="botones center">
                 <button id="btn1" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Antecedentes</button>
                 <!-- Button Signos Vitales -->
-                <button id="btn2" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal2">Signos Vitales</button>
+                <button id="btn2" type="button" class="btn btn-primary" data-toggle="modal" (click)="verSignosVitalesAnteriores()" data-target="#modal2">Signos Vitales</button>
                 <!-- Button Signos Vitales -->
                 <button id="btn3" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal3">Esquema de Vacunación</button>
                 <!-- Button Nutrición -->
                 <button id="btn4" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal4">Nutrición</button>
                 <!-- Button Historia clinica xd -->
-                <button id="btnxddd" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalxdd">Historial</button>
+                <button id="btnxddd" type="button" class="btn btn-primary" data-toggle="modal" (click)="verSignosVitalesAnteriores()" data-target="#modalxdd">Historial</button>
             </div>
             <!-- FIN BOTONES MODALES -->
 
@@ -444,7 +447,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                <button type="submit" class="btn btn-primary" (click)="onSubmit(fAntecedentes)">Guardar</button>
+                                <button type="submit" class="btn btn-primary">Guardar</button>
                             </div>
                         </div>
                     </div>
@@ -484,17 +487,19 @@
                                     </thead>
                                     <tbody>
                                         <!-- AQUI DEBE APLICARSE EL NG FOR :) -->
-                                        <tr *ngFor="let pacienteH of pacienteHistorial">
-                                            <td>{{pacienteH.tallaNino}}</td>
-                                            <td>{{pacienteH.pesoNino}}</td>
-                                            <td>{{pacienteH.imcNino}}</td>
-                                            <td>{{pacienteH.fcNino}}</td>
-                                            <td>{{pacienteH.frNino}}</td>
-                                            <td>{{pacienteH.tempNino}}</td>
-                                            <td>{{pacienteH.pcNino}}</td>
-                                            <td>{{pacienteH.paNino}}</td>
-                                            <td>{{pacienteH.ptNino}}</td>
-                                            <td>{{pacienteH.saoNino}}</td>
+
+                                        <tr *ngFor="let signos of historialSginos">
+                                            <!-- <pre> {{  signos  | json }} </pre> -->
+                                            <td>{{ signos.talla}}</td>
+                                            <td>{{signos.peso}}</td>
+                                            <td>{{signos.imc}}</td>
+                                            <td> Falta </td>
+                                            <td> Falta </td>
+                                            <td>{{signos.temp}}</td>
+                                            <td>{{signos.pc}}</td>
+                                            <td>{{signos.pa}}</td>
+                                            <td>{{signos.pt}}</td>
+                                            <td>{{signos.SaO}}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -503,7 +508,7 @@
 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-primary" (click)="onSubmit(fSignosV)">Guardar</button>
+                                <button type="button" class="btn btn-primary">Guardar</button>
                             </div>
                         </div>
                     </div>
@@ -541,112 +546,112 @@
                                         <tr>
                                             <td>BCG</td>
                                             <td>Tuberculosis</td>
-                                            <td><input type="text" placeholder="" name="dosisTuberculosisFecha" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaUnoTuberculosis" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaDosTuberculosis" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaTresTuberculosis" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaCuatroTuberculosis" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaUltimaTuberculosis" ngModel class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="tuberculosisNinoDosis" [(ngModel)]="esquemaVacuncaion.tuberculosisNinoDosis" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="tuberculosisNinoFechaUno" [(ngModel)]="esquemaVacuncaion.tuberculosisNinoFechaUno" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="tuberculosisNinoFechaDos" [(ngModel)]="esquemaVacuncaion.tuberculosisNinoFechaDos" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="tuberculosisNinoFechaTres" [(ngModel)]="esquemaVacuncaion.tuberculosisNinoFechaTres" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="tuberculosisNinoFechaCuatro" [(ngModel)]="esquemaVacuncaion.tuberculosisNinoFechaCuatro" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="tuberculosisNinoFechaUltima" [(ngModel)]="esquemaVacuncaion.tuberculosisNinoFechaUltima" class="antecedentes-inputs"></td>
                                         </tr>
                                         <tr>
                                             <td>Hepatitis B</td>
                                             <td>Hepatitis B</td>
-                                            <td><input type="text" placeholder="" name="dosisHepatitisB" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaUnoHepatitisB" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaDosHepatitisB" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaTresHepatitisB" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaCuatroHepatitisB" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaUltimaHepatitisB" ngModel class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="hepatitisNinoDosis" [(ngModel)]="esquemaVacuncaion.hepatitisNinoDosis" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="hepatitisNinoFechaUno" [(ngModel)]="esquemaVacuncaion.hepatitisNinoFechaUno" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="hepatitisNinoFechaDos" [(ngModel)]="esquemaVacuncaion.hepatitisNinoFechaDos" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="hepatitisNinoFechaTres" [(ngModel)]="esquemaVacuncaion.hepatitisNinoFechaTres" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="hepatitisNinoFechaCuatro" [(ngModel)]="esquemaVacuncaion.hepatitisNinoFechaCuatro" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="hepatitisNinoFechaUltima" [(ngModel)]="esquemaVacuncaion.hepatitisNinoFechaUltima" class="antecedentes-inputs"></td>
                                         </tr>
                                         <tr>
                                             <td>Pentavalente</td>
                                             <td>Difteria, Tosferina, Tétanos, Poliomielitis e Infecciones por H. Influenzae b</td>
-                                            <td><input type="text" placeholder="" name="dosisPentavalente" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaUnoPentevalente" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaDosPentevalente" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaTresPentevalente" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaCuatroPentevalente" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaUltimaPentevalente" ngModel class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="pentavalenteNinoDosis" [(ngModel)]="esquemaVacuncaion.pentavalenteNinoDosis" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="pentavalenteNinoFechaUno" [(ngModel)]="esquemaVacuncaion.pentavalenteNinoFechaUno" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="pentavalenteNinoFechaDos" [(ngModel)]="esquemaVacuncaion.pentavalenteNinoFechaDos" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="pentavalenteNinoFechaTres" [(ngModel)]="esquemaVacuncaion.pentavalenteNinoFechaTres" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="pentavalenteNinoFechaCuatro" [(ngModel)]="esquemaVacuncaion.pentavalenteNinoFechaCuatro" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="pentavalenteNinoFechaUltima" [(ngModel)]="esquemaVacuncaion.pentavalenteNinoFechaUltima" class="antecedentes-inputs"></td>
                                         </tr>
                                         <tr>
                                             <td>DPT</td>
                                             <td>Difteria, Tosferina y Tétanos</td>
-                                            <td><input type="text" placeholder="" name="dosisDPT" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaUnoDPT" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaDosDPT" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaTresDPT" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaCuatroDPT" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaUltimaDPT" ngModel class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="dptNinoDosis" [(ngModel)]="esquemaVacuncaion.dptNinoDosis" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="dptNinoFechaUno" [(ngModel)]="esquemaVacuncaion.dptNinoFechaUno" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="dptNinoFechaDos" [(ngModel)]="esquemaVacuncaion.dptNinoFechaDos" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="dptNinoFechaTres" [(ngModel)]="esquemaVacuncaion.dptNinoFechaTres" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="dptNinoFechaCuatro" [(ngModel)]="esquemaVacuncaion.dptNinoFechaCuatro" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="dptNinoFechaUltima" [(ngModel)]="esquemaVacuncaion.dptNinoFechaUltima" class="antecedentes-inputs"></td>
                                         </tr>
                                         <tr>
                                             <td>Rotavirus</td>
                                             <td>Diarrea por Rotavirus</td>
-                                            <td><input type="text" placeholder="" name="dosisRotavirus" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaUnoRotavirus" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaDosRotavirus" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaTresRotavirus" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaCuatroRotavirus" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaUltimaRotavirus" ngModel class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="rotavirusNinoDosis" [(ngModel)]="esquemaVacuncaion.rotavirusNinoDosis" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="rotavirusNinoFechaUno" [(ngModel)]="esquemaVacuncaion.rotavirusNinoFechaUno" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="rotavirusNinoFechaDos" [(ngModel)]="esquemaVacuncaion.rotavirusNinoFechaDos" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="rotavirusNinoFechaTres" [(ngModel)]="esquemaVacuncaion.rotavirusNinoFechaTres" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="rotavirusNinoFechaCuatro" [(ngModel)]="esquemaVacuncaion.rotavirusNinoFechaCuatro" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="rotavirusNinoFechaUltima" [(ngModel)]="esquemaVacuncaion.rotavirusNinoFechaUltima" class="antecedentes-inputs"></td>
                                         </tr>
                                         <tr>
                                             <td>Neumococo</td>
                                             <td>Infecciones por Neumococo</td>
-                                            <td><input type="text" placeholder="" name="dosisNeumo" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaUnoNeumo" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaDosNeumo" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaTresNeumo" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaCuatroNeumo" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaUltimaNeumo" ngModel class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="neumococoNinoDosis" [(ngModel)]="esquemaVacuncaion.neumococoNinoDosis" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="neumococoNinoFechaUno" [(ngModel)]="esquemaVacuncaion.neumococoNinoFechaUno" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="neumococoNinoFechaDos" [(ngModel)]="esquemaVacuncaion.neumococoNinoFechaDos" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="neumococoNinoFechaTres" [(ngModel)]="esquemaVacuncaion.neumococoNinoFechaTres" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="neumococoNinoFechaCuatro" [(ngModel)]="esquemaVacuncaion.neumococoNinoFechaCuatro" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="neumococoNinoFechaUltima" [(ngModel)]="esquemaVacuncaion.neumococoNinoFechaUltima" class="antecedentes-inputs"></td>
                                         </tr>
                                         <tr>
                                             <td>Influenza</td>
                                             <td>Influenza</td>
-                                            <td><input type="text" placeholder="" name="dosisInfluenza" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaUnoInfluenza" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaDosInfluenza" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaTresInfluenza" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaCuatroInfluenza" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaUltimaInfluenza" ngModel class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="influenzaNinoDosis" [(ngModel)]="esquemaVacuncaion.influenzaNinoDosis" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="influenzaNinoFechaUno" [(ngModel)]="esquemaVacuncaion.influenzaNinoFechaUno" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="influenzaNinoFechaDos" [(ngModel)]="esquemaVacuncaion.influenzaNinoFechaDos" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="influenzaNinoFechaTres" [(ngModel)]="esquemaVacuncaion.influenzaNinoFechaTres" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="influenzaNinoFechaCuatro" [(ngModel)]="esquemaVacuncaion.influenzaNinoFechaCuatro" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="influenzaNinoFechaUltima" [(ngModel)]="esquemaVacuncaion.influenzaNinoFechaUltima" class="antecedentes-inputs"></td>
                                         </tr>
                                         <tr>
                                             <td>SRP</td>
                                             <td>Sarampión, Rubéola, Parotiditis</td>
-                                            <td><input type="text" placeholder="" name="dosisSRP" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaUnoSRP" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaDosSRP" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaTresSRP" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaCuatroSRP" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaUltimaSRP" ngModel class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="sprNinoDosis" [(ngModel)]="esquemaVacuncaion.sprNinoDosis" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="sprNinoFechaUno" [(ngModel)]="esquemaVacuncaion.sprNinoFechaUno" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="sprNinoFechaDos" [(ngModel)]="esquemaVacuncaion.sprNinoFechaDos" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="sprNinoFechaDos" [(ngModel)]="esquemaVacuncaion.sprNinoFechaDos" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="sprNinoFechaCuatro" [(ngModel)]="esquemaVacuncaion.sprNinoFechaCuatro" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="sprNinoFechaUltima" [(ngModel)]="esquemaVacuncaion.sprNinoFechaUltima" class="antecedentes-inputs"></td>
                                         </tr>
                                         <tr>
                                             <td>Sabin</td>
                                             <td>Poliomielitis</td>
-                                            <td><input type="text" placeholder="" name="dosisSabin" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaUnoSabin" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaDosSabin" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaTresSabin" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaCuatroSabin" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaUltimaSabin" ngModel class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="sabinNinoDosis" [(ngModel)]="esquemaVacuncaion.sabinNinoDosis" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="sabinNinoFechaUno" [(ngModel)]="esquemaVacuncaion.sabinNinoFechaUno" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="sabinNinoFechaDos" [(ngModel)]="esquemaVacuncaion.sabinNinoFechaDos" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="sabinNinoFechaTres" [(ngModel)]="esquemaVacuncaion.sabinNinoFechaTres" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="sabinNinoFechaCuatro" [(ngModel)]="esquemaVacuncaion.sabinNinoFechaCuatro" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="sabinNinoFechaUltima" [(ngModel)]="esquemaVacuncaion.sabinNinoFechaUltima" class="antecedentes-inputs"></td>
                                         </tr>
                                         <tr>
                                             <td>SR</td>
                                             <td>Sarampión y Rubéola</td>
-                                            <td><input type="text" placeholder="" name="dosisSR" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaUnoSR" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaDosSR" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaTresSR" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaCuatroSR" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaUltima" ngModel class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="srNinoDosis" [(ngModel)]="esquemaVacuncaion.srNinoDosis" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="srNinoFechaUno" [(ngModel)]="esquemaVacuncaion.srNinoFechaUno" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="srNinoFechaDos" [(ngModel)]="esquemaVacuncaion.srNinoFechaDos" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="srNinoFechaTres" [(ngModel)]="esquemaVacuncaion.srNinoFechaTres" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="srNinoFechaCuatro" [(ngModel)]="esquemaVacuncaion.srNinoFechaCuatro" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="srNinoFechaUltima" [(ngModel)]="esquemaVacuncaion.srNinoFechaUltima" class="antecedentes-inputs"></td>
                                         </tr>
                                         <tr>
                                             <td>Otras Vacunas</td>
                                             <td>Otras Enfermedades</td>
-                                            <td><input type="text" placeholder="" name="dosisOtrasV" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaUnoOtrasV" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaDosOtrasV" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaTresOtrasV" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaCuatroOtrasV" ngModel class="antecedentes-inputs"></td>
-                                            <td><input type="text" placeholder="" name="fechaUltimaOtrasV" ngModel class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="otrasVacunasNinoDosis" [(ngModel)]="esquemaVacuncaion.otrasVacunasNinoDosis" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="otrasVacunasNinoFechaUno" [(ngModel)]="esquemaVacuncaion.otrasVacunasNinoFechaUno" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="otrasVacunasNinoFechaDos" [(ngModel)]="esquemaVacuncaion.otrasVacunasNinoFechaDos" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="otrasVacunasNinoFechaTres" [(ngModel)]="esquemaVacuncaion.otrasVacunasNinoFechaTres" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="otrasVacunasNinoFechaCuatro" [(ngModel)]="esquemaVacuncaion.otrasVacunasNinoFechaCuatro" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="otrasVacunasNinoFechaUltima" [(ngModel)]="esquemaVacuncaion.otrasVacunasNinoFechaUltima" class="antecedentes-inputs"></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -654,11 +659,12 @@
                             </div>
                             <div class="">
                                 <h5>Alergias:</h5>
-                                <textarea name="alergia" ngModel id="" class="textarea"></textarea>
+                                <textarea name="alergia" [(ngModel)]="esquemaVacuncaion.alergia" id="alergia" class="textarea"></textarea>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-primary" (click)="onSubmit(fEsquemaVacunacion)">Guardar</button>
+                                <!-- esuqema de vacuncacion -->
+                                <button type="button" class="btn btn-primary" (click)="esquemaVacunacion()">Guardar</button>
                                 <!-- <button type="button" class="btn btn-success" id="btn_agregar" value="+" (click)="crearDin()">Añadir</button> -->
 
                             </div>
@@ -794,7 +800,7 @@
 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-primary" (click)="onSubmit(fNutricion)">Guardar</button>
+                                <button type="button" class="btn btn-primary">Guardar</button>
                             </div>
                         </div>
 
@@ -831,18 +837,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let pacienteH of pacienteHistorial">
-                                        <td>{{paciente.nombre}} {{paciente.apellidoPaterno}} {{paciente.apellidoMaterno}}</td>
-                                        <td>{{pacienteH.tallaNino}}</td>
-                                        <td>{{pacienteH.pesoNino}}</td>
-                                        <td>{{pacienteH.imcNino}}</td>
-                                        <td>{{pacienteH.fcNino}}</td>
-                                        <td>{{pacienteH.frNino}}</td>
-                                        <td>{{pacienteH.tempNino}}</td>
-                                        <td>{{pacienteH.pcNino}}</td>
-                                        <td>{{pacienteH.paNino}}</td>
-                                        <td>{{pacienteH.ptNino}}</td>
-                                        <td>{{pacienteH.saoNino}}</td>
+                                    <tr *ngFor="let pacienteH of historialSginos">
+                                        <!-- <pre>  {{  pacienteH | json }}  </pre> -->
+                                        <td>{{pacienteH.talla}}</td>
+                                        <td>{{pacienteH.peso}}</td>
+                                        <td>{{pacienteH.imc}}</td>
+                                        <td>{{pacienteH.fc}}</td>
+                                        <td>{{pacienteH.fr}}</td>
+                                        <td>{{pacienteH.temp}}</td>
+                                        <td>{{pacienteH.pc}}</td>
+                                        <td>{{pacienteH.pa}}</td>
+                                        <td>{{pacienteH.pt}}</td>
+                                        <td>{{pacienteH.SaO}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -851,7 +857,7 @@
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" (click)="imprimirHistorial()">Imprimir</button>
-                            <button type="button" class="btn btn-primary" (click)="onSubmit(fSignosV)">Guardar</button>
+                            <button type="button" class="btn btn-primary">Guardar</button>
                         </div>
                     </div>
                 </div>
@@ -918,7 +924,7 @@
                             <!-- <sub>2</sub> -->
                         </div>
                         <div class="col-md-1">
-                            <button class="btn btn-primary btn-izq" (click)="onSubmit(fSignosVMujeres)" [disabled]="validate">Guardad</button>
+                            <button class="btn btn-primary btn-izq" [disabled]="validate">Guardad</button>
                         </div>
                     </div>
                 </form> <br> <br>
@@ -2021,7 +2027,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                    <button type="button" class="btn btn-primary" (click)="onSubmit(fAntecedentesMujeres)">Guardar</button>
+                                    <button type="button" class="btn btn-primary">Guardar</button>
                                 </div>
                             </div>
                         </div>
@@ -2215,7 +2221,7 @@
 
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                    <button type="button" class="btn btn-primary" (click)="onSubmit(fAntecedentesGO)">Guardar</button>
+                                    <button type="button" class="btn btn-primary">Guardar</button>
                                 </div>
                             </div>
 
@@ -2370,7 +2376,7 @@
                             <!-- <sub>2</sub> -->
                         </div>
                         <div class="col-md-1">
-                            <button class="btn btn-primary btn-izq" (click)="onSubmit(fSignosVitalesHombres)">Guardar</button>
+                            <button class="btn btn-primary btn-izq">Guardar</button>
                         </div>
                     </div>
                 </form> <br> <br>
@@ -2664,7 +2670,7 @@
 
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                    <button type="button" class="btn btn-primary" (click)="onSubmit(fAntecedentesHombres)">Guardar</button>
+                                    <button type="button" class="btn btn-primary">Guardar</button>
                                 </div>
                             </div>
                         </div>
@@ -2857,7 +2863,7 @@
 
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                    <button type="button" class="btn btn-primary" (click)="onSubmit(fMedicinaPreventivaHombres)">Guardar</button>
+                                    <button type="button" class="btn btn-primary">Guardar</button>
 
                                 </div>
                             </div>

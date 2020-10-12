@@ -11,7 +11,7 @@ export class ConsultaGeneralService {
 
   constructor(
     public _http: HttpClient
-  ) { 
+  ) {
 
     this.url = "https://sleepy-tor-20835.herokuapp.com/nueva/visita";
 
@@ -21,4 +21,6 @@ export class ConsultaGeneralService {
     // this.url += '/nueva/visita';
     return this._http.post(this.url, visita );
   }
+
+
 }

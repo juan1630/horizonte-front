@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+
 import { ActivatedRoute } from '@angular/router'
 import { PacienteService } from 'src/app/services/paciente/paciente.service';
-import * as moment from 'moment';
 import { WsLoginService } from 'src/app/services/sockets/login/ws-login.service';
 import { IdentificacionComponent } from '../../identificacion/identificacion/identificacion.component';
 import { IdentificacionConsultaService } from 'src/app/services/identificacion-consulta.service';
 
+import * as moment from 'moment';
 
 moment.locale('es');
 
@@ -23,8 +24,6 @@ export class ConsultaGeneralComponent implements OnInit {
   public horaIngreso = moment().format('hh:mm');
   public servicio = "";
   public consultorio = "";
-
-
 
   public paciente = {
     nombrePaciente:"",
@@ -116,18 +115,32 @@ export class ConsultaGeneralComponent implements OnInit {
     this.paciente.notaDeLaEnfermera = nota['value'];
   }
 
-  buscarPaciente(  nombre ){
+  buscarPaciente(  nombre: string ){
     // console.log( nombre );
-    this._pacienteService.getPacientePorNombre( nombre )
-    .subscribe(
-       (data) => {
-        this.paciente.nombrePaciente = data['paciente']['nombrePaciente'];
-        this.paciente.apellidoPaterno = data['paciente']['apellidoPaterno'];
-        this.paciente.apellidoMaterno = data['paciente']['apellidoMaterno'];
-        this.paciente.curp = data['paciente']['curp'];
-        this.paciente.genero = data['paciente']['genero']
-        this.paciente.id = data['paciente']['_id'];
-        } );
+
+    if(  nombre.length >= 3 ){
+      this._pacienteService.getPacientePorNombre( nombre )
+      .subscribe(
+         (data) => {
+
+          //  console.log(data);
+           if( data['pacientes']  == [] ){
+             alert('No hay pacientes con ese nombre');
+             return;
+           }
+
+          // this.paciente.nombrePaciente = data['paciente']['nombrePaciente'];
+          // this.paciente.apellidoPaterno = data['paciente']['apellidoPaterno'];
+          // this.paciente.apellidoMaterno = data['paciente']['apellidoMaterno'];
+          // this.paciente.curp = data['paciente']['curp'];
+          // this.paciente.genero = data['paciente']['genero']
+          // this.paciente.id = data['paciente']['_id'];
+
+          this.paciente = data['pacientes'];
+          console.log(this.paciente);
+          } );
+    }
+
   }
 
   enviar(){

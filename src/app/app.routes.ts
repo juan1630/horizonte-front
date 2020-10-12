@@ -6,6 +6,7 @@ import { PageComponent } from './pages/page/page.component';
 import { SolicitudComponent } from './pages/solicitud/solicitud.component';
 import { VerPaquetesComponent } from './pages/ver-paquetes/ver-paquetes.component';
 import { PaqueteIdComponent } from './pages/paquete-id/paquete-id.component';
+import { BrowserModule  }  from '@angular/platform-browser'
 
 //============================
 // Rutas pricipales

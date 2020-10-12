@@ -7,13 +7,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class HistoriaClinicaService {
+
+
   public url: string;
 
-  constructor(
-
-    public _http: HttpClient
-
-  ) { 
+  constructor( public _http: HttpClient ) {
 
     this.url = "https://sleepy-tor-20835.herokuapp.com"
 
@@ -41,4 +39,36 @@ export class HistoriaClinicaService {
     
     return this._http.put(uri, idAntecedentes)
   }
+
+  // obtener los signos viatales de un paciente en cosnultas anteriores
+
+  obtenerHistroialSignosVitalesPaciente(id) {
+
+    let url =  `http://localhost:3200/ver/signos/paciente/${id}`;
+    return this._http.get( url );
+
+  }
+
+  agregarSignosVitales(id, body){
+
+    let url =  `http://localhost:3200/agregar/signos/consulta/${id}`;
+    return this._http.put( url, body );
+
+  }
+
+  obtenerConsultaPorElId(id){
+
+    let url = `http://localhost:3200/conslta/general/identificacion/${id}`;
+
+    return this._http.get( url );
+
+  }
+
+  agregarEsquemaVacunacion( esquema ){
+    let url = 'http://localhost:3200/agregar/esquema/vacunacion';
+
+    return this._http.post(   url, esquema  );
+
+  }
+
 }

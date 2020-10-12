@@ -152,8 +152,6 @@ import { CommonModule } from '@angular/common';
     OtrosEditComponent,
     EndoscopiaNewComponent,
     EndoscopiaEditComponent,
-    // TomografiaNewComponent,
-    // TomografiaEditComponent,
     UltrasonidoEditComponent,
     UltrasonidoNewComponent,
     PagosMaternidadComponent,
@@ -230,7 +228,6 @@ import { CommonModule } from '@angular/common';
     PdfViewerModule,
     NgxPaginationModule,
     CommonModule
-
   ]
 
 

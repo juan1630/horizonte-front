@@ -54,6 +54,7 @@ export class HojaDiariaEnfGralComponent implements OnInit {
     .subscribe( (data) => {
       console.log(data);
       this.listaEspera = data['data'];
+      console.log( this.listaEspera );
      });
 
   }
