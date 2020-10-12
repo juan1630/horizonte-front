@@ -30,9 +30,10 @@
 
                     <tr *ngFor="let listaEsperaP of listaEspera; let i = index">
                         <td>
+
                             {{i+1}}
                         </td>
-                        <td class="clickss" [routerLink]="['/ficha-enfermeria-01', listaEsperaP.paciente.id]">
+                        <td class="clickss" [routerLink]="['/ficha-enfermeria-01', listaEsperaP._id]">
                             {{ listaEsperaP.paciente.nombrePaciente }} {{ listaEsperaP.paciente.apellidoMaterno }} {{ listaEsperaP.paciente.apellidoPaterno }}
                         </td>
 

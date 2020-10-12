@@ -119,6 +119,7 @@ const pagesRoutes: Routes = [
 
       // REGISTRO DE PACIENTES
       {   path: 'registro/pacientes', component: RegistroPacientesComponent, canActivate: [ValidarRecepcionGuard ]  },
+      // ruta del paciente de manera individual
       {   path: 'paciente/:id', component: VerPacienteComponent, canActivate:[ ValidarRecepcionGuard] },
       {   path: 'consultar/paquetes', component: PaquetesComponent },
 

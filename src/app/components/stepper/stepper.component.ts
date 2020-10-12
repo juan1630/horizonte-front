@@ -88,7 +88,12 @@ export class StepperComponent implements OnInit {
     console.log( form );
 
     this._pacienteService.setPacientes(   form.value  )
-    .subscribe((data) =>  console.log(data))
+    .subscribe((data) => {
+      if(  data['ok'] ){
+        alert('Paciente registrado');
+      }
+
+    });
 
   }
 
