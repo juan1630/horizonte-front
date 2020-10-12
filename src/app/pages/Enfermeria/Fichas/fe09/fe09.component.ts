@@ -44,12 +44,16 @@ export class FE09Component implements OnInit {
     fechaNacimiento: '',
     telefono: '',
     edad: 0,
-    sexo: '',
+    genero: '',
     curp:'',
     callePaciente:'',
     cpPaciente:'',
     paisPaciente:'',
     idPaciente:''
+
+
+
+    
   }
 
 
@@ -350,12 +354,12 @@ export class FE09Component implements OnInit {
     this._HistoriaClinicaService.obtenerConsultaPorElId( this.id )
     .subscribe(  (data:any) => {
 
-      console.log(data);
+      // console.log(data);
 
       this.paciente.nombre = data['data']['paciente']['nombrePaciente'];
       this.paciente.apellidoMaterno = data['data']['paciente']['apellidoMaterno'];
       this.paciente.apellidoPaterno = data['data']['paciente']['apellidoPaterno'];
-      this.paciente.sexo = data['data']['paciente']['genero'];
+      this.paciente.genero = data['data']['paciente']['genero'];
       this.paciente.edad = data['data']['paciente']['edad'];
       this.paciente.fechaNacimiento = data['data']['paciente']['fechaNacimientoPaciente'];
       this.paciente.paisPaciente = data['data']['paciente']['paisPaciente'];
