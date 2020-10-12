@@ -23,7 +23,7 @@ export class PacienteService {
 
     console.log("Intervalo", intervalo );
 
-    let uri = 'http://localhost:3200/paciente/'+ intervalo;
+    let uri = 'https://sleepy-tor-20835.herokuapp.com/paciente/'+ intervalo;
     return this._http.get( uri )
     .pipe(  map( (data) => {
       // console.log( data )
@@ -35,7 +35,7 @@ export class PacienteService {
   // este servicio crea un nuevo paciente en la DB
   setPacientes( data: any ){
 
-    let uri = `http://localhost:3200/paciente`;
+    let uri = `https://sleepy-tor-20835.herokuapp.com/paciente`;
     return this._http.post( uri, data  );
   }
 
@@ -46,7 +46,7 @@ export class PacienteService {
 
 
     // let uri = URLDEV + '/paciente/'+nombre;
-    let uri = `http://localhost:3200/pacientes/nombre/${nombre}`;
+    let uri = `https://sleepy-tor-20835.herokuapp.com/pacientes/nombre/${nombre}`;
 
     return this._http.get(uri)
     .pipe(  map( (data) => {
@@ -95,7 +95,7 @@ export class PacienteService {
 
   getPacienteBtID(id: string) {
 
-    let uri = `http://localhost:3200/pacientes/${id}`;
+    let uri = `https://sleepy-tor-20835.herokuapp.com/pacientes/${id}`;
 
    return this._http.get( uri )
     .pipe( map( (paciente) =>  paciente  ) );

@@ -49,11 +49,63 @@ export class FE09Component implements OnInit {
     fechaNacimiento: '',
     telefono: '',
     edad: 0,
-    sexo: ''
+    genero: ''
   }
 
   public pacienteHistorial = [{
   }];
+
+  public antecedentesNinos = {
+    enfermedadesPielNinosPersonal: '',
+    enfermedadesPielNinosFecha: '',
+    enfermedadesPielNinosFamiliares: '',
+    enfermedadesPielNinosNotas: '',
+    desnutricionNinosPersonal: '',
+    desnutricionNinosFecha: '',
+    desnutricionNinosFamiliares: '',
+    desnutricionNinosNotas: '',
+    obesidadNinosPersonal: '',
+    obesidadNinosFecha: '',
+    obesidadNinosFamiliares: '',
+    obesidadNinosNotas: '',
+    defectosNinosPostularesPersonal: '',
+    defectosNinosPostularesFecha: '',
+    defectosNinosPostularesFamiliares: '',
+    defectosNinosPostularesNotas: '',
+    fracturasNinosPersonal: '',
+    fracturasNinosFecha: '',
+    fracturasNinosFamiliares: '',
+    fracturasNinosNotas: '',
+    hospitalizacionesNinosPersonal: '',
+    hospitalizacionesNinosFecha: '',
+    hospitalizacionesNinosFamiliares: '',
+    hospitalizacionesNinosNotas: '',
+    transfucionesNinosPersonal: '',
+    transfucionesNinosFecha: '',
+    transfucionesNinosFamiliares: '',
+    transfucionesNinosNotas: '',
+    cardiopatiasNinosPersonal: '',
+    cardiopatiasNinosFecha: '',
+    cardiopatiasNinosFamiliares: '',
+    cardiopatiasNinosNotas: '',
+    cirugiasNinosPersonal: '',
+    cirugiasNinosFecha: '',
+    cirugiasNinosFamiliares: '',
+    cirugiasNinosNotas: '',
+    cancerLeucemiaNinosPersonal: '',
+    cancerLeucemiaNinosFecha: '',
+    cancerLeucemiaNinosFamiliares: '',
+    cancerLeucemiaNinosNotas: '',
+    alergiasNinosPersonal: '',
+    alergiasNinosFecha: '',
+    alergiasNinosFamiliares: '',
+    alergiasNinosNotas: '',
+    vihNinosPersonal: '',
+    vihNinosFecha: '',
+    vihNinosFamiliares: '',
+    vihNinosNotas: '',
+    idPaciente: ''
+  }
 
   ///////////////////////////////////////////////////////////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////////////////// 
@@ -233,7 +285,7 @@ export class FE09Component implements OnInit {
         this.paciente.fechaNacimiento = data.paciente.fechaNacimientoPaciente;
         this.paciente.telefono = data.paciente.telefono;
         this.paciente.edad = data.paciente.edad;
-        this.paciente.sexo = data.paciente.sexo;
+        this.paciente.genero = data.paciente.genero;
 
         data.paciente.edad = parseFloat(data.paciente.edad);
 
@@ -254,13 +306,13 @@ export class FE09Component implements OnInit {
         (data:any) => {
           // console.log(data);
 
-          for (let i = 0; data.paciente.historiaClinica.length -1 >= i ; i++){
-            // console.log(data.paciente.historiaClinica[i]);
+          // for (let i = 0; data.paciente.historiaClinica.length -1 >= i ; i++){
+          //   // console.log(data.paciente.historiaClinica[i]);
             
-            this.pacienteHistorial.push(data.paciente.historiaClinica[i]);
-            // console.log(this.pacienteHistorial);
+          //   this.pacienteHistorial.push(data.paciente.historiaClinica[i]);
+          //   // console.log(this.pacienteHistorial);
             
-          }
+          // }
     });
   }
 
@@ -384,12 +436,24 @@ export class FE09Component implements OnInit {
     // console.log("form Antecedentes Niños xD");
     // console.log(f.invalid);
 
-    
+    this.antecedentesNinos.idPaciente = this.id;
     
 
-    this._HistoriaClinicaService.agregarHistoriaClinica(this.id, f.value).subscribe( req => {
+    this._HistoriaClinicaService.agregarHistoriaClinica(this.antecedentesNinos).subscribe( req => {
       console.log(req);
 
+      let idPacientetl = {
+        _id: req.data._id
+      }
+
+      console.log( idPacientetl  );
+
+      this._HistoriaClinicaService.agregarIdModelPaciente(this.id, idPacientetl).subscribe ( res=> {
+        console.log(res);
+        
+      })
+    
+    
       swal("Datos Guardados con Éxito", "Se ha notificado al Doctor", "success");
 
       this._ObtenerPacienteService.getPacienteBtID(this.id).subscribe( (req:any) => {

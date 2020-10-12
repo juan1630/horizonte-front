@@ -19,11 +19,26 @@ export class HistoriaClinicaService {
 
   }
 
-  agregarHistoriaClinica(id, historia):Observable<any>{
+  agregarHistoriaClinica(historia):Observable<any>{
 
-    let params = JSON.stringify(historia);
-    let headers = new HttpHeaders().set('Content-type', 'application/json');
+    // let params = JSON.stringify(historia);
+    // let headers = new HttpHeaders().set('Content-type', 'application/json');
 
-    return this._http.put(this.url+'/historia-clinica/'+id, params, {headers: headers});
+
+    return this._http.post(this.url+'/agregar/AgregarAntecedentes', historia);
+  }
+
+
+
+
+  agregarIdModelPaciente(id, idAntecedentes):Observable<any>{
+    
+    let uri =  'http://localhost:3200' +'/agregar/antecedentes/' + id;
+    
+    console.log('Id antecedentes', idAntecedentes);
+    
+    console.log('Id paciente', id);
+    
+    return this._http.put(uri, idAntecedentes)
   }
 }

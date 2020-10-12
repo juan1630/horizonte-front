@@ -58,7 +58,7 @@
             <p>Edad: {{ paciente.edad }} </p>
         </div>
         <div class="col-sm">
-            <p>Género: {{paciente.sexo }} </p>
+            <p>Género: {{paciente.genero }} </p>
         </div>
         <div class="col-md">
             <!-- <div class="derxd"> -->
@@ -85,7 +85,7 @@
         <br> <br>
 
         <!-- Grafica Estatura Niño -->
-        <div class="col-sm-4 muf" *ngIf="paciente.sexo == 'Masculino' && paciente.edad <= 9">
+        <div class="col-sm-4 muf" *ngIf="paciente.genero == 'masculino' && paciente.edad <= 9">
 
             <div class="flex">
                 <div class="flex-item">
@@ -99,7 +99,7 @@
         </div>
 
         <!-- Grafica Peso Niño -->
-        <div class="col-sm-4" *ngIf="paciente.sexo == 'Masculino' && paciente.edad <= 9">
+        <div class="col-sm-4" *ngIf="paciente.genero == 'masculino' && paciente.edad <= 9">
             <div class="flex">
                 <div class="flex-item">
                     <div style="display: block;">
@@ -111,7 +111,7 @@
         </div>
 
         <!-- Grafica IMC Niño -->
-        <div class="col-sm-4 muf" *ngIf="paciente.sexo == 'Masculino' && paciente.edad <= 9">
+        <div class="col-sm-4 muf" *ngIf="paciente.genero == 'masculino' && paciente.edad <= 9">
 
             <div class="flex">
                 <div class="flex-item">
@@ -129,7 +129,7 @@
 
 
         <!-- Grafica Niñas -->
-        <div class="col-sm-4 muf" *ngIf="paciente.sexo == 'Femenino' && paciente.edad <= 9">
+        <div class="col-sm-4 muf" *ngIf="paciente.genero == 'femenino' && paciente.edad <= 9">
 
             <div class="flex">
                 <div class="flex-item">
@@ -143,7 +143,7 @@
         </div>
 
         <!-- Grafica Peso Niño -->
-        <div class="col-sm-4" *ngIf="paciente.sexo == 'Femenino' && paciente.edad <= 9">
+        <div class="col-sm-4" *ngIf="paciente.genero == 'femenino' && paciente.edad <= 9">
             <div class="flex">
                 <div class="flex-item">
                     <div style="display: block;">
@@ -155,7 +155,7 @@
         </div>
 
         <!-- Grafica IMC Niño -->
-        <div class="col-sm-4 muf" *ngIf="paciente.sexo == 'Femenino' && paciente.edad <= 9">
+        <div class="col-sm-4 muf" *ngIf="paciente.genero == 'femenino' && paciente.edad <= 9">
 
             <div class="flex">
                 <div class="flex-item">
@@ -279,11 +279,11 @@
                                 </div>
                                 <div class="col-md-2">
 
-                                    <input name="enfPielPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    <input name="enfPielPersonales" [(ngModel)]="antecedentesNinos.enfermedadesPielNinosPersonal" type="text" placeholder="" class="antecedentes-inputs">
                                 </div>
-                                <div class="col-md-2"><input name="enfPielFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input name="enfPielFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input name="enfPielNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="enfPielFecha" [(ngModel)]="antecedentesNinos.enfermedadesPielNinosFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="enfPielFamiliares" [(ngModel)]="antecedentesNinos.enfermedadesPielNinosFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="enfPielNotas" [(ngModel)]="antecedentesNinos.enfermedadesPielNinosNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
 
                                 <!-- Bloque 2 -->
                                 <div class="col-md-2"></div>
@@ -292,11 +292,11 @@
                                 </div>
                                 <div class="col-md-2">
 
-                                    <input name="desnuPesonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    <input name="desnuPesonales" [(ngModel)]="antecedentesNinos.desnutricionNinosPersonal" type="text" placeholder="" class="antecedentes-inputs">
                                 </div>
-                                <div class="col-md-2"><input name="desnuFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input name="desnuFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input name="desnuNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="desnuFecha" [(ngModel)]="antecedentesNinos.desnutricionNinosFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="desnuFamiliares" [(ngModel)]="antecedentesNinos.desnutricionNinosFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="desnuNotas" [(ngModel)]="antecedentesNinos.desnutricionNinosNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
 
                                 <!-- End bloque 2 -->
                                 <!-- Bloque 3 -->
@@ -306,11 +306,11 @@
                                 </div>
                                 <div class="col-md-2">
 
-                                    <input name="obesidadPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    <input name="obesidadNinosPersonal" [(ngModel)]="antecedentesNinos.obesidadNinosPersonal" type="text" placeholder="" class="antecedentes-inputs">
                                 </div>
-                                <div class="col-md-2"><input name="obesidadFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input name="obesidadFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input name="obesidadNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="obesidadNinosFecha" [(ngModel)]="antecedentesNinos.obesidadNinosFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="obesidadNinosFamiliares" [(ngModel)]="antecedentesNinos.obesidadNinosFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="obesidadNinosNotas" [(ngModel)]="antecedentesNinos.obesidadNinosNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
 
                                 <!-- End bloque 3 -->
                                 <!-- Bloque 3 -->
@@ -320,11 +320,12 @@
                                 </div>
                                 <div class="col-md-2">
 
-                                    <input name="defectosPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+
+                                    <input name="defectosPersonales" [(ngModel)]="antecedentesNinos.defectosNinosPostularesPersonal" type="text" placeholder="" class="antecedentes-inputs">
                                 </div>
-                                <div class="col-md-2"><input name="defectosFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input name="defectosFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input name="defectosNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="defectosFecha" [(ngModel)]="antecedentesNinos.defectosNinosPostularesFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="defectosFamiliares" [(ngModel)]="antecedentesNinos.defectosNinosPostularesFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="defectosNotas" [(ngModel)]="antecedentesNinos.defectosNinosPostularesNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
 
                                 <!-- End bloque 3 -->
                                 <!-- Bloque 3 -->
@@ -334,11 +335,11 @@
                                 </div>
                                 <div class="col-md-2">
 
-                                    <input name="fracturasPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    <input name="fracturasPersonales" [(ngModel)]="antecedentesNinos.fracturasNinosPersonal" type="text" placeholder="" class="antecedentes-inputs">
                                 </div>
-                                <div class="col-md-2"><input name="fracturasFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input name="fracturasFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input name="fracturasNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="fracturasFecha" [(ngModel)]="antecedentesNinos.fracturasNinosFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="fracturasFamiliares" [(ngModel)]="antecedentesNinos.fracturasNinosFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="fracturasNotas" [(ngModel)]="antecedentesNinos.fracturasNinosNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
 
                                 <!-- End bloque 3 -->
                                 <!-- Bloque 3 -->
@@ -348,11 +349,11 @@
                                 </div>
                                 <div class="col-md-2">
 
-                                    <input name="hospPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    <input name="hospPersonales" [(ngModel)]="antecedentesNinos.hospitalizacionesNinosPersonal" type="text" placeholder="" class="antecedentes-inputs">
                                 </div>
-                                <div class="col-md-2"><input name="hospFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input name="hospFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input name="hospNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="hospFecha" [(ngModel)]="antecedentesNinos.hospitalizacionesNinosFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="hospFamiliares" [(ngModel)]="antecedentesNinos.hospitalizacionesNinosFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="hospNotas" [(ngModel)]="antecedentesNinos.hospitalizacionesNinosNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
 
                                 <!-- End bloque 3 -->
                                 <!-- Bloque 3 -->
@@ -362,11 +363,11 @@
                                 </div>
                                 <div class="col-md-2">
 
-                                    <input name="transfusionesPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    <input name="transfusionesPersonales" [(ngModel)]="antecedentesNinos.transfucionesNinosPersonal" type="text" placeholder="" class="antecedentes-inputs">
                                 </div>
-                                <div class="col-md-2"><input name="transfusionesFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input name="transfusionesFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input name="transfusionesNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="transfusionesFecha" [(ngModel)]="antecedentesNinos.transfucionesNinosFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="transfusionesFamiliares" [(ngModel)]="antecedentesNinos.transfucionesNinosFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="transfusionesNotas" [(ngModel)]="antecedentesNinos.transfucionesNinosNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
 
                                 <!-- End bloque 3 -->
                                 <!-- Bloque 3 -->
@@ -376,11 +377,11 @@
                                 </div>
                                 <div class="col-md-2">
 
-                                    <input name="cardiopatiasPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    <input name="cardiopatiasPersonales" [(ngModel)]="antecedentesNinos.cardiopatiasNinosPersonal" type="text" placeholder="" class="antecedentes-inputs">
                                 </div>
-                                <div class="col-md-2"><input name="cardiopatiasFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input name="cardiopatiasFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input name="cardiopatiasNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="cardiopatiasFecha" [(ngModel)]="antecedentesNinos.cardiopatiasNinosFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="cardiopatiasFamiliares" [(ngModel)]="antecedentesNinos.cardiopatiasNinosFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="cardiopatiasNotas" [(ngModel)]="antecedentesNinos.cardiopatiasNinosNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
 
                                 <!-- End bloque 3 -->
                                 <!-- Bloque 3 -->
@@ -390,11 +391,11 @@
                                 </div>
                                 <div class="col-md-2">
 
-                                    <input name="cirugiasPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    <input name="cirugiasPersonales" [(ngModel)]="antecedentesNinos.cirugiasNinosPersonal" type="text" placeholder="" class="antecedentes-inputs">
                                 </div>
-                                <div class="col-md-2"><input name="cirugiaFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input name="cirugiaFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input name="cirugiaNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="cirugiaFecha" [(ngModel)]="antecedentesNinos.cirugiasNinosFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="cirugiaFamiliares" [(ngModel)]="antecedentesNinos.cirugiasNinosFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="cirugiaNotas" [(ngModel)]="antecedentesNinos.cirugiasNinosNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
 
                                 <!-- End bloque 3 -->
                                 <!-- Bloque 3 -->
@@ -404,11 +405,11 @@
                                 </div>
                                 <div class="col-md-2">
 
-                                    <input name="clPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    <input name="clPersonales" [(ngModel)]="antecedentesNinos.cancerLeucemiaNinosPersonal" type="text" placeholder="" class="antecedentes-inputs">
                                 </div>
-                                <div class="col-md-2"><input name="clFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input name="clFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input name="clNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="clFecha" [(ngModel)]="antecedentesNinos.cancerLeucemiaNinosFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="clFamiliares" [(ngModel)]="antecedentesNinos.cancerLeucemiaNinosFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="clNotas" [(ngModel)]="antecedentesNinos.cancerLeucemiaNinosNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
 
                                 <!-- End bloque 3 -->
                                 <!-- Bloque 3 -->
@@ -418,11 +419,11 @@
                                 </div>
                                 <div class="col-md-2">
 
-                                    <input name="alergiasPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    <input name="alergiasPersonales" [(ngModel)]="antecedentesNinos.alergiasNinosPersonal" type="text" placeholder="" class="antecedentes-inputs">
                                 </div>
-                                <div class="col-md-2"><input name="alergiasFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input name="alergiasFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input name="alergiasNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="alergiasFecha" [(ngModel)]="antecedentesNinos.alergiasNinosFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="alergiasFamiliares" [(ngModel)]="antecedentesNinos.alergiasNinosFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="alergiasNotas" [(ngModel)]="antecedentesNinos.alergiasNinosNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
 
                                 <!-- End bloque 3 -->
                                 <!-- Bloque 3 -->
@@ -432,11 +433,11 @@
                                 </div>
                                 <div class="col-md-2">
 
-                                    <input name="vihPersonales" ngModel type="text" placeholder="" class="antecedentes-inputs">
+                                    <input name="vihPersonales" [(ngModel)]="antecedentesNinos.vihNinosPersonal" type="text" placeholder="" class="antecedentes-inputs">
                                 </div>
-                                <div class="col-md-2"><input name="vihFecha" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input name="vihFamiliares" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
-                                <div class="col-md-2"><input name="vihNotas" ngModel type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="vihFecha" [(ngModel)]="antecedentesNinos.vihNinosFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="vihFamiliares" [(ngModel)]="antecedentesNinos.vihNinosFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                <div class="col-md-2"><input name="vihNotas" [(ngModel)]="antecedentesNinos.vihNinosNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
 
                                 <!-- End bloque 3 -->
 
@@ -859,7 +860,7 @@
 
         </div>
         <!-- Comparacion xsss -->
-        <div class="" *ngIf="paciente.sexo == 'Femenino' && paciente.edad > 9">
+        <div class="" *ngIf="paciente.genero == 'femenino' && paciente.edad > 9">
             <!-- <h2>Aquí empieza la Ficha de Mujeres</h2> -->
             <div class="mujeres">
                 <!-- Inicio SV por primera Vez -->
@@ -932,9 +933,824 @@
                     <!-- Button Signos Vitales -->
                     <button id="btn4" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal8">Medicina Preventiva</button>
                     <button id="btn3" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalMujer">Historial del Paciente</button>
+                    <button id="btn66" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalMujerGineco">Antecedentes Gineco Obstetricos</button>
+                    <button id="btn67" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalMujerGinecoNoPat">Antec. Ginecobstetricos</button>
+                    <button id="btn68" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalMujerGinecoO">Antec. Personales No Patologicos</button>
+                    <button id="btn69" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalMujerAntPersonal">Antec. Personales Patologicos</button>
+                    <button id="btn70" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalMujerAntHeredo">Antec. Heredo Familiares</button>
+
                     <!-- Button Nutrición -->
                 </div>
                 <!-- FIN BOTONES MODALES -->
+
+                <div id="modalMujerGineco" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="nutricion" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content modal-ago superXL">
+                            <div class="modal-header">
+                                <h3 id="nutricion" class="modal-title center">Antecedentes Gineco Obstetricos</h3>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                             </button>
+                            </div>
+
+                            <div class="container">
+                                <form action="">
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <div class="form-check form-check-inline">
+                                                    <label for="">¿Embarazada Actualmente?</label>
+                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1">Si</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2">No</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">¿Embarazada de Alto Riesgo?</label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                        <label class="form-check-label" for="inlineRadio1">Si</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                                        <label class="form-check-label" for="inlineRadio2">No</label>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Administración de: </label>
+                                                        <input type="text" class="form-control antecedentes-inputs" placeholder="Hierro">
+                                                        <input type="text" class="form-control" placeholder="A. Folico">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Fecha: </label>
+                                                        <input type="date" class="form-control">
+                                                        <input type="date" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">¿Método anticonceptivo después del parto?</label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                        <label class="form-check-label" for="inlineRadio1">Si</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                                        <label class="form-check-label" for="inlineRadio2">No</label>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Inicio de la vida sexual activa: </label>
+                                                        <input type="text" class="form-control antecedentes-inputs">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Fecha del ultimo parto: </label>
+                                                        <input type="data" class="form-control">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Crecimiento de vellos pubicos: </label>
+                                                        <input type="text" class="form-control">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Tipo de método de planif. </label>
+                                                        <input type="data" class="form-control">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-row">
+                                                <div class="form-group col-md-2">
+                                                    <label for="inputZip">Gestas</label>
+                                                    <input type="text" class="form-control" id="inputZip">
+                                                </div>
+                                                <div class="form-group col-md-2">
+                                                    <label for="inputZip">Partos</label>
+                                                    <input type="text" class="form-control" id="inputZip">
+                                                </div>
+                                                <div class="form-group col-md-2">
+                                                    <label for="inputZip">Cesareas</label>
+                                                    <input type="text" class="form-control" id="inputZip">
+                                                </div>
+                                                <div class="form-group col-md-2">
+                                                    <label for="inputZip">Abortos</label>
+                                                    <input type="text" class="form-control" id="inputZip">
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Último Papanicolao: </label>
+                                                        <input type="text" class="form-control antecedentes-inputs">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Última Colposcopía: </label>
+                                                        <input type="text" class="form-control antecedentes-inputs">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Última revisión mamaria: </label>
+                                                        <input type="text" class="form-control antecedentes-inputs">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Nacidos: </label>
+                                                        <input type="text" class="form-control antecedentes-inputs" placeholder="Vivos">
+                                                        <input type="text" class="form-control" placeholder="Muertos">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">1era Menstruación: </label>
+                                                        <input type="text" class="form-control antecedentes-inputs">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Crecimiento de Pechos: </label>
+                                                        <input type="text" class="form-control antecedentes-inputs">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Primer Embarazo: </label>
+                                                        <input type="text" class="form-control antecedentes-inputs">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Fecha: </label>
+                                                        <input type="date" class="form-control">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                            <!-- end container -->
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-primary">Guardar</button>
+                                <button type="button" class="btn btn-success" id="add_field" value="adicionar">Añadir</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <div id="modalMujerGinecoO" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="nutricion" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content modal-ago superXL">
+                            <div class="modal-header">
+                                <h3 id="nutricion" class="modal-title center">Antecedentes Personales No Patologicos</h3>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                             </button>
+                            </div>
+
+                            <div class="container">
+                                <form action="">
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <h5>Tabaquismo</h5>
+                                                <p>¿Cuántos?</p>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="number" id="inlineCheckbox1">
+                                                    <label class="form-check-label" for="inlineCheckbox1">Por Día</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <h5>Alcoholismo</h5>
+                                                <p>¿Cuántas Copas?</p>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="number" id="inlineCheckbox1">
+                                                    <label class="form-check-label" for="inlineCheckbox1">Por Semana</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Alergias: </label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                        <label class="form-check-label" for="inlineRadio1">Si</label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option2">
+                                                        <label class="form-check-label" for="inlineRadio1">No</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Tipo: </label>
+                                                        <input type="text" class="form-control antecedentes-inputs">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Alimentación adecuada: </label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                        <label class="form-check-label" for="inlineRadio1">Si</label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option2">
+                                                        <label class="form-check-label" for="inlineRadio1">No</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-row">
+                                                <div class="form-check form-check-inline">
+                                                    <label class="form-check-label" for="inlineCheckbox1">Años de Consumo: </label>
+                                                    <input class="form-check-input" type="number" id="inlineCheckbox1">
+
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-check form-check-inline">
+                                                    <label class="form-check-label" for="inlineCheckbox1">Años de Consumo: </label>
+                                                    <input class="form-check-input" type="number" id="inlineCheckbox1">
+
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Tipo Sanguineo: </label>
+                                                        <input type="text" class="form-control antecedentes-inputs">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Se desconoce: </label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                        <label class="form-check-label" for="inlineRadio1">Si</label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option2">
+                                                        <label class="form-check-label" for="inlineRadio1">No</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Vivienda Servicios Básicos: </label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                        <label class="form-check-label" for="inlineRadio1">Si</label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option2">
+                                                        <label class="form-check-label" for="inlineRadio1">No</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Exfumador o Tabaquismo pasivo: </label>
+                                                        <input type="text" class="form-control antecedentes-inputs">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Alcoholico Y/U ocacional: </label>
+                                                        <input type="text" class="form-control antecedentes-inputs">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Drogadicto Tipo: </label>
+                                                        <input type="text" class="form-control antecedentes-inputs">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-check form-check-inline">
+                                                    <label class="form-check-label" for="inlineCheckbox1">Años de Consumo: </label>
+                                                    <input class="form-check-input" type="number" id="inlineCheckbox1">
+
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Exdrogadicto: </label>
+                                                        <input type="text" class="form-control antecedentes-inputs">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="inputAddress">Otros:</label>
+                                        <input type="text" class="form-control" id="otros" placeholder="">
+                                    </div>
+                                </form>
+
+                            </div>
+                            <!-- end container -->
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-primary">Guardar</button>
+                                <button type="button" class="btn btn-success" id="add_field" value="adicionar">Añadir</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <div id="modalMujerGinecoNoPat" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="nutricion" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content modal-ago superXL">
+                            <div class="modal-header">
+                                <h3 id="nutricion" class="modal-title center">Antecedentes Ginecobstetricos</h3>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                             </button>
+                            </div>
+
+                            <div class="container">
+                                <form action="">
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <p>Menarca: </p>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="number" id="inlineCheckbox1">
+                                                    <label class="form-check-label" for="inlineCheckbox1">Años de Edad</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Fecha Ultima Menstruación: </label>
+                                                        <input type="date" class="form-control">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Dismenorrea (Incapacitante): </label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                        <label class="form-check-label" for="inlineRadio1">Si</label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option2">
+                                                        <label class="form-check-label" for="inlineRadio1">No</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <h5>G_______P_______A_______C________</h5>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Ciclos Regulares: </label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                        <label class="form-check-label" for="inlineRadio1">Si</label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option2">
+                                                        <label class="form-check-label" for="inlineRadio1">No</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Polimenorrea: </label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                        <label class="form-check-label" for="inlineRadio1">Si</label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option2">
+                                                        <label class="form-check-label" for="inlineRadio1">No</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <label for="">IVSA:</label>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="number" id="inlineCheckbox1">
+                                                        <label class="form-check-label" for="inlineCheckbox1">Años</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Fecha Ultima citologia (PAP): </label>
+                                                        <input type="date" class="form-control">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Ritmo: </label>
+                                                        <input type="text" class="form-control">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Hipermenorrea: </label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                        <label class="form-check-label" for="inlineRadio1">Si</label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option2">
+                                                        <label class="form-check-label" for="inlineRadio1">No</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <label for="">No. Parejas Sexuales:</label>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="number" id="inlineCheckbox1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Resultado: </label>
+                                                        <input type="text" class="form-control">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- end container -->
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-primary">Guardar</button>
+                                <button type="button" class="btn btn-success" id="add_field" value="adicionar">Añadir</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <div id="modalMujerAntHeredo" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="nutricion" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content modal-ago superXL">
+                            <div class="modal-header">
+                                <h3 id="nutricion" class="modal-title center">Antecedentes Heredo Familiares</h3>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                             </button>
+                            </div>
+
+                            <div class="container">
+                                <form action="">
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="">Diabetes: </label>
+                                                <input class="form-check-input" type="number" id="inlineCheckbox1">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Cáncer: </label>
+                                                <input class="form-check-input" type="number" id="inlineCheckbox1">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Cardiopatias: </label>
+                                                <input class="form-check-input" type="number" id="inlineCheckbox1">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Malformaciones: </label>
+                                                <input class="form-check-input" type="number" id="inlineCheckbox1">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="">Hipertensión: </label>
+                                                <input class="form-check-input" type="number" id="inlineCheckbox1">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Tipo: </label>
+                                                <input class="form-check-input" type="number" id="inlineCheckbox1">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Nefropatías: </label>
+                                                <input class="form-check-input" type="number" id="inlineCheckbox1">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Tipo</label>
+                                                <input class="form-check-input" type="number" id="inlineCheckbox1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Otros</label>
+                                        <input class="form-check-input" type="number" id="inlineCheckbox1">
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- end container -->
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-primary">Guardar</button>
+                                <button type="button" class="btn btn-success" id="add_field" value="adicionar">Añadir</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <div id="modalMujerAntPersonal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="nutricion" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content modal-ago superXL">
+                            <div class="modal-header">
+                                <h3 id="nutricion" class="modal-title center">Antecedentes Ginecobstetricos</h3>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                             </button>
+                            </div>
+
+                            <div class="container">
+                                <form action="">
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Enfermedades de la Piel: </label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Hospitalizaciones previas: </label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                        <label class="form-check-label" for="inlineRadio1">Si</label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option2">
+                                                        <label class="form-check-label" for="inlineRadio1">No</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Antecedentes Quirurgicos: </label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                        <label class="form-check-label" for="inlineRadio1">Si</label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option2">
+                                                        <label class="form-check-label" for="inlineRadio1">No</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Transfuciones Previas: </label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                        <label class="form-check-label" for="inlineRadio1">Si</label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option2">
+                                                        <label class="form-check-label" for="inlineRadio1">No</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Fracturas: </label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                        <label class="form-check-label" for="inlineRadio1">Si</label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option2">
+                                                        <label class="form-check-label" for="inlineRadio1">No</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Otras Enfermedades: </label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                        <label class="form-check-label" for="inlineRadio1">Si</label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option2">
+                                                        <label class="form-check-label" for="inlineRadio1">No</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Medicamentos Actuales: </label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                        <label class="form-check-label" for="inlineRadio1">Si</label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option2">
+                                                        <label class="form-check-label" for="inlineRadio1">No</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Accidentes/Traumatismo: </label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                        <label class="form-check-label" for="inlineRadio1">Si</label>
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option2">
+                                                        <label class="form-check-label" for="inlineRadio1">No</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Secuelas: </label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Especificaciones: </label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Especificaciones: </label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Especificaciones: </label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Especificaciones: </label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Especificaciones: </label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Especificaciones: </label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md6">
+                                                    <div class="form-check form-check-inline">
+                                                        <label for="">Especificaciones: </label>
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- end container -->
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-primary">Guardar</button>
+                                <button type="button" class="btn btn-success" id="add_field" value="adicionar">Añadir</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
 
 
                 <form #fAntecedentesMujeres="ngForm">
@@ -1418,8 +2234,8 @@
                             <div class="modal-header">
                                 <h3 id="nutricion" class="modal-title center">Historial del paciente</h3>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
+                                <span aria-hidden="true">&times;</span>
+                             </button>
                             </div>
 
                             <div class="container">
@@ -1454,7 +2270,7 @@
                                             <td> {{paciente.apellidoPaterno}} </td>
                                             <td> {{paciente.apellidoMaterno}}</td>
                                             <td> {{paciente.edad}} </td>
-                                            <td> {{paciente.sexo}} </td>
+                                            <td> {{paciente.genero}} </td>
                                             <td>{{pacienteH.tallaMujer}}</td>
                                             <td>{{pacienteH.pesoMujer}}</td>
                                             <td>{{pacienteH.imcMujer}}</td>
@@ -1487,6 +2303,7 @@
 
 
                 </div>
+
             </div>
             <!-- End Container Mujeres-->
         </div>
@@ -1494,9 +2311,9 @@
 
         <!-- INICIO HOMBRES -->
 
-        <!-- *ngIf="paciente.sexo == 'Masculino' && paciente.edad > 9" -->
+        <!-- *ngIf="paciente.genero == 'masculino' && paciente.edad > 9" -->
 
-        <div class="" *ngIf="paciente.sexo == 'Masculino' && paciente.edad > 9">
+        <div class="" *ngIf="paciente.genero == 'masculino' && paciente.edad > 9">
             <div class="hombres">
                 <!-- Inicio SV por primera Vez -->
                 <p>Somatometría y signos vitales por primera vez</p>
@@ -2096,7 +2913,7 @@
                                             <td> {{paciente.apellidoPaterno}} </td>
                                             <td> {{paciente.apellidoMaterno}}</td>
                                             <td> {{paciente.edad}} </td>
-                                            <td> {{paciente.sexo}} </td>
+                                            <td> {{paciente.genero}} </td>
                                             <td>{{pacienteH.tallaHombre}}</td>
                                             <td>{{pacienteH.pesoHombre}}</td>
                                             <td>{{pacienteH.imcHombre}}</td>

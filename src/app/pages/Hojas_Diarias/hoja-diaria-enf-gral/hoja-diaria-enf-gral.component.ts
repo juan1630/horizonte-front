@@ -49,12 +49,10 @@ export class HojaDiariaEnfGralComponent implements OnInit {
 
   }
 
-
-
   obtenerConsultas(){
     this._consultasService.verConsultaIdentificacion()
     .subscribe( (data) => {
-      // console.log(data);
+      console.log(data);
       this.listaEspera = data['data'];
      });
 
