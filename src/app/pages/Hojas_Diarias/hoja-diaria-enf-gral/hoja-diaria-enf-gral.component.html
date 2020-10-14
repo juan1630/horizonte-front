@@ -30,22 +30,25 @@
 
                     <tr *ngFor="let listaEsperaP of listaEspera; let i = index">
                         <td>
+
                             {{i+1}}
                         </td>
-                        <td class="clickss" [routerLink]="['/ficha-enfermeria-01', listaEsperaP.pacienteId]">
-                            {{listaEsperaP.nombrePaciente}}
-                        </td>
-                        <td>
-
+                        <td class="clickss" [routerLink]="['/ficha-enfermeria-01', listaEsperaP._id]">
+                            {{ listaEsperaP.paciente.nombrePaciente }} {{ listaEsperaP.paciente.apellidoMaterno }} {{ listaEsperaP.paciente.apellidoPaterno }}
                         </td>
 
-                        <td>{{listaEsperaP.edad}}</td>
 
-                        <td>{{listaEsperaP.servicio}}</td>
+
+                        <td>{{listaEsperaP.paciente.curp}}</td>
+
+
+                        <td>{{listaEsperaP.paciente.edad}}</td>
+
+                        <td>{{listaEsperaP.tipoConsulta}}</td>
 
                         <td>{{listaEsperaP.doctor}}</td>
 
-                        <td>{{listaEsperaP.horallegada}}</td>
+                        <td>{{listaEsperaP.horaIngreso}}</td>
 
                     </tr>
 

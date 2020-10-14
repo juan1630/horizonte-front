@@ -19,7 +19,7 @@ import { SideBarComponent  }  from './side-bar/side-bar.component';
 import { CardComponent }      from './card/card.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ModalServiciosIntComponent } from './modal/modal-servicios-int/modal-servicios-int.component';
-import { FiscalesComponent } from './fiscales/fiscales.component';
+
 import { CardPaquetesComponent } from './card-paquetes/card-paquetes.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { ModalComponent } from './modal/modal.component';
@@ -33,7 +33,8 @@ import { GraficaComponent } from './grafica/grafica.component';
 import { AgregarMaquinasComponent } from './crearPaquete/agregar-maquinas/agregar-maquinas.component';
 import { CrearPaquetesComponent } from '../pages/crearPaquetes/crear-paquetes/crear-paquetes.component';
 import { AgregarMedciametosComponent } from './agregarPaquete/agregar-medciametos/agregar-medciametos.component';
-
+import { StepperComponent } from './stepper/stepper.component';
+import {  MatStepper, MatStepperModule } from '@angular/material/stepper'
 
 @NgModule({
   declarations: [
@@ -45,7 +46,6 @@ import { AgregarMedciametosComponent } from './agregarPaquete/agregar-medciameto
     ModalComponent,
     ModalServiciosIntComponent,
     SpinnerComponent,
-    FiscalesComponent,
     CardPaquetesComponent,
     TarjetaCotizacionComponent,
     CalendarComponent,
@@ -53,9 +53,10 @@ import { AgregarMedciametosComponent } from './agregarPaquete/agregar-medciameto
     SearchBarComponent,
     GraficaComponent,
     AgregarMaquinasComponent,
-    AgregarMedciametosComponent
+    AgregarMedciametosComponent,
+    StepperComponent
 
-    
+
 ],
 schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   exports: [
@@ -63,7 +64,6 @@ schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
     CardComponent,
     SideBarComponent,
     SearchBarComponent,
-    FiscalesComponent,
     CardPaquetesComponent,
     ModalComponent,
     ModalServiciosIntComponent,
@@ -72,13 +72,15 @@ schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
     ReactiveFormsModule,
     CalendarComponent,
     ChatComponent,
-    GraficaComponent
+    GraficaComponent,
+    StepperComponent
        ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule,
     ChartsModule,
+    MatStepperModule,
     jqxSchedulerModule
   ],
   entryComponents:[

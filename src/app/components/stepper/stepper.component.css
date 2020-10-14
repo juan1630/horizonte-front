@@ -1,0 +1,23 @@
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+select {
+    margin-top: .5rem;
+}
+
+label {
+    margin: .1rem;
+}
+
+h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 1.1rem;
+}
+
+button {
+    color: --button-package;
+    /* display: block; */
+}

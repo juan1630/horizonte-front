@@ -4,8 +4,17 @@
     max-width: 7 rem;
 }
 
+.modal-header {
+    width: 100%;
+}
 
-/* 
+.containerFI {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/*
 .consultorioxd:first-of-type {
     margin-left: rem;
 } */

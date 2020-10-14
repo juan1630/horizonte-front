@@ -1,4 +1,4 @@
-<div class="fondo-negro" [ngClass]="_modalService.ocultar">
+<!-- <div class="fondo-negro" [ngClass]="_modalService.ocultar">
 
     <div class="modal" style="display:block; overflow: scroll" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -7,14 +7,13 @@
                 <div class="modal-header pointer ">
                     <h5 class="modal-title"> Agregar paciente nuevo </h5>
 
-                    <!-- <div class="ml-5" > {{ fechaRegistro }}  </div> -->
                     <span>  {{ fechaRegistro }} </span>
                     <button type="button" class="close" (click)="_modalService.ocultarModal()" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-                </div>
+                    <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
 
-                <form #f="ngForm" (ngSubmit)="enviar( f )">
+                <form  formGroup="registerForm"    >
 
                     <div class="modal-body ">
 
@@ -47,32 +46,32 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <input type="text" name="nombrePaciente" minlength="3" ngModel class="form-control" placeholder="Nombre del paciente">
-                                            <input type="text" name="apellidoPaterno" minlength="3" ngModel class="form-control" placeholder="Apellido paterno">
-                                            <input type="text" name="apellidoMaterno" minlength="3" ngModel class="form-control" placeholder="Apellido materno">
+
+                                            <input type="text" name="nombrePaciente" minlength="3"  class="form-control" placeholder="Nombre del paciente" formControlName="nombrePaciente">
+
+                                            <input type="text" name="apellidoPaterno" minlength="3"  class="form-control" placeholder="Apellido paterno">
+                                            <input type="text" name="apellidoMaterno" minlength="3"  class="form-control" placeholder="Apellido materno">
 
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <input type="text" name="curp" maxlength="18" class="form-control" [(ngModel)]="curp" placeholder="CURP">
+                                            <input type="text" name="curp" maxlength="18" class="form-control"  placeholder="CURP">
 
-                                            <input type="number" min="0" name="edad" class="form-control" ngModel placeholder="Edad">
+                                            <input type="number" min="0" name="edad" class="form-control"  placeholder="Edad">
 
-                                            <!-- Aca va el de los paises -->
-                                            <select class="form-control" name="paisNac" [(ngModel)]="paisNac">
-                      <option  selected disabled > País de nacimiento </option>
-                      <option value="{{ pais.name }}"  *ngFor="let pais of paises">{{ pais.name }}</option>
-                  </select>
-                                            <!-- los paises se repiten -->
+                                            <select class="form-control" name="paisNac">
+                                            <option  selected disabled > País de nacimiento </option>
+                                            <option value="{{ pais.name }}"  *ngFor="let pais of paises">{{ pais.name }}</option>
+                                        </select>
 
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <input type="tel" name="telefono" length="18" ngModel class="form-control" placeholder="Telefono">
-                                            <input type="text" name="contactoEmergancia" ngModel class="form-control" placeholder="En caso de emergencia llamar a...">
-                                            <input type="number" name="telefonoEmergencia" ngModel class="form-control" placeholder="Telefono de emergencia">
+                                            <input type="tel" name="telefono" length="18"  class="form-control" placeholder="Telefono">
+                                            <input type="text" name="contactoEmergancia"  class="form-control" placeholder="En caso de emergencia llamar a...">
+                                            <input type="number" name="telefonoEmergencia"  class="form-control" placeholder="Telefono de emergencia">
 
                                         </div>
                                     </div>
@@ -81,7 +80,7 @@
 
                                     <div class="col-md-6 offset-md-1">
                                         <div class="form-group">
-                                            <input type="email" name="correo" ngModel class="form-control" placeholder="Correo electronico del paciente">
+                                            <input type="email" name="correo"  class="form-control" placeholder="Correo electronico del paciente">
                                         </div>
 
                                     </div>
@@ -90,12 +89,12 @@
                                     <div class="col-md- offset-md-1 mt-2">
                                         <div class="form-group">
                                             <label> Fecha de nacimiento: </label>
-                                            <input type="date" name="fechaNacimientoPaciente" ngModel class="form-control">
+                                            <input type="date" name="fechaNacimientoPaciente"  class="form-control">
                                         </div>
 
                                         <div class="form-group">
 
-                                            <select name="sexo" class="form-control" ngModel>
+                                            <select name="sexo" class="form-control" >
 
                                                 <option value="Femenino">
                                                     Femenino
@@ -108,7 +107,6 @@
                                         </div>
                                     </div>
 
-                                    <!-- Cierre de los datos personales -->
 
 
                                 </div>
@@ -121,29 +119,28 @@
                                     <div class="col-md-4">
 
                                         <div class="form-group">
-                                            <!-- Codigo postal -->
-                                            <input type="text" #codigo name="cpPaciente" (change)="getUbicacion( codigo.value )" ngModel class="form-control" placeholder="Código postal">
-                                            <input type="text" name="paisPaciente" class="form-control" placeholder="País" [(ngModel)]="pais" value="{{pais}}">
-                                            <input type="text" name="municipio" class="form-control" placeholder="Municipio" [(ngModel)]="municipio" value="{{ municipio }}">
+                                            <input type="text" #codigo name="cpPaciente" (change)="getUbicacion( codigo.value )"  class="form-control" placeholder="Código postal">
+                                            <input type="text" name="paisPaciente" class="form-control" placeholder="País"  value="{{pais}}">
+                                            <input type="text" name="municipio" class="form-control" placeholder="Municipio"  value="{{ municipio }}">
                                         </div>
                                     </div>
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <input type="text" name="estadoPaciente" class="form-control" placeholder="Estado" [(ngModel)]="estado" value="{{estado}}">
+                                            <input type="text" name="estadoPaciente" class="form-control" placeholder="Estado"  [value]="estado">
 
-                                            <select name="poblacion" placeholder="Lugar" class="form-control" [(ngModel)]="localidad">
-                <option value="{{ localidad }}"  *ngFor="let localidad of localidades" >{{ tipoAsentamiento }} - {{ localidad }} </option>
+                                            <select name="poblacion" placeholder="Lugar" class="form-control" >
+                <option [value]="localidad"  *ngFor="let localidad of localidades" >{{ tipoAsentamiento }} - {{ localidad }} </option>
               </select>
 
-                                            <input type="text" class="form-control" ngModel placeholder="Calle y numero" name="calleNumeroPaciente">
+                                            <input type="text" class="form-control"  placeholder="Calle y numero" name="calleNumeroPaciente">
 
                                         </div>
                                     </div>
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" ngModel placeholder="Agregar referencia" name="referenciaPaciente">
+                                            <input type="text" class="form-control"  placeholder="Agregar referencia" name="referenciaPaciente">
                                         </div>
                                     </div>
                                 </div>
@@ -151,61 +148,15 @@
                                     <div class="col-12">
                                         <div id="mymap" class="map"> </div>
                                     </div>
-                                    <!-- Mapa -->
                                 </div>
-                                <!-- Tab direccion -->
+
                             </div>
 
 
 
                             <div class="tab-pane fade" id="fiscales" role="tabpanel" aria-labelledby="fiscales-tab">
 
-                                <h2>Fiscales</h2>
-                                <div class="row fiscales-row">
-                                    <app-fiscales *ngFor="let item of razonesSociales"></app-fiscales>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <input type="text" placeholder="Nombre o razón social" class="form-control" name="nombreRazonSocial" [(ngModel)]="nombreRazonSocial">
-                                            <input type="text" placeholder="Entidad federativa" value="{{ estadoFiscal }}" class="form-control" [(ngModel)]="estadoFiscal" name="entidadFederativa">
-                                            <select class="form-control" name="poblacion" placeholder="Lugar" [(ngModel)]="localidad">
-                                              <option value="{{ localidad }}" *ngFor="let localidad of localidades">
-                                                  {{tipoAsentamiento}} - {{ localidad }} </option>
-                                          </select>
 
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <input type="text" [(ngModel)]="RFCFiscal" name="RFCFiscal" class="form-control" placeholder="RFC">
-                                            <input type="text" [(ngModel)]="municipioFiscal" placeholder="Municipio" value="{{ municipioFiscal }}" class="form-control" name="municipioFiscal">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <input type="number" [(ngModel)]="codigoFiscal" #codigo (change)="getUbicacion( codigo.value )" placeholder="Código postal" min="0" class="form-control" name="cpFiscal">
-
-                                            <input type="text" [(ngModel)]="localidadFiscal" placeholder="Localidad" value="{{ municipioFiscal }}" class="form-control" name="localidadFiscal">
-
-                                            <input type="mail" placeholder="Correo electrónico" [(ngModel)]="emailFiscal" class="form-control fiscal-mail" name="emailFiscal">
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-2 offset-md-8">
-                                        <div class=" btn-danger btn-circle" (click)="quitarElementos()">
-                                            <i class="fas fa-minus"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-
-                                        <div class=" btn-info btn-circle" (click)="agregarCampos()" *ngIf="_idfiscales !== 3">
-                                            <i class="fas fa-plus"></i>
-                                        </div>
-
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -221,4 +172,4 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> -->

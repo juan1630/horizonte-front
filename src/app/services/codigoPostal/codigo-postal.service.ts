@@ -22,4 +22,22 @@ export class CodigoPostalService {
   .pipe( map( res =>   res   ) );
 
   }
+
+
+  getEstado(){
+
+    let url = "https://api-sepomex.hckdrk.mx/query/get_estados";
+
+    return this.http.get( url  );
+  }
+
+
+  getMunicipios(  municipio ){
+    let url = "https://api-sepomex.hckdrk.mx/query/get_municipio_por_estado/"+municipio;
+
+
+    return this.http.get( url );
+
+  }
+
 }

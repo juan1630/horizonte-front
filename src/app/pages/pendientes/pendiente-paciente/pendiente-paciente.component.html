@@ -1,0 +1,116 @@
+<div class="container-fluid">
+
+    <div class="card">
+        <div class="row">
+
+
+
+            <div class="col-md-4">
+
+                <p>
+                    Nombre: {{ paciente.nombrePaciente}} {{ paciente.apellidoPaterno }} {{ paciente.apellidoMaterno}}
+
+                </p>
+                <p>
+                    Fecha de naciemiento:
+                </p>
+
+                <p>
+                    Telefóno
+                </p>
+
+
+            </div>
+
+            <div class="col-md-4">
+                <p>
+                    Sexo: {{ paciente.sexo }}
+                </p>
+                <p>
+                    Edad: {{ paciente.edad }}
+                </p>
+                <p>
+                    CURP: {{ paciente.curp }}
+                </p>
+
+            </div>
+
+            <div class="col-md-4">
+
+
+                <p>
+                    Fecha: {{ fechasubida }}
+                </p>
+
+
+                <p>
+                    ID: {{ paciente.id }}
+                </p>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <form action="" class="row" enctype="multipart/form-data">
+
+
+        <div class="col-md-4">
+            <div class="card">
+
+                <label for="">  Agregar el archivo del contrato  </label>
+                <input type="file" name="" class="form-control" id="" (change)="comprobarArchivio($event)">
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <label for="">  Agregar el archivo de la identificación  </label>
+                <input type="file" name="" class="form-control" id="" #inputContrato>
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+
+            <div class="card">
+                <label for="">  Ageregar el archivo del acta de naciemiento </label>
+                <input type="file" name="" class="form-control" id="">
+            </div>
+
+        </div>
+        <div class="col-md-4">
+
+            <div class="card">
+                <label for="">  Agregar el archivo del comprobante de domicilio  </label>
+                <input type="file" name="" class="form-control" id="">
+            </div>
+
+
+        </div>
+        <div class="col-md-4">
+
+
+            <div class="card">
+                <label for="">  Agregar el archivo del curp  </label>
+                <input type="file" name="" class="form-control" id="">
+            </div>
+
+        </div>
+
+
+    </form>
+
+
+    <div class="row">
+        <div class="col-md-6 offset-5">
+            <button class="btn" (click)="upLOadFiles()">   SUBIR</button>
+
+        </div>
+
+    </div>
+</div>

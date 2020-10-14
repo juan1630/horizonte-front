@@ -65,7 +65,7 @@ import { HojaDiariaEnfGralComponent } from './Hojas_Diarias/hoja-diaria-enf-gral
 import { EnfermeriaDashboardComponent } from './Enfermeria/enfermeria-dashboard/enfermeria-dashboard.component';
 // import { DashComponent } from './farmacia/dash/dash.component';
 // import { ConsultaGeneralComponent } from './consultas/consulta-general/consulta-general.component';
-import { ConsultaGeneralComponent } from '../pages/consultorio/consulta-general/consulta-general.component'; 
+import { ConsultaGeneralComponent } from '../pages/consultorio/consulta-general/consulta-general.component';
 import { PaqueteMedicoLaboralComponent } from './paquete-medico-laboral/paquete-medico-laboral.component';
 import { PediatricoComponent } from './contratos/pediatrico/pediatrico.component';
 import { ContratoVidaPlenaComponent } from '../contratos/contratoVidaPlena/contrato-vida-plena/contrato-vida-plena.component';
@@ -96,8 +96,14 @@ import { FarmaciaDashComponent } from './farmacia/farmacia-dash/farmacia-dash.co
 import { AgregarComponent } from './farmacia/agregar/agregar.component';
 import { ObtenermedicamentosComponent } from './farmacia/dash/obtenermedicamentos/obtenermedicamentos.component';
 import { RecetaComponent } from '../pages/Doctores/receta/receta.component';
+import { ConsultasGralComponent } from './servivicosInt/consulta-md-gral/consultas-gral/consultas-gral.component';
+import { PendientePacienteComponent } from './pendientes/pendiente-paciente/pendiente-paciente.component';
+import { RegistroPacientesComponent } from './registro-pacientes/registro-pacientes.component';
+import { VerPacienteComponent } from './pacientes/ver-paciente/ver-paciente.component';
 import { HojaDiariaEnfHospComponent } from './Hojas_Diarias/hoja-diaria-enf-hosp/hoja-diaria-enf-hosp.component';
-import { componentFactoryName } from '@angular/compiler';
+import { MedicosGuard } from '../guards/validaciones/medicos.guard';
+import { EnfermeriaGuard } from '../guards/validaciones/enfermeria.guard';
+import { ValidarRecepcionGuard } from '../guards/validaciones/recpecion/validar-recepcion.guard';
 
 
 
@@ -105,11 +111,23 @@ const pagesRoutes: Routes = [
   {
     path: '',
     component: PageComponent,
-    canActivate: [  ],
+    canActivate: [],
     children: [
       // aca se iran agregando las rutas para el dashboard
-      { path: 'paciente', component: PacienteComponent },
-      { path: 'consultar/paquetes', component: PaquetesComponent },
+      { path: 'paciente', component: PacienteComponent, canActivate: [ValidarRecepcionGuard] },
+
+
+      // REGISTRO DE PACIENTES
+      {   path: 'registro/pacientes', component: RegistroPacientesComponent, canActivate: [ValidarRecepcionGuard ]  },
+      // ruta del paciente de manera individual
+      {   path: 'paciente/:id', component: VerPacienteComponent, canActivate:[ ValidarRecepcionGuard] },
+      {   path: 'consultar/paquetes', component: PaquetesComponent },
+
+
+      // consulta general
+
+      { path: 'consulta/:id', component: ConsultaGeneralComponent, canActivate: [ValidarRecepcionGuard] },
+      { path: 'consulta', component: ConsultaGeneralComponent, canActivate: [ValidarRecepcionGuard] },
 
       // SOLICITUDES
       {  path: 'hoja/solicitud/membresia/:id', component: SolicitudMembresiaComponent  },
@@ -199,9 +217,11 @@ const pagesRoutes: Routes = [
 
 
       // INICIA EL AREA DE CONSULTA GENERAL
-      { path: 'hoja-diaria-enfermeria-general', component: HojaDiariaEnfGralComponent},
+      { path: 'hoja-diaria-enfermeria-general', component: HojaDiariaEnfGralComponent , canActivate:[ MedicosGuard, EnfermeriaGuard]  },
       { path: 'enfermeria-dashboard', component: EnfermeriaDashboardComponent},
-      { path: 'consulta-general/:id', component: ConsultaMedGralComponent},
+      { path: 'consulta-general/:id', component: ConsultaGeneralComponent},
+
+      {path: 'consulta/medicina/general' , component: ConsultasGralComponent  },
       { path: 'ficha-enfermeria-01/:id', component: FE09Component},
       { path: 'paquete/quirofano/:id', component: PaqueteQuirofanoComponent },
       {  path: 'bitacora/hospitalizacion', component: BitacoraHospitalizacionComponent },
@@ -214,6 +234,10 @@ const pagesRoutes: Routes = [
 
       // TERMINA EL AREA DE FARMACIA
 
+
+
+      { path: 'pendientes', component : PendientesComponent  },
+      {path: 'pendientes/:id', component: PendientePacienteComponent},
       // LABORATORIO
 
       // hoja de solictud de servicios integrados y pago
@@ -230,7 +254,7 @@ const pagesRoutes: Routes = [
       { path: 'hoja-evolucion-cg/:id', component: HEvolucionCGComponent },
       { path: 'hoja-ingreso-hospitalario/:id', component: HIngresoHospitalComponent},
       { path: 'receta-medica/:id', component: RecetaComponent},
-      { path: 'consulta', component: ConsultaGeneralComponent },
+
 
 
       // Hojas Diarias

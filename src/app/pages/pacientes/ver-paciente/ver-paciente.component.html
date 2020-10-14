@@ -1,0 +1,154 @@
+<div class="row mb-4">
+    <div class="col-md-4 offset-1">
+        <h3> {{ paciente.nombrePaciente }} {{ paciente.apellidoPaterno}} {{ paciente.apellidoMaterno }} </h3>
+    </div>
+    <div class="col-md-3"></div>
+
+    <div class="col-md-4">
+        <p>
+            {{ fechaHoy }}
+        </p>
+
+    </div>
+</div>
+
+
+
+
+<div class="row mb-3">
+
+    <div class="col-md-4 offset-1">
+        <select name="servicio" class="form-control" id="" #servicio (change)="irAUnServicio( servicio.value  )">
+        <option   value="" selected> Selecciona un servicio  </option>
+        <option   value="ambulancia"> Ambulancia</option>
+        <option   value="consultaGeneral"  > Consulta General </option>
+        <option   value="consultaEspecialista">  Consulta con especialista </option>
+        <option   value="endoscopia"> Endoscopia</option>
+        <option   value="resultados"> Entraga de resultados </option>
+        <option   value="farmacia">   Farmacia </option>
+        <option   value="hospitalizacion"> Hospitalización</option>
+        <option   value="laboraorio"> Laboratorio</option>
+        <option   value="quirofano">  Quirofano</option>
+        <option   value="rayosx">     Rayos x</option>
+        <option   value="resonancia"> Resonancia</option>
+        <option   value="tomografias"> Tomografias</option>
+        <option   value="TrabajoSocial" > Trabajo Social  </option>
+        <option   value="ultrasonido"> Ultrasonido</option>
+        <option   value="urgencias"> Urgencias</option>
+        <option   value="otros"> Otros </option>
+      </select>
+    </div>
+    <div class="col-md-4 offset-3">
+        <div class="buttons">
+            <button class="button" id="boton_contra1"> CONSULTAS </button>
+            <button class="" id="boton_contra2">   PAGOS </button>
+        </div>
+    </div>
+
+</div>
+
+
+
+<div class="card mt4">
+    <div class="row">
+
+        <div class="col-md-3 offset-1">
+
+            <label>  Domicilio </label>
+        </div>
+
+        <div class="col-md-3">
+            <p>
+                {{ paciente.direccion.callePaciente }} {{ paciente.direccion.estadoPaciente }}, {{ paciente.direccion.paisPaciente }}
+            </p>
+        </div>
+
+        <div class="col-md-2">
+            <label> Edad  </label>
+        </div>
+
+        <div class="col-md-2">
+            <p> {{ paciente.edad }} </p>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-3 offset-1">
+            <label>  Correo </label>
+        </div>
+
+        <div class="col-md-3">
+            <p>
+
+                {{ paciente.correo }}
+            </p>
+        </div>
+
+        <div class="col-md-2">
+            <label>  C.P </label>
+        </div>
+
+        <div class="col-md-3">
+            <p>
+                {{ paciente.cp }}
+            </p>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-3 offset-1">
+            <label>  C.U.R.P </label>
+        </div>
+        <div class="col-md-3">
+            <p>
+                {{ paciente.curp }}
+
+            </p>
+        </div>
+        <div class="col-md-2">
+            <label> ID </label>
+        </div>
+        <div class="col-md-3">
+            <p>
+                {{ paciente.id }}
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<h3 class="center color-text mt-5"> Tus paquetes </h3>
+
+<div class="row mt-2">
+
+    <div class="col-md-4 offset-1" *ngIf="paciente.paquetes.length == 0">
+
+        <div class="card" *ngFor="let item of paciente.paquetes">
+            <img class="card-img-top img" [src]="item.icon" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title color-text"> {{ item.nombrePaquete }} </h5>
+                <ul>
+                    <li *ngFor="let citas of item.CitasIncluidas" class="color-text"> {{ citas}} </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="col-md-6 offset-3  mt-1  sin-paquetes ">
+
+        <div class="card">
+            <div class="alert alert-light center padding-auto" role="alert">
+                <p>
+                    Aún no tienes paquetes
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

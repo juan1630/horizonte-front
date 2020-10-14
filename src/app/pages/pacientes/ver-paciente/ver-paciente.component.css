@@ -1,0 +1,53 @@
+h3 {
+    font-weight: 800;
+    font-size: 30px;
+    font-family: var(--font);
+    color: var(--button-secondary)
+}
+
+.color-text,
+p,
+label {
+    color: var(--principal-text);
+}
+
+.sin-paquetes {
+    padding-bottom: 2rem;
+}
+
+.card {
+    padding-top: 1rem;
+}
+
+.padding-auto {
+    padding: auto;
+}
+
+.alert-light p {
+    color: var(--principal-text);
+    font-size: 1.3em;
+}
+
+#boton_contra1 {
+    border-radius: 3em;
+    width: 12em;
+    background-color: var( --button-secondary);
+    color: white;
+    border-color: var(--button-secondary);
+    font-weight: 500;
+    font-size: 1rem;
+    padding: .2rem;
+}
+
+#boton_contra2 {
+    border-radius: 3em;
+    width: 12em;
+    color: white;
+    background-color: var( --button-principal);
+    border-color: var(--button-principal);
+}
+
+.img {
+    max-width: 100%;
+    max-height: 50%;
+}

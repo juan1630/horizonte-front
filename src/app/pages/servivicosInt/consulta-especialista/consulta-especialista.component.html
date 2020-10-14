@@ -10,27 +10,26 @@
               <div class="form-group">
 
                   <input type="text" name="filterPost" placeholder="Buscar" class="form-control" id="buscador" (keyup)="busquedaGeneral( )" [(ngModel)]="termino">
-                  <!-- <button class="btn btn-primary" type="submit">
-              Buscar
-          </button> -->
+
               </div>
           </div>
       </div>
 
       <div class="row">
-          <div class="col-md-9" *ngIf="showTableAmbulanacia">
+          <div class="col-md-9" >
+
               <div class="card" style="border-radius: 30px; margin-left: 25px;">
                   <div class="card-heder header">
                       <div class="row">
-                          <div class="col-md-2 text_header">
+                          <div class="col-md-4 text_header">
                               <p>
                                 Consulta
                               </p>
                           </div>
-                          <div class="col-md-3 text_header">
+                          <div class="col-md-4 text_header">
                               <p>  Precio público </p>
                           </div>
-                          <div class="col-md-3 text_header">
+                          <div class="col-md-4 text_header">
                               <p>
                                 Precio membresia
                               </p>
@@ -41,39 +40,55 @@
                   </div>
               </div>
               <div class="card-body" style="background-color: #ffffff;">
-                  <div>
+
+
+
+
+
                       <div class="row">
-                          <div class="col-md-2">
-                              <label style="margin-right: 50px; margin-top: 18px;">
-                                Consulta con medico especialista
+
+
+
+
+
+                        <div class="col-md-4">
+
+
+
+
+                              <label style="margin-right: 50px; margin-top: 18px;"  >
+
+                               <p>
+                                 Consulta con medico especialista
+
+                               </p>
+
+
                               </label>
-                          </div>
-                          <div class="col-md-2">
 
-                              <button (click)="alertcomparasion( )" class="cursor  btn btn-light precioPublico" style="margin-top: 3px; margin-left:-14px; width: 9.5em; height: 4em;
-                              background-color: white;
-                              border: none;
-                          ">
 
-                          </button>
 
                           </div>
-                          <div class="col-md-2">
+
+
+
+                          <div class="col-md-4">
 
                               <div (click)="alertcomparasion()" class="cursor btn btn-light precioRedondoDia" style="margin-top: 3px; margin-left:-14px; width: 9.5em;
-                height: 4em; background-color: white;
-                              border: none;">
-                              $500
-                              </div>
-                          </div>
-                          <div class="col-md-2">
-                              <div (click)="alertcomparasion(   )" class="cursor btn btn-light precioNoche" style="margin-top: 3px; margin-left:-14px; width: 9.5em;
-                height: 4em; background-color: white;
-                              border: none;">
+                                     height: 4em; background-color: white; border: none;">
 
+
+                                    <label   (click)="agregarCarrito($event, consulta)" class="precioPublico"  >
+
+                                      $500
+                                    </label>
                               </div>
                           </div>
-                          <div class="col-md-2">
+
+
+
+
+                          <div class="col-md-4">
                               <div (click)="alertcomparasion( )" class="cursor btn btn-light precioRedondoNoche" style="margin-top: 3px; margin-left:-14px; width: 9.5em;
                 height: 4em; background-color: white;
                               border: none;">
@@ -82,7 +97,7 @@
                               </div>
                           </div>
 
-                      </div>
+
                   </div>
               </div>
 
@@ -94,6 +109,9 @@
                 <h4 style="text-align: center;">COTIZACIÓN</h4>
             </div>
             <div class="card-body" style="overflow: auto;">
+
+
+
                 <div class="row" *ngFor="let pedido of carrito.items">
                     <div class="col-md-8">
                         <p style="font-size: 11px; font-weight: 600; margin-top: 10px;
@@ -127,22 +145,22 @@
           <i class="fas fa-hand-holding-usd"></i>
             Pagar
         </button>
-                <button class="btn btn-dark btn-tarjeta mt-2" [routerLink]="['/paciente']" routerLinkActive="router-link-active">
+        <button class="btn btn-dark btn-tarjeta mt-2" [routerLink]="['/paciente']" routerLinkActive="router-link-active">
             <i class="fas fa-user-plus"></i>
              Nuevo
         </button>
                 <button type="button" class="btn btn-primary btn-block mt-2 btn-tarjeta" [routerLink]="['/imprimir-ticket']">
 
-            <i class="far fa-file-pdf" routerLinkActive="router-link-active" ></i>
-            Imprimir
-        </button>
+                    <i class="far fa-file-pdf" routerLinkActive="router-link-active" ></i>
+                    Imprimir
+                </button>
                 <button class="btn btn-block btn-info  btn-tarjeta">
                   <i class="fas fa-share-alt"></i>
                     Enviar
-            </button>
+                  </button>
             </div>
         </div>
-    </div>
       </div>
+    </div>
       <!-- ESTA ES LA TABLA DE LOS DEMAS SERVICIOS  -->
   </div>

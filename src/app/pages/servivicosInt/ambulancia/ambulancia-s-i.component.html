@@ -146,64 +146,65 @@
                     <pagination-controls id="listaAmbulancia" maxSize="10" directionLinks="true" (pageChange)="pagina = $event"></pagination-controls>
                 </div>
             </div>
+            <div class="col-md-3">
+                <div class="card" style="margin: 10px; height: 33em; border-radius: 24px;">
+                    <div class="card-title" style="border-bottom-style: solid;">
+                        <h4 style="text-align: center;">COTIZACIÓN</h4>
+                    </div>
+                    <div class="card-body" style="overflow: auto;">
+                        <div class="row" *ngFor="let pedido of carrito.items">
+                            <div class="col-md-8">
+                                <p style="font-size: 11px; font-weight: 600; margin-top: 10px;
+                     text-align: center;"> {{ pedido.nombreEstudio }} : {{ pedido.precioSin }} {{ pedido.precioNoche }} </p>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="button" (click)="eliminar(pedido.idEstudio)" class="btn btn-link" style="color: red;">
+                        <!-- <i class="fas fa-trash-alt"></i> -->
+                        Eliminar
+                        </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer" style="border-top-style: solid;">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <h5 style="font-size: 15px; font-weight: 800;">Total: &#36; {{carrito.totalSin}}</h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <h5 style="font-size: 15px; font-weight: 800;">Total membrecia: &#36; {{ carrito.totalCon}}</h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <h5 style="font-size: 15px; font-weight: 800;">Ahorro: &#36; {{carrito.totalSin - carrito.totalCon}}</h5>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success btn-block btn-tarjeta" [routerLink]="['/pago', 'pedido', 'sin']">
+                  <i class="fas fa-hand-holding-usd"></i>
+                    Pagar
+                </button>
+                        <button class="btn btn-dark btn-tarjeta mt-2" [routerLink]="['/paciente']" routerLinkActive="router-link-active">
+                    <i class="fas fa-user-plus"></i>
+                     Nuevo
+                </button>
+                        <button type="button" class="btn btn-primary btn-block mt-2 btn-tarjeta" [routerLink]="['/imprimir-ticket']">
+        
+                    <i class="far fa-file-pdf" routerLinkActive="router-link-active" ></i>
+                    Imprimir
+                </button>
+                        <button class="btn btn-block btn-info  btn-tarjeta">
+                          <i class="fas fa-share-alt"></i>
+                            Enviar
+                    </button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- ESTA ES LA TABLA DE LOS DEMAS SERVICIOS  -->
 
         <!-- TERMINA LA TABLA DE LOS DEMAS SERVICIOS  -->
-        <div class="col-md-3">
-            <div class="card" style="margin: 10px; height: 33em; border-radius: 24px;">
-                <div class="card-title" style="border-bottom-style: solid;">
-                    <h4 style="text-align: center;">COTIZACIÓN</h4>
-                </div>
-                <div class="card-body" style="overflow: auto;">
-                    <div class="row" *ngFor="let pedido of carrito.items">
-                        <div class="col-md-8">
-                            <p style="font-size: 11px; font-weight: 600; margin-top: 10px;
-                 text-align: center;"> {{ pedido.nombreEstudio }} : {{ pedido.precioSin }} {{ pedido.precioNoche }} </p>
-                        </div>
-                        <div class="col-md-2">
-                            <button type="button" (click)="eliminar(pedido.idEstudio)" class="btn btn-link" style="color: red;">
-                    <!-- <i class="fas fa-trash-alt"></i> -->
-                    Eliminar
-                    </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-footer" style="border-top-style: solid;">
-                    <div class="row">
-                        <div class="col-md-10">
-                            <h5 style="font-size: 15px; font-weight: 800;">Total: &#36; {{carrito.totalSin}}</h5>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-10">
-                            <h5 style="font-size: 15px; font-weight: 800;">Total membrecia: &#36; {{ carrito.totalCon}}</h5>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-10">
-                            <h5 style="font-size: 15px; font-weight: 800;">Ahorro: &#36; {{carrito.totalSin - carrito.totalCon}}</h5>
-                        </div>
-                    </div>
-                    <button type="button" class="btn btn-success btn-block btn-tarjeta" [routerLink]="['/pago', 'pedido', 'sin']">
-              <i class="fas fa-hand-holding-usd"></i>
-                Pagar
-            </button>
-                    <button class="btn btn-dark btn-tarjeta mt-2" [routerLink]="['/paciente']" routerLinkActive="router-link-active">
-                <i class="fas fa-user-plus"></i>
-                 Nuevo
-            </button>
-                    <button type="button" class="btn btn-primary btn-block mt-2 btn-tarjeta" [routerLink]="['/imprimir-ticket']">
-    
-                <i class="far fa-file-pdf" routerLinkActive="router-link-active" ></i>
-                Imprimir
-            </button>
-                    <button class="btn btn-block btn-info  btn-tarjeta">
-                      <i class="fas fa-share-alt"></i>
-                        Enviar
-                </button>
-                </div>
-            </div>
-        </div>
+
     </div>

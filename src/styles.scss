@@ -1,7 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
 
+:root {
+    --principal-text: #001672;
+    --button-principal: #E3D049;
+    --button-secondary: #00BBF1;
+    --text-header: #03318c;
+    --button-package: green;
+    --font: 'Montserrat', sans-serif;
+}
+
+.center {
+    text-align: center;
+}
+
+.header {
+    background-color: #03318C;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+}
+
+.text_header {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 600;
+    color: white;
+}
+
 
 /* You can add global styles to this file, and also import other style files */
+
 $white: #fff !default;
 $gray-100: #f8f9fc !default;
 $gray-200: #eaecf4 !default;
@@ -86,10 +113,12 @@ $dropdown-border-color: $border-color;
     top: 11rem;
     bottom: 1.5rem;
 }
-.footer{
+
+.footer {
     position: absolute;
     bottom: 0px;
 }
+
 .fondo-negro {
     background-color: rgba(0, 0, 0.4);
     position: fixed;
@@ -236,21 +265,34 @@ $dropdown-border-color: $border-color;
     }
 }
 
-$breakpoints:(
-  'phone': 599px,
-  'tablet-portrait': 600px,
-  'tablet-landscape': 960px,
-  'desktop': 1280px,
-  'big-desktop':1920px
-)!default;
-
+$breakpoints:( 'phone': 599px, 'tablet-portrait': 600px, 'tablet-landscape': 960px, 'desktop': 1280px, 'big-desktop':1920px)!default;
 @mixin screen($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint ) {
-    @media(max-width: map-get($breakpoints, $breakpoint)){
-      @content;
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media(max-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
     }
-  }
-  @else{
-    @warn "No se encuentra el breakpoint";
-  }
+    @else {
+        @warn "No se encuentra el breakpoint";
+    }
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
