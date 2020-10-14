@@ -23,20 +23,20 @@ export class HistoriaClinicaService {
     // let headers = new HttpHeaders().set('Content-type', 'application/json');
 
 
-    return this._http.post(this.url+'/agregar/AgregarAntecedentes', historia);
+    return this._http.post('http://localhost:3200/agregar/AgregarAntecedentes', historia);
   }
 
 
 
 
   agregarIdModelPaciente(id, idAntecedentes):Observable<any>{
-    
+
     let uri =  'http://localhost:3200' +'/agregar/antecedentes/' + id;
-    
+
     console.log('Id antecedentes', idAntecedentes);
-    
+
     console.log('Id paciente', id);
-    
+
     return this._http.put(uri, idAntecedentes)
   }
 

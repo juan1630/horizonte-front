@@ -50,12 +50,7 @@ export class FE09Component implements OnInit {
     cpPaciente:'',
     paisPaciente:'',
     idPaciente:''
-
-
-
-
   }
-
 
   // Este arreglo contiene  los signos vitales de las consultas anteriores
   public historialSginos :any[];
@@ -72,7 +67,9 @@ export class FE09Component implements OnInit {
       pa:"",
       pt:"",
       apgar: "",
-      SaO: ""
+      SaO: "",
+      pao:"",
+      glucosa:""
   }
 
   public esquemaVacuncaion = {
@@ -146,58 +143,94 @@ export class FE09Component implements OnInit {
   }
 
   public pacienteHistorial = [{
-  }];
+}];
 
-  public antecedentesNinos = {
-    enfermedadesPielNinosPersonal: '',
-    enfermedadesPielNinosFecha: '',
-    enfermedadesPielNinosFamiliares: '',
-    enfermedadesPielNinosNotas: '',
-    desnutricionNinosPersonal: '',
-    desnutricionNinosFecha: '',
-    desnutricionNinosFamiliares: '',
-    desnutricionNinosNotas: '',
-    obesidadNinosPersonal: '',
-    obesidadNinosFecha: '',
-    obesidadNinosFamiliares: '',
-    obesidadNinosNotas: '',
-    defectosNinosPostularesPersonal: '',
-    defectosNinosPostularesFecha: '',
-    defectosNinosPostularesFamiliares: '',
-    defectosNinosPostularesNotas: '',
-    fracturasNinosPersonal: '',
-    fracturasNinosFecha: '',
-    fracturasNinosFamiliares: '',
-    fracturasNinosNotas: '',
-    hospitalizacionesNinosPersonal: '',
-    hospitalizacionesNinosFecha: '',
-    hospitalizacionesNinosFamiliares: '',
-    hospitalizacionesNinosNotas: '',
-    transfucionesNinosPersonal: '',
-    transfucionesNinosFecha: '',
-    transfucionesNinosFamiliares: '',
-    transfucionesNinosNotas: '',
-    cardiopatiasNinosPersonal: '',
-    cardiopatiasNinosFecha: '',
-    cardiopatiasNinosFamiliares: '',
-    cardiopatiasNinosNotas: '',
-    cirugiasNinosPersonal: '',
-    cirugiasNinosFecha: '',
-    cirugiasNinosFamiliares: '',
-    cirugiasNinosNotas: '',
-    cancerLeucemiaNinosPersonal: '',
-    cancerLeucemiaNinosFecha: '',
-    cancerLeucemiaNinosFamiliares: '',
-    cancerLeucemiaNinosNotas: '',
-    alergiasNinosPersonal: '',
-    alergiasNinosFecha: '',
-    alergiasNinosFamiliares: '',
-    alergiasNinosNotas: '',
-    vihNinosPersonal: '',
-    vihNinosFecha: '',
-    vihNinosFamiliares: '',
-    vihNinosNotas: '',
-    idPaciente: ''
+  public antecedentes = {
+    enfermedadesPielPersonal: '',
+    enfermedadesPielFecha: '',
+    enfermedadesPielFamiliares: '',
+    enfermedadesPielNotas: '',
+    desnutricionPersonal: '',
+    desnutricionFecha: '',
+    desnutricionFamiliares: '',
+    desnutricionNotas: '',
+    obesidadPersonal: '',
+    obesidadFecha: '',
+    obesidadFamiliares: '',
+    obesidadNotas: '',
+    defectosPostularesPersonal: '',
+    defectosPostularesFecha: '',
+    defectosPostularesFamiliares: '',
+    defectosPostularesNotas: '',
+    fracturasPersonal: '',
+    fracturasFecha: '',
+    fracturasFamiliares: '',
+    fracturasNotas: '',
+    hospitalizacionesPersonal: '',
+    hospitalizacionesFecha: '',
+    hospitalizacionesFamiliares: '',
+    hospitalizacionesNotas: '',
+    transfucionesPersonal: '',
+    transfucionesFecha: '',
+    transfucionesFamiliares: '',
+    transfucionesNotas: '',
+    cardiopatiasPersonal: '',
+    cardiopatiasFecha: '',
+    cardiopatiasFamiliares: '',
+    cardiopatiasNotas: '',
+    cirugiasPersonal: '',
+    cirugiasFecha: '',
+    cirugiasFamiliares: '',
+    cirugiasNotas: '',
+    cancerLeucemiaPersonal: '',
+    cancerLeucemiaFecha: '',
+    cancerLeucemiaFamiliares: '',
+    cancerLeucemiaNotas: '',
+    alergiasPersonal: '',
+    alergiasFecha: '',
+    alergiasFamiliares: '',
+    alergiasNotas: '',
+    vihPersonal: '',
+    vihFecha: '',
+    vihFamiliares: '',
+    vihNotas: '',
+    tabaquismoFecha:"",
+    tabaquismoFamiliares:"",
+    tabaquismoNotas:"",
+    tabaquismoPersonal:"",
+    diabetesPersonal: "",
+    diabetesFecha: "",
+    diabetesFamiliares: "",
+    diabetesNotas: "",
+    tuberculosisPersonal:"",
+    tuberculosisFecha:"",
+    tuberculosisFamiliares:"",
+    tuberculosisNotas:"",
+    alcoholismoPersonal:"",
+    alcoholismoFecha:"",
+    alcoholismoFamiliares:"",
+    alcoholismoNotas:"",
+    deportesPersonal:"",
+    deportesFecha:"",
+    deportesFamiliares:"",
+    deportesNotas:"",
+    idPaciente: "",
+    otrasEnfPersonales:"",
+    otrasEnfFecha:"",
+    otrasEnfFamiliares:"",
+    otrasEnfNotas:"",
+    enfermedadesDeLosSentidosPersonales :"",
+    enfermedadesDeLosSentidosFecha :"",
+    enfermedadesSentidosFamiliares :"",
+    enfermedadesSentidosNotas :"",
+    expoLaboralPersonales:"",
+    expoLaboralFecha:"",
+    expoLaboralFamiliares:"",
+    expoLaboralNotas:"",
+    postQuirurgicoPersonales:"",
+    postQuirurgicoFecha:"",
+    postQuirurgicoFamiliares:"",
+    postQuirurgicoNotas:""
   }
 
   ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -398,18 +431,42 @@ export class FE09Component implements OnInit {
 
     this.setPeso();
 
+    console.log( this.signosVitales );
+
     this._HistoriaClinicaService.agregarSignosVitales( this.id,  this.signosVitales )
     .subscribe(  (data:any) => {
-
+        console.log(data);
       if(  data['ok']){
           this.obtenerConsultaPorId();
-
+          this.alerta('Signos vitales guardados');
       }
 
      });
 
+
   }
 
+
+  setIdpacienteAgrearAntecedentes(){
+
+    this.antecedentes.idPaciente = this.paciente.idPaciente;
+
+  }
+
+  agregarAntecedentes(){
+
+    this.setIdpacienteAgrearAntecedentes();
+
+    console.log( this.antecedentes  );
+
+    this._HistoriaClinicaService.agregarHistoriaClinica(  this.antecedentes  )
+    .subscribe(  (data) => {
+      // console.log(data);
+      if(  data['ok'] ){
+          this.alerta('Se agregaron los antecedentes');
+      }
+    } )
+  }
 
 
   validar(){
@@ -425,14 +482,15 @@ export class FE09Component implements OnInit {
   verSignosVitalesAnteriores(){
     this._HistoriaClinicaService.obtenerHistroialSignosVitalesPaciente( this.paciente.idPaciente )
     .subscribe( (data) => {
-      // console.log(data)
+      console.log(data)
       this.historialSginos = data['data'];
-      console.log(  this.historialSginos );
+      // console.log(  this.historialSginos );
+      // this.alerta('Signos vitales guardados');
      } );
   }
 
-  alerta(){
-    swal("Guardado", "", "success");
+  alerta( message  ){
+    swal( `${message}`, "", "success");
   }
 
   obtenerIMC(){
@@ -488,11 +546,14 @@ export class FE09Component implements OnInit {
 
   // validamos el formulario
  validarBtn(f) {
-  //  console.log(f);
-
+    // console.log(f)
   if(f.invalid == false) {
     this.validate = false;
+  }else {
+    this.validate = true;
+
   }
+
  }
 
  // metodo para imprimir el historial
