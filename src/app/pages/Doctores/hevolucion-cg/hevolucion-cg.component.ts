@@ -148,7 +148,7 @@ export class HEvolucionCGComponent implements OnInit {
 
 
 
-  
+
   constructor(
 
       private _ObtenerPacienteService: PacienteService,
@@ -162,7 +162,7 @@ export class HEvolucionCGComponent implements OnInit {
 
     // FECHA
     this.fecha = moment().format('L');
-    this.hora = moment().format('LT');
+    // this.hora = moment().format('LT');
 
     // Obtener Id del Paciente
     this.id = this._route.snapshot.paramMap.get('id');
@@ -171,39 +171,36 @@ export class HEvolucionCGComponent implements OnInit {
     // this._Cie10Service.getCiePorNombre(this.nameDiagnostico).subscribe(
     //   (data:any) => {
     //     console.log(data);
-        
+
     //   }
     // )
 
-    this._ObtenerPacienteService.getPacienteBtID(this.id).subscribe(
+    this._HistoriaClinicaService.obtenerConsultaPorElId( this.id  )
+    .subscribe(
       (data:any) => {
 
-        console.log(data);
-        // console.log(data.paciente.historiaClinica);
-        
-        // console.log(data.paciente.historiaClinica.length);
-        let index = data.paciente.historiaClinica.length - 1;
+        console.log(data['data']);
 
-        this.paciente.nombre = data.paciente.nombrePaciente;
-        this.paciente.apellidoPaterno = data.paciente.apellidoPaterno;
-        this.paciente.apellidoMaterno = data.paciente.apellidoMaterno;
-        this.paciente.direccion = data.paciente.calleNumeroPaciente;
-        this.paciente.edad = data.paciente.edad;
-        this.paciente.sexo = data.paciente.sexo;
-        this.paciente.registro = data.paciente._id;
-        this.paciente.talla = data.paciente.historiaClinica[index].tallaNino;
-        this.paciente.peso = data.paciente.historiaClinica[index].pesoNino;
-        this.paciente.imc = data.paciente.historiaClinica[index].imcNino;
-        this.paciente.fc = data.paciente.historiaClinica[index].fcNino;
-        this.paciente.fr = data.paciente.historiaClinica[index].frNino;
-        this.paciente.temp = data.paciente.historiaClinica[index].tempNino;
-        this.paciente.pc = data.paciente.historiaClinica[index].pcNino;
-        this.paciente.pa = data.paciente.historiaClinica[index].paNino;
-        this.paciente.pt = data.paciente.historiaClinica[index].ptNino;
-        this.paciente.apgar = data.paciente.historiaClinica[index].apgarNino;
-        this.paciente.sao = data.paciente.historiaClinica[index].saoNino;
-        this.paciente.alergias = data.paciente.historiaClinica[7].alergia;
-        this.paciente.paquetesQuirofano = data.paciente.paquetesQuirofano[1];
+        this.paciente.nombre = data['data']['paciente']['nombrePaciente'];
+        this.paciente.apellidoPaterno = data['data']['paciente'].apellidoPaterno;
+        this.paciente.apellidoMaterno = data['data']['paciente'].apellidoMaterno;
+        // this.paciente.direccion = data.paciente.calleNumeroPaciente;
+        this.paciente.edad = data['data']['paciente'].edad;
+        this.paciente.sexo = data['data']['paciente']['genero'];
+        // this.paciente.registro = data.paciente._id;
+        // this.paciente.talla = data.paciente.historiaClinica[index].tallaNino;
+        // this.paciente.peso = data.paciente.historiaClinica[index].pesoNino;
+        // this.paciente.imc = data.paciente.historiaClinica[index].imcNino;
+        // this.paciente.fc = data.paciente.historiaClinica[index].fcNino;
+        // this.paciente.fr = data.paciente.historiaClinica[index].frNino;
+        // this.paciente.temp = data.paciente.historiaClinica[index].tempNino;
+        // this.paciente.pc = data.paciente.historiaClinica[index].pcNino;
+        // this.paciente.pa = data.paciente.historiaClinica[index].paNino;
+        // this.paciente.pt = data.paciente.historiaClinica[index].ptNino;
+        // this.paciente.apgar = data.paciente.historiaClinica[index].apgarNino;
+        // this.paciente.sao = data.paciente.historiaClinica[index].saoNino;
+        // this.paciente.alergias = data.paciente.historiaClinica[7].alergia;
+        // this.paciente.paquetesQuirofano = data.paciente.paquetesQuirofano[1];
 
         console.log(this.paciente);
 
@@ -211,20 +208,20 @@ export class HEvolucionCGComponent implements OnInit {
         // console.log(this.tallaPrueba);
 
         // for(let i; i<= data.paciente.historiaClinica.tallaNino; i++){
-          
-          
+
+
         // }
-        
-        
-        
+
+
+
         // this.tallatl = parseFloat(this.paciente.talla);
-  
-  
+
+
         // this.lineChartData[0].data[0]= this.tallatl;
       }
-      
+
       )
-      
+
   }
 
    //Inicio Funciones Grafica
@@ -286,11 +283,11 @@ export class HEvolucionCGComponent implements OnInit {
         }
       )
     }
-    
+
   }
 
   obtenerDiagnosticoDos(){
-    
+
     if(this.hojaEvolucion.diagnosticoDos.length > 7){
       this._Cie10Service.getCiePorNombre(this.hojaEvolucion.diagnosticoDos).subscribe(
         (data:any) => {
@@ -299,7 +296,7 @@ export class HEvolucionCGComponent implements OnInit {
         }
       )
     }
-    
+
 
   }
 
@@ -313,7 +310,7 @@ export class HEvolucionCGComponent implements OnInit {
         }
       )
     }
-    
+
   }
 
 

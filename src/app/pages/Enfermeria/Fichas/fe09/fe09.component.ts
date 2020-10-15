@@ -22,6 +22,7 @@ export class FE09Component implements OnInit {
   public peso: number=0;
   public tallaL: number;
   public pesoL: number;
+  public antecedentesBtn = false;
 
   public listaEspera = [];
   public listaPacientesAtendidos = [];
@@ -376,10 +377,11 @@ export class FE09Component implements OnInit {
     this.obtenerPeso();
     this.obtenerTalla();
     this.fechaPacienteHistorial = moment().format('L');
-    this.fecha = moment().format('LLL');
     // Obtener Id del paciente
-    this.id = this._route.snapshot.paramMap.get('id');
     this.obtenerConsultaPorId();
+    this.fecha = moment().format('LLL');
+    this.id = this._route.snapshot.paramMap.get('id');
+    // this.obtenerAntecedentes();
   }
 
 
@@ -389,8 +391,6 @@ export class FE09Component implements OnInit {
 
     this._HistoriaClinicaService.obtenerConsultaPorElId( this.id )
     .subscribe(  (data:any) => {
-
-      // console.log(data);
 
       this.paciente.nombre = data['data']['paciente']['nombrePaciente'];
       this.paciente.apellidoMaterno = data['data']['paciente']['apellidoMaterno'];
@@ -435,7 +435,7 @@ export class FE09Component implements OnInit {
 
     this._HistoriaClinicaService.agregarSignosVitales( this.id,  this.signosVitales )
     .subscribe(  (data:any) => {
-        console.log(data);
+        // console.log(data);
       if(  data['ok']){
           this.obtenerConsultaPorId();
           this.alerta('Signos vitales guardados');
@@ -444,6 +444,18 @@ export class FE09Component implements OnInit {
      });
 
 
+  }
+
+
+  obtenerAntecedentes(){
+    this.setIdpacienteAgrearAntecedentes();
+    this._HistoriaClinicaService.obtenerAntecedentesDelPaciente( this.paciente.idPaciente  )
+    .subscribe((data) => {
+      if(data['antecedente']  != undefined ){
+          this.antecedentesBtn = true;
+      }
+
+    });
   }
 
 
