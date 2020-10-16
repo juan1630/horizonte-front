@@ -61,6 +61,9 @@ export class HEvolucionCGComponent implements OnInit {
 
   }
 
+  public nambee = 'Juanita Bananita';
+  public age = 14;
+  public gender = 'femenino';
   public tallatl;
   public tallaPrueba = [];
 
@@ -278,7 +281,7 @@ export class HEvolucionCGComponent implements OnInit {
 
   obtenerDiagnosticoUno(){
 
-    if(this.hojaEvolucion.diagnosticoUno.length > 7) {
+    if(this.hojaEvolucion.diagnosticoUno.length > 4) {
       this._Cie10Service.getCiePorNombre(this.hojaEvolucion.diagnosticoUno).subscribe(
         (data:any) => {
           console.log(data);
@@ -291,7 +294,7 @@ export class HEvolucionCGComponent implements OnInit {
 
   obtenerDiagnosticoDos(){
     
-    if(this.hojaEvolucion.diagnosticoDos.length > 7){
+    if(this.hojaEvolucion.diagnosticoDos.length > 4){
       this._Cie10Service.getCiePorNombre(this.hojaEvolucion.diagnosticoDos).subscribe(
         (data:any) => {
           console.log(data);
@@ -305,7 +308,7 @@ export class HEvolucionCGComponent implements OnInit {
 
   obtenerDiagnosticoTres(){
 
-    if(this.hojaEvolucion.diagnosticoTres.length > 7){
+    if(this.hojaEvolucion.diagnosticoTres.length > 4){
       this._Cie10Service.getCiePorNombre(this.hojaEvolucion.diagnosticoTres).subscribe(
         (data:any) => {
           console.log(data);

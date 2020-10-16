@@ -3,9 +3,9 @@
         <h1 class="center">Hoja de Evolución</h1>
         <div class="row">
             <div class="col-md">
-                <p>Nombre Completo: {{paciente.apellidoPaterno}} {{paciente.apellidoMaterno}} {{paciente.nombre}} </p>
-                <p>Edad: {{paciente.edad}} </p>
-                <p>Sexo: {{paciente.sexo}} </p>
+                <p>Nombre Completo: {{nambee}} </p>
+                <p>Edad: {{age}} </p>
+                <p>Sexo: {{gender}} </p>
                 <p>Médico: </p>
             </div>
 
@@ -17,6 +17,1354 @@
     </div>
     <div class="center">
         <h3>Historia Clínica</h3>
+
+        <!-- Visualización de la Historia Clínica -->
+        <div class="card  mt-3 ">
+
+            <div role="tabpanel">
+
+
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#antecedentes"> Antecedentes </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#signosVitales" data-toggle="tab" aria-controls="#signosVitales">Signos Vitales</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#medicinaPreventiva" data-toggle="tab" aria-controls="#medicinaPreventiva">Medicina Preventiva</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#esquemaVacunacion" data-toggle="tab" aria-controls="#esquemaVacunacion">Esquema de Vacunación</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#nutricion" data-toggle="tab" aria-controls="#nutricion">Nutrición</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#heredoFamiliares" data-toggle="tab" aria-controls="#heredoFamiliares">Antecedetes Heredo Familiares</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#personalNoPatologico" data-toggle="tab" aria-controls="#personalNoPatologico">Antecedetes Personales No Patologicos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#personalPatologico" data-toggle="tab" aria-controls="#personalPatologico">Antecedetes Personales Patologicos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ginecoObs" data-toggle="tab" aria-controls="#ginecoObs">Antecedetes Gineco Obstetricos</a>
+                    </li>
+
+                </ul>
+
+                <div class="tab-content">
+
+                    <!-- Antecedentes -->
+                    <div role="tabpanel" class="tab-pane" id="antecedentes">
+
+                        <form #fAntecedentes="ngForm">
+                            <!-- <div id="modal1" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"> -->
+                            <!-- <div class="modal-dialog modal-lg"> -->
+                            <div class="card">
+                                <div class="">
+                                    <h3 class="modal-title center">Antecedentes</h3>
+
+                                </div>
+                                <div class="row center">
+                                    <div class="col-md-2">
+                                        <h5>Listado</h5>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <h5>Personales</h5>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <h5>Fecha</h5>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <h5>Familiares</h5>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <h5>Notas</h5>
+                                    </div>
+
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Enfermedades de la Piel</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="enfPielPersonales" [(ngModel)]="antecedentes.enfermedadesPielPersonal" type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="enfPielFecha" [(ngModel)]="antecedentes.enfermedadesPielFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="enfPielFamiliares" [(ngModel)]="antecedentes.enfermedadesPielFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="enfPielNotas" [(ngModel)]="antecedentes.enfermedadesPielNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- Bloque 2 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Desnutrición</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="desnuPesonales" [(ngModel)]="antecedentes.desnutricionPersonal" type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="desnuFecha" [(ngModel)]="antecedentes.desnutricionFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="desnuFamiliares" [(ngModel)]="antecedentes.desnutricionFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="desnuNotas" [(ngModel)]="antecedentes.desnutricionNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 2 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Obesidad</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="obesidadPersonal" [(ngModel)]="antecedentes.obesidadPersonal" type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="obesidadFecha" [(ngModel)]="antecedentes.obesidadFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="obesidadFamiliares" [(ngModel)]="antecedentes.obesidadFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="obesidadNotas" [(ngModel)]="antecedentes.obesidadNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Defectos Postulares</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+
+                                        <input name="defectosPersonales" [(ngModel)]="antecedentes.defectosPostularesPersonal" type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="defectosFecha" [(ngModel)]="antecedentes.defectosPostularesFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="defectosFamiliares" [(ngModel)]="antecedentes.defectosPostularesFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="defectosNotas" [(ngModel)]="antecedentes.defectosPostularesNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Fracturas</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="fracturasPersonales" [(ngModel)]="antecedentes.fracturasPersonal" type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="fracturasFecha" [(ngModel)]="antecedentes.fracturasFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="fracturasFamiliares" [(ngModel)]="antecedentes.fracturasFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="fracturasNotas" [(ngModel)]="antecedentes.fracturasNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Hospitalizaciones</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="hospPersonales" [(ngModel)]="antecedentes.hospitalizacionesPersonal" type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="hospFecha" [(ngModel)]="antecedentes.hospitalizacionesFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="hospFamiliares" [(ngModel)]="antecedentes.hospitalizacionesFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="hospNotas" [(ngModel)]="antecedentes.hospitalizacionesNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Transfusiones</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="transfusionesPersonales" [(ngModel)]="antecedentes.transfucionesPersonal" type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="transfusionesFecha" [(ngModel)]="antecedentes.transfucionesFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="transfusionesFamiliares" [(ngModel)]="antecedentes.transfucionesFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="transfusionesNotas" [(ngModel)]="antecedentes.transfucionesNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Cardiopatias</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="cardiopatiasPersonales" [(ngModel)]="antecedentes.cardiopatiasPersonal" type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="cardiopatiasFecha" [(ngModel)]="antecedentes.cardiopatiasFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="cardiopatiasFamiliares" [(ngModel)]="antecedentes.cardiopatiasFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="cardiopatiasNotas" [(ngModel)]="antecedentes.cardiopatiasNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Cirugias</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="cirugiasPersonales" [(ngModel)]="antecedentes.cirugiasPersonal" type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="cirugiaFecha" [(ngModel)]="antecedentes.cirugiasFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="cirugiaFamiliares" [(ngModel)]="antecedentes.cirugiasFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="cirugiaNotas" [(ngModel)]="antecedentes.cirugiasNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Cancer/Leucemia</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="clPersonales" [(ngModel)]="antecedentes.cancerLeucemiaPersonal" type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="clFecha" [(ngModel)]="antecedentes.cancerLeucemiaFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="clFamiliares" [(ngModel)]="antecedentes.cancerLeucemiaFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="clNotas" [(ngModel)]="antecedentes.cancerLeucemiaNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-2">
+                                        <p>Alergias</p>
+                                    </div>
+                                    <div class="col-md-2">
+
+                                        <input name="alergiasPersonales" [(ngModel)]="antecedentes.alergiasPersonal" type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="alergiasFecha" [(ngModel)]="antecedentes.alergiasFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="alergiasFamiliares" [(ngModel)]="antecedentes.alergiasFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="alergiasNotas" [(ngModel)]="antecedentes.alergiasNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+                                    <!-- Bloque 3 -->
+                                    <div class="col-md-2"></div>
+
+                                    <div class="col-md-2">
+                                        <p>VIH</p>
+                                    </div>
+
+                                    <div class="col-md-2">
+
+                                        <input name="vihPersonales" [(ngModel)]="antecedentes.vihPersonal" type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2"><input name="vihFecha" [(ngModel)]="antecedentes.vihFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="vihFamiliares" [(ngModel)]="antecedentes.vihFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2"><input name="vihNotas" [(ngModel)]="antecedentes.vihNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- End bloque 3 -->
+
+                                    <!-- Div que muestra los antecdentes de hombre y mujer -->
+                                    <!-- <div > -->
+
+                                    <!-- tabaquismo  -->
+
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"></div>
+
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9">
+                                        <p>Tabaquismo</p>
+                                    </div>
+
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9">
+
+                                        <input name="tabaquismoPersonales" [(ngModel)]="antecedentes.tabaquismoPersonal" type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"><input name="tabaquismoFecha" [(ngModel)]="antecedentes.tabaquismoFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"><input name="tabaquismoFamiliares" [(ngModel)]="antecedentes.tabaquismoFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"><input name="tabaquismoNotas" [(ngModel)]="antecedentes.tabaquismoNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
+
+
+                                    <!-- alcoholismo  -->
+
+
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"></div>
+
+
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9">
+                                        <p>Alcoholismo</p>
+                                    </div>
+
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9">
+
+                                        <input name="alcoholismoPersonales" [(ngModel)]="antecedentes.alcoholismoPersonal" type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"><input name="alcoholismoFecha" [(ngModel)]="antecedentes.alcoholismoFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"><input name="alcoholismoFamiliares" [(ngModel)]="antecedentes.alcoholismoFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"><input name="alcoholismoNotas" [(ngModel)]="antecedentes.alcoholismoNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
+
+
+
+                                    <!-- Diabetes  -->
+
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"></div>
+
+
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9">
+                                        <p>Diabetes</p>
+                                    </div>
+
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9">
+
+                                        <input name="diabetesPersonales" [(ngModel)]="antecedentes.diabetesPersonal" type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"><input name="diabetesFecha" [(ngModel)]="antecedentes.diabetesFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"><input name="diabetesFamiliares" [(ngModel)]="antecedentes.diabetesFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"><input name="diabetesNotas" [(ngModel)]="antecedentes.diabetesNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
+
+
+                                    <!-- Tuberculosis  -->
+
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"></div>
+
+
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9">
+                                        <p>Tuberculosis</p>
+                                    </div>
+
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9">
+
+                                        <input name="tuberculosisPersonales" [(ngModel)]="antecedentes.tuberculosisPersonal" type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"><input name="tuberculosisFecha" [(ngModel)]="antecedentes.tuberculosisFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"><input name="tuberculosisFamiliares" [(ngModel)]="antecedentes.tuberculosisFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"><input name="tuberculosisNotas" [(ngModel)]="antecedentes.tuberculosisNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <!-- Deportes  -->
+
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"></div>
+
+
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9">
+                                        <p>Deportes</p>
+                                    </div>
+
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9">
+
+                                        <input name="deportesPersonales" [(ngModel)]="antecedentes.deportesPersonal" type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"><input name="deportesFecha" [(ngModel)]="antecedentes.deportesFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"><input name="deportesFamiliares" [(ngModel)]="antecedentes.deportesFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"><input name="deportesNotas" [(ngModel)]="antecedentes.deportesNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- Enfermedades de los sentidos -->
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"></div>
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9">
+                                        <p>Enfermedades de los Sentidos</p>
+                                    </div>
+
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9">
+
+                                        <input name="Personales" [(ngModel)]="antecedentes.enfermedadesDeLosSentidosPersonales" type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"><input name="enfermedadesSentidosFecha" [(ngModel)]="antecedentes.enfermedadesDeLosSentidosFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"><input name="enfermedadesSentidosFamiliares" [(ngModel)]="antecedentes.enfermedadesSentidosFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"><input name="enfermedadesSentidosNotas" [(ngModel)]="antecedentes.enfermedadesSentidosNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
+
+                                    <!-- LABORALES  -->
+
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"></div>
+
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9">
+                                        <p>Exposición Laboral</p>
+                                    </div>
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9">
+
+                                        <input name="expoLaboralPersonales" [(ngModel)]="antecedentes.expoLaboralPersonales" type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"><input name="expoLaboralFecha" [(ngModel)]="antecedentes.expoLaboralFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"><input name="expoLaboralFamiliares" [(ngModel)]="antecedentes.expoLaboralFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"><input name="expoLaboralNotas" [(ngModel)]="antecedentes.expoLaboralNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
+
+
+                                    <!-- DEFECTOS POST QUIRURGICO -->
+
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"></div>
+
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9">
+                                        <p>Defectos Postquirurgicos</p>
+                                    </div>
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9">
+
+                                        <input name="postQuirurgicoPersonales" [(ngModel)]="antecedentes.postQuirurgicoPersonales" type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"><input name="postQuirurgicoFecha" [(ngModel)]="antecedentes.postQuirurgicoFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"><input name="postQuirurgicoFamiliares" [(ngModel)]="antecedentes.postQuirurgicoFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"><input name="postQuirurgicoNotas" [(ngModel)]="antecedentes.postQuirurgicoNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
+
+
+                                    <!-- OTARS ENFERMEDADES  -->
+
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"></div>
+
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9">
+                                        <p>Otras Enfermedades</p>
+                                    </div>
+
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9">
+
+                                        <input name="otrasEnfPersonales" [(ngModel)]="antecedentes.otrasEnfPersonales" type="text" placeholder="" class="antecedentes-inputs">
+                                    </div>
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"><input name="otrasEnfFecha" [(ngModel)]="antecedentes.otrasEnfFecha" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"><input name="otrasEnfFamiliares" [(ngModel)]="antecedentes.otrasEnfFamiliares" type="text" placeholder="" class="antecedentes-inputs"></div>
+                                    <div class="col-md-2" *ngIf="paciente.edad > 9"><input name="otrasEnfNotas" [(ngModel)]="antecedentes.otrasEnfNotas" type="text" placeholder="" class="antecedentes-inputs"></div>
+
+
+
+                                </div>
+                                <!-- row -->
+                                <div class="row">
+                                    <div class="col-md-2 offset-4">
+                                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button> -->
+                                        <button type="submit" class="btn btn-primary" (click)="agregarAntecedentes()">Guardar</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Fin Antecedentes -->
+
+                    <!-- Inicio Signos Vitales -->
+                    <div role="tabpanel" class="tab-pane" id="signosVitales">
+                        <form #fSignosVitales="ngForm">
+                            <div class="container card">
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>Talla (m)</th>
+                                            <th>Peso (kg)</th>
+                                            <th>IMC (P/T^2)</th>
+                                            <th>TA (Dias/Sist)</th>
+                                            <th>F.C. (LPM)</th>
+                                            <th>F.R. (RPM)</th>
+                                            <th>Temp °C</th>
+                                            <th>Glucosa</th>
+                                            <th>P.C. (cm)</th>
+                                            <th>P.A. (cm)</th>
+                                            <th>P.T. (cm)</th>
+                                            <th>SaO (SaO%)</th>
+                                            <th>Oximetría</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- AQUI DEBE APLICARSE EL NG FOR :) -->
+
+                                        <tr *ngFor="let signos of historialSginos">
+                                            <!-- <pre> {{  signos  | json }} </pre> -->
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td> Falta </td>
+                                            <td> Falta </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <!-- End bloque 3 -->
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Fin Signos Vitales -->
+
+                    <!-- Inicio Medicina Preventiva -->
+                    <div role="tabpanel" class="tab-pane" id="medicinaPreventiva">
+                        <form #fMedicinaPreventiva="ngForm">
+                            <div class="card">
+                                <table class="table ">
+                                    <thead class="thead-dark ">
+                                        <tr>
+                                            <th>Estudios</th>
+                                            <th>Fecha de Toma</th>
+                                            <th>Fecha de Entrega</th>
+                                            <th>Resultados</th>
+                                            <th>Observaciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Detección de cáncer de estómago</td>
+                                            <td> <input name="cancerEstomagoMujerFechaToma " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="cancerEstomagoMujerFechaEntrega " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="cancerEstomagoMujerResultados " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="cancerEstomagoMujerObservaciones " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Detección de cáncer de colon</td>
+                                            <td> <input name="cancerColonMujerFechaToma " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="cancerColonMujerFechaEntrega " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="cancerColonMujerResultados " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="cancerColonMujerObservaciones " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Detección de cáncer de pulmón</td>
+                                            <td> <input name="cacerPulmonMujerFechaToma " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="cacerPulmonMujerFechaEntrega " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="cacerPulmonMujerResultados " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="cacerPulmonMujerObservaciones " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Detección de cáncer de mama</td>
+                                            <td> <input name="cancerMamaMujerFechaToma " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="cancerMamaMujerFechaEntrega " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="cancerMamaMujerResultados " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="cancerMamaMujerObservaciones " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Detección de cáncer cérvico uterino</td>
+                                            <td> <input name="cancerCUMujerFechaToma " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="cancerCUMujerFechaEntrega " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="cancerCUMujerResultados " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="cancerCUMujerObservaciones " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Campaña de detección de agudeza auditiva</td>
+                                            <td> <input name="auditivaMujeresFechaToma " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="auditivaMujeresFechaEntrega " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="auditivaMujeresResultados " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="auditivaMujeresObservaciones " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Campaña de buena salud bucal</td>
+                                            <td> <input name="bucalMujeresFechaToma " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="bucalMujeresFechaEntrega " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="bucalMujeresResultados " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="bucalMujeresObservaciones " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Campaña contra la Desnutrición, sobrepeso y obesidad</td>
+                                            <td> <input name="nutricionMujeresFechaToma " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="nutricionMujeresFechaEntrega " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="nutricionMujeresResultados " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="nutricionMujeresObservaciones " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Campaña de detección de diabetes mellitus y dislipidemia</td>
+                                            <td> <input name="diabetesMujeresFechaToma " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="diabetesMujeresFechaEntrega " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="diabetesMujeresResultados " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="diabetesMujeresObservaciones " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Campaña de detección de agudeza visual</td>
+                                            <td> <input name="visualMujeresFechaToma " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="visualMujeresFechaEntrega " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="visualMujeresResultados " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="visualMujeresObservaciones " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Campaña de detección de enfermedades respiratorias</td>
+                                            <td> <input name="respiratoriasFechaToma " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="respiratoriasFechaEntrega " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="respiratoriasResultados " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="respiratoriasObservaciones " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Campaña de detección de transtorno en la marcha</td>
+                                            <td> <input name="marchaMujeresFechaToma " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="marchaMujeresFechaEntrega " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="marchaMujeresResultados " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="marchaMujeresObservaciones " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Otros</td>
+                                            <td> <input name="otrosMujeresFechaToma " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="otrosMujeresFechaEntrega " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="otrosMujeresResultados " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                            <td> <input name="otrosMujeresObservaciones " ngModel type="text " placeholder=" " class="antecedentes-inputs "> </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Fin Medicina Preventiva -->
+
+                    <!-- Inicio Esquema Vacunacion -->
+                    <div role="tabpanel" class="tab-pane" id="esquemaVacunacion">
+                        <form #fEsquemaVacunacion="ngForm">
+                            <div class="card center">
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>Listado</th>
+                                            <th>.</th>
+                                            <th>Dosis</th>
+                                            <th>1 Fecha</th>
+                                            <th>2 Fecha</th>
+                                            <th>3 Fecha</th>
+                                            <th>4 Fecha</th>
+                                            <th>Ultima Dosis Fecha</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>BCG</td>
+                                            <td>Tuberculosis</td>
+                                            <td><input type="text" placeholder="" name="tuberculosisNinoDosis" [(ngModel)]="esquemaVacuncaion.tuberculosisNinoDosis" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="tuberculosisNinoFechaUno" [(ngModel)]="esquemaVacuncaion.tuberculosisNinoFechaUno" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="tuberculosisNinoFechaDos" [(ngModel)]="esquemaVacuncaion.tuberculosisNinoFechaDos" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="tuberculosisNinoFechaTres" [(ngModel)]="esquemaVacuncaion.tuberculosisNinoFechaTres" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="tuberculosisNinoFechaCuatro" [(ngModel)]="esquemaVacuncaion.tuberculosisNinoFechaCuatro" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="tuberculosisNinoFechaUltima" [(ngModel)]="esquemaVacuncaion.tuberculosisNinoFechaUltima" class="antecedentes-inputs"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Hepatitis B</td>
+                                            <td>Hepatitis B</td>
+                                            <td><input type="text" placeholder="" name="hepatitisNinoDosis" [(ngModel)]="esquemaVacuncaion.hepatitisNinoDosis" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="hepatitisNinoFechaUno" [(ngModel)]="esquemaVacuncaion.hepatitisNinoFechaUno" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="hepatitisNinoFechaDos" [(ngModel)]="esquemaVacuncaion.hepatitisNinoFechaDos" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="hepatitisNinoFechaTres" [(ngModel)]="esquemaVacuncaion.hepatitisNinoFechaTres" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="hepatitisNinoFechaCuatro" [(ngModel)]="esquemaVacuncaion.hepatitisNinoFechaCuatro" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="hepatitisNinoFechaUltima" [(ngModel)]="esquemaVacuncaion.hepatitisNinoFechaUltima" class="antecedentes-inputs"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Pentavalente</td>
+                                            <td>Difteria, Tosferina, Tétanos, Poliomielitis e Infecciones por H. Influenzae b</td>
+                                            <td><input type="text" placeholder="" name="pentavalenteNinoDosis" [(ngModel)]="esquemaVacuncaion.pentavalenteNinoDosis" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="pentavalenteNinoFechaUno" [(ngModel)]="esquemaVacuncaion.pentavalenteNinoFechaUno" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="pentavalenteNinoFechaDos" [(ngModel)]="esquemaVacuncaion.pentavalenteNinoFechaDos" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="pentavalenteNinoFechaTres" [(ngModel)]="esquemaVacuncaion.pentavalenteNinoFechaTres" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="pentavalenteNinoFechaCuatro" [(ngModel)]="esquemaVacuncaion.pentavalenteNinoFechaCuatro" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="pentavalenteNinoFechaUltima" [(ngModel)]="esquemaVacuncaion.pentavalenteNinoFechaUltima" class="antecedentes-inputs"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>DPT</td>
+                                            <td>Difteria, Tosferina y Tétanos</td>
+                                            <td><input type="text" placeholder="" name="dptNinoDosis" [(ngModel)]="esquemaVacuncaion.dptNinoDosis" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="dptNinoFechaUno" [(ngModel)]="esquemaVacuncaion.dptNinoFechaUno" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="dptNinoFechaDos" [(ngModel)]="esquemaVacuncaion.dptNinoFechaDos" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="dptNinoFechaTres" [(ngModel)]="esquemaVacuncaion.dptNinoFechaTres" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="dptNinoFechaCuatro" [(ngModel)]="esquemaVacuncaion.dptNinoFechaCuatro" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="dptNinoFechaUltima" [(ngModel)]="esquemaVacuncaion.dptNinoFechaUltima" class="antecedentes-inputs"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Rotavirus</td>
+                                            <td>Diarrea por Rotavirus</td>
+                                            <td><input type="text" placeholder="" name="rotavirusNinoDosis" [(ngModel)]="esquemaVacuncaion.rotavirusNinoDosis" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="rotavirusNinoFechaUno" [(ngModel)]="esquemaVacuncaion.rotavirusNinoFechaUno" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="rotavirusNinoFechaDos" [(ngModel)]="esquemaVacuncaion.rotavirusNinoFechaDos" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="rotavirusNinoFechaTres" [(ngModel)]="esquemaVacuncaion.rotavirusNinoFechaTres" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="rotavirusNinoFechaCuatro" [(ngModel)]="esquemaVacuncaion.rotavirusNinoFechaCuatro" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="rotavirusNinoFechaUltima" [(ngModel)]="esquemaVacuncaion.rotavirusNinoFechaUltima" class="antecedentes-inputs"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Neumococo</td>
+                                            <td>Infecciones por Neumococo</td>
+                                            <td><input type="text" placeholder="" name="neumococoNinoDosis" [(ngModel)]="esquemaVacuncaion.neumococoNinoDosis" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="neumococoNinoFechaUno" [(ngModel)]="esquemaVacuncaion.neumococoNinoFechaUno" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="neumococoNinoFechaDos" [(ngModel)]="esquemaVacuncaion.neumococoNinoFechaDos" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="neumococoNinoFechaTres" [(ngModel)]="esquemaVacuncaion.neumococoNinoFechaTres" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="neumococoNinoFechaCuatro" [(ngModel)]="esquemaVacuncaion.neumococoNinoFechaCuatro" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="neumococoNinoFechaUltima" [(ngModel)]="esquemaVacuncaion.neumococoNinoFechaUltima" class="antecedentes-inputs"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Influenza</td>
+                                            <td>Influenza</td>
+                                            <td><input type="text" placeholder="" name="influenzaNinoDosis" [(ngModel)]="esquemaVacuncaion.influenzaNinoDosis" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="influenzaNinoFechaUno" [(ngModel)]="esquemaVacuncaion.influenzaNinoFechaUno" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="influenzaNinoFechaDos" [(ngModel)]="esquemaVacuncaion.influenzaNinoFechaDos" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="influenzaNinoFechaTres" [(ngModel)]="esquemaVacuncaion.influenzaNinoFechaTres" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="influenzaNinoFechaCuatro" [(ngModel)]="esquemaVacuncaion.influenzaNinoFechaCuatro" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="influenzaNinoFechaUltima" [(ngModel)]="esquemaVacuncaion.influenzaNinoFechaUltima" class="antecedentes-inputs"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>SRP</td>
+                                            <td>Sarampión, Rubéola, Parotiditis</td>
+                                            <td><input type="text" placeholder="" name="sprNinoDosis" [(ngModel)]="esquemaVacuncaion.sprNinoDosis" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="sprNinoFechaUno" [(ngModel)]="esquemaVacuncaion.sprNinoFechaUno" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="sprNinoFechaDos" [(ngModel)]="esquemaVacuncaion.sprNinoFechaDos" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="sprNinoFechaDos" [(ngModel)]="esquemaVacuncaion.sprNinoFechaDos" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="sprNinoFechaCuatro" [(ngModel)]="esquemaVacuncaion.sprNinoFechaCuatro" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="sprNinoFechaUltima" [(ngModel)]="esquemaVacuncaion.sprNinoFechaUltima" class="antecedentes-inputs"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sabin</td>
+                                            <td>Poliomielitis</td>
+                                            <td><input type="text" placeholder="" name="sabinNinoDosis" [(ngModel)]="esquemaVacuncaion.sabinNinoDosis" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="sabinNinoFechaUno" [(ngModel)]="esquemaVacuncaion.sabinNinoFechaUno" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="sabinNinoFechaDos" [(ngModel)]="esquemaVacuncaion.sabinNinoFechaDos" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="sabinNinoFechaTres" [(ngModel)]="esquemaVacuncaion.sabinNinoFechaTres" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="sabinNinoFechaCuatro" [(ngModel)]="esquemaVacuncaion.sabinNinoFechaCuatro" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="sabinNinoFechaUltima" [(ngModel)]="esquemaVacuncaion.sabinNinoFechaUltima" class="antecedentes-inputs"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>SR</td>
+                                            <td>Sarampión y Rubéola</td>
+                                            <td><input type="text" placeholder="" name="srNinoDosis" [(ngModel)]="esquemaVacuncaion.srNinoDosis" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="srNinoFechaUno" [(ngModel)]="esquemaVacuncaion.srNinoFechaUno" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="srNinoFechaDos" [(ngModel)]="esquemaVacuncaion.srNinoFechaDos" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="srNinoFechaTres" [(ngModel)]="esquemaVacuncaion.srNinoFechaTres" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="srNinoFechaCuatro" [(ngModel)]="esquemaVacuncaion.srNinoFechaCuatro" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="srNinoFechaUltima" [(ngModel)]="esquemaVacuncaion.srNinoFechaUltima" class="antecedentes-inputs"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Otras Vacunas</td>
+                                            <td>Otras Enfermedades</td>
+                                            <td><input type="text" placeholder="" name="otrasVacunasNinoDosis" [(ngModel)]="esquemaVacuncaion.otrasVacunasNinoDosis" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="otrasVacunasNinoFechaUno" [(ngModel)]="esquemaVacuncaion.otrasVacunasNinoFechaUno" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="otrasVacunasNinoFechaDos" [(ngModel)]="esquemaVacuncaion.otrasVacunasNinoFechaDos" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="otrasVacunasNinoFechaTres" [(ngModel)]="esquemaVacuncaion.otrasVacunasNinoFechaTres" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="otrasVacunasNinoFechaCuatro" [(ngModel)]="esquemaVacuncaion.otrasVacunasNinoFechaCuatro" class="antecedentes-inputs"></td>
+                                            <td><input type="text" placeholder="" name="otrasVacunasNinoFechaUltima" [(ngModel)]="esquemaVacuncaion.otrasVacunasNinoFechaUltima" class="antecedentes-inputs"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="">
+                                <h5>Alergias:</h5>
+                                <textarea name="alergia" [(ngModel)]="esquemaVacuncaion.alergia" id="alergia" class="textarea"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Fin Esquema de Vacunación -->
+
+
+                    <!-- Inicio Nutrición -->
+                    <div role="tabpanel" class="tab-pane" id="nutricion">
+                        <form #fNutricion="ngForm">
+                            <div class="row center">
+                                <div class="col-md-1 espacio-cols esp-nutricion nutricion-esp">
+                                    <h5>Lista</h5>
+                                    <div class="margen-input topsxdd">
+                                        <p>Alimentate Sanamente</p>
+                                        <p>Desparacitación Intestinal</p>
+                                        <p>Vitamina A</p>
+                                        <p>Hierro NCBP</p>
+                                        <p>Hierro PP</p>
+                                        <p>Otros</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 espacio-cols esp-nutricion">
+                                    <h5>Enf. Previene</h5>
+                                    <div class="margen-input topsxd">
+                                        <!-- <input type="text" placeholder="" class="antecedentes-inputs wer">
+                                p -->
+                                        <p>Desnutrición</p>
+                                        <p>Parasitosis Intestinales</p>
+                                        <p>Infecciones Respiratorias y Diarreas</p>
+                                        <p>Anemia</p>
+                                        <p>Anemia</p>
+                                        <p>Otras Enfermedades</p>
+                                    </div>
+                                    <!-- Crear en base P/T ^ 1 espacio-cols esp-nutricion, debe ser por defecto -->
+                                </div>
+                                <div class="col-md-1 espacio-cols esp-nutricion">
+                                    <h5>1 mes</h5>
+                                    <div class="margen-input">
+                                        <input type="text" name="alimentarSanamenteMesUno" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="despIntestinalMesUno" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="vitaminaAMesUno" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="hierroNcbpMesUno" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="hierroPpMesUno" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="otrosMesUno" ngModel placeholder="" class="antecedentes-inputs wer">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-1 espacio-cols esp-nutricion">
+                                    <h5>2 mes</h5>
+                                    <div class="margen-input">
+                                        <input type="text" name="alimentarSanamenteMesDos" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="despIntestinalMesDos" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="vitaminaAMesDos" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="hierroNcbpMesDos" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="hierroPpMesDos" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="otrosMesDos" ngModel placeholder="" class="antecedentes-inputs wer">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-1 espacio-cols esp-nutricion">
+                                    <h5>3 mes</h5>
+                                    <div class="margen-input">
+                                        <input type="text" name="alimentarSanamenteMesTres" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="despIntestinalMesTres" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="vitaminaAMesTres" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="hierroNcbpMesTres" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="hierroPpMesTres" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="otrosMesTres" ngModel placeholder="" class="antecedentes-inputs wer">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-1 espacio-cols esp-nutricion">
+                                    <h5>4 mes</h5>
+                                    <div class="margen-input">
+                                        <input type="text" name="alimentarSanamenteMesCuatro" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="despIntestinalMesCuatro" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="vitaminaAMesCuatro" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="hierroNcbpMesCuatro" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="hierroPpMesCuatro" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="otrosMesCuatro" ngModel placeholder="" class="antecedentes-inputs wer">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-1 espacio-cols esp-nutricion">
+                                    <h5>5 mes</h5>
+                                    <div class="margen-input">
+                                        <input type="text" name="alimentarSanamenteMesCinco" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="despIntestinalMesCinco" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="vitaminaAMesCinco" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="hierroNcbpMesCinco" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="hierroPpMesCinco" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="otrosMesCinco" ngModel placeholder="" class="antecedentes-inputs wer">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-1 espacio-cols esp-nutricion">
+                                    <h5>6 mes</h5>
+                                    <div class="margen-input">
+                                        <input type="text" name="alimentarSanamenteMesSeis" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="despIntestinalMesSeis" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="vitaminaAMesSeis" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="hierroNcbpMesSeis" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="hierroPpMesSeis" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="otrosMesSeis" ngModel placeholder="" class="antecedentes-inputs wer">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-1 espacio-cols esp-nutricion">
+                                    <h5>Notas</h5>
+                                    <div class="margen-input" style="margin-top: 2rem;">
+                                        <input type="text" name="alimentarSanamenteNotas" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="despIntestinalNotas" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="vitaminaANotas" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="hierroNcbpNotas" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="hierroPpNotas" ngModel placeholder="" class="antecedentes-inputs wer">
+                                        <input type="text" name="otrosMesNotas" ngModel placeholder="" class="antecedentes-inputs wer">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Fin Nutrición -->
+
+                    <!-- Heredo Familiares -->
+                    <div role="tabpanel" class="tab-pane" id="heredoFamiliares">
+                        <form #fHeredoFamiliares>
+                            <div class="card container ">
+
+                                <div class="form-row ">
+                                    <div class="col ">
+                                        <div class="form-group ">
+                                            <label for=" ">Diabetes: </label>
+                                            <input class="form-check-input " type="number " id="inlineCheckbox1 ">
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for=" ">Cáncer: </label>
+                                            <input class="form-check-input " type="number " id="inlineCheckbox1 ">
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for=" ">Cardiopatias: </label>
+                                            <input class="form-check-input " type="number " id="inlineCheckbox1 ">
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for=" ">Malformaciones: </label>
+                                            <input class="form-check-input " type="number " id="inlineCheckbox1 ">
+                                        </div>
+                                    </div>
+                                    <div class="col ">
+                                        <div class="form-group ">
+                                            <label for=" ">Hipertensión: </label>
+                                            <input class="form-check-input " type="number " id="inlineCheckbox1 ">
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for=" ">Tipo: </label>
+                                            <input class="form-check-input " type="number " id="inlineCheckbox1 ">
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for=" ">Nefropatías: </label>
+                                            <input class="form-check-input " type="number " id="inlineCheckbox1 ">
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for=" ">Tipo</label>
+                                            <input class="form-check-input " type="number " id="inlineCheckbox1 ">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <label for=" ">Otros</label>
+                                    <input class="form-check-input " type="number " id="inlineCheckbox1 ">
+                                </div>
+
+                            </div>
+
+                        </form>
+                    </div>
+                    <!-- Fin Heredo Familiares -->
+
+
+                    <!-- Inico Antecedentes Personales No Patologicos -->
+                    <div role="tabpanel" class="tab-pane" id="personalNoPatologico">
+                        <form #fPersonalesNoPat>
+                            <div class="container card ">
+                                <div class="form-row ">
+                                    <div class="col ">
+                                        <div class="form-group ">
+                                            <h5>Tabaquismo</h5>
+                                            <p>¿Cuántos?</p>
+                                            <div class="form-check form-check-inline ">
+                                                <input class="form-check-input " type="number " id="inlineCheckbox1 ">
+                                                <label class="form-check-label " for="inlineCheckbox1 ">Por Día</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <h5>Alcoholismo</h5>
+                                            <p>¿Cuántas Copas?</p>
+                                            <div class="form-check form-check-inline ">
+                                                <input class="form-check-input " type="number " id="inlineCheckbox1 ">
+                                                <label class="form-check-label " for="inlineCheckbox1 ">Por Semana</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-row ">
+                                            <div class="form-group col-md6 ">
+                                                <div class="form-check form-check-inline ">
+                                                    <label for=" ">Alergias: </label>
+                                                    <input class="form-check-input " type="radio " name="inlineRadioOptions " id="inlineRadio1 " value="option1 ">
+                                                    <label class="form-check-label " for="inlineRadio1 ">Si</label>
+                                                    <input class="form-check-input " type="radio " name="inlineRadioOptions " id="inlineRadio1 " value="option2 ">
+                                                    <label class="form-check-label " for="inlineRadio1 ">No</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row ">
+                                            <div class="form-group col-md6 ">
+                                                <div class="form-check form-check-inline ">
+                                                    <label for=" ">Tipo: </label>
+                                                    <input type="text " class="form-control antecedentes-inputs ">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row ">
+                                            <div class="form-group col-md6 ">
+                                                <div class="form-check form-check-inline ">
+                                                    <label for=" ">Alimentación adecuada: </label>
+                                                    <input class="form-check-input " type="radio " name="inlineRadioOptions " id="inlineRadio1 " value="option1 ">
+                                                    <label class="form-check-label " for="inlineRadio1 ">Si</label>
+                                                    <input class="form-check-input " type="radio " name="inlineRadioOptions " id="inlineRadio1 " value="option2 ">
+                                                    <label class="form-check-label " for="inlineRadio1 ">No</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col ">
+                                        <div class="form-row ">
+                                            <div class="form-check form-check-inline ">
+                                                <label class="form-check-label " for="inlineCheckbox1 ">Años de Consumo: </label>
+                                                <input class="form-check-input " type="number " id="inlineCheckbox1 ">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-row ">
+                                            <div class="form-check form-check-inline ">
+                                                <label class="form-check-label " for="inlineCheckbox1 ">Años de Consumo: </label>
+                                                <input class="form-check-input " type="number " id="inlineCheckbox1 ">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-row ">
+                                            <div class="form-group col-md6 ">
+                                                <div class="form-check form-check-inline ">
+                                                    <label for=" ">Tipo Sanguineo: </label>
+                                                    <input type="text " class="form-control antecedentes-inputs ">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row ">
+                                            <div class="form-group col-md6 ">
+                                                <div class="form-check form-check-inline ">
+                                                    <label for=" ">Se desconoce: </label>
+                                                    <input class="form-check-input " type="radio " name="inlineRadioOptions " id="inlineRadio1 " value="option1 ">
+                                                    <label class="form-check-label " for="inlineRadio1 ">Si</label>
+                                                    <input class="form-check-input " type="radio " name="inlineRadioOptions " id="inlineRadio1 " value="option2 ">
+                                                    <label class="form-check-label " for="inlineRadio1 ">No</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row ">
+                                            <div class="form-group col-md6 ">
+                                                <div class="form-check form-check-inline ">
+                                                    <label for=" ">Vivienda Servicios Básicos: </label>
+                                                    <input class="form-check-input " type="radio " name="inlineRadioOptions " id="inlineRadio1 " value="option1 ">
+                                                    <label class="form-check-label " for="inlineRadio1 ">Si</label>
+                                                    <input class="form-check-input " type="radio " name="inlineRadioOptions " id="inlineRadio1 " value="option2 ">
+                                                    <label class="form-check-label " for="inlineRadio1 ">No</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col ">
+                                        <div class="form-row ">
+                                            <div class="form-group col-md6 ">
+                                                <div class="form-check form-check-inline ">
+                                                    <label for=" ">Exfumador o Tabaquismo pasivo: </label>
+                                                    <input type="text " class="form-control antecedentes-inputs ">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row ">
+                                            <div class="form-group col-md6 ">
+                                                <div class="form-check form-check-inline ">
+                                                    <label for=" ">Alcoholico Y/U ocacional: </label>
+                                                    <input type="text " class="form-control antecedentes-inputs ">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row ">
+                                            <div class="form-group col-md6 ">
+                                                <div class="form-check form-check-inline ">
+                                                    <label for=" ">Drogadicto Tipo: </label>
+                                                    <input type="text " class="form-control antecedentes-inputs ">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row ">
+                                            <div class="form-check form-check-inline ">
+                                                <label class="form-check-label " for="inlineCheckbox1 ">Años de Consumo: </label>
+                                                <input class="form-check-input " type="number " id="inlineCheckbox1 ">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-row ">
+                                            <div class="form-group col-md6 ">
+                                                <div class="form-check form-check-inline ">
+                                                    <label for=" ">Exdrogadicto: </label>
+                                                    <input type="text " class="form-control antecedentes-inputs ">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group ">
+                                    <label for="inputAddress ">Otros:</label>
+                                    <input type="text " class="form-control " id="otros " placeholder=" ">
+                                </div>
+
+                            </div>
+
+                        </form>
+                    </div>
+                    <!-- Fin Antecedentes Personales No Patologicos -->
+
+                    <!-- Inicio A. P. Patologicos -->
+                    <div class="tab-pane" id="personalPatologico">
+                        <form #fPersonalesPatologico>
+                            <div class="form-row ">
+                                <div class="col ">
+                                    <div class="form-row ">
+                                        <div class="form-group col-md6 ">
+                                            <div class="form-check form-check-inline ">
+                                                <label for=" ">Enfermedades de la Infancia: </label>
+                                                <input type="text " class="form-control ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row ">
+                                        <div class="form-group col-md6 ">
+                                            <div class="form-check form-check-inline ">
+                                                <label for=" ">Hospitalizaciones previas: </label>
+                                                <input class="form-check-input " type="radio " name="inlineRadioOptions " id="inlineRadio1 " value="option1 ">
+                                                <label class="form-check-label " for="inlineRadio1 ">Si</label>
+                                                <input class="form-check-input " type="radio " name="inlineRadioOptions " id="inlineRadio1 " value="option2 ">
+                                                <label class="form-check-label " for="inlineRadio1 ">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row ">
+                                        <div class="form-group col-md6 ">
+                                            <div class="form-check form-check-inline ">
+                                                <label for=" ">Antecedentes Quirurgicos: </label>
+                                                <input class="form-check-input " type="radio " name="inlineRadioOptions " id="inlineRadio1 " value="option1 ">
+                                                <label class="form-check-label " for="inlineRadio1 ">Si</label>
+                                                <input class="form-check-input " type="radio " name="inlineRadioOptions " id="inlineRadio1 " value="option2 ">
+                                                <label class="form-check-label " for="inlineRadio1 ">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row ">
+                                        <div class="form-group col-md6 ">
+                                            <div class="form-check form-check-inline ">
+                                                <label for=" ">Transfuciones Previas: </label>
+                                                <input class="form-check-input " type="radio " name="inlineRadioOptions " id="inlineRadio1 " value="option1 ">
+                                                <label class="form-check-label " for="inlineRadio1 ">Si</label>
+                                                <input class="form-check-input " type="radio " name="inlineRadioOptions " id="inlineRadio1 " value="option2 ">
+                                                <label class="form-check-label " for="inlineRadio1 ">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row ">
+                                        <div class="form-group col-md6 ">
+                                            <div class="form-check form-check-inline ">
+                                                <label for=" ">Fracturas: </label>
+                                                <input class="form-check-input " type="radio " name="inlineRadioOptions " id="inlineRadio1 " value="option1 ">
+                                                <label class="form-check-label " for="inlineRadio1 ">Si</label>
+                                                <input class="form-check-input " type="radio " name="inlineRadioOptions " id="inlineRadio1 " value="option2 ">
+                                                <label class="form-check-label " for="inlineRadio1 ">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row ">
+                                        <div class="form-group col-md6 ">
+                                            <div class="form-check form-check-inline ">
+                                                <label for=" ">Otras Enfermedades: </label>
+                                                <input class="form-check-input " type="radio " name="inlineRadioOptions " id="inlineRadio1 " value="option1 ">
+                                                <label class="form-check-label " for="inlineRadio1 ">Si</label>
+                                                <input class="form-check-input " type="radio " name="inlineRadioOptions " id="inlineRadio1 " value="option2 ">
+                                                <label class="form-check-label " for="inlineRadio1 ">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row ">
+                                        <div class="form-group col-md6 ">
+                                            <div class="form-check form-check-inline ">
+                                                <label for=" ">Medicamentos Actuales: </label>
+                                                <input class="form-check-input " type="radio " name="inlineRadioOptions " id="inlineRadio1 " value="option1 ">
+                                                <label class="form-check-label " for="inlineRadio1 ">Si</label>
+                                                <input class="form-check-input " type="radio " name="inlineRadioOptions " id="inlineRadio1 " value="option2 ">
+                                                <label class="form-check-label " for="inlineRadio1 ">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row ">
+                                        <div class="form-group col-md6 ">
+                                            <div class="form-check form-check-inline ">
+                                                <label for=" ">Accidentes/Traumatismo: </label>
+                                                <input class="form-check-input " type="radio " name="inlineRadioOptions " id="inlineRadio1 " value="option1 ">
+                                                <label class="form-check-label " for="inlineRadio1 ">Si</label>
+                                                <input class="form-check-input " type="radio " name="inlineRadioOptions " id="inlineRadio1 " value="option2 ">
+                                                <label class="form-check-label " for="inlineRadio1 ">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col ">
+                                    <div class="form-row ">
+                                        <div class="form-group col-md6 ">
+                                            <div class="form-check form-check-inline ">
+                                                <label for=" ">Secuelas: </label>
+                                                <input type="text " class="form-control ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row ">
+                                        <div class="form-group col-md6 ">
+                                            <div class="form-check form-check-inline ">
+                                                <label for=" ">Especificaciones: </label>
+                                                <input type="text " class="form-control ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row ">
+                                        <div class="form-group col-md6 ">
+                                            <div class="form-check form-check-inline ">
+                                                <label for=" ">Especificaciones: </label>
+                                                <input type="text " class="form-control ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row ">
+                                        <div class="form-group col-md6 ">
+                                            <div class="form-check form-check-inline ">
+                                                <label for=" ">Especificaciones: </label>
+                                                <input type="text " class="form-control ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row ">
+                                        <div class="form-group col-md6 ">
+                                            <div class="form-check form-check-inline ">
+                                                <label for=" ">Especificaciones: </label>
+                                                <input type="text " class="form-control ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row ">
+                                        <div class="form-group col-md6 ">
+                                            <div class="form-check form-check-inline ">
+                                                <label for=" ">Especificaciones: </label>
+                                                <input type="text " class="form-control ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row ">
+                                        <div class="form-group col-md6 ">
+                                            <div class="form-check form-check-inline ">
+                                                <label for=" ">Especificaciones: </label>
+                                                <input type="text " class="form-control ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row ">
+                                        <div class="form-group col-md6 ">
+                                            <div class="form-check form-check-inline ">
+                                                <label for=" ">Especificaciones: </label>
+                                                <input type="text " class="form-control ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Fin A. P. Patologicos -->
+
+                    <!-- Inicio Gineco Obstetricos -->
+                    <div class="tab-pane" id="ginecoObs">
+                        <form #fGinecoObs>
+                            <div class="form-row card">
+                                <div class="col ">
+                                    <div class="form-group ">
+                                        <p>Menarca: </p>
+                                        <div class="form-check form-check-inline ">
+                                            <input class="form-check-input " type="number " id="inlineCheckbox1 ">
+                                            <label class="form-check-label " for="inlineCheckbox1 ">Años de Edad</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-row ">
+                                        <div class="form-group col-md6 ">
+                                            <div class="form-check form-check-inline ">
+                                                <label for=" ">Fecha Ultima Menstruación: </label>
+                                                <input type="date " class="form-control ">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row ">
+                                        <div class="form-group col-md6 ">
+                                            <div class="form-check form-check-inline ">
+                                                <label for=" ">Dismenorrea (Incapacitante): </label>
+                                                <input class="form-check-input " type="radio " name="inlineRadioOptions " id="inlineRadio1 " value="option1 ">
+                                                <label class="form-check-label " for="inlineRadio1 ">Si</label>
+                                                <input class="form-check-input " type="radio " name="inlineRadioOptions " id="inlineRadio1 " value="option2 ">
+                                                <label class="form-check-label " for="inlineRadio1 ">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row ">
+                                        <div class="form-group col-md6 ">
+                                            <div class="form-check form-check-inline ">
+                                                <h5>G_______P_______A_______C________</h5>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col ">
+                                    <div class="form-row ">
+                                        <div class="form-group col-md6 ">
+                                            <div class="form-check form-check-inline ">
+                                                <label for=" ">Ciclos Regulares: </label>
+                                                <input class="form-check-input " type="radio " name="inlineRadioOptions " id="inlineRadio1 " value="option1 ">
+                                                <label class="form-check-label " for="inlineRadio1 ">Si</label>
+                                                <input class="form-check-input " type="radio " name="inlineRadioOptions " id="inlineRadio1 " value="option2 ">
+                                                <label class="form-check-label " for="inlineRadio1 ">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row ">
+                                        <div class="form-group col-md6 ">
+                                            <div class="form-check form-check-inline ">
+                                                <label for=" ">Polimenorrea: </label>
+                                                <input class="form-check-input " type="radio " name="inlineRadioOptions " id="inlineRadio1 " value="option1 ">
+                                                <label class="form-check-label " for="inlineRadio1 ">Si</label>
+                                                <input class="form-check-input " type="radio " name="inlineRadioOptions " id="inlineRadio1 " value="option2 ">
+                                                <label class="form-check-label " for="inlineRadio1 ">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row ">
+                                        <div class="form-group col-md6 ">
+                                            <label for=" ">IVSA:</label>
+                                            <div class="form-check form-check-inline ">
+                                                <input class="form-check-input " type="number " id="inlineCheckbox1 ">
+                                                <label class="form-check-label " for="inlineCheckbox1 ">Años</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row ">
+                                        <div class="form-group col-md6 ">
+                                            <div class="form-check form-check-inline ">
+                                                <label for=" ">Fecha Ultima citologia (PAP): </label>
+                                                <input type="date " class="form-control ">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col ">
+                                    <div class="form-row ">
+                                        <div class="form-group col-md6 ">
+                                            <div class="form-check form-check-inline ">
+                                                <label for=" ">Ritmo: </label>
+                                                <input type="text " class="form-control ">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row ">
+                                        <div class="form-group col-md6 ">
+                                            <div class="form-check form-check-inline ">
+                                                <label for=" ">Hipermenorrea: </label>
+                                                <input class="form-check-input " type="radio " name="inlineRadioOptions " id="inlineRadio1 " value="option1 ">
+                                                <label class="form-check-label " for="inlineRadio1 ">Si</label>
+                                                <input class="form-check-input " type="radio " name="inlineRadioOptions " id="inlineRadio1 " value="option2 ">
+                                                <label class="form-check-label " for="inlineRadio1 ">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row ">
+                                        <div class="form-group col-md6 ">
+                                            <label for=" ">No. Parejas Sexuales:</label>
+                                            <div class="form-check form-check-inline ">
+                                                <input class="form-check-input " type="number " id="inlineCheckbox1 ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row ">
+                                        <div class="form-group col-md6 ">
+                                            <div class="form-check form-check-inline ">
+                                                <label for=" ">Resultado: </label>
+                                                <input type="text " class="form-control ">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Fin Gineco Obstetricos -->
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <!-- Fin del Stepper de Historia Clínica -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Interrogación por aparatos y sistemas</button>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exploracionFisicaModal" data-whatever="@mdo">Exploración fisica</button>
 
