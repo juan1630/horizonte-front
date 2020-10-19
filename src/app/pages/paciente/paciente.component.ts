@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalServiceService } from 'src/app/components/modal/modal-service.service';
 import { ModalServicioIntService } from 'src/app/components/modal/modal-servicios-int/modal-servicio-int.service';
 import { PacienteService } from 'src/app/services/paciente/paciente.service';
-import { NgForm, ReactiveFormsModule } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -18,6 +18,7 @@ export class PacienteComponent implements OnInit {
   public totalpaciente: string;
   public pagina : number = 0;
   filtropacientes = '';
+
   constructor( public modalService: ModalServiceService,
               public _pacienteService: PacienteService,
               public _modalservicioInt: ModalServicioIntService,
