@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalServiceService } from 'src/app/components/modal/modal-service.service';
 import { ModalServicioIntService } from 'src/app/components/modal/modal-servicios-int/modal-servicio-int.service';
 import { PacienteService } from 'src/app/services/paciente/paciente.service';
-import { NgForm, ReactiveFormsModule } from '@angular/forms';
-//import { PacientesPipe } from 'src/app/pipes/pacientes.pipe';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -19,6 +18,7 @@ export class PacienteComponent implements OnInit {
   public totalpaciente: string;
   public pagina : number = 0;
   filtropacientes = '';
+
   constructor( public modalService: ModalServiceService,
               public _pacienteService: PacienteService,
               public _modalservicioInt: ModalServicioIntService,
@@ -26,16 +26,29 @@ export class PacienteComponent implements OnInit {
               ) { }
 
   ngOnInit() {
-    // console.log('Inicio del paciente ');
+
+    this.obtenerPacientes();
+
+  }
+
+
+
+  obtenerPacientes() {
+
     this._pacienteService.getPacientes( this.pagina )
     .subscribe( (data: any) => {
       console.log( data );
+      if( data['message']   === 'No hay pacientes' ) {
+
+        alert('Aun no hay pacientes')
+        return;
+      }
        this.pacientes2 = data.users;
        this.totalpaciente = data.users.results;
+    });
 
-
-    })
   }
+
 
   // verModal(){
   //   console.log('Abrir modal')

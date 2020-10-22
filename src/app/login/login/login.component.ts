@@ -14,7 +14,7 @@ import swal from 'sweetAlert';
 })
 export class LoginComponent implements OnInit {
 
-  constructor( 
+  constructor(
         public _loginService: LoginService,
         private router: Router
    ) { }
@@ -39,40 +39,12 @@ export class LoginComponent implements OnInit {
     this._loginService.login( personal )
     .subscribe( (correcto: any)=> {
 
+      console.log(  correcto  );
 
-
-    //  swal({
-    //    title: 'Selecciona un role',
-    //     input: 'select',
-    //     inputOptions: {
-    //       'Fruits': {
-    //         apples: 'Apples',
-    //         bananas: 'Bananas',
-    //         grapes: 'Grapes',
-    //         oranges: 'Oranges'
-    //       },
-    //     inputPlaceholder: 'Selecciona el role',
-    //     showCancelButton: true,
-    //     inputValidator: (value) => {
-    //       return new Promise((resolve) => {
-    //         if (value === 'oranges') {
-    //           resolve()
-    //         } else {
-    //           resolve('You need to select oranges :)')
-    //         }
-    //       })
-    //     }
-    //   }
-    // });
-      
-      // if (fruit) {
-      //   swal.fire(`You selected: ${fruit}`)
-      // }
- 
       this.router.navigate(['/dashboard'])
 
 
-    }) 
+    })
 
   }
 

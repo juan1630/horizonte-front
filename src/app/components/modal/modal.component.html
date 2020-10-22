@@ -1,4 +1,4 @@
-<div class="fondo-negro" [ngClass]="_modalService.ocultar">
+<!-- <div class="fondo-negro" [ngClass]="_modalService.ocultar">
 
     <div class="modal" style="display:block; overflow: scroll" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -60,12 +60,10 @@
 
                                             <input type="number" min="0" name="edad" class="form-control"  placeholder="Edad">
 
-                                            <!-- Aca va el de los paises -->
                                             <select class="form-control" name="paisNac">
                                             <option  selected disabled > País de nacimiento </option>
                                             <option value="{{ pais.name }}"  *ngFor="let pais of paises">{{ pais.name }}</option>
                                         </select>
-                                            <!-- los paises se repiten -->
 
                                         </div>
                                     </div>
@@ -109,7 +107,6 @@
                                         </div>
                                     </div>
 
-                                    <!-- Cierre de los datos personales -->
 
 
                                 </div>
@@ -122,7 +119,6 @@
                                     <div class="col-md-4">
 
                                         <div class="form-group">
-                                            <!-- Codigo postal -->
                                             <input type="text" #codigo name="cpPaciente" (change)="getUbicacion( codigo.value )"  class="form-control" placeholder="Código postal">
                                             <input type="text" name="paisPaciente" class="form-control" placeholder="País"  value="{{pais}}">
                                             <input type="text" name="municipio" class="form-control" placeholder="Municipio"  value="{{ municipio }}">
@@ -152,63 +148,15 @@
                                     <div class="col-12">
                                         <div id="mymap" class="map"> </div>
                                     </div>
-                                    <!-- Mapa -->
                                 </div>
-                                <!-- Tab direccion -->
+
                             </div>
 
 
 
                             <div class="tab-pane fade" id="fiscales" role="tabpanel" aria-labelledby="fiscales-tab">
 
-                                <!-- <h2>Fiscales</h2>
-                                <div class="row fiscales-row">
 
-                                    <app-fiscales *ngFor="let item of razonesSociales"></app-fiscales>
-
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <input type="text" placeholder="Nombre o razón social" class="form-control" name="nombreRazonSocial" >
-                                            <input type="text" placeholder="Entidad federativa" value="{{ estadoFiscal }}" class="form-control"  name="entidadFederativa">
-                                            <select class="form-control" name="poblacion" placeholder="Lugar">
-                                              <option value="{{ localidad }}" *ngFor="let localidad of localidades">
-                                                  {{tipoAsentamiento}} - {{ localidad }} </option>
-                                          </select>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <input type="text"  name="RFCFiscal" class="form-control" placeholder="RFC">
-                                            <input type="text"  placeholder="Municipio" value="{{ municipioFiscal }}" class="form-control" name="municipioFiscal">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <input type="number"  #codigo (change)="getUbicacion( codigo.value )" placeholder="Código postal" min="0" class="form-control" name="cpFiscal">
-
-                                            <input type="text"  placeholder="Localidad" value="{{ municipioFiscal }}" class="form-control" name="localidadFiscal">
-
-                                            <input type="mail" placeholder="Correo electrónico"  class="form-control fiscal-mail" name="emailFiscal">
-
-                                        </div>
-                                    </div>
-                                </div> -->
-
-                                <!-- <div class="row">
-                                    <div class="col-md-2 offset-md-8">
-                                        <div class=" btn-danger btn-circle" (click)="quitarElementos()">
-                                            <i class="fas fa-minus"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-
-                                        <div class=" btn-info btn-circle" (click)="agregarCampos()" *ngIf="_idfiscales !== 3">
-                                            <i class="fas fa-plus"></i>
-                                        </div>
-
-                                    </div>
-                                </div> -->
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -224,4 +172,4 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> -->

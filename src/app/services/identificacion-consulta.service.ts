@@ -13,11 +13,18 @@ export class IdentificacionConsultaService {
   agregarConsulta( body ){
 
 
-    let url = `http://localhost:3200/consultas/general/identificacion`;
+    let url = `https://sleepy-tor-20835.herokuapp.com/consultas/general/identificacion`;
 
 
     return this._http.post(url, body);
+  }
 
+
+  verConsultaIdentificacion(){
+
+    let url = `https://sleepy-tor-20835.herokuapp.com/ver/consultas/identificacion`;
+
+    return this._http.get(  url );
 
   }
 

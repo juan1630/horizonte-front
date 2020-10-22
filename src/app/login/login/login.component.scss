@@ -1,20 +1,21 @@
-
-.text-login{
-  color: #001672;
-  font-size: 35px;
+.text-login {
+    color: #001672;
+    font-size: 35px;
 }
-.cuadros{
-  background-image: url('../../../assets/images/CUADROS.svg');
+
+.cuadros {
+    background-image: url('../../../assets/images/CUADROS.svg');
 }
 
 input[type="text"],
 input[type="password"],
-input[type="submit"]{
-  font-weight: 500;
-  font-size: 1.8rem;
-  border-radius: 15 !important;
-  // box-shadow: 0.1rem 0.1rem 0.4rem 0.1rem !important;
+input[type="submit"] {
+    font-weight: 500;
+    font-size: 1.8rem;
+    border-radius: 15 !important;
+    // box-shadow: 0.1rem 0.1rem 0.4rem 0.1rem !important;
 }
+
 
 /* #img-fluid{
   position: fixed;
@@ -24,6 +25,8 @@ input[type="submit"]{
   transform: rotate(-90deg);
 
 } */
+
+
 /* #img-fluid-2{
   position: fixed;
   top:68.3%;
@@ -32,14 +35,16 @@ input[type="submit"]{
   transform: rotate(-360deg) scaleX(-1);
 
 } */
-.h2{
-  color: #001672;
-  text-align: center;
+
+.h2 {
+    color: #001672;
+    text-align: center;
 }
-.h4{
-  font-weight: 650;
-  font-size: 2.6rem;
-  text-align: center !important
+
+.h4 {
+    font-weight: 650;
+    font-size: 2.6rem;
+    text-align: center !important
 }
 
 // Cambiar por arial black
@@ -53,177 +58,180 @@ input[type="submit"]{
     animation-duration: 1s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
-  }
+}
 
 @-webkit-keyframes fadeIn {
     from {
-      opacity: 0;
+        opacity: 0;
     }
-
     to {
-      opacity: 1;
+        opacity: 1;
     }
-  }
+}
 
-  @keyframes fadeIn {
+@keyframes fadeIn {
     from {
-      opacity: 0;
+        opacity: 0;
     }
-
     to {
-      opacity: 1;
+        opacity: 1;
     }
-  }
+}
 
-  .fadeIn {
+.fadeIn {
     -webkit-animation-name: fadeIn;
     animation-name: fadeIn;
-  }
-  @media(max-width:575px){
-    #card2{
-      height: 83%;
+}
+
+@media(max-width:575px) {
+    #card2 {
+        height: 83%;
     }
-    #logo{
-      display: none;
+    #logo {
+        display: none;
     }
-    #img-fluid{
-      display: block;
-      margin-left: auto;
-      max-width: 50px;
-      transform: rotate(-90deg);
+    #img-fluid {
+        display: block;
+        margin-left: auto;
+        max-width: 50px;
+        transform: rotate(-90deg);
     }
     #container {
-      margin: 1em;
+        margin: 1em;
     }
-    #img-fluid-2{
-      display: block;
-      max-width: 50px;
-      margin-top: auto;
-      transform: rotate(-360deg) scaleX(-1);
+    #img-fluid-2 {
+        display: block;
+        max-width: 50px;
+        margin-top: auto;
+        transform: rotate(-360deg) scaleX(-1);
     }
-    #title{
-      font-weight: 650;
-      font-size: 1.2em;
-      text-align: center !important
+    #title {
+        font-weight: 650;
+        font-size: 1.2em;
+        text-align: center !important
     }
-    #login{
-      font-size: 1em;
+    #login {
+        font-size: 1em;
     }
     input[type="text"],
     input[type="password"],
-    input[type="submit"]{
-      font-weight: 500;
-      font-size: 1em;
-      border-radius: 15 !important;
-      // box-shadow: 0.1rem 0.1rem 0.4rem 0.1rem !important;
+    input[type="submit"] {
+        font-weight: 500;
+        font-size: 1em;
+        border-radius: 15 !important;
+        // box-shadow: 0.1rem 0.1rem 0.4rem 0.1rem !important;
     }
-  }
-  @media (min-width: 576px) and (max-width:767px){
-    #card2{
-      height: 84%;
+}
+
+@media (min-width: 576px) and (max-width:767px) {
+    #card2 {
+        height: 84%;
     }
-    #logo{
-      display: block;
-      width: auto;
-      margin-top: 7em;
-      padding: 3em;
+    #logo {
+        display: block;
+        width: auto;
+        margin-top: 7em;
+        padding: 3em;
     }
-    #img-fluid{
-      display: block;
-      margin-left: auto;
-      max-width: 50px;
-      transform: rotate(-90deg);
+    #img-fluid {
+        display: block;
+        margin-left: auto;
+        max-width: 50px;
+        transform: rotate(-90deg);
     }
     #container {
-      margin: 1em;
+        margin: 1em;
     }
-    #login{
-      font-size: 15px;
+    #login {
+        font-size: 15px;
     }
-    #img-fluid-2{
-      display: block;
-      max-width: 50px;
-      margin-top: auto;
-      transform: rotate(-360deg) scaleX(-1);
+    #img-fluid-2 {
+        display: block;
+        max-width: 50px;
+        margin-top: auto;
+        transform: rotate(-360deg) scaleX(-1);
     }
-    #title{
-      font-weight: 650;
-      font-size: 1.1em;
-      text-align: center !important
+    #title {
+        font-weight: 650;
+        font-size: 1.1em;
+        text-align: center !important
     }
     input[type="text"],
-input[type="password"],
-input[type="submit"]{
-  font-weight: 500;
-  font-size: 1em;
-  border-radius: 15 !important;
-  padding: 1em 1em !important;
-  // box-shadow: 0.1rem 0.1rem 0.4rem 0.1rem !important;
+    input[type="password"],
+    input[type="submit"] {
+        font-weight: 500;
+        font-size: 1em;
+        border-radius: 15 !important;
+        padding: 1em 1em !important;
+        // box-shadow: 0.1rem 0.1rem 0.4rem 0.1rem !important;
+    }
 }
-  }
-  @media (min-width: 768px) and (max-width:991px){
-    #card2{
-      height: 85%;
-      //width: 57em;
+
+@media (min-width: 768px) and (max-width:991px) {
+    #card2 {
+        height: 85%;
+        //width: 57em;
     }
-    #logo{
-      display: block;
-      margin-top: 50%;
+    #logo {
+        display: block;
+        margin-top: 50%;
     }
-    #img-fluid{
-      display: block;
-      margin-left: auto;
-      max-width: 50px;
-      transform: rotate(-90deg);
+    #img-fluid {
+        display: block;
+        margin-left: auto;
+        max-width: 50px;
+        transform: rotate(-90deg);
     }
     #container {
-      margin: 1em;
+        margin: 1em;
     }
-    #img-fluid-2{
-      display: block;
-      max-width: 50px;
-      transform: rotate(-360deg) scaleX(-1);
+    #img-fluid-2 {
+        display: block;
+        max-width: 50px;
+        transform: rotate(-360deg) scaleX(-1);
     }
-    #title{
+    #title {
         font-weight: 650;
         font-size: 1.8rem;
         text-align: center !important
-    } 
-    #login{
-      font-size: 25px;
     }
-  }
-  @media (min-width: 992px) and (max-width:1199px){
-    #img-fluid{
-      display: block;
-      margin-left: auto;
-      max-width: 50px;
-      transform: rotate(-90deg);
+    #login {
+        font-size: 25px;
     }
-    #img-fluid-2{
-      display: block;
-      max-width: 50px;
-      transform: rotate(-360deg) scaleX(-1);
+}
+
+@media (min-width: 992px) and (max-width:1199px) {
+    #img-fluid {
+        display: block;
+        margin-left: auto;
+        max-width: 50px;
+        transform: rotate(-90deg);
     }
-    #logo{
-      display: block;
-      margin-top: 40%;
+    #img-fluid-2 {
+        display: block;
+        max-width: 50px;
+        transform: rotate(-360deg) scaleX(-1);
     }
-  }
-  @media (min-width: 1200px){
-    #img-fluid{
-      display: block;
-      margin-left: auto;
-      max-width: 50px;
-      transform: rotate(-90deg);
+    #logo {
+        display: block;
+        margin-top: 40%;
     }
-    #img-fluid-2{
-      display: block;
-      max-width: 50px;
-      transform: rotate(-360deg) scaleX(-1);
+}
+
+@media (min-width: 1200px) {
+    #img-fluid {
+        display: block;
+        margin-left: auto;
+        max-width: 50px;
+        transform: rotate(-90deg);
     }
-    #logo{
-      display: block;
-      margin-top: 20%;
+    #img-fluid-2 {
+        display: block;
+        max-width: 50px;
+        transform: rotate(-360deg) scaleX(-1);
     }
-  }
+    #logo {
+        display: block;
+        margin-top: 20%;
+    }
+}

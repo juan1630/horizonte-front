@@ -11,8 +11,16 @@ label {
     color: var(--principal-text);
 }
 
+.sin-paquetes {
+    padding-bottom: 2rem;
+}
+
 .card {
     padding-top: 1rem;
+}
+
+.padding-auto {
+    padding: auto;
 }
 
 .alert-light p {

@@ -7,11 +7,7 @@ import { Color, BaseChartDirective, Label } from 'ng2-charts';
 import { ChartDataSets, ChartOptions } from 'chart.js';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
-
 import swal from "sweetAlert";
-// import { threadId } from 'worker_threads';
-
-
 
 @Component({
   selector: 'app-fe09',
@@ -21,11 +17,12 @@ import swal from "sweetAlert";
 })
 export class FE09Component implements OnInit {
 
-  public imc: number;
-  public talla: number;
-  public peso: number;
+  public imc: number = 0;
+  public talla: number =0;
+  public peso: number=0;
   public tallaL: number;
   public pesoL: number;
+  public antecedentesBtn = false;
 
   public listaEspera = [];
   public listaPacientesAtendidos = [];
@@ -44,19 +41,201 @@ export class FE09Component implements OnInit {
     nombre: '',
     apellidoPaterno: '',
     apellidoMaterno: '',
-    domicilio: '',
     estadoPaciente: '',
     fechaNacimiento: '',
     telefono: '',
     edad: 0,
-    sexo: ''
+    genero: '',
+    curp:'',
+    callePaciente:'',
+    cpPaciente:'',
+    paisPaciente:'',
+    idPaciente:''
+  }
+
+  // Este arreglo contiene  los signos vitales de las consultas anteriores
+  public historialSginos :any[];
+
+
+  public signosVitales= {
+      talla:  0,
+      peso:  0 ,
+      imc: 0,
+      lpm: "",
+      rpm: "",
+      temp: "",
+      pc:    "",
+      pa:"",
+      pt:"",
+      apgar: "",
+      SaO: "",
+      pao:"",
+      glucosa:""
+  }
+
+  public esquemaVacuncaion = {
+    tuberculosisNinoDosis:"",
+    tuberculosisNinoFechaUno:"",
+    tuberculosisNinoFechaDos:"",
+    tuberculosisNinoFechaTres:"",
+    tuberculosisNinoFechaCuatro:"",
+    tuberculosisNinoFechaUltima:"",
+    hepatitisNinoDosis:"",
+    hepatitisNinoFechaUno:"",
+    hepatitisNinoFechaDos:"",
+    hepatitisNinoFechaTres:"",
+    hepatitisNinoFechaCuatro:"",
+    hepatitisNinoFechaUltima:"",
+    pentavalenteNinoDosis:"",
+    pentavalenteNinoFechaUno:"",
+    pentavalenteNinoFechaDos:"",
+    pentavalenteNinoFechaTres:"",
+    pentavalenteNinoFechaCuatro:"",
+    pentavalenteNinoFechaUltima:"",
+    dptNinoDosis:"",
+    dptNinoFechaUno:"",
+    dptNinoFechaDos:"",
+    dptNinoFechaTres:"",
+    dptNinoFechaCuatro:"",
+    dptNinoFechaUltima:"",
+    rotavirusNinoDosis:"",
+    rotavirusNinoFechaUno:"",
+    rotavirusNinoFechaDos:"",
+    rotavirusNinoFechaTres:"",
+    rotavirusNinoFechaCuatro:"",
+    rotavirusNinoFechaUltima:"",
+    neumococoNinoDosis:"",
+    neumococoNinoFechaUno:"",
+    neumococoNinoFechaDos:"",
+    neumococoNinoFechaTres:"",
+    neumococoNinoFechaCuatro:"",
+    neumococoNinoFechaUltima:"",
+    influenzaNinoDosis:"",
+    influenzaNinoFechaUno:"",
+    influenzaNinoFechaDos:"",
+    influenzaNinoFechaTres:"",
+    influenzaNinoFechaCuatro:"",
+    influenzaNinoFechaUltima:"",
+    sprNinoDosis:"",
+    sprNinoFechaUno:"",
+    sprNinoFechaDos:"",
+    sprNinoFechaTres:"",
+    sprNinoFechaCuatro:"",
+    sprNinoFechaUltima:"",
+    sabinNinoDosis:"",
+    sabinNinoFechaUno:"",
+    sabinNinoFechaDos:"",
+    sabinNinoFechaTres:"",
+    sabinNinoFechaCuatro:"",
+    sabinNinoFechaUltima:"",
+    srNinoDosis:"",
+    srNinoFechaUno:"",
+    srNinoFechaDos:"",
+    srNinoFechaTres:"",
+    srNinoFechaCuatro:"",
+    srNinoFechaUltima:"",
+    otrasVacunasNinoDosis:"",
+    otrasVacunasNinoFechaUno:"",
+    otrasVacunasNinoFechaDos:"",
+    otrasVacunasNinoFechaTres:"",
+    otrasVacunasNinoFechaCuatro:"",
+    otrasVacunasNinoFechaUltima:"",
+    alergia:""
   }
 
   public pacienteHistorial = [{
-  }];
+}];
+
+  public antecedentes = {
+    enfermedadesPielPersonal: '',
+    enfermedadesPielFecha: '',
+    enfermedadesPielFamiliares: '',
+    enfermedadesPielNotas: '',
+    desnutricionPersonal: '',
+    desnutricionFecha: '',
+    desnutricionFamiliares: '',
+    desnutricionNotas: '',
+    obesidadPersonal: '',
+    obesidadFecha: '',
+    obesidadFamiliares: '',
+    obesidadNotas: '',
+    defectosPostularesPersonal: '',
+    defectosPostularesFecha: '',
+    defectosPostularesFamiliares: '',
+    defectosPostularesNotas: '',
+    fracturasPersonal: '',
+    fracturasFecha: '',
+    fracturasFamiliares: '',
+    fracturasNotas: '',
+    hospitalizacionesPersonal: '',
+    hospitalizacionesFecha: '',
+    hospitalizacionesFamiliares: '',
+    hospitalizacionesNotas: '',
+    transfucionesPersonal: '',
+    transfucionesFecha: '',
+    transfucionesFamiliares: '',
+    transfucionesNotas: '',
+    cardiopatiasPersonal: '',
+    cardiopatiasFecha: '',
+    cardiopatiasFamiliares: '',
+    cardiopatiasNotas: '',
+    cirugiasPersonal: '',
+    cirugiasFecha: '',
+    cirugiasFamiliares: '',
+    cirugiasNotas: '',
+    cancerLeucemiaPersonal: '',
+    cancerLeucemiaFecha: '',
+    cancerLeucemiaFamiliares: '',
+    cancerLeucemiaNotas: '',
+    alergiasPersonal: '',
+    alergiasFecha: '',
+    alergiasFamiliares: '',
+    alergiasNotas: '',
+    vihPersonal: '',
+    vihFecha: '',
+    vihFamiliares: '',
+    vihNotas: '',
+    tabaquismoFecha:"",
+    tabaquismoFamiliares:"",
+    tabaquismoNotas:"",
+    tabaquismoPersonal:"",
+    diabetesPersonal: "",
+    diabetesFecha: "",
+    diabetesFamiliares: "",
+    diabetesNotas: "",
+    tuberculosisPersonal:"",
+    tuberculosisFecha:"",
+    tuberculosisFamiliares:"",
+    tuberculosisNotas:"",
+    alcoholismoPersonal:"",
+    alcoholismoFecha:"",
+    alcoholismoFamiliares:"",
+    alcoholismoNotas:"",
+    deportesPersonal:"",
+    deportesFecha:"",
+    deportesFamiliares:"",
+    deportesNotas:"",
+    idPaciente: "",
+    otrasEnfPersonales:"",
+    otrasEnfFecha:"",
+    otrasEnfFamiliares:"",
+    otrasEnfNotas:"",
+    enfermedadesDeLosSentidosPersonales :"",
+    enfermedadesDeLosSentidosFecha :"",
+    enfermedadesSentidosFamiliares :"",
+    enfermedadesSentidosNotas :"",
+    expoLaboralPersonales:"",
+    expoLaboralFecha:"",
+    expoLaboralFamiliares:"",
+    expoLaboralNotas:"",
+    postQuirurgicoPersonales:"",
+    postQuirurgicoFecha:"",
+    postQuirurgicoFamiliares:"",
+    postQuirurgicoNotas:""
+  }
 
   ///////////////////////////////////////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////////////////////////////////////// 
+  //////////////////////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////LINEAS NIÑOS
   // Grafica Mamalona de peso
   public lineChartData: ChartDataSets[] = [
@@ -80,9 +259,9 @@ export class FE09Component implements OnInit {
     { data: [0, 0, 0, 0, 0, 0,], label: "IMC Actual"}
 
   ];
-  
+
   ///////////////////////////////////////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////////////////////////////////////// 
+  //////////////////////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////LINEAS NIñas
   public lineChartTallaNina: ChartDataSets [] = [
     { data: [.78, .86, .94, 1.01, 1.08, 1.14, 1.20, 1.24, 1.30, 1.38, 1.45, 1.48, 1.50, 1.56, 1.59, 1.61], label: 'Estatura Mínima'},
@@ -156,7 +335,10 @@ export class FE09Component implements OnInit {
       // pointHoverBackgroundColor: '#fff',
       // pointHoverBorderColor: 'rgba(148,159,177,0.8)'
     },
-    { // dark grey
+    {
+
+
+      // dark grey
       // backgroundColor: 'rgba(0,0,255,1)',
       borderColor: 'rgba(0,0,255,1)',
       pointBackgroundColor: 'rgba(0,0,255,1)',
@@ -171,8 +353,8 @@ export class FE09Component implements OnInit {
       pointBorderColor: 'green',
       // pointHoverBackgroundColor: 'green',
       // pointHoverBorderColor: 'rgba(0,255,0,0.6)'
-    }
-  ];
+    }];
+
   public lineChartLegend = true;
   public lineChartType = 'line';
   public lineChartPlugins = [];
@@ -191,107 +373,113 @@ export class FE09Component implements OnInit {
    }
 
   ngOnInit(): void {
-
-    // Leer Local Storage
-   
-    // this.listaEspera = getPacienteStorage();
-        
-
     this.historialNinos();
-
-    
-    // this.historialMujeres();
-
-    // this.historialHombres();
-
-
-
     this.obtenerPeso();
-    // console.log(this.obtenerPeso());
-    
     this.obtenerTalla();
-    // console.log(this.obtenerTalla());
-    
-
-      this.fechaPacienteHistorial = moment().format('L');
-      this.fecha = moment().format('LLL');
-    // console.log(moment());
-
+    this.fechaPacienteHistorial = moment().format('L');
     // Obtener Id del paciente
+    this.obtenerConsultaPorId();
+    this.fecha = moment().format('LLL');
     this.id = this._route.snapshot.paramMap.get('id');
+    // this.obtenerAntecedentes();
+  }
 
-    this._ObtenerPacienteService.getPacienteBtID(this.id).subscribe(
 
-      (data:any) => {
-        // console.log(data);
 
-        this.paciente.nombre = data.paciente.nombrePaciente;
-        this.paciente.apellidoPaterno = data.paciente.apellidoPaterno;
-        this.paciente.apellidoMaterno = data.paciente.apellidoMaterno;
-        this.paciente.domicilio = data.paciente.calleNumeroPaciente;
-        this.paciente.estadoPaciente = data.paciente.estadoPaciente;
-        this.paciente.fechaNacimiento = data.paciente.fechaNacimientoPaciente;
-        this.paciente.telefono = data.paciente.telefono;
-        this.paciente.edad = data.paciente.edad;
-        this.paciente.sexo = data.paciente.sexo;
+  public obtenerConsultaPorId(){
 
-        data.paciente.edad = parseFloat(data.paciente.edad);
 
-      
+    this._HistoriaClinicaService.obtenerConsultaPorElId( this.id )
+    .subscribe(  (data:any) => {
 
-      }
-    )
-    // var btnAdd = document.getElementById("btn_agregar");
+      this.paciente.nombre = data['data']['paciente']['nombrePaciente'];
+      this.paciente.apellidoMaterno = data['data']['paciente']['apellidoMaterno'];
+      this.paciente.apellidoPaterno = data['data']['paciente']['apellidoPaterno'];
+      this.paciente.genero = data['data']['paciente']['genero'];
+      this.paciente.edad = data['data']['paciente']['edad'];
+      this.paciente.fechaNacimiento = data['data']['paciente']['fechaNacimientoPaciente'];
+      this.paciente.paisPaciente = data['data']['paciente']['paisPaciente'];
+      this.paciente.estadoPaciente = data['data']['paciente']['estadoPaciente'];
+      this.paciente.callePaciente = data['data']['paciente']['callePaciente'];
+      this.paciente.curp = data['data']['paciente']['curp'];
+      this.paciente.telefono = data['data']['paciente']['telefono'];
+      this.paciente.cpPaciente = data['data']['paciente']['cpPaciente'];
+      this.paciente.idPaciente = data['data']['paciente']['_id'];
+
+      console.log(  this.paciente );
+
+    });
 
   }
+
 
   historialNinos(){
       this.pacienteHistorial = [];
       this.id = this._route.snapshot.paramMap.get('id');
+  }
 
-      this._ObtenerPacienteService.getPacienteBtID(this.id).subscribe(
 
-        (data:any) => {
-          // console.log(data);
+  setPeso(){
+    this.signosVitales.peso = this.peso;
+    this.signosVitales.talla = this.talla;
+    this.signosVitales.imc = this.imc;
+  }
 
-          for (let i = 0; data.paciente.historiaClinica.length -1 >= i ; i++){
-            // console.log(data.paciente.historiaClinica[i]);
-            
-            this.pacienteHistorial.push(data.paciente.historiaClinica[i]);
-            // console.log(this.pacienteHistorial);
-            
-          }
+
+  ageragrSignos(){
+
+
+    this.setPeso();
+
+    console.log( this.signosVitales );
+
+    this._HistoriaClinicaService.agregarSignosVitales( this.id,  this.signosVitales )
+    .subscribe(  (data:any) => {
+        // console.log(data);
+      if(  data['ok']){
+          this.obtenerConsultaPorId();
+          this.alerta('Signos vitales guardados');
+      }
+
+     });
+
+
+  }
+
+
+  obtenerAntecedentes(){
+    this.setIdpacienteAgrearAntecedentes();
+    this._HistoriaClinicaService.obtenerAntecedentesDelPaciente( this.paciente.idPaciente  )
+    .subscribe((data) => {
+      if(data['antecedente']  != undefined ){
+          this.antecedentesBtn = true;
+      }
+
     });
   }
 
-  // historialMujeres(){
-  //   this.pacienteHistorial = [];
-  //   this.id = this._route.snapshot.paramMap.get('id');
 
-  //   this._ObtenerPacienteService.getPacienteBtID(this.id).subscribe(
-  //     (data:any) => {
-        
-  //       for (let i = 0; data.paciente.historiaClinica.length -1 >= i ; i++){
+  setIdpacienteAgrearAntecedentes(){
 
-  //         this.pacienteHistorial.push(data.paciente.historiaClinica[i]);
-  //       }
-  //     }
-  //   );
-  // }
+    this.antecedentes.idPaciente = this.paciente.idPaciente;
 
-  // historialHombres(){
-  //   this.pacienteHistorial = [];
-  //   this.id = this._route.snapshot.paramMap.get('id');
+  }
 
-  //   this._ObtenerPacienteService.getPacienteBtID(this.id).subscribe(
-  //     (data:any) => {
+  agregarAntecedentes(){
 
-  //       for (let i = 0; data.paciente.historiaClinica.length -1 >= i ; i++){
-  //         this.pacienteHistorial.push(data.paciente.historiaClinica[i]);
-  //       }
-  //     }
-  //   );
-  // }
+    this.setIdpacienteAgrearAntecedentes();
+
+    console.log( this.antecedentes  );
+
+    this._HistoriaClinicaService.agregarHistoriaClinica(  this.antecedentes  )
+    .subscribe(  (data) => {
+      // console.log(data);
+      if(  data['ok'] ){
+          this.alerta('Se agregaron los antecedentes');
+      }
+    } )
+  }
+
 
   validar(){
     if(this.infPaciente.esquemaVacunacion === "si"){
@@ -303,8 +491,18 @@ export class FE09Component implements OnInit {
     }
   }
 
-  alerta(){
-    swal("Guardado", "", "success");
+  verSignosVitalesAnteriores(){
+    this._HistoriaClinicaService.obtenerHistroialSignosVitalesPaciente( this.paciente.idPaciente )
+    .subscribe( (data) => {
+      console.log(data)
+      this.historialSginos = data['data'];
+      // console.log(  this.historialSginos );
+      // this.alerta('Signos vitales guardados');
+     } );
+  }
+
+  alerta( message  ){
+    swal( `${message}`, "", "success");
   }
 
   obtenerIMC(){
@@ -333,24 +531,17 @@ export class FE09Component implements OnInit {
     this.lineChartIMC[2].data[7] = this.imc;
     // console.log(this.imc);
     // console.log(this.lineChartIMC);
-    
+
     // IMC Niña
     this.lineChartIMCNina[2].data[7] = this.imc;
-    
-
-
-
-    
     imcL.split(',', 2);
 
     let imcLn;
     imcLn = parseFloat(imcL).toFixed(2);
 
     this.imc = imcLn;
-
-    // this.imc = this.imc.;
   }
-  
+
   obtenerPeso(){
     this.peso;
     // console.log(this.peso);
@@ -362,15 +553,22 @@ export class FE09Component implements OnInit {
     // console.log(this.talla);
     this.tallaL = this.talla;
     return this.tallaL;
-    
+
   }
+
+  // validamos el formulario
  validarBtn(f) {
-  //  console.log(f);
-   
+    // console.log(f)
   if(f.invalid == false) {
     this.validate = false;
+  }else {
+    this.validate = true;
+
   }
+
  }
+
+ // metodo para imprimir el historial
 
  imprimirHistorial(){
    var doc = new jsPDF();
@@ -378,50 +576,18 @@ export class FE09Component implements OnInit {
    doc.save('Historial de:_' + this.paciente.nombre + '_Fecha_' + this.fecha + '.pdf');
  }
 
-  onSubmit(f) {
+ esquemaVacunacion() {
 
     this.pacienteHistorial = [];
-    // console.log("form Antecedentes Niños xD");
-    // console.log(f.invalid);
 
-    
-    
-
-    this._HistoriaClinicaService.agregarHistoriaClinica(this.id, f.value).subscribe( req => {
-      console.log(req);
-
-      swal("Datos Guardados con Éxito", "Se ha notificado al Doctor", "success");
-
-      this._ObtenerPacienteService.getPacienteBtID(this.id).subscribe( (req:any) => {
-        console.log(req);
-
-
-        // RESOLVER ERROR DEL -1 EN MUJERES 
-
-        for (let i = 0; req.paciente.historiaClinica.length -1 > i ; i++){
-          console.log(req.paciente.historiaClinica[i]);
-          
-          this.pacienteHistorial.push(req.paciente.historiaClinica[i]);
-          console.log(this.pacienteHistorial);
-          
-        }
-
-        this.historialNinos();
-        // this.historialMujeres();
-        // this.historialHombres();
-        // console.log(this.historialNinos());
-        
-
-      });
-      
-       
-      
-
-      // this._router.navigateByUrl('/hoja-diaria-enfermeria-general');
-
+    console.log(  this.esquemaVacuncaion );
+    this._HistoriaClinicaService.agregarEsquemaVacunacion(  this.esquemaVacuncaion )
+    .subscribe(  (data) => {
+      console.log(data);
     });
-
   }
+
+
   // Fin onSubmit
 
   //Inicio Funciones Grafica
@@ -470,8 +636,5 @@ export class FE09Component implements OnInit {
     this.lineChartLabels[2] = ['1st Line', '2nd Line'];
     // this.chart.update();
   }
-
-
-
 
 }

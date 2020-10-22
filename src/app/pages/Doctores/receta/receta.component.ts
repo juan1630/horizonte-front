@@ -71,11 +71,11 @@ export class RecetaComponent implements OnInit {
     this.id = this._route.snapshot.paramMap.get('id');
     this.idCie = this._route.snapshot.paramMap.get('idCie');
     // this.id = "5e98a29b0eb1ac2b44132b31";
-    
+
     // this._Cie10Service.getCiePorNombre(this.idCie).subscribe(
     //   (data:any) => {
     //     console.log(data);
-        
+
     //   }
     // )
 
@@ -87,9 +87,9 @@ export class RecetaComponent implements OnInit {
 
         console.log(data);
         // console.log(data.paciente.historiaClinica);
-        
+
         // console.log(data.paciente.historiaClinica.length);
-        let index = data.paciente.historiaClinica.length - 1;
+        // let index = data.paciente.historiaClinica.length - 1;
 
         this.paciente.nombre = data.paciente.nombrePaciente;
         this.paciente.apellidoPaterno = data.paciente.apellidoPaterno;
@@ -98,25 +98,11 @@ export class RecetaComponent implements OnInit {
         this.paciente.edad = data.paciente.edad;
         this.paciente.sexo = data.paciente.sexo;
         this.paciente.registro = data.paciente._id;
-        this.paciente.talla = data.paciente.historiaClinica[index].tallaNino;
-        this.paciente.peso = data.paciente.historiaClinica[index].pesoNino;
-        this.paciente.imc = data.paciente.historiaClinica[index].imcNino;
-        this.paciente.fc = data.paciente.historiaClinica[index].fcNino;
-        this.paciente.fr = data.paciente.historiaClinica[index].frNino;
-        this.paciente.temp = data.paciente.historiaClinica[index].tempNino;
-        this.paciente.pc = data.paciente.historiaClinica[index].pcNino;
-        this.paciente.pa = data.paciente.historiaClinica[index].paNino;
-        this.paciente.pt = data.paciente.historiaClinica[index].ptNino;
-        this.paciente.apgar = data.paciente.historiaClinica[index].apgarNino;
-        this.paciente.sao = data.paciente.historiaClinica[index].saoNino;
-        this.paciente.alergias = data.paciente.historiaClinica[7].alergia;
-        this.paciente.paquetesQuirofano = data.paciente.paquetesQuirofano[1];
-
         console.log(this.paciente);
 
-     
+
       }
-      
+
     )
 
   }
@@ -133,6 +119,6 @@ export class RecetaComponent implements OnInit {
   //   })
   // }
 
-  
+
 
 }

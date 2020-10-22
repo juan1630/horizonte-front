@@ -18,24 +18,24 @@
 <div class="row mb-3">
 
     <div class="col-md-4 offset-1">
-        <select name="servicio" class="form-control" id="">
-        <option value="" selected> Selecciona un servicio  </option>
-        <option  value="ambulancia"> Ambulancia</option>
-        <option  value="consultaGeneral"  > Consulta General </option>
-        <option value="consulta especialista">  Consulta con especialista </option>
-        <option  value="endoscopia"> Endoscopia</option>
-        <option  value="resultados"> Entraga de resultados </option>
-        <option  value="farmacia">   Farmacia </option>
-        <option  value="hospitalizacion"> Hospitalización</option>
-        <option  value="laboraorio"> Laboratorio</option>
-        <option  value="quirofano">  Quirofano</option>
-        <option  value="rayosx">     Rayos x</option>
-        <option  value="resonancia"> Resonancia</option>
-        <option  value="tomografias"> Tomografias</option>
-        <option value="TrabajoSocial" > Trabajo Social  </option>
-        <option  value="ultrasonido"> Ultrasonido</option>
-        <option  value="urgencias"> Urgencias</option>
-        <option value="otros"> Otros </option>
+        <select name="servicio" class="form-control" id="" #servicio (change)="irAUnServicio( servicio.value  )">
+        <option   value="" selected> Selecciona un servicio  </option>
+        <option   value="ambulancia"> Ambulancia</option>
+        <option   value="consultaGeneral"  > Consulta General </option>
+        <option   value="consultaEspecialista">  Consulta con especialista </option>
+        <option   value="endoscopia"> Endoscopia</option>
+        <option   value="resultados"> Entraga de resultados </option>
+        <option   value="farmacia">   Farmacia </option>
+        <option   value="hospitalizacion"> Hospitalización</option>
+        <option   value="laboraorio"> Laboratorio</option>
+        <option   value="quirofano">  Quirofano</option>
+        <option   value="rayosx">     Rayos x</option>
+        <option   value="resonancia"> Resonancia</option>
+        <option   value="tomografias"> Tomografias</option>
+        <option   value="TrabajoSocial" > Trabajo Social  </option>
+        <option   value="ultrasonido"> Ultrasonido</option>
+        <option   value="urgencias"> Urgencias</option>
+        <option   value="otros"> Otros </option>
       </select>
     </div>
     <div class="col-md-4 offset-3">
@@ -138,11 +138,10 @@
     </div>
 
 
-
-    <div class="col-md-6 offset-3">
+    <div class="col-md-6 offset-3  mt-1  sin-paquetes ">
 
         <div class="card">
-            <div class="alert alert-light center" role="alert">
+            <div class="alert alert-light center padding-auto" role="alert">
                 <p>
                     Aún no tienes paquetes
                 </p>

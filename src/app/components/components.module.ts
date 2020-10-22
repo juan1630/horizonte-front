@@ -19,7 +19,7 @@ import { SideBarComponent  }  from './side-bar/side-bar.component';
 import { CardComponent }      from './card/card.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ModalServiciosIntComponent } from './modal/modal-servicios-int/modal-servicios-int.component';
-import { FiscalesComponent } from './fiscales/fiscales.component';
+
 import { CardPaquetesComponent } from './card-paquetes/card-paquetes.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { ModalComponent } from './modal/modal.component';
@@ -46,7 +46,6 @@ import {  MatStepper, MatStepperModule } from '@angular/material/stepper'
     ModalComponent,
     ModalServiciosIntComponent,
     SpinnerComponent,
-    FiscalesComponent,
     CardPaquetesComponent,
     TarjetaCotizacionComponent,
     CalendarComponent,
@@ -65,7 +64,6 @@ schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
     CardComponent,
     SideBarComponent,
     SearchBarComponent,
-    FiscalesComponent,
     CardPaquetesComponent,
     ModalComponent,
     ModalServiciosIntComponent,

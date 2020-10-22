@@ -9,6 +9,26 @@
     justify-content: stretch;
 }
 
+.btn {
+    background-color: var(--button-principal);
+    border-radius: .9rem;
+    width: 100%;
+    border-color: transparent !important;
+}
+
+.message-antecedentes {
+    padding-top: 2rem;
+}
+
+.card {
+    padding-bottom: 1.2rem;
+}
+
+.signos-vitales {
+    position: fixed;
+    // padding: 5rem;
+}
+
 input {
     margin-left: 1rem;
 }
@@ -174,7 +194,7 @@ p {
 }
 
 .f-izq {
-    // 
+    //
     width: 500px;
     margin-left: 2rem;
 }
