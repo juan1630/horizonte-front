@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.2.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Flat" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#SVGID_1_);}
+	.st1{fill:url(#SVGID_2_);}
+	.st2{fill:url(#SVGID_3_);}
+</style>
+<g>
+	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="21" y1="256" x2="227.7059" y2="256">
+		<stop  offset="0" style="stop-color:#273C74"/>
+		<stop  offset="1" style="stop-color:#233871"/>
+	</linearGradient>
+	<path class="st0" d="M21,93.6h29.5v339.6c0,40.7,33.1,73.8,73.8,73.8s73.8-33.1,73.8-73.8V93.6h29.5V5H21V93.6z M80.1,300.3h29.5
+		v-29.5H80.1v-29.5h59.1v-29.5H80.1v-29.5h88.6v147.6H80.1V300.3z M124.4,477.5c-24.4,0-44.3-19.9-44.3-44.3v-73.8h88.6v73.8
+		C168.6,457.6,148.8,477.5,124.4,477.5z M168.6,152.6H80.1V93.6h88.6V152.6z M109.6,64.1V34.5h29.5v29.5H109.6z M198.2,64.1h-29.5
+		V34.5h29.5V64.1z M50.5,34.5h29.5v29.5H50.5V34.5z"/>
+	<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="252.3137" y1="242.2496" x2="488.549" y2="242.2496">
+		<stop  offset="0" style="stop-color:#273C74"/>
+		<stop  offset="1" style="stop-color:#233871"/>
+	</linearGradient>
+	<path class="st1" d="M462.5,210.7l-92-144.6l-92,144.6c-17.1,26.8-26.1,57.8-26.1,89.6c0,65.1,53,118.1,118.1,118.1
+		s118.1-53,118.1-118.1C488.5,268.5,479.5,237.5,462.5,210.7z M370.4,388.9c-48.8,0-88.6-39.7-88.6-88.6c0-26.2,7.4-51.7,21.5-73.7
+		l67.1-105.5l67.1,105.5c14,22.1,21.5,47.6,21.5,73.7C459,349.1,419.3,388.9,370.4,388.9z"/>
+	<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="326.1373" y1="295.3725" x2="414.7255" y2="295.3725">
+		<stop  offset="0" style="stop-color:#273C74"/>
+		<stop  offset="1" style="stop-color:#233871"/>
+	</linearGradient>
+	<path class="st2" d="M385.2,251.1h-29.5v29.5h-29.5v29.5h29.5v29.5h29.5v-29.5h29.5v-29.5h-29.5V251.1z"/>
+</g>
+</svg>

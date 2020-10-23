@@ -73,7 +73,8 @@ import { ChartsModule } from 'ng2-charts';
     ReactiveFormsModule,
   ],
 
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 
 })
