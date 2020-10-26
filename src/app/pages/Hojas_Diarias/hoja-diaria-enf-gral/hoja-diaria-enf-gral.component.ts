@@ -1,10 +1,10 @@
+import { IdentificacionConsultaService } from 'src/app/services/identificacion-consulta.service';
 import { Component, OnInit } from '@angular/core';
 import { WsLoginService } from 'src/app/services/sockets/login/ws-login.service';
 
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import * as moment from 'moment';
-import { IdentificacionConsultaService } from 'src/app/services/identificacion-consulta.service';
 
 
 @Component({

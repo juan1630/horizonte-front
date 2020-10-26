@@ -17,6 +17,7 @@ export class HistoriaClinicaService {
 
   }
 
+
   agregarHistoriaClinica(historia):Observable<any>{
 
     return this._http.post( `${this.url}/agregar/AgregarAntecedentes`, historia);

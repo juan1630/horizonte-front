@@ -12,21 +12,22 @@ import { getDataStorage} from '../../functions/storage/storage.funcion';
 export class NavBarComponent implements OnInit {
 
   @Input() nombreUsuario: string;
+
   public usuario = {
     role: ""
   };
 
-  constructor(  
+  constructor(
     public _loginService: LoginService,
     private wsLoginService: WsLoginService,
     public router: Router
   ) { }
 
 
-  
+
   ngOnInit(): void {
     this.usuario = getDataStorage();
-    
+
   }
 
   cerrarSesion(){
@@ -34,7 +35,7 @@ export class NavBarComponent implements OnInit {
 
     this._loginService.logout();
     this.wsLoginService.desconectarUsuario(  this.usuario.role )
-      
+
 
   }
 

@@ -1,9 +1,11 @@
 app-nav-bar {
     width: 125%;
 }
+
 .modal-backdrop {
-    background-color: rgba(0,0,0,.0001) !important;
+    background-color: rgba(0, 0, 0, .0001) !important;
 }
+
 .btn-circle.btn-xl {
     width: 80px;
     height: 80px;
@@ -25,6 +27,7 @@ app-nav-bar {
     font-size: 12px;
     line-height: 1.42857;
 }
+
 .ver-chat {
     display: block;
     position: absolute;
@@ -43,47 +46,52 @@ app-nav-bar {
     flex-direction: column;
     justify-content: center;
 }
-@media(max-width:575px){
-    #boton_chat{
-        position: relative; 
+
+@media(max-width:575px) {
+    #boton_chat {
+        position: relative;
         float: right;
-        margin-top:-7em; 
+        margin-top: -7em;
         margin-left: -1em;
     }
 }
-@media (min-width: 576px) and (max-width:767px){
-    #boton_chat{
-        position: relative; 
+
+@media (min-width: 576px) and (max-width:767px) {
+    #boton_chat {
+        position: relative;
         float: right;
-        margin-top:-16em; 
+        margin-top: -16em;
         margin-left: -2em;
     }
 }
-@media (min-width: 768px) and (max-width:991px){
-    #boton_chat{
-        position: relative; 
-        float: right; 
-        margin-top:-8em; 
+
+@media (min-width: 768px) and (max-width:991px) {
+    #boton_chat {
+        position: relative;
+        float: right;
+        margin-top: -8em;
         margin-left: -1em;
     }
 }
-@media (min-width: 992px) and (max-width:1199px){
-    #boton_chat{
-        position: relative; 
+
+@media (min-width: 992px) and (max-width:1199px) {
+    #boton_chat {
+        position: relative;
         float: right;
-        margin-top:-8em; 
+        margin-top: -8em;
         margin-left: -2em;
     }
 }
-@media (min-width: 1200px){
-    #boton_chat{
-        position: relative; 
+
+@media (min-width: 1200px) {
+    #boton_chat {
+        position: relative;
         float: right;
-        margin-top:-6em; 
+        margin-top: -6em;
         margin-left: -4em;
     }
-    #ChatModal{
+    #ChatModal {
         margin-top: 4em;
         margin-left: 8em;
     }
-} 
+}

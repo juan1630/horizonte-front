@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router'
 import { PacienteService } from 'src/app/services/paciente/paciente.service';
+
 import { WsLoginService } from 'src/app/services/sockets/login/ws-login.service';
-import { IdentificacionComponent } from '../../identificacion/identificacion/identificacion.component';
+
 import { IdentificacionConsultaService } from 'src/app/services/identificacion-consulta.service';
 
 import * as moment from 'moment';

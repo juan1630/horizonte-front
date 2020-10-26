@@ -9,7 +9,7 @@ import  { getDataStorage, gaurdarCotizacion, eliminarTodoPedido, getDataCarrito 
 import  {  BusquedaGeneral } from '../../../../intefaces/busquedaGeneral';
 import { EnvioEmailService } from 'src/app/services/cotizacion/envio-email.service';
 
-import  swal from 'sweetalert'; 
+import  swal from 'sweetalert';
 
 
 @Component({
@@ -21,7 +21,7 @@ export class EstudiosComponent implements OnInit {
 
   // este role es del operario de la computadora
   public role: string;
-  
+
   // listado de los estudios
   public estudios: Estudios[]=[];
 
@@ -33,13 +33,13 @@ export class EstudiosComponent implements OnInit {
   public email: string;
   public show = 'hidden' ;
 
-  
+
   public carrito = {
     totalSin: 0,
     totalCon:0,
     items:[]
   };
-  
+
   constructor(
     private examenesLaboratorio: LaboratorioPreciosService,
     private _busquedaGeneral: BusquedaGeneralService,
@@ -54,7 +54,7 @@ export class EstudiosComponent implements OnInit {
     this.carrito = getDataCarrito();
 
     console.log( this.carrito );
-    
+
 
     if( this.carrito == null ){
       this.carrito = {
@@ -88,18 +88,18 @@ export class EstudiosComponent implements OnInit {
   let precioConSinComa  = precioConMembresia.replace(',', '');
   let precioConMembresiaNumber = parseFloat( precioConSinComa );
 
-  
-  
+
+
   // se le quitan los caracteres $ y , al precio sin membresia
   let costoSin = precioSin.replace('$', '');
   let costoSinComa = costoSin.replace(',', '');
   let costoSinNumber = parseFloat( costoSinComa );
 
-  
+
   this.carrito.totalSin = this.carrito.totalSin + costoSinNumber;
   this.carrito.totalCon = this.carrito.totalCon + precioConMembresiaNumber;
 
-  
+
   }
 
 
@@ -109,9 +109,9 @@ export class EstudiosComponent implements OnInit {
 
 
     console.log( item );
-    
-    if( event.path[1].classList.contains('precioPublico')  ){ 
-    
+
+    if( event.path[1].classList.contains('precioPublico')  ){
+
       let  estuidio = {
 
         nombreEstudio: item.ESTUDIO,
@@ -125,7 +125,7 @@ export class EstudiosComponent implements OnInit {
       this.sumarTotal( item.PUBLICO, item.MEMBRESIA );
 
       this.carrito.items.push( estuidio );
-      
+
 
     }else if (  event.path[1].classList.contains('precioNoche') )  {
 
@@ -140,7 +140,7 @@ export class EstudiosComponent implements OnInit {
     this.sumarTotal( item.NOCTURNO, item.NOCTURNO );
 
     this.carrito.items.push( estuidio );
-    
+
     }else if( event.path[1].classList.contains('urgencia') ) {
 
       let  estuidio = {
@@ -156,16 +156,16 @@ export class EstudiosComponent implements OnInit {
 
       this.sumarTotal( item.URGENCIA_PUB, item.URGENCIA_MEM );
       this.carrito.items.push( estuidio );
-      
+
   }
-    
+
     let carritoString = JSON.stringify( this.carrito );
-  
+
 
     gaurdarCotizacion( carritoString );
     this.carrito = getDataCarrito();
     console.log( this.carrito );
-    
+
 
   }
 
@@ -176,28 +176,28 @@ export class EstudiosComponent implements OnInit {
     let precioSinComa = precioSinTrim.replace(',', '');
     // aca le quito la coma si es que trae
     let precioSinMembresiaNumber = parseFloat( precioSinComa );
-  
+
      let precioConTirm = precioCon.replace('$', '');
     let precioConMembresiaSinComa = precioConTirm.replace(',', '');
       // aca le quito la coma si es que la trae
     let precioConMembresiaNumber = parseFloat( precioConMembresiaSinComa );
-  
-  
-  
+
+
+
       this.carrito.totalCon = this.carrito.totalCon - precioConMembresiaNumber;
       this.carrito.totalSin = this.carrito.totalSin - precioSinMembresiaNumber;
-  
-  
+
+
       }
 
 
     abrirInputCorreo(){
-    
+
       this.show = 'show';
     }
 
 
-    // funcion que busca en todos los departamentos 
+    // funcion que busca en todos los departamentos
     buscarTodos(  valor ) {
       console.log( valor)
     }
@@ -214,11 +214,11 @@ export class EstudiosComponent implements OnInit {
     }
       this._emailService.envioEmail( cotizacion )
       .subscribe( (data:any) => {
-          
+
         if(data.ok){
           swal('cotización enviada','se envio exitosamente', 'success');
           }
-      
+
         })
 
     }
@@ -239,20 +239,20 @@ export class EstudiosComponent implements OnInit {
 
     this.carrito.items.forEach(  (item, index) => {
 
-      // Agregar algun otro caso que se pueda dar  
-      
+      // Agregar algun otro caso que se pueda dar
+
       if( item.idEstudio  === id ) {
 
         this.carrito.items.splice( index, 1 )
-       
+
         if( item.precioSin && item.precioCon ){
 
           this.restarTotal( item.precioSin, item.precioCon );
-          
+
         }else if( item.precioNoche ){
-    
+
               this.restarTotal( item.precioNoche, item.precioNoche );
-        }  
+        }
       }
 
     } );
@@ -263,10 +263,10 @@ export class EstudiosComponent implements OnInit {
 
   }
 
-  
 
 
-// funcion que elimna un examen 
+
+// funcion que elimna un examen
 
   deleteExamenLab(id:string){
 
@@ -292,21 +292,21 @@ export class EstudiosComponent implements OnInit {
   .then((willDelete) => {
 
     if (willDelete) {
-      
+
       this.examenesLaboratorio.deleteExamenById( id )
       .subscribe( (data:any)=> {
         console.log( data );
-        
+
         if(data.ok){
-        
+
           swal({
             icon: "success",
             text: "Se eliminó el servicio"
           });
-  
+
           this.getAllExamenes();
         }
-  
+
       } )
 
       swal("Examen Eliminado con Éxito!", {
@@ -326,8 +326,8 @@ export class EstudiosComponent implements OnInit {
   verComparacio( publico, membresia ){
 
       let ahorro = 0;
-    
-      
+
+
     let publicoTrim = publico.replace('$', '');
     let membresiaTrim   = membresia.replace('$', '');
 
@@ -338,9 +338,9 @@ export class EstudiosComponent implements OnInit {
 
     let publicoNumber = parseFloat(publicoTrims);
     let  membresiaNumber = parseFloat(membresiaTrims);
-      
+
       ahorro = publicoNumber - membresiaNumber;
-   
+
      swal({
       icon: "success",
       title: `Ahorro: ${ ahorro}` ,
