@@ -431,7 +431,6 @@ export class FE09Component implements OnInit {
 
     this.setPeso();
 
-    console.log( this.signosVitales );
 
     this._HistoriaClinicaService.agregarSignosVitales( this.id,  this.signosVitales )
     .subscribe(  (data:any) => {
@@ -496,8 +495,6 @@ export class FE09Component implements OnInit {
     .subscribe( (data) => {
       console.log(data)
       this.historialSginos = data['data'];
-      // console.log(  this.historialSginos );
-      // this.alerta('Signos vitales guardados');
      } );
   }
 

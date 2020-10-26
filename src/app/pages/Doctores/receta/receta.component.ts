@@ -13,7 +13,7 @@ import { Cie10Service } from 'src/app/services/cie10/cie10.service';
   providers: [HistoriaClinicaService, Cie10Service]
 
 })
-export class RecetaComponent implements OnInit {
+export class    RecetaComponent implements OnInit {
 
   public diagnosticosCie: any [] = [];
   public idCie: string;

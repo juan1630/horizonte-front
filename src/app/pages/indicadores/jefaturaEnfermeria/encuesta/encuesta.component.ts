@@ -25,7 +25,7 @@ public idH="5f2b148bb1d98940389d3416"
 public urls ="http://sleepy-tor-20835.herokuapp.com/agregar/indicadores/" + this.idpp
 
  public info ={
-  status: "", 
+  status: "",
   notificacionDeIdentificacion1: "",
   notificacionDeIdentificacion2 : "",
   notificacionDeIdentificacion3 : "",
@@ -39,10 +39,10 @@ public urls ="http://sleepy-tor-20835.herokuapp.com/agregar/indicadores/" + this
   notificacionDeIdentificacion11 : "",
   notificacionDeIdentificacion12 : "",
   tipoConsulta: ""
-  
+
  }
 
- 
+
 public radio ={
   pregunta1 : "",
   pregunta2 : "",
@@ -58,10 +58,10 @@ public radio ={
   pregunta12 : "",
 }
 
-  
+
  public tipoConsulta = ""
  public uncheck=""
- 
+
 
  validarSelect(){
  console.log( this.tipoConsulta)
@@ -73,28 +73,28 @@ public radio ={
     this.comedor=false;
     this.congeneral =false ;
     this.hospitalizacion=false;
-    swal ( 
+    swal (
     "ADVERTENCIA ",
-     "Seleccione una opcion de área a evaluar", 
+     "Seleccione una opcion de área a evaluar",
     "warning",{ button:"Entendido"}
-    
+
    )
   }
   else if (this.tipoConsulta =="comedor"){
     this.comedor=true;
     this.congeneral =false ;
     this.hospitalizacion=false;
-   
-   
+
+
   }
   else if (this.tipoConsulta =="consulta_general"){
     this.congeneral =true ;
     this.comedor=false;
     this.hospitalizacion=false;
- 
+
 }
 else if (this.tipoConsulta =="hospitalizacion" || this.tipoConsulta =="urgencias" || this.tipoConsulta =="quirofano"){
- 
+
 
   this.congeneral =false ;
   this.comedor=false;
@@ -105,9 +105,9 @@ else if (this.tipoConsulta =="hospitalizacion" || this.tipoConsulta =="urgencias
 
 
 
-  constructor( private httpIndicadores : ServiceService 
-    
-    /*, private httpSeeId: ServiceService, private _route : ActivatedRoute*/) {  
+  constructor( private httpIndicadores : ServiceService
+
+    /*, private httpSeeId: ServiceService, private _route : ActivatedRoute*/) {
 
 }//fin contructor
 
@@ -119,11 +119,11 @@ else if (this.tipoConsulta =="hospitalizacion" || this.tipoConsulta =="urgencias
   enviar (){
 
     console.log(this.info)
-    
+
     this.info.tipoConsulta= this.tipoConsulta
-    this.httpIndicadores.agregarIndicadores(this.urls , this.info) 
+    this.httpIndicadores.agregarIndicadores(this.urls , this.info)
      //this.httpSeeId.verPacienteID(this.idpp)
-    
+
        .subscribe((data) => {
         console.log(data)
       })
@@ -131,11 +131,11 @@ else if (this.tipoConsulta =="hospitalizacion" || this.tipoConsulta =="urgencias
       this.comedor =false;
     this.hospitalizacion =false;
     this.congeneral =false;
-      
+
     }
-    
-    
-    
-    
+
+
+
+
 
 }
