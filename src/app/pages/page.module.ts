@@ -8,7 +8,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 // modules
 
 import { ComponentsModule } from '../components/components.module';
-import { FormsModule, ReactiveFormsModule, FormGroup, FormControl, FormBuilder  } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {PAGES_ROUTES } from './page.routes';
 
@@ -99,7 +99,6 @@ import { PaqueteQuirofanoComponent } from './paquetes/paquete-quirofano/paquete-
 import { BitacoraHospitalizacionComponent } from './paquetes/bitacora-hospitalizacion/bitacora-hospitalizacion.component';
 import { HojaDiariaConsumoComponent } from './hoja-diaria-hospitalizacion/hoja-diaria-consumo/hoja-diaria-consumo.component'
 import { PacientesPipe } from '../pipes/pacientes.pipe';
-import { from } from 'rxjs';
 import { NuevaResonanciaComponent } from './servivicosInt/resonancia/nueva-resonancia/nueva-resonancia.component';
 import { ResonanciaEditComponent } from './servivicosInt/resonancia/resonancia-edit/resonancia-edit.component';
 import { TomografiaNuevoComponent } from './servivicosInt/tomografia/tomografia-nuevo/tomografia-nuevo.component';

@@ -30,15 +30,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import {  MatStepperModule  } from '@angular/material/stepper'
 import { ChartsModule } from 'ng2-charts';
 
-
-// import { AngularEditorModule } from '@javascriptsoldier/angular-editor';
-// import  { PdfMakeWrapper  } from 'pdfmake-wrapper';
-// import pdfFonts from "pdfmake/build/vfs_fonts";
-// PdfMakeWrapper.setFonts( pdfFonts );
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,

@@ -76,19 +76,19 @@ export class PedidoSinComponent implements OnInit {
 
 
     if(forma.valid  == false ){
-      
 
-     
+
+
       if( forma.value.nombrePaciente === "" ){
-        
+
         nombretxt.classList.add('is-invalid');
       }
-      
+
       if( forma.value.edad === 0 || forma.value.edad <= 0 || forma.value.edad > 105 ){
 
         edadTxt.classList.add('is-invalid');
       }
-    
+
 
 
       if(forma.value.pago === ""){
@@ -101,7 +101,7 @@ export class PedidoSinComponent implements OnInit {
 
       swal('verifica los campos', 'campos vacios', 'error');
 
-      
+
       return;
 
     }
@@ -121,7 +121,7 @@ export class PedidoSinComponent implements OnInit {
 
 
   validarMonto(){
-    
+
     if( this.infoUsuario.recibo == '' || this.infoUsuario.recibo == '0' ){
 
 
@@ -132,7 +132,7 @@ export class PedidoSinComponent implements OnInit {
     }else if(   this.infoUsuario.metodoPago === 'transferencia' ){
 
      this.infoUsuario.recibo = 'tranferencia';
-      
+
     }
 
 
@@ -141,12 +141,12 @@ export class PedidoSinComponent implements OnInit {
 
 
 
-  
+
   agregarIva(){
 
 
     let totalIva = (( this.carrito.totalSin * 4 ) / 100);
-  
+
     this.totalConIva =  this.carrito.totalSin + totalIva;
 
     this.carrito.totalSin =  Math.round(this.totalConIva);
@@ -161,33 +161,33 @@ export class PedidoSinComponent implements OnInit {
     // console.log(  this.infoUsuario );
 
     if(  this.infoUsuario.metodoPago === 'efectivo' ){
-      
+
 
       this.infoUsuario.metodoPago = 'efectivo';
       this.carrito = getDataCarrito();
-     
+
     }
-    
-    
+
+
     if( this.infoUsuario.metodoPago === 'Tarjeta' ){
       this.infoUsuario.metodoPago = 'Tarjeta';
-      
+
       this.agregarIva();
-    
+
     }else if( this.infoUsuario.metodoPago === 'transferencia'  ){
       this.infoUsuario.metodoPago = 'transferencia';
       this.carrito = getDataCarrito();
     }
-    
-    
+
+
     // if( this.infoUsuario.metodoPago === 'tarjeta' ){
     //   console.log(  'metodo' );
     //   this.agregarIva();
     // }
-    
-    
+
+
   }
-  
+
 
   calcularIva(){
 
@@ -205,9 +205,9 @@ export class PedidoSinComponent implements OnInit {
     const doc = new jsPDF('p', 'mm', [ 300, 500]);
 
     doc.addImage( ImagenTicketHorizonter, 'JPEG', 30, 5, 70, 50 );
-   
 
-    // REvisar estas funciones 
+
+    // REvisar estas funciones
     doc.setFontSize(10);
     doc.text(10, 65,`No ticke: 001         Fecha: ${this.infoUsuario.fechaCompra}`);
     doc.text(10, 70,`RFC: HGS111116J76                  Teléfono: 735-35-77-564`);
@@ -219,7 +219,7 @@ export class PedidoSinComponent implements OnInit {
     this.carrito.items.forEach(  item => {
 
       doc.text(15, this.positionYPDF,`${item.nombreEstudio}                        ${item.precioSin}                       ${item.entrega}`);
-  
+
       this.positionYPDF += 5;
 
     });
@@ -228,17 +228,13 @@ export class PedidoSinComponent implements OnInit {
     this.calcularIva();
 
     doc.text(15, this.positionYPDF+=10, `El total sin I.V.A es:                 $ ${this.carrito.totalSin - this.IVaDEl16}` );
-    
+
     doc.text( 15, this.positionYPDF+=5,  `El I.V.A es de:                       $ ${this.IVaDEl16}`  );
 
     doc.text( 15, this.positionYPDF+=5,  `El total con I.V.A:                  $ ${this.carrito.totalSin}`  );
     doc.text(5, this.positionYPDF+=6, `Total con letra : `);
-    
+
     doc.text(2, this.positionYPDF+=5, `${totalLetra}` );
-
-
-
-
     doc.text(30, this.positionYPDF+=12, "Gracias por su visita vuelve pronto")
     doc.save('COTIZACION');
 
@@ -246,49 +242,49 @@ export class PedidoSinComponent implements OnInit {
   }
 
   // restamos los totales
-  
+
   restarTotal ( precioSin, precioCon  ) {
 
     let precioSinTrim  =  precioSin.replace('$', '');
     let precioSinComa = precioSinTrim.replace(',', '');
     // aca le quito la coma si es que trae
     let precioSinMembresiaNumber = parseFloat( precioSinComa );
-  
+
      let precioConTirm = precioCon.replace('$', '');
     let precioConMembresiaSinComa = precioConTirm.replace(',', '');
       // aca le quito la coma si es que la trae
     let precioConMembresiaNumber = parseFloat( precioConMembresiaSinComa );
-  
-  
-  
+
+
+
       this.carrito.totalCon = this.carrito.totalCon - precioConMembresiaNumber;
       this.carrito.totalSin = this.carrito.totalSin - precioSinMembresiaNumber;
-  
-  
+
+
       }
 
 
 // esta funcion elimna del carrito
-  
+
   eliminar( id ){
 
 
     this.carrito.items.forEach(  (item, index) => {
 
-      // Agregar algun otro caso que se pueda dar  
-      
+      // Agregar algun otro caso que se pueda dar
+
       if( item.idEstudio  === id ) {
 
         this.carrito.items.splice( index, 1 )
-       
+
         if( item.precioSin && item.precioCon ){
 
           this.restarTotal( item.precioSin, item.precioCon );
-          
+
         }else if( item.precioNoche ){
-    
+
               this.restarTotal( item.precioNoche, item.precioNoche );
-        }  
+        }
       }
 
     } );

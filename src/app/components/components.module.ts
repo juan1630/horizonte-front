@@ -55,8 +55,6 @@ import {  MatStepper, MatStepperModule } from '@angular/material/stepper'
     AgregarMaquinasComponent,
     AgregarMedciametosComponent,
     StepperComponent
-
-
 ],
 schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   exports: [
