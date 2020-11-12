@@ -198,6 +198,10 @@ const pagesRoutes: Routes = [
       { path: 'endoscopia-editar/:id', component: EndoscopiaEditComponent},
       // { path: 'tomografia-nuevo', component: TomografiaNewComponent},
       // { path: 'tomografia-editar/:id', component: TomografiaEditComponent},
+
+
+
+
       { path: 'perfiles', component: PerfilesComponent },
       { path: 'estudios/laboratorio', component: EstudiosComponent },
       { path: 'laboratorio/pendientes', component: PedidosLaboratorioComponent },
@@ -213,6 +217,10 @@ const pagesRoutes: Routes = [
       { path: 'editar/resonancia/:id', component: ResonanciaEditComponent   },
       { path: 'nueva/tomografia', component: TomografiaNuevoComponent  },
       { path: 'editar/tomografia/:id', component:  TomografiaEditComponent  },
+
+
+
+
       // TERMINA EL AREA DE SERVICIOS INTREGADOS
 
 
